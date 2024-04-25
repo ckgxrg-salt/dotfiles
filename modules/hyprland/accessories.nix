@@ -10,6 +10,7 @@
     rofi-wayland
     brightnessctl
     hyprlock
+    libsForQt5.polkit-kde-agent
   ];
 
   # WLogout the Logout Menu
@@ -27,6 +28,12 @@
         action = "systemctl reboot";
         text = "Reboot";
         keybind = "r";
+      }
+      {
+        label = "logout";
+        action = "hyprctl dispatch exit";
+        text = "End Session";
+        keybind = "l";
       }
     ];
   };

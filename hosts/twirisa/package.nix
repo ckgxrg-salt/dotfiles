@@ -33,22 +33,12 @@
     # Security
     pkgs.sddm-chili-theme
     openssl
-    kdePackages.polkit-kde-agent-1
 
     # CLI Utils
     direnv
 
     # Libs
     jdk21
-    kdePackages.qtbase
-    kdePackages.qttools
-    kdePackages.qtwayland
-    kdePackages.qtwebengine
-    kdePackages.qtquick3d
-    kdePackages.qt5compat
-    libsForQt5.qt5.qtbase
-    libsForQt5.qt5.qtquickcontrols
-    libsForQt5.qt5.qtgraphicaleffects
   ];
 
   # Placeholders

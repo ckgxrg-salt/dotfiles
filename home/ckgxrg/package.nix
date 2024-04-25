@@ -30,11 +30,8 @@
         eclipses.eclipse-java
 
         # Appearance
-        kdePackages.qt6ct
-        kdePackages.qtstyleplugin-kvantum
         nwg-look
         darkman
-        papirus-nord
         timeshift
 
         # Applications

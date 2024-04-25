@@ -6,7 +6,14 @@
     ../../modules/zsh
     ../../modules/cli-tools
     ./package.nix
+    ./theme
   ];
+
+  # Input Method
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
+  };
 
   # User and home directory
   home.username = "ckgxrg";
