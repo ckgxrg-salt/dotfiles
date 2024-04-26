@@ -10,6 +10,15 @@
     };
     services.dbus.apparmor = "enabled";
 
+    # Power Button Behaviour
+    services.logind = {
+        powerKey = "lock";
+        powerKeyLongPress = "poweroff";
+        lidSwitch = "suspend";
+        lidSwitchExternalPower = "suspend";
+        lidSwitchDocked = "ignore";
+    };
+
     # Network with NetworkManager
     networking.networkmanager.enable = true;
 
@@ -124,7 +133,6 @@
     # MPD daemon
     services.mpd = {
         enable = true;
-        musicDirectory = "/home/ckgxrg/Music";
         extraConfig = ''
             audio_output {
                 type "pipewire"

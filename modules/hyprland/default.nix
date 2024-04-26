@@ -13,14 +13,10 @@
         plugins = [
             inputs.hyprspace.packages.${pkgs.system}.Hyprspace
             inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         ];
         settings = {
             monitor=",highres,auto,1";
             plugin = {
-                #hyprtrails = {
-                #    color = "rgba(ffaa00ff)";
-                #};
                 hyprbars = {
                     bar_height = 20;
                     hyprbars-button = [
@@ -31,8 +27,7 @@
             };
             exec-once = [
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
-                "waybar -c ~/.config/waybar/config"
-                "swww init"
+                "swww-daemon"
                 "fcitx5"
                 "notify-send 'Welcome to Hyprland'"
                 "udiskie &"

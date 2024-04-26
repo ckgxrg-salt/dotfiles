@@ -16,6 +16,8 @@
             gradle
         nix-prefetch-github
         psmisc
+        gamemode
+        playerctl
 
         # Desktop Utilities
         kdePackages.dolphin
@@ -30,7 +32,6 @@
         eclipses.eclipse-java
 
         # Appearance
-        nwg-look
         darkman
         timeshift
 

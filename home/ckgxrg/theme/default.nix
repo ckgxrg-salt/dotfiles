@@ -1,22 +1,31 @@
 { config, pkgs, ... }:
-{
+let
+  gtkTheme = "Nordic-darker";
+  gtkPkg = pkgs.nordic;
+  qtStyle = "Nordic-Darker";
+  qtPkg = pkgs.nordic;
+  cursor = "Graphite dark nord Cursors";
+  customFont = "Maple Mono";
+  icon = "Papirus-Dark";
+
+in {
   # GTK Look and Feel
   gtk = {
     enable = true;
     theme = {
-      name = "Nordic-darker";
-      package = pkgs.nordic;
+      name = gtkTheme;
+      package = gtkPkg;
     };
     cursorTheme = {
-      name = "Graphite dark nord Cursors";
+      name = cursor;
       package = pkgs.graphite-cursors;
     };
     font = {
-      name = "Maple Mono";
+      name = customFont;
       size = 12;
     };
     iconTheme = {
-      name = "Papirus-Dark";
+      name = icon;
       package = pkgs.papirus-icon-theme;
     };
   };
@@ -43,9 +52,9 @@
   xdg.configFile = {
   "Kvantum/kvantum.kvconfig".text = ''
     [General]
-    theme=Nordic-Darker
+    theme=${qtStyle}
   '';
 
-  "Kvantum/Nordic-Darker".source = "${pkgs.nordic}/share/Kvantum/Nordic-Darker";
+  "Kvantum/${qtStyle}".source = "${qtPkg}/share/Kvantum/${qtStyle}";
 };
 }
