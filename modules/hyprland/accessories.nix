@@ -31,6 +31,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+    location = "top-left";
     font = "Maple Mono 14";
     theme = "material";
   };

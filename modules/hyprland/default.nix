@@ -27,13 +27,15 @@
             };
             exec-once = [
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
+                "playerctld"
                 "swww-daemon"
+                "waybar"
                 "fcitx5"
-                "notify-send 'Welcome to Hyprland'"
                 "udiskie &"
+                "notify-send 'Welcome to Hyprland'"
             ];
             "$terminal" = "alacritty";
-            "$fileManager" = "dolphin";
+            "$fileManager" = "thunar";
             "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
                 XCURSOR_SIZE = 24;
@@ -159,7 +161,12 @@
     xdg = {
         enable = true;
         mime.enable = true;
-        mimeApps.enable = true;
+        mimeApps = {
+            enable = true;
+            defaultApplications = {
+                "text/plain" = "codium.desktop";
+            };
+        };
         portal = {
             enable = true;
             extraPortals = with pkgs; [

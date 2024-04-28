@@ -20,7 +20,7 @@
         playerctl
 
         # Desktop Utilities
-        kdePackages.dolphin
+        xfce.thunar
         firefox
         elisa
         okular

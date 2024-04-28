@@ -36,6 +36,7 @@
 
     # CLI Utils
     direnv
+    cage
 
     # Libs
     jdk21
