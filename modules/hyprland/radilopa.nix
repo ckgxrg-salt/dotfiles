@@ -48,7 +48,13 @@
             "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
                 XCURSOR_SIZE = 24;
-                QT_QPA_PLATFORMTHEME = "qt6ct";
+                LIBVA_DRIVER_NAME = "nvidia";
+                XDG_SESSION_TYPE = "wayland";
+                GBM_BACKEND = "nvidia-drm";
+                __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+                WLR_NO_HARDWARE_CURSORS = 1;
+                NVD_BACKEND = "direct";
+                ELECTRON_OZONE_PLATFORM_HINT = "auto";
             };
             input = {
                 kb_layout = "us";
@@ -198,10 +204,10 @@
             createDirectories = true;
         };
         desktopEntries = {
-            bilibili = {
+            "io.github.msojocs.bilibili" = {
                 name = "Bilibili";
                 genericName = "Video Centre";
-                exec = "bilibili";
+                exec = "bilibili --ozone-platform-hint=auto";
                 terminal = false;
                 categories = [ "Network" "AudioVideo" ];
             };

@@ -2,7 +2,7 @@
 {
   # Include home modules
   imports = [
-    ../../modules/hyprland
+    ../../modules/hyprland/radilopa.nix
     ../../modules/zsh
     ../../modules/cli-tools
     ./frostgate.nix

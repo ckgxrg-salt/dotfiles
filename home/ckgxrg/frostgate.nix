@@ -34,6 +34,7 @@
         # Applications
         qq
         bilibili
+        audacity
         prismlauncher
         libreoffice
         kdePackages.sweeper
@@ -42,5 +43,7 @@
         tor
         tor-browser
         vscodium
+        steam
+        ventoy-full
     ];
 }

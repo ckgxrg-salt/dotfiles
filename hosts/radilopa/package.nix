@@ -1,8 +1,5 @@
 { pkgs, config, ... }:
 {
-  # Enable Flatpak
-  # services.flatpak.enable = true;
-
   # Nix configuration
   nix = {
       #Tuna mirror for Nix channels
@@ -40,6 +37,7 @@
 
     # Libs
     jdk21
+    nvidia-vaapi-driver
   ];
 
   # Placeholders

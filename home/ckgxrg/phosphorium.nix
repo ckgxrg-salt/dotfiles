@@ -2,7 +2,7 @@
 {
   # Include home modules
   imports = [
-    ../../modules/hyprland
+    ../../modules/hyprland/twirisa.nix
     ../../modules/zsh
     ../../modules/cli-tools
     ./naikunze.nix

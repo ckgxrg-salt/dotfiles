@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 {
     # My Name!
     networking.hostName = "Radilopa";
@@ -18,6 +18,7 @@
         lidSwitchExternalPower = "suspend";
         lidSwitchDocked = "ignore";
     };
+    services.systemd-lock-handler.enable = true;
 
     # Network with NetworkManager
     networking.networkmanager.enable = true;
@@ -33,15 +34,25 @@
     };
 
     # Nvidia Driver
-    hardware.nvidia = {
-      open = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      modesettings.enable = true;
-      powerManagement = {
+    hardware.opengl = {
         enable = true;
-        finegrained = true;
+        driSupport = true;
+        driSupport32Bit = true;
+    };
+    services.xserver.videoDrivers = [
+        "nvidia"
+    ];
+    hardware.nvidia = {
+      open = false;
+      powerManagement.enable = false;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      modesetting.enable = true;
+      nvidiaSettings = false;
+      prime = {
+        nvidiaBusId = "PCI:1:0:0";
+        amdgpuBusId = "PCI:6:0:0";
+        sync.enable = true;
       };
-      nvidiaSettings = true;
     };
 
     # ckgxrg's Account
@@ -139,6 +150,9 @@
 
     # TLP the power saver
     services.tlp.enable = true;
+
+    # Fwupd
+    services.fwupd.enable = true;
 
     # Auto-Mount Backend
     services.udisks2.enable = true;

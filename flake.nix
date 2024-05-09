@@ -4,6 +4,12 @@
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Lanzaboote Secureboot
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nix-Flatpak
     flatpaks.url = "github:gmodena/nix-flatpak";
 
@@ -20,7 +26,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ nixpkgs, home-manager, flatpaks, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, flatpaks, lanzaboote, ... }:
   {
     # Twirisa
     nixosConfigurations.Twirisa = nixpkgs.lib.nixosSystem {
@@ -42,6 +48,7 @@
       system = "x86_64-linux";
       modules = [
         ./hosts/radilopa
+        lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
