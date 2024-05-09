@@ -28,6 +28,7 @@
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/779433cd-5089-4daa-b9b4-891c523f0a7a";
       fsType = "btrfs";
+      options = [ "subvol=@home" ];
     };
 
   swapDevices =

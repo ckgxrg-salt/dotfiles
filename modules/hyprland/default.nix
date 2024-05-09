@@ -11,18 +11,23 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            inputs.hyprspace.packages.${pkgs.system}.Hyprspace
-            inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+            inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+            inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         ];
         settings = {
             monitor=",highres,auto,1";
             plugin = {
-                hyprbars = {
-                    bar_height = 20;
-                    hyprbars-button = [
-                        "rgb(ff4040), 10, 󰖭, hyprctl dispatch killactive"
-                        "rgb(eeee11), 10, , hyprctl dispatch fullscreen 1"
-                    ];
+                hyprtrails = {
+                    color = "rgba(ffaa00ff)";
+                };
+                hyprexpo = {
+                    columns = 3;
+                    gap_size = 5;
+                    bg_col = "rgb(111111)";
+                    workspace_method = "center current";
+                    enable_gesture = true;
+                    gesture_distance = 300;
+                    gesture_positive = true;
                 };
             };
             exec-once = [
@@ -33,6 +38,10 @@
                 "fcitx5"
                 "udiskie &"
                 "notify-send 'Welcome to Hyprland'"
+            ];
+            windowrulev2 = [
+                "float,class:(org.kde.polkit-kde-authentication-agent-1)"
+                "float,class:(bilibili),initialTitle:(undefined)"
             ];
             "$terminal" = "alacritty";
             "$fileManager" = "thunar";
@@ -108,7 +117,7 @@
                 "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock"
-                "$mainMod, O, overview:toggle, all"
+                "$mainMod, O, hyprexpo:expo, toggle"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"

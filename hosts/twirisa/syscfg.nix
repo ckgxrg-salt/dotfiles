@@ -18,6 +18,7 @@
         lidSwitchExternalPower = "suspend";
         lidSwitchDocked = "ignore";
     };
+    services.systemd-lock-handler.enable = true;
 
     # Network with NetworkManager
     networking.networkmanager.enable = true;
@@ -114,21 +115,12 @@
         };
     };
 
-    # Greetd Login Manager
-    #services.greetd = {
-    #    enable = true;
-    #    restart = true;
-    #};
-    #programs.regreet = {
-    #    enable = true;
-    #};
-
-    # SDDM Session Manager
+    # SDDM Login Manager
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.libsForQt5.sddm;
-       wayland.enable = true;
-       theme = "chili";
+        wayland.enable = true;
+        theme = "chili";
     };
 
     # Polkit Authentication

@@ -27,7 +27,7 @@
         "mpris" = {
 	        format = "{player_icon} {title}";
 	        format-paused = "{status_icon} <i>{title}</i>";
-          title-len = 10;
+          title-len = 16;
           ellipsis = "...";
 	        player-icons = {
 		        default = "▶";
@@ -54,7 +54,7 @@
           format = "{icon} {capacity}%";
           format-charging = "󰂄 {capacity}% | {time}  󱧥";
           format-plugged = "󰂄{capacity}% | {time}  󱧥";
-          format-ful = "󱟢";
+          format-ful = "󱟢 Full";
           format-good = "{icon} {capacity}%";
           format-warning = "󰂃 {capacity}%";
           format-critical = "󱉞 {capacity}%";
@@ -67,10 +67,10 @@
         };
         "network" = {
           interval = 1;
-          format-wifi = "  {essid} | 󰕒 {bandwidthUpBytes} | 󰇚 {bandwidthDownBytes}";
+          format-wifi = "  {essid} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
           format-ethernet = "󰈀  Connected";
           format-linked = "󰌷  Linked";
-          format-disconnected = "󱛅  该罚!";
+          format-disconnected = "󱛅  你不过关！";
         };
         "clock" = {
           format = "󰥔 {:%H:%M}";
@@ -107,12 +107,14 @@
       * {
         font-family: Maple Mono;
         font-size: 14px;
-        color: #2e3440;
         min-height: 24px;
         opacity: 10;
       }
       window#waybar {
 	      background: transparent;
+      }
+      .modules-right {
+        color: #2e3440;
       }
       #image.launcher {
         padding-left: 5px;
@@ -161,7 +163,6 @@
         padding: 0px 0px 0px 0px;
       }
       #mpris.playing {
-        max-width: 72px;
         background-color: #81a1c1;
         border: solid;
         border-radius: 15px;
@@ -171,7 +172,6 @@
         padding-right: 5px;
       }
       #mpris.paused {
-        max-width: 72px;
         background-color: #5e81ac;
         border: solid;
         border-radius: 15px;

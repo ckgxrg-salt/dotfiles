@@ -164,26 +164,6 @@
         "type": "github"
       }
     },
-    "hyprspace": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ]
-      },
-      "locked": {
-        "lastModified": 1713834531,
-        "narHash": "sha256-oLQdM7XSHNp9txixmPcYpjWewEToglLGutJP2UWiQhk=",
-        "owner": "KZDKM",
-        "repo": "Hyprspace",
-        "rev": "d1c4b3649781f38d06f92b1ea2316a4b734f041e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "KZDKM",
-        "repo": "Hyprspace",
-        "type": "github"
-      }
-    },
     "hyprwayland-scanner": {
       "inputs": {
         "nixpkgs": [
@@ -247,7 +227,6 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
-        "hyprspace": "hyprspace",
         "nixpkgs": "nixpkgs_2"
       }
     },

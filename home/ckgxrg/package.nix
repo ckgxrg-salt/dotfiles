@@ -47,5 +47,7 @@
         tor
         tor-browser
         vscodium
+        steam
+        ventoy-full
     ];
 }
