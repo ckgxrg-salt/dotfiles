@@ -5,7 +5,7 @@
     ../../modules/hyprland
     ../../modules/zsh
     ../../modules/cli-tools
-    ./package.nix
+    ./naikunze.nix
     ./theme
   ];
 
