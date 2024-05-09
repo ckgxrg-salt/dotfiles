@@ -30,10 +30,24 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg = import ./home/ckgxrg/home.nix;
+          home-manager.users.ckgxrg = import ./home/ckgxrg/phosphorium.nix;
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
         flatpaks.nixosModules.nix-flatpak
+      ];
+    };
+
+    #Radilopa
+    nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/radilopa
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.ckgxrg = import ./home/ckgxrg/halosviga.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
       ];
     };
   };
