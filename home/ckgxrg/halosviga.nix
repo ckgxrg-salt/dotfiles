@@ -4,7 +4,7 @@
   imports = [
     ../../modules/hyprland/radilopa.nix
     ../../modules/zsh
-    ../../modules/cli-tools
+    ../../modules/utils
     ./frostgate.nix
     ./theme
   ];

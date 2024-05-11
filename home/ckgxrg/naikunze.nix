@@ -27,6 +27,7 @@
         bottles
         alacritty
         input-remapper
+        gnome.seahorse
 
         # Jvav
         eclipses.eclipse-java

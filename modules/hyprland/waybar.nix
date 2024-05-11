@@ -7,7 +7,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 24;
+        height = 20;
         spacing = 5;
         modules-left = [ "image#launcher" "hyprland/workspaces" ];
         modules-center = [ "gamemode" ];
@@ -107,7 +107,7 @@
       * {
         font-family: Maple Mono;
         font-size: 14px;
-        min-height: 24px;
+        min-height: 20px;
         opacity: 10;
       }
       window#waybar {

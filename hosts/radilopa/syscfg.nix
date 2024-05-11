@@ -44,8 +44,8 @@
     ];
     hardware.nvidia = {
       open = false;
-      powerManagement.enable = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      powerManagement.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       nvidiaSettings = false;
       prime = {
@@ -141,8 +141,8 @@
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.libsForQt5.sddm;
-       wayland.enable = true;
-       theme = "chili";
+        wayland.enable = true;
+        theme = "catppuccin-sddm-corners";
     };
 
     # Polkit Authentication

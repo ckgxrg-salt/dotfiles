@@ -16,6 +16,11 @@
         psmisc
         gamemode
         playerctl
+        nvitop
+
+        # Libs
+        wineWowPackages.waylandFull
+        gamescope
 
         # Desktop Utilities
         xfce.thunar
@@ -26,6 +31,7 @@
         alacritty
         input-remapper
         lenovo-legion
+        gnome.seahorse
 
         # Appearance
         darkman
@@ -34,7 +40,7 @@
         # Applications
         qq
         bilibili
-        audacity
+        gnome.geary
         prismlauncher
         libreoffice
         kdePackages.sweeper
@@ -45,5 +51,7 @@
         vscodium
         steam
         ventoy-full
+        filelight
+        lutris
     ];
 }

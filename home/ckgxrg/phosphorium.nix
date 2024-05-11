@@ -4,7 +4,7 @@
   imports = [
     ../../modules/hyprland/twirisa.nix
     ../../modules/zsh
-    ../../modules/cli-tools
+    ../../modules/utils
     ./naikunze.nix
     ./theme
   ];

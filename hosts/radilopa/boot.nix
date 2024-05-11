@@ -27,9 +27,11 @@
     kernelPackages = pkgs.linuxPackages_zen;
     extraModulePackages = with config.boot.kernelPackages; [ lenovo-legion-module nvidia_x11 ];
     initrd.kernelModules = [ "nvidia" ];
+    supportedFilesystems = [ "btrfs" "ntfs" ];
     kernelParams = [
       "quiet"
       "plymouth.nolog"
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
     # BBR Congestion Algorithm
     kernelModules = [

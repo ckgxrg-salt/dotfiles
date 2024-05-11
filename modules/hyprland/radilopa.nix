@@ -11,11 +11,11 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-            inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         ];
         settings = {
-            monitor=",highres,auto,1";
+            monitor=",highres,auto,1.25";
             plugin = {
                 hyprtrails = {
                     color = "rgba(ffaa00ff)";
@@ -47,12 +47,10 @@
             "$fileManager" = "thunar";
             "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
-                XCURSOR_SIZE = 24;
                 LIBVA_DRIVER_NAME = "nvidia";
                 XDG_SESSION_TYPE = "wayland";
                 GBM_BACKEND = "nvidia-drm";
                 __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-                WLR_NO_HARDWARE_CURSORS = 1;
                 NVD_BACKEND = "direct";
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
             };
@@ -64,6 +62,9 @@
                 };
                 sensitivity = 0;
             };
+            #cursor = {
+            #    no_hardware_cursors = true;
+            #};
             general = {
                 gaps_in = 5;
                 gaps_out = 20;
@@ -123,7 +124,7 @@
                 "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock"
-                "$mainMod, O, hyprexpo:expo, toggle"
+                #"$mainMod, O, hyprexpo:expo, toggle"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"
@@ -195,7 +196,7 @@
                 hyprland = {
                     default = [ "hyprland" ];
                     "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
-                    #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+                    "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
                 };
             };
         };
@@ -210,6 +211,12 @@
                 exec = "bilibili --ozone-platform-hint=auto";
                 terminal = false;
                 categories = [ "Network" "AudioVideo" ];
+            };
+            "nvitop" = {
+                name = "Nvitop";
+                genericName = "Nvidia GPU Monitor";
+                exec = "nvitop";
+                terminal = true;
             };
         };
     };

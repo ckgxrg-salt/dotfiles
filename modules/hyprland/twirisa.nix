@@ -11,8 +11,8 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-            inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         ];
         settings = {
             monitor=",highres,auto,1";
@@ -47,7 +47,6 @@
             "$fileManager" = "thunar";
             "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
-                XCURSOR_SIZE = 24;
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
             };
             input = {
@@ -117,7 +116,7 @@
                 "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock"
-                "$mainMod, O, hyprexpo:expo, toggle"
+                #"$mainMod, O, hyprexpo:expo, toggle"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"

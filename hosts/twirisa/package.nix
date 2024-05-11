@@ -5,17 +5,17 @@
 
   # Nix configuration
   nix = {
-      #Tuna mirror for Nix channels
+      # USTC mirror for Nix channels
       settings = {
             substituters = [
-                  "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-                  "https://hyprland.cachix.org"
+              "https://hyprland.cachix.org"
+              "https://mirrors.ustc.edu.cn/nix-channels/store"
             ];
             trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-            #Enable flakes
+            # Enable flakes
             experimental-features = [ "nix-command" "flakes" ];
       };
-      #Automatic garbage collection
+      # Automatic garbage collection
       gc = {
             automatic = true;
             dates = "weekly";

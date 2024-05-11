@@ -1,12 +1,19 @@
 { config, pkgs, ... }:
 let
-  gtkTheme = "Nordic-darker";
-  gtkPkg = pkgs.nordic;
-  qtStyle = "Nordic-Darker";
-  qtPkg = pkgs.nordic;
-  cursor = "Graphite dark nord Cursors";
+
+  gtkTheme = "Nightfox-Dusk-B";
+  gtkPkg = pkgs.nightfox-gtk-theme;
+
+  qtStyle = "MateriaDark";
+  qtPkg = pkgs.materia-kde-theme;
+
+  cursor = "Afterglow-Recolored-Dracula-Cyan";
+  cursorPkg = pkgs.afterglow-cursors-recolored;
+
+  icon = "Tela-blue-dark";
+  iconPkg = pkgs.tela-icon-theme;
+
   customFont = "Maple Mono";
-  icon = "Papirus-Dark";
 
 in {
   # GTK Look and Feel
@@ -18,7 +25,7 @@ in {
     };
     cursorTheme = {
       name = cursor;
-      package = pkgs.graphite-cursors;
+      package = cursorPkg;
     };
     font = {
       name = customFont;
@@ -26,11 +33,11 @@ in {
     };
     iconTheme = {
       name = icon;
-      package = pkgs.papirus-icon-theme;
+      package = iconPkg;
     };
   };
 
-  #Qt Style
+  # Qt Style
   home.packages = with pkgs; [
     kdePackages.qtbase
     kdePackages.qttools
@@ -43,6 +50,8 @@ in {
     libsForQt5.qt5.qtbase
     libsForQt5.qt5.qtquickcontrols
     libsForQt5.qt5.qtgraphicaleffects
+    hyprcursor
+    xcur2png
   ];
   qt = {
     enable = true;
@@ -56,5 +65,11 @@ in {
   '';
 
   "Kvantum/${qtStyle}".source = "${qtPkg}/share/Kvantum/${qtStyle}";
-};
+  };
+
+  # Hyprland Managed Cursor
+  wayland.windowManager.hyprland.extraConfig = ''
+    env = HYPRCURSOR_THEME,${cursor}
+    env = HYPRCURSOR_SIZE,24
+  '';
 }

@@ -37,10 +37,16 @@
       options = [ "subvol=@nix" ];
     };
 
-  fileSystems."/win" =
-    { device = "/dev/disk/by-uuid/c85d7703-1ef0-4845-9fee-708c2439f11b";
-      fsType = "btrfs";
-      options = [ "subvol=@win" ];
+  fileSystems."/win/C:" =
+    { device = "/dev/disk/by-uuid/1C64A5BB64A597D2";
+      fsType = "ntfs-3g"; 
+      options = [ "rw" "uid=1000"];
+    };
+
+  fileSystems."/win/D:" =
+    { device = "/dev/disk/by-uuid/2818AFD018AF9AF8";
+      fsType = "ntfs-3g"; 
+      options = [ "rw" "uid=1000"];
     };
 
   fileSystems."/var/log" =

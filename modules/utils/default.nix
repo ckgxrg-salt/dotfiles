@@ -27,4 +27,9 @@
         notifications = true;
         mpd.musicDirectory = config.xdg.userDirs.music;
     };
+
+    # Gnome Keyring
+    services.gnome-keyring = {
+        enable = true;
+    };
 }
