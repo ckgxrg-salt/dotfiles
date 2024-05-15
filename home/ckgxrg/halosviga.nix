@@ -5,6 +5,7 @@
     ../../modules/hyprland/radilopa.nix
     ../../modules/zsh
     ../../modules/utils
+    ../../modules/neovim
     ./frostgate.nix
     ./theme
   ];

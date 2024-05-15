@@ -41,7 +41,8 @@
             ];
             windowrulev2 = [
                 "float,class:(org.kde.polkit-kde-authentication-agent-1)"
-                "float,class:(bilibili),initialTitle:(undefined)"
+                "float,class:(bilibili)"
+                "float,class:(QQ)"
             ];
             "$terminal" = "alacritty";
             "$fileManager" = "thunar";
@@ -116,6 +117,7 @@
                 "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock"
+                "$mainMod, F, fullscreen,"
                 #"$mainMod, O, hyprexpo:expo, toggle"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
@@ -173,6 +175,7 @@
             enable = true;
             defaultApplications = {
                 "text/plain" = "codium.desktop";
+                "application/pdf" = "okular.desktop";
             };
         };
         portal = {

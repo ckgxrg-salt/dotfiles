@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   # Include home modules
   imports = [
     ../../modules/hyprland/twirisa.nix
     ../../modules/zsh
     ../../modules/utils
+    ../../modules/neovim
     ./naikunze.nix
     ./theme
   ];

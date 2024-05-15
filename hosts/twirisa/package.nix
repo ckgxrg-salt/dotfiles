@@ -9,7 +9,8 @@
       settings = {
             substituters = [
               "https://hyprland.cachix.org"
-              "https://mirrors.ustc.edu.cn/nix-channels/store"
+              "https://mirror.sjtu.edu.cn/nix-channels/store"
+              "https://cache.nixos.org"
             ];
             trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
             # Enable flakes
@@ -31,12 +32,10 @@
   # System-wide packages
   environment.systemPackages = with pkgs; [
     # Security
-    pkgs.sddm-chili-theme
-    openssl
+    sddm-chili-theme
 
     # CLI Utils
     direnv
-    cage
 
     # Libs
     jdk21
@@ -45,4 +44,5 @@
   # Placeholders
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
+  programs.nano.enable = false;
 }
