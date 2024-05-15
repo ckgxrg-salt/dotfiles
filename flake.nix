@@ -10,8 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Declarative-Flatpak
-    flatpaks.url = "github:GermanBread/declarative-flatpak";
+    # Nix-Flatpak
+    flatpaks.url = "github:gmodena/nix-flatpak";
 
     # Hyprland and plugins
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -38,7 +38,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.ckgxrg.imports = [
-            flatpaks.homeManagerModules.default
+            flatpaks.homeManagerModules.nix-flatpak
             ./home/ckgxrg/phosphorium.nix
           ];
           home-manager.extraSpecialArgs = { inherit inputs; };

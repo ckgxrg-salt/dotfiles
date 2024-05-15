@@ -18,6 +18,7 @@
         psmisc
         gamemode
         playerctl
+        flatpak
 
         # Desktop Utilities
         xfce.thunar
@@ -55,19 +56,18 @@
 
     # Flatpak packages
     services.flatpak = {
-        enableModule = true;
-        deduplicate = true;
-        preRemotesCommand = ''
-            ${pkgs.wget}/bin/wget https://mirror.sjtu.edu.cn/flathub/flathub.gpg
-            flatpak remote-modify --gpg-import=flathub.gpg flathub
-            rm flathub.gpg
-        '';
-        remotes = {
-            "flathub" = "https://mirror.sjtu.edu.cn/flathub";
+        enable = true;
+        remotes = [
+            { name = "flathub"; location = "https://mirror.sjtu.edu.cn/flathub";}
+        ];
+        update.auto = {
+            enable = true;
+            onCalendar = "daily";
         };
         packages = [
-            "flathub:app/com.moonlight_stream.Moonlight//stable"
-            "flathub:app/com.toolstack.Folio//stable"
+            "com.github.tchx84.Flatseal"
+            "com.moonlight_stream.Moonlight"
+            "com.toolstack.Folio"
         ];
   };
 }

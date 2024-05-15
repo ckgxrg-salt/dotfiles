@@ -34,6 +34,8 @@
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
                 "playerctld"
                 "swww-daemon"
+                "wl-paste --type text --watch cliphist store"
+                "wl-paste --type image --watch cliphist store"
                 "waybar"
                 "fcitx5"
                 "udiskie &"
@@ -175,21 +177,24 @@
             enable = true;
             defaultApplications = {
                 "text/plain" = "codium.desktop";
-                "application/pdf" = "okular.desktop";
+                "application/pdf" = "org.kde.okular.desktop";
             };
         };
         portal = {
             enable = true;
             extraPortals = with pkgs; [
-                xdg-desktop-portal-wlr
                 xdg-desktop-portal-kde
+                xdg-desktop-portal-gtk
             ];
             config = {
                 common = {
-                    default = [ "wlr" ];
+                    default = [ "gtk" ];
                 };
                 hyprland = {
-                    default = [ "hyprland" ];
+                    default = [
+                        "hyprland"
+                        "gtk"
+                    ];
                     "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
                     #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
                 };

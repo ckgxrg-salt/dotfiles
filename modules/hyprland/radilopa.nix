@@ -34,6 +34,8 @@
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
                 "playerctld"
                 "swww-daemon"
+                "wl-paste --type text --watch cliphist store"
+                "wl-paste --type image --watch cliphist store"
                 "waybar"
                 "fcitx5"
                 "udiskie &"
@@ -62,9 +64,6 @@
                 };
                 sensitivity = 0;
             };
-            #cursor = {
-            #    no_hardware_cursors = true;
-            #};
             general = {
                 gaps_in = 5;
                 gaps_out = 20;
@@ -181,6 +180,7 @@
             enable = true;
             defaultApplications = {
                 "text/plain" = "codium.desktop";
+                "application/pdf" = "org.kde.okular.desktop";
             };
         };
         portal = {
@@ -188,6 +188,7 @@
             extraPortals = with pkgs; [
                 xdg-desktop-portal-wlr
                 xdg-desktop-portal-kde
+                xdg-desktop-portal-gtk
             ];
             config = {
                 common = {
