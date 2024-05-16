@@ -84,7 +84,7 @@ in {
         "!x11"
         "!fallback-x11"
       ];
-      Context.filesystem = [
+      Context.filesystems = [
         "host:ro"
         "${gtkPkg}/share/themes"
         "${iconPkg}/share/icons"

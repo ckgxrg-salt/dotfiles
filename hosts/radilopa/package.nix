@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   # Nix configuration
   nix = {
@@ -28,20 +28,18 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
-    # Security
-    catppuccin-sddm-corners
-    openssl
-
     # CLI Utils
     direnv
-
     # Libs
     jdk21
     nvidia-vaapi-driver
     ntfs3g
+    inputs.nix-alien.packages.${system}.nix-alien
   ];
 
   # Placeholders
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
+  programs.nano.enable = false;
+  services.flatpak.enable = true;
 }

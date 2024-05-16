@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   # Enable Flatpak
   # services.flatpak.enable = true;
@@ -31,18 +31,16 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
-    # Security
-    sddm-chili-theme
-
     # CLI Utils
     direnv
-
     # Libs
     jdk21
+    inputs.nix-alien.packages.${system}.nix-alien
   ];
 
   # Placeholders
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
   programs.nano.enable = false;
+  services.flatpak.enable = true;
 }

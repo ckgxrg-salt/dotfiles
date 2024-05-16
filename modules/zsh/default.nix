@@ -7,7 +7,6 @@
     syntaxHighlighting.enable = true;
 
     initExtra = ''
-      eval $(thefuck --alias)
       fortune | cowsay | lolcat
     '';
 
@@ -26,5 +25,11 @@
       deploy = "sudo nixos-rebuild switch --flake /home/ckgxrg/dotfiles";
       clear = "clear && tip";
     };
+  };
+
+  # thefuck Terminal Correction
+  programs.thefuck = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

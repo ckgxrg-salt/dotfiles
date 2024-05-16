@@ -209,6 +209,7 @@
             "io.github.msojocs.bilibili" = {
                 name = "Bilibili";
                 genericName = "Video Centre";
+                icon = "io.github.msojocs.bilibili";
                 exec = "bilibili --ozone-platform-hint=auto";
                 terminal = false;
                 categories = [ "Network" "AudioVideo" ];
@@ -216,6 +217,7 @@
             "nvitop" = {
                 name = "Nvitop";
                 genericName = "Nvidia GPU Monitor";
+                icon = "Alacritty";
                 exec = "nvitop";
                 terminal = true;
             };

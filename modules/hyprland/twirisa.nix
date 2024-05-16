@@ -11,24 +11,10 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         ];
         settings = {
             monitor=",highres,auto,1";
             plugin = {
-                hyprtrails = {
-                    color = "rgba(ffaa00ff)";
-                };
-                hyprexpo = {
-                    columns = 3;
-                    gap_size = 5;
-                    bg_col = "rgb(111111)";
-                    workspace_method = "center current";
-                    enable_gesture = true;
-                    gesture_distance = 300;
-                    gesture_positive = true;
-                };
             };
             exec-once = [
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
@@ -43,8 +29,11 @@
             ];
             windowrulev2 = [
                 "float,class:(org.kde.polkit-kde-authentication-agent-1)"
+                "center,class:(org.kde.polkit-kde-authentication-agent-1)"
                 "float,class:(bilibili)"
                 "float,class:(QQ)"
+                "center,class:(QQ)"
+                "size 1280 900,class:(QQ)"
             ];
             "$terminal" = "alacritty";
             "$fileManager" = "thunar";
@@ -205,9 +194,10 @@
             createDirectories = true;
         };
         desktopEntries = {
-            bilibili = {
+            "io.github.msojocs.bilibili" = {
                 name = "Bilibili";
                 genericName = "Video Centre";
+                icon = "io.github.msojocs.bilibili";
                 exec = "bilibili --ozone-platform-hint=auto";
                 terminal = false;
                 categories = [ "Network" "AudioVideo" ];
