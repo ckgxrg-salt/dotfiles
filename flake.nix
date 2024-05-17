@@ -59,7 +59,10 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg = import ./home/ckgxrg/halosviga.nix;
+          home-manager.users.ckgxrg.imports = [
+            flatpaks.homeManagerModules.nix-flatpak
+            ./home/ckgxrg/phosphorium.nix
+          ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];

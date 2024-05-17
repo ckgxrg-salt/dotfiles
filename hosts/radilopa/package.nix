@@ -35,6 +35,7 @@
     nvidia-vaapi-driver
     ntfs3g
     inputs.nix-alien.packages.${system}.nix-alien
+    wl-clipboard
   ];
 
   # Placeholders

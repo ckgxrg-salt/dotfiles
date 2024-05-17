@@ -1,8 +1,5 @@
 { pkgs, config, inputs, ... }:
 {
-  # Enable Flatpak
-  # services.flatpak.enable = true;
-
   # Nix configuration
   nix = {
       # USTC mirror for Nix channels
@@ -35,7 +32,26 @@
     direnv
     # Libs
     jdk21
+    wl-clipboard
+    # FHS Env
     inputs.nix-alien.packages.${system}.nix-alien
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSUserEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs: (
+        (base.targetPkgs pkgs) ++ [
+          pkgs.pkg-config
+          pkgs.ncurses
+          pkgs.ccache
+          pkgs.android-tools
+          pkgs.python3
+          pkgs.git-repo
+        ]
+      );
+      profile = "export FHS=1";
+      runScript = "zsh";
+      extraOutputsToInstall = ["dev"];
+    }))
   ];
 
   # Placeholders

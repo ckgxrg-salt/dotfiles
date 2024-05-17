@@ -29,6 +29,8 @@
 	        format-paused = "{status_icon} <i>{title}</i>";
           title-len = 16;
           ellipsis = "...";
+          on-click-right = "next";
+          on-click-middle = "previous";
 	        player-icons = {
 		        default = "▶";
 		        elisa = "🎵";
@@ -38,7 +40,7 @@
 	        }; 
         };
         "gamemode" = {
-          glyps = "";
+          glyph = "";
           hide-not-running = true;
           format = "{glyph} |Gamemode Active| {glyph}";
           format-alt = "{glyph} |Gamemode Active| {glyph}";
