@@ -3,7 +3,6 @@
     home.packages = with pkgs; [
         # Terminal Utilities
         neofetch
-        thefuck
         wget
         v2raya
         procs
@@ -18,6 +17,7 @@
         psmisc
         gamemode
         playerctl
+        flatpak
 
         # Desktop Utilities
         xfce.thunar
@@ -29,8 +29,9 @@
         input-remapper
         gnome.seahorse
 
-        # Jvav
+        # Programming
         eclipses.eclipse-java
+        jetbrains.rust-rover
 
         # Appearance
         darkman
@@ -51,4 +52,21 @@
         steam
         ventoy-full
     ];
+
+    # Flatpak packages
+    services.flatpak = {
+        enable = true;
+        remotes = [
+            { name = "flathub"; location = "https://mirror.sjtu.edu.cn/flathub";}
+        ];
+        update.auto = {
+            enable = true;
+            onCalendar = "daily";
+        };
+        packages = [
+            "com.github.tchx84.Flatseal"
+            "com.moonlight_stream.Moonlight"
+            "com.toolstack.Folio"
+        ];
+  };
 }

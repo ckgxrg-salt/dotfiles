@@ -7,8 +7,11 @@
     syntaxHighlighting.enable = true;
 
     initExtra = ''
+<<<<<<< HEAD
       eval $(thefuck --alias)
       any-nix-shell zsh --info-right | source /dev/stdin
+=======
+>>>>>>> refs/remotes/github/master
       fortune | cowsay | lolcat
     '';
 
@@ -27,5 +30,11 @@
       deploy = "sudo nixos-rebuild switch --flake /home/ckgxrg/dotfiles";
       clear = "clear && tip";
     };
+  };
+
+  # thefuck Terminal Correction
+  programs.thefuck = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

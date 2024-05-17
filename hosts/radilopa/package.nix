@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   # Nix configuration
   nix = {
@@ -6,7 +6,8 @@
       settings = {
             substituters = [
               "https://hyprland.cachix.org"
-              "https://mirrors.ustc.edu.cn/nix-channels/store"
+              "https://mirror.sjtu.edu.cn/nix-channels/store"
+              "https://cache.nixos.org"
             ];
             trusted-public-keys = [ 
               "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -29,21 +30,19 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
-    # Security
-    catppuccin-sddm-corners
-    openssl
-
     # CLI Utils
     direnv
-    cage
-
     # Libs
     jdk21
     nvidia-vaapi-driver
     ntfs3g
+    inputs.nix-alien.packages.${system}.nix-alien
+    wl-clipboard
   ];
 
   # Placeholders
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
+  programs.nano.enable = false;
+  services.flatpak.enable = true;
 }

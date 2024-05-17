@@ -11,29 +11,17 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         ];
         settings = {
             monitor=",highres,auto,1";
             plugin = {
-                hyprtrails = {
-                    color = "rgba(ffaa00ff)";
-                };
-                hyprexpo = {
-                    columns = 3;
-                    gap_size = 5;
-                    bg_col = "rgb(111111)";
-                    workspace_method = "center current";
-                    enable_gesture = true;
-                    gesture_distance = 300;
-                    gesture_positive = true;
-                };
             };
             exec-once = [
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
                 "playerctld"
                 "swww-daemon"
+                "wl-paste --type text --watch cliphist store"
+                "wl-paste --type image --watch cliphist store"
                 "waybar"
                 "fcitx5"
                 "udiskie &"
@@ -41,7 +29,11 @@
             ];
             windowrulev2 = [
                 "float,class:(org.kde.polkit-kde-authentication-agent-1)"
-                "float,class:(bilibili),initialTitle:(undefined)"
+                "center,class:(org.kde.polkit-kde-authentication-agent-1)"
+                "float,class:(bilibili)"
+                "float,class:(QQ)"
+                "center,class:(QQ)"
+                "size 1280 900,class:(QQ)"
             ];
             "$terminal" = "alacritty";
             "$fileManager" = "thunar";
@@ -116,6 +108,7 @@
                 "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock"
+                "$mainMod, F, fullscreen,"
                 #"$mainMod, O, hyprexpo:expo, toggle"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
@@ -173,20 +166,24 @@
             enable = true;
             defaultApplications = {
                 "text/plain" = "codium.desktop";
+                "application/pdf" = "org.kde.okular.desktop";
             };
         };
         portal = {
             enable = true;
             extraPortals = with pkgs; [
-                xdg-desktop-portal-wlr
                 xdg-desktop-portal-kde
+                xdg-desktop-portal-gtk
             ];
             config = {
                 common = {
-                    default = [ "wlr" ];
+                    default = [ "gtk" ];
                 };
                 hyprland = {
-                    default = [ "hyprland" ];
+                    default = [
+                        "hyprland"
+                        "gtk"
+                    ];
                     "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
                     #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
                 };
@@ -197,9 +194,10 @@
             createDirectories = true;
         };
         desktopEntries = {
-            bilibili = {
+            "io.github.msojocs.bilibili" = {
                 name = "Bilibili";
                 genericName = "Video Centre";
+                icon = "io.github.msojocs.bilibili";
                 exec = "bilibili --ozone-platform-hint=auto";
                 terminal = false;
                 categories = [ "Network" "AudioVideo" ];

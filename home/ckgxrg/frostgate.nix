@@ -3,7 +3,6 @@
     home.packages = with pkgs; [
         # Terminal Utilities
         neofetch
-        thefuck
         wget
         v2raya
         procs

@@ -71,5 +71,36 @@ in {
   wayland.windowManager.hyprland.extraConfig = ''
     env = HYPRCURSOR_THEME,${cursor}
     env = HYPRCURSOR_SIZE,24
+    env = XCURSOR_THEME,${cursor}
+    env = XCURSOR_SIZE,24
   '';
+
+  # Then make them availiable to Flatpaks
+  services.flatpak.overrides = {
+    global = {
+      # Force Wayland
+      Context.sockets = [
+        "wayland"
+        "!x11"
+        "!fallback-x11"
+      ];
+      Context.filesystems = [
+        "host:ro"
+        "${gtkPkg}/share/themes"
+        "${iconPkg}/share/icons"
+        "${cursorPkg}/share/icons"
+        "xdg-config/Kvantum:ro"
+      ];
+      Environment = {
+        "GTK_THEME" = gtkTheme;
+        "ICON_THEME"= icon;
+        "QT_STYLE_OVERRIDE" = "kvantum";
+        "HYPRCURSOR_THEME" = cursor;
+        "HYPRCURSOR_SIZE" = "24";
+        "XCURSOR_PATH" = "${cursorPkg}/share/icons";
+        "XCURSOR_THEME" = cursor;
+        "XCURSOR_SIZE" = "24";
+      };
+    };
+  };
 }

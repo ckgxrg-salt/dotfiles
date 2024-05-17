@@ -5,7 +5,7 @@
     ./hardware.nix
     ./syscfg.nix
     ./package.nix
-    ../../modules/flatpak
+    ../../modules/podman
   ];
 
   system.stateVersion = "23.11";

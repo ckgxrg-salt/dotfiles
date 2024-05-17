@@ -1,15 +1,13 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
-  # Enable Flatpak
-  # services.flatpak.enable = true;
-
   # Nix configuration
   nix = {
       # USTC mirror for Nix channels
       settings = {
             substituters = [
               "https://hyprland.cachix.org"
-              "https://mirrors.ustc.edu.cn/nix-channels/store"
+              "https://mirror.sjtu.edu.cn/nix-channels/store"
+              "https://cache.nixos.org"
             ];
             trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
             # Enable flakes
@@ -30,19 +28,35 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
-    # Security
-    pkgs.sddm-chili-theme
-    openssl
-
     # CLI Utils
     direnv
-    cage
-
     # Libs
     jdk21
+    wl-clipboard
+    # FHS Env
+    inputs.nix-alien.packages.${system}.nix-alien
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSUserEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs: (
+        (base.targetPkgs pkgs) ++ [
+          pkgs.pkg-config
+          pkgs.ncurses
+          pkgs.ccache
+          pkgs.android-tools
+          pkgs.python3
+          pkgs.git-repo
+        ]
+      );
+      profile = "export FHS=1";
+      runScript = "zsh";
+      extraOutputsToInstall = ["dev"];
+    }))
   ];
 
   # Placeholders
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
+  programs.nano.enable = false;
+  services.flatpak.enable = true;
 }

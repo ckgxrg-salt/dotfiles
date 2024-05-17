@@ -151,6 +151,10 @@
     tray = "auto";
   };
 
+  services.cliphist = {
+    enable = true;
+  };
+
   # Config file
   home.file.".config/waypaper/config.ini".source = ./waypaper.ini;
 }

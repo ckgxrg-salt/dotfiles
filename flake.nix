@@ -13,8 +13,12 @@
     # Nix-Flatpak
     flatpaks.url = "github:gmodena/nix-flatpak";
 
+    # Nix-Alien
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
     # Hyprland and plugins
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+<<<<<<< HEAD
     hyprfocus = {
       url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
@@ -23,6 +27,8 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
+=======
+>>>>>>> refs/remotes/github/master
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
@@ -34,7 +40,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ nixpkgs, home-manager, flatpaks, lanzaboote, ... }:
+  outputs = inputs@{ nixpkgs, flatpaks, home-manager, lanzaboote, ... }:
   {
     # Twirisa
     nixosConfigurations.Twirisa = nixpkgs.lib.nixosSystem {
@@ -45,10 +51,12 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg = import ./home/ckgxrg/phosphorium.nix;
+          home-manager.users.ckgxrg.imports = [
+            flatpaks.homeManagerModules.nix-flatpak
+            ./home/ckgxrg/phosphorium.nix
+          ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
-        flatpaks.nixosModules.nix-flatpak
       ];
     };
 
@@ -62,7 +70,10 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg = import ./home/ckgxrg/halosviga.nix;
+          home-manager.users.ckgxrg.imports = [
+            flatpaks.homeManagerModules.nix-flatpak
+            ./home/ckgxrg/phosphorium.nix
+          ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];

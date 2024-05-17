@@ -116,6 +116,7 @@
     };
 
     # SDDM Login Manager
+    environment.systemPackages = [ pkgs.sddm-chili-theme ];
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.libsForQt5.sddm;
@@ -125,12 +126,14 @@
 
     # Polkit Authentication
     security.polkit.enable = true;
-
     # TLP the power saver
     services.tlp.enable = true;
-
     # Auto-Mount Backend
     services.udisks2.enable = true;
+    # Nix-ld
+    programs.nix-ld.enable = true;
+    # Waydroid Emulator
+    virtualisation.waydroid.enable = true;
 
     # MPD daemon
     services.mpd = {
