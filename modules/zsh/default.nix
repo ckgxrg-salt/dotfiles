@@ -7,6 +7,11 @@
     syntaxHighlighting.enable = true;
 
     initExtra = ''
+<<<<<<< HEAD
+      eval $(thefuck --alias)
+      any-nix-shell zsh --info-right | source /dev/stdin
+=======
+>>>>>>> refs/remotes/github/master
       fortune | cowsay | lolcat
     '';
 
