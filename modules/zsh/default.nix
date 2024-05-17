@@ -8,6 +8,7 @@
 
     initExtra = ''
       eval $(thefuck --alias)
+      any-nix-shell zsh --info-right | source /dev/stdin
       fortune | cowsay | lolcat
     '';
 

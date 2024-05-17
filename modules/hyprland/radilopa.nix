@@ -11,24 +11,13 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-            #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+            #inputs.hy3.packages.${pkgs.system}.hy3
+            #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+            #inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
         ];
         settings = {
             monitor=",highres,auto,1.25";
             plugin = {
-                hyprtrails = {
-                    color = "rgba(ffaa00ff)";
-                };
-                hyprexpo = {
-                    columns = 3;
-                    gap_size = 5;
-                    bg_col = "rgb(111111)";
-                    workspace_method = "center current";
-                    enable_gesture = true;
-                    gesture_distance = 300;
-                    gesture_positive = true;
-                };
             };
             exec-once = [
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
@@ -62,9 +51,6 @@
                 };
                 sensitivity = 0;
             };
-            #cursor = {
-            #    no_hardware_cursors = true;
-            #};
             general = {
                 gaps_in = 5;
                 gaps_out = 20;
@@ -124,7 +110,8 @@
                 "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock"
-                #"$mainMod, O, hyprexpo:expo, toggle"
+                "$mainMod, F, fullscreen,"
+                #"$mainMod, O, overview:toggle,"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"

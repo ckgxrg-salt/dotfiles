@@ -17,10 +17,12 @@
         gamemode
         playerctl
         nvitop
+        any-nix-shell
 
         # Libs
         wineWowPackages.waylandFull
         gamescope
+        wlroots
 
         # Desktop Utilities
         xfce.thunar
@@ -37,11 +39,14 @@
         darkman
         timeshift
 
+        # Games
+        steam
+        prismlauncher
+
         # Applications
         qq
         bilibili
         gnome.geary
-        prismlauncher
         libreoffice
         kdePackages.sweeper
         clamtk
@@ -49,9 +54,8 @@
         tor
         tor-browser
         vscodium
-        steam
         ventoy-full
         filelight
-        lutris
+        ark
     ];
 }

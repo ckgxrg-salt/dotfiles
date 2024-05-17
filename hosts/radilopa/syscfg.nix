@@ -33,15 +33,19 @@
         pulse.enable = true;
     };
 
-    # Nvidia Driver
+    # Display Settings
     hardware.opengl = {
         enable = true;
         driSupport = true;
         driSupport32Bit = true;
     };
-    services.xserver.videoDrivers = [
-        "nvidia"
-    ];
+    services.xserver = {
+        enable = true;
+        exportConfiguration = true;
+        videoDrivers = [ "nvidia" ];
+        dpi = 96;
+        resolutions = [ { x = 2560; y = 1600; } ];
+    };
     hardware.nvidia = {
       open = false;
       powerManagement.enable = true;
