@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
+# Define theme names and pkgs here
 let
-
   gtkTheme = "Nightfox-Dusk-B";
   gtkPkg = pkgs.nightfox-gtk-theme;
 
@@ -84,6 +84,7 @@ in {
         "!x11"
         "!fallback-x11"
       ];
+      # Make files accessible to flatpaks
       Context.filesystems = [
         "host:ro"
         "${gtkPkg}/share/themes"
@@ -91,6 +92,7 @@ in {
         "${cursorPkg}/share/icons"
         "xdg-config/Kvantum:ro"
       ];
+      # Set themes
       Environment = {
         "GTK_THEME" = gtkTheme;
         "ICON_THEME"= icon;

@@ -1,4 +1,5 @@
 { config, pkgs, inputs, ... }:
+# Home-manager configuration for Twirisa
 {
   # Include home modules
   imports = [
