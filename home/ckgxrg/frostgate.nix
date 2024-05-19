@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+    # Home-manager packages for Radilopa
     home.packages = with pkgs; [
         # Terminal Utilities
         neofetch

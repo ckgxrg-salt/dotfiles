@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+    # Home-manager packages for Twirisa
     home.packages = with pkgs; [
         # Terminal Utilities
         neofetch

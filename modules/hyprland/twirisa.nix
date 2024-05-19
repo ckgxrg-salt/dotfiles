@@ -11,6 +11,7 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
+            #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
         ];
         settings = {
             monitor=",highres,auto,1";
@@ -165,7 +166,7 @@
         mimeApps = {
             enable = true;
             defaultApplications = {
-                "text/plain" = "codium.desktop";
+                "text/plain" = "nvim.desktop";
                 "application/pdf" = "org.kde.okular.desktop";
             };
         };
@@ -193,6 +194,7 @@
             enable = true;
             createDirectories = true;
         };
+        # Override some desktop entries
         desktopEntries = {
             "io.github.msojocs.bilibili" = {
                 name = "Bilibili";
