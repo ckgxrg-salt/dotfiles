@@ -21,7 +21,6 @@
         # Libs
         wineWowPackages.waylandFull
         gamescope
-        wlroots
 
         # Desktop Utilities
         xfce.thunar
@@ -53,8 +52,23 @@
         tor
         tor-browser
         vscodium
-        ventoy-full
         filelight
         ark
     ];
+
+    # Flatpak packages
+    services.flatpak = {
+        enable = true;
+        remotes = [
+            { name = "flathub"; location = "https://mirror.sjtu.edu.cn/flathub";}
+        ];
+        update.auto = {
+            enable = true;
+            onCalendar = "daily";
+        };
+        packages = [
+            "com.github.tchx84.Flatseal"
+            "com.toolstack.Folio"
+        ];
+  };
 }

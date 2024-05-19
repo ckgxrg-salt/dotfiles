@@ -18,7 +18,6 @@
 
     # Hyprland and plugins
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-<<<<<<< HEAD
     hyprfocus = {
       url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
@@ -27,8 +26,6 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
-=======
->>>>>>> refs/remotes/github/master
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
@@ -72,7 +69,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.ckgxrg.imports = [
             flatpaks.homeManagerModules.nix-flatpak
-            ./home/ckgxrg/phosphorium.nix
+            ./home/ckgxrg/halosviga.nix
           ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }

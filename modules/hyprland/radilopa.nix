@@ -176,13 +176,12 @@
         portal = {
             enable = true;
             extraPortals = with pkgs; [
-                xdg-desktop-portal-wlr
                 xdg-desktop-portal-kde
                 xdg-desktop-portal-gtk
             ];
             config = {
                 common = {
-                    default = [ "wlr" ];
+                    default = [ "gtk" ];
                 };
                 hyprland = {
                     default = [ "hyprland" ];

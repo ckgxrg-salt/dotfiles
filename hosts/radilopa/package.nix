@@ -30,14 +30,29 @@
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
-    # CLI Utils
+    # Utils
+    wireguard-tools
     direnv
     # Libs
     jdk21
     nvidia-vaapi-driver
     ntfs3g
-    inputs.nix-alien.packages.${system}.nix-alien
     wl-clipboard
+    # FHS Env
+    inputs.nix-alien.packages.${system}.nix-alien
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSUserEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs: (
+        (base.targetPkgs pkgs) ++ [
+          pkgs.pkg-config
+          pkgs.ncurses
+        ]
+      );
+      profile = "export FHS=1";
+      runScript = "zsh";
+      extraOutputsToInstall = ["dev"];
+    }))
   ];
 
   # Placeholders

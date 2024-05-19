@@ -12,7 +12,7 @@
         fortune
         zellij
         pavucontrol
-            gradle
+        any-nix-shell
         nix-prefetch-github
         psmisc
         gamemode
@@ -68,5 +68,5 @@
             "com.moonlight_stream.Moonlight"
             "com.toolstack.Folio"
         ];
-  };
+    };
 }

@@ -40,8 +40,8 @@
         driSupport32Bit = true;
     };
     services.xserver = {
-        enable = true;
         exportConfiguration = true;
+        excludePackages = [ pkgs.xterm ];
         videoDrivers = [ "nvidia" ];
         dpi = 96;
         resolutions = [ { x = 2560; y = 1600; } ];

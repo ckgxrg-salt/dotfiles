@@ -42,10 +42,6 @@
         (base.targetPkgs pkgs) ++ [
           pkgs.pkg-config
           pkgs.ncurses
-          pkgs.ccache
-          pkgs.android-tools
-          pkgs.python3
-          pkgs.git-repo
         ]
       );
       profile = "export FHS=1";
