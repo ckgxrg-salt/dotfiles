@@ -11,6 +11,7 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
+            #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
         ];
         settings = {
             monitor=",highres,auto,1";
