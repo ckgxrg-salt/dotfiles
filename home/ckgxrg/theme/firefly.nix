@@ -1,20 +1,19 @@
 { config, pkgs, ... }:
 # Define theme names and pkgs here
 let
-  gtkTheme = "Nightfox-Dusk-B";
-  gtkPkg = pkgs.nightfox-gtk-theme;
+  gtkTheme = "Nordic";
+  gtkPkg = pkgs.nordic;
 
-  qtStyle = "MateriaDark";
-  qtPkg = pkgs.materia-kde-theme;
+  qtStyle = "Nordic";
+  qtPkg = pkgs.nordic;
 
-  cursor = "Afterglow-Recolored-Dracula-Cyan";
-  cursorPkg = pkgs.afterglow-cursors-recolored;
+  cursor = "graphite-dark-nord";
+  cursorPkg = pkgs.graphite-cursors;
 
-  icon = "Tela-blue-dark";
-  iconPkg = pkgs.tela-icon-theme;
+  icon = "Dracula";
+  iconPkg = pkgs.dracula-icon-theme;
 
   customFont = "Maple Mono";
-
 in {
   # GTK Look and Feel
   gtk = {
@@ -75,6 +74,14 @@ in {
     env = XCURSOR_SIZE,24
   '';
 
+  home.activation = {
+    fixFlatpakThemes = ''
+      run ln -sfT ${iconPkg}/share/icons/${icon} /home/ckgxrg/.icons/${icon}
+      run ln -sfT ${cursorPkg}/share/icons/${cursor} /home/ckgxrg/.icons/${cursor}
+      run ln -sfT ${gtkPkg}/share/themes/${gtkTheme} /home/ckgxrg/.themes/${gtkTheme}
+    '';
+  };
+
   # Then make them availiable to Flatpaks
   services.flatpak.overrides = {
     global = {
@@ -82,14 +89,15 @@ in {
       Context.sockets = [
         "wayland"
         "!x11"
-        "!fallback-x11"
+        "fallback-x11"
       ];
       # Make files accessible to flatpaks
       Context.filesystems = [
-        "host:ro"
-        "${gtkPkg}/share/themes"
-        "${iconPkg}/share/icons"
-        "${cursorPkg}/share/icons"
+        "/home/ckgxrg/.themes:ro"
+        "/home/ckgxrg/.icons:ro"
+        "${gtkPkg}/share/themes:ro"
+        "${iconPkg}/share/icons:ro"
+        "${cursorPkg}/share/icons:ro"
         "xdg-config/Kvantum:ro"
       ];
       # Set themes

@@ -15,6 +15,7 @@
         pavucontrol
             gradle
         nix-prefetch-github
+        any-nix-shell
         psmisc
         gamemode
         playerctl

@@ -8,7 +8,7 @@
     ../../modules/utils
     ../../modules/neovim
     ./naikunze.nix
-    ./theme
+    ./theme/firefly.nix
   ];
 
   # Input Method

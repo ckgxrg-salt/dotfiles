@@ -8,7 +8,7 @@
     ../../modules/utils
     ../../modules/neovim
     ./frostgate.nix
-    ./theme
+    ./theme/paralace.nix
   ];
 
   # Input Method
