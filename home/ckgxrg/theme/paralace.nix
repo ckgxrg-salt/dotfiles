@@ -50,7 +50,6 @@ in {
     libsForQt5.qt5.qtquickcontrols
     libsForQt5.qt5.qtgraphicaleffects
     hyprcursor
-    xcur2png
   ];
   qt = {
     enable = true;

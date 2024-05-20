@@ -69,7 +69,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.ckgxrg.imports = [
             flatpaks.homeManagerModules.nix-flatpak
-            ./home/ckgxrg/phosphorium.nix
+            ./home/ckgxrg/halosviga.nix
           ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
