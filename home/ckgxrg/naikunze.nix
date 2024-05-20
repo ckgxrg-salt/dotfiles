@@ -19,7 +19,6 @@
         psmisc
         gamemode
         playerctl
-        flatpak
 
         # Desktop Utilities
         xfce.thunar
@@ -29,7 +28,6 @@
         bottles
         alacritty
         input-remapper
-        gnome.seahorse
 
         # Programming
         eclipses.eclipse-java
@@ -66,9 +64,12 @@
             onCalendar = "daily";
         };
         packages = [
-            "com.github.tchx84.Flatseal"
+            #"com.qq.QQ"
             "com.moonlight_stream.Moonlight"
             "com.toolstack.Folio"
+            "im.riot.Riot"
+            "im.fluffychat.Fluffychat"
+            "org.gnome.Fractal"
         ];
     };
 }

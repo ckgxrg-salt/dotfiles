@@ -32,7 +32,6 @@
         alacritty
         input-remapper
         lenovo-legion
-        gnome.seahorse
 
         # Appearance
         darkman

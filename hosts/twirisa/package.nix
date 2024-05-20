@@ -30,6 +30,7 @@
   environment.systemPackages = with pkgs; [
     # CLI Utils
     direnv
+    powertop
     # Libs
     jdk21
     wl-clipboard

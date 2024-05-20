@@ -22,7 +22,7 @@
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = "liquid";
     };
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
       "quiet"
       "plymouth.nolog"
@@ -34,6 +34,7 @@
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.ipv4.default_qdisc" = "cake";
+      "vm.laptop_mode" = 5;
     };
   };
 }

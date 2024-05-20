@@ -141,8 +141,11 @@
         };
     };
 
-    # SDDM Session Manager
+    # SDDM Session Manager & Gnome Keyring
     environment.systemPackages = [ pkgs.catppuccin-sddm-corners ];
+    security.pam.services.sddm.enableGnomeKeyring = true;
+    services.gnome.gnome-keyring.enable = true;
+    programs.seahorse.enable = true;
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.libsForQt5.sddm;

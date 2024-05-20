@@ -186,7 +186,7 @@
                         "gtk"
                     ];
                     "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
-                    #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+                    "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
                 };
             };
         };

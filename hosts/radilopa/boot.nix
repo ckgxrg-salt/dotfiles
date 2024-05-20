@@ -28,7 +28,7 @@
       install amdgpu /usr/bin/false
     '';
     # Use linux-zen kernel with Nvidia modules
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     extraModulePackages = with config.boot.kernelPackages; [ lenovo-legion-module nvidia_x11 ];
     initrd.kernelModules = [ "nvidia" ];
     supportedFilesystems = [ "btrfs" "ntfs" ];

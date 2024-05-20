@@ -115,8 +115,11 @@
         };
     };
 
-    # SDDM Login Manager
+    # SDDM Login Manager & Gnome Keyring
     environment.systemPackages = [ pkgs.sddm-chili-theme ];
+    security.pam.services.sddm.enableGnomeKeyring = true;
+    services.gnome.gnome-keyring.enable = true;
+    programs.seahorse.enable = true;
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.libsForQt5.sddm;
@@ -127,7 +130,17 @@
     # Polkit Authentication
     security.polkit.enable = true;
     # TLP the power saver
-    services.tlp.enable = true;
+    services.tlp = {
+        enable = true;
+        settings = {
+            BAY_POWEROFF_ON_BAT = 1;
+        };
+    };
+    powerManagement = {
+        enable = true;
+        powertop.enable = true;
+        cpuFreqGovernor = "ondemand";
+    };
     # Auto-Mount Backend
     services.udisks2.enable = true;
     # Nix-ld
