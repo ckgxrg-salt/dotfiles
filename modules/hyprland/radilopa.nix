@@ -111,7 +111,7 @@
                 "$mainMod, R, exec, $menu"
                 "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
-                "$mainMod, L, exec, hyprlock"
+                "$mainMod, L, exec, hyprlock --immediate"
                 "$mainMod, F, fullscreen,"
                 #"$mainMod, O, overview:toggle,"
                 # Volume and brightness controls

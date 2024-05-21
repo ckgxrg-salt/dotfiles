@@ -67,9 +67,7 @@
             #"com.qq.QQ"
             "com.moonlight_stream.Moonlight"
             "com.toolstack.Folio"
-            "im.riot.Riot"
             "im.fluffychat.Fluffychat"
-            "org.gnome.Fractal"
         ];
     };
 }

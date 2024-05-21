@@ -146,6 +146,7 @@
     security.pam.services.sddm.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
     programs.seahorse.enable = true;
+    security.pam.services.hyprlock = {};
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.libsForQt5.sddm;

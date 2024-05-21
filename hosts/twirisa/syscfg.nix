@@ -115,11 +115,12 @@
         };
     };
 
-    # SDDM Login Manager & Gnome Keyring
+    # SDDM Session Manager & Gnome Keyring
     environment.systemPackages = [ pkgs.sddm-chili-theme ];
     security.pam.services.sddm.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
     programs.seahorse.enable = true;
+    security.pam.services.hyprlock = {};
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.libsForQt5.sddm;
@@ -136,6 +137,7 @@
             BAY_POWEROFF_ON_BAT = 1;
         };
     };
+    # Violent Power Save
     powerManagement = {
         enable = true;
         powertop.enable = true;
