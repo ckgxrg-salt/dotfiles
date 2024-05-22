@@ -22,8 +22,13 @@
   };
 
   # Allow unfree and insecure packages
-  nixpkgs.config = {
-    allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      inputs.rust-overlay.overlays.default
+    ];
   };
 
   # System-wide packages
@@ -32,7 +37,6 @@
     direnv
     powertop
     # Libs
-    jdk21
     wl-clipboard
     # FHS Env
     inputs.nix-alien.packages.${system}.nix-alien

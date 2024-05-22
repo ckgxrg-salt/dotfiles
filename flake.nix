@@ -4,6 +4,9 @@
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # The Rust overlay
+    rust-overlay.url = "github:oxalica/rust-overlay";
+
     # Lanzaboote Secureboot
     lanzaboote = {
       url = "github:nix-community/lanzaboote";

@@ -9,6 +9,7 @@
     ../../modules/neovim
     ./naikunze.nix
     ./theme/firefly.nix
+    ../../modules/dev
   ];
 
   # Input Method

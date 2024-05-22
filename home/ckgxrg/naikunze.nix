@@ -29,14 +29,6 @@
         alacritty
         input-remapper
 
-        # Programming
-        eclipses.eclipse-java
-        jetbrains.rust-rover
-
-        # Appearance
-        darkman
-        timeshift
-
         # Applications
         qq
         bilibili
@@ -68,6 +60,7 @@
             "com.moonlight_stream.Moonlight"
             "com.toolstack.Folio"
             "im.fluffychat.Fluffychat"
+            "org.kde.kclock"
         ];
     };
 }

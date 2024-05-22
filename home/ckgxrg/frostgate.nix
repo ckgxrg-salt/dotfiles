@@ -33,10 +33,6 @@
         input-remapper
         lenovo-legion
 
-        # Appearance
-        darkman
-        timeshift
-
         # Games
         steam
         prismlauncher
