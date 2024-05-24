@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+# Options for Waybar
 {
   # Waybar the Wayland Bar
   programs.waybar = {

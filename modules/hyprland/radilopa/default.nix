@@ -1,4 +1,5 @@
 { config, pkgs, lib, inputs, ... }:
+# Options for Hyprland and XDG
 {
     imports = [
         ./accessories.nix

@@ -1,4 +1,5 @@
 { config, lib, ... }:
+# Options for some hypr* programs
 {
   # Hyprlock the screen-locker
   programs.hyprlock = {

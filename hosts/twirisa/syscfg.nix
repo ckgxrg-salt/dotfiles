@@ -1,4 +1,5 @@
 { pkgs, config, ... }:
+# System-wide settings for Twirisa
 {
     # My Name!
     networking.hostName = "Twirisa";

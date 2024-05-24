@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 # Home-manager configuration for Twirisa
 {
   # Include home modules
   imports = [
-    ../../modules/hyprland/twirisa.nix
+    ../../modules/hyprland/twirisa
     ../../modules/zsh
     ../../modules/utils
     ../../modules/neovim

@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+# Miscellaneous gadgets
 {
     # GNU Privacy Guard
     programs.gpg.enable = true;

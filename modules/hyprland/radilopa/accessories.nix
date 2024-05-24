@@ -1,4 +1,5 @@
 { config, pkgs, inputs, ... }:
+# Extra programs for Hyprland
 {
   imports = [
     ./waybar.nix

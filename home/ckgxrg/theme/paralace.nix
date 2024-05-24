@@ -71,6 +71,7 @@ in {
     env = HYPRCURSOR_SIZE,24
     env = XCURSOR_THEME,${cursor}
     env = XCURSOR_SIZE,24
+    env = ICON_THEME,${icon}
   '';
 
   home.activation = {

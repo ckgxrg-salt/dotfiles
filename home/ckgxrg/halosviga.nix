@@ -3,7 +3,7 @@
 {
   # Include home modules
   imports = [
-    ../../modules/hyprland/radilopa.nix
+    ../../modules/hyprland/radilopa
     ../../modules/zsh
     ../../modules/utils
     ../../modules/neovim

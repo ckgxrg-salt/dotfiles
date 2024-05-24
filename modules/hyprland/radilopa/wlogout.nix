@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+# Options for WLogout
 {
   # WLogout the Logout Menu
   systemd.user.services.wlogout = {

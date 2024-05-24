@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+# Sunshine streaming tool
 {
   services.sunshine = {
     enable = true;

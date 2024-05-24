@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, flatpak, ... }:
+{ config, ... }:
 {
   imports = [
     ./boot.nix

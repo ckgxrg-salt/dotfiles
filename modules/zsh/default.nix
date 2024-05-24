@@ -1,4 +1,5 @@
-{ pkgs, lib, config, ... }:
+{ config, ... }:
+# The last word in shells
 {
   programs.zsh = {
     enable = true;

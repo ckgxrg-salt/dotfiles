@@ -1,4 +1,5 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, ... }:
+# Podman configurations for containers
 {
   virtualisation.containers.enable = true;
   virtualisation.podman = {

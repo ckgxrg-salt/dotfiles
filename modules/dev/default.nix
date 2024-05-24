@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+# Tools for developing
 {
   # Gradle Build Tool
   programs.gradle = {

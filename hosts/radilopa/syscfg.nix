@@ -1,4 +1,5 @@
 { pkgs, config, lib, ... }:
+# System-wide settings for Radilopa
 {
     # My Name!
     networking.hostName = "Radilopa";

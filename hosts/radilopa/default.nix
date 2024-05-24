@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, flatpak, ... }:
+{ config, ... }:
 # Master configuration for Radilopa
 {
   imports = [
