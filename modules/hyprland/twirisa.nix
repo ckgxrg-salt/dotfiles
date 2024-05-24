@@ -41,6 +41,8 @@
             "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
+                _JAVA_AWT_WM_NONREPARENTING = 1;
+                WEBKIT_DISABLE_DMABUF_RENDERER = 1;
             };
             input = {
                 kb_layout = "us";

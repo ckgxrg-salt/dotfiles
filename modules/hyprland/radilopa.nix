@@ -44,6 +44,7 @@
                 __GLX_VENDOR_LIBRARY_NAME = "nvidia";
                 NVD_BACKEND = "direct";
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
+                _JAVA_AWT_WM_NONREPARENTING = 1;
             };
             input = {
                 kb_layout = "us";

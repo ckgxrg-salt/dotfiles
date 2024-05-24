@@ -61,6 +61,7 @@
             "com.toolstack.Folio"
             "im.fluffychat.Fluffychat"
             "org.kde.kclock"
+            "com.github.flxzt.rnote"
         ];
     };
 }
