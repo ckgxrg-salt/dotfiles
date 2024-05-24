@@ -24,7 +24,7 @@
         gamescope
 
         # Desktop Utilities
-        xfce.thunar
+        dolphin
         firefox
         elisa
         okular
@@ -38,7 +38,6 @@
         prismlauncher
 
         # Applications
-        qq
         bilibili
         gnome.geary
         libreoffice
@@ -65,6 +64,7 @@
         packages = [
             "com.github.tchx84.Flatseal"
             "com.toolstack.Folio"
+            "com.qq.QQ"
         ];
   };
 }

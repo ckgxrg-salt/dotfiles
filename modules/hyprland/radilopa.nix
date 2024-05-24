@@ -11,12 +11,15 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            #inputs.hy3.packages.${pkgs.system}.hy3
+            inputs.hy3.packages.${pkgs.system}.hy3
             #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
             #inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
         ];
         settings = {
-            monitor=",highres,auto,1.25";
+            monitor = [
+                ",highres, auto, 1.25"
+                "Unknown-1, disable"
+            ];
             plugin = {
             };
             exec-once = [
@@ -35,7 +38,7 @@
                 "float,class:(bilibili),initialTitle:(undefined)"
             ];
             "$terminal" = "alacritty";
-            "$fileManager" = "thunar";
+            "$fileManager" = "dolphin";
             "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
                 LIBVA_DRIVER_NAME = "nvidia";
@@ -44,7 +47,6 @@
                 __GLX_VENDOR_LIBRARY_NAME = "nvidia";
                 NVD_BACKEND = "direct";
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
-                _JAVA_AWT_WM_NONREPARENTING = 1;
             };
             input = {
                 kb_layout = "us";

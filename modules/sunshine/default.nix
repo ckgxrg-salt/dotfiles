@@ -1,10 +1,10 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   services.sunshine = {
     enable = true;
     openFirewall = true;
     capSysAdmin = true;
-    autoStart = true;
+    autoStart = false;
     settings = {
       sunshine_name = "Radilopa";
     };
@@ -19,5 +19,6 @@
   '';
   networking.wg-quick.interfaces = {
     iof.configFile = "/etc/wireguard/iof.conf";
+    iof.autostart = false;
   };
 }
