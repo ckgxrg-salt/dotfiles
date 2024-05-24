@@ -1,18 +1,23 @@
 {pkgs, ...}:
 {
-  environment.systemPackages = [ pkgs.sunshine ];
-  users.users.ckgxrg.extraGroups = [ "input" ];
-  networking.firewall = {
-    allowedTCPPorts = [ 47984 47989 47990 48010 ];
-    allowedUDPPortRanges = [
-      { from = 47998; to = 48000; }
-      { from = 8000; to = 8010; }
-    ];
+  services.sunshine = {
+    enable = true;
+    openFirewall = true;
+    capSysAdmin = true;
+    autoStart = true;
+    settings = {
+      sunshine_name = "Radilopa";
+    };
   };
-  security.wrappers.sunshine = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_sys_admin+p";
-    source = "${pkgs.sunshine}/bin/sunshine";
- };
+  networking.firewall = {
+    allowedUDPPorts = [ 51820 ];
+  };
+  users.users.ckgxrg.extraGroups = [ "input" ];
+  services.udev.extraRules = ''
+    Sunshine
+    KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+  '';
+  networking.wg-quick.interfaces = {
+    iof.configFile = "/etc/wireguard/iof.conf";
+  };
 }

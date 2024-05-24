@@ -40,6 +40,7 @@
     # BBR Congestion Algorithm
     kernelModules = [
       "tcp_bbr"
+      "uinput"
     ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
