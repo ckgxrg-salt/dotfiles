@@ -110,29 +110,27 @@
       * {
         font-family: Maple Mono;
         font-size: 14px;
-        min-height: 20px;
+        min-height: 16px;
         opacity: 10;
       }
       window#waybar {
 	      background: transparent;
       }
       .modules-right {
-        color: #2e3440;
+        color: #2a292d;
       }
       #image.launcher {
         padding-left: 5px;
         padding-right: 5px;
-        background-color: #4c566a;
+        background-color: #7473af;
         border: solid;
-        border-radius: 15px;
-        border-color: #434c5e;
+        border-color: #2a292d;
         border-width: 2px;
       }
       #workspaces {
-        background-color: #4c566a;
+        background-color: #7473af;
         border: solid;
-        border-radius: 10px;
-        border-color: #434c5e;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
@@ -140,21 +138,19 @@
       #workspaces button {
         min-width: 50px;
         border: none;
-        border-radius: 10px;
         margin-left: 5px;
         margin-right: 5px;
-        background-color: #5e81ac;
+        background-color: #46754e;
       }
       #workspaces button.active {
         border: none;
-        background-color: #8fbcbb;
+        background-color: #80af8c;
       }
       #gamemode.running {
         min-width: 72px;
-        background-color: #d08770;
+        background-color: #b35355;
         border: dashed;
-        border-radius: 20px;
-        border-color: #bf616a;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
@@ -166,67 +162,60 @@
         padding: 0px 0px 0px 0px;
       }
       #mpris.playing {
-        background-color: #81a1c1;
+        background-color: #80afbc;
         border: solid;
-        border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
       }
       #mpris.paused {
-        background-color: #5e81ac;
+        background-color: 46754e;
         border: solid;
-        border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
       }
       #network {
         min-width: 72px;
-        background-color: #d08770;
+        background-color: #7d605e;
         border: solid;
-        border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
       }
       #clock {
-        background-color: #ebcb8b;
+        background-color: #7473af;
         border: solid;
-        border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
       }
       #battery {
-        background-color: #a3be8c;
+        background-color: #454074;
         border: solid;
-        border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
       }
       #tray {
         padding-right: 0px;
-        background-color: #b48ead;
+        background-color: #2e4d31;
         border: solid;
-        border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #2a292d;
         border-width: 2px;
         padding-left: 5px;
         padding-right: 5px;
       }
       #pulseaudio-slider {
         min-width: 96px;
-        background-color: #bf616a;
+        background-color: #80af8c;
         border: solid;
-        border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #2a292d;
         border-width: 2px;
       }
       #pulseaudio-slider slider {
@@ -234,20 +223,18 @@
         min-width: 15px;
         opacity: 50;
         border: solid;
-        border-radius: 5px;
       }
       #pulseaudio-slider trough {
         min-height: 20px;
         padding-left: 7px;
         padding-right: 7px;
-        border-radius: 5px;
-        background-color: #5e81ac;
+        background-color: #454074;
       }
       #pulseaudio-slider highlight {
         border-radius: 5px;
         margin-left: -7px;
         margin-right: -7px;
-        background-color: #8fbcbb;
+        background-color: #7473af;
       }
     '';
   };

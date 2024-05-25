@@ -30,7 +30,6 @@
         input-remapper
 
         # Applications
-        qq
         bilibili
         audacity
         prismlauncher
@@ -49,14 +48,14 @@
     services.flatpak = {
         enable = true;
         remotes = [
-            { name = "flathub"; location = "https://mirror.sjtu.edu.cn/flathub";}
+            { name = "flathub"; location = "https://mirror.sjtu.edu.cn/flathub"; }
         ];
         update.auto = {
             enable = true;
             onCalendar = "daily";
         };
         packages = [
-            #"com.qq.QQ"
+            "com.qq.QQ"
             "com.moonlight_stream.Moonlight"
             "com.toolstack.Folio"
             "im.fluffychat.Fluffychat"

@@ -2,7 +2,7 @@
 # Options for WLogout
 {
   # WLogout the Logout Menu
-  systemd.user.services.wlogout = {
+  systemd.user.services."wlogout" = {
     Unit = {
       Description = "WLogout Logout Screen";
       Requisite = [ "graphical-session.target" ];

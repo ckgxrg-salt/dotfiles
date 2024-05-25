@@ -58,16 +58,15 @@
                 sensitivity = 0;
             };
             general = {
-                gaps_in = 5;
-                gaps_out = 20;
-                border_size = 2;
-                "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-                "col.inactive_border" = "rgba(595959aa)";
+                gaps_in = 0;
+                gaps_out = 0;
+                border_size = 0;
+                "col.active_border" = "rgba(7473afee) rgba(80af8cee) 45deg";
+                "col.inactive_border" = "rgba(454074aa)";
                 layout = "dwindle";
                 allow_tearing = false;
             };
             decoration = {
-                rounding = 10;
                 blur = {
                     enabled = true;
                     size = 3;
@@ -77,7 +76,7 @@
                 drop_shadow = true;
                 shadow_range = 4;
                 shadow_render_power = 3;
-                "col.shadow" = "rgba(1a1a1aee)";
+                "col.shadow" = "rgba(553635ee)";
             };
             animations = {
                 enabled = true;

@@ -7,8 +7,8 @@ let
   qtStyle = "MateriaDark";
   qtPkg = pkgs.materia-kde-theme;
 
-  cursor = "Afterglow-Recolored-Dracula-Cyan";
-  cursorPkg = pkgs.afterglow-cursors-recolored;
+  cursor = "Vimix-cursors";
+  cursorPkg = pkgs.vimix-cursor-theme;
 
   icon = "Tela-blue-dark";
   iconPkg = pkgs.tela-icon-theme;

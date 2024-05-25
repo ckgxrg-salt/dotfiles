@@ -8,7 +8,7 @@
     ../../modules/utils
     ../../modules/neovim
     ./naikunze.nix
-    ./theme/firefly.nix
+    ../../modules/theme/firefly.nix
     ../../modules/dev
   ];
 
