@@ -38,6 +38,9 @@
                 "float,class:(org.kde.polkit-kde-authentication-agent-1)"
                 "float,class:(bilibili),initialTitle:(undefined)"
             ];
+            workspace = [
+                "special:browser, on-created-empty:firefox"
+            ];
             "$terminal" = "alacritty";
             "$fileManager" = "dolphin";
             "$menu" = "rofi -show drun";
@@ -58,11 +61,11 @@
                 sensitivity = 0;
             };
             general = {
-                gaps_in = 0;
-                gaps_out = 0;
-                border_size = 0;
-                "col.active_border" = "rgba(7473afee) rgba(80af8cee) 45deg";
-                "col.inactive_border" = "rgba(454074aa)";
+                gaps_in = 2;
+                gaps_out = 2;
+                border_size = 2;
+                "col.active_border" = "rgba(80af8cee) rgba(7473afee) 45deg";
+                "col.inactive_border" = "rgba(4a4949aa)";
                 layout = "dwindle";
                 allow_tearing = false;
             };
@@ -73,10 +76,7 @@
                     passes = 1;
                     vibrancy = 0.1696;
                 };
-                drop_shadow = true;
-                shadow_range = 4;
-                shadow_render_power = 3;
-                "col.shadow" = "rgba(553635ee)";
+                drop_shadow = false;
             };
             animations = {
                 enabled = true;
@@ -151,8 +151,8 @@
                 "$mainMod SHIFT, 9, movetoworkspace, 9"
                 "$mainMod SHIFT, 0, movetoworkspace, 10"
                 # Example special workspace (scratchpad)
-                "$mainMod, S, togglespecialworkspace, magic"
-                "$mainMod SHIFT, S, movetoworkspace, special:magic"
+                "$mainMod, S, togglespecialworkspace, browser"
+                "$mainMod SHIFT, S, movetoworkspace, special:browser"
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"

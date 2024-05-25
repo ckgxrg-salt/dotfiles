@@ -24,7 +24,7 @@
         gamescope
 
         # Desktop Utilities
-        dolphin
+        libsForQt5.dolphin
         firefox
         elisa
         okular

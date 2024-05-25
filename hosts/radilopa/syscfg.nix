@@ -95,11 +95,6 @@
             noto-fonts-emoji
             source-han-sans
             source-han-serif
-            source-code-pro
-            hack-font
-            jetbrains-mono
-            wqy_zenhei
-            wqy_microhei
             powerline-fonts
             font-awesome
             nerdfonts
@@ -143,7 +138,7 @@
     };
 
     # SDDM Session Manager & Gnome Keyring
-    environment.systemPackages = [ pkgs.catppuccin-sddm-corners ];
+    environment.systemPackages = [ (pkgs.callPackage ../../packages/sugar-candy-sddm.nix {}) ];
     security.pam.services.sddm.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
     programs.seahorse.enable = true;

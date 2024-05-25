@@ -52,12 +52,12 @@
     settings = {
       listener = [
         {
-          timeout = 180;
+          timeout = 360;
           on-timeout = "hyprlock";
           on-resume = "notify-send \"Resumed from Idle\"";
         }
         {
-          timeout = 300;
+          timeout = 900;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";  
         }

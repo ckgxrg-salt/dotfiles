@@ -7,11 +7,11 @@ let
   qtStyle = "MateriaDark";
   qtPkg = pkgs.materia-kde-theme;
 
-  cursor = "Vimix-cursors";
+  cursor = "Vimix-Cursors";
   cursorPkg = pkgs.vimix-cursor-theme;
 
-  icon = "Tela-blue-dark";
-  iconPkg = pkgs.tela-icon-theme;
+  icon = "Vivid-Dark-Icons";
+  iconPkg = (pkgs.callPackage ../../packages/vivid-icons.nix {});
 
   customFont = "Maple Mono";
 in {
@@ -37,20 +37,6 @@ in {
   };
 
   # Qt Style
-  home.packages = with pkgs; [
-    kdePackages.qtbase
-    kdePackages.qttools
-    kdePackages.qtwayland
-    kdePackages.qtwebengine
-    kdePackages.qtquick3d
-    kdePackages.qt5compat
-    kdePackages.qtsvg
-    kdePackages.qt6gtk2
-    libsForQt5.qt5.qtbase
-    libsForQt5.qt5.qtquickcontrols
-    libsForQt5.qt5.qtgraphicaleffects
-    hyprcursor
-  ];
   qt = {
     enable = true;
     platformTheme.name = "qtct";
@@ -66,6 +52,7 @@ in {
   };
 
   # Hyprland Managed Cursor
+  home.packages = with pkgs; [ hyprcursor ];
   wayland.windowManager.hyprland.extraConfig = ''
     env = HYPRCURSOR_THEME,${cursor}
     env = HYPRCURSOR_SIZE,24
@@ -76,6 +63,8 @@ in {
 
   home.activation = {
     fixFlatpakThemes = ''
+      run rm -rf /home/ckgxrg/.icons/*
+      run rm -rf /home/ckgxrg/.themes/*
       run ln -sfT ${iconPkg}/share/icons/${icon} /home/ckgxrg/.icons/${icon}
       run ln -sfT ${cursorPkg}/share/icons/${cursor} /home/ckgxrg/.icons/${cursor}
       run ln -sfT ${gtkPkg}/share/themes/${gtkTheme} /home/ckgxrg/.themes/${gtkTheme}

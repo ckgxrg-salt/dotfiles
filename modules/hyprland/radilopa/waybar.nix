@@ -8,8 +8,8 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 20;
-        spacing = 5;
+        height = 16;
+        spacing = 0;
         modules-left = [ "image#launcher" "hyprland/workspaces" ];
         modules-center = [ "gamemode" ];
         modules-right = [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
@@ -110,14 +110,12 @@
       * {
         font-family: Maple Mono;
         font-size: 14px;
+        color: #d8dee9;
         min-height: 16px;
         opacity: 10;
       }
       window#waybar {
-	      background: transparent;
-      }
-      .modules-right {
-        color: #2a292d;
+	      background-color: rgba(17, 49, 79, 0.5);
       }
       #image.launcher {
         padding-left: 5px;
@@ -138,8 +136,9 @@
       #workspaces button {
         min-width: 50px;
         border: none;
-        margin-left: 5px;
-        margin-right: 5px;
+        border-radius: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
         background-color: #46754e;
       }
       #workspaces button.active {
@@ -170,7 +169,7 @@
         padding-right: 5px;
       }
       #mpris.paused {
-        background-color: 46754e;
+        background-color: #46754e;
         border: solid;
         border-color: #2a292d;
         border-width: 2px;
@@ -213,7 +212,7 @@
       }
       #pulseaudio-slider {
         min-width: 96px;
-        background-color: #80af8c;
+        background-color: #454074;
         border: solid;
         border-color: #2a292d;
         border-width: 2px;
@@ -221,6 +220,7 @@
       #pulseaudio-slider slider {
         min-height: 24px;
         min-width: 15px;
+        border-radius: 0px;
         opacity: 50;
         border: solid;
       }
@@ -228,10 +228,9 @@
         min-height: 20px;
         padding-left: 7px;
         padding-right: 7px;
-        background-color: #454074;
+        background-color: #80af8c;
       }
       #pulseaudio-slider highlight {
-        border-radius: 5px;
         margin-left: -7px;
         margin-right: -7px;
         background-color: #7473af;

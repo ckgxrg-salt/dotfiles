@@ -69,11 +69,6 @@
             noto-fonts-emoji
             source-han-sans
             source-han-serif
-            source-code-pro
-            hack-font
-            jetbrains-mono
-            wqy_zenhei
-            wqy_microhei
             powerline-fonts
             font-awesome
             nerdfonts
