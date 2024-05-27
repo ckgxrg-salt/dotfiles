@@ -10,7 +10,7 @@
         position = "top";
         height = 16;
         spacing = 0;
-        modules-left = [ "image#launcher" "hyprland/workspaces" ];
+        modules-left = [ "image#launcher" "hyprland/workspaces" "idle_inhibitor" ];
         modules-center = [ "gamemode" ];
         modules-right = [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
 
@@ -19,6 +19,15 @@
           on-click = "rofi -show drun";
           tooltip = "Show Rofi Menu";
           size = 32;
+        };
+        "idle_inhibitor" = {
+          format = "{icon}";
+          tooltip-format-activated = "Inhibited Hypridle";
+          tooltip-format-deactivated = "This widget says Zzz, pretending to be sleeping";
+          format-icons = {
+            activated = " No Idle";
+            deactivated = "󰒲";
+          };
         };
         "hyprland/workspaces" = {
           format = "{name}";
@@ -125,13 +134,29 @@
         border-color: #2a292d;
         border-width: 2px;
       }
+      #idle_inhibitor.deactivated {
+        background-color: #7473af;
+        border: solid;
+        border-color: #2a292d;
+        border-width: 2px;
+        padding-left: 7px;
+        padding-right: 7px;
+      }
+      #idle_inhibitor.activated {
+        background-color: #7d605e;
+        border: solid;
+        border-color: #b35355;
+        border-width: 5px;
+        padding-left: 7px;
+        padding-right: 7px;
+      }
       #workspaces {
         background-color: #7473af;
         border: solid;
         border-color: #2a292d;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 0px;
+        padding-right: 0px;
       }
       #workspaces button {
         min-width: 50px;

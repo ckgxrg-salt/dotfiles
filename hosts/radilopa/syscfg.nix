@@ -147,7 +147,7 @@
         enable = true;
         package = pkgs.libsForQt5.sddm;
         wayland.enable = true;
-        theme = "catppuccin-sddm-corners";
+        theme = "sugar-candy";
     };
 
     # Polkit Authentication
