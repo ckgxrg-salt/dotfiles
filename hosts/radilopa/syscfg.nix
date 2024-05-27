@@ -90,35 +90,29 @@
     fonts = {
         fontDir.enable = true;
         packages = with pkgs; [
-            noto-fonts
-            noto-fonts-cjk
             noto-fonts-emoji
-            source-han-sans
-            source-han-serif
+            noto-fonts-cjk
+            noto-fonts-cjk-sans
+            noto-fonts-cjk-serif
             powerline-fonts
-            font-awesome
             nerdfonts
             maple-mono
-            maple-mono-NF
+            maple-mono-SC-NF
         ];
         fontconfig = {
             defaultFonts = {
                 emoji = [ "Noto Color Emoji" ];
                 monospace = [
-                    "Maple Mono"
+                    "Maple Mono SC"
                     "Noto Sans Mono CJK SC"
-                    "Sarasa Mono SC"
-                    "DejaVu Sans Mono"
                 ];
                 sansSerif = [
-                    "Maple Mono"
-                    "Source Han Sans SC"
-                    "DejaVu Sans"
+                    "Maple Mono SC"
+                    "Noto Sans CJK SC"
                 ];
                 serif = [
-                    "Maple Mono"
-                    "Source Han Serif SC"
-                    "DejaVu Serif"
+                    "Maple Mono SC"
+                    "Noto Serif CJK SC"
                 ];
             };
         };
