@@ -14,6 +14,7 @@ stdenv.mkDerivation {
     rev = "2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f";
     hash = "sha256-XggFVsEXLYklrfy1ElkIp9fkTw4wvXbyVkaVCZq4ZLU=";
   };
+  nativeBuildInputs = [ pkgs.jdupes ];
   propagatedBuildInputs = [
     qtgraphicaleffects
     qtquickcontrols2
@@ -22,6 +23,7 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/share/sddm/themes/sugar-candy
     mv * $out/share/sddm/themes/sugar-candy/
+    jdupes --quiet --link-soft --recurse $out/share
   '';
   postFixup = ''
     mkdir -p $out/nix-support

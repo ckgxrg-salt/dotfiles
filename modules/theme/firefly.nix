@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 # Define theme names and pkgs here
 let
-  gtkTheme = "Nordic";
-  gtkPkg = pkgs.nordic;
+  gtkTheme = "Otis";
+  gtkPkg = (pkgs.callPackage ../../packages/otis-gtk.nix {});
 
-  qtStyle = "Nordic";
-  qtPkg = pkgs.nordic;
+  qtStyle = "Edna";
+  qtPkg = (pkgs.callPackage ../../packages/edna-kvantum.nix {});
 
   cursor = "graphite-dark-nord";
   cursorPkg = pkgs.graphite-cursors;
