@@ -23,7 +23,6 @@
         # Desktop Utilities
         xfce.thunar
         firefox
-        elisa
         okular
         bottles
         alacritty
@@ -60,6 +59,7 @@
             "com.toolstack.Folio"
             "im.fluffychat.Fluffychat"
             "org.kde.kclock"
+            "org.kde.elisa"
             "com.github.flxzt.rnote"
         ];
     };

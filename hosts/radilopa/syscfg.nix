@@ -96,22 +96,23 @@
             noto-fonts-cjk-serif
             powerline-fonts
             nerdfonts
+            wqy_zenhei
+            wqy_microhei
             maple-mono
-            maple-mono-SC-NF
         ];
         fontconfig = {
             defaultFonts = {
                 emoji = [ "Noto Color Emoji" ];
                 monospace = [
-                    "Maple Mono SC"
+                    "Maple Mono"
                     "Noto Sans Mono CJK SC"
                 ];
                 sansSerif = [
-                    "Maple Mono SC"
+                    "Maple Mono"
                     "Noto Sans CJK SC"
                 ];
                 serif = [
-                    "Maple Mono SC"
+                    "Maple Mono"
                     "Noto Serif CJK SC"
                 ];
             };

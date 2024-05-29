@@ -26,7 +26,6 @@
         # Desktop Utilities
         libsForQt5.dolphin
         firefox
-        elisa
         okular
         bottles
         alacritty
@@ -65,6 +64,7 @@
             "com.github.tchx84.Flatseal"
             "com.toolstack.Folio"
             "com.qq.QQ"
+            "org.kde.elisa"
         ];
   };
 }
