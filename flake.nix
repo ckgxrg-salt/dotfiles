@@ -61,6 +61,24 @@
       ];
     };
 
+    # Cshelipix
+    nixosConfigurations.Cshelipix = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/cshelipix
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.ckgxrg.imports = [
+            flatpaks.homeManagerModules.nix-flatpak
+            ./home/ckgxrg/esbles.nix
+          ];
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
+      ];
+    };
+
     #Radilopa
     nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };

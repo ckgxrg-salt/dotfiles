@@ -12,14 +12,12 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            inputs.hy3.packages.${pkgs.system}.hy3
             #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-            #inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
         ];
         settings = {
-            monitor = [
-                ",highres, auto, 1.25"
-                "Unknown-1, disable"
+            monitor= [
+                "eDP-1, highres, 0x0, 1.25, transform, 2"
+                "eDP-2, highres, 0x1800, 1.25"
             ];
             plugin = {
             };
@@ -36,21 +34,19 @@
             ];
             windowrulev2 = [
                 "float,class:(org.kde.polkit-kde-authentication-agent-1)"
-                "float,class:(bilibili),initialTitle:(undefined)"
-            ];
-            workspace = [
-                "special:browser, on-created-empty:firefox"
+                "center,class:(org.kde.polkit-kde-authentication-agent-1)"
+                "float,class:(bilibili)"
+                "float,class:(QQ)"
+                "center,class:(QQ)"
+                "size 1280 900,class:(QQ)"
             ];
             "$terminal" = "alacritty";
-            "$fileManager" = "dolphin";
+            "$fileManager" = "thunar";
             "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
-                LIBVA_DRIVER_NAME = "nvidia";
-                XDG_SESSION_TYPE = "wayland";
-                GBM_BACKEND = "nvidia-drm";
-                __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-                NVD_BACKEND = "direct";
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
+                _JAVA_AWT_WM_NONREPARENTING = 1;
+                WEBKIT_DISABLE_DMABUF_RENDERER = 1;
             };
             input = {
                 kb_layout = "us";
@@ -61,22 +57,26 @@
                 sensitivity = 0;
             };
             general = {
-                gaps_in = 2;
-                gaps_out = 2;
+                gaps_in = 5;
+                gaps_out = 20;
                 border_size = 2;
-                "col.active_border" = "rgba(80af8cee) rgba(7473afee) 45deg";
-                "col.inactive_border" = "rgba(4a4949aa)";
+                "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+                "col.inactive_border" = "rgba(595959aa)";
                 layout = "dwindle";
                 allow_tearing = false;
             };
             decoration = {
+                rounding = 10;
                 blur = {
                     enabled = true;
                     size = 3;
                     passes = 1;
                     vibrancy = 0.1696;
                 };
-                drop_shadow = false;
+                drop_shadow = true;
+                shadow_range = 4;
+                shadow_render_power = 3;
+                "col.shadow" = "rgba(1a1a1aee)";
             };
             animations = {
                 enabled = true;
@@ -116,7 +116,7 @@
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock --immediate"
                 "$mainMod, F, fullscreen,"
-                #"$mainMod, O, overview:toggle,"
+                #"$mainMod, O, hyprexpo:expo, toggle"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"
@@ -151,8 +151,8 @@
                 "$mainMod SHIFT, 9, movetoworkspace, 9"
                 "$mainMod SHIFT, 0, movetoworkspace, 10"
                 # Example special workspace (scratchpad)
-                "$mainMod, S, togglespecialworkspace, browser"
-                "$mainMod SHIFT, S, movetoworkspace, special:browser"
+                "$mainMod, S, togglespecialworkspace, magic"
+                "$mainMod SHIFT, S, movetoworkspace, special:magic"
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"
@@ -172,7 +172,7 @@
         mimeApps = {
             enable = true;
             defaultApplications = {
-                "text/plain" = "codium.desktop";
+                "text/plain" = "nvim.desktop";
                 "application/pdf" = "org.kde.okular.desktop";
             };
         };
@@ -187,7 +187,10 @@
                     default = [ "wlr" ];
                 };
                 hyprland = {
-                    default = [ "hyprland" ];
+                    default = [
+                        "hyprland"
+                        "gtk"
+                    ];
                     "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
                     "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
                 };
@@ -197,6 +200,7 @@
             enable = true;
             createDirectories = true;
         };
+        # Override some desktop entries
         desktopEntries = {
             "io.github.msojocs.bilibili" = {
                 name = "Bilibili";
@@ -205,13 +209,6 @@
                 exec = "bilibili --ozone-platform-hint=auto";
                 terminal = false;
                 categories = [ "Network" "AudioVideo" ];
-            };
-            "nvitop" = {
-                name = "Nvitop";
-                genericName = "Nvidia GPU Monitor";
-                icon = "Alacritty";
-                exec = "nvitop";
-                terminal = true;
             };
         };
     };

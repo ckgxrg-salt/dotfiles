@@ -6,16 +6,18 @@
     loader = {
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
-      grub = {
-        forceInstall = true;
-        enable = true;
-        efiSupport = true;
-        device = "/dev/disk/by-id/nvme-SAMSUNG_MZALQ512HALU-000L2_S4UKNE0MA39584";
-        theme = "${pkgs.sleek-grub-theme.override {
-          withStyle = "dark";
-          withBanner = "Twirisa";
-        }}";
-      };
+      systemd-boot.enable = true;
+      #grub = {
+      #  forceInstall = true;
+      #  enable = true;
+      #  efiSupport = true;
+      #  device = "/dev/disk/by-id/nvme-SAMSUNG_MZALQ512HALU-000L2_S4UKNE0MA39584";
+      #  theme = "${pkgs.sleek-grub-theme.override {
+      #    withStyle = "dark";
+      #    withBanner = "Twirisa";
+      #  }}";
+      #};
+      
     };
     plymouth = {
       enable = true;

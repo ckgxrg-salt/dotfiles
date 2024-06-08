@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
-# Home-manager configuration for Twirisa
+# Home-manager configuration for Cshelipix
 {
   # Include home modules
   imports = [
-    ../../modules/hyprland/twirisa
+    ../../modules/hyprland/cshelipix
     ../../modules/zsh
     ../../modules/utils
     ../../modules/neovim

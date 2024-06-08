@@ -1,5 +1,4 @@
 { config, ... }:
-# Master configuration for Radilopa
 {
   imports = [
     ./boot.nix
@@ -7,8 +6,7 @@
     ./syscfg.nix
     ./package.nix
     ../../modules/podman
-    ../../modules/sunshine
   ];
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

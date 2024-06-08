@@ -1,8 +1,8 @@
 { pkgs, config, ... }:
-# System-wide settings for Twirisa
+# System-wide settings for Cshelipix
 {
     # My Name!
-    networking.hostName = "Twirisa";
+    networking.hostName = "Cshelipix";
 
     # AppArmor MAC
     security.apparmor = {
