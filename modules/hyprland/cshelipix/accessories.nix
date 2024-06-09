@@ -15,6 +15,7 @@
     libnotify
     libsForQt5.polkit-kde-agent
     inputs.hyprswitch.packages.${pkgs.system}.default
+    nwg-drawer
   ];
 
   # Mako the Notification Daemon
@@ -30,15 +31,6 @@
     iconPath = "/run/current-system/sw/share/icons/hicolor:/run/current-system/sw/share/icons/pixmaps";
     maxIconSize = 64;
     maxVisible = 3;
-  };
-
-  # Rofi the Application Launcher
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-    location = "top-left";
-    font = "Maple Mono 14";
-    theme = "material";
   };
 
   # UDiskie the Auto-Mount Manager

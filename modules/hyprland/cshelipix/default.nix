@@ -30,6 +30,7 @@
                 "waybar"
                 "fcitx5"
                 "udiskie &"
+                "nwg-drawer -r"
                 "notify-send 'Welcome to Hyprland'"
             ];
             windowrulev2 = [
@@ -41,8 +42,8 @@
                 "size 1280 900,class:(QQ)"
             ];
             "$terminal" = "alacritty";
-            "$fileManager" = "thunar";
-            "$menu" = "rofi -show drun";
+            "$fileManager" = "dolphin";
+            "$menu" = "nwg-drawer";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
                 _JAVA_AWT_WM_NONREPARENTING = 1;
@@ -57,16 +58,15 @@
                 sensitivity = 0;
             };
             general = {
-                gaps_in = 5;
-                gaps_out = 20;
-                border_size = 2;
+                gaps_in = 0;
+                gaps_out = 0;
+                border_size = 0;
                 "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
                 "col.inactive_border" = "rgba(595959aa)";
                 layout = "dwindle";
                 allow_tearing = false;
             };
             decoration = {
-                rounding = 10;
                 blur = {
                     enabled = true;
                     size = 3;
@@ -98,7 +98,8 @@
                 new_is_master = true;
             };
             gestures = {
-                workspace_swipe = false;
+                workspace_swipe = true;
+                workspace_swipe_cancel_ratio = 0.15;
             };
             misc = {
                 force_default_wallpaper = -1;

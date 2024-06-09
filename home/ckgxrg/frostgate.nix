@@ -24,7 +24,7 @@
         gamescope
 
         # Desktop Utilities
-        libsForQt5.dolphin
+        dolphin
         firefox
         okular
         bottles
@@ -40,9 +40,6 @@
         bilibili
         gnome.geary
         libreoffice
-        kdePackages.sweeper
-        clamtk
-        clamav
         tor
         tor-browser
         vscodium

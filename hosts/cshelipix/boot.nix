@@ -7,17 +7,6 @@
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
       systemd-boot.enable = true;
-      #grub = {
-      #  forceInstall = true;
-      #  enable = true;
-      #  efiSupport = true;
-      #  device = "/dev/disk/by-id/nvme-SAMSUNG_MZALQ512HALU-000L2_S4UKNE0MA39584";
-      #  theme = "${pkgs.sleek-grub-theme.override {
-      #    withStyle = "dark";
-      #    withBanner = "Twirisa";
-      #  }}";
-      #};
-      
     };
     plymouth = {
       enable = true;
@@ -28,6 +17,9 @@
     kernelParams = [
       "quiet"
       "plymouth.nolog"
+      "reboot=pci"
+      "acpi=noirq"
+      "pci=biosirq"
     ];
     # BBR Congestion Algorithm
     kernelModules = [
@@ -38,5 +30,11 @@
       "net.ipv4.default_qdisc" = "cake";
       "vm.laptop_mode" = 5;
     };
+    # Workaround for sound
+    extraModprobeConfig = ''
+      options snd_sof_hda_common hda_model=alc287-yoga9-bass-spk-pin
+      options snd slots=snd-hda-intel
+      options snd-sof-intel-hda-common hda_model=alc287-yoga9-bass-spk-pin
+    '';
   };
 }

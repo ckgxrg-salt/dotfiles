@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-    # Home-manager packages for Twirisa
+    # Home-manager packages for Cshelipix
     home.packages = with pkgs; [
         # Terminal Utilities
         neofetch
@@ -19,7 +19,7 @@
         playerctl
 
         # Desktop Utilities
-        xfce.thunar
+        libsForQt5.dolphin
         firefox
         okular
         bottles

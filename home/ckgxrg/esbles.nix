@@ -7,8 +7,8 @@
     ../../modules/zsh
     ../../modules/utils
     ../../modules/neovim
-    ./naikunze.nix
-    ../../modules/theme/firefly.nix
+    ./bakage.nix
+    ../../modules/theme/gedicine.nix
     ../../modules/dev
   ];
 

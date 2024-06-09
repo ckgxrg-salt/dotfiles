@@ -4,6 +4,8 @@
     # My Name!
     networking.hostName = "Cshelipix";
 
+    services.fwupd.enable = true;
+
     # AppArmor MAC
     security.apparmor = {
         enable = true;

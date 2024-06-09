@@ -7,8 +7,8 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
-        height = 20;
+        position = "right";
+        width = 20;
         spacing = 5;
         modules-left = [ "image#launcher" "hyprland/workspaces" ];
         modules-center = [ "gamemode" ];
@@ -16,8 +16,8 @@
 
         "image#launcher" = {
           path = "${config.home.homeDirectory}/.config/waybar/icon.png";
-          on-click = "rofi -show drun";
-          tooltip = "Show Rofi Menu";
+          on-click = "nwg-drawer";
+          tooltip = "Show Application Drawer";
           size = 32;
         };
         "hyprland/workspaces" = {
@@ -26,8 +26,8 @@
           sort-by = "id";
         };
         "mpris" = {
-	        format = "{player_icon} {title}";
-	        format-paused = "{status_icon} <i>{title}</i>";
+	        format = "{player_icon}";
+	        format-paused = "{status_icon}";
           title-len = 16;
           ellipsis = "...";
           on-click-right = "next";
@@ -43,8 +43,8 @@
         "gamemode" = {
           glyph = "";
           hide-not-running = true;
-          format = "{glyph} |Gamemode Active| {glyph}";
-          format-alt = "{glyph} |Gamemode Active| {glyph}";
+          format = "Gamemode\nActive";
+          format-alt = "{glyph}";
         };
         "battery" = {
           interval = 10;
@@ -55,8 +55,8 @@
             "critical" = 10;
           };
           format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}% | {time}  󱧥";
-          format-plugged = "󰂄{capacity}% | {time}  󱧥";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰂄";
           format-ful = "󱟢 Full";
           format-good = "{icon} {capacity}%";
           format-warning = "󰂃 {capacity}%";
@@ -66,14 +66,14 @@
         "pulseaudio/slider" = {
           min = 0;
           max = 100;
-          orientation = "horizontal";
+          orientation = "vertical";
         };
         "network" = {
           interval = 1;
-          format-wifi = "  {essid} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
-          format-ethernet = "󰈀  Connected";
-          format-linked = "󰌷  Linked";
-          format-disconnected = "󱛅  你不过关！";
+          format-wifi = "  =)";
+          format-ethernet = "󰈀  =)";
+          format-linked = "󰌷  =/";
+          format-disconnected = "󱛅  =(";
         };
         "clock" = {
           format = "󰥔 {:%H:%M}";
@@ -110,54 +110,42 @@
       * {
         font-family: Maple Mono;
         font-size: 14px;
-        min-height: 20px;
+        color: #2e3440;
         opacity: 10;
       }
       window#waybar {
-	      background: transparent;
-      }
-      .modules-right {
-        color: #2e3440;
+	      background-color: #2e3440;
       }
       #image.launcher {
-        padding-left: 5px;
-        padding-right: 5px;
-        background-color: #4c566a;
-        border: solid;
-        border-radius: 15px;
-        border-color: #434c5e;
-        border-width: 2px;
-      }
-      #workspaces {
-        background-color: #4c566a;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #d8dee9;
         border: solid;
         border-radius: 10px;
-        border-color: #434c5e;
+        border-color: #81a1c1;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
       }
       #workspaces button {
-        min-width: 50px;
-        border: none;
+        min-height: 30px;
+        background-color: #d8dee9;
+        border: solid;
         border-radius: 10px;
-        margin-left: 5px;
-        margin-right: 5px;
-        background-color: #5e81ac;
+        border-color: #81a1c1;
+        border-width: 2px;
       }
       #workspaces button.active {
         border: none;
-        background-color: #8fbcbb;
+        background-color: #81a1c1;
       }
       #gamemode.running {
-        min-width: 72px;
+        min-height: 60px;
         background-color: #d08770;
         border: dashed;
-        border-radius: 20px;
+        border-radius: 10px;
         border-color: #bf616a;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
       #mpris.stopped {
         min-width: 0px;
@@ -169,84 +157,85 @@
         background-color: #81a1c1;
         border: solid;
         border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #81a1c1;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
       #mpris.paused {
         background-color: #5e81ac;
         border: solid;
         border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #81a1c1;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
       #network {
-        min-width: 72px;
-        background-color: #d08770;
+        background-color: #d8dee9;
         border: solid;
         border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #81a1c1;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
       #clock {
-        background-color: #ebcb8b;
+        background-color: #d8dee9;
         border: solid;
         border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #81a1c1;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
       #battery {
-        background-color: #a3be8c;
+        background-color: #eceff4;
         border: solid;
         border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #81a1c1;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
       #tray {
-        padding-right: 0px;
-        background-color: #b48ead;
+        padding-bottom: 0px;
+        background-color: #d8dee9;
         border: solid;
         border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #81a1c1;
         border-width: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
       #pulseaudio-slider {
-        min-width: 96px;
-        background-color: #bf616a;
+        min-height: 96px;
+        background-color: #eceff4;
         border: solid;
         border-radius: 15px;
-        border-color: #d8dee9;
+        border-color: #81a1c1;
         border-width: 2px;
       }
       #pulseaudio-slider slider {
-        min-height: 24px;
         min-width: 15px;
         opacity: 50;
         border: solid;
         border-radius: 5px;
+        border-color: #81a1c1;
       }
       #pulseaudio-slider trough {
-        min-height: 20px;
-        padding-left: 7px;
-        padding-right: 7px;
+        min-height: 70px;
+        min-width: 12px;
+        padding-top: 7px;
+        padding-bottom: 7px;
         border-radius: 5px;
         background-color: #5e81ac;
       }
       #pulseaudio-slider highlight {
         border-radius: 5px;
-        margin-left: -7px;
-        margin-right: -7px;
+        border-color: #81a1c1;
+        margin-top: -7px;
+        margin-bottom: -7px;
         background-color: #8fbcbb;
       }
     '';
