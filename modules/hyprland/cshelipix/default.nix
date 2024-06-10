@@ -34,12 +34,15 @@
                 "notify-send 'Welcome to Hyprland'"
             ];
             windowrulev2 = [
-                "float,class:(org.kde.polkit-kde-authentication-agent-1)"
-                "center,class:(org.kde.polkit-kde-authentication-agent-1)"
-                "float,class:(bilibili)"
-                "float,class:(QQ)"
-                "center,class:(QQ)"
-                "size 1280 900,class:(QQ)"
+                "float, class:(org.kde.polkit-kde-authentication-agent-1)"
+                "center, class:(org.kde.polkit-kde-authentication-agent-1)"
+                "float, class:(bilibili)"
+                "float, class:(QQ)"
+                "center, class:(QQ)"
+                "size 1280 900, class:(QQ)"
+            ];
+            workspace = [
+                "name:Panel, monitor:eDP-2, default:true, persistent:true"
             ];
             "$terminal" = "alacritty";
             "$fileManager" = "dolphin";
@@ -140,6 +143,7 @@
                 "$mainMod, 8, workspace, 8"
                 "$mainMod, 9, workspace, 9"
                 "$mainMod, 0, workspace, 10"
+                "$mainMod, P, workspace, name:Panel"
                 # Move active window to a workspace with mainMod + SHIFT + [0-9]
                 "$mainMod SHIFT, 1, movetoworkspace, 1"
                 "$mainMod SHIFT, 2, movetoworkspace, 2"
@@ -151,6 +155,7 @@
                 "$mainMod SHIFT, 8, movetoworkspace, 8"
                 "$mainMod SHIFT, 9, movetoworkspace, 9"
                 "$mainMod SHIFT, 0, movetoworkspace, 10"
+                "$mainMod SHIFT, P, movetoworkspace, name:Panel"
                 # Example special workspace (scratchpad)
                 "$mainMod, S, togglespecialworkspace, magic"
                 "$mainMod SHIFT, S, movetoworkspace, special:magic"

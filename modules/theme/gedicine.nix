@@ -10,7 +10,7 @@ let
   cursor = "GoogleDot-Black";
   cursorPkg = (pkgs.callPackage ../../packages/googledot-cursor.nix {});
 
-  icon = "Zadiro-Icons-Dark";
+  icon = "Zafiro-icons-Dark";
   iconPkg = pkgs.zafiro-icons;
 
   customFont = "Maple Mono";

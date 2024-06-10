@@ -12,7 +12,7 @@
         lolcat
         fortune
         zellij
-        pavucontrol
+        pwvucontrol
         any-nix-shell
         psmisc
         gamemode

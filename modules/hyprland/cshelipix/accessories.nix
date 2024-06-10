@@ -21,7 +21,7 @@
   # Mako the Notification Daemon
   services.mako = {
     enable = true;
-    anchor = "top-right";
+    anchor = "bottom-right";
     borderRadius = 15;
     defaultTimeout = 15000;
     font = "maple mono 12";
@@ -38,6 +38,14 @@
     enable = true;
     notify = true;
     tray = "auto";
+    settings = {
+      device_config = [
+        {
+          mount_path = "/var/lib/waydroid/rootfs";
+          ignore = true;
+        }
+      ];
+    };
   };
 
   services.cliphist = {

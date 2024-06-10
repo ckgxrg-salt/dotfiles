@@ -12,7 +12,7 @@
         lolcat
         fortune
         zellij
-        pavucontrol
+        pwvucontrol
         any-nix-shell
         psmisc
         gamemode
@@ -56,6 +56,7 @@
             "org.kde.kclock"
             "org.kde.elisa"
             "com.github.flxzt.rnote"
+            "md.obsidian.Obsidian"
         ];
     };
 }

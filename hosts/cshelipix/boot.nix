@@ -20,6 +20,7 @@
       "reboot=pci"
       "acpi=noirq"
       "pci=biosirq"
+      "snd_hda_intel.probe_mask=0x01"
     ];
     # BBR Congestion Algorithm
     kernelModules = [

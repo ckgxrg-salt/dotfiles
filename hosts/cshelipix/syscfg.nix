@@ -23,8 +23,20 @@
     };
     services.systemd-lock-handler.enable = true;
 
-    # Network with NetworkManager
+    # Network with NetworkManager and Firewall with NFTables
     networking.networkmanager.enable = true;
+    networking.nftables.enable = true;
+    networking.firewall = {
+        enable = true;
+        trustedInterfaces = [ "waydroid0" ];
+    };
+
+    # Bluetooth Support
+    hardware.bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+    };
+    services.blueman.enable = true;
 
     # Sound with PipeWire
     sound.enable = true;
@@ -108,18 +120,11 @@
         };
     };
 
-    # SDDM Session Manager & Gnome Keyring
-    environment.systemPackages = [ pkgs.sddm-chili-theme ];
-    security.pam.services.sddm.enableGnomeKeyring = true;
+    # Gnome Keyring
     services.gnome.gnome-keyring.enable = true;
     programs.seahorse.enable = true;
-    security.pam.services.hyprlock = {};
-    services.displayManager.sddm = {
-        enable = true;
-        package = pkgs.libsForQt5.sddm;
-        wayland.enable = true;
-        theme = "chili";
-    };
+
+    imports = [ ../../modules/greetd ];
 
     # Polkit Authentication
     security.polkit.enable = true;
@@ -130,6 +135,15 @@
             BAY_POWEROFF_ON_BAT = 1;
         };
     };
+
+    # Display Settings
+    hardware.opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+        extraPackages32 = [ pkgs.driversi686Linux.mesa ];
+    };
+
     # Violent Power Save
     powerManagement = {
         enable = true;

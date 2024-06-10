@@ -12,7 +12,7 @@
         lolcat
         fortune
         zellij
-        pavucontrol
+        pwvucontrol
         psmisc
         gamemode
         playerctl

@@ -10,7 +10,7 @@
         position = "right";
         width = 20;
         spacing = 5;
-        modules-left = [ "image#launcher" "hyprland/workspaces" ];
+        modules-left = [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" ];
         modules-center = [ "gamemode" ];
         modules-right = [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
 
@@ -24,6 +24,15 @@
           format = "{name}";
           format-window-separator = " | ";
           sort-by = "id";
+        };
+        "idle_inhibitor" = {
+          format = "{icon}";
+          tooltip-format-activated = "Inhibited Hypridle";
+          tooltip-format-deactivated = "This widget says Zzz, pretending to be sleeping";
+          format-icons = {
+            activated = "";
+            deactivated = "󰒲";
+          };
         };
         "mpris" = {
 	        format = "{player_icon}";
@@ -43,8 +52,8 @@
         "gamemode" = {
           glyph = "";
           hide-not-running = true;
-          format = "Gamemode\nActive";
-          format-alt = "{glyph}";
+          format = "";
+          format-alt = "";
         };
         "battery" = {
           interval = 10;
@@ -124,6 +133,22 @@
         border-radius: 10px;
         border-color: #81a1c1;
         border-width: 2px;
+      }
+      #idle_inhibitor.deactivated {
+        background-color: #d8dee9;
+        border: solid;
+        border-color: #81a1c1;
+        border-width: 2px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+      }
+      #idle_inhibitor.activated {
+        background-color: #8fbcbb;
+        border: solid;
+        border-color: #81a1c1;
+        border-width: 5px;
+        padding-top: 7px;
+        padding-bottom: 7px;
       }
       #workspaces button {
         min-height: 30px;

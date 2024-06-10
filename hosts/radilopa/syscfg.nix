@@ -39,6 +39,7 @@
         enable = true;
         driSupport = true;
         driSupport32Bit = true;
+        extraPackages32 = [ pkgs.driversi686Linux.mesa ];
     };
     services.xserver = {
         exportConfiguration = true;
