@@ -12,15 +12,13 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+            inputs.hyprgrass.packages.${pkgs.system}.default
         ];
         settings = {
             monitor= [
                 "eDP-1, highres, 0x0, 1.25, transform, 2"
                 "eDP-2, highres, 0x1800, 1.25"
             ];
-            plugin = {
-            };
             exec-once = [
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
                 "playerctld"
@@ -30,6 +28,7 @@
                 "waybar"
                 "fcitx5"
                 "udiskie &"
+                #"fusuma -d"
                 "nwg-drawer -r"
                 "notify-send 'Welcome to Hyprland'"
             ];
@@ -100,6 +99,12 @@
             master = {
                 new_is_master = true;
             };
+            plugin.touch_gestures = {
+                sensitivity = 1.0;
+                workspace_swipe_fingers = 3;
+                workspace_swipe_edge = "d";
+                long_press_delay = 400;
+            };
             gestures = {
                 workspace_swipe = true;
                 workspace_swipe_cancel_ratio = 0.15;
@@ -107,6 +112,10 @@
             misc = {
                 force_default_wallpaper = -1;
             };
+            hyprgrass-bind = [
+                ",edge:r:l, exec, pkill -USR1 waybar"
+                ",swipe:3:u, exec,"
+            ];
             "$mainMod" = "SUPER";
             bind = [
                 "$mainMod, Q, exec, $terminal"
