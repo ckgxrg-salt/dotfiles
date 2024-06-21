@@ -6,8 +6,10 @@
     ./desktop/hyprland.nix
     ./package.nix
     ./theme.nix
+    #../../modules/ags
     ../../modules/terminal/zsh.nix
     ../../modules/terminal/neovim.nix
+    ../../modules/terminal/alacritty.nix
     ../../modules/dev/langs.nix
     ../../modules/utils
   ];

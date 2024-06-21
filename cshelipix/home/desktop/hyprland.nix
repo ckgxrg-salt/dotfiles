@@ -42,14 +42,15 @@
             ];
             workspace = [
                 "name:Panel, monitor:eDP-2, default:true, persistent:true"
+                "special:browser, on-created-empty:firefox"
             ];
             "$terminal" = "alacritty";
             "$fileManager" = "dolphin";
             "$menu" = "nwg-drawer";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
-                _JAVA_AWT_WM_NONREPARENTING = 1;
-                WEBKIT_DISABLE_DMABUF_RENDERER = 1;
+                ELM_DISPLAY = "wl";
+                SDL_VIDEODRIVER = "wayland";
             };
             input = {
                 kb_layout = "us";
@@ -96,9 +97,6 @@
                 pseudotile = true;
                 preserve_split = true;
             };
-            master = {
-                new_is_master = true;
-            };
             plugin.touch_gestures = {
                 sensitivity = 1.0;
                 workspace_swipe_fingers = 3;
@@ -113,8 +111,7 @@
                 force_default_wallpaper = -1;
             };
             hyprgrass-bind = [
-                ",edge:r:l, exec, pkill -USR1 waybar"
-                ",swipe:3:u, exec,"
+                ",edge:r:l, togglespecialworkspace, browser"
             ];
             "$mainMod" = "SUPER";
             bind = [
@@ -134,8 +131,8 @@
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"
                 ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05+"
-                ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-                ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+                ", XF86MonBrightnessDown, exec, brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=card1-eDP-2-backlight set 5%-"
+                ", XF86MonBrightnessUp, exec, brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=card1-eDP-2-backlight set 5%+"
                 # Move focus with mainMod + arrow keys
                 "$mainMod, left, movefocus, l"
                 "$mainMod, right, movefocus, r"
@@ -166,8 +163,8 @@
                 "$mainMod SHIFT, 0, movetoworkspace, 10"
                 "$mainMod SHIFT, P, movetoworkspace, name:Panel"
                 # Example special workspace (scratchpad)
-                "$mainMod, S, togglespecialworkspace, magic"
-                "$mainMod SHIFT, S, movetoworkspace, special:magic"
+                "$mainMod, S, togglespecialworkspace, browser"
+                "$mainMod SHIFT, S, movetoworkspace, special:browser"
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"

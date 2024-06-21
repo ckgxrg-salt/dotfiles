@@ -27,7 +27,7 @@
     height = 150;
     width = 450;
     icons = true;
-    iconPath = "/run/current-system/sw/share/icons/hicolor:/run/current-system/sw/share/icons/pixmaps";
+    iconPath = "/etc/profiles/per-user/ckgxrg/share/icons:/run/current-system/sw/share/icons";
     maxIconSize = 64;
     maxVisible = 3;
   };

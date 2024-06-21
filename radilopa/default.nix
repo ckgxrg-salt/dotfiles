@@ -8,6 +8,7 @@
     ./package.nix
     ../modules/dev/podman.nix
     ../modules/sunshine
+    ../modules/utils/steam.nix
   ];
 
   system.stateVersion = "23.11";

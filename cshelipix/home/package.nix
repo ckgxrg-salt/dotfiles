@@ -34,8 +34,6 @@
         tor
         tor-browser
         vscodium
-        steam
-        ventoy-full
     ];
 
     # Flatpak packages
@@ -57,6 +55,8 @@
             "org.kde.elisa"
             "com.github.flxzt.rnote"
             "md.obsidian.Obsidian"
+            "org.mozilla.Thunderbird"
+            "io.gitlab.idevecore.Pomodoro"
         ];
     };
 }

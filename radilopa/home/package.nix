@@ -33,7 +33,6 @@
         lenovo-legion
 
         # Games
-        steam
         prismlauncher
 
         # Applications

@@ -3,10 +3,8 @@
 {
     # My Name!
     networking.hostName = "Cshelipix";
-
-    # Some workarounds about the buggy hardware
+    
     services.fwupd.enable = true;
-    hardware.opentabletdriver.enable = true;
 
     # AppArmor MAC
     security.apparmor = {
