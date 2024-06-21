@@ -1,4 +1,4 @@
-{ lib, fetchgit, stdenv, pkgs }:
+{ lib, fetchFromGitHub, stdenv, pkgs }:
 # The Sugar Candy SDDM theme
 let
   qtgraphicaleffects = pkgs.libsForQt5.qt5.qtgraphicaleffects;
@@ -7,12 +7,13 @@ let
 in
 stdenv.mkDerivation {
   pname = "sugar-candy-sddm-theme";
-  version = "2b72ef6c";
+  version = "a1fae51";
   dontWrapQtApps = true;
-  src = fetchgit {
-    url = "https://framagit.org/MarianArlt/sddm-sugar-candy";
-    rev = "2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f";
-    hash = "sha256-XggFVsEXLYklrfy1ElkIp9fkTw4wvXbyVkaVCZq4ZLU=";
+  src = fetchFromGitHub {
+    owner = "Kangie";
+    repo = "sddm-sugar-candy";
+    rev = "a1fae5159c8f7e44f0d8de124b14bae583edb5b8";
+    hash = "sha256-p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
   };
   nativeBuildInputs = [ pkgs.jdupes ];
   propagatedBuildInputs = [

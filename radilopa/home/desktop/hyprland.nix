@@ -12,9 +12,6 @@
         systemd.enable = true;
         xwayland.enable = true;
         plugins = [
-            inputs.hy3.packages.${pkgs.system}.hy3
-            #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-            #inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
         ];
         settings = {
             monitor = [
@@ -93,9 +90,6 @@
             dwindle = {
                 pseudotile = true;
                 preserve_split = true;
-            };
-            master = {
-                new_is_master = true;
             };
             gestures = {
                 workspace_swipe = false;

@@ -39,25 +39,17 @@
     };
 
     # Display Settings
-    hardware.opengl = {
+    hardware.graphics = {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
+        enable32Bit = true;
         extraPackages32 = [ pkgs.driversi686Linux.mesa ];
     };
-    services.xserver = {
-        exportConfiguration = true;
-        excludePackages = [ pkgs.xterm ];
-        videoDrivers = [ "nvidia" ];
-        dpi = 96;
-        resolutions = [ { x = 2560; y = 1600; } ];
-    };
+    services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia = {
       open = false;
       powerManagement.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
-      nvidiaSettings = false;
       prime = {
         nvidiaBusId = "PCI:1:0:0";
         amdgpuBusId = "PCI:6:0:0";
@@ -138,7 +130,7 @@
     };
 
     # SDDM Session Manager & Gnome Keyring
-    environment.systemPackages = [ (pkgs.callPackage ../../packages/sugar-candy-sddm.nix {}) ];
+    environment.systemPackages = [ (pkgs.callPackage ../packages/sugar-candy-sddm.nix {}) ];
     security.pam.services.sddm.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
     programs.seahorse.enable = true;
