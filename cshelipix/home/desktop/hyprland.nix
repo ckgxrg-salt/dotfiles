@@ -57,6 +57,8 @@
                 follow_mouse = 1;
                 touchpad = {
                     natural_scroll = true;
+                    tap-to-click = true;
+                    tap-and-drag = true;
                 };
                 sensitivity = 0;
             };
@@ -68,6 +70,7 @@
                 "col.inactive_border" = "rgba(595959aa)";
                 layout = "dwindle";
                 allow_tearing = false;
+                resize_on_border = true;
             };
             decoration = {
                 blur = {
@@ -80,6 +83,9 @@
                 shadow_range = 4;
                 shadow_render_power = 3;
                 "col.shadow" = "rgba(1a1a1aee)";
+                active_opacity = 0.95;
+                inactive_opacity = 0.8;
+                dim_inactive = true;
             };
             animations = {
                 enabled = true;
@@ -105,6 +111,7 @@
             };
             gestures = {
                 workspace_swipe = true;
+                workspace_swipe_touch = true;
                 workspace_swipe_cancel_ratio = 0.15;
             };
             misc = {
@@ -175,6 +182,16 @@
                 "$mainMod, mouse:273, resizewindow"
             ];
         };
+        # Nix has problems arranging the options in correct order
+        extraConfig = ''
+            device {
+                name = ingenic-gadget-serial-and-keyboard-stylus
+                output = eDP-1
+
+                name = ingenic-gadget-serial-and-keyboard-stylus
+                output = eDP-2
+            }
+        '';
     };
 
     # XDG Config

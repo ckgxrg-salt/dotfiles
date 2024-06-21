@@ -19,7 +19,7 @@
       "plymouth.nolog"
       "reboot=pci"
       "acpi=noirq"
-      "pci=biosirq"
+      "rotate=180"
       "snd_hda_intel.probe_mask=0x01"
     ];
     # BBR Congestion Algorithm

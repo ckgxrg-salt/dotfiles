@@ -13,9 +13,7 @@
   # Rust toolchain and IDEs
   home.packages = with pkgs; [
     rust-bin.stable.latest.default
-    llvmPackages.clangUseLLVM
 
     eclipses.eclipse-java
-    jetbrains.rust-rover
   ];
 }

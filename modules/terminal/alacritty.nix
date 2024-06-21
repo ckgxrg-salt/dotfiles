@@ -4,7 +4,7 @@
   xdg.configFile = {
     "alacritty/alacritty.toml".text = ''
       [window]
-      opacity = 0.7
+      opacity = 0.9
       blur = true
       decorations_theme_variant = "Dark"
 
