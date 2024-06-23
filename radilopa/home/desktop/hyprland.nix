@@ -11,15 +11,22 @@
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         systemd.enable = true;
         xwayland.enable = true;
-        plugins = [
-        ];
         settings = {
+            # Hardware
             monitor = [
                 ",highres, auto, 1.25"
                 "Unknown-1, disable"
             ];
-            plugin = {
+            input = {
+                kb_layout = "us";
+                follow_mouse = 1;
+                touchpad = {
+                    natural_scroll = true;
+                };
+                sensitivity = 0;
             };
+
+            # Initialisation
             exec-once = [
                 "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
                 "playerctld"
@@ -31,16 +38,6 @@
                 "udiskie &"
                 "notify-send 'Welcome to Hyprland'"
             ];
-            windowrulev2 = [
-                "float,class:(org.kde.polkit-kde-authentication-agent-1)"
-                "float,class:(bilibili),initialTitle:(undefined)"
-            ];
-            workspace = [
-                "special:browser, on-created-empty:firefox"
-            ];
-            "$terminal" = "alacritty";
-            "$fileManager" = "dolphin";
-            "$menu" = "rofi -show drun";
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
                 LIBVA_DRIVER_NAME = "nvidia";
                 XDG_SESSION_TYPE = "wayland";
@@ -49,14 +46,17 @@
                 NVD_BACKEND = "direct";
                 ELECTRON_OZONE_PLATFORM_HINT = "auto";
             };
-            input = {
-                kb_layout = "us";
-                follow_mouse = 1;
-                touchpad = {
-                    natural_scroll = true;
-                };
-                sensitivity = 0;
-            };
+
+            # Window and workspace rules
+            windowrulev2 = [
+                "float,class:(org.kde.polkit-kde-authentication-agent-1)"
+                "float,class:(bilibili),initialTitle:(undefined)"
+            ];
+            workspace = [
+                "special:browser, on-created-empty:firefox"
+            ];
+
+            # Some options
             general = {
                 gaps_in = 2;
                 gaps_out = 2;
@@ -65,7 +65,22 @@
                 "col.inactive_border" = "rgba(4a4949aa)";
                 layout = "dwindle";
                 allow_tearing = false;
+                resize_on_border = true;
             };
+            dwindle = {
+                smart_split = true;
+            };
+            gestures = {
+                workspace_swipe = false;
+            };
+            misc = {
+                force_default_wallpaper = -1;
+            };
+            xwayland = {
+                force_zero_scaling = true;
+            };
+
+            # Fancy effects
             decoration = {
                 blur = {
                     enabled = true;
@@ -74,6 +89,7 @@
                     vibrancy = 0.1696;
                 };
                 drop_shadow = false;
+                dim_inactive = true;
             };
             animations = {
                 enabled = true;
@@ -87,17 +103,12 @@
                     "workspaces, 1, 6, default"
                 ];
             };
-            dwindle = {
-                pseudotile = true;
-                preserve_split = true;
-            };
-            gestures = {
-                workspace_swipe = false;
-            };
-            misc = {
-                force_default_wallpaper = -1;
-            };
+
+            # Binds
             "$mainMod" = "SUPER";
+            "$terminal" = "alacritty";
+            "$fileManager" = "dolphin";
+            "$menu" = "rofi -show drun";
             bind = [
                 "$mainMod, Q, exec, $terminal"
                 "$mainMod, C, killactive,"
@@ -106,11 +117,9 @@
                 "$mainMod, E, exec, $fileManager"
                 "$mainMod, V, togglefloating,"
                 "$mainMod, R, exec, $menu"
-                "$mainMod, P, pseudo,"
                 "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock --immediate"
                 "$mainMod, F, fullscreen,"
-                #"$mainMod, O, overview:toggle,"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"

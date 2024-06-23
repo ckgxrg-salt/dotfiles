@@ -62,7 +62,7 @@
         isNormalUser = true;
         description = "ckgxrg";
         shell = pkgs.zsh;
-        extraGroups = [ "networkmanager" "wheel" "input" ];
+        extraGroups = [ "networkmanager" "wheel" "input" "gamemode" ];
     };
 
     # Locale, I18n and Fcitx5

@@ -21,7 +21,6 @@
 
         # Libs
         wineWowPackages.waylandFull
-        gamescope
 
         # Desktop Utilities
         dolphin
@@ -37,7 +36,6 @@
 
         # Applications
         bilibili
-        gnome.geary
         libreoffice
         tor
         tor-browser
@@ -61,6 +59,7 @@
             "com.toolstack.Folio"
             "com.qq.QQ"
             "org.kde.elisa"
+            "org.mozilla.Thunderbird"
         ];
   };
 }
