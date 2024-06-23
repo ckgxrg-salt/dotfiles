@@ -15,43 +15,11 @@
             inputs.hyprgrass.packages.${pkgs.system}.default
         ];
         settings = {
+            # Hardware
             monitor= [
                 "eDP-1, highres, 0x0, 1.25, transform, 2"
                 "eDP-2, highres, 0x1800, 1.25"
             ];
-            exec-once = [
-                "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
-                "playerctld"
-                "swww-daemon"
-                "wl-paste --type text --watch cliphist store"
-                "wl-paste --type image --watch cliphist store"
-                "waybar"
-                "fcitx5"
-                "udiskie &"
-                #"fusuma -d"
-                "nwg-drawer -r"
-                "notify-send 'Welcome to Hyprland'"
-            ];
-            windowrulev2 = [
-                "float, class:(org.kde.polkit-kde-authentication-agent-1)"
-                "center, class:(org.kde.polkit-kde-authentication-agent-1)"
-                "float, class:(bilibili)"
-                "float, class:(QQ)"
-                "center, class:(QQ)"
-                "size 1280 900, class:(QQ)"
-            ];
-            workspace = [
-                "name:Panel, monitor:eDP-2, default:true, persistent:true"
-                "special:browser, on-created-empty:firefox"
-            ];
-            "$terminal" = "alacritty";
-            "$fileManager" = "dolphin";
-            "$menu" = "nwg-drawer";
-            env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
-                ELECTRON_OZONE_PLATFORM_HINT = "auto";
-                ELM_DISPLAY = "wl";
-                SDL_VIDEODRIVER = "wayland";
-            };
             input = {
                 kb_layout = "us";
                 follow_mouse = 1;
@@ -62,6 +30,46 @@
                 };
                 sensitivity = 0;
             };
+
+            # Initialisation
+            exec-once = [
+                "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
+                "playerctld"
+                "swww-daemon"
+                "wl-paste --type text --watch cliphist store"
+                "wl-paste --type image --watch cliphist store"
+                "waybar"
+                "fcitx5"
+                "udiskie &"
+                "nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit wlogout"
+                "notify-send 'Welcome to Hyprland'"
+            ];
+            env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
+                ELECTRON_OZONE_PLATFORM_HINT = "auto";
+                ELM_DISPLAY = "wl";
+                SDL_VIDEODRIVER = "wayland";
+            };
+
+            # Window, workspace and layer rules
+            windowrulev2 = [
+                "float, class:(org.kde.polkit-kde-authentication-agent-1)"
+                "center, class:(org.kde.polkit-kde-authentication-agent-1)"
+                "float, class:(bilibili)"
+                "float, class:(QQ)"
+                "center, class:(QQ)"
+                "size 1280 900, class:(QQ)"
+                "workspace special:waydroid, class:(Waydroid)"
+            ];
+            layerrule = [
+                "noanim, swww-daemon"
+                "animation slide right, notifications"
+            ];
+            workspace = [
+                "name:Panel, monitor:eDP-2, default:true, persistent:true"
+                "special:browser, on-created-empty:firefox"
+            ];
+            
+            # Options
             general = {
                 gaps_in = 0;
                 gaps_out = 0;
@@ -72,36 +80,8 @@
                 allow_tearing = false;
                 resize_on_border = true;
             };
-            decoration = {
-                blur = {
-                    enabled = true;
-                    size = 3;
-                    passes = 1;
-                    vibrancy = 0.1696;
-                };
-                drop_shadow = true;
-                shadow_range = 4;
-                shadow_render_power = 3;
-                "col.shadow" = "rgba(1a1a1aee)";
-                active_opacity = 0.95;
-                inactive_opacity = 0.8;
-                dim_inactive = true;
-            };
-            animations = {
-                enabled = true;
-                bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-                animation = [
-                    "windows, 1, 7, myBezier"
-                    "windowsOut, 1, 7, default, popin 80%"
-                    "border, 1, 10, default"
-                    "borderangle, 1, 8, default"
-                    "fade, 1, 7, default"
-                    "workspaces, 1, 6, default"
-                ];
-            };
             dwindle = {
-                pseudotile = true;
-                preserve_split = true;
+                smart_split = true;
             };
             plugin.touch_gestures = {
                 sensitivity = 1.0;
@@ -117,11 +97,56 @@
             misc = {
                 force_default_wallpaper = -1;
             };
+            xwayland = {
+                force_zero_scaling = true;
+            };
+
+            # Somehow "fancy" effects
+            decoration = {
+                blur = {
+                    enabled = true;
+                    size = 3;
+                    passes = 1;
+                    vibrancy = 0.1696;
+                };
+                drop_shadow = true;
+                shadow_range = 4;
+                shadow_render_power = 3;
+                "col.shadow" = "rgba(1a1a1aee)";
+                active_opacity = 0.95;
+                inactive_opacity = 0.75;
+                dim_inactive = true;
+            };
+            animations = {
+                enabled = true;
+                bezier = [
+                    "easeInOutBack, 0.68, -0.55, 0.265, 1.55"
+                    "easeInSine, 0.12, 0, 0.39, 0"
+                    "easeOutSine, 0.39, 0.575, 0.565, 1"
+                    "easeInOutSine, 0.37, 0, 0.63, 1"
+                ];
+                animation = [
+                    "windowsIn, 1, 2, easeInSine, slide"
+                    "windowsMove, 1, 2, easeInOutSine, slide"
+                    "windowsOut, 1, 3, easeOutSine, slide"
+                    "layersIn, 1, 2, easeInSine, slide right"
+                    "layersOut, 1, 3, easeOutSine, slide left"
+                    "fade, 1, 3, default"
+                    "workspaces, 1, 4, easeInOutBack, slidefadevert"
+                    "specialWorkspace, 1, 4, easeInOutBack, slide"
+                ];
+            };
+            
+            # Touchscreen binds
             hyprgrass-bind = [
                 ",edge:r:l, togglespecialworkspace, browser"
             ];
             "$mainMod" = "SUPER";
+            "$terminal" = "alacritty";
+            "$fileManager" = "dolphin";
+            "$menu" = "nwg-drawer";
             bind = [
+                # Basics
                 "$mainMod, Q, exec, $terminal"
                 "$mainMod, C, killactive,"
                 "$mainMod SHIFT CONTROL, Escape, exit,"
@@ -129,23 +154,20 @@
                 "$mainMod, E, exec, $fileManager"
                 "$mainMod, V, togglefloating,"
                 "$mainMod, R, exec, $menu"
-                "$mainMod, P, pseudo,"
-                "$mainMod, J, togglesplit,"
                 "$mainMod, L, exec, hyprlock --immediate"
                 "$mainMod, F, fullscreen,"
-                #"$mainMod, O, hyprexpo:expo, toggle"
                 # Volume and brightness controls
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"
                 ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05+"
                 ", XF86MonBrightnessDown, exec, brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=card1-eDP-2-backlight set 5%-"
                 ", XF86MonBrightnessUp, exec, brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=card1-eDP-2-backlight set 5%+"
-                # Move focus with mainMod + arrow keys
+                # Move focus
                 "$mainMod, left, movefocus, l"
                 "$mainMod, right, movefocus, r"
                 "$mainMod, up, movefocus, u"
                 "$mainMod, down, movefocus, d"
-                # Switch workspaces with mainMod + [0-9]
+                # Switch workspace
                 "$mainMod, 1, workspace, 1"
                 "$mainMod, 2, workspace, 2"
                 "$mainMod, 3, workspace, 3"
@@ -157,7 +179,7 @@
                 "$mainMod, 9, workspace, 9"
                 "$mainMod, 0, workspace, 10"
                 "$mainMod, P, workspace, name:Panel"
-                # Move active window to a workspace with mainMod + SHIFT + [0-9]
+                # Workspace movement
                 "$mainMod SHIFT, 1, movetoworkspace, 1"
                 "$mainMod SHIFT, 2, movetoworkspace, 2"
                 "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -169,29 +191,20 @@
                 "$mainMod SHIFT, 9, movetoworkspace, 9"
                 "$mainMod SHIFT, 0, movetoworkspace, 10"
                 "$mainMod SHIFT, P, movetoworkspace, name:Panel"
-                # Example special workspace (scratchpad)
+                # Special workspaces
                 "$mainMod, S, togglespecialworkspace, browser"
+                "$mainMod SHIFT, W, togglespecialworkspace, waydroid"
                 "$mainMod SHIFT, S, movetoworkspace, special:browser"
-                # Scroll through existing workspaces with mainMod + scroll
+                # Workspace scroll
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"
             ];
-            # Move/resize windows with mainMod + LMB/RMB and dragging
+            # Move and resize
             bindm = [
                 "$mainMod, mouse:272, movewindow"
                 "$mainMod, mouse:273, resizewindow"
             ];
         };
-        # Nix has problems arranging the options in correct order
-        extraConfig = ''
-            device {
-                name = ingenic-gadget-serial-and-keyboard-stylus
-                output = eDP-1
-
-                name = ingenic-gadget-serial-and-keyboard-stylus
-                output = eDP-2
-            }
-        '';
     };
 
     # XDG Config

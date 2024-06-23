@@ -11,6 +11,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # fstab
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/ECD0-BD1D";
       fsType = "vfat";

@@ -20,6 +20,7 @@
 
         # Desktop Utilities
         dolphin
+        ark
         firefox
         okular
         bottles

@@ -38,7 +38,7 @@
     maxVisible = 3;
   };
 
-  # UDiskie the Auto-Mount Manager, Home-manager has issues generating the config automatically, so guess can only do it manually.
+  # UDiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
   xdg.configFile."udiskie/config.yml".text = ''
     device_config:
     - device_file: /dev/loop0

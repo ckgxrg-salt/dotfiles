@@ -6,12 +6,13 @@
     loader = {
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
+      timeout = 0;
       systemd-boot.enable = true;
     };
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "liquid";
+      theme = "connect";
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelParams = [
