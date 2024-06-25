@@ -58,6 +58,7 @@
             "md.obsidian.Obsidian"
             "org.mozilla.Thunderbird"
             "io.gitlab.idevecore.Pomodoro"
+            "org.blender.Blender"
         ];
     };
 }

@@ -267,5 +267,5 @@
   };
 
   # The Icon
-  home.file.".config/waybar/icon.png".source = ./nixos.png;
+  home.file.".config/waybar/icon.png".source = ./assets/nixos.png;
 }

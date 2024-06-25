@@ -4,9 +4,10 @@
   # Include home modules
   imports = [
     ./desktop/hyprland.nix
+    #./desktop/ags
     ./package.nix
     ./theme.nix
-    #../../modules/ags
+    ./modes.nix
     ../../modules/terminal/zsh.nix
     ../../modules/terminal/neovim.nix
     ../../modules/terminal/alacritty.nix

@@ -6,22 +6,22 @@
     enable = true;
     settings = {
       general = {
-        hide_cursor = true;
+        hide_cursor = false;
         grace = 60;
       };
       background = [{
-        color = "rgba(59, 66, 82, 0.8)";
-        blue_passes = 3;
+        color = "rgba(59, 66, 82, 0.6)";
+        blur_passes = 3;
         blur_size = 7;
-        noise = 0.02;
-        contrast = 0.9;
-        brightness = 0.8;
-        vibrancy = 0.1;
+        noise = 0.0117;
+        contrast = 0.8916;
+        brightness = 0.8172;
+        vibrancy = 0.1696;
         vibrancy_darkness = 0.0;
       }];
       label = [{
-        monitor = "";
-        text = "$USER Locked";
+        monitor = "eDP-1";
+        text = "Out for Lunch";
         text_align = "center";
         position = "0, 80";
         halign = "center";
@@ -31,7 +31,7 @@
         color = "rgba(216, 222, 233)";
       }];
       input-field = [{
-        monitor = "";
+        monitor = "eDP-1";
         size = "300, 75";
         position = "0, -120";
         font_color = "rgb(202, 211, 245)";

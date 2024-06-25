@@ -11,7 +11,10 @@
         enable = true;
         enableCache = true;
     };
-    services.dbus.apparmor = "enabled";
+    services.dbus = {
+        apparmor = "enabled";
+        implementation = "broker";
+    };
 
     # Power Button Behaviour
     services.logind = {

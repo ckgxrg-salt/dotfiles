@@ -6,7 +6,98 @@
     ];
 
     # Hyprland Window Manager
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = 
+    let
+        # Thanks for the ArchWiki for this awesome script
+        volumeScript = pkgs.writeShellScript "mako-volume-script" ''
+            iDIR="$HOME/.config/mako/icons"
+            get_volume() {
+	            volume=$(pamixer --get-volume)
+	            echo "$volume"
+            }
+            get_icon() {
+	            current=$(get_volume)
+	            if [[ "$current" -eq "0" ]]; then
+		            echo "$iDIR/volume-mute.png"
+	            elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
+		            echo "$iDIR/volume-low.png"
+	            elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
+		            echo "$iDIR/volume-mid.png"
+	            elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
+		            echo "$iDIR/volume-high.png"
+	            fi
+            }
+            notify_user() {
+	            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume : $(get_volume) %"
+            }
+            inc_volume() {
+	            wpctl set-volume @DEFAULT_SINK@ 0.05+ && notify_user
+            }
+            dec_volume() {
+	            wpctl set-volume @DEFAULT_SINK@ 0.05- && notify_user
+            }
+            toggle_mute() {
+	            if [ "$(pamixer --get-mute)" == "false" ]; then
+		            wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/volume-mute.png" "Volume Switched OFF"
+	            elif [ "$(pamixer --get-mute)" == "true" ]; then
+		            wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume Switched ON"
+	            fi
+            }
+            if [[ "$1" == "--get" ]]; then
+	            get_volume
+            elif [[ "$1" == "--inc" ]]; then
+	            inc_volume
+            elif [[ "$1" == "--dec" ]]; then
+	            dec_volume
+            elif [[ "$1" == "--toggle" ]]; then
+	            toggle_mute
+            elif [[ "$1" == "--get-icon" ]]; then
+	            get_icon
+            else
+	            get_volume
+            fi
+        '';
+
+        brightnessScript = pkgs.writeShellScript "mako-brightness-script" ''
+            iDIR="$HOME/.config/mako/icons"
+            get_backlight() {
+	            LIGHT=$(printf "%.0f\n" $(brightnessctl g))
+	            echo "$LIGHT"
+            }
+            get_icon() {
+	            current="$(get_backlight)"
+	            if [[ ("$current" -ge "0") && ("$current" -le "80") ]]; then
+		            icon="$iDIR/brightness-20.png"
+	            elif [[ ("$current" -ge "80") && ("$current" -le "160") ]]; then
+		            icon="$iDIR/brightness-40.png"
+	            elif [[ ("$current" -ge "160") && ("$current" -le "240") ]]; then
+		            icon="$iDIR/brightness-60.png"
+	            elif [[ ("$current" -ge "240") && ("$current" -le "320") ]]; then
+		            icon="$iDIR/brightness-80.png"
+	            elif [[ ("$current" -ge "320") && ("$current" -le "400") ]]; then
+		            icon="$iDIR/brightness-100.png"
+	            fi
+            }
+            notify_user() {
+	            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
+            }
+            inc_backlight() {
+	            brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=card1-eDP-2-backlight set 5%+ && get_icon && notify_user
+            }
+            dec_backlight() {
+	            brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=card1-eDP-2-backlight set 5%- && get_icon && notify_user
+            }
+            if [[ "$1" == "--get" ]]; then
+	            get_backlight
+            elif [[ "$1" == "--inc" ]]; then
+	            inc_backlight
+            elif [[ "$1" == "--dec" ]]; then
+	            dec_backlight
+            else
+	            get_backlight
+            fi
+        '';
+    in {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         systemd.enable = true;
@@ -42,6 +133,7 @@
                 "fcitx5"
                 "udiskie &"
                 "nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit wlogout"
+                "~/.local/bin/wvkbd-desktop --hidden -L 512 --fn 'Maple Mono 16' --press '81a1c1' --alpha 235"
                 "notify-send 'Welcome to Hyprland'"
             ];
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
@@ -114,7 +206,7 @@
                 shadow_render_power = 3;
                 "col.shadow" = "rgba(1a1a1aee)";
                 active_opacity = 0.95;
-                inactive_opacity = 0.75;
+                inactive_opacity = 0.85;
                 dim_inactive = true;
             };
             animations = {
@@ -140,6 +232,7 @@
             # Touchscreen binds
             hyprgrass-bind = [
                 ",edge:r:l, togglespecialworkspace, browser"
+                ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
             ];
             "$mainMod" = "SUPER";
             "$terminal" = "alacritty";
@@ -157,11 +250,11 @@
                 "$mainMod, L, exec, hyprlock --immediate"
                 "$mainMod, F, fullscreen,"
                 # Volume and brightness controls
-                ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-                ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05-"
-                ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 0.05+"
-                ", XF86MonBrightnessDown, exec, brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=card1-eDP-2-backlight set 5%-"
-                ", XF86MonBrightnessUp, exec, brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=card1-eDP-2-backlight set 5%+"
+                ", XF86AudioMute, exec, ${volumeScript} --toggle"
+                ", XF86AudioLowerVolume, exec, ${volumeScript} --dec"
+                ", XF86AudioRaiseVolume, exec, ${volumeScript} --inc"
+                ", XF86MonBrightnessUp, exec, ${brightnessScript} --inc"
+                ", XF86MonBrightnessDown, exec, ${brightnessScript} --dec"
                 # Move focus
                 "$mainMod, left, movefocus, l"
                 "$mainMod, right, movefocus, r"
