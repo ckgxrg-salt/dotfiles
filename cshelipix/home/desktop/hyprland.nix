@@ -38,9 +38,9 @@
             }
             toggle_mute() {
 	            if [ "$(pamixer --get-mute)" == "false" ]; then
-		            wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/volume-mute.png" "Volume Switched OFF"
+		            wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/volume-mute.png" "Muted"
 	            elif [ "$(pamixer --get-mute)" == "true" ]; then
-		            wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume Switched ON"
+		            wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Unmuted"
 	            fi
             }
             if [[ "$1" == "--get" ]]; then
@@ -132,8 +132,8 @@
                 "waybar"
                 "fcitx5"
                 "udiskie &"
+                "nm-applet"
                 "nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit wlogout"
-                "~/.local/bin/wvkbd-desktop --hidden -L 512 --fn 'Maple Mono 16' --press '81a1c1' --alpha 235"
                 "notify-send 'Welcome to Hyprland'"
             ];
             env = lib.mapAttrsToList (name: value: "${name},${toString value}"){
@@ -146,6 +146,7 @@
             windowrulev2 = [
                 "float, class:(org.kde.polkit-kde-authentication-agent-1)"
                 "center, class:(org.kde.polkit-kde-authentication-agent-1)"
+                "float, class:(xdg-desktop-portal-gtk)"
                 "float, class:(bilibili)"
                 "float, class:(QQ)"
                 "center, class:(QQ)"
@@ -309,12 +310,13 @@
             defaultApplications = {
                 "text/plain" = "nvim.desktop";
                 "application/pdf" = "org.kde.okular.desktop";
+                "inode/directory" = "org.kde.dolphin.desktop";
             };
         };
         portal = {
             enable = true;
             extraPortals = with pkgs; [
-                xdg-desktop-portal-kde
+                xdg-desktop-portal-gtk
                 xdg-desktop-portal-wlr
             ];
             config = {
@@ -326,7 +328,7 @@
                         "hyprland"
                         "gtk"
                     ];
-                    "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+                    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
                     "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
                 };
             };

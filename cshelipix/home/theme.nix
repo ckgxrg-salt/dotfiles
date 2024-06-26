@@ -4,8 +4,11 @@ let
   gtkTheme = "Graphite-Dark";
   gtkPkg = pkgs.graphite-gtk-theme;
 
-  qtStyle = "GraphiteNord";
-  qtPkg = pkgs.graphite-kde-theme;
+  qtStyle = "Catppuccin-Mocha-Sapphire";
+  qtPkg = pkgs.catppuccin-kvantum.override {
+    accent = "Sapphire";
+    variant = "Mocha";
+  };
 
   cursor = "GoogleDot-Black";
   cursorPkg = (pkgs.callPackage ../../packages/googledot-cursor.nix {});

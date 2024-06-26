@@ -4,7 +4,7 @@
   # Include home modules
   imports = [
     ./desktop/hyprland.nix
-    #./desktop/ags
+    ./desktop/ags
     ./package.nix
     ./theme.nix
     ./modes.nix

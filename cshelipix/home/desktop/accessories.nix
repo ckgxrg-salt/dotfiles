@@ -12,6 +12,8 @@
     waypaper
     swww
     udiskie
+    blueberry
+    networkmanagerapplet
 
     brightnessctl
     pamixer
@@ -21,6 +23,7 @@
     inputs.hyprswitch.packages.${pkgs.system}.default
 
     nwg-drawer
+    (pkgs.callPackage ../../../packages/wvkbd-desktop.nix {})
   ];
 
   # Mako the Notification Daemon

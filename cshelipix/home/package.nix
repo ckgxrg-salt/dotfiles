@@ -35,6 +35,7 @@
         tor
         tor-browser
         vscodium
+        krita
     ];
 
     # Flatpak packages
@@ -59,6 +60,7 @@
             "org.mozilla.Thunderbird"
             "io.gitlab.idevecore.Pomodoro"
             "org.blender.Blender"
+            "org.gimp.GIMP"
         ];
     };
 }
