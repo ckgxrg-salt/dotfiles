@@ -20,11 +20,15 @@
     services.logind = {
         powerKey = "lock";
         powerKeyLongPress = "poweroff";
-        lidSwitch = "suspend";
-        lidSwitchExternalPower = "suspend";
+        lidSwitch = "hybrid-sleep";
+        lidSwitchExternalPower = "hybrid-sleep";
         lidSwitchDocked = "ignore";
     };
     services.systemd-lock-handler.enable = true;
+    systemd.sleep.extraConfig = ''
+        MemorySleepMode=deep
+        SuspendState=mem
+    '';
 
     # Network with NetworkManager and Firewall with NFTables
     networking.networkmanager.enable = true;
@@ -43,7 +47,6 @@
         enable = true;
         powerOnBoot = true;
     };
-    services.blueman.enable = true;
 
     # Sound with PipeWire
     sound.enable = true;

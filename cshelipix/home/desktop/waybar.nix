@@ -27,8 +27,8 @@
         };
         "idle_inhibitor" = {
           format = "{icon}";
-          tooltip-format-activated = "Inhibited Hypridle";
-          tooltip-format-deactivated = "This widget says Zzz, pretending to be sleeping";
+          tooltip-format-activated = "Inhibited Idle";
+          tooltip-format-deactivated = "This widget says Zzz, pretending to be asleep";
           format-icons = {
             activated = "";
             deactivated = "󰒲";

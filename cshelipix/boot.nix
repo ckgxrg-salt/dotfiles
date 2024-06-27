@@ -22,6 +22,7 @@
       "acpi=noirq"
       "rotate=180"
       "snd_hda_intel.probe_mask=0x01"
+      "mem_sleep_default=deep"
     ];
     # BBR Congestion Algorithm
     kernelModules = [

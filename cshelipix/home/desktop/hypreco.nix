@@ -40,7 +40,7 @@
         capslock_color = "rgb(128, 25, 38)";
         outline_thickness = 5;
         fade_on_empty = false;
-        placeholder_text = ''<span foreground="##cad3f5">Password...</span>'';
+        placeholder_text = ''<span foreground="##cad3f5">Who asked you...</span>'';
         shadow_passes = 2;
       }];
     };
@@ -60,6 +60,11 @@
           timeout = 300;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";  
+        }
+        {
+          timeout = 900;
+          on-timeout = "systemctl hybrid-sleep";
+          on-resume = "notify-send \"It was a beautiful day outside.\"";
         }
       ];
     };

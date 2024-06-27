@@ -110,13 +110,13 @@
         hyprctl --batch "keyword monitor eDP-1,highres,0x0,1.25,transform,3; \
                         keyword monitor eDP-2,highres,-1800x0,1.25,transform,1; \
                         keyword input:tablet:transform 1; \
-                        keyword input:tablet:touchdevice 1; \
+                        keyword input:touchdevice:transform 1; \
                         dispatch dpms on"
       '';
     in {
       Unit = {
         Description = "Initialise Book Layout";
-        After = [ "tent.target" ];
+        After = [ "book.target" ];
       };
       Service = {
         Type = "oneshot";
@@ -132,7 +132,7 @@
         hyprctl --batch "keyword monitor eDP-1,highres,0x0,1.25,transform,2; \
                         keyword monitor eDP-2,highres,0x1800,1.25; \
                         keyword input:tablet:transform 0; \
-                        keyword input:tablet:touchdevice 0"
+                        keyword input:touchdevice:transform 0"
       '';
     in {
       Unit = {
@@ -144,21 +144,19 @@
         ExecStart = "${script}";
       };
     };
-  };
 
   # Load WVKBD according to modes
-  systemd.user.services = {
     "wvkbd-desktop" = {
       Unit = {
         Description = "WVKBD Virtual Keyboard";
-        Conflicts = [ "laptop.target" ];
+        Conflicts = [ "laptop.target" "tent.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.callPackage ../../packages/wvkbd-desktop.nix {}}/bin/wvkbd-desktop --hidden -L 512 --fn 'Maple Mono 16' --press '81a1c1' --alpha 235";
+        ExecStart = "${pkgs.callPackage ../../packages/wvkbd-desktop.nix {}}/bin/wvkbd-desktop --hidden -L 512 --fn 'Maple Mono 16' --press '81a1c1' --alpha 230";
         Restart = "always";
       };
       Install = {
-        WantedBy = [ "tablet.target" "tent.target" ];
+        WantedBy = [ "tablet.target" "book.target" ];
       };
     };
   };
