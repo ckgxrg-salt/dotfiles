@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 # Tools for developing
 {
   # Gradle Build Tool
@@ -6,9 +6,7 @@
     enable = true;
     home = ".gradle";
   };
-  programs.java = {
-    enable = true;
-  };
+  programs.java = { enable = true; };
 
   # Rust toolchain and IDEs
   home.packages = with pkgs; [

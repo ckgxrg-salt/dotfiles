@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 # Home-manager configuration for Cshelipix
 {
   # Include home modules
@@ -24,6 +24,9 @@
       fcitx5-rime
     ];
   };
+
+  # Workaround to map shutdown to reboot
+  programs.zsh.shellAliases."shutdown" = "systemctl reboot";
 
   # User and home directory
   home.username = "ckgxrg";

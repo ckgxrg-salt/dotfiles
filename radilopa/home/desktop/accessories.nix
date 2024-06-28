@@ -1,11 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 # Extra programs for Hyprland
 {
-  imports = [
-    ./waybar.nix
-    ./hypreco.nix
-    ./wlogout.nix
-  ];
+  imports = [ ./waybar.nix ./hypreco.nix ./wlogout.nix ];
 
   # Hyprland accessories
   home.packages = with pkgs; [
@@ -27,7 +23,8 @@
     height = 150;
     width = 450;
     icons = true;
-    iconPath = "/etc/profiles/per-user/ckgxrg/share/icons:/run/current-system/sw/share/icons";
+    iconPath =
+      "/etc/profiles/per-user/ckgxrg/share/icons:/run/current-system/sw/share/icons";
     maxIconSize = 64;
     maxVisible = 3;
   };
@@ -48,9 +45,7 @@
     tray = "auto";
   };
 
-  services.cliphist = {
-    enable = true;
-  };
+  services.cliphist = { enable = true; };
 
   # Config file
   home.file.".config/waypaper/config.ini".source = ./waypaper.ini;

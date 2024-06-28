@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-{
+{ pkgs, ... }: {
   # Bootloader
   boot = {
     bootspec.enable = true;
@@ -12,7 +11,7 @@
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "deus_ex";
+      theme = "colorful_loop";
     };
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
@@ -22,12 +21,9 @@
       "acpi=noirq"
       "rotate=180"
       "snd_hda_intel.probe_mask=0x01"
-      "mem_sleep_default=deep"
     ];
     # BBR Congestion Algorithm
-    kernelModules = [
-      "tcp_bbr"
-    ];
+    kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.ipv4.default_qdisc" = "cake";

@@ -1,5 +1,4 @@
-{ pkgs, config, lib, ... }:
-{
+{ pkgs, config, lib, ... }: {
   # Bootloader
   boot = {
     bootspec.enable = true;
@@ -29,7 +28,8 @@
     #'';
     # Use linux-zen kernel with Nvidia modules
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    extraModulePackages = with config.boot.kernelPackages; [ lenovo-legion-module ];
+    extraModulePackages = with config.boot.kernelPackages;
+      [ lenovo-legion-module ];
     supportedFilesystems = [ "btrfs" "ntfs" ];
     kernelParams = [
       "quiet"
@@ -37,9 +37,7 @@
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
     # BBR Congestion Algorithm
-    kernelModules = [
-      "tcp_bbr"
-    ];
+    kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.ipv4.default_qdisc" = "cake";

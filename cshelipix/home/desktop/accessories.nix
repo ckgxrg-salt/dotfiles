@@ -1,11 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 # Extra programs for Hyprland
 {
-  imports = [
-    ./waybar.nix
-    ./hypreco.nix
-    ./wlogout.nix
-  ];
+  imports = [ ./waybar.nix ./hypreco.nix ./wlogout.nix ];
 
   # Hyprland accessories
   home.packages = with pkgs; [
@@ -23,7 +19,7 @@
     inputs.hyprswitch.packages.${pkgs.system}.default
 
     nwg-drawer
-    (pkgs.callPackage ../../../packages/wvkbd-desktop.nix {})
+    (pkgs.callPackage ../../../packages/wvkbd-desktop.nix { })
   ];
 
   # Mako the Notification Daemon
@@ -38,7 +34,8 @@
     height = 150;
     width = 450;
     icons = true;
-    iconPath = "/run/current-system/sw/share/icons/hicolor:/run/current-system/sw/share/icons/pixmaps";
+    iconPath =
+      "/run/current-system/sw/share/icons/hicolor:/run/current-system/sw/share/icons/pixmaps";
     maxIconSize = 64;
     maxVisible = 3;
   };
@@ -66,9 +63,7 @@
       tray: auto
   '';
 
-  services.cliphist = {
-    enable = true;
-  };
+  services.cliphist = { enable = true; };
 
   # Waypaper
   xdg.configFile."waypaper/config.ini".source = ./waypaper.ini;
@@ -76,10 +71,7 @@
   # Fusuma the touchscreen gesture recogniser
   services.fusuma = {
     enable = true;
-    extraPackages = with pkgs; [
-      ydotool
-      coreutils
-    ];
+    extraPackages = with pkgs; [ ydotool coreutils ];
     settings = {
       threshold = {
         swipe = 0.5;
@@ -89,16 +81,8 @@
         swipe = 0.2;
         pinch = 0.2;
       };
-      swipe = {
-        "4" = {
-          left.command = "pkill -USR1 waybar";
-        };
-      };
-      pinch = {
-        "3" = {
-          "in".command = "hyprctl dispatch killactive";
-        };
-      };
+      swipe = { "4" = { left.command = "pkill -USR1 waybar"; }; };
+      pinch = { "3" = { "in".command = "hyprctl dispatch killactive"; }; };
     };
   };
 }

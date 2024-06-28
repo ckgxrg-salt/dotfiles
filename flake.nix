@@ -27,10 +27,6 @@
       url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
     hyprgrass = {
       url = "github:horriblename/hyprgrass";
       inputs.hyprland.follows = "hyprland";
@@ -43,21 +39,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, ... }:
-  {
+  outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, ... }: {
     # Twirisa
     nixosConfigurations.Twirisa = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       system = "x86_64-linux";
       modules = [
         ./twirisa
-        home-manager.nixosModules.home-manager {
+        home-manager.nixosModules.home-manager
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg.imports = [
-            flatpaks.homeManagerModules.nix-flatpak
-            ./twirisa/home
-          ];
+          home-manager.users.ckgxrg.imports =
+            [ flatpaks.homeManagerModules.nix-flatpak ./twirisa/home ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
@@ -69,7 +63,8 @@
       system = "x86_64-linux";
       modules = [
         ./cshelipix
-        home-manager.nixosModules.home-manager {
+        home-manager.nixosModules.home-manager
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.ckgxrg.imports = [
@@ -89,13 +84,12 @@
       modules = [
         ./radilopa
         lanzaboote.nixosModules.lanzaboote
-        home-manager.nixosModules.home-manager {
+        home-manager.nixosModules.home-manager
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg.imports = [
-            flatpaks.homeManagerModules.nix-flatpak
-            ./radilopa/home
-          ];
+          home-manager.users.ckgxrg.imports =
+            [ flatpaks.homeManagerModules.nix-flatpak ./radilopa/home ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];

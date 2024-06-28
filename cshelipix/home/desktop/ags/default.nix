@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ ... }: {
   # Aylur's GTK Shell
   programs.ags = {
     enable = true;

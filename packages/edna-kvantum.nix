@@ -1,4 +1,4 @@
-{ lib, fetchFromGitLab, stdenv, pkgs }:
+{ fetchFromGitLab, stdenv, pkgs }:
 # The Edna Kvantum theme
 stdenv.mkDerivation {
   pname = "edna-kvantum-theme";

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 # Define theme names and pkgs here
 let
   gtkTheme = "Nightfox-Dusk-B";
@@ -11,7 +11,7 @@ let
   cursorPkg = pkgs.vimix-cursor-theme;
 
   icon = "Vivid-Dark-Icons";
-  iconPkg = (pkgs.callPackage ../../packages/vivid-icons.nix {});
+  iconPkg = (pkgs.callPackage ../../packages/vivid-icons.nix { });
 
   customFont = "Maple Mono";
 in {
@@ -43,12 +43,12 @@ in {
     style.name = "kvantum";
   };
   xdg.configFile = {
-  "Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=${qtStyle}
-  '';
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=${qtStyle}
+    '';
 
-  "Kvantum/${qtStyle}".source = "${qtPkg}/share/Kvantum/${qtStyle}";
+    "Kvantum/${qtStyle}".source = "${qtPkg}/share/Kvantum/${qtStyle}";
   };
 
   # Hyprland Managed Cursor
@@ -75,11 +75,7 @@ in {
   services.flatpak.overrides = {
     global = {
       # Force Wayland
-      Context.sockets = [
-        "wayland"
-        "!x11"
-        "fallback-x11"
-      ];
+      Context.sockets = [ "wayland" "!x11" "fallback-x11" ];
       # Make files accessible to flatpaks
       Context.filesystems = [
         "/home/ckgxrg/.themes:ro"
@@ -92,7 +88,7 @@ in {
       # Set themes
       Environment = {
         "GTK_THEME" = gtkTheme;
-        "ICON_THEME"= icon;
+        "ICON_THEME" = icon;
         "QT_STYLE_OVERRIDE" = "kvantum";
         "HYPRCURSOR_THEME" = cursor;
         "HYPRCURSOR_SIZE" = "24";

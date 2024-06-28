@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, ... }:
 # Options for some hypr* programs
 {
   # Hyprlock the screen-locker
@@ -13,7 +13,7 @@
         color = "rgba(59, 66, 82, 0.6)";
         blur_passes = 3;
         blur_size = 7;
-        noise = 0.0117;
+        noise = 1.17e-2;
         contrast = 0.8916;
         brightness = 0.8172;
         vibrancy = 0.1696;
@@ -40,9 +40,30 @@
         capslock_color = "rgb(128, 25, 38)";
         outline_thickness = 5;
         fade_on_empty = false;
-        placeholder_text = ''<span foreground="##cad3f5">Who asked you...</span>'';
+        placeholder_text =
+          ''<span foreground="##cad3f5">Who asked you...</span>'';
+        fail_text = "sus";
         shadow_passes = 2;
       }];
+    };
+  };
+  # Summon hyprlock on lock event
+  systemd.user.services = {
+    "hyprlock" = {
+      Unit = {
+        Description = "Session Locked";
+        Requisite = [ "hyprland-session.target" ];
+        Before = [ "lock.target" ];
+        Conflicts = [ "unlock.target" ];
+      };
+      Service = {
+        Type = "simple";
+        Restart = "no";
+        ExecStart = "${pkgs.hyprlock}/bin/hyprlock --immediate";
+        ExecStopPost =
+          "${pkgs.systemd}/bin/systemctl --user start unlock.target";
+      };
+      Install = { WantedBy = [ "lock.target" ]; };
     };
   };
 
@@ -50,21 +71,20 @@
   services.hypridle = {
     enable = true;
     settings = {
+      lock_cmd = "pidof hyprlock || hyprlock --immediate";
+      unlock_cmd = "pkill -USR1 hyprlock";
+      before_sleep_cmd = "hyprctl dispatch dpms off";
+      after_sleep_cmd = "hyprctl dispatch dpms on";
       listener = [
         {
           timeout = 180;
-          on-timeout = "hyprlock";
-          on-resume = "notify-send \"Resumed from Idle\"";
+          on-timeout = "pidof hyprlock || hyprlock";
+          on-resume = ''notify-send "Kids, I'm back"'';
         }
         {
           timeout = 300;
           on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";  
-        }
-        {
-          timeout = 900;
-          on-timeout = "systemctl hybrid-sleep";
-          on-resume = "notify-send \"It was a beautiful day outside.\"";
+          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };

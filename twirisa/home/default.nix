@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 # Home-manager configuration for Twirisa
 {
   # Include home modules

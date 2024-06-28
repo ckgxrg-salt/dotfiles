@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ ... }:
 # Options for some hypr* programs
 {
   # Hyprlock the screen-locker
@@ -13,7 +13,7 @@
         color = "rgba(59, 66, 82, 0.8)";
         blue_passes = 3;
         blur_size = 7;
-        noise = 0.02;
+        noise = 2.0e-2;
         contrast = 0.9;
         brightness = 0.8;
         vibrancy = 0.1;
@@ -54,12 +54,12 @@
         {
           timeout = 360;
           on-timeout = "hyprlock";
-          on-resume = "notify-send \"Resumed from Idle\"";
+          on-resume = ''notify-send "Resumed from Idle"'';
         }
         {
           timeout = 900;
           on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";  
+          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };

@@ -1,4 +1,4 @@
-{ lib, fetchFromGitHub, stdenv }:
+{ fetchFromGitHub, stdenv }:
 # The Vivid icon theme
 stdenv.mkDerivation {
   pname = "vivid-icon-theme";

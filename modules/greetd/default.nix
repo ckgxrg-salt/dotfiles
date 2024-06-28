@@ -1,11 +1,7 @@
-{ pkgs, config, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
   # Greetd Session Manager
-  environment.systemPackages = with pkgs; [
-    greetd.regreet
-  ];
-  services.greetd = 
-  let
+  environment.systemPackages = with pkgs; [ greetd.regreet ];
+  services.greetd = let
     hyprConfig = pkgs.writeText "greetd-hyprland-config" ''
       exec-once = ${pkgs.greetd.regreet}/bin/regreet; hyprctl dispatch exit
       monitor = eDP-1, highres, 0x0, 1.25, transform, 2
@@ -22,11 +18,14 @@
     enable = true;
     settings = {
       initial_session = {
-        command = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+        command =
+          "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
         user = "ckgxrg";
       };
       default_session = {
-        command = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland --config ${hyprConfig}";
+        command = "${
+            inputs.hyprland.packages.${pkgs.system}.hyprland
+          }/bin/Hyprland --config ${hyprConfig}";
       };
     };
   };

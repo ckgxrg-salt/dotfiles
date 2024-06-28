@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 # Options for Waybar
 {
   # Waybar the Wayland Bar
@@ -10,9 +10,11 @@
         position = "right";
         width = 20;
         spacing = 5;
-        modules-left = [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" ];
+        modules-left =
+          [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" ];
         modules-center = [ "gamemode" ];
-        modules-right = [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
+        modules-right =
+          [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
 
         "image#launcher" = {
           path = "${config.home.homeDirectory}/.config/waybar/icon.png";
@@ -28,26 +30,25 @@
         "idle_inhibitor" = {
           format = "{icon}";
           tooltip-format-activated = "Inhibited Idle";
-          tooltip-format-deactivated = "This widget says Zzz, pretending to be asleep";
+          tooltip-format-deactivated =
+            "This widget says Zzz, pretending to be asleep";
           format-icons = {
             activated = "";
             deactivated = "󰒲";
           };
         };
         "mpris" = {
-	        format = "{player_icon}";
-	        format-paused = "{status_icon}";
+          format = "{player_icon}";
+          format-paused = "{status_icon}";
           title-len = 16;
           ellipsis = "...";
           on-click-right = "next";
           on-click-middle = "previous";
-	        player-icons = {
-		        default = "▶";
-		        elisa = "🎵";
-	        };
-	        status-icons = {
-		        paused = "⏸";
-	        }; 
+          player-icons = {
+            default = "▶";
+            elisa = "🎵";
+          };
+          status-icons = { paused = "⏸"; };
         };
         "gamemode" = {
           glyph = "";
@@ -70,7 +71,7 @@
           format-good = "{icon} {capacity}%";
           format-warning = "󰂃 {capacity}%";
           format-critical = "󱉞 {capacity}%";
-          format-icons = ["󰁼" "󰁾" "󰁾" "󰂂" "󰂂"];
+          format-icons = [ "󰁼" "󰁾" "󰁾" "󰂂" "󰂂" ];
         };
         "pulseaudio/slider" = {
           min = 0;
@@ -100,7 +101,7 @@
               weekdays = "<span color='#ffcc66'><b>{}</b></span>";
               today = "<span color='#ff6699'><b><u>{}</u></b></span>";
             };
-           };
+          };
           actions = {
             on-click-right = "mode";
             on-click-forward = "tz_up";
@@ -116,153 +117,153 @@
       };
     };
     style = ''
-      * {
-        font-family: Maple Mono;
-        font-size: 14px;
-        color: #2e3440;
-        opacity: 10;
-      }
-      window#waybar {
-	      background-color: #2e3440;
-      }
-      #image.launcher {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background-color: #d8dee9;
-        border: solid;
-        border-radius: 10px;
-        border-color: #81a1c1;
-        border-width: 2px;
-      }
-      #idle_inhibitor.deactivated {
-        background-color: #d8dee9;
-        border: solid;
-        border-color: #81a1c1;
-        border-width: 2px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-      }
-      #idle_inhibitor.activated {
-        background-color: #8fbcbb;
-        border: solid;
-        border-color: #81a1c1;
-        border-width: 5px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-      }
-      #workspaces button {
-        min-height: 30px;
-        background-color: #d8dee9;
-        border: solid;
-        border-radius: 10px;
-        border-color: #81a1c1;
-        border-width: 2px;
-      }
-      #workspaces button.active {
-        border: none;
-        background-color: #81a1c1;
-      }
-      #gamemode.running {
-        min-height: 60px;
-        background-color: #d08770;
-        border: dashed;
-        border-radius: 10px;
-        border-color: #bf616a;
-        border-width: 2px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      #mpris.stopped {
-        min-width: 0px;
-        min-height: 0px;
-        border: none;
-        padding: 0px 0px 0px 0px;
-      }
-      #mpris.playing {
-        background-color: #81a1c1;
-        border: solid;
-        border-radius: 15px;
-        border-color: #81a1c1;
-        border-width: 2px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      #mpris.paused {
-        background-color: #5e81ac;
-        border: solid;
-        border-radius: 15px;
-        border-color: #81a1c1;
-        border-width: 2px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      #network {
-        background-color: #d8dee9;
-        border: solid;
-        border-radius: 15px;
-        border-color: #81a1c1;
-        border-width: 2px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      #clock {
-        background-color: #d8dee9;
-        border: solid;
-        border-radius: 15px;
-        border-color: #81a1c1;
-        border-width: 2px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      #battery {
-        background-color: #eceff4;
-        border: solid;
-        border-radius: 15px;
-        border-color: #81a1c1;
-        border-width: 2px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      #tray {
-        padding-bottom: 0px;
-        background-color: #d8dee9;
-        border: solid;
-        border-radius: 15px;
-        border-color: #81a1c1;
-        border-width: 2px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      #pulseaudio-slider {
-        min-height: 96px;
-        background-color: #eceff4;
-        border: solid;
-        border-radius: 15px;
-        border-color: #81a1c1;
-        border-width: 2px;
-      }
-      #pulseaudio-slider slider {
-        min-width: 15px;
-        opacity: 50;
-        border: solid;
-        border-radius: 5px;
-        border-color: #81a1c1;
-      }
-      #pulseaudio-slider trough {
-        min-height: 70px;
-        min-width: 12px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-        border-radius: 5px;
-        background-color: #5e81ac;
-      }
-      #pulseaudio-slider highlight {
-        border-radius: 5px;
-        border-color: #81a1c1;
-        margin-top: -7px;
-        margin-bottom: -7px;
-        background-color: #8fbcbb;
-      }
+            * {
+              font-family: Maple Mono;
+              font-size: 14px;
+              color: #2e3440;
+              opacity: 10;
+            }
+            window#waybar {
+      	      background-color: #2e3440;
+            }
+            #image.launcher {
+              padding-top: 5px;
+              padding-bottom: 5px;
+              background-color: #d8dee9;
+              border: solid;
+              border-radius: 10px;
+              border-color: #81a1c1;
+              border-width: 2px;
+            }
+            #idle_inhibitor.deactivated {
+              background-color: #d8dee9;
+              border: solid;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding-top: 7px;
+              padding-bottom: 7px;
+            }
+            #idle_inhibitor.activated {
+              background-color: #8fbcbb;
+              border: solid;
+              border-color: #81a1c1;
+              border-width: 5px;
+              padding-top: 7px;
+              padding-bottom: 7px;
+            }
+            #workspaces button {
+              min-height: 30px;
+              background-color: #d8dee9;
+              border: solid;
+              border-radius: 10px;
+              border-color: #81a1c1;
+              border-width: 2px;
+            }
+            #workspaces button.active {
+              border: none;
+              background-color: #81a1c1;
+            }
+            #gamemode.running {
+              min-height: 60px;
+              background-color: #d08770;
+              border: dashed;
+              border-radius: 10px;
+              border-color: #bf616a;
+              border-width: 2px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            #mpris.stopped {
+              min-width: 0px;
+              min-height: 0px;
+              border: none;
+              padding: 0px 0px 0px 0px;
+            }
+            #mpris.playing {
+              background-color: #81a1c1;
+              border: solid;
+              border-radius: 15px;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            #mpris.paused {
+              background-color: #5e81ac;
+              border: solid;
+              border-radius: 15px;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            #network {
+              background-color: #d8dee9;
+              border: solid;
+              border-radius: 15px;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            #clock {
+              background-color: #d8dee9;
+              border: solid;
+              border-radius: 15px;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            #battery {
+              background-color: #eceff4;
+              border: solid;
+              border-radius: 15px;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            #tray {
+              padding-bottom: 0px;
+              background-color: #d8dee9;
+              border: solid;
+              border-radius: 15px;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            #pulseaudio-slider {
+              min-height: 96px;
+              background-color: #eceff4;
+              border: solid;
+              border-radius: 15px;
+              border-color: #81a1c1;
+              border-width: 2px;
+            }
+            #pulseaudio-slider slider {
+              min-width: 15px;
+              opacity: 50;
+              border: solid;
+              border-radius: 5px;
+              border-color: #81a1c1;
+            }
+            #pulseaudio-slider trough {
+              min-height: 70px;
+              min-width: 12px;
+              padding-top: 7px;
+              padding-bottom: 7px;
+              border-radius: 5px;
+              background-color: #5e81ac;
+            }
+            #pulseaudio-slider highlight {
+              border-radius: 5px;
+              border-color: #81a1c1;
+              margin-top: -7px;
+              margin-bottom: -7px;
+              background-color: #8fbcbb;
+            }
     '';
   };
 

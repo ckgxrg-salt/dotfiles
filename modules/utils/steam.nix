@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Steam and Gamescope Settings
   programs.steam = {
     enable = true;

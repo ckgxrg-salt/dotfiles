@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 # Master configuration for Radilopa
 {
   imports = [
