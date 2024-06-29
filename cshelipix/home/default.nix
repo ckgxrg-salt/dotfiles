@@ -9,7 +9,7 @@
     ./theme.nix
     ./modes.nix
     ../../modules/terminal/zsh.nix
-    ../../modules/terminal/neovim.nix
+    ../../modules/nixvim
     ../../modules/terminal/alacritty.nix
     ../../modules/dev/langs.nix
     ../../modules/utils

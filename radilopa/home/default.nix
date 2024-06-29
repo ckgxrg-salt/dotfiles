@@ -7,7 +7,7 @@
     ./package.nix
     ./theme.nix
     ../../modules/terminal/zsh.nix
-    ../../modules/terminal/neovim.nix
+    ../../modules/nixvim
     ../../modules/utils
   ];
 

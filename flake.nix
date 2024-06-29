@@ -3,10 +3,8 @@
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     # The Rust overlay
     rust-overlay.url = "github:oxalica/rust-overlay";
-
     # Lanzaboote Secureboot
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -15,9 +13,13 @@
 
     # Nix-Flatpak
     flatpaks.url = "github:gmodena/nix-flatpak";
-
     # Nix-Alien
     nix-alien.url = "github:thiagokokada/nix-alien";
+    # NixVim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Hyprland and plugins
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -39,7 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, ... }: {
+  outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, nixvim, ... }: {
     # Twirisa
     nixosConfigurations.Twirisa = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
@@ -70,6 +72,7 @@
           home-manager.users.ckgxrg.imports = [
             flatpaks.homeManagerModules.nix-flatpak
             ags.homeManagerModules.default
+            nixvim.homeManagerModules.nixvim
             ./cshelipix/home
           ];
           home-manager.extraSpecialArgs = { inherit inputs; };
