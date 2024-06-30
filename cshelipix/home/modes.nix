@@ -45,7 +45,7 @@
       script = pkgs.writeShellScript "laptop-init-script" ''
         hyprctl --batch "keyword input:touchdevice:output \"\"; \
                         keyword monitor eDP-1,highres,0x0,1.25,transform,2; \
-                        keyword monitor eDP-2,highres,0x1800,1.25; \
+                        keyword monitor eDP-2,highres,0x1440,1.25; \
                         dispatch dpms on"
       '';
     in {
@@ -83,7 +83,7 @@
     "tent-init" = let
       script = pkgs.writeShellScript "tent-init-script" ''
         hyprctl --batch "keyword input:touchdevice:output eDP-2; \
-                        keyword monitor eDP-2,highres,0x1800,1.25; \
+                        keyword monitor eDP-2,highres,0x1440,1.25; \
                         dispatch focusmonitor eDP-2; \
                         dispatch dpms off eDP-1; \
                         dispatch dpms on eDP-2"
@@ -103,7 +103,7 @@
     "book-init" = let
       script = pkgs.writeShellScript "book-init-script" ''
         hyprctl --batch "keyword monitor eDP-1,highres,0x0,1.25,transform,3; \
-                        keyword monitor eDP-2,highres,-1800x0,1.25,transform,1; \
+                        keyword monitor eDP-2,highres,-1440x0,1.25,transform,1; \
                         keyword input:tablet:transform 1; \
                         keyword input:touchdevice:transform 1; \
                         dispatch dpms on"

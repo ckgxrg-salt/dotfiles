@@ -27,7 +27,6 @@
     okular
     bottles
     alacritty
-    input-remapper
     lenovo-legion
 
     # Games

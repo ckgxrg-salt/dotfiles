@@ -104,7 +104,7 @@
       # Hardware
       monitor = [
         "eDP-1, highres, 0x0, 1.25, transform, 2"
-        "eDP-2, highres, 0x1800, 1.25"
+        "eDP-2, highres, 0x1440, 1.25"
       ];
       input = {
         kb_layout = "us";
@@ -125,6 +125,7 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "waybar"
+        "ags -t \"bar0\""
         "fcitx5"
         "udiskie &"
         "nm-applet"
@@ -137,6 +138,7 @@
         SDL_VIDEODRIVER = "wayland";
         _JAVA_AWT_WM_NONREPARENTING = 1;
         WEBKIT_DISABLE_DMABUF_RENDERER = 1;
+        QT_QPA_PLATFORMTHEME = "qt6ct";
       };
 
       # Window, workspace and layer rules
@@ -152,6 +154,7 @@
       layerrule =
         [ "noanim, swww-daemon" "animation slide right, notifications" ];
       workspace = [
+        "name:Home, monitor:eDP-1, default:true, persistent:true"
         "name:Panel, monitor:eDP-2, default:true, persistent:true"
         "special:browser, on-created-empty:firefox"
       ];
@@ -222,6 +225,9 @@
       hyprgrass-bind = [
         ",edge:r:l, togglespecialworkspace, browser"
         ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
+        ",edge:u:d, togglespecialworkspace, controlcentre"
+        ",edge:u:d, exec, ags -t \"bar0\""
+        ",edge:u:d, exec, pkill -USR2 wvkbd-desktop"
       ];
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
@@ -231,10 +237,13 @@
         # Basics
         "$mainMod, Q, exec, $terminal"
         "$mainMod, C, killactive,"
-        "$mainMod SHIFT CONTROL, Escape, exit,"
         "$mainMod SHIFT, Escape, exec, wlogout"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
+        "$mainMod SHIFT, A, togglespecialworkspace, controlcentre"
+        "$mainMod SHIFT, A, exec, pkill -USR2 wvkvd-desktop"
+        "$mainMod SHIFT, A, exec, ags -t \"bar0\""
+        "$mainMod, P, swapactiveworkspaces, eDP-1 eDP-2"
         "$mainMod, R, exec, $menu"
         "$mainMod, L, exec, hyprlock --immediate"
         "$mainMod, F, fullscreen,"
@@ -260,7 +269,8 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-        "$mainMod, P, workspace, name:Panel"
+        "$mainMod CONTROL, 1, workspace, name:Home"
+        "$mainMod CONTROL, 2, workspace, name:Panel"
         # Workspace movement
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
@@ -272,7 +282,8 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod SHIFT, P, movetoworkspace, name:Panel"
+        "$mainMod SHIFT CONTROL, 1, movetoworkspace, name:Home"
+        "$mainMod SHIFT CONTROL, 2, movetoworkspace, name:Panel"
         # Special workspaces
         "$mainMod, S, togglespecialworkspace, browser"
         "$mainMod SHIFT, W, togglespecialworkspace, waydroid"

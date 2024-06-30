@@ -126,6 +126,12 @@
             window#waybar {
       	      background-color: #2e3440;
             }
+            tooltip {
+              background-color: #8fbcbb;
+            }
+            tooltip label {
+              color: #2e3440;
+            }
             #image.launcher {
               padding-top: 5px;
               padding-bottom: 5px;
@@ -233,6 +239,9 @@
               border-width: 2px;
               padding-top: 5px;
               padding-bottom: 5px;
+            }
+            #tray menu {
+              background-color: #81a1c1;
             }
             #pulseaudio-slider {
               min-height: 96px;

@@ -139,6 +139,12 @@
     extraPackages32 = [ pkgs.driversi686Linux.mesa ];
   };
 
+  # Input Remapper
+  services.input-remapper = {
+    enable = true;
+    serviceWantedBy = [];
+  };
+
   # Violent Power Save
   powerManagement = {
     enable = true;

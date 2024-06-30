@@ -38,6 +38,7 @@
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
         NVD_BACKEND = "direct";
         ELECTRON_OZONE_PLATFORM_HINT = "auto";
+        QT_QPA_PLATFORMTHEME = "qt6ct";
       };
 
       # Window and workspace rules

@@ -24,7 +24,6 @@
     okular
     bottles
     alacritty
-    input-remapper
     cinnamon.pix
 
     # Applications
@@ -62,6 +61,8 @@
       "io.gitlab.idevecore.Pomodoro"
       "org.blender.Blender"
       "org.gimp.GIMP"
+      "net.kuribo64.melonDS"
+      "codes.merritt.adventurelist"
     ];
   };
 }
