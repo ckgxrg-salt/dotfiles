@@ -99,7 +99,10 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
-    plugins = [ inputs.hyprgrass.packages.${pkgs.system}.default ];
+    plugins = [
+      inputs.hyprgrass.packages.${pkgs.system}.default
+      inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+    ];
     settings = {
       # Hardware
       monitor = [
@@ -148,34 +151,49 @@
         "float, class:(xdg-desktop-portal-gtk)"
         "float, class:(QQ)"
         "center, class:(QQ)"
-        "workspace special:waydroid, class:(Waydroid)"
+        "workspace name:, class:(Waydroid)"
         "fullscreen, class:(Waydroid)"
       ];
       layerrule =
         [ "noanim, swww-daemon" "animation slide right, notifications" ];
       workspace = [
-        "name:Home, monitor:eDP-1, default:true, persistent:true"
-        "name:Panel, monitor:eDP-2, default:true, persistent:true"
+        "name:, monitor:eDP-1, default:true, persistent:true"
+        "name:, monitor:eDP-2, default:true, persistent:true"
         "special:browser, on-created-empty:firefox"
       ];
 
       # Options
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 5;
+        gaps_out = 5;
         border_size = 0;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
         allow_tearing = false;
         resize_on_border = true;
       };
-      dwindle = { smart_split = true; };
+      dwindle = {
+        smart_split = true;
+        no_gaps_when_only = 1;
+      };
       plugin.touch_gestures = {
         sensitivity = 1.0;
         workspace_swipe_fingers = 3;
         workspace_swipe_edge = "d";
         long_press_delay = 400;
+      };
+      plugin.hyprfocus = {
+        enabled = "yes";
+        animate_floating = "yes";
+        animate_workspacechange = "yes";
+        focus_animation = "flash";
+        bezier = [ "realsmooth, 0.28,0.29,.69,1.08" ];
+        flash = {
+            flash_opacity = 0.6;
+            in_bezier = "realsmooth";
+            in_speed = 0.5;
+            out_bezier = "realsmooth";
+            out_speed = 3;
+        };
       };
       gestures = {
         workspace_swipe = true;
@@ -227,7 +245,7 @@
         ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
         ",edge:u:d, togglespecialworkspace, controlcentre"
         ",edge:u:d, exec, ags -t \"bar0\""
-        ",edge:u:d, exec, pkill -USR2 wvkbd-desktop"
+        ",edge:u:d, exec, pkill -RTMIN wvkbd-desktop"
       ];
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
@@ -241,7 +259,7 @@
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod SHIFT, A, togglespecialworkspace, controlcentre"
-        "$mainMod SHIFT, A, exec, pkill -USR2 wvkvd-desktop"
+        "$mainMod SHIFT, A, exec, pkill -RTMIN wvkvd-desktop"
         "$mainMod SHIFT, A, exec, ags -t \"bar0\""
         "$mainMod, P, swapactiveworkspaces, eDP-1 eDP-2"
         "$mainMod, R, exec, $menu"
@@ -269,24 +287,24 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-        "$mainMod CONTROL, 1, workspace, name:Home"
-        "$mainMod CONTROL, 2, workspace, name:Panel"
+        "$mainMod CONTROL, 1, workspace, name:"
+        "$mainMod CONTROL, 2, workspace, name:"
         # Workspace movement
-        "$mainMod SHIFT, 1, movetoworkspace, 1"
-        "$mainMod SHIFT, 2, movetoworkspace, 2"
-        "$mainMod SHIFT, 3, movetoworkspace, 3"
-        "$mainMod SHIFT, 4, movetoworkspace, 4"
-        "$mainMod SHIFT, 5, movetoworkspace, 5"
-        "$mainMod SHIFT, 6, movetoworkspace, 6"
-        "$mainMod SHIFT, 7, movetoworkspace, 7"
-        "$mainMod SHIFT, 8, movetoworkspace, 8"
-        "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod SHIFT CONTROL, 1, movetoworkspace, name:Home"
-        "$mainMod SHIFT CONTROL, 2, movetoworkspace, name:Panel"
+        "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
+        "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
+        "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
+        "$mainMod SHIFT, 4, movetoworkspacesilent, 4"
+        "$mainMod SHIFT, 5, movetoworkspacesilent, 5"
+        "$mainMod SHIFT, 6, movetoworkspacesilent, 6"
+        "$mainMod SHIFT, 7, movetoworkspacesilent, 7"
+        "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
+        "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
+        "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
+        "$mainMod SHIFT CONTROL, 1, movetoworkspace, name:"
+        "$mainMod SHIFT CONTROL, 2, movetoworkspace, name:"
         # Special workspaces
         "$mainMod, S, togglespecialworkspace, browser"
-        "$mainMod SHIFT, W, togglespecialworkspace, waydroid"
+        "$mainMod SHIFT, W, workspace, name:"
         "$mainMod SHIFT, S, movetoworkspace, special:browser"
         # Workspace scroll
         "$mainMod, mouse_down, workspace, e+1"

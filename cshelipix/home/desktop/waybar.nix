@@ -11,7 +11,7 @@
         width = 20;
         spacing = 5;
         modules-left =
-          [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" ];
+          [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" "image#add" ];
         modules-center = [ "gamemode" ];
         modules-right =
           [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
@@ -26,6 +26,12 @@
           format = "{name}";
           format-window-separator = " | ";
           sort-by = "id";
+        };
+        "image#add" = {
+          path = "${config.home.homeDirectory}/.config/waybar/add.png";
+          on-click = "hyprctl dispatch workspace +1";
+          tooltip = "New Workspace";
+          size = 32;
         };
         "idle_inhibitor" = {
           format = "{icon}";
@@ -169,6 +175,14 @@
               border: none;
               background-color: #81a1c1;
             }
+            #image.add {
+              padding-top: 2px;
+              padding-bottom: 2px;
+              background-color: #d8dee9;
+              border: solid;
+              border-radius: 10px;
+              border-color: #81a1c1;
+            }
             #gamemode.running {
               min-height: 60px;
               background-color: #d08770;
@@ -276,6 +290,7 @@
     '';
   };
 
-  # The Icon
+  # The Icons
   home.file.".config/waybar/icon.png".source = ./assets/nixos.png;
+  home.file.".config/waybar/add.png".source = ./assets/add.png;
 }

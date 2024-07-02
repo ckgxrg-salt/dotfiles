@@ -26,11 +26,15 @@
     #hyprland.url = "github:hyprwm/Hyprland";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
     hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
+      url = "github:pyt0xic/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
     hyprgrass = {
       url = "github:horriblename/hyprgrass";
+      inputs.hyprland.follows = "hyprland";
+    };
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
     ags.url = "github:Aylur/ags";

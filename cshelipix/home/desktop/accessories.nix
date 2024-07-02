@@ -34,8 +34,6 @@
     height = 150;
     width = 450;
     icons = true;
-    iconPath =
-      "/run/current-system/sw/share/icons/hicolor:/run/current-system/sw/share/icons/pixmaps";
     maxIconSize = 64;
     maxVisible = 3;
   };

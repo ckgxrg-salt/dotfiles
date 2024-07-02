@@ -74,6 +74,9 @@ in {
     '';
   };
 
+  # Mako vs Alien paths
+  services.mako.iconPath = "/etc/profiles/per-user/ckgxrg/share/icons/${icon}";
+
   # Then make them availiable to Flatpaks
   services.flatpak.overrides = {
     global = {
