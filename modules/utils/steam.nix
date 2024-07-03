@@ -5,7 +5,10 @@
     fontPackages = with pkgs; [ source-han-sans ];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
+    gamescopeSession = {
+      enable = true;
+      args = [ "-O eDP-1" ];
+    };
   };
 
   programs.gamescope = {

@@ -45,7 +45,10 @@
   };
 
   # Sound with PipeWire
-  sound.enable = true;
+  sound = {
+    enable = true;
+    enableOSSEmulation = true;
+  };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -59,7 +62,7 @@
     isNormalUser = true;
     description = "ckgxrg";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "input" "gamemode" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "gamemode" "video" ];
   };
 
   # Locale, I18n and Fcitx5

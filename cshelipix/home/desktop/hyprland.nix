@@ -165,7 +165,7 @@
       # Options
       general = {
         gaps_in = 5;
-        gaps_out = 5;
+        gaps_out = 10;
         border_size = 0;
         layout = "dwindle";
         allow_tearing = false;
@@ -177,30 +177,35 @@
       };
       plugin.touch_gestures = {
         sensitivity = 1.0;
-        workspace_swipe_fingers = 3;
         workspace_swipe_edge = "d";
+        workspace_swipe_fingers = 3;
         long_press_delay = 400;
       };
       plugin.hyprfocus = {
         enabled = "yes";
         animate_floating = "yes";
         animate_workspacechange = "yes";
-        focus_animation = "flash";
+        focus_animation = "shrink";
         bezier = [ "realsmooth, 0.28,0.29,.69,1.08" ];
-        flash = {
-            flash_opacity = 0.6;
+        shrink = {
+            shrink_percentage = 0.99;
             in_bezier = "realsmooth";
-            in_speed = 0.5;
+            in_speed = 1;
             out_bezier = "realsmooth";
-            out_speed = 3;
+            out_speed = 2;
         };
       };
       gestures = {
         workspace_swipe = true;
-        workspace_swipe_touch = true;
+        workspace_swipe_fingers = 3;
+        workspace_swipe_min_fingers = true;
         workspace_swipe_cancel_ratio = 0.15;
       };
-      misc = { force_default_wallpaper = -1; };
+      misc = {
+        force_default_wallpaper = -1;
+        disable_hyprland_logo = true;
+        background_color = "0x4c566a";
+      };
       xwayland = { force_zero_scaling = true; };
 
       # Somehow "fancy" effects
@@ -290,16 +295,16 @@
         "$mainMod CONTROL, 1, workspace, name:"
         "$mainMod CONTROL, 2, workspace, name:"
         # Workspace movement
-        "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
-        "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
-        "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
-        "$mainMod SHIFT, 4, movetoworkspacesilent, 4"
-        "$mainMod SHIFT, 5, movetoworkspacesilent, 5"
-        "$mainMod SHIFT, 6, movetoworkspacesilent, 6"
-        "$mainMod SHIFT, 7, movetoworkspacesilent, 7"
-        "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
-        "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
-        "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
+        "$mainMod SHIFT, 1, movetoworkspace, 1"
+        "$mainMod SHIFT, 2, movetoworkspace, 2"
+        "$mainMod SHIFT, 3, movetoworkspace, 3"
+        "$mainMod SHIFT, 4, movetoworkspace, 4"
+        "$mainMod SHIFT, 5, movetoworkspace, 5"
+        "$mainMod SHIFT, 6, movetoworkspace, 6"
+        "$mainMod SHIFT, 7, movetoworkspace, 7"
+        "$mainMod SHIFT, 8, movetoworkspace, 8"
+        "$mainMod SHIFT, 9, movetoworkspace, 9"
+        "$mainMod SHIFT, 0, movetoworkspace, 10"
         "$mainMod SHIFT CONTROL, 1, movetoworkspace, name:"
         "$mainMod SHIFT CONTROL, 2, movetoworkspace, name:"
         # Special workspaces

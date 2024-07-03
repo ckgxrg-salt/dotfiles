@@ -19,11 +19,17 @@
       "plymouth.nolog"
       "reboot=pci"
       "acpi=noirq"
-      "rotate=180"
-      "snd_hda_intel.probe_mask=0x01"
+      "fbcon=rotate:2"
+      #"snd_hda_intel.probe_mask=0x01"
+    ];
+    kernelModules = [
+      "tcp_bbr"
+      "snd-hda-intel"
+      "snd-pcm-oss"
+      "snd-mixer-oss"
+      "snd-seq-oss"
     ];
     # BBR Congestion Algorithm
-    kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.ipv4.default_qdisc" = "cake";
@@ -31,8 +37,9 @@
     };
     # Workaround for sound
     extraModprobeConfig = ''
-      options snd_sof_hda_common hda_model=alc287-yoga9-bass-spk-pin
       options snd slots=snd-hda-intel
+      options snd_hda_intel model=lenovo-spk-noise
+      options snd_sof_hda_common hda_model=alc287-yoga9-bass-spk-pin
       options snd-sof-intel-hda-common hda_model=alc287-yoga9-bass-spk-pin
     '';
   };
