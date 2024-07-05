@@ -69,6 +69,7 @@
       system = "x86_64-linux";
       modules = [
         ./cshelipix
+        lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

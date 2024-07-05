@@ -62,6 +62,9 @@
       "io.gitlab.idevecore.Pomodoro"
       "org.blender.Blender"
       "io.github.mrvladus.List"
+      "com.github.xournalpp.xournalpp"
+      "org.gnome.World.Iotas"
+      "com.github.johnfactotum.Foliate"
     ];
   };
 }

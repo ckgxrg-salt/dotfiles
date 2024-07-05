@@ -4,17 +4,8 @@
   # My Name!
   networking.hostName = "Cshelipix";
 
+  # Fwupd the firmware updater
   services.fwupd.enable = true;
-
-  # AppArmor MAC
-  security.apparmor = {
-    enable = true;
-    enableCache = true;
-  };
-  services.dbus = {
-    apparmor = "enabled";
-    implementation = "broker";
-  };
 
   # Power Button Behaviour
   services.logind = {
@@ -31,11 +22,6 @@
   networking.wg-quick.interfaces = {
     iof.configFile = "/etc/wireguard/iof.conf";
     iof.autostart = false;
-  };
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "waydroid0" ];
   };
 
   # Bluetooth Support
@@ -121,10 +107,7 @@
     };
   };
 
-  # Gnome Keyring
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
-
+  # Greetd session manager
   imports = [ ../modules/greetd ];
 
   # Polkit Authentication

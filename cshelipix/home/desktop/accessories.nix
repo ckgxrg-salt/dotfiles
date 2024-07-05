@@ -83,4 +83,21 @@
       pinch = { "3" = { "in".command = "hyprctl dispatch killactive"; }; };
     };
   };
+
+  # Redshift the color temperature adjuster
+  services.redshift = {
+    enable = true;
+    longitude = 117.0702181;
+    latitude = 36.6663163;
+    tray = true;
+    temperature = {
+      day = 5000;
+      night = 3400;
+    };
+    settings = {
+      redshift = {
+        fade = 1;
+      };
+    };
+  };
 }

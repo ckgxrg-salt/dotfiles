@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   # Bootloader
   boot = {
     bootspec.enable = true;
@@ -6,8 +6,14 @@
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
       timeout = 0;
-      systemd-boot.enable = true;
+      systemd-boot.enable = lib.mkForce false;
     };
+    # Setup Secure Boot
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    # Setup boot splash
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
@@ -20,7 +26,6 @@
       "reboot=pci"
       "acpi=noirq"
       "fbcon=rotate:2"
-      #"snd_hda_intel.probe_mask=0x01"
     ];
     kernelModules = [
       "tcp_bbr"
