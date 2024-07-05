@@ -20,6 +20,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Howdy pkgs
+    howdy.url = "github:fufexan/nixpkgs/howdy";
 
     # Hyprland and plugins
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -45,28 +47,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, nixvim, ... }: {
-    # Twirisa
-    nixosConfigurations.Twirisa = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      system = "x86_64-linux";
-      modules = [
-        ./twirisa
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg.imports =
-            [ flatpaks.homeManagerModules.nix-flatpak ./twirisa/home ];
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
-      ];
-    };
+  outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, nixvim, howdy, ... }: {
 
     # Cshelipix
-    nixosConfigurations.Cshelipix = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+    nixosConfigurations.Cshelipix = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
+      specialArgs = {
+        # Enable the nixpkgs fork with howdy
+        pkgs-howdy = import howdy {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        inherit inputs;
+      };
       modules = [
         ./cshelipix
         lanzaboote.nixosModules.lanzaboote

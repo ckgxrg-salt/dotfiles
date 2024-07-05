@@ -14,7 +14,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/ECD0-BD1D";
     fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+    options = [ "fmask=0022" "dmask=0022" "nodev" "nosuid" "noexec" ];
   };
 
   fileSystems."/" = {
@@ -38,13 +38,13 @@
   fileSystems."/var/cache" = {
     device = "/dev/disk/by-uuid/ede5b4b4-7d74-46c5-8a01-5468cecbc573";
     fsType = "btrfs";
-    options = [ "subvol=@cache" ];
+    options = [ "subvol=@cache" "nodev" "nosuid" "noexec" ];
   };
 
   fileSystems."/var/log" = {
     device = "/dev/disk/by-uuid/ede5b4b4-7d74-46c5-8a01-5468cecbc573";
     fsType = "btrfs";
-    options = [ "subvol=@log" ];
+    options = [ "subvol=@log" "nodev" "nosuid" "noexec" ];
   };
 
   swapDevices =

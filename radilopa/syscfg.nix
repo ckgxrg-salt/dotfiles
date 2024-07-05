@@ -4,13 +4,6 @@
   # My Name!
   networking.hostName = "Radilopa";
 
-  # AppArmor MAC
-  security.apparmor = {
-    enable = true;
-    enableCache = true;
-  };
-  services.dbus.apparmor = "enabled";
-
   # Power Button Behaviour
   services.logind = {
     powerKey = "lock";
@@ -134,8 +127,6 @@
   environment.systemPackages =
     [ (pkgs.callPackage ../packages/sugar-candy-sddm.nix { }) ];
   security.pam.services.sddm.enableGnomeKeyring = true;
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
   security.pam.services.hyprlock = { };
   services.displayManager.sddm = {
     enable = true;

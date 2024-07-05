@@ -36,6 +36,7 @@
     vscodium
     krita
     gimp
+    godot_4
   ];
 
   # Flatpak packages

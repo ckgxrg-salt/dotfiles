@@ -8,7 +8,7 @@
       {
         label = "shutdown";
         action = "systemctl reboot";
-        text = "Back to rEFInd";
+        text = "Return to rEFInd";
         keybind = "s";
       }
       {

@@ -3,6 +3,35 @@
 {
   # My Name!
   networking.hostName = "Cshelipix";
+  # Strange messages
+  environment.etc."issue".text = ''
+    <-- Cshelipix Academy of Sorcery -->
+  '';
+  environment.etc."motd".text = ''
+                 __
+                / /\
+               / / /\
+              / / /\ \
+             / / /\ \ \
+  __________/_/_/__\ \ \__________
+ /\ \_______________\ \ \_________\
+ \ \ \_______________\ \ \________/
+  \ \ \  / / /        \ \ \  / / /
+   \ \ \/ / /          \ \ \/ / /
+    \ \/ / /            \ \/ / /
+     \/ / /              \/ / /
+     / / /\              / / /\
+    / / /\ \            / / /\ \
+   / / /\ \ \          / / /\ \ \
+  /_/_/__\ \ \________/_/_/__\ \ \
+ /________\ \ \---------------\ \ \
+ \_________\ \ \_______________\_\/
+            \ \ \  / / /
+             \ \ \/ / /
+              \ \/ / /
+               \/ / /
+                \/_/
+  '';
 
   # Fwupd the firmware updater
   services.fwupd.enable = true;
@@ -108,7 +137,7 @@
   };
 
   # Greetd session manager
-  imports = [ ../modules/greetd ];
+  imports = [ ../modules/login/greetd.nix ];
 
   # Polkit Authentication
   security.polkit.enable = true;

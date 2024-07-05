@@ -21,7 +21,9 @@
     };
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
+      "noefi"
       "quiet"
+      "lockdown=integrity"
       "plymouth.nolog"
       "reboot=pci"
       "acpi=noirq"

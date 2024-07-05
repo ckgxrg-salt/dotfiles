@@ -5,13 +5,8 @@
     enable = true;
     vt = 7;
     settings = {
-      initial_session = {
-        command =
-          "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
-        user = "ckgxrg";
-      };
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -g \"Hello again\" --power-shutdown 'systemctl reboot' -r
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -g \"Hello from Greetd\" --power-shutdown 'systemctl reboot' -r
         --cmd ${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
         user = "greeter";
       };
