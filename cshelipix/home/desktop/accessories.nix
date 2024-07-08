@@ -89,10 +89,10 @@
     enable = true;
     longitude = 117.0702181;
     latitude = 36.6663163;
-    tray = true;
+    tray = false;
     temperature = {
       day = 5000;
-      night = 3400;
+      night = 3200;
     };
     settings = {
       redshift = {

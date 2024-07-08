@@ -7,8 +7,8 @@
     ./desktop/ags
     ./package.nix
     ./theme.nix
-    ./modes.nix
-    ../../modules/terminal/zsh.nix
+    ./layouts.nix
+    ../../modules/terminal/shells.nix
     ../../modules/nixvim
     ../../modules/terminal/alacritty.nix
     ../../modules/dev/langs.nix

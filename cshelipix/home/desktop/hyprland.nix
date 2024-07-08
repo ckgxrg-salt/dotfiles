@@ -124,7 +124,6 @@
       exec-once = [
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
         "playerctld"
-        "swww-daemon"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "waybar"
@@ -133,6 +132,7 @@
         "udiskie &"
         "nm-applet"
         "nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit wlogout"
+        "aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log"
         "notify-send 'Welcome to Hyprland'"
       ];
       env = lib.mapAttrsToList (name: value: "${name},${toString value}") {
@@ -203,8 +203,6 @@
       };
       misc = {
         force_default_wallpaper = -1;
-        disable_hyprland_logo = true;
-        background_color = "0x4c566a";
       };
       xwayland = { force_zero_scaling = true; };
 

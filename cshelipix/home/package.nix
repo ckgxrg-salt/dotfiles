@@ -30,7 +30,6 @@
     bilibili
     audacity
     prismlauncher
-    libreoffice
     tor
     tor-browser
     vscodium

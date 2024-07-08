@@ -16,6 +16,9 @@
     enable = true;
     package = pkgs-howdy.howdy;
     settings = {
+      core = {
+        detection_notice = true;
+      };
       video = {
         device_path = "/dev/video0";
       };

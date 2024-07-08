@@ -1,7 +1,7 @@
 { pkgs, ... }: {
-  # Dependent on mode of Cshelipix, use different targets to change the configuration.
+  # Dependent on layout of Cshelipix, use different targets to change the configuration.
   systemd.user.targets = {
-    # Ordinary Laptop mode
+    # Ordinary Laptop layout
     "laptop" = {
       Unit = {
         Description = "Laptop Layout";
@@ -11,7 +11,7 @@
       # This is the default mode when entering Hyprland session.
       Install = { WantedBy = [ "hyprland-session.target" ]; };
     };
-    # Only main screen active, touchscreen oriented mode
+    # Only main screen active, touchscreen oriented layout
     "tablet" = {
       Unit = {
         Description = "Tablet Layout";
@@ -107,6 +107,7 @@
                         keyword input:tablet:transform 1; \
                         keyword input:touchdevice:transform 1; \
                         dispatch dpms on"
+        systemctl --user restart swww-daemon
       '';
     in {
       Unit = {
@@ -124,6 +125,7 @@
       script = pkgs.writeShellScript "book-exit-script" ''
         hyprctl --batch "keyword input:tablet:transform 0; \
                         keyword input:touchdevice:transform 0"
+        systemctl --user restart swww-daemon
       '';
     in {
       Unit = {
@@ -140,6 +142,7 @@
     "wvkbd-desktop" = {
       Unit = {
         Description = "WVKBD Virtual Keyboard";
+        Requires = [ "hyprland-session.target" ];
         Conflicts = [ "laptop.target" "tent.target" ];
       };
       Service = {
@@ -149,6 +152,18 @@
         Restart = "always";
       };
       Install = { WantedBy = [ "tablet.target" "book.target" ]; };
+    };
+    # Restart swww daemon on layout change
+    "swww-daemon" = {
+      Unit = {
+        Description = "A Solution to your Wayland Wallpaper Woes";
+        Requires = [ "hyprland-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.swww}/bin/swww-daemon";
+        Restart = "always";
+      };
+      Install = { WantedBy = [ "hyprland-session.target" ]; };
     };
   };
 }

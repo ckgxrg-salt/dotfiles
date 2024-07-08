@@ -26,6 +26,12 @@
     implementation = "broker";
   };
 
+  # Audit Framework
+  security.audit = {
+    enable = true;
+  };
+  security.auditd.enable = true;
+
   # TPM2 Support
   boot.initrd.systemd.enableTpm2 = true;
   security.tpm2 = {

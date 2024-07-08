@@ -6,7 +6,7 @@
     ./desktop/hyprland.nix
     ./package.nix
     ./theme.nix
-    ../../modules/terminal/zsh.nix
+    ../../modules/terminal/shells.nix
     ../../modules/nixvim
     ../../modules/utils
   ];
