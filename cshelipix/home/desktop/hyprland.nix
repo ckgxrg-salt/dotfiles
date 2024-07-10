@@ -139,8 +139,6 @@
         ELECTRON_OZONE_PLATFORM_HINT = "auto";
         ELM_DISPLAY = "wl";
         SDL_VIDEODRIVER = "wayland";
-        _JAVA_AWT_WM_NONREPARENTING = 1;
-        WEBKIT_DISABLE_DMABUF_RENDERER = 1;
         QT_QPA_PLATFORMTHEME = "qt6ct";
       };
 

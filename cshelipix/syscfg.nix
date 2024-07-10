@@ -5,9 +5,6 @@
   networking.hostName = "Cshelipix";
   # Strange messages
   environment.etc."issue".text = ''
-    <-- Cshelipix Academy of Sorcery -->
-  '';
-  environment.etc."motd".text = ''
                  __
                 / /\
                / / /\
@@ -31,6 +28,9 @@
               \ \/ / /
                \/ / /
                 \/_/
+  '';
+  environment.etc."motd".text = ''
+    <-- Cshelipix Academy of Sorcery -->
   '';
 
   # Fwupd the firmware updater
@@ -108,10 +108,10 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       powerline-fonts
-      nerdfonts
       wqy_zenhei
       wqy_microhei
       maple-mono
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
     fontconfig = {
       defaultFonts = {

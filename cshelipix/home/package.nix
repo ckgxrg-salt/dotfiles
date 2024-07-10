@@ -2,7 +2,7 @@
   # Home-manager packages for Cshelipix
   home.packages = with pkgs; [
     # Terminal Utilities
-    neofetch
+    #neofetch
     wget
     v2raya
     procs
@@ -65,6 +65,7 @@
       "com.github.xournalpp.xournalpp"
       "org.gnome.World.Iotas"
       "com.github.johnfactotum.Foliate"
+      "net.blockbench.Blockbench"
     ];
   };
 }
