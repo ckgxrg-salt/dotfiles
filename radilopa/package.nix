@@ -15,11 +15,16 @@
       # Enable flakes
       experimental-features = [ "nix-command" "flakes" ];
     };
+  };
+
+  # An advanced cli for Nix
+  programs.nh ={
+    enable = true;
+    flake = "/home/ckgxrg/dotfiles";
     # Automatic garbage collection
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+    clean = {
+      enable = true;
+      extraArgs = "--delete-older-than 7d";
     };
   };
 

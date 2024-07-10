@@ -90,7 +90,11 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.ckgxrg.imports =
-            [ flatpaks.homeManagerModules.nix-flatpak ./radilopa/home ];
+            [
+              flatpaks.homeManagerModules.nix-flatpak
+              nixvim.homeManagerModules.nixvim
+              ./radilopa/home
+            ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
