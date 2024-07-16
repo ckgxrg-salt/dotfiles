@@ -33,12 +33,9 @@
     <-- Cshelipix Academy of Sorcery -->
   '';
 
-  # Fwupd the firmware updater
-  services.fwupd.enable = true;
-
   # Power Button Behaviour
   services.logind = {
-    powerKey = "lock";
+    powerKey = "ignore";
     powerKeyLongPress = "reboot";
     lidSwitch = "lock";
     lidSwitchExternalPower = "lock";
@@ -60,13 +57,10 @@
   };
 
   # Sound with PipeWire
-  sound = {
-    enable = true;
-    enableOSSEmulation = true;
-  };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    audio.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;

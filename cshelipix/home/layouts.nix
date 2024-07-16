@@ -43,7 +43,7 @@
     # Activate both screens and restore touchscreen
     "laptop-init" = let
       script = pkgs.writeShellScript "laptop-init-script" ''
-        hyprctl --batch "keyword input:touchdevice:output \"\"; \
+        hyprctl --batch "keyword input:touchdevice:output [[Auto]]; \
                         keyword monitor eDP-1,highres,0x0,1.25,transform,2; \
                         keyword monitor eDP-2,highres,0x1440,1.25; \
                         dispatch dpms on"
@@ -106,6 +106,7 @@
                         keyword monitor eDP-2,highres,-1440x0,1.25,transform,1; \
                         keyword input:tablet:transform 1; \
                         keyword input:touchdevice:transform 1; \
+                        keyword input:touchdevice:output [[Auto]]; \
                         dispatch dpms on"
         systemctl --user restart swww-daemon
       '';
@@ -138,7 +139,7 @@
       };
     };
 
-    # Load WVKBD according to modes
+    # Load WVKBD according to layouts
     "wvkbd-desktop" = {
       Unit = {
         Description = "WVKBD Virtual Keyboard";

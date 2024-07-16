@@ -56,28 +56,47 @@
     enableZshIntegration = true;
     settings = {
       format = ''
-        [󱞡 ](bold green)$shell$username($nix_shell)[----> ](bold blue)$git_branch$git_status(''\n| $gradle$java)
+        [󱞡 ](bold green)$shell$username($nix_shell)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle$java)
         [󱞩 ](bold green)$directory[-> ](blue)
       '';
       right_format = ''
-        [󱑀 $cmd_duration](bold green)[󰮳 : $status](bold blue)
+        [(󱑀 $cmd_duration)](bold green)$status
       '';
       shell = {
         disabled = false;
         bash_indicator = "󱆃 :";
-        zsh_indicator = " :";
+        zsh_indicator = "";
+        format = "[$indicator]($style)";
       };
       status = {
         disabled = false;
+        format = 	"[$symbol $status]($style)";
+        style = "bold yellow";
         success_symbol = " ";
       };
       username = {
         show_always = true;
+        format = "[$user]($style)";
+        style_user = "italic purple";
+      };
+      git_branch = {
+        format = "[$symbol$branch(:$remote_branch)]($style) ";
+        style = "green";
+      };
+      git_state = {
+        rebase = "󰳖 ";
+        merge = "󰃸 ";
+        revert = " ";
+        cherry_pick = " ";
+        bisect = " ";
+        am = "󰶉 ";
+        am_or_rebase = " ";
+        style = "italic yellow";
       };
       gradle = {
         format = "[$symbol($version Project )]($style)";
         version_format = "\${raw}";
-        style = "italic yellow";
+        style = "italic bright-blue";
         symbol = " ";
       };
       java = {
@@ -93,7 +112,7 @@
 
   # thefuck Terminal Correction
   programs.thefuck = {
-    #enable = true;
+    enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
   };

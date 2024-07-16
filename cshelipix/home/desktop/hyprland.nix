@@ -149,29 +149,32 @@
         "float, class:(xdg-desktop-portal-gtk)"
         "float, class:(QQ)"
         "center, class:(QQ)"
-        "workspace name:, class:(Waydroid)"
+        "workspace name: , class:(Waydroid)"
         "fullscreen, class:(Waydroid)"
       ];
       layerrule =
         [ "noanim, swww-daemon" "animation slide right, notifications" ];
       workspace = [
-        "name:, monitor:eDP-1, default:true, persistent:true"
-        "name:, monitor:eDP-2, default:true, persistent:true"
+        "name: , monitor:eDP-1, default:true, persistent:true"
+        "name: , monitor:eDP-2, default:true, persistent:true"
         "special:browser, on-created-empty:firefox"
       ];
 
       # Options
       general = {
-        gaps_in = 5;
-        gaps_out = 10;
-        border_size = 0;
+        gaps_in = 3;
+        gaps_out = 6;
+        border_size = 2;
+        "col.active_border" = "rgba(bf4bf8aa) rgba(56f1ffaa) 45deg";
+        "col.inactive_border" = "rgba(44306133)";
         layout = "dwindle";
         allow_tearing = false;
         resize_on_border = true;
       };
       dwindle = {
         smart_split = true;
-        no_gaps_when_only = 1;
+        smart_resizing = true;
+        no_gaps_when_only = 2;
       };
       plugin.touch_gestures = {
         sensitivity = 1.0;
@@ -223,7 +226,7 @@
       animations = {
         enabled = true;
         bezier = [
-          "easeInOutBack, 0.68, -0.55, 0.265, 1.55"
+          "easeInOutCubic, 0.645, 0.045, 0.355, 1"
           "easeInSine, 0.12, 0, 0.39, 0"
           "easeOutSine, 0.39, 0.575, 0.565, 1"
           "easeInOutSine, 0.37, 0, 0.63, 1"
@@ -235,8 +238,8 @@
           "layersIn, 1, 2, easeInSine, slide right"
           "layersOut, 1, 3, easeOutSine, slide left"
           "fade, 1, 3, default"
-          "workspaces, 1, 4, easeInOutBack, slidefadevert"
-          "specialWorkspace, 1, 4, easeInOutBack, slide"
+          "workspaces, 1, 4, easeInOutCubic, slidefadevert"
+          "specialWorkspace, 1, 4, easeInOutCubic, slide"
         ];
       };
 
@@ -288,8 +291,8 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-        "$mainMod CONTROL, 1, workspace, name:"
-        "$mainMod CONTROL, 2, workspace, name:"
+        "$mainMod CONTROL, 1, workspace, name: "
+        "$mainMod CONTROL, 2, workspace, name: "
         # Workspace movement
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
@@ -301,11 +304,11 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod SHIFT CONTROL, 1, movetoworkspace, name:"
-        "$mainMod SHIFT CONTROL, 2, movetoworkspace, name:"
+        "$mainMod SHIFT CONTROL, 1, movetoworkspace, name: "
+        "$mainMod SHIFT CONTROL, 2, movetoworkspace, name: "
         # Special workspaces
         "$mainMod, S, togglespecialworkspace, browser"
-        "$mainMod SHIFT, W, workspace, name:"
+        "$mainMod SHIFT, W, workspace, name: "
         "$mainMod SHIFT, S, movetoworkspace, special:browser"
         # Workspace scroll
         "$mainMod, mouse_down, workspace, e+1"

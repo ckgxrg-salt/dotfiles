@@ -17,7 +17,7 @@
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "colorful_loop";
+      theme = "lone";
     };
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
@@ -29,13 +29,10 @@
       "reboot=pci"
       "acpi=noirq"
       "fbcon=rotate:2"
+      "snd_hda_intel.probe_mask=0x01"
     ];
     kernelModules = [
       "tcp_bbr"
-      "snd-hda-intel"
-      "snd-pcm-oss"
-      "snd-mixer-oss"
-      "snd-seq-oss"
     ];
     # BBR Congestion Algorithm
     kernel.sysctl = {
@@ -46,9 +43,8 @@
     # Workaround for sound
     extraModprobeConfig = ''
       options snd slots=snd-hda-intel
-      options snd_hda_intel model=lenovo-spk-noise
       options snd_sof_hda_common hda_model=alc287-yoga9-bass-spk-pin
-      options snd-sof-intel-hda-common hda_model=alc287-yoga9-bass-spk-pin
+      options snd_hda_intel model=lenovo-spk-noise
     '';
   };
 }
