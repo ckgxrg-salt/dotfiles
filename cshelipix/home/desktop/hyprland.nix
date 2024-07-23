@@ -133,6 +133,8 @@
         "nm-applet"
         "nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit wlogout"
         "aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log"
+        # Sync brightness of screens
+        "brightnessctl set --device=card1-eDP-2-backlight `brightnessctl get --device=intel_backlight`"
         "notify-send 'Welcome to Hyprland'"
       ];
       env = lib.mapAttrsToList (name: value: "${name},${toString value}") {

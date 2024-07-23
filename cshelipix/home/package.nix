@@ -12,7 +12,6 @@
     fortune
     zellij
     pwvucontrol
-    any-nix-shell
     psmisc
     gamemode
     playerctl
@@ -51,21 +50,25 @@
     };
     packages = [
       "com.qq.QQ"
-      "com.moonlight_stream.Moonlight"
-      "com.toolstack.Folio"
       "im.fluffychat.Fluffychat"
-      "org.kde.kclock"
+      
+      "com.moonlight_stream.Moonlight"
       "org.kde.elisa"
-      "com.github.flxzt.rnote"
-      "md.obsidian.Obsidian"
+      
       "org.mozilla.Thunderbird"
-      "io.gitlab.idevecore.Pomodoro"
+      
       "org.blender.Blender"
-      "io.github.mrvladus.List"
-      "com.github.xournalpp.xournalpp"
-      "org.gnome.World.Iotas"
-      "com.github.johnfactotum.Foliate"
       "net.blockbench.Blockbench"
+      "com.ultimaker.cura"
+
+      "io.gitlab.idevecore.Pomodoro"
+      "io.github.mrvladus.List"
+
+      "com.toolstack.Folio"
+      "md.obsidian.Obsidian"
+      "com.github.xournalpp.xournalpp"
+      "com.github.flxzt.rnote"
+      "com.github.johnfactotum.Foliate"
     ];
   };
 }

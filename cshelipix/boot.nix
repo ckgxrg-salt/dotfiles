@@ -43,7 +43,6 @@
     # Workaround for sound
     extraModprobeConfig = ''
       options snd slots=snd-hda-intel
-      options snd_sof_hda_common hda_model=alc287-yoga9-bass-spk-pin
       options snd_hda_intel model=lenovo-spk-noise
     '';
   };
