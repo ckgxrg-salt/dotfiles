@@ -14,8 +14,8 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userName = "ckgxrg-salt";
-    userEmail = "ckgxrg@outlook.com";
+    userName = "ckgxrg";
+    userEmail = "ckgxrg@ckgxrg.io";
     extraConfig = { pull.rebase = true; };
   };
 

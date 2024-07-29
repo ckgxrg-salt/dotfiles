@@ -16,7 +16,6 @@
     libnotify
 
     libsForQt5.polkit-kde-agent
-    inputs.hyprswitch.packages.${pkgs.system}.default
 
     nwg-drawer
     (pkgs.callPackage ../../../packages/wvkbd-desktop.nix { })

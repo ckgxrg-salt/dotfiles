@@ -16,7 +16,6 @@
     gamemode
     playerctl
     nvitop
-    any-nix-shell
 
     # Libs
     wineWowPackages.waylandFull

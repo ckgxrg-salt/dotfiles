@@ -1,8 +1,12 @@
 { pkgs, ... }:
 # Define theme names and pkgs here
 let
-  gtkTheme = "Graphite-Dark";
-  gtkPkg = pkgs.graphite-gtk-theme;
+  gtkTheme = "Fluent-teal-Dark";
+  gtkPkg = pkgs.fluent-gtk-theme.override {
+    themeVariants = [ "teal" ];
+    colorVariants = [ "dark" ];
+    sizeVariants = [ "standard" ];
+  };
 
   qtStyle = "Catppuccin-Mocha-Sapphire";
   qtPkg = pkgs.catppuccin-kvantum.override {
@@ -13,8 +17,11 @@ let
   cursor = "GoogleDot-Black";
   cursorPkg = (pkgs.callPackage ../../packages/googledot-cursor.nix { });
 
-  icon = "Zafiro-icons-Dark";
-  iconPkg = pkgs.zafiro-icons;
+  icon = "Colloid-teal-nord-dark";
+  iconPkg = pkgs.colloid-icon-theme.override {
+    schemeVariants = [ "nord" ];
+    colorVariants = [ "teal" ];
+  };
 
   customFont = "Maple Mono";
 in {
@@ -58,7 +65,7 @@ in {
   home.packages = with pkgs; [ hyprcursor ];
   wayland.windowManager.hyprland.extraConfig = ''
     env = HYPRCURSOR_THEME,${cursor}
-    env = HYPRCURSOR_SIZE,24
+    env = HYPRCURSOR_SIZE,48
     env = XCURSOR_THEME,${cursor}
     env = XCURSOR_SIZE,24
     env = ICON_THEME,${icon}
@@ -97,7 +104,7 @@ in {
         "ICON_THEME" = icon;
         "QT_STYLE_OVERRIDE" = "kvantum";
         "HYPRCURSOR_THEME" = cursor;
-        "HYPRCURSOR_SIZE" = "24";
+        "HYPRCURSOR_SIZE" = "48";
         "XCURSOR_PATH" = "${cursorPkg}/share/icons";
         "XCURSOR_THEME" = cursor;
         "XCURSOR_SIZE" = "24";

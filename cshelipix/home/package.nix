@@ -51,6 +51,7 @@
     packages = [
       "com.qq.QQ"
       "im.fluffychat.Fluffychat"
+      "info.febvre.Komikku"
       
       "com.moonlight_stream.Moonlight"
       "org.kde.elisa"
@@ -64,9 +65,9 @@
       "io.gitlab.idevecore.Pomodoro"
       "io.github.mrvladus.List"
 
-      "com.toolstack.Folio"
       "md.obsidian.Obsidian"
       "com.github.xournalpp.xournalpp"
+      "org.libreoffice.LibreOffice"
       "com.github.flxzt.rnote"
       "com.github.johnfactotum.Foliate"
     ];

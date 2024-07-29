@@ -100,7 +100,7 @@
     systemd.enable = true;
     xwayland.enable = true;
     plugins = [
-      inputs.hyprgrass.packages.${pkgs.system}.default
+      #inputs.hyprgrass.packages.${pkgs.system}.default
       inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
     settings = {
@@ -178,12 +178,12 @@
         smart_resizing = true;
         no_gaps_when_only = 2;
       };
-      plugin.touch_gestures = {
-        sensitivity = 1.0;
-        workspace_swipe_edge = "d";
-        workspace_swipe_fingers = 3;
-        long_press_delay = 400;
-      };
+      #plugin.touch_gestures = {
+      #  sensitivity = 1.0;
+      #  workspace_swipe_edge = "d";
+      #  workspace_swipe_fingers = 3;
+      #  long_press_delay = 400;
+      #};
       plugin.hyprfocus = {
         enabled = "yes";
         animate_floating = "yes";
@@ -246,13 +246,13 @@
       };
 
       # Touchscreen binds
-      hyprgrass-bind = [
-        ",edge:r:l, togglespecialworkspace, browser"
-        ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
-        ",edge:u:d, togglespecialworkspace, controlcentre"
-        ",edge:u:d, exec, ags -t \"bar0\""
-        ",edge:u:d, exec, pkill -RTMIN wvkbd-desktop"
-      ];
+      #hyprgrass-bind = [
+      #  ",edge:r:l, togglespecialworkspace, browser"
+      #  ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
+      #  ",edge:u:d, togglespecialworkspace, controlcentre"
+      #  ",edge:u:d, exec, ags -t \"bar0\""
+      #  ",edge:u:d, exec, pkill -RTMIN wvkbd-desktop"
+      #];
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
@@ -333,6 +333,7 @@
       defaultApplications = {
         "text/plain" = "nvim.desktop";
         "application/pdf" = "org.kde.okular.desktop";
+        "image" = "pix.desktop";
         "inode/directory" = "org.kde.dolphin.desktop";
       };
     };
@@ -340,10 +341,9 @@
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-wlr
       ];
       config = {
-        common = { default = [ "wlr" ]; };
+        common = { default = [ "gtk" ]; };
         hyprland = {
           default = [ "hyprland" "gtk" ];
           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];

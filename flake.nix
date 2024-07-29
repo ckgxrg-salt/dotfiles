@@ -25,7 +25,6 @@
 
     # Hyprland and plugins
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
     hyprfocus = {
       url = "github:pyt0xic/hyprfocus";
       inputs.hyprland.follows = "hyprland";
