@@ -12,7 +12,6 @@
     libsForQt5.polkit-kde-agent
     pwvucontrol
     playerctl
-    inputs.hyprswitch.packages.${pkgs.system}.default
   ];
 
   # Mako the Notification Daemon
