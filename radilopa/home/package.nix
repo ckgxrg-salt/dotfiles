@@ -11,10 +11,8 @@
     lolcat
     fortune
     zellij
-    pwvucontrol
     psmisc
     gamemode
-    playerctl
     nvitop
 
     # Libs

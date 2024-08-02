@@ -10,10 +10,18 @@
     pinentryPackage = pkgs.pinentry-qt;
   };
 
-  # Git Version Control System
+  # Git VCS
   programs.git = {
     enable = true;
     lfs.enable = true;
+    userName = "ckgxrg";
+    userEmail = "ckgxrg@ckgxrg.io";
+    extraConfig = { pull.rebase = true; };
+  };
+
+  # Sapling VCS
+  programs.sapling = {
+    enable = true;
     userName = "ckgxrg";
     userEmail = "ckgxrg@ckgxrg.io";
     extraConfig = { pull.rebase = true; };

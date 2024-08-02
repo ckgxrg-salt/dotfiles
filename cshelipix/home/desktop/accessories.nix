@@ -17,6 +17,9 @@
 
     libsForQt5.polkit-kde-agent
 
+    playerctl
+    pwvucontrol
+
     nwg-drawer
     (pkgs.callPackage ../../../packages/wvkbd-desktop.nix { })
   ];

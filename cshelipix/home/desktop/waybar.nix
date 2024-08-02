@@ -8,8 +8,9 @@
       mainBar = {
         layer = "top";
         position = "right";
-        width = 20;
+        width = 60;
         spacing = 5;
+        margin = "6 2 6 6";
         modules-left =
           [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" "image#add" ];
         modules-center = [ "gamemode" ];
@@ -126,14 +127,22 @@
             * {
               font-family: Maple Mono;
               font-size: 14px;
-              color: #2e3440;
+              color: #8fbcbb;
               opacity: 10;
             }
             window#waybar {
-      	      background-color: #2e3440;
+      	      background-color: rgba(67, 76, 94, 0.8);
+              border: solid;
+              border-radius: 10px;
+              border-color: #81a1c1;
+              border-width: 2px;
             }
             tooltip {
-              background-color: #8fbcbb;
+              background-color: rgba(67, 76, 94, 0.8);
+              border: solid;
+              border-radius: 10px;
+              border-color: #81a1c1;
+              border-width: 2px;
             }
             tooltip label {
               color: #2e3440;
@@ -141,14 +150,14 @@
             #image.launcher {
               padding-top: 5px;
               padding-bottom: 5px;
-              background-color: #d8dee9;
+              background-color: #4c566a;
               border: solid;
               border-radius: 10px;
               border-color: #81a1c1;
               border-width: 2px;
             }
             #idle_inhibitor.deactivated {
-              background-color: #d8dee9;
+              background-color: #434c5e;
               border: solid;
               border-color: #81a1c1;
               border-width: 2px;
@@ -156,16 +165,24 @@
               padding-bottom: 7px;
             }
             #idle_inhibitor.activated {
-              background-color: #8fbcbb;
+              background-color: #5e81ac;
               border: solid;
               border-color: #81a1c1;
               border-width: 5px;
-              padding-top: 7px;
-              padding-bottom: 7px;
+              padding-top: 4px;
+              padding-bottom: 4px;
+            }
+            #workspaces {
+              border: solid;
+              border-radius: 10px;
+              border-color: #81a1c1;
+              border-width: 2px;
+              padding: 4px 4px 4px 4px;
+              background-color: #3b4252;
             }
             #workspaces button {
               min-height: 30px;
-              background-color: #d8dee9;
+              background-color: #4c566a;
               border: solid;
               border-radius: 10px;
               border-color: #81a1c1;
@@ -178,15 +195,16 @@
             #image.add {
               padding-top: 2px;
               padding-bottom: 2px;
-              background-color: #d8dee9;
+              background-color: #4c566a;
               border: solid;
               border-radius: 10px;
               border-color: #81a1c1;
+              border-width: 2px;
             }
             #gamemode.running {
               min-height: 60px;
               background-color: #d08770;
-              border: dashed;
+              border: solid;
               border-radius: 10px;
               border-color: #bf616a;
               border-width: 2px;
@@ -200,7 +218,7 @@
               padding: 0px 0px 0px 0px;
             }
             #mpris.playing {
-              background-color: #81a1c1;
+              background-color: #b48ead;
               border: solid;
               border-radius: 15px;
               border-color: #81a1c1;
@@ -218,7 +236,7 @@
               padding-bottom: 5px;
             }
             #network {
-              background-color: #d8dee9;
+              background-color: #4c566a;
               border: solid;
               border-radius: 15px;
               border-color: #81a1c1;
@@ -227,7 +245,7 @@
               padding-bottom: 5px;
             }
             #clock {
-              background-color: #d8dee9;
+              background-color: #434c5e;
               border: solid;
               border-radius: 15px;
               border-color: #81a1c1;
@@ -236,7 +254,7 @@
               padding-bottom: 5px;
             }
             #battery {
-              background-color: #eceff4;
+              background-color: #4c566a;
               border: solid;
               border-radius: 15px;
               border-color: #81a1c1;
@@ -245,8 +263,7 @@
               padding-bottom: 5px;
             }
             #tray {
-              padding-bottom: 0px;
-              background-color: #d8dee9;
+              background-color: #434c5e;
               border: solid;
               border-radius: 15px;
               border-color: #81a1c1;
@@ -255,11 +272,15 @@
               padding-bottom: 5px;
             }
             #tray menu {
-              background-color: #81a1c1;
+              background-color: rgba(67, 76, 94, 0.8);
+              border: solid;
+              border-radius: 10px;
+              border-color: #81a1c1;
+              border-width: 2px;
             }
             #pulseaudio-slider {
               min-height: 96px;
-              background-color: #eceff4;
+              background-color: #4c566a;
               border: solid;
               border-radius: 15px;
               border-color: #81a1c1;

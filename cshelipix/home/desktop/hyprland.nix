@@ -100,7 +100,7 @@
     systemd.enable = true;
     xwayland.enable = true;
     plugins = [
-      #inputs.hyprgrass.packages.${pkgs.system}.default
+      inputs.hyprgrass.packages.${pkgs.system}.default
       inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
     settings = {
@@ -159,7 +159,7 @@
       workspace = [
         "name: , monitor:eDP-1, default:true, persistent:true"
         "name: , monitor:eDP-2, default:true, persistent:true"
-        "special:browser, on-created-empty:firefox"
+        "special:browser, on-created-empty:qutebrowser"
       ];
 
       # Options
@@ -178,12 +178,12 @@
         smart_resizing = true;
         no_gaps_when_only = 2;
       };
-      #plugin.touch_gestures = {
-      #  sensitivity = 1.0;
-      #  workspace_swipe_edge = "d";
-      #  workspace_swipe_fingers = 3;
-      #  long_press_delay = 400;
-      #};
+      plugin.touch_gestures = {
+        sensitivity = 1.0;
+        workspace_swipe_edge = "d";
+        workspace_swipe_fingers = 3;
+        long_press_delay = 400;
+      };
       plugin.hyprfocus = {
         enabled = "yes";
         animate_floating = "yes";
@@ -246,13 +246,13 @@
       };
 
       # Touchscreen binds
-      #hyprgrass-bind = [
-      #  ",edge:r:l, togglespecialworkspace, browser"
-      #  ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
-      #  ",edge:u:d, togglespecialworkspace, controlcentre"
-      #  ",edge:u:d, exec, ags -t \"bar0\""
-      #  ",edge:u:d, exec, pkill -RTMIN wvkbd-desktop"
-      #];
+      hyprgrass-bind = [
+        ",edge:r:l, togglespecialworkspace, browser"
+        ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
+        ",edge:u:d, togglespecialworkspace, controlcentre"
+        ",edge:u:d, exec, ags -t \"bar0\""
+        ",edge:u:d, exec, pkill -RTMIN wvkbd-desktop"
+      ];
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
@@ -364,6 +364,14 @@
         exec = "bilibili --ozone-platform-hint=auto";
         terminal = false;
         categories = [ "Network" "AudioVideo" ];
+      };
+      "org.qutebrowser.qutebrowser" = {
+        name = "Qutebrowser";
+        genericName = "Web Browser";
+        icon = "browser";
+        exec = "qutebrowser";
+        terminal = false;
+        categories = [ "Network" "WebBrowser" ];
       };
     };
   };

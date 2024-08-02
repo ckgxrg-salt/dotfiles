@@ -11,22 +11,20 @@
     lolcat
     fortune
     zellij
-    pwvucontrol
     psmisc
     gamemode
-    playerctl
+    maa-cli
 
     # Desktop Utilities
     dolphin
     ark
-    firefox
     okular
     bottles
     alacritty
     cinnamon.pix
 
     # Applications
-    bilibili
+    #bilibili
     audacity
     prismlauncher
     tor

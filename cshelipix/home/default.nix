@@ -13,6 +13,7 @@
     ../../modules/terminal/alacritty.nix
     ../../modules/dev/langs.nix
     ../../modules/utils
+    ../../modules/utils/qutebrowser.nix
   ];
 
   # Input Method
