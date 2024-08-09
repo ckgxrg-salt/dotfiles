@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }: {
+{ pkgs, inputs, ... }: {
   # Nix configuration
   nix = {
     # USTC mirror for Nix channels

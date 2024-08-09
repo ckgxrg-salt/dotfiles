@@ -10,7 +10,7 @@
         position = "right";
         width = 60;
         spacing = 5;
-        margin = "6 2 6 6";
+        margin = "6 6 6 6";
         modules-left =
           [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" "image#add" ];
         modules-center = [ "gamemode" ];

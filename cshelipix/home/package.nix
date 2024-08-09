@@ -21,7 +21,7 @@
     okular
     bottles
     alacritty
-    cinnamon.pix
+    pix
 
     # Applications
     #bilibili
