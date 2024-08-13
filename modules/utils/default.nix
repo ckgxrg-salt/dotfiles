@@ -19,14 +19,6 @@
     extraConfig = { pull.rebase = true; };
   };
 
-  # Sapling VCS
-  programs.sapling = {
-    enable = true;
-    userName = "ckgxrg";
-    userEmail = "ckgxrg@ckgxrg.io";
-    extraConfig = { pull.rebase = true; };
-  };
-
   # Mpris Media Control
   services.mpdris2 = {
     enable = true;

@@ -1,5 +1,6 @@
 { ... }: {
   programs.nixvim.autoCmd = [
+    # Languages
     {
       command = "echo ' '";
       event = [

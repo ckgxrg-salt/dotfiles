@@ -4,7 +4,7 @@
     servers = {
       clangd.enable = true;
       cmake.enable = true;
-      jdt-language-server.enable = true;
+      java-language-server.enable = true;
       marksman.enable = true;
       nixd = {
         enable = true;

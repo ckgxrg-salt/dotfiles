@@ -18,6 +18,7 @@
       }}/city-lights-theme.py')
     '';
     settings = {
+      auto_save.session = true;
       changelog_after_upgrade = "never";
       tabs.last_close = "close";
       content.cookies.accept = "no-unknown-3rdparty";
