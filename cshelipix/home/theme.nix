@@ -65,7 +65,7 @@ in {
   home.packages = with pkgs; [ hyprcursor ];
   wayland.windowManager.hyprland.extraConfig = ''
     env = HYPRCURSOR_THEME,${cursor}
-    env = HYPRCURSOR_SIZE,48
+    env = HYPRCURSOR_SIZE,24
     env = XCURSOR_THEME,${cursor}
     env = XCURSOR_SIZE,24
     env = ICON_THEME,${icon}
@@ -104,7 +104,7 @@ in {
         "ICON_THEME" = icon;
         "QT_STYLE_OVERRIDE" = "kvantum";
         "HYPRCURSOR_THEME" = cursor;
-        "HYPRCURSOR_SIZE" = "48";
+        "HYPRCURSOR_SIZE" = "24";
         "XCURSOR_PATH" = "${cursorPkg}/share/icons";
         "XCURSOR_THEME" = cursor;
         "XCURSOR_SIZE" = "24";

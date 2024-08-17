@@ -1,13 +1,37 @@
-{ ... }: {
+{ pkgs, lib, ... }: {
   programs.nixvim.plugins = {
-    # Completion
-    coq-nvim = {
+    # Completion & Snippets
+    cmp = {
       enable = true;
-      installArtifacts = true;
       settings = {
-        auto_start = "shut-up";
+        snippet = {
+          expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+        };
+        sources = {
+          __raw = ''
+            cmp.config.sources({
+              { name = 'nvim_lsp' },
+              { name = 'luasnip' },
+            }, {
+              { name = 'buffer' },
+            })
+          '';
+        };
       };
     };
+    cmp_luasnip.enable = true;
+    luasnip = {
+      enable = true;
+      fromVscode = [
+        {
+          lazyLoad = true;
+        }
+      ];
+      settings = {
+        enable_autosnippets = true;
+      };
+    };
+    friendly-snippets.enable = true;
     # Markdown preview
     glow = {
       enable = true;
@@ -51,7 +75,6 @@
           footer = [
             "Neovim !"
           ];
-          week_header.enable = true;
           project.enable = false;
         };
       };
@@ -76,15 +99,52 @@
       };
     };
     # Undo tree
-    undotree = {
+    undotree.enable = true;
+    # Fuzzy search
+    telescope = {
       enable = true;
+      highlightTheme = "ivy";
     };
+
+    # Project management
+    project-nvim = {
+      enable = true;
+      enableTelescope = true;
+      detectionMethods = [ "lsp" "pattern" ];
+      patterns = [
+        ".git"
+        "flake.nix"
+        "Makefile"
+        "build.ninja"
+        "Cargo.toml"
+        "build.gradle"
+      ];
+      scopeChdir = "win";
+      silentChdir = false;
+    };
+
     # Working with Nix
     nix = {
       enable = true;
     };
     nix-develop = {
       enable = true;
+    };
+
+    # Working with Java
+    nvim-jdtls = {
+      enable = true;
+      rootDir = {
+        __raw = "require('jdtls.setup').find_root({'.git', 'build.gradle'})";
+      };
+      cmd = [ "Not Applicable" ];
+      extraOptions.cmd = [
+        "${lib.getExe pkgs.jdt-language-server}"
+        "-configuration"
+        { __raw = "vim.fn.expand(\"$XDG_CACHE_HOME/jdtls/config\")"; }
+        "-data"
+        { __raw = "require('jdtls.setup').find_root({'.git', 'build.gradle'})"; }
+      ];
     };
   };
 }

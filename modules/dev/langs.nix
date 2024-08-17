@@ -11,7 +11,5 @@
   # Rust toolchain and IDEs
   home.packages = with pkgs; [
     rust-bin.stable.latest.default
-
-    eclipses.eclipse-java
   ];
 }

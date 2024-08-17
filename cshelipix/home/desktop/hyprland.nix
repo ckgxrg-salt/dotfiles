@@ -204,6 +204,9 @@
         workspace_swipe_min_fingers = true;
         workspace_swipe_cancel_ratio = 0.15;
       };
+      cursor = {
+        no_hardware_cursors = true;
+      };
       misc = {
         force_default_wallpaper = -1;
       };
@@ -251,7 +254,6 @@
         ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
         ",edge:u:d, togglespecialworkspace, controlcentre"
         ",edge:u:d, exec, ags -t \"bar0\""
-        ",edge:u:d, exec, pkill -RTMIN wvkbd-desktop"
       ];
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
@@ -265,12 +267,12 @@
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod SHIFT, A, togglespecialworkspace, controlcentre"
-        "$mainMod SHIFT, A, exec, pkill -RTMIN wvkvd-desktop"
         "$mainMod SHIFT, A, exec, ags -t \"bar0\""
         "$mainMod, P, swapactiveworkspaces, eDP-1 eDP-2"
         "$mainMod, R, exec, $menu"
         "$mainMod, L, exec, hyprlock --immediate"
         "$mainMod, F, fullscreen,"
+        "$mainMod, BRACKETLEFT, exec, grimblast copy area"
         # Volume and brightness controls
         ", XF86AudioMute, exec, ${volumeScript} --toggle"
         ", XF86AudioLowerVolume, exec, ${volumeScript} --dec"
@@ -335,6 +337,12 @@
         "application/pdf" = "org.kde.okular.desktop";
         "image" = "pix.desktop";
         "inode/directory" = "org.kde.dolphin.desktop";
+        # Qutebrowser as the default web browser
+        "text/html" = "org.qutebrowser.qutebrowser.desktop";
+        "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+        "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+        "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
+        "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
       };
     };
     portal = {

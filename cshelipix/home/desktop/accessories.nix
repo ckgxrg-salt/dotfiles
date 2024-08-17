@@ -10,6 +10,7 @@
     udiskie
     blueberry
     networkmanagerapplet
+    grimblast
 
     brightnessctl
     pamixer

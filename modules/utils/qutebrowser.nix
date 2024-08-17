@@ -4,6 +4,7 @@
     enable = true;
     searchEngines = {
       "DEFAULT" = "https://bing.com/search?q={}";
+      "g" = "https://google.com/search?q={}";
       "aw" = "https://wiki.archlinux.org/?search={}";
       "np" = "https://search.nixos.org/packages?channel=unstable&query={}";
       "no" = "https://search.nixos.org/options?channel=unstable&query={}";
