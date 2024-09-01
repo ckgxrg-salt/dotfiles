@@ -1,5 +1,5 @@
 { ... }: {
-  # Nixvim themes
+  # Neovim themes
   programs.nixvim = {
     colorscheme = "rose-pine";
     colorschemes = {

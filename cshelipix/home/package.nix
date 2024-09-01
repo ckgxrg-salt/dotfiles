@@ -10,7 +10,6 @@
     asciiquarium
     lolcat
     fortune
-    zellij
     psmisc
     gamemode
     maa-cli
@@ -22,12 +21,12 @@
     bottles
     alacritty
     pix
+    rustdesk-flutter
 
     # Applications
     #bilibili
     audacity
     prismlauncher
-    tor
     tor-browser
     vscodium
     krita
@@ -48,7 +47,7 @@
     };
     packages = [
       "com.qq.QQ"
-      "im.fluffychat.Fluffychat"
+      "in.cinny.Cinny"
       "info.febvre.Komikku"
       
       "com.moonlight_stream.Moonlight"

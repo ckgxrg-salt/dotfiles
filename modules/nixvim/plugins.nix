@@ -3,30 +3,28 @@
     # Completion & Snippets
     cmp = {
       enable = true;
+      autoEnableSources = true;
       settings = {
         snippet = {
           expand = "function(args) require('luasnip').lsp_expand(args.body) end";
         };
-        sources = {
-          __raw = ''
-            cmp.config.sources({
-              { name = 'nvim_lsp' },
-              { name = 'luasnip' },
-            }, {
-              { name = 'buffer' },
-            })
-          '';
-        };
+        sources = [
+          { name = "buffer"; }
+          { name = "cmdline"; }
+          { name = "path"; }
+          { name = "luasnip"; }
+          { name = "nvim_lsp"; }
+        ];
       };
     };
+    cmp-nvim-lsp.enable = true;
+    cmp-buffer.enable = true;
+    cmp-path.enable = true;
+    cmp-cmdline.enable = true;
     cmp_luasnip.enable = true;
     luasnip = {
       enable = true;
-      fromVscode = [
-        {
-          lazyLoad = true;
-        }
-      ];
+      fromVscode = [];
       settings = {
         enable_autosnippets = true;
       };
@@ -75,12 +73,18 @@
           footer = [
             "Neovim !"
           ];
-          project.enable = false;
+          project.enable = true;
         };
       };
     };
     # Terminal
-    
+    toggleterm = {
+      enable = true;
+      settings = {
+        close_on_exit = true;
+        direction = "horizontal";
+      };
+    };
     # Quickfix
     nvim-bqf = {
       enable = true;
@@ -134,16 +138,14 @@
     # Working with Java
     nvim-jdtls = {
       enable = true;
-      rootDir = {
-        __raw = "require('jdtls.setup').find_root({'.git', 'build.gradle'})";
-      };
-      cmd = [ "Not Applicable" ];
+      rootDir = { __raw = "require('jdtls.setup').find_root({'build.gradle', 'pom.xml'})"; };
+      cmd = [ "Surprisingly, you cannot use Lua code here, though this option is mandatory. " ];
       extraOptions.cmd = [
         "${lib.getExe pkgs.jdt-language-server}"
         "-configuration"
         { __raw = "vim.fn.expand(\"$XDG_CACHE_HOME/jdtls/config\")"; }
         "-data"
-        { __raw = "require('jdtls.setup').find_root({'.git', 'build.gradle'})"; }
+        { __raw = "require('jdtls.setup').find_root({'build.gradle', 'pom.xml'})"; }
       ];
     };
   };

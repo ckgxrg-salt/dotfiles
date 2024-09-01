@@ -149,7 +149,7 @@
       Service = {
         ExecStart = "${
             pkgs.callPackage ../../packages/wvkbd-desktop.nix { }
-          }/bin/wvkbd-desktop -L 512 --fn 'Maple Mono 16' --press '81a1c1' --alpha 230";
+          }/bin/wvkbd-desktop -L 512 --fn 'Maple Mono 16' --press '81a1c1' --alpha 230 --hidden";
         Restart = "always";
       };
       Install = { WantedBy = [ "tablet.target" "book.target" ]; };
