@@ -7,7 +7,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
@@ -174,7 +173,7 @@
         xdg-desktop-portal-gtk
       ];
       config = {
-        common = { default = [ "wlr" ]; };
+        common = { default = [ "gtk" ]; };
         hyprland = {
           default = [ "hyprland" ];
           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
