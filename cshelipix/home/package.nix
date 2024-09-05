@@ -20,7 +20,6 @@
     okular
     bottles
     alacritty
-    pix
     rustdesk-flutter
 
     # Applications
@@ -54,6 +53,7 @@
       "org.kde.elisa"
       
       "org.mozilla.Thunderbird"
+      "org.kde.pix"
       
       "org.blender.Blender"
       "net.blockbench.Blockbench"

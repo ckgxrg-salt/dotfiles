@@ -14,6 +14,7 @@
     psmisc
     gamemode
     nvitop
+    maa-cli
 
     # Libs
     wineWowPackages.waylandFull
@@ -31,7 +32,6 @@
 
     # Applications
     bilibili
-    libreoffice
     tor
     tor-browser
     vscodium
@@ -56,6 +56,10 @@
       "com.qq.QQ"
       "org.kde.elisa"
       "org.mozilla.Thunderbird"
+      "org.kde.pix"
+
+      "com.github.phase1geo.minder"
+      "org.libreoffice.LibreOffice"
     ];
   };
 }

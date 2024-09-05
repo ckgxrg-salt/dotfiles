@@ -1,8 +1,8 @@
 { pkgs, ... }:
 # Define theme names and pkgs here
 let
-  gtkTheme = "Nightfox-Dusk-B";
-  gtkPkg = pkgs.nightfox-gtk-theme;
+  gtkTheme = "Otis";
+  gtkPkg = (pkgs.callPackage ../../packages/otis-gtk.nix { });
 
   qtStyle = "MateriaDark";
   qtPkg = pkgs.materia-kde-theme;

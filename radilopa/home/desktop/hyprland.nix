@@ -45,6 +45,9 @@
       windowrulev2 = [
         "float,class:(org.kde.polkit-kde-authentication-agent-1)"
         "float,class:(bilibili),initialTitle:(undefined)"
+        "float, class:(xdg-desktop-portal-gtk)"
+        "float, class:(QQ)"
+        "center, class:(QQ)"
       ];
       workspace = [ "special:browser, on-created-empty:firefox" ];
 
@@ -59,6 +62,7 @@
         allow_tearing = false;
         resize_on_border = true;
       };
+      cursor = { no_hardware_cursors = true; };
       dwindle = { smart_split = true; };
       gestures = { workspace_swipe = false; };
       misc = { force_default_wallpaper = -1; };
