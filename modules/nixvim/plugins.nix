@@ -114,17 +114,19 @@
     project-nvim = {
       enable = true;
       enableTelescope = true;
-      detectionMethods = [ "lsp" "pattern" ];
-      patterns = [
-        ".git"
-        "flake.nix"
-        "Makefile"
-        "build.ninja"
-        "Cargo.toml"
-        "build.gradle"
-      ];
-      scopeChdir = "win";
-      silentChdir = false;
+      settings = {
+        detection_methods = [ "lsp" "pattern" ];
+        patterns = [
+          ".git"
+          "flake.nix"
+          "Makefile"
+          "build.ninja"
+          "Cargo.toml"
+          "build.gradle"
+        ];
+        scope_chdir = "win";
+        silent_chdir = false;
+      };
     };
 
     # Working with Nix

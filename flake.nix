@@ -16,10 +16,7 @@
     # Nix-Alien
     nix-alien.url = "github:thiagokokada/nix-alien";
     # NixVim
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
     # Howdy pkgs
     howdy.url = "github:fufexan/nixpkgs/howdy";
 
