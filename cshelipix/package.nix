@@ -15,11 +15,6 @@
       # Enable flakes
       experimental-features = [ "nix-command" "flakes" ];
     };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
   };
 
   # An advanced cli for Nix
