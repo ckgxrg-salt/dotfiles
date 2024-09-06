@@ -12,6 +12,7 @@
     libsForQt5.polkit-kde-agent
     pwvucontrol
     playerctl
+    blueberry
   ];
 
   # Mako the Notification Daemon

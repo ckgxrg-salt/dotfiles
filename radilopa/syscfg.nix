@@ -20,14 +20,11 @@
     iof.configFile = "/etc/wireguard/iof.conf";
     iof.autostart = false;
   };
-  # A strange fix
-  networking.hosts = {
-    "0.0.0.0" = [
-      "log-upload.mihoyo.com"
-      "uspider.yuanshen.com"
-      "ys-log-upload.mihoyo.com"
-      "dispatchcnglobal.yuanshen.com"
-    ];
+
+  # Bluetooth Support
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
   };
 
   # Sound with PipeWire

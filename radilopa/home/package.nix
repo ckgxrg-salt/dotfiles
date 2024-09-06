@@ -51,8 +51,7 @@
       onCalendar = "daily";
     };
     packages = [
-      "com.github.tchx84.Flatseal"
-      "com.toolstack.Folio"
+      "md.obsidian.Obsidian"
       "com.qq.QQ"
       "org.kde.elisa"
       "org.mozilla.Thunderbird"
