@@ -29,6 +29,7 @@
     # Automatic garbage collection
     clean = {
       enable = true;
+      dates = "weekly";
       extraArgs = "--delete-older-than 7d";
     };
   };
