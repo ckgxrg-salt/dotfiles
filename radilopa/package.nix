@@ -50,13 +50,12 @@
       targetPkgs = pkgs:
         ((base.targetPkgs pkgs) ++ [ pkgs.pkg-config pkgs.ncurses ]);
       profile = "export FHS=1";
-      runScript = "zsh";
+      runScript = "nu";
       extraOutputsToInstall = [ "dev" ];
     }))
   ];
 
   # Placeholders
-  programs.zsh.enable = true;
   programs.hyprland.enable = true;
   programs.nano.enable = false;
   services.flatpak.enable = true;

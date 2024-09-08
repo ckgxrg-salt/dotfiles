@@ -17,8 +17,10 @@
   # Network with NetworkManager
   networking.networkmanager.enable = true;
   networking.wg-quick.interfaces = {
-    iof.configFile = "/etc/wireguard/iof.conf";
-    iof.autostart = false;
+    iof = { 
+      configFile = "/etc/wireguard/iof.conf";
+      autostart = false;
+    };
   };
 
   # Bluetooth Support
@@ -60,7 +62,7 @@
   users.users.ckgxrg = {
     isNormalUser = true;
     description = "ckgxrg";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
     extraGroups = [ "networkmanager" "wheel" "input" "gamemode" ];
   };
 
