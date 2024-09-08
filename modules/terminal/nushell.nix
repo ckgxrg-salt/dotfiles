@@ -29,8 +29,9 @@
       $env.MANPAGER = "nvim +Man!";
 
       def ciallo [] { fortune | cowsay | lolcat }
+      def clear [] { ^clear; ciallo }
 
-      alias clear = clear | ciallo
+      alias true-clear = ^clear
       alias deploy = nh os switch --ask
       alias purge = nh clean all --ask
     '';
