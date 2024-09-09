@@ -24,6 +24,5 @@ stdenv.mkDerivation {
     '';
     homepage = "https://github.com/nushell/nu_scripts";
     license = licenses.mit;
-    maintainers = with maintainers; [ doronbehar ];
   };
 }
