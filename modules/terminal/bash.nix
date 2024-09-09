@@ -4,6 +4,12 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
+    initExtra = ''
+      fortune | cowsay | lolcat
+    '';
+    sessionVariables = {
+      MANPAGER = "nvim +Man!";
+    };
     shellAliases = {
       "ciallo" = "fortune | cowsay | lolcat";
       "setproxy" = "export all_proxy=socks5://127.0.0.1:20170";

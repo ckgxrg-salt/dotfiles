@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   # thefuck Terminal Correction
   programs.thefuck = {
@@ -15,6 +15,11 @@
     enableZshIntegration = config.programs.zsh.enable;
     enableNushellIntegration = config.programs.nushell.enable;
   };
+
+  # Vivid the ls Color Generator
+  home.packages = with pkgs; [
+    vivid
+  ];
 
   # Terminal Prompt for Aliens
   programs.starship = {

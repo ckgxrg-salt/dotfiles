@@ -54,8 +54,12 @@
     # Status bar
     lualine = {
       enable = true;
-      globalstatus = true;
-      theme = "everforest";
+      settings = {
+        options = {
+          globalstatus = true;
+          theme = "everforest";
+        };
+      };
     };
     # Startup page
     dashboard = {
