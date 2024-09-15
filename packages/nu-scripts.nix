@@ -13,7 +13,6 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/themes
     cp themes/nu-themes/${theme}.nu $out/themes
-    rm -rf *
   '';
   meta = with lib; {
     description = "A place to share Nushell scripts with each other ";

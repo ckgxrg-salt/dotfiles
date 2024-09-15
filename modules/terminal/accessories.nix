@@ -75,6 +75,7 @@
       };
       java = {
         format = "[$symbol($version )]($style)";
+        symbol = " ";
       };
       nix_shell = {
         format = "[($symbol( $name))]($style) ";

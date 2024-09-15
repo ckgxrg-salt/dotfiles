@@ -1,35 +1,10 @@
 { pkgs, lib, ... }: {
+  imports = [
+    ./completions.nix
+    ./java.nix
+    ./quickfix.nix
+  ];
   programs.nixvim.plugins = {
-    # Completion & Snippets
-    cmp = {
-      enable = true;
-      autoEnableSources = true;
-      settings = {
-        snippet = {
-          expand = "function(args) require('luasnip').lsp_expand(args.body) end";
-        };
-        sources = [
-          { name = "buffer"; }
-          { name = "cmdline"; }
-          { name = "path"; }
-          { name = "luasnip"; }
-          { name = "nvim_lsp"; }
-        ];
-      };
-    };
-    cmp-nvim-lsp.enable = true;
-    cmp-buffer.enable = true;
-    cmp-path.enable = true;
-    cmp-cmdline.enable = true;
-    cmp_luasnip.enable = true;
-    luasnip = {
-      enable = true;
-      fromVscode = [];
-      settings = {
-        enable_autosnippets = true;
-      };
-    };
-    friendly-snippets.enable = true;
     # Markdown preview
     glow = {
       enable = true;
@@ -89,16 +64,6 @@
         direction = "horizontal";
       };
     };
-    # Quickfix
-    nvim-bqf = {
-      enable = true;
-      autoEnable = true;
-    };
-    # Treesitter
-    treesitter = {
-      enable = true;
-      gccPackage = null;
-    };
     # Dim inactive code
     twilight = {
       enable = true;
@@ -108,6 +73,8 @@
     };
     # Undo tree
     undotree.enable = true;
+    # Fancy icons
+    web-devicons.enable = true;
     # Fuzzy search
     telescope = {
       enable = true;
@@ -132,6 +99,20 @@
         silent_chdir = false;
       };
     };
+    git-worktree = {
+      enable = true;
+      enableTelescope = true;
+    };
+    gitsigns = {
+      enable = true;
+      settings = {
+        attach_to_untracked = true;
+        auto_attach = true;
+        current_line_blame = true;
+        current_line_blame_formatter = " <author>, <author_time> - <summary> ";
+        word_diff = true;
+      };
+    };
 
     # Working with Nix
     nix = {
@@ -139,20 +120,6 @@
     };
     nix-develop = {
       enable = true;
-    };
-
-    # Working with Java
-    nvim-jdtls = {
-      enable = true;
-      rootDir = { __raw = "require('jdtls.setup').find_root({'build.gradle', 'pom.xml'})"; };
-      cmd = [ "Surprisingly, you cannot use Lua code here, though this option is mandatory. " ];
-      extraOptions.cmd = [
-        "${lib.getExe pkgs.jdt-language-server}"
-        "-configuration"
-        { __raw = "vim.fn.expand(\"$XDG_CACHE_HOME/jdtls/config\")"; }
-        "-data"
-        { __raw = "require('jdtls.setup').find_root({'build.gradle', 'pom.xml'})"; }
-      ];
     };
   };
 }

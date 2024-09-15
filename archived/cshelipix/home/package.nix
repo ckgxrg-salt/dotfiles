@@ -18,7 +18,6 @@
     dolphin
     ark
     okular
-    bottles
     alacritty
     rustdesk-flutter
 
@@ -51,6 +50,7 @@
       
       "com.moonlight_stream.Moonlight"
       "org.kde.elisa"
+      "com.usebottles.bottles"
       
       "org.mozilla.Thunderbird"
       "org.kde.pix"

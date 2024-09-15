@@ -1,6 +1,6 @@
 { ... }: {
   programs.nixvim.keymaps = [
-    # Navigate between tabs
+    # Barbar: Navigate between tabs
     {
       action = "<Cmd>BufferPrevious<CR>";
       key = "<A-,>";

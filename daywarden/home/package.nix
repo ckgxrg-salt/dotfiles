@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  # Home-manager packages for Radilopa
+  # Home-manager packages for Daywarden
   home.packages = with pkgs; [
     # Terminal Utilities
     neofetch
@@ -10,29 +10,25 @@
     asciiquarium
     lolcat
     fortune
-    zellij
     psmisc
     gamemode
-    nvitop
     maa-cli
-    ripgrep
 
     # Desktop Utilities
     dolphin
+    ark
     okular
     alacritty
-    lenovo-legion
-
-    # Games
-    prismlauncher
+    rustdesk-flutter
 
     # Applications
     #bilibili
-    tor
+    audacity
+    prismlauncher
     tor-browser
     vscodium
-    filelight
-    ark
+    krita
+    gimp
     godot_4
   ];
 
@@ -48,18 +44,29 @@
       onCalendar = "daily";
     };
     packages = [
-      "md.obsidian.Obsidian"
       "com.qq.QQ"
+      "in.cinny.Cinny"
+      "info.febvre.Komikku"
+      
+      "com.moonlight_stream.Moonlight"
       "org.kde.elisa"
+      "com.usebottles.bottles"
+      
       "org.mozilla.Thunderbird"
       "org.kde.pix"
-
+      
+      "org.blender.Blender"
       "net.blockbench.Blockbench"
+      "com.ultimaker.cura"
 
+      "io.gitlab.idevecore.Pomodoro"
+      "io.github.mrvladus.List"
+
+      "md.obsidian.Obsidian"
+      "com.github.xournalpp.xournalpp"
       "org.libreoffice.LibreOffice"
-      "org.gnome.SoundRecorder"
-
-      "com.usebottles.bottles"
+      "com.github.flxzt.rnote"
+      "com.github.johnfactotum.Foliate"
     ];
   };
 }
