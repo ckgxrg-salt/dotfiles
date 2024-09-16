@@ -25,9 +25,8 @@
       content.cookies.accept = "no-unknown-3rdparty";
       content.headers.do_not_track = true;
       colors.webpage.preferred_color_scheme = "dark";
-      qt.highdpi = true;
       fonts.default_family = "Maple Mono";
-      zoom.default = "150%";
+      zoom.default = "125%";
       url.start_pages = "about:blank";
     };
   };

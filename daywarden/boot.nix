@@ -6,7 +6,7 @@
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
       timeout = 0;
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot.enable = lib.mkForce true;
     };
     # Setup Secure Boot
     lanzaboote = {

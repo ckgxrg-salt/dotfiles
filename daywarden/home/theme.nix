@@ -17,11 +17,8 @@ let
   cursor = "GoogleDot-Black";
   cursorPkg = (pkgs.callPackage ../../packages/googledot-cursor.nix { });
 
-  icon = "Colloid-teal-nord-dark";
-  iconPkg = pkgs.colloid-icon-theme.override {
-    schemeVariants = [ "nord" ];
-    colorVariants = [ "teal" ];
-  };
+  icon = "Vivid-Dark-Icons";
+  iconPkg = (pkgs.callPackage ../../packages/vivid-icons.nix { });
 
   customFont = "Maple Mono";
 in {

@@ -69,24 +69,6 @@
   # Waypaper
   xdg.configFile."waypaper/config.ini".source = ./waypaper.ini;
 
-  # Fusuma the touchscreen gesture recogniser
-  services.fusuma = {
-    enable = true;
-    extraPackages = with pkgs; [ ydotool coreutils ];
-    settings = {
-      threshold = {
-        swipe = 0.5;
-        pinch = 0.2;
-      };
-      interval = {
-        swipe = 0.2;
-        pinch = 0.2;
-      };
-      swipe = { "4" = { left.command = "pkill -USR1 waybar"; }; };
-      pinch = { "3" = { "in".command = "hyprctl dispatch killactive"; }; };
-    };
-  };
-
   # Redshift the color temperature adjuster
   services.redshift = {
     enable = true;

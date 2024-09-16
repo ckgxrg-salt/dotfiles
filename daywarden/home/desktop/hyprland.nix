@@ -100,14 +100,12 @@
     systemd.enable = true;
     xwayland.enable = true;
     plugins = [
-      inputs.hyprgrass.packages.${pkgs.system}.default
       inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
     ];
     settings = {
       # Hardware
       monitor = [
-        "eDP-1, highres, 0x0, 1.25, transform, 2"
-        "eDP-2, highres, 0x1440, 1.25"
+        "eDP-1, highres, auto, 1"
       ];
       input = {
         kb_layout = "us";
@@ -157,8 +155,6 @@
       layerrule =
         [ "noanim, swww-daemon" "animation slide right, notifications" ];
       workspace = [
-        "name: , monitor:eDP-1, default:true, persistent:true"
-        "name: , monitor:eDP-2, default:true, persistent:true"
         "special:browser, on-created-empty:qutebrowser"
       ];
 
@@ -177,12 +173,6 @@
         smart_split = true;
         smart_resizing = true;
         no_gaps_when_only = 2;
-      };
-      plugin.touch_gestures = {
-        sensitivity = 1.0;
-        workspace_swipe_edge = "d";
-        workspace_swipe_fingers = 3;
-        long_press_delay = 400;
       };
       plugin.hyprfocus = {
         enabled = "yes";
@@ -248,13 +238,7 @@
         ];
       };
 
-      # Touchscreen binds
-      hyprgrass-bind = [
-        ",edge:r:l, togglespecialworkspace, browser"
-        ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
-        ",edge:u:d, togglespecialworkspace, controlcentre"
-        ",edge:u:d, exec, ags -t \"bar0\""
-      ];
+      # Binds
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
@@ -295,8 +279,6 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-        "$mainMod CONTROL, 1, workspace, name: "
-        "$mainMod CONTROL, 2, workspace, name: "
         # Workspace movement
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
@@ -308,8 +290,6 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod SHIFT CONTROL, 1, movetoworkspace, name: "
-        "$mainMod SHIFT CONTROL, 2, movetoworkspace, name: "
         # Special workspaces
         "$mainMod, S, togglespecialworkspace, browser"
         "$mainMod SHIFT, W, workspace, name: "

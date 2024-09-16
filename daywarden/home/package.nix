@@ -54,6 +54,7 @@
       
       "org.mozilla.Thunderbird"
       "org.kde.pix"
+      "org.gnome.SoundRecorder"
       
       "org.blender.Blender"
       "net.blockbench.Blockbench"

@@ -40,8 +40,8 @@
   };
   outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, nixvim, howdy, ... }: {
 
-    # Cshelipix
-    nixosConfigurations.Cshelipix = nixpkgs.lib.nixosSystem rec {
+    # Daywarden
+    nixosConfigurations.Daywarden = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {
         # Enable the nixpkgs fork with howdy
@@ -52,7 +52,7 @@
         inherit inputs;
       };
       modules = [
-        ./cshelipix
+        ./daywarden
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         {
@@ -62,7 +62,7 @@
             flatpaks.homeManagerModules.nix-flatpak
             ags.homeManagerModules.default
             nixvim.homeManagerModules.nixvim
-            ./cshelipix/home
+            ./daywarden/home
           ];
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
