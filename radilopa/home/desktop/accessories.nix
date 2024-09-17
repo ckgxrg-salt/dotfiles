@@ -49,6 +49,15 @@
 
   services.cliphist = { enable = true; };
 
-  # Config file
-  home.file.".config/waypaper/config.ini".source = ./waypaper.ini;
+  # Waypaper
+  xdg.configFile."waypaper/config.ini".text = ''
+    [Settings]
+    folder = /home/ckgxrg/Pictures/Wallpapers
+    fill = Fill
+    sort = name
+    backend = swww
+    color = #ffffff
+    subfolders = False
+    monitors = All
+  '';
 }

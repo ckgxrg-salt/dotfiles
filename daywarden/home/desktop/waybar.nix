@@ -312,6 +312,6 @@
   };
 
   # The Icons
-  home.file.".config/waybar/icon.png".source = ./assets/nixos.png;
-  home.file.".config/waybar/add.png".source = ./assets/add.png;
+  home.file.".config/waybar/icon.png".source = ../../../assets/nixos.png;
+  home.file.".config/waybar/add.png".source = ../../../assets/add.png;
 }

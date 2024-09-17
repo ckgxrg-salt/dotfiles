@@ -79,10 +79,10 @@
       	            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
                   }
                   inc_backlight() {
-      	            brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=card1-eDP-2-backlight set 5%+ && get_icon && notify_user
+      	            brightnessctl set 5%+ && get_icon && notify_user
                   }
                   dec_backlight() {
-      	            brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=card1-eDP-2-backlight set 5%- && get_icon && notify_user
+      	            brightnessctl set 5%- && get_icon && notify_user
                   }
                   if [[ "$1" == "--get" ]]; then
       	            get_backlight
