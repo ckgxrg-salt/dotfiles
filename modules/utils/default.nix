@@ -16,7 +16,9 @@
     lfs.enable = true;
     userName = "ckgxrg";
     userEmail = "ckgxrg@ckgxrg.io";
-    extraConfig = { pull.rebase = true; };
+    extraConfig = {
+      pull.rebase = true;
+    };
   };
 
   # Mpris Media Control

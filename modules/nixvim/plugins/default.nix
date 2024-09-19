@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [
     ./completions.nix
     ./java.nix
@@ -42,12 +43,12 @@
       settings = {
         config = {
           header = [
-          "   ,##.                   ,==."
-          " ,#    #.                 \\ o ',"
-          "#        #     _     _     \\    \\"
-          "#        #    (_)   (_)    /    ; "
-          " `#    #'                 /   .'  "
-          "   `##'                   \"==\""
+            "   ,##.                   ,==."
+            " ,#    #.                 \\ o ',"
+            "#        #     _     _     \\    \\"
+            "#        #    (_)   (_)    /    ; "
+            " `#    #'                 /   .'  "
+            "   `##'                   \"==\""
           ];
           footer = [
             "Neovim !"
@@ -86,7 +87,10 @@
       enable = true;
       enableTelescope = true;
       settings = {
-        detection_methods = [ "lsp" "pattern" ];
+        detection_methods = [
+          "lsp"
+          "pattern"
+        ];
         patterns = [
           ".git"
           "flake.nix"

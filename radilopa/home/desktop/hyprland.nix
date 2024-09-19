@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 # Options for Hyprland and XDG
 {
   imports = [ ./accessories.nix ];
@@ -11,11 +17,16 @@
     xwayland.enable = true;
     settings = {
       # Hardware
-      monitor = [ ",highres, auto, 1.25" "Unknown-1, disable" ];
+      monitor = [
+        ",highres, auto, 1.25"
+        "Unknown-1, disable"
+      ];
       input = {
         kb_layout = "us";
         follow_mouse = 1;
-        touchpad = { natural_scroll = true; };
+        touchpad = {
+          natural_scroll = true;
+        };
         sensitivity = 0;
       };
 
@@ -49,7 +60,7 @@
         "float, class:(QQ)"
         "center, class:(QQ)"
       ];
-      workspace = [ "special:browser, on-created-empty:firefox" ];
+      workspace = [ "special:browser, on-created-empty:qutebrowser" ];
 
       # Some options
       general = {
@@ -62,11 +73,21 @@
         allow_tearing = false;
         resize_on_border = true;
       };
-      cursor = { no_hardware_cursors = true; };
-      dwindle = { smart_split = true; };
-      gestures = { workspace_swipe = false; };
-      misc = { force_default_wallpaper = -1; };
-      xwayland = { force_zero_scaling = true; };
+      cursor = {
+        no_hardware_cursors = true;
+      };
+      dwindle = {
+        smart_split = true;
+      };
+      gestures = {
+        workspace_swipe = false;
+      };
+      misc = {
+        force_default_wallpaper = -1;
+      };
+      xwayland = {
+        force_zero_scaling = true;
+      };
 
       # Fancy effects
       decoration = {
@@ -173,7 +194,9 @@
         xdg-desktop-portal-gtk
       ];
       config = {
-        common = { default = [ "gtk" ]; };
+        common = {
+          default = [ "gtk" ];
+        };
         hyprland = {
           default = [ "hyprland" ];
           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
@@ -192,7 +215,10 @@
         icon = "io.github.msojocs.bilibili";
         exec = "bilibili --ozone-platform-hint=auto";
         terminal = false;
-        categories = [ "Network" "AudioVideo" ];
+        categories = [
+          "Network"
+          "AudioVideo"
+        ];
       };
       "nvitop" = {
         name = "Nvitop";

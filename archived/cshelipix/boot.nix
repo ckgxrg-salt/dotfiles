@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   # Bootloader
   boot = {
     bootspec.enable = true;

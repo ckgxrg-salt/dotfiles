@@ -9,5 +9,8 @@
     defaultNetwork.settings.dns_enabled = true;
   };
   users.users.ckgxrg.extraGroups = [ "docker" ];
-  environment.systemPackages = with pkgs; [ dive distrobox ];
+  environment.systemPackages = with pkgs; [
+    dive
+    distrobox
+  ];
 }

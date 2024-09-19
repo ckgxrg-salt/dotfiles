@@ -1,7 +1,11 @@
 { pkgs, inputs, ... }:
 # Extra programs for Hyprland
 {
-  imports = [ ./waybar.nix ./hypreco.nix ./wlogout.nix ];
+  imports = [
+    ./waybar.nix
+    ./hypreco.nix
+    ./wlogout.nix
+  ];
 
   # Hyprland accessories
   home.packages = with pkgs; [
@@ -64,7 +68,9 @@
       tray: auto
   '';
 
-  services.cliphist = { enable = true; };
+  services.cliphist = {
+    enable = true;
+  };
 
   # Waypaper
   xdg.configFile."waypaper/config.ini".source = ./waypaper.ini;
@@ -72,7 +78,10 @@
   # Fusuma the touchscreen gesture recogniser
   services.fusuma = {
     enable = true;
-    extraPackages = with pkgs; [ ydotool coreutils ];
+    extraPackages = with pkgs; [
+      ydotool
+      coreutils
+    ];
     settings = {
       threshold = {
         swipe = 0.5;
@@ -82,8 +91,16 @@
         swipe = 0.2;
         pinch = 0.2;
       };
-      swipe = { "4" = { left.command = "pkill -USR1 waybar"; }; };
-      pinch = { "3" = { "in".command = "hyprctl dispatch killactive"; }; };
+      swipe = {
+        "4" = {
+          left.command = "pkill -USR1 waybar";
+        };
+      };
+      pinch = {
+        "3" = {
+          "in".command = "hyprctl dispatch killactive";
+        };
+      };
     };
   };
 

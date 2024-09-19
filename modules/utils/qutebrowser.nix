@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # A lightweight web browser
   programs.qutebrowser = {
     enable = true;
@@ -11,12 +12,14 @@
     };
     # Apply the colorscheme
     extraConfig = ''
-      config.source('${pkgs.fetchFromGitHub {
-        owner = "gicrisf";
-        repo = "qute-city-lights";
-        rev = "047d5306ce6ce74d17b2d3a58b9419c89a0fb238";
-        hash = "sha256-khIH2oDgL9+K6Z6GxXfm3qVEA1vIOwNASULHTP6P1sw=";
-      }}/city-lights-theme.py')
+      config.source('${
+        pkgs.fetchFromGitHub {
+          owner = "gicrisf";
+          repo = "qute-city-lights";
+          rev = "047d5306ce6ce74d17b2d3a58b9419c89a0fb238";
+          hash = "sha256-khIH2oDgL9+K6Z6GxXfm3qVEA1vIOwNASULHTP6P1sw=";
+        }
+      }/city-lights-theme.py')
     '';
     settings = {
       auto_save.session = true;

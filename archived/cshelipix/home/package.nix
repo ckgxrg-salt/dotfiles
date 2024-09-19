@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Home-manager packages for Cshelipix
   home.packages = with pkgs; [
     # Terminal Utilities
@@ -35,10 +36,12 @@
   # Flatpak packages
   services.flatpak = {
     enable = true;
-    remotes = [{
-      name = "flathub";
-      location = "https://mirror.sjtu.edu.cn/flathub";
-    }];
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://mirror.sjtu.edu.cn/flathub";
+      }
+    ];
     update.auto = {
       enable = true;
       onCalendar = "daily";
@@ -47,14 +50,14 @@
       "com.qq.QQ"
       "in.cinny.Cinny"
       "info.febvre.Komikku"
-      
+
       "com.moonlight_stream.Moonlight"
       "org.kde.elisa"
       "com.usebottles.bottles"
-      
+
       "org.mozilla.Thunderbird"
       "org.kde.pix"
-      
+
       "org.blender.Blender"
       "net.blockbench.Blockbench"
       "com.ultimaker.cura"

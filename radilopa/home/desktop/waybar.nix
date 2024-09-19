@@ -10,11 +10,20 @@
         position = "top";
         height = 16;
         spacing = 0;
-        modules-left =
-          [ "image#launcher" "hyprland/workspaces" "idle_inhibitor" ];
+        modules-left = [
+          "image#launcher"
+          "hyprland/workspaces"
+          "idle_inhibitor"
+        ];
         modules-center = [ "gamemode" ];
-        modules-right =
-          [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
+        modules-right = [
+          "mpris"
+          "network"
+          "pulseaudio/slider"
+          "clock"
+          "battery"
+          "tray"
+        ];
 
         "image#launcher" = {
           path = "${config.home.homeDirectory}/.config/waybar/icon.png";
@@ -25,8 +34,7 @@
         "idle_inhibitor" = {
           format = "{icon}";
           tooltip-format-activated = "Inhibited Hypridle";
-          tooltip-format-deactivated =
-            "This widget says Zzz, pretending to be sleeping";
+          tooltip-format-deactivated = "This widget says Zzz, pretending to be sleeping";
           format-icons = {
             activated = " No Idle";
             deactivated = "󰒲";
@@ -48,7 +56,9 @@
             default = "▶";
             elisa = "🎵";
           };
-          status-icons = { paused = "⏸"; };
+          status-icons = {
+            paused = "⏸";
+          };
         };
         "gamemode" = {
           glyph = "";
@@ -71,7 +81,13 @@
           format-good = "{icon} {capacity}%";
           format-warning = "󰂃 {capacity}%";
           format-critical = "󱉞 {capacity}%";
-          format-icons = [ "󰁼" "󰁾" "󰁾" "󰂂" "󰂂" ];
+          format-icons = [
+            "󰁼"
+            "󰁾"
+            "󰁾"
+            "󰂂"
+            "󰂂"
+          ];
         };
         "pulseaudio/slider" = {
           min = 0;
@@ -80,8 +96,7 @@
         };
         "network" = {
           interval = 1;
-          format-wifi =
-            "  {essid} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+          format-wifi = "  {essid} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
           format-ethernet = "󰈀  Connected";
           format-linked = "󰌷  Linked";
           format-disconnected = "󱛅  你不过关！";

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   # Include Alacritty's theme config
   xdg.configFile."alacritty/alacritty.toml".text = ''
     [window]

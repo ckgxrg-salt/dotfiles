@@ -19,41 +19,41 @@
         # Cmp / Luasnip: Expand and select with Super-Tab
         mapping = {
           __raw = ''
-          {
-            ['<CR>'] = cmp.mapping(function(fallback)
+            {
+              ['<CR>'] = cmp.mapping(function(fallback)
+                  if cmp.visible() then
+                    if require('luasnip').expandable() then
+                      require('luasnip').expand()
+                    else
+                      cmp.confirm({
+                        select = true,
+                      })
+                    end
+                else
+                  fallback()
+                end
+              end),
+
+              ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
-                  if require('luasnip').expandable() then
-                    require('luasnip').expand()
-                  else
-                    cmp.confirm({
-                      select = true,
-                    })
-                  end
-              else
-                fallback()
-              end
-            end),
+                  cmp.select_next_item()
+                elseif require('luasnip').locally_jumpable(1) then
+                  require('luasnip').jump(1)
+                else
+                  fallback()
+                end
+              end, { "i", "s" }),
 
-            ["<Tab>"] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif require('luasnip').locally_jumpable(1) then
-                require('luasnip').jump(1)
-              else
-                fallback()
-              end
-            end, { "i", "s" }),
-
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.locally_jumpable(-1) then
-                require('luasnip').jump(-1)
-              else
-                fallback()
-              end
-            end, { "i", "s" }),
-          }
+              ["<S-Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                  cmp.select_prev_item()
+                elseif luasnip.locally_jumpable(-1) then
+                  require('luasnip').jump(-1)
+                else
+                  fallback()
+                end
+              end, { "i", "s" }),
+            }
           '';
         };
       };
@@ -75,6 +75,6 @@
     friendly-snippets.enable = true;
 
     # Auto-generate paired letters
-    
+
   };
 }

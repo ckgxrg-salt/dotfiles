@@ -13,7 +13,9 @@
       ExecStart = "${pkgs.wlogout}/bin/wlogout";
       ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
     };
-    Install = { WantedBy = [ "lock.target" ]; };
+    Install = {
+      WantedBy = [ "lock.target" ];
+    };
   };
   programs.wlogout = {
     enable = true;

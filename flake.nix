@@ -38,58 +38,73 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ nixpkgs, flatpaks, ags, home-manager, lanzaboote, nixvim, howdy, ... }: {
+  outputs =
+    inputs@{
+      nixpkgs,
+      flatpaks,
+      ags,
+      home-manager,
+      lanzaboote,
+      nixvim,
+      howdy,
+      ...
+    }:
+    {
 
-    # Daywarden
-    nixosConfigurations.Daywarden = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = {
-        # Enable the nixpkgs fork with howdy
-        pkgs-howdy = import howdy {
-          inherit system;
-          config.allowUnfree = true;
+      # Daywarden
+      nixosConfigurations.Daywarden = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = {
+          # Enable the nixpkgs fork with howdy
+          pkgs-howdy = import howdy {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          inherit inputs;
         };
-        inherit inputs;
+        modules = [
+          ./daywarden
+          lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ckgxrg.imports = [
+              flatpaks.homeManagerModules.nix-flatpak
+              ags.homeManagerModules.default
+              nixvim.homeManagerModules.nixvim
+              ./daywarden/home
+            ];
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+          }
+        ];
       };
-      modules = [
-        ./daywarden
-        lanzaboote.nixosModules.lanzaboote
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg.imports = [
-            flatpaks.homeManagerModules.nix-flatpak
-            ags.homeManagerModules.default
-            nixvim.homeManagerModules.nixvim
-            ./daywarden/home
-          ];
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
-      ];
-    };
 
-    #Radilopa
-    nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      system = "x86_64-linux";
-      modules = [
-        ./radilopa
-        lanzaboote.nixosModules.lanzaboote
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.ckgxrg.imports =
-            [
+      #Radilopa
+      nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./radilopa
+          lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ckgxrg.imports = [
               flatpaks.homeManagerModules.nix-flatpak
               nixvim.homeManagerModules.nixvim
               ./radilopa/home
             ];
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
-      ];
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+          }
+        ];
+      };
     };
-  };
 }
-

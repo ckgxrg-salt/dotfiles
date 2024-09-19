@@ -1,7 +1,11 @@
 { pkgs, inputs, ... }:
 # Extra programs for Hyprland
 {
-  imports = [ ./waybar.nix ./hypreco.nix ./wlogout.nix ];
+  imports = [
+    ./waybar.nix
+    ./hypreco.nix
+    ./wlogout.nix
+  ];
 
   # Hyprland accessories
   home.packages = with pkgs; [
@@ -64,7 +68,9 @@
       tray: auto
   '';
 
-  services.cliphist = { enable = true; };
+  services.cliphist = {
+    enable = true;
+  };
 
   # Waypaper
   xdg.configFile."waypaper/config.ini".text = ''

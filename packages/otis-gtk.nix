@@ -1,4 +1,8 @@
-{ fetchFromGitHub, stdenv, pkgs }:
+{
+  fetchFromGitHub,
+  stdenv,
+  pkgs,
+}:
 # The Otis GTK theme
 stdenv.mkDerivation {
   pname = "otis-gtk-theme";

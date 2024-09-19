@@ -24,7 +24,8 @@ let
   };
 
   customFont = "Maple Mono";
-in {
+in
+{
   # GTK Look and Feel
   gtk = {
     enable = true;
@@ -88,7 +89,11 @@ in {
   services.flatpak.overrides = {
     global = {
       # Force Wayland
-      Context.sockets = [ "wayland" "!x11" "fallback-x11" ];
+      Context.sockets = [
+        "wayland"
+        "!x11"
+        "fallback-x11"
+      ];
       # Make files accessible to flatpaks
       Context.filesystems = [
         "/home/ckgxrg/.themes:ro"

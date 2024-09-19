@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.nixvim.keymaps = [
     # Barbar: Navigate between tabs
     {

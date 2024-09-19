@@ -1,4 +1,10 @@
-{ fetchFromGitHub, stdenv, lib, theme ? "default-dark", ... }:
+{
+  fetchFromGitHub,
+  stdenv,
+  lib,
+  theme ? "default-dark",
+  ...
+}:
 # Themes for nushell
 stdenv.mkDerivation {
   pname = "nu-scripts";

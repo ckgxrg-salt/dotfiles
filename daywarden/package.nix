@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   # Nix configuration
   nix = {
     # USTC mirror for Nix channels
@@ -11,14 +12,20 @@
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
       # Enable flakes
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 
   # An advanced cli for Nix
-  programs.nh ={
+  programs.nh = {
     enable = true;
     flake = "/home/ckgxrg/dotfiles";
     # Automatic garbage collection
@@ -31,7 +38,9 @@
 
   # Allow unfree and insecure packages
   nixpkgs = {
-    config = { allowUnfree = true; };
+    config = {
+      allowUnfree = true;
+    };
     overlays = [ inputs.rust-overlay.overlays.default ];
   };
 
@@ -44,15 +53,29 @@
     wl-clipboard
     # FHS Env
     inputs.nix-alien.packages.${system}.nix-alien
-    (let base = pkgs.appimageTools.defaultFhsEnvArgs;
-    in pkgs.buildFHSUserEnv (base // {
-      name = "fhs";
-      targetPkgs = pkgs:
-        ((base.targetPkgs pkgs) ++ [ pkgs.pkg-config pkgs.ncurses ]);
-      profile = "export FHS=1";
-      runScript = "nu";
-      extraOutputsToInstall = [ "dev" ];
-    }))
+    (
+      let
+        base = pkgs.appimageTools.defaultFhsEnvArgs;
+      in
+      pkgs.buildFHSUserEnv (
+        base
+        // {
+          name = "fhs";
+          targetPkgs =
+            pkgs:
+            (
+              (base.targetPkgs pkgs)
+              ++ [
+                pkgs.pkg-config
+                pkgs.ncurses
+              ]
+            );
+          profile = "export FHS=1";
+          runScript = "nu";
+          extraOutputsToInstall = [ "dev" ];
+        }
+      )
+    )
   ];
 
   # Placeholders

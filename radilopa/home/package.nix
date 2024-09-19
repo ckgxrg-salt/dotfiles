@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Home-manager packages for Radilopa
   home.packages = with pkgs; [
     # Terminal Utilities
@@ -39,10 +40,12 @@
   # Flatpak packages
   services.flatpak = {
     enable = true;
-    remotes = [{
-      name = "flathub";
-      location = "https://mirror.sjtu.edu.cn/flathub";
-    }];
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://mirror.sjtu.edu.cn/flathub";
+      }
+    ];
     update.auto = {
       enable = true;
       onCalendar = "daily";

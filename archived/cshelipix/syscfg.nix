@@ -5,29 +5,29 @@
   networking.hostName = "Cshelipix";
   # Strange messages
   environment.etc."issue".text = ''
-                 __
-                / /\
-               / / /\
-              / / /\ \
-             / / /\ \ \
-  __________/_/_/__\ \ \__________
- /\ \_______________\ \ \_________\
- \ \ \_______________\ \ \________/
-  \ \ \  / / /        \ \ \  / / /
-   \ \ \/ / /          \ \ \/ / /
-    \ \/ / /            \ \/ / /
-     \/ / /              \/ / /
-     / / /\              / / /\
-    / / /\ \            / / /\ \
-   / / /\ \ \          / / /\ \ \
-  /_/_/__\ \ \________/_/_/__\ \ \
- /________\ \ \---------------\ \ \
- \_________\ \ \_______________\_\/
-            \ \ \  / / /
-             \ \ \/ / /
-              \ \/ / /
-               \/ / /
-                \/_/
+                    __
+                   / /\
+                  / / /\
+                 / / /\ \
+                / / /\ \ \
+     __________/_/_/__\ \ \__________
+    /\ \_______________\ \ \_________\
+    \ \ \_______________\ \ \________/
+     \ \ \  / / /        \ \ \  / / /
+      \ \ \/ / /          \ \ \/ / /
+       \ \/ / /            \ \/ / /
+        \/ / /              \/ / /
+        / / /\              / / /\
+       / / /\ \            / / /\ \
+      / / /\ \ \          / / /\ \ \
+     /_/_/__\ \ \________/_/_/__\ \ \
+    /________\ \ \---------------\ \ \
+    \_________\ \ \_______________\_\/
+               \ \ \  / / /
+                \ \ \/ / /
+                 \ \/ / /
+                  \/ / /
+                   \/_/
   '';
   environment.etc."motd".text = ''
     <-- Cshelipix Academy of Sorcery -->
@@ -71,15 +71,24 @@
     isNormalUser = true;
     description = "ckgxrg";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "input" "gamemode" "video" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "gamemode"
+      "video"
+    ];
   };
 
   # Locale, I18n and Fcitx5
   time.timeZone = "Asia/Shanghai";
   i18n = {
     defaultLocale = "en_GB.UTF-8";
-    supportedLocales =
-      [ "zh_CN.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" "en_GB.UTF-8/UTF-8" ];
+    supportedLocales = [
+      "zh_CN.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+      "en_GB.UTF-8/UTF-8"
+    ];
     extraLocaleSettings = {
       LC_ADDRESS = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";
@@ -110,9 +119,18 @@
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Maple Mono" "Noto Sans Mono CJK SC" ];
-        sansSerif = [ "Maple Mono" "Noto Sans CJK SC" ];
-        serif = [ "Maple Mono" "Noto Serif CJK SC" ];
+        monospace = [
+          "Maple Mono"
+          "Noto Sans Mono CJK SC"
+        ];
+        sansSerif = [
+          "Maple Mono"
+          "Noto Sans CJK SC"
+        ];
+        serif = [
+          "Maple Mono"
+          "Noto Serif CJK SC"
+        ];
       };
     };
   };
@@ -138,7 +156,9 @@
   # TLP the power saver
   services.tlp = {
     enable = true;
-    settings = { BAY_POWEROFF_ON_BAT = 1; };
+    settings = {
+      BAY_POWEROFF_ON_BAT = 1;
+    };
   };
 
   # Display Settings
@@ -151,7 +171,7 @@
   # Input Remapper
   services.input-remapper = {
     enable = true;
-    serviceWantedBy = [];
+    serviceWantedBy = [ ];
   };
 
   # Violent Power Save

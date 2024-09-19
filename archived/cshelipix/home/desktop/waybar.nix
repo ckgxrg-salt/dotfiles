@@ -11,11 +11,21 @@
         width = 60;
         spacing = 5;
         margin = "6 6 6 6";
-        modules-left =
-          [ "image#launcher" "idle_inhibitor" "hyprland/workspaces" "image#add" ];
+        modules-left = [
+          "image#launcher"
+          "idle_inhibitor"
+          "hyprland/workspaces"
+          "image#add"
+        ];
         modules-center = [ "gamemode" ];
-        modules-right =
-          [ "mpris" "network" "pulseaudio/slider" "clock" "battery" "tray" ];
+        modules-right = [
+          "mpris"
+          "network"
+          "pulseaudio/slider"
+          "clock"
+          "battery"
+          "tray"
+        ];
 
         "image#launcher" = {
           path = "${config.home.homeDirectory}/.config/waybar/icon.png";
@@ -37,8 +47,7 @@
         "idle_inhibitor" = {
           format = "{icon}";
           tooltip-format-activated = "Inhibited Idle";
-          tooltip-format-deactivated =
-            "This widget says Zzz, pretending to be asleep";
+          tooltip-format-deactivated = "This widget says Zzz, pretending to be asleep";
           format-icons = {
             activated = "";
             deactivated = "󰒲";
@@ -55,7 +64,9 @@
             default = "▶";
             elisa = "🎵";
           };
-          status-icons = { paused = "⏸"; };
+          status-icons = {
+            paused = "⏸";
+          };
         };
         "gamemode" = {
           glyph = "";
@@ -78,7 +89,13 @@
           format-good = "{icon} {capacity}%";
           format-warning = "󰂃 {capacity}%";
           format-critical = "󱉞 {capacity}%";
-          format-icons = [ "󰁼" "󰁾" "󰁾" "󰂂" "󰂂" ];
+          format-icons = [
+            "󰁼"
+            "󰁾"
+            "󰁾"
+            "󰂂"
+            "󰂂"
+          ];
         };
         "pulseaudio/slider" = {
           min = 0;

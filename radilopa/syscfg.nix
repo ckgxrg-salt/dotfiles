@@ -17,7 +17,7 @@
   # Network with NetworkManager
   networking.networkmanager.enable = true;
   networking.wg-quick.interfaces = {
-    iof = { 
+    iof = {
       configFile = "/etc/wireguard/iof.conf";
       autostart = false;
     };
@@ -63,15 +63,23 @@
     isNormalUser = true;
     description = "ckgxrg";
     shell = pkgs.nushell;
-    extraGroups = [ "networkmanager" "wheel" "input" "gamemode" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "gamemode"
+    ];
   };
 
   # Locale, I18n and Fcitx5
   time.timeZone = "Asia/Shanghai";
   i18n = {
     defaultLocale = "en_GB.UTF-8";
-    supportedLocales =
-      [ "zh_CN.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" "en_GB.UTF-8/UTF-8" ];
+    supportedLocales = [
+      "zh_CN.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+      "en_GB.UTF-8/UTF-8"
+    ];
     extraLocaleSettings = {
       LC_ADDRESS = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";
@@ -102,9 +110,18 @@
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Maple Mono" "Noto Sans Mono CJK SC" ];
-        sansSerif = [ "Maple Mono" "Noto Sans CJK SC" ];
-        serif = [ "Maple Mono" "Noto Serif CJK SC" ];
+        monospace = [
+          "Maple Mono"
+          "Noto Sans Mono CJK SC"
+        ];
+        sansSerif = [
+          "Maple Mono"
+          "Noto Sans CJK SC"
+        ];
+        serif = [
+          "Maple Mono"
+          "Noto Serif CJK SC"
+        ];
       };
     };
   };
@@ -123,8 +140,7 @@
   };
 
   # SDDM Session Manager & Gnome Keyring
-  environment.systemPackages =
-    [ (pkgs.callPackage ../packages/sugar-candy-sddm.nix { }) ];
+  environment.systemPackages = [ (pkgs.callPackage ../packages/sugar-candy-sddm.nix { }) ];
   security.pam.services.sddm.enableGnomeKeyring = true;
   security.pam.services.hyprlock = { };
   services.displayManager.sddm = {

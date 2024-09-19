@@ -1,4 +1,10 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
   # Bootloader
   boot = {
     bootspec.enable = true;
@@ -20,9 +26,11 @@
     };
     # Use Xanmod kernel with Nvidia modules
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    extraModulePackages = with config.boot.kernelPackages;
-      [ lenovo-legion-module ];
-    supportedFilesystems = [ "btrfs" "ntfs" ];
+    extraModulePackages = with config.boot.kernelPackages; [ lenovo-legion-module ];
+    supportedFilesystems = [
+      "btrfs"
+      "ntfs"
+    ];
     kernelParams = [
       "quiet"
       "plymouth.nolog"

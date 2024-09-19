@@ -44,7 +44,7 @@
       };
       status = {
         disabled = false;
-        format = 	"[$symbol $status]($style)";
+        format = "[$symbol $status]($style)";
         style = "bold yellow";
         success_symbol = " ";
       };

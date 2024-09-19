@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   # The Neovim editos
   imports = [
     ./autocmd.nix
