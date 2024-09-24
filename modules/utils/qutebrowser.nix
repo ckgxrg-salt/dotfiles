@@ -9,6 +9,8 @@
       "aw" = "https://wiki.archlinux.org/?search={}";
       "np" = "https://search.nixos.org/packages?channel=unstable&query={}";
       "no" = "https://search.nixos.org/options?channel=unstable&query={}";
+      "prts" = "https://prts.wiki/index.php?title=特殊:搜索&search={}";
+      "wp" = "https://en.wikipedia.org/w/index.php?search={}";
     };
     # Apply the colorscheme
     extraConfig = ''

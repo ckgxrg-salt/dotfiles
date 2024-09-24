@@ -65,31 +65,31 @@
       brightnessScript = pkgs.writeShellScript "mako-brightness-script" ''
                     iDIR="$HOME/.config/mako/icons"
                     get_backlight() {
-        	            LIGHT=$(printf "%.0f\n" $(brightnessctl g))
-        	            echo "$LIGHT"
+        	            LIGHT=$(printf "%.0f\n" $(brightnessctl get --device=intel_backlight))
+        	            echo $(expr $LIGHT / $960)
                     }
                     get_icon() {
         	            current="$(get_backlight)"
-        	            if [[ ("$current" -ge "0") && ("$current" -le "80") ]]; then
+        	            if [[ ("$current" -ge "0") && ("$current" -le "19200") ]]; then
         		            icon="$iDIR/brightness-20.png"
-        	            elif [[ ("$current" -ge "80") && ("$current" -le "160") ]]; then
+        	            elif [[ ("$current" -ge "19200") && ("$current" -le "38400") ]]; then
         		            icon="$iDIR/brightness-40.png"
-        	            elif [[ ("$current" -ge "160") && ("$current" -le "240") ]]; then
+        	            elif [[ ("$current" -ge "38400") && ("$current" -le "57600") ]]; then
         		            icon="$iDIR/brightness-60.png"
-        	            elif [[ ("$current" -ge "240") && ("$current" -le "320") ]]; then
+        	            elif [[ ("$current" -ge "57600") && ("$current" -le "76800") ]]; then
         		            icon="$iDIR/brightness-80.png"
-        	            elif [[ ("$current" -ge "320") && ("$current" -le "400") ]]; then
+        	            elif [[ ("$current" -ge "76800") && ("$current" -le "96000") ]]; then
         		            icon="$iDIR/brightness-100.png"
         	            fi
                     }
                     notify_user() {
-        	            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
+        	            notify-send -h string:brightness-indicator:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
                     }
                     inc_backlight() {
-        	            brightnessctl set 5%+ && get_icon && notify_user
+        	            brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=asus_screenpad set 5%+ && get_icon && notify_user
                     }
                     dec_backlight() {
-        	            brightnessctl set 5%- && get_icon && notify_user
+        	            brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=asus_screenpad set 5%- && get_icon && notify_user
                     }
                     if [[ "$1" == "--get" ]]; then
         	            get_backlight
@@ -108,12 +108,14 @@
       systemd.enable = true;
       xwayland.enable = true;
       plugins = [
+        inputs.hyprgrass.packages.${pkgs.system}.default
         inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
       ];
       settings = {
         # Hardware
         monitor = [
-          "eDP-1, highres, auto, 1"
+          "eDP-1, highres, 0x0, 1"
+          "DP-1, highres, 0x1080, 1"
         ];
         input = {
           kb_layout = "us";
@@ -166,6 +168,7 @@
         ];
         workspace = [
           "special:browser, on-created-empty:qutebrowser"
+          "name:panel, monitor:DP-1, persistent:true, default:true"
         ];
 
         # Options
@@ -183,6 +186,12 @@
           smart_split = true;
           smart_resizing = true;
           no_gaps_when_only = 2;
+        };
+        plugin.touch_gestures = {
+          sensitivity = 1.0;
+          workspace_swipe_edge = "d";
+          workspace_swipe_fingers = 3;
+          long_press_delay = 400;
         };
         plugin.hyprfocus = {
           enabled = "yes";
@@ -250,6 +259,13 @@
           ];
         };
 
+        # Touchscreen binds
+        hyprgrass-bind = [
+          ",edge:r:l, togglespecialworkspace, browser"
+          ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
+          ",edge:u:d, togglespecialworkspace, controlcentre"
+          ",edge:u:d, exec, ags -t \"bar0\""
+        ];
         # Binds
         "$mainMod" = "SUPER";
         "$terminal" = "alacritty";
@@ -305,7 +321,9 @@
           # Special workspaces
           "$mainMod, S, togglespecialworkspace, browser"
           "$mainMod SHIFT, W, workspace, name: "
+          "$mainMod, P, workspace, name:󰽹"
           "$mainMod SHIFT, S, movetoworkspace, special:browser"
+          "$mainMod SHIFT, P, movetoworkspace, name:panel"
           # Workspace scroll
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
@@ -316,6 +334,19 @@
           "$mainMod, mouse:273, resizewindow"
         ];
       };
+      # Hardware(Touchscreen & Tablet)
+      extraConfig = ''
+        device {
+          name = elan9008:00-04f3:2d55
+          output = eDP-1
+          name = elan9009:00-04f3:2c1b
+          output = DP-1
+          name = elan9008:00-04f3:2d55-stylus
+          output = eDP-1
+          name = elan9009:00-04f3:2c1b-stylus
+          output = DP-1
+        }
+      '';
     };
 
   # XDG Config

@@ -7,6 +7,7 @@
     settings = {
       mainBar = {
         layer = "top";
+        output = "eDP-1";
         position = "right";
         width = 60;
         spacing = 5;

@@ -10,8 +10,10 @@ class BrightnessService extends Service {
             },
         );
     }
+    #front = "intel_backlight";
+    #back = "asus_screenpad";
     #screenValue = 0;
-    #max = Number(Utils.exec(`brightnessctl max`));
+    #max = Number(Utils.exec(`brightnessctl max --device=${this.#front}`));
     get screen_value() {
         return this.#screenValue;
     }
@@ -20,18 +22,19 @@ class BrightnessService extends Service {
             percent = 0;
         if (percent > 1)
             percent = 1;
-        Utils.execAsync(`brightnessctl set ${percent * 100}% -q`);
+        Utils.execAsync(`brightnessctl set --device=${this.#front} ${percent * 100}% -q`);
+        Utils.execAsync(`brightnessctl set --device=${this.#back} ${percent * 100}% -q`);
     }
 
     constructor() {
         super();
-        const brightness = `/sys/class/backlight/intel_backlight/brightness`;
+        const brightness = `/sys/class/backlight/${this.#front}/brightness`;
         Utils.monitorFile(brightness, () => this.#onChange());
         this.#onChange();
     }
 
     #onChange() {
-        this.#screenValue = Number(Utils.exec(`brightnessctl get`)) / this.#max;
+        this.#screenValue = Number(Utils.exec(`brightnessctl get --device=${this.#front}`)) / this.#max;
         this.changed('screen-value');
         this.emit('screen-changed', this.#screenValue);
     }
