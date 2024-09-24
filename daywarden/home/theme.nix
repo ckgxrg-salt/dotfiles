@@ -1,24 +1,21 @@
 { pkgs, ... }:
 # Define theme names and pkgs here
 let
-  gtkTheme = "Fluent-teal-Dark";
-  gtkPkg = pkgs.fluent-gtk-theme.override {
-    themeVariants = [ "teal" ];
+  gtkTheme = "Qogir-Dark";
+  gtkPkg = pkgs.qogir-theme.override {
+    themeVariants = [ "default" ];
     colorVariants = [ "dark" ];
-    sizeVariants = [ "standard" ];
+    tweaks = [ "round" ];
   };
 
-  qtStyle = "Catppuccin-Mocha-Sapphire";
-  qtPkg = pkgs.catppuccin-kvantum.override {
-    accent = "Sapphire";
-    variant = "Mocha";
-  };
+  qtStyle = "Qogir-dark";
+  qtPkg = pkgs.qogir-kde;
 
   cursor = "GoogleDot-Black";
   cursorPkg = (pkgs.callPackage ../../packages/googledot-cursor.nix { });
 
-  icon = "Vivid-Dark-Icons";
-  iconPkg = (pkgs.callPackage ../../packages/vivid-icons.nix { });
+  icon = "Qogir-dark";
+  iconPkg = pkgs.qogir-icon-theme;
 
   customFont = "Maple Mono";
 in

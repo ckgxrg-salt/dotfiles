@@ -50,6 +50,7 @@
       "com.qq.QQ"
       "in.cinny.Cinny"
       "info.febvre.Komikku"
+      "io.freetubeapp.FreeTube"
 
       "com.moonlight_stream.Moonlight"
       "org.kde.elisa"

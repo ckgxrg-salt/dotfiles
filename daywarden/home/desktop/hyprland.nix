@@ -66,24 +66,24 @@
                     iDIR="$HOME/.config/mako/icons"
                     get_backlight() {
         	            LIGHT=$(printf "%.0f\n" $(brightnessctl get --device=intel_backlight))
-        	            echo $(expr $LIGHT / $960)
+        	            echo $(expr $LIGHT / 960)
                     }
                     get_icon() {
         	            current="$(get_backlight)"
-        	            if [[ ("$current" -ge "0") && ("$current" -le "19200") ]]; then
+        	            if [[ ("$current" -ge "0") && ("$current" -le "20") ]]; then
         		            icon="$iDIR/brightness-20.png"
-        	            elif [[ ("$current" -ge "19200") && ("$current" -le "38400") ]]; then
+        	            elif [[ ("$current" -ge "20") && ("$current" -le "40") ]]; then
         		            icon="$iDIR/brightness-40.png"
-        	            elif [[ ("$current" -ge "38400") && ("$current" -le "57600") ]]; then
+        	            elif [[ ("$current" -ge "40") && ("$current" -le "60") ]]; then
         		            icon="$iDIR/brightness-60.png"
-        	            elif [[ ("$current" -ge "57600") && ("$current" -le "76800") ]]; then
+        	            elif [[ ("$current" -ge "60") && ("$current" -le "80") ]]; then
         		            icon="$iDIR/brightness-80.png"
-        	            elif [[ ("$current" -ge "76800") && ("$current" -le "96000") ]]; then
+        	            elif [[ ("$current" -ge "80") && ("$current" -le "100") ]]; then
         		            icon="$iDIR/brightness-100.png"
         	            fi
                     }
                     notify_user() {
-        	            notify-send -h string:brightness-indicator:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
+        	            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
                     }
                     inc_backlight() {
         	            brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=asus_screenpad set 5%+ && get_icon && notify_user
@@ -135,6 +135,7 @@
           "wl-paste --type text --watch cliphist store"
           "wl-paste --type image --watch cliphist store"
           "waybar"
+          "swww-daemon"
           "ags -t \"bar0\""
           "fcitx5"
           "udiskie &"
@@ -142,7 +143,7 @@
           "nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit wlogout"
           "aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log"
           # Sync brightness of screens
-          "brightnessctl set --device=card1-eDP-2-backlight `brightnessctl get --device=intel_backlight`"
+          "brightnessctl set --device=asus_screenpad `brightnessctl get --device=intel_backlight`"
           "notify-send 'Welcome to Hyprland'"
         ];
         env = lib.mapAttrsToList (name: value: "${name},${toString value}") {
@@ -187,12 +188,6 @@
           smart_resizing = true;
           no_gaps_when_only = 2;
         };
-        plugin.touch_gestures = {
-          sensitivity = 1.0;
-          workspace_swipe_edge = "d";
-          workspace_swipe_fingers = 3;
-          long_press_delay = 400;
-        };
         plugin.hyprfocus = {
           enabled = "yes";
           animate_floating = "yes";
@@ -211,7 +206,6 @@
           workspace_swipe = true;
           workspace_swipe_fingers = 3;
           workspace_swipe_min_fingers = true;
-          workspace_swipe_cancel_ratio = 0.15;
         };
         cursor = {
           no_hardware_cursors = true;
@@ -261,10 +255,14 @@
 
         # Touchscreen binds
         hyprgrass-bind = [
-          ",edge:r:l, togglespecialworkspace, browser"
+          ",swipe:3:l, togglespecialworkspace, browser"
           ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
-          ",edge:u:d, togglespecialworkspace, controlcentre"
+          ",swipe:3:d, togglespecialworkspace, controlcentre"
           ",edge:u:d, exec, ags -t \"bar0\""
+        ];
+        hyprgrass-bindm = [
+          ",longpress:2, movewindow"
+          ",longpress:3, resizewindow"
         ];
         # Binds
         "$mainMod" = "SUPER";
@@ -321,7 +319,7 @@
           # Special workspaces
           "$mainMod, S, togglespecialworkspace, browser"
           "$mainMod SHIFT, W, workspace, name: "
-          "$mainMod, P, workspace, name:󰽹"
+          "$mainMod, P, workspace, name:panel"
           "$mainMod SHIFT, S, movetoworkspace, special:browser"
           "$mainMod SHIFT, P, movetoworkspace, name:panel"
           # Workspace scroll
@@ -339,10 +337,16 @@
         device {
           name = elan9008:00-04f3:2d55
           output = eDP-1
+        }
+        device {
           name = elan9009:00-04f3:2c1b
           output = DP-1
+        }
+        device {
           name = elan9008:00-04f3:2d55-stylus
           output = eDP-1
+        }
+        device {
           name = elan9009:00-04f3:2c1b-stylus
           output = DP-1
         }
