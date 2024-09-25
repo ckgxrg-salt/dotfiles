@@ -1,7 +1,22 @@
 { pkgs, ... }:
 # Options for WLogout
 {
-  # WLogout the Logout Menu
+  # Wlogout the Logout Menu
+  systemd.user.services."wlogout" = {
+    Unit = {
+      Description = "WLogout Logout Screen";
+      Requisite = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      Restart = "no";
+      ExecStart = "${pkgs.wlogout}/bin/wlogout";
+      ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
+    };
+    Install = {
+      WantedBy = [ "lock.target" ];
+    };
+  };
   programs.wlogout = {
     enable = true;
     layout = [

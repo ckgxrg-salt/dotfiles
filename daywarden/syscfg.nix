@@ -21,10 +21,10 @@
 
   # Power Button Behaviour
   services.logind = {
-    powerKey = "suspend-then-hibernate";
+    powerKey = "lock";
     powerKeyLongPress = "poweroff";
     lidSwitch = "suspend-then-hibernate";
-    lidSwitchExternalPower = "lock";
+    lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
   };
   services.systemd-lock-handler.enable = true;
@@ -133,9 +133,6 @@
       };
     };
   };
-
-  # Greetd session manager
-  imports = [ ../modules/login/greetd.nix ];
 
   # Polkit Authentication
   security.polkit.enable = true;

@@ -83,7 +83,7 @@
         	            fi
                     }
                     notify_user() {
-        	            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
+        	            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)%"
                     }
                     inc_backlight() {
         	            brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=asus_screenpad set 5%+ && get_icon && notify_user
@@ -130,17 +130,8 @@
 
         # Initialisation
         exec-once = [
-          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
-          "playerctld"
           "wl-paste --type text --watch cliphist store"
           "wl-paste --type image --watch cliphist store"
-          "waybar"
-          "swww-daemon"
-          "ags -t \"bar0\""
-          "fcitx5"
-          "udiskie &"
-          "nm-applet"
-          "nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit wlogout"
           "aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log"
           # Sync brightness of screens
           "brightnessctl set --device=asus_screenpad `brightnessctl get --device=intel_backlight`"
@@ -257,8 +248,6 @@
         hyprgrass-bind = [
           ",swipe:3:l, togglespecialworkspace, browser"
           ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
-          ",swipe:3:d, togglespecialworkspace, controlcentre"
-          ",edge:u:d, exec, ags -t \"bar0\""
         ];
         hyprgrass-bindm = [
           ",longpress:2, movewindow"
@@ -276,8 +265,6 @@
           "$mainMod SHIFT, Escape, exec, wlogout"
           "$mainMod, E, exec, $fileManager"
           "$mainMod, V, togglefloating,"
-          "$mainMod SHIFT, A, togglespecialworkspace, controlcentre"
-          "$mainMod SHIFT, A, exec, ags -t \"bar0\""
           "$mainMod, P, swapactiveworkspaces, eDP-1 eDP-2"
           "$mainMod, R, exec, $menu"
           "$mainMod, L, exec, hyprlock --immediate"

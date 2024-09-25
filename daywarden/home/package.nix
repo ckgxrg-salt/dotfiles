@@ -62,9 +62,7 @@
 
       "org.blender.Blender"
       "net.blockbench.Blockbench"
-      "com.ultimaker.cura"
 
-      "io.gitlab.idevecore.Pomodoro"
       "io.github.mrvladus.List"
 
       "md.obsidian.Obsidian"

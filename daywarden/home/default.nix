@@ -5,15 +5,16 @@
   imports = [
     ./desktop/hyprland.nix
     ./desktop/ags
+    ./desktop/daemons.nix
+    ./terminal
     ./package.nix
     ./theme.nix
-    ../../modules/terminal/accessories.nix
-    ../../modules/terminal/alacritty.nix
-    ../../modules/terminal/bash.nix
-    ../../modules/terminal/nushell.nix
-    ../../modules/nixvim
-    ../../modules/utils
-    ../../modules/utils/qutebrowser.nix
+    ../../generals/terminal/accessories.nix
+    ../../generals/terminal/bash.nix
+    ../../generals/terminal/nushell.nix
+    ../../generals/nixvim
+    ../../generals/utils
+    ../../generals/utils/qutebrowser.nix
   ];
 
   # Input Method

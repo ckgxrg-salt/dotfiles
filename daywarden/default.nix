@@ -6,9 +6,10 @@
     ./syscfg.nix
     ./security.nix
     ./package.nix
-    ../modules/dev/podman.nix
-    ../modules/utils/steam.nix
-    ../modules/login/howdy.nix
+    ../generals/dev/podman.nix
+    ../generals/utils/steam.nix
+    ../generals/login/howdy.nix
+    ../generals/login/greetd.nix
   ];
 
   system.stateVersion = "24.05";

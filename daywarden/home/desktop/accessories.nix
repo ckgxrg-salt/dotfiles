@@ -26,7 +26,6 @@
     pwvucontrol
 
     nwg-drawer
-    (pkgs.callPackage ../../../packages/wvkbd-desktop.nix { })
   ];
 
   # Mako the Notification Daemon
