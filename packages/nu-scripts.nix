@@ -17,8 +17,8 @@ stdenv.mkDerivation {
     hash = "sha256-P0cZ2OflWpiB3TB6VUU6ne9WQrSV3Dwq8wYeysAdMNs=";
   };
   installPhase = ''
-    mkdir -p $out/themes
-    cp themes/nu-themes/${theme}.nu $out/themes
+    mkdir -p $out
+    cp themes/nu-themes/${theme}.nu $out/theme.nu
   '';
   meta = with lib; {
     description = "A place to share Nushell scripts with each other ";

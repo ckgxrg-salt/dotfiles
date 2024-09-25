@@ -13,7 +13,7 @@ let
 in
 {
   options.ckgxrg.alacritty = {
-    enable = mkEnableOption "ckgxrg's Alacritty config";
+    enable = mkEnableOption "ckgxrg's Alacritty Configurations";
     package = mkOption {
       type = types.package;
       default = pkgs.alacritty;
@@ -31,7 +31,7 @@ in
   config =
     let
       generalConfig = (tomlFormat.generate "alacritty-general" cfg.settings).overrideAttrs (
-        finalAttrs: prevAttrs: {
+        _finalAttrs: prevAttrs: {
           buildCommand = lib.concatStringsSep "\n" [
             prevAttrs.buildCommand
             "substituteInPlace $out --replace-quiet '\\\\' '\\'"

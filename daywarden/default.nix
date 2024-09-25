@@ -8,7 +8,6 @@
     ./package.nix
     ../generals/dev/podman.nix
     ../generals/utils/steam.nix
-    ../generals/login/howdy.nix
     ../generals/login/greetd.nix
   ];
 

@@ -46,7 +46,6 @@
       home-manager,
       lanzaboote,
       nixvim,
-      howdy,
       ...
     }:
     {
@@ -55,11 +54,6 @@
       nixosConfigurations.Daywarden = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = {
-          # Enable the nixpkgs fork with howdy
-          pkgs-howdy = import howdy {
-            inherit system;
-            config.allowUnfree = true;
-          };
           inherit inputs;
         };
         modules = [

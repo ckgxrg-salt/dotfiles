@@ -11,7 +11,6 @@
     ./theme.nix
     ../../generals/terminal/accessories.nix
     ../../generals/terminal/bash.nix
-    ../../generals/terminal/nushell.nix
     ../../generals/nixvim
     ../../generals/utils
     ../../generals/utils/qutebrowser.nix
@@ -25,9 +24,6 @@
       fcitx5-rime
     ];
   };
-
-  # Workaround to map shutdown to reboot
-  programs.zsh.shellAliases."shutdown" = "systemctl reboot";
 
   # User and home directory
   home.username = "ckgxrg";

@@ -52,24 +52,20 @@
       ];
     };
   };
-  # Summon hyprlock on lock event
-  systemd.user.services = {
-    "hyprlock" = {
-      Unit = {
-        Description = "Session Locked";
-        Requisite = [ "hyprland-session.target" ];
-        Before = [ "lock.target" ];
-        Conflicts = [ "unlock.target" ];
-      };
-      Service = {
-        Type = "simple";
-        Restart = "no";
-        ExecStart = "${pkgs.hyprlock}/bin/hyprlock --immediate";
-        ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
-      };
-      Install = {
-        WantedBy = [ "lock.target" ];
-      };
+  # Summon wlogout on lock event
+  systemd.user.services."wlogout" = {
+    Unit = {
+      Description = "wlogout Logout Screen";
+      Requisite = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      Restart = "no";
+      ExecStart = "${pkgs.wlogout}/bin/wlogout";
+      ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
+    };
+    Install = {
+      WantedBy = [ "lock.target" ];
     };
   };
 
