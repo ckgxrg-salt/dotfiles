@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }:
+{ pkgs, ckgs, inputs, config, ... }:
 {
   # Strange messages
   environment.etc."issue".text = ''
@@ -31,7 +31,7 @@
   };
 
   # Greetd Session Manager
-  environment.systemPackages = [ pkgs.greetd.wlgreet ];
+  environment.systemPackages = [ ckgs.qtgreet ];
   services.greetd = let 
     hyprConfig = pkgs.writeText "greetd-hyprland-config" ''
       monitor=eDP-1,preferred,auto,1
@@ -58,7 +58,7 @@
       animations {
         enabled = false
       }
-      exec-once = wlgreet --command Hyprland; hyprctl dispatch exit
+      exec-once = qtgreet --data-path /var/lib/qtgreet; hyprctl dispatch exit
     '';
   in {
     enable = true;
@@ -74,4 +74,31 @@
       };
     };
   };
+  # QtGreet Config
+  environment.etc."qtgreet/config.ini".source = let
+    iniFormat = pkgs.formats.ini { };
+  in iniFormat.generate "qtgreet.ini" {
+    General = {
+      Backend = "GreetD";
+      Theme = "default";
+      BlurBackground = true;
+      IconTheme = "breeze";
+    };
+    Overrides = {
+      Background = "Theme";
+      BaseColor = "Theme";
+      TextColor = "Theme";
+      FontFamily = "Theme";
+    };
+    PowerCommands = {
+      Suspend = "dbus";
+      Hibernate = "dbus";
+      Shutdown = "dbus";
+      Reboot = "dbus";
+    };
+  };
+  # Authorise QtGreet's datadir
+  systemd.tmpfiles.rules = [
+    "d /var/lib/qtgreet 0755 greeter greeter - -"
+  ];
 }

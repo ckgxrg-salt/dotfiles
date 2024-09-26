@@ -23,7 +23,6 @@
     rustdesk-flutter
 
     # Applications
-    ckgs.bilibili
     audacity
     prismlauncher
     tor-browser
