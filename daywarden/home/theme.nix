@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 # Define theme names and pkgs here
 {
   imports = [ ../../modules/theme.nix ];
@@ -24,7 +24,7 @@
     cursor = {
       name = "GoogleDot-Black";
       size = 24;
-      pkg = (pkgs.callPackage ../../packages/googledot-cursor.nix { });
+      pkg = ckgs.googledot-cursor;
     };
 
     icon = {

@@ -12,6 +12,12 @@
         keybind = "s";
       }
       {
+        label = "reboot";
+        action = "systemctl reboot";
+        text = "Reboot";
+        keybind = "r";
+      }
+      {
         label = "logout";
         action = "hyprctl dispatch exit";
         text = "End Session";
@@ -22,6 +28,18 @@
         action = "pidof hyprlock || hyprlock --immediate";
         text = "Lock Screen";
         keybind = "l";
+      }
+      {
+        label = "suspend";
+        action = "systemctl suspend-then-hibernate";
+        text = "Take a Nap";
+        keybind = "n";
+      }
+      {
+        label = "hibernate";
+        action = "systemctl hibernate";
+        text = "Deep Sleep";
+        keybind = "h";
       }
     ];
     style = ''
@@ -52,9 +70,19 @@
               background-color: #bf616a;
               background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
             }
-            #lock:focus, #lock:active, #lock:hover,
-            #logout:focus, #logout:active, #logout:hover,
-            #shutdown:focus, #shutdown:active, #shutdown:hover {
+            #suspend {
+              background-color: #a3be8c;
+              background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"));
+            }
+            #hibernate {
+              background-color: #ebcb8b;
+              background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png"));
+            }
+            #reboot {
+              background-color: #bf616a;
+              background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
+            }
+            #lock:hover,#logout:hover,#shutdown:hover,#suspend:hover,#hibernate:hover,#reboot:hover {
       	      background-color: #3700B3;
       	      outline-style: none;
             }

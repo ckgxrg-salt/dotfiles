@@ -1,5 +1,6 @@
 {
   ckgxrg,
+  ckgs,
   pkgs,
   ...
 }:
@@ -13,7 +14,9 @@
   ckgxrg = {
     alacritty = {
       enable = true;
-      theme = (pkgs.callPackage ../../../packages/alacritty-themes.nix { theme = "marine_dark"; });
+      theme = ckgs.alacritty-themes.override {
+        theme = "marine_dark";
+      };
       settings = {
         window = {
           opacity = 0.9;
@@ -24,7 +27,9 @@
     };
     nushell = {
       enable = true;
-      theme = (pkgs.callPackage ../../../packages/nu-scripts.nix { theme = "cobalt-neon"; });
+      theme = ckgs.nu-scripts.override {
+        theme = "cobalt-neon";
+      };
       settings = ''
         $env.config = {
           show_banner: false
@@ -49,6 +54,8 @@
         def clear [] { ^clear; ciallo }
 
         alias true-clear = ^clear
+        alias syscfg = cd ~/.config/nixos/system
+        alias syspkg = cd ~/.config/nixos/packages
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask
 

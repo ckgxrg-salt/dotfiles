@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 {
+
+  imports = [ ./fstab.nix ];
+
   # Bootloader
   boot = {
     bootspec.enable = true;

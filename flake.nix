@@ -3,6 +3,11 @@
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # ckgxrg's custom packages
+    ckgpkgs = {
+      url = "path:/home/ckgxrg/.config/nixos/packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # The Rust overlay
     rust-overlay.url = "github:oxalica/rust-overlay";
     # Lanzaboote Secureboot
@@ -41,6 +46,7 @@
   outputs =
     inputs@{
       nixpkgs,
+      ckgpkgs,
       flatpaks,
       ags,
       home-manager,
@@ -49,12 +55,12 @@
       ...
     }:
     {
-
       # Daywarden
       nixosConfigurations.Daywarden = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
+          ckgs = ckgpkgs.packages.${system};
         };
         modules = [
           ./daywarden
@@ -71,6 +77,7 @@
             ];
             home-manager.extraSpecialArgs = {
               inherit inputs;
+              ckgs = ckgpkgs.packages.${system};
             };
           }
         ];

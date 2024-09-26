@@ -2,14 +2,17 @@
 {
   imports = [
     ./boot.nix
-    ./hardware.nix
-    ./syscfg.nix
+    ./peripheral.nix
+    ./login.nix
     ./security.nix
     ./package.nix
+    ./misc.nix
     ../generals/dev/podman.nix
     ../generals/utils/steam.nix
-    ../generals/login/greetd.nix
   ];
+
+  # My Name!
+  networking.hostName = "Daywarden";
 
   system.stateVersion = "24.05";
 }

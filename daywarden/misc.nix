@@ -1,69 +1,12 @@
 { pkgs, ... }:
 # System-wide settings for Daywarden
 {
-  # My Name!
-  networking.hostName = "Daywarden";
-  # Strange messages
-  environment.etc."issue".text = ''
-               \\
-                \\
-    ========     ||
-                 ||
-    ========     ||
-                //
-               //
-  '';
-  environment.etc."motd".text = ''
-    ===========================
-    <-- The Daywardens Site -->
-    ===========================
-  '';
-
-  # Power Button Behaviour
-  services.logind = {
-    powerKey = "lock";
-    powerKeyLongPress = "poweroff";
-    lidSwitch = "suspend-then-hibernate";
-    lidSwitchExternalPower = "suspend";
-    lidSwitchDocked = "ignore";
-  };
-  services.systemd-lock-handler.enable = true;
 
   # Network with NetworkManager and Firewall with NFTables
   networking.networkmanager.enable = true;
   networking.wg-quick.interfaces = {
     iof.configFile = "/etc/wireguard/iof.conf";
     iof.autostart = false;
-  };
-
-  # Bluetooth Support
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
-  # Sound with PipeWire
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    audio.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # ckgxrg's Account
-  users.users.ckgxrg = {
-    isNormalUser = true;
-    description = "ckgxrg";
-    shell = pkgs.nushell;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "input"
-      "gamemode"
-      "video"
-    ];
   };
 
   # Locale, I18n and Fcitx5
@@ -136,20 +79,6 @@
 
   # Polkit Authentication
   security.polkit.enable = true;
-  # TLP the power saver
-  services.tlp = {
-    enable = true;
-    settings = {
-      BAY_POWEROFF_ON_BAT = 1;
-    };
-  };
-
-  # Display Settings
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages32 = [ pkgs.driversi686Linux.mesa ];
-  };
 
   # Input Remapper
   services.input-remapper = {
@@ -157,12 +86,6 @@
     serviceWantedBy = [ ];
   };
 
-  # Violent Power Save
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-    cpuFreqGovernor = "ondemand";
-  };
   # Auto-Mount Backend
   services.udisks2.enable = true;
   # Nix-ld

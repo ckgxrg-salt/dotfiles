@@ -1,5 +1,6 @@
 {
   ckgxrg,
+  ckgpkgs,
   config,
   lib,
   pkgs,
@@ -19,7 +20,7 @@ in
     };
     theme = mkOption {
       type = types.package;
-      default = (pkgs.callPackage ../packages/nu-scripts.nix { });
+      default = ckgs.nu-scripts;
     };
     settings = mkOption {
       type = types.lines;

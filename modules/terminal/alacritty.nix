@@ -1,5 +1,6 @@
 {
   ckgxrg,
+  ckgs,
   config,
   lib,
   pkgs,
@@ -20,7 +21,7 @@ in
     };
     theme = mkOption {
       type = types.package;
-      default = (pkgs.callPackage ../packages/alacritty-themes.nix { });
+      default = ckgs.alacritty-themes;
     };
     settings = mkOption {
       type = tomlFormat.type;

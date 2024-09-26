@@ -27,7 +27,7 @@
   # An advanced cli for Nix
   programs.nh = {
     enable = true;
-    flake = "/home/ckgxrg/dotfiles";
+    flake = "/home/ckgxrg/.config/nixos/system";
     # Automatic garbage collection
     clean = {
       enable = true;
