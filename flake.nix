@@ -3,7 +3,7 @@
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # ckgxrg's custom packages
+    # My custom packages
     ckgpkgs = {
       url = "path:/home/ckgxrg/.config/nixos/packages";
       inputs.nixpkgs.follows = "nixpkgs";

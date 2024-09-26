@@ -5,5 +5,4 @@ Feel free to refer to my configurations, but don't expect they'll work out of bo
 
 ### TODO
 1. Remove Daywarden's waybar, use ags instead
-2. Update PAM
-3. Daywarden Greetd
+2. Impl Howdy

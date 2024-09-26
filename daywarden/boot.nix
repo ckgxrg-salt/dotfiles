@@ -10,22 +10,22 @@
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
       timeout = 0;
-      systemd-boot.enable = lib.mkForce true;
+      systemd-boot.enable = lib.mkForce false;
     };
     # Setup Secure Boot
     lanzaboote = {
-      enable = false;
+      enable = true;
       pkiBundle = "/etc/secureboot";
     };
     # Setup boot splash
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "lone";
+      theme = "hexagon_dots";
     };
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
-      "noefi"
+      #"noefi"
       "quiet"
       "lockdown=integrity"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"

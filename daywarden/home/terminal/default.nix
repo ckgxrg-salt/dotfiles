@@ -28,7 +28,7 @@
     nushell = {
       enable = true;
       theme = ckgs.nu-scripts.override {
-        theme = "cobalt-neon";
+        theme = "atlas";
       };
       settings = ''
         $env.config = {

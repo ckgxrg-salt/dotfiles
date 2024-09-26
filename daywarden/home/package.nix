@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 {
   # Home-manager packages for Daywarden
   home.packages = with pkgs; [
@@ -23,7 +23,7 @@
     rustdesk-flutter
 
     # Applications
-    #bilibili
+    ckgs.bilibili
     audacity
     prismlauncher
     tor-browser

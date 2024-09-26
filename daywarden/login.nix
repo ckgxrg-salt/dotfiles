@@ -31,7 +31,7 @@
   };
 
   # Greetd Session Manager
-  environment.systemPackages = [ pkgs.nwg-hello ];
+  environment.systemPackages = [ pkgs.greetd.wlgreet ];
   services.greetd = let 
     hyprConfig = pkgs.writeText "greetd-hyprland-config" ''
       monitor=eDP-1,preferred,auto,1
@@ -58,7 +58,7 @@
       animations {
         enabled = false
       }
-      exec-once = nwg-hello; hyprctl dispatch exit
+      exec-once = wlgreet --command Hyprland; hyprctl dispatch exit
     '';
   in {
     enable = true;
@@ -74,25 +74,4 @@
       };
     };
   };
-  # nwg-hello Configurations
-  environment.etc."nwg-hello/nwg-hello.json".text = ''
-    {
-      "session_dirs": [
-        "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions",
-      ],
-      "custom_sessions": [
-        {
-          "name": "Shell",
-          "exec": "nu"
-        }
-      ],
-      "cmd-sleep": "systemctl suspend",
-      "cmd-reboot": "systemctl reboot",
-      "cmd-poweroff": "systemctl poweroff",
-      "gtk-theme": "Adwaita",
-      "gtk-icon-theme": "",
-      "gtk-cursor-theme": "",
-      "prefer-dark-theme": true
-    }
-  '';
 }

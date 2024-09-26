@@ -179,6 +179,11 @@
           smart_resizing = true;
           no_gaps_when_only = 2;
         };
+        plugin.touch_gestures = {
+          sensitivity = 2.0;
+          workspace_swipe_fingers = 4;
+          workspace_swipe_edge = "no";
+        };
         plugin.hyprfocus = {
           enabled = "yes";
           animate_floating = "yes";
@@ -202,7 +207,8 @@
           no_hardware_cursors = true;
         };
         misc = {
-          force_default_wallpaper = -1;
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
         };
         xwayland = {
           force_zero_scaling = true;
@@ -246,8 +252,7 @@
 
         # Touchscreen binds
         hyprgrass-bind = [
-          ",swipe:3:l, togglespecialworkspace, browser"
-          ",edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
+          ",swipe:4:l, togglespecialworkspace, browser"
         ];
         hyprgrass-bindm = [
           ",longpress:2, movewindow"
