@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # My custom packages
     ckgpkgs = {
-      url = "path:/home/ckgxrg/.config/nixos/packages";
+      url = "path:/home/ckgxrg/.config/nixos/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # The Rust overlay
@@ -73,6 +73,7 @@
               flatpaks.homeManagerModules.nix-flatpak
               ags.homeManagerModules.default
               nixvim.homeManagerModules.nixvim
+              ckgpkgs.homeManagerModules.ckgmods
               ./daywarden/home
             ];
             home-manager.extraSpecialArgs = {

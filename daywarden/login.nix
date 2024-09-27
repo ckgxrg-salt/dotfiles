@@ -1,7 +1,7 @@
 { pkgs, ckgs, inputs, config, ... }:
 {
   # Strange messages
-  environment.etc."issue".text = ''
+  environment.etc."motd".text = ''
                \\
                 \\
     ========     ||
@@ -10,7 +10,7 @@
                 //
                //
   '';
-  environment.etc."motd".text = ''
+  environment.etc."issue".text = ''
     ===========================
     <-- The Daywardens Site -->
     ===========================
@@ -80,7 +80,7 @@
   in iniFormat.generate "qtgreet.ini" {
     General = {
       Backend = "GreetD";
-      Theme = "default";
+      Theme = "aerial";
       BlurBackground = true;
       IconTheme = "breeze";
     };

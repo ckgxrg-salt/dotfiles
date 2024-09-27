@@ -59,13 +59,13 @@
         ]
       },
       "locked": {
-        "lastModified": 1727354657,
-        "narHash": "sha256-bOo6nVGpyDBYpKFU1NO+kZDlZ0hxEavjK/g7PM0FRkA=",
-        "path": "/home/ckgxrg/.config/nixos/packages",
+        "lastModified": 1727402019,
+        "narHash": "sha256-OnT0botMPntOUT5PAu7AmQbFJSGvBIaJYKG0F5f7Q74=",
+        "path": "/home/ckgxrg/.config/nixos/ckgpkgs",
         "type": "path"
       },
       "original": {
-        "path": "/home/ckgxrg/.config/nixos/packages",
+        "path": "/home/ckgxrg/.config/nixos/ckgpkgs",
         "type": "path"
       }
     },

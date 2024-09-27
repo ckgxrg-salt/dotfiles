@@ -6,11 +6,6 @@
 }:
 # Daywarden terminal overrides
 {
-  imports = [
-    ../../../modules/terminal/alacritty.nix
-    ../../../modules/terminal/nushell.nix
-  ];
-
   ckgxrg = {
     alacritty = {
       enable = true;
@@ -55,7 +50,7 @@
 
         alias true-clear = ^clear
         alias syscfg = cd ~/.config/nixos/system
-        alias syspkg = cd ~/.config/nixos/packages
+        alias syspkg = cd ~/.config/nixos/ckgpkgs
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask
 

@@ -1,12 +1,11 @@
 { pkgs, ckgs, ... }:
 # Define theme names and pkgs here
 {
-  imports = [ ../../modules/theme.nix ];
-
   ckgxrg.themes = {
     enable = true;
     guideMako = true;
     withFlatpak = true;
+
     gtk = {
       name = "Qogir-Dark";
       pkg = pkgs.qogir-theme.override {
@@ -30,6 +29,13 @@
     icon = {
       name = "Qogir-dark";
       pkg = pkgs.qogir-icon-theme;
+    };
+
+    sound = {
+      enable = true;
+      libcanberra = pkgs.libcanberra-gtk3;
+      theme = "ocean";
+      package = pkgs.kdePackages.ocean-sound-theme;
     };
 
     font = {
