@@ -56,14 +56,14 @@
     }:
     {
       # Daywarden
-      nixosConfigurations.Daywarden = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.Daywatchman = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
           ckgs = ckgpkgs.packages.${system};
         };
         modules = [
-          ./daywarden
+          ./daywatchman
           lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           {
@@ -74,7 +74,7 @@
               ags.homeManagerModules.default
               nixvim.homeManagerModules.nixvim
               ckgpkgs.homeManagerModules.ckgmods
-              ./daywarden/home
+              ./daywatchman/home
             ];
             home-manager.extraSpecialArgs = {
               inherit inputs;

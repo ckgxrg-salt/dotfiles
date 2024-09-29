@@ -59,8 +59,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1727402019,
-        "narHash": "sha256-OnT0botMPntOUT5PAu7AmQbFJSGvBIaJYKG0F5f7Q74=",
+        "lastModified": 1727579318,
+        "narHash": "sha256-95wUTOVwyRXtCReCpxaShPeqr+gddSF0KwiYzYt3yVo=",
         "path": "/home/ckgxrg/.config/nixos/ckgpkgs",
         "type": "path"
       },

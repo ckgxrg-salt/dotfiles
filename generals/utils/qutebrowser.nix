@@ -12,6 +12,7 @@
       "bili" = "https://search.bilibili.com/all?keyword={}";
       "prts" = "https://prts.wiki/index.php?title=特殊:搜索&search={}";
       "wp" = "https://en.wikipedia.org/w/index.php?search={}";
+      "trans" = "https://www.deepl.com/en/translator?il=zh#zh/en_gb/{}";
     };
     # Apply the colorscheme
     extraConfig = ''
