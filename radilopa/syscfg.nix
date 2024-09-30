@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ckgs, ckgxrg, config, ... }:
 # System-wide settings for Radilopa
 {
   # My Name!
@@ -12,6 +12,7 @@
     lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
   };
+  # Let logind summon wlogout menu instead
   services.systemd-lock-handler.enable = true;
 
   # Network with NetworkManager
@@ -38,6 +39,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  # Suppress the default impl of xdg sounds
+  ckgxrg.themes.sound.enable = true;
 
   # Display Settings
   hardware.graphics = {
@@ -140,7 +143,7 @@
   };
 
   # SDDM Session Manager & Gnome Keyring
-  environment.systemPackages = [ (pkgs.callPackage ../packages/sugar-candy-sddm.nix { }) ];
+  environment.systemPackages = [ ckgs.sugar-candy-sddm ];
   security.pam.services.sddm.enableGnomeKeyring = true;
   security.pam.services.hyprlock = { };
   services.displayManager.sddm = {

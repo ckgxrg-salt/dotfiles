@@ -3,7 +3,12 @@
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # My custom packages
+    # Lix is a fork of Nix
+    lix = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    #custom packages
     ckgpkgs = {
       url = "path:/home/ckgxrg/.config/nixos/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +57,7 @@
       home-manager,
       lanzaboote,
       nixvim,
+      lix,
       ...
     }:
     {
@@ -65,6 +71,7 @@
         modules = [
           ./daywatchman
           lanzaboote.nixosModules.lanzaboote
+          lix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -85,25 +92,30 @@
       };
 
       #Radilopa
-      nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem rec {
         specialArgs = {
           inherit inputs;
+          ckgs = ckgpkgs.packages.${system};
         };
         system = "x86_64-linux";
         modules = [
           ./radilopa
           lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
+          lix.nixosModules.default
+          ckgpkgs.nixosModules.ckgsys
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ckgxrg.imports = [
               flatpaks.homeManagerModules.nix-flatpak
               nixvim.homeManagerModules.nixvim
+              ckgpkgs.homeManagerModules.ckgmods
               ./radilopa/home
             ];
             home-manager.extraSpecialArgs = {
               inherit inputs;
+              ckgs = ckgpkgs.packages.${system};
             };
           }
         ];

@@ -1,10 +1,10 @@
 { pkgs, ... }:
-# Options for WLogout
+# Options for wlogout
 {
-  # WLogout the Logout Menu
+  # wlogout the Logout Menu
   systemd.user.services."wlogout" = {
     Unit = {
-      Description = "WLogout Logout Screen";
+      Description = "wlogout Logout Screen";
       Requisite = [ "graphical-session.target" ];
     };
     Service = {

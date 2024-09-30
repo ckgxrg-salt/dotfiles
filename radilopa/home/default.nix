@@ -1,18 +1,17 @@
 { pkgs, ... }:
 # Home-manager configuration for Radilopa
 {
-  # Include home modules
+  # Include home generals
   imports = [
     ./desktop/hyprland.nix
     ./package.nix
     ./theme.nix
-    ../../modules/terminal/accessories.nix
-    ../../modules/terminal/alacritty.nix
-    ../../modules/terminal/bash.nix
-    ../../modules/terminal/nushell.nix
-    ../../modules/nixvim
-    ../../modules/utils
-    ../../modules/utils/qutebrowser.nix
+    ./terminal
+    ../../generals/terminal/accessories.nix
+    ../../generals/terminal/bash.nix
+    ../../generals/nixvim
+    ../../generals/utils
+    ../../generals/utils/qutebrowser.nix
   ];
 
   # Input Method

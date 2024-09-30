@@ -28,7 +28,7 @@
   };
 
   # TPM2 Support
-  boot.initrd.systemd.enableTpm2 = true;
+  boot.initrd.systemd.tpm2.enable = true;
   security.tpm2 = {
     enable = true;
     applyUdevRules = true;

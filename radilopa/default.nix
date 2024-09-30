@@ -7,9 +7,9 @@
     ./syscfg.nix
     ./package.nix
     ./security.nix
-    ../modules/dev/podman.nix
-    ../modules/sunshine
-    ../modules/utils/steam.nix
+    ../generals/dev/podman.nix
+    ../generals/sunshine
+    ../generals/utils/steam.nix
   ];
 
   system.stateVersion = "23.11";
