@@ -68,7 +68,7 @@
     "mako/icons/volume-mute.png".source = ../../../assets/volume-mute.png;
   };
 
-  # UDiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
+  # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
   xdg.configFile."udiskie/config.yml".text = ''
     device_config:
     - device_file: /dev/loop0
@@ -84,19 +84,21 @@
   };
 
   # Waypaper
-  xdg.configFile."waypaper/config.ini".source = let
-    iniFormat = pkgs.formats.ini { };
-  in iniFormat.generate "waypaper.ini" {
-    Settings = {
-      folder = "/home/ckgxrg/Pictures/Wallpapers";
-      fill = "Fill";
-      sort = "name";
-      backend = "swww";
-      color = "#ffffff";
-      subfolders = false;
-      monitors = "eDP-1";
+  xdg.configFile."waypaper/config.ini".source =
+    let
+      iniFormat = pkgs.formats.ini { };
+    in
+    iniFormat.generate "waypaper.ini" {
+      Settings = {
+        folder = "${config.xdg.userDirs.pictures}";
+        fill = "Fill";
+        sort = "name";
+        backend = "swww";
+        color = "#ffffff";
+        subfolders = true;
+        monitors = "eDP-1";
+      };
     };
-  };
 
   # Redshift the color temperature adjuster
   services.redshift = {

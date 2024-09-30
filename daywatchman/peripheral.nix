@@ -25,8 +25,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  # We'll do it manually
-  xdg.sounds.enable = false;
 
   # TLP the power saver
   services.tlp = {

@@ -27,7 +27,6 @@
     kernelParams = [
       "noefi"
       "quiet"
-      "lockdown=integrity"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
     ];

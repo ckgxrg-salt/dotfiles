@@ -1,4 +1,4 @@
-{ pkgs, ckgs, ... }:
+{ pkgs, ... }:
 {
   # Home-manager packages for Daywarden
   home.packages = with pkgs; [

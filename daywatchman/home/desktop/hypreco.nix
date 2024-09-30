@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 # Options for some hypr* programs
 {
   # Hyprlock the screen-locker

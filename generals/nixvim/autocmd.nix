@@ -1,10 +1,12 @@
 { ... }:
 {
-  programs.nixvim.autoCmd =
-    [
-      {
-        event = [ "BufEnter" "BufWinEnter" ];
-        command = "set number";
-      }
-    ];
+  programs.nixvim.autoCmd = [
+    {
+      event = [
+        "BufEnter"
+        "BufWinEnter"
+      ];
+      command = "set number";
+    }
+  ];
 }

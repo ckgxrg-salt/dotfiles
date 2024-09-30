@@ -170,7 +170,7 @@
           gaps_in = 3;
           gaps_out = 6;
           border_size = 4;
-          "col.active_border" = "rgba(00afafaa)";
+          "col.active_border" = "rgba(42504788)";
           "col.inactive_border" = "rgba(00000000)";
           layout = "dwindle";
           allow_tearing = false;

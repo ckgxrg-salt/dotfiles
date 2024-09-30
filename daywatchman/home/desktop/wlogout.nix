@@ -10,7 +10,7 @@
     Service = {
       Type = "simple";
       Restart = "no";
-      ExecStartPost = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play -i desktop-logout -d \"Wlogout\"";
+      ExecStartPost = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play -i desktop-logout -d \"wlogout\"";
       ExecStart = "${pkgs.wlogout}/bin/wlogout";
       ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
     };

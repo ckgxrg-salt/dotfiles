@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 # Daemons for the desktop environment
@@ -23,7 +24,7 @@
     "mako" = {
       Unit = {
         Description = "Lightweight Wayland notification daemon";
-        Reqiures = [ "hyprland-session.target" ];
+        Requires = [ "hyprland-session.target" ];
       };
       Service = {
         Type = "dbus";
@@ -70,7 +71,7 @@
         Requires = [ "hyprland-session.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.nwg-drawer}/bin/nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit \"wlogout; canberra-gtk-play -i desktop-logout\"";
+        ExecStart = "${pkgs.nwg-drawer}/bin/nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit \"systemctl --user start wlogout.service\" -pbuseicontheme -g ${config.ckgxrg.themes.gtk.name} -i ${config.ckgxrg.themes.icon.name}";
         Restart = "on-failure";
       };
       Install = {

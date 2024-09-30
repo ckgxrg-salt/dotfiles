@@ -103,4 +103,7 @@
       }
     '';
   };
+
+  # Suppress system-default sound themes
+  ckgxrg.themes.sound.enable = true;
 }
