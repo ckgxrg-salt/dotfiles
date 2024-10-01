@@ -5,7 +5,6 @@
     ./autocmd.nix
     ./lsp.nix
     ./keymaps.nix
-    ./theme.nix
     ./plugins
   ];
 

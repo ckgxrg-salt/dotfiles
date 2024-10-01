@@ -28,13 +28,11 @@
     prismlauncher
 
     # Applications
-    #bilibili
     tor
     tor-browser
     vscodium
     filelight
     ark
-    godot_4
   ];
 
   # Flatpak packages

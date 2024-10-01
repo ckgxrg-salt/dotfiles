@@ -29,7 +29,6 @@
     vscodium
     krita
     gimp
-    godot_4
   ];
 
   # Flatpak packages
@@ -52,7 +51,6 @@
       "io.freetubeapp.FreeTube"
 
       "com.moonlight_stream.Moonlight"
-      "org.kde.elisa"
       "com.usebottles.bottles"
 
       "org.mozilla.Thunderbird"
@@ -62,10 +60,7 @@
       "org.blender.Blender"
       "net.blockbench.Blockbench"
 
-      "io.github.mrvladus.List"
-
       "md.obsidian.Obsidian"
-      "com.github.xournalpp.xournalpp"
       "org.libreoffice.LibreOffice"
       "com.github.flxzt.rnote"
       "com.github.johnfactotum.Foliate"

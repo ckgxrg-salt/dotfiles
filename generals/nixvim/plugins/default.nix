@@ -33,7 +33,6 @@
       settings = {
         options = {
           globalstatus = true;
-          theme = "everforest";
         };
       };
     };

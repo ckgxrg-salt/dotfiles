@@ -7,13 +7,14 @@
     ./desktop/ags
     ./desktop/daemons.nix
     ./terminal
+    ./apps/qutebrowser.nix
+    ./apps/nixvim.nix
     ./package.nix
     ./theme.nix
     ../../generals/terminal/accessories.nix
     ../../generals/terminal/bash.nix
     ../../generals/nixvim
     ../../generals/utils
-    ../../generals/utils/qutebrowser.nix
   ];
 
   # Input Method
