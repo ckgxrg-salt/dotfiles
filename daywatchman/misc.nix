@@ -106,4 +106,6 @@
 
   # Suppress system-default sound themes
   ckgxrg.themes.sound.enable = true;
+
+  documentation.nixos.enable = false;
 }

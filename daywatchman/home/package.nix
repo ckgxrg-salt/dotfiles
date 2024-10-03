@@ -52,10 +52,12 @@
 
       "com.moonlight_stream.Moonlight"
       "com.usebottles.bottles"
+      "io.gitlab.adhami3310.Impression"
 
       "org.mozilla.Thunderbird"
-      "org.kde.pix"
+      "org.gnome.Snapshot"
       "org.gnome.SoundRecorder"
+      "com.belmoussaoui.Decoder"
 
       "org.blender.Blender"
       "net.blockbench.Blockbench"

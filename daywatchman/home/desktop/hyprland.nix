@@ -143,7 +143,6 @@
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
           ELM_DISPLAY = "wl";
           SDL_VIDEODRIVER = "wayland";
-          QT_QPA_PLATFORMTHEME = "qt6ct";
         };
 
         # Window, workspace and layer rules

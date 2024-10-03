@@ -6,6 +6,7 @@
     fontPackages = with pkgs; [ source-han-sans ];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    extest.enable = true;
     gamescopeSession = {
       enable = true;
       args = [ "-O eDP-1" ];

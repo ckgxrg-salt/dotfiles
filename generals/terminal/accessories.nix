@@ -8,14 +8,6 @@
     enableNushellIntegration = config.programs.nushell.enable;
   };
 
-  # Carapace Argument Completions
-  programs.carapace = {
-    enable = true;
-    enableBashIntegration = config.programs.bash.enable;
-    enableZshIntegration = config.programs.zsh.enable;
-    enableNushellIntegration = config.programs.nushell.enable;
-  };
-
   # Vivid the ls Color Generator
   home.packages = with pkgs; [
     vivid

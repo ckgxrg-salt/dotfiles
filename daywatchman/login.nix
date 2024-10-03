@@ -21,6 +21,11 @@
     ============================
   '';
 
+  # Replace the default perl script
+  services.userborn = {
+    enable = true;
+  };
+
   # ckgxrg's Account
   users.users.ckgxrg = {
     isNormalUser = true;

@@ -34,6 +34,10 @@
     };
   };
 
+  services.thermald = {
+    enable = true;
+  };
+
   # Violent Power Save
   powerManagement = {
     enable = true;
@@ -45,6 +49,13 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages32 = [ pkgs.driversi686Linux.mesa ];
+    extraPackages = [
+      pkgs.intel-media-driver
+      pkgs.intel-ocl
+    ];
+    extraPackages32 = [
+      pkgs.driversi686Linux.mesa
+      pkgs.driversi686Linux.intel-media-driver
+    ];
   };
 }
