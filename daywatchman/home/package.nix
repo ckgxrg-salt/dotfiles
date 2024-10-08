@@ -3,8 +3,7 @@
   # Home-manager packages for Daywarden
   home.packages = with pkgs; [
     # Terminal Utilities
-    neofetch
-    wget
+    fastfetch
     v2raya
     procs
     cowsay
@@ -16,19 +15,21 @@
     maa-cli
 
     # Desktop Utilities
-    dolphin
-    ark
-    okular
     alacritty
-    rustdesk-flutter
+    system-config-printer
 
     # Applications
     audacity
     prismlauncher
     tor-browser
     vscodium
-    krita
     gimp
+    krita
+    okular
+    pix
+    dolphin
+    ark
+    rustdesk-flutter
   ];
 
   # Flatpak packages
@@ -45,27 +46,29 @@
       onCalendar = "daily";
     };
     packages = [
+      # Communication
       "com.qq.QQ"
       "in.cinny.Cinny"
-      "info.febvre.Komikku"
-      "io.freetubeapp.FreeTube"
-
-      "com.moonlight_stream.Moonlight"
-      "com.usebottles.bottles"
-      "io.gitlab.adhami3310.Impression"
-
       "org.mozilla.Thunderbird"
+      # Util
       "org.gnome.Snapshot"
       "org.gnome.SoundRecorder"
       "com.belmoussaoui.Decoder"
-
+      "io.gitlab.adhami3310.Impression"
+      "com.github.flxzt.rnote"
+      # Media
+      "info.febvre.Komikku"
+      "io.freetubeapp.FreeTube"
+      "com.github.johnfactotum.Foliate"
+      # Work
       "org.blender.Blender"
       "net.blockbench.Blockbench"
-
       "md.obsidian.Obsidian"
       "org.libreoffice.LibreOffice"
-      "com.github.flxzt.rnote"
-      "com.github.johnfactotum.Foliate"
+      # Gameing
+      "com.moonlight_stream.Moonlight"
+      # Misc
+      "com.usebottles.bottles"  
     ];
   };
 }

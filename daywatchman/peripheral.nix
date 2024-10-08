@@ -16,6 +16,14 @@
     powerOnBoot = true;
   };
 
+  # CUPS for printers support
+  services.printing = {
+    enable = true;
+    stateless = true;
+    startWhenNeeded = true;
+    drivers = with pkgs; [ hplip ];
+  };
+
   # Sound with PipeWire
   security.rtkit.enable = true;
   services.pipewire = {
@@ -49,13 +57,14 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = [
-      pkgs.intel-media-driver
-      pkgs.intel-ocl
+    extraPackages = with pkgs; [
+      mesa
+      intel-media-driver
+      intel-ocl
     ];
-    extraPackages32 = [
-      pkgs.driversi686Linux.mesa
-      pkgs.driversi686Linux.intel-media-driver
+    extraPackages32 = with pkgs.driversi686Linux; [
+      mesa
+      intel-media-driver
     ];
   };
 }

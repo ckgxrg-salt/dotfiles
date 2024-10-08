@@ -29,9 +29,9 @@
       "quiet"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
-      # Cutting-edge xe drivers
-      "i915.force_probe=!9a49"
-      "xe.force_probe=9a49"
+      # Cutting-edge xe drivers, but somehow broken
+      #"i915.force_probe=!9a49"
+      #"xe.force_probe=9a49"
     ];
     kernelModules = [
       "tcp_bbr"

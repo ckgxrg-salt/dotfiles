@@ -27,8 +27,6 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
     # NixVim
     nixvim.url = "github:nix-community/nixvim";
-    # Howdy pkgs
-    howdy.url = "github:fufexan/nixpkgs/howdy";
 
     # Hyprland and plugins
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";

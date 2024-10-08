@@ -149,6 +149,8 @@
         windowrulev2 = [
           "float, class:(org.kde.polkit-kde-authentication-agent-1)"
           "center, class:(org.kde.polkit-kde-authentication-agent-1)"
+          "stayfocused, class:(org.kde.polkit-kde-authentication-agent-1)"
+          "size 30% 20%, class:(org.kde.polkit-kde-authentication-agent-1)"
           "float, class:(xdg-desktop-portal-gtk)"
           "float, class:(QQ)"
           "center, class:(QQ)"
@@ -384,7 +386,8 @@
       defaultApplications = {
         "text/plain" = "nvim.desktop";
         "application/pdf" = "org.kde.okular.desktop";
-        "image" = "pix.desktop";
+        "image/jpeg" = "pix.desktop";
+        "image/png" = "pix.desktop";
         "inode/directory" = "org.kde.dolphin.desktop";
         # Qutebrowser as the default web browser
         "text/html" = "org.qutebrowser.qutebrowser.desktop";

@@ -53,29 +53,6 @@
     wl-clipboard
     # FHS Env
     inputs.nix-alien.packages.${system}.nix-alien
-    (
-      let
-        base = pkgs.appimageTools.defaultFhsEnvArgs;
-      in
-      pkgs.buildFHSUserEnv (
-        base
-        // {
-          name = "fhs";
-          targetPkgs =
-            pkgs:
-            (
-              (base.targetPkgs pkgs)
-              ++ [
-                pkgs.pkg-config
-                pkgs.ncurses
-              ]
-            );
-          profile = "export FHS=1";
-          runScript = "nu";
-          extraOutputsToInstall = [ "dev" ];
-        }
-      )
-    )
   ];
 
   # Placeholders

@@ -23,6 +23,7 @@
     fcitx5.addons = with pkgs; [
       fcitx5-nord
       fcitx5-rime
+      fcitx5-gtk
     ];
   };
 
