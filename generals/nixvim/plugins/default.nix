@@ -4,6 +4,7 @@
     ./completions.nix
     ./java.nix
     ./quickfix.nix
+    ./lsp.nix
   ];
   programs.nixvim.plugins = {
     # Markdown preview

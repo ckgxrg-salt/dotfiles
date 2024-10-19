@@ -4,9 +4,6 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    initExtra = ''
-      fortune | cowsay | lolcat
-    '';
     sessionVariables = {
       MANPAGER = "nvim +Man!";
     };

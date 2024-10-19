@@ -7,8 +7,9 @@
     ./desktop/ags
     ./desktop/daemons.nix
     ./terminal
-    ./apps/qutebrowser.nix
     ./apps/nixvim.nix
+    ./apps/qutebrowser.nix
+    ./apps/misc.nix
     ./package.nix
     ./theme.nix
     ../../generals/terminal/accessories.nix
@@ -23,7 +24,6 @@
     fcitx5.addons = with pkgs; [
       fcitx5-nord
       fcitx5-rime
-      fcitx5-gtk
     ];
   };
 

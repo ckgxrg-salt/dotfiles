@@ -3,7 +3,6 @@
   # The Neovim editos
   imports = [
     ./autocmd.nix
-    ./lsp.nix
     ./keymaps.nix
     ./plugins
   ];

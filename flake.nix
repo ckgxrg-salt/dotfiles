@@ -8,13 +8,11 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #custom packages
+    # Custom packages
     ckgpkgs = {
-      url = "path:/home/ckgxrg/.config/nixos/ckgpkgs";
+      url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # The Rust overlay
-    rust-overlay.url = "github:oxalica/rust-overlay";
     # Lanzaboote Secureboot
     lanzaboote = {
       url = "github:nix-community/lanzaboote";

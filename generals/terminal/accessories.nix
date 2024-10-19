@@ -8,6 +8,15 @@
     enableNushellIntegration = config.programs.nushell.enable;
   };
 
+  # atuin History
+  programs.atuin = {
+    enable = true;
+    enableBashIntegration = config.programs.bash.enable;
+    enableZshIntegration = config.programs.zsh.enable;
+    enableNushellIntegration = config.programs.nushell.enable;
+    flags = [ "--disable-up-arrow" ];
+  };
+
   # Vivid the ls Color Generator
   home.packages = with pkgs; [
     vivid
@@ -21,7 +30,7 @@
     enableNushellIntegration = config.programs.nushell.enable;
     settings = {
       format = ''
-        [󱞡 ](bold green)$shell$username($nix_shell)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle$java)
+        [󱞡 ](bold green)$shell$username($nix_shell)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle$java)(''\n| $rust)
         [󱞩 ](bold green)$directory[-> ](blue)
       '';
       right_format = ''
@@ -69,8 +78,13 @@
         format = "[$symbol($version )]($style)";
         symbol = " ";
       };
+      rust = {
+        format = "[$symbol($version )]($style)";
+        symbol = " ";
+      };
       nix_shell = {
-        format = "[($symbol( $name))]($style) ";
+        format = "[( $symbol($name))]($style) ";
+        symbol = "󱄅 ";
         style = "italic bright-blue";
         heuristic = true;
       };

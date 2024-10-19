@@ -9,6 +9,17 @@
     iof.autostart = false;
   };
 
+  # Allow KDE Connect
+  networking.firewall = rec {
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
+
   # Locale, I18n and Fcitx5
   time.timeZone = "Asia/Shanghai";
   i18n = {

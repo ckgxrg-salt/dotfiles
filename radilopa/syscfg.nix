@@ -1,4 +1,10 @@
-{ pkgs, ckgs, ckgxrg, config, ... }:
+{
+  pkgs,
+  ckgs,
+  ckgxrg,
+  config,
+  ...
+}:
 # System-wide settings for Radilopa
 {
   # My Name!

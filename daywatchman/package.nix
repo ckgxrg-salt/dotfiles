@@ -41,7 +41,6 @@
     config = {
       allowUnfree = true;
     };
-    overlays = [ inputs.rust-overlay.overlays.default ];
   };
 
   # System-wide packages

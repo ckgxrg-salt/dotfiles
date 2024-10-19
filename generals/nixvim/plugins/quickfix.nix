@@ -6,11 +6,7 @@
       enable = true;
       settings = {
         auto_close = true;
-        auto_jump = [
-          "lsp_definitions"
-        ];
-        cycle_results = true;
-        icons = true;
+        auto_jump = true;
       };
     };
     # Better quickfix

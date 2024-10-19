@@ -24,6 +24,9 @@
     drivers = with pkgs; [ hplip ];
   };
 
+  # Connect with Android
+  programs.adb.enable = true;
+
   # Sound with PipeWire
   security.rtkit.enable = true;
   services.pipewire = {
@@ -60,7 +63,7 @@
     extraPackages = with pkgs; [
       mesa
       intel-media-driver
-      intel-ocl
+      intel-compute-runtime
     ];
     extraPackages32 = with pkgs.driversi686Linux; [
       mesa

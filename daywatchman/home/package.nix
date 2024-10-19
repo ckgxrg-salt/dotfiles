@@ -1,11 +1,13 @@
 { pkgs, ... }:
 {
-  # Home-manager packages for Daywarden
+  # Home-manager packages for Daywatchman
   home.packages = with pkgs; [
     # Terminal Utilities
     fastfetch
     v2raya
     procs
+    btop
+    dust
     cowsay
     asciiquarium
     lolcat
@@ -17,9 +19,11 @@
     # Desktop Utilities
     alacritty
     system-config-printer
+    kdeconnect
 
     # Applications
     audacity
+    bilibili
     prismlauncher
     tor-browser
     vscodium
@@ -68,7 +72,7 @@
       # Gameing
       "com.moonlight_stream.Moonlight"
       # Misc
-      "com.usebottles.bottles"  
+      "com.usebottles.bottles"
     ];
   };
 }

@@ -150,7 +150,7 @@
           "float, class:(org.kde.polkit-kde-authentication-agent-1)"
           "center, class:(org.kde.polkit-kde-authentication-agent-1)"
           "stayfocused, class:(org.kde.polkit-kde-authentication-agent-1)"
-          "size 30% 20%, class:(org.kde.polkit-kde-authentication-agent-1)"
+          "size 60% 20%, class:(org.kde.polkit-kde-authentication-agent-1)"
           "float, class:(xdg-desktop-portal-gtk)"
           "float, class:(QQ)"
           "center, class:(QQ)"
@@ -389,12 +389,11 @@
         "image/jpeg" = "pix.desktop";
         "image/png" = "pix.desktop";
         "inode/directory" = "org.kde.dolphin.desktop";
-        # Qutebrowser as the default web browser
-        "text/html" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
+        "text/html" = "qutebrowser.desktop";
+        "x-scheme-handler/http" = "qutebrowser.desktop";
+        "x-scheme-handler/https" = "qutebrowser.desktop";
+        "x-scheme-handler/about" = "qutebrowser.desktop";
+        "x-scheme-handler/unknown" = "qutebrowser.desktop";
       };
     };
     portal = {
@@ -421,18 +420,8 @@
       createDirectories = true;
     };
     # Override some desktop entries
-    desktopEntries = {
-      "org.qutebrowser.qutebrowser" = {
-        name = "Qutebrowser";
-        genericName = "Web Browser";
-        icon = "browser";
-        exec = "qutebrowser";
-        terminal = false;
-        categories = [
-          "Network"
-          "WebBrowser"
-        ];
+    desktopEntries =
+      {
       };
-    };
   };
 }
