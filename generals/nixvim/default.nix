@@ -2,7 +2,6 @@
 {
   # The Neovim editos
   imports = [
-    ./autocmd.nix
     ./keymaps.nix
     ./plugins
   ];
@@ -13,10 +12,33 @@
     withRuby = false;
     clipboard.providers.wl-copy.enable = true;
 
-    globalOpts = {
-      wrapmargin = 1;
-      textwidth = 0;
-      formatoptions = "tcqj";
+    # Options
+    opts = {
+      completeopt = [
+        "menuone"
+        "noselect"
+        "noinsert"
+      ];
+      clipboard = "unnamedplus";
+      linebreak = true;
+      foldlevelstart = 99;
+      number = true;
+      tabstop = 4;
+    };
+
+    # Diagnostics
+    diagnostics = {
+      virtual_text = true;
+      signs = true;
+      update_in_insert = true;
+      underline = true;
+      severity_sort = false;
+      float = {
+        border = "rounded";
+        source = "always";
+        header = "";
+        prefix = "<- ";
+      };
     };
   };
 }

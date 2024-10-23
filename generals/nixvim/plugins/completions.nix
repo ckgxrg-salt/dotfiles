@@ -9,51 +9,51 @@
         snippet = {
           expand = "function(args) require('luasnip').lsp_expand(args.body) end";
         };
+        window = {
+          completion = {
+            __raw = "cmp.config.window.bordered()";
+          };
+          documentation = {
+            __raw = "cmp.config.window.bordered()";
+          };
+        };
+        formatting = {
+          fields = [
+            "abbr"
+            "kind"
+            "menu"
+          ];
+          format = ''
+            function(entry, item)
+              local menu_icon ={
+                  nvim_lsp = ' ',
+                  luasnip = '󰢱 ',
+                  buffer = ' ',
+                  path = ' ',
+              }
+              item.menu = menu_icon[entry.source.name]
+              return item
+            end
+          '';
+        };
         sources = [
           { name = "buffer"; }
           { name = "cmdline"; }
           { name = "path"; }
           { name = "luasnip"; }
+          { name = "treesitter"; }
           { name = "nvim_lsp"; }
         ];
         # Cmp / Luasnip: Expand and select with Super-Tab
         mapping = {
           __raw = ''
-            {
-              ['<CR>'] = cmp.mapping(function(fallback)
-                  if cmp.visible() then
-                    if require('luasnip').expandable() then
-                      require('luasnip').expand()
-                    else
-                      cmp.confirm({
-                        select = true,
-                      })
-                    end
-                else
-                  fallback()
-                end
-              end),
-
-              ["<Tab>"] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                  cmp.select_next_item()
-                elseif require('luasnip').locally_jumpable(1) then
-                  require('luasnip').jump(1)
-                else
-                  fallback()
-                end
-              end, { "i", "s" }),
-
-              ["<S-Tab>"] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                  cmp.select_prev_item()
-                elseif luasnip.locally_jumpable(-1) then
-                  require('luasnip').jump(-1)
-                else
-                  fallback()
-                end
-              end, { "i", "s" }),
-            }
+            cmp.mapping.preset.insert({
+              ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+              ['<C-f>'] = cmp.mapping.scroll_docs(4),
+              ['<C-Space>'] = cmp.mapping.complete(),
+              ['<C-e>'] = cmp.mapping.abort(),
+              ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            })
           '';
         };
       };
@@ -64,6 +64,8 @@
     cmp-path.enable = true;
     cmp-cmdline.enable = true;
     cmp_luasnip.enable = true;
+    cmp-treesitter.enable = true;
+    cmp-dap.enable = true;
     # Snippet Engine
     luasnip = {
       enable = true;
@@ -75,6 +77,38 @@
     friendly-snippets.enable = true;
 
     # Auto-generate paired letters
-
+    nvim-autopairs = {
+      enable = true;
+      settings = {
+        enable_check_bracket_line = false;
+        fast_wrap = {
+          after_key = "l";
+          before_key = "h";
+          map = "<M-e>";
+          chars = [
+            "{"
+            "["
+            "("
+            "\""
+            "'"
+          ];
+          cursor_pos_before = false;
+          end_key = "$";
+          highlight = "Search";
+          highlight_grey = "Comment";
+          keys = "abcdefghijklmnopqrstuvwxyz";
+          pattern = "[=[[%'%\"%>%]%)%}%,]]=]";
+          manual_position = true;
+        };
+      };
+      luaConfig.post = ''
+        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+        local cmp = require('cmp')
+        cmp.event:on(
+          'confirm_done',
+          cmp_autopairs.on_confirm_done()
+        )
+      '';
+    };
   };
 }

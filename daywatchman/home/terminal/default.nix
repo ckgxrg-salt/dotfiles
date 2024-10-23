@@ -13,9 +13,12 @@
       };
       settings = {
         window = {
-          opacity = 0.9;
+          opacity = 1.0;
           blur = true;
           decorations_theme_variant = "Dark";
+        };
+        font = {
+          size = 16;
         };
       };
     };
@@ -48,12 +51,10 @@
         def clear [] { ^clear; ciallo }
 
         alias true-clear = ^clear
-        alias syscfg = cd ~/.config/nixos/system
-        alias syspkg = cd ~/.config/nixos/ckgpkgs
+        alias dotfiles = cd ~/.config/nixos/system
+        alias ckgpkgs = cd ~/.config/nixos/ckgpkgs
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask
-
-        ciallo
       '';
     };
   };

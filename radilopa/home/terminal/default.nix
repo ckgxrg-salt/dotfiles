@@ -1,7 +1,6 @@
 {
   ckgxrg,
   ckgs,
-  pkgs,
   ...
 }:
 # Daywarden terminal overrides

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # Neovim themes
   programs.nixvim = {

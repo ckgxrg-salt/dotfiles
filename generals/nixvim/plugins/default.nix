@@ -2,11 +2,12 @@
 {
   imports = [
     ./completions.nix
-    ./java.nix
-    ./quickfix.nix
-    ./lsp.nix
+    ./debug.nix
+    ./syntax.nix
+    ./langs.nix
   ];
   programs.nixvim.plugins = {
+    # Components
     # Markdown preview
     glow = {
       enable = true;
@@ -65,6 +66,10 @@
         direction = "horizontal";
       };
     };
+    # Fancy icons
+    web-devicons.enable = true;
+
+    # Coding Experience
     # Dim inactive code
     twilight = {
       enable = true;
@@ -72,14 +77,26 @@
         dimming.alpha = 0.3;
       };
     };
+    # Highlights
+    illuminate = {
+      enable = true;
+      underCursor = true;
+      providers = [
+        "lsp"
+        "treesitter"
+        "regex"
+      ];
+    };
     # Undo tree
     undotree.enable = true;
-    # Fancy icons
-    web-devicons.enable = true;
     # Fuzzy search
     telescope = {
       enable = true;
       highlightTheme = "ivy";
+    };
+    # Todo
+    todo-comments = {
+      enable = true;
     };
 
     # Project management

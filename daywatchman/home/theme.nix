@@ -35,7 +35,7 @@
 
     font = {
       name = "Maple Mono";
-      size = 14;
+      size = 16;
     };
   };
 }

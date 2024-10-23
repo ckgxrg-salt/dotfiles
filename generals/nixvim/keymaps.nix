@@ -1,31 +1,60 @@
 { ... }:
 {
   programs.nixvim.keymaps = [
+    # Neovim: Generals
+    {
+      action = "gj";
+      key = "j";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "gk";
+      key = "k";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "gj";
+      key = "<Down>";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "gk";
+      key = "<Up>";
+      options = {
+        silent = true;
+      };
+    }
     # Barbar: Navigate between tabs
     {
       action = "<Cmd>BufferPrevious<CR>";
-      key = "<A-,>";
+      key = "<A-k>";
       options = {
         silent = true;
       };
     }
     {
       action = "<Cmd>BufferNext<CR>";
-      key = "<A-.>";
+      key = "<A-j>";
       options = {
         silent = true;
       };
     }
     {
       action = "<Cmd>BufferMovePrevious<CR>";
-      key = "<A-<>";
+      key = "<A-K>";
       options = {
         silent = true;
       };
     }
     {
       action = "<Cmd>BufferMoveNext<CR>";
-      key = "<A->>";
+      key = "<A-J>";
       options = {
         silent = true;
       };

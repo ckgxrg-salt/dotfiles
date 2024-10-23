@@ -31,6 +31,7 @@
   # Mako vs Alien
   services.mako = {
     enable = true;
+    output = "DP-1";
     anchor = "bottom-right";
     borderRadius = 0;
     backgroundColor = "#8fbcbb66";

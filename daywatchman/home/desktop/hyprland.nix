@@ -150,7 +150,7 @@
           "float, class:(org.kde.polkit-kde-authentication-agent-1)"
           "center, class:(org.kde.polkit-kde-authentication-agent-1)"
           "stayfocused, class:(org.kde.polkit-kde-authentication-agent-1)"
-          "size 60% 20%, class:(org.kde.polkit-kde-authentication-agent-1)"
+          "size 1024 256, class:(org.kde.polkit-kde-authentication-agent-1)"
           "float, class:(xdg-desktop-portal-gtk)"
           "float, class:(QQ)"
           "center, class:(QQ)"
@@ -168,10 +168,10 @@
 
         # Options
         general = {
-          gaps_in = 3;
-          gaps_out = 6;
-          border_size = 4;
-          "col.active_border" = "rgba(425047cc)";
+          gaps_in = 8;
+          gaps_out = 16;
+          border_size = 0;
+          "col.active_border" = "rgba(00000000)";
           "col.inactive_border" = "rgba(00000000)";
           layout = "dwindle";
           allow_tearing = false;
@@ -221,17 +221,17 @@
         decoration = {
           blur = {
             enabled = true;
-            size = 3;
-            passes = 1;
+            size = 2;
+            passes = 3;
             vibrancy = 0.1696;
           };
-          rounding = 0;
+          rounding = 18;
           drop_shadow = true;
           shadow_range = 6;
           shadow_render_power = 3;
           "col.shadow" = "rgba(1c1c1cee)";
-          active_opacity = 0.95;
-          inactive_opacity = 0.85;
+          active_opacity = 0.9;
+          inactive_opacity = 0.8;
         };
         animations = {
           enabled = true;
