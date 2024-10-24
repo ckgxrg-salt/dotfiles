@@ -34,33 +34,33 @@
     }
     # Dap & Dap-UI: Enter debugging mode
     {
-      action = "<Cmd>lua require(\"dapui\").toggle()";
+      action = "<Cmd>lua require(\"dapui\").toggle()<CR>";
       key = "<M-d>";
       mode = "n";
     }
     # Glow: Preview Markdown
     {
-      action = "<Cmd>Glow";
+      action = "<Cmd>Glow<CR>";
       key = "<M-g>";
       mode = "n";
     }
     # Neotree: Summon
     {
-      action = "<Cmd>Neotree toggle";
+      action = "<Cmd>Neotree toggle<CR>";
       key = "<C-n>";
     }
     # Undotree: Summon
     {
-      action = "<Cmd>UndotreeToggle";
+      action = "<Cmd>UndotreeToggle<CR>";
       key = "<C-u>";
     }
     # Trouble: Summon
     {
-      action = "<Cmd>Trouble diagnostics";
+      action = "<Cmd>Trouble diagnostics<CR>";
       key = "<C-o>";
     }
     {
-      action = "<Cmd>Trouble lsp";
+      action = "<Cmd>Trouble lsp<CR>";
       key = "<C-p>";
     }
     # Barbar: Navigate between tabs
