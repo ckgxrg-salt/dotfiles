@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.nixvim.plugins = {
-    # Quickfix list
+    # Diagnostics list
     trouble = {
       enable = true;
       settings = {

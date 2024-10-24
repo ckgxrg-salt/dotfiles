@@ -44,7 +44,7 @@
           { name = "treesitter"; }
           { name = "nvim_lsp"; }
         ];
-        # Cmp / Luasnip: Expand and select with Super-Tab
+        # Cmp / Luasnip: Handle keymaps themselves
         mapping = {
           __raw = ''
             cmp.mapping.preset.insert({

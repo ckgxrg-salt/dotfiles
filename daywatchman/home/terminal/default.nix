@@ -1,5 +1,4 @@
 {
-  ckgxrg,
   ckgs,
   ...
 }:
@@ -18,7 +17,7 @@
           decorations_theme_variant = "Dark";
         };
         font = {
-          size = 16;
+          size = 14;
         };
       };
     };
@@ -48,9 +47,7 @@
         $env.LS_COLORS = (vivid generate solarized-dark | str trim)
 
         def ciallo [] { fortune | cowsay | lolcat }
-        def clear [] { ^clear; ciallo }
 
-        alias true-clear = ^clear
         alias dotfiles = cd ~/.config/nixos/system
         alias ckgpkgs = cd ~/.config/nixos/ckgpkgs
         alias deploy = nh os switch --ask

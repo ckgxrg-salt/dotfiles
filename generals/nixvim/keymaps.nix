@@ -1,5 +1,7 @@
 { ... }:
 {
+  # For coding time, start with Ctrl
+  # For "running", including Markdown preview, start with Meta
   programs.nixvim.keymaps = [
     # Neovim: Generals
     {
@@ -30,118 +32,101 @@
         silent = true;
       };
     }
+    # Dap & Dap-UI: Enter debugging mode
+    {
+      action = "<Cmd>lua require(\"dapui\").toggle()";
+      key = "<M-d>";
+      mode = "n";
+    }
+    # Glow: Preview Markdown
+    {
+      action = "<Cmd>Glow";
+      key = "<M-g>";
+      mode = "n";
+    }
+    # Neotree: Summon
+    {
+      action = "<Cmd>Neotree toggle";
+      key = "<C-n>";
+    }
+    # Undotree: Summon
+    {
+      action = "<Cmd>UndotreeToggle";
+      key = "<C-u>";
+    }
+    # Trouble: Summon
+    {
+      action = "<Cmd>Trouble diagnostics";
+      key = "<C-o>";
+    }
+    {
+      action = "<Cmd>Trouble lsp";
+      key = "<C-p>";
+    }
     # Barbar: Navigate between tabs
     {
       action = "<Cmd>BufferPrevious<CR>";
-      key = "<A-k>";
-      options = {
-        silent = true;
-      };
+      key = "<C-k>";
     }
     {
       action = "<Cmd>BufferNext<CR>";
-      key = "<A-j>";
-      options = {
-        silent = true;
-      };
+      key = "<C-j>";
     }
     {
       action = "<Cmd>BufferMovePrevious<CR>";
-      key = "<A-K>";
-      options = {
-        silent = true;
-      };
-    }
+      key = "<C-K>";
+    } 
     {
       action = "<Cmd>BufferMoveNext<CR>";
-      key = "<A-J>";
-      options = {
-        silent = true;
-      };
+      key = "<C-J>";
     }
     {
       action = "<Cmd>BufferGoto 1<CR>";
-      key = "<A-1>";
-      options = {
-        silent = true;
-      };
+      key = "<C-1>";
     }
     {
       action = "<Cmd>BufferGoto 2<CR>";
-      key = "<A-2>";
-      options = {
-        silent = true;
-      };
+      key = "<C-2>";
     }
     {
       action = "<Cmd>BufferGoto 3<CR>";
-      key = "<A-3>";
-      options = {
-        silent = true;
-      };
+      key = "<C-3>";
     }
     {
       action = "<Cmd>BufferGoto 4<CR>";
-      key = "<A-4>";
-      options = {
-        silent = true;
-      };
+      key = "<C-4>";
     }
     {
       action = "<Cmd>BufferGoto 5<CR>";
-      key = "<A-5>";
-      options = {
-        silent = true;
-      };
+      key = "<C-5>";
     }
     {
       action = "<Cmd>BufferGoto 6<CR>";
-      key = "<A-6>";
-      options = {
-        silent = true;
-      };
+      key = "<C-6>";
     }
     {
       action = "<Cmd>BufferGoto 7<CR>";
-      key = "<A-7>";
-      options = {
-        silent = true;
-      };
+      key = "<C-7>";
     }
     {
       action = "<Cmd>BufferGoto 8<CR>";
-      key = "<A-8>";
-      options = {
-        silent = true;
-      };
+      key = "<C-8>";
     }
     {
       action = "<Cmd>BufferGoto 9<CR>";
-      key = "<A-9>";
-      options = {
-        silent = true;
-      };
+      key = "<C-9>";
     }
     {
       action = "<Cmd>BufferLast<CR>";
-      key = "<A-0>";
-      options = {
-        silent = true;
-      };
+      key = "<C-0>";
     }
     {
       action = "<Cmd>BufferPin<CR>";
-      key = "<A-p>";
-      options = {
-        silent = true;
-      };
+      key = "<C-p>";
     }
     {
       action = "<Cmd>BufferClose<CR>";
-      key = "<A-c>";
-      options = {
-        silent = true;
-      };
+      key = "<C-w>";
     }
   ];
 }
