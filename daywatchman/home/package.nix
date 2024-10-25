@@ -19,60 +19,41 @@
     # Desktop Utilities
     alacritty
     system-config-printer
-    kdeconnect
-
-    # Applications
-    audacity
-    bilibili
-    prismlauncher
-    tor-browser
-    vscodium
-    gimp
-    krita
+    kdePackages.kdeconnect-kde
     okular
     pix
     dolphin
     ark
-    rustdesk-flutter
-  ];
+    snapshot
+    gnome-decoder
+    impression
+    bottles
 
-  # Flatpak packages
-  services.flatpak = {
-    enable = true;
-    remotes = [
-      {
-        name = "flathub";
-        location = "https://mirror.sjtu.edu.cn/flathub";
-      }
-    ];
-    update.auto = {
-      enable = true;
-      onCalendar = "daily";
-    };
-    packages = [
-      # Communication
-      "com.qq.QQ"
-      "in.cinny.Cinny"
-      "org.mozilla.Thunderbird"
-      # Util
-      "org.gnome.Snapshot"
-      "org.gnome.SoundRecorder"
-      "com.belmoussaoui.Decoder"
-      "io.gitlab.adhami3310.Impression"
-      "com.github.flxzt.rnote"
-      # Media
-      "info.febvre.Komikku"
-      "io.freetubeapp.FreeTube"
-      "com.github.johnfactotum.Foliate"
-      # Work
-      "org.blender.Blender"
-      "net.blockbench.Blockbench"
-      "md.obsidian.Obsidian"
-      "org.libreoffice.LibreOffice"
-      # Gameing
-      "com.moonlight_stream.Moonlight"
-      # Misc
-      "com.usebottles.bottles"
-    ];
-  };
+    # Applications
+    # Productivity
+    obsidian
+    libreoffice
+    audacity
+    vscodium
+    krita
+    rnote
+    blender
+    blockbench
+    # Media
+    bilibili
+    freetube
+    foliate
+    komikku
+    gimp
+    # Gaming
+    prismlauncher
+    moonlight-qt
+    # Communication
+    cinny-desktop
+    qq
+    rustdesk-flutter
+    # Web
+    tor-browser
+    thunderbird
+  ];
 }

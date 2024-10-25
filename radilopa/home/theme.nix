@@ -3,7 +3,6 @@
 {
   ckgxrg.themes = {
     enable = true;
-    withFlatpak = true;
 
     gtk = {
       name = "Otis";

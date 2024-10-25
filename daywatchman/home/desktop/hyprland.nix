@@ -147,10 +147,10 @@
 
         # Window, workspace and layer rules
         windowrulev2 = [
-          "float, class:(org.kde.polkit-kde-authentication-agent-1)"
-          "center, class:(org.kde.polkit-kde-authentication-agent-1)"
-          "stayfocused, class:(org.kde.polkit-kde-authentication-agent-1)"
-          "size 1024 256, class:(org.kde.polkit-kde-authentication-agent-1)"
+          "float, class:(polkit-kde-authentication-agent-1)"
+          "center, class:(polkit-kde-authentication-agent-1)"
+          "stayfocused, class:(polkit-kde-authentication-agent-1)"
+          "size 50% 40%, class:(polkit-kde-authentication-agent-1)"
           "float, class:(xdg-desktop-portal-gtk)"
           "float, class:(QQ)"
           "center, class:(QQ)"
@@ -400,6 +400,7 @@
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
       ];
       config = {
         common = {

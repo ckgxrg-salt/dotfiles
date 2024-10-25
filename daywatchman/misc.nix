@@ -47,12 +47,9 @@
     fontDir.enable = true;
     packages = with pkgs; [
       noto-fonts-emoji
-      noto-fonts-cjk
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       powerline-fonts
-      wqy_zenhei
-      wqy_microhei
       maple-mono
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
@@ -75,28 +72,11 @@
     };
   };
 
-  # Proxychains
-  programs.proxychains = {
-    enable = true;
-    package = pkgs.proxychains;
-    proxies = {
-      v2raya = {
-        type = "socks5";
-        host = "127.0.0.1";
-        port = 20170;
-      };
-    };
-  };
-
   # Polkit Authentication
   security.polkit.enable = true;
 
-  # Input Remapper
-  services.input-remapper = {
-    enable = true;
-    serviceWantedBy = [ ];
-  };
-
+  # dconf
+  programs.dconf.enable = true;
   # Auto-Mount Backend
   services.udisks2.enable = true;
   # Nix-ld

@@ -40,6 +40,10 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "cinny-4.2.2"
+        "cinny-unwrapped-4.2.2"
+      ];
     };
   };
 
@@ -55,7 +59,5 @@
   ];
 
   # Placeholders
-  programs.hyprland.enable = true;
   programs.nano.enable = false;
-  services.flatpak.enable = true;
 }

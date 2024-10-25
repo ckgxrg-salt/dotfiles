@@ -23,6 +23,7 @@
       linebreak = true;
       foldlevelstart = 99;
       number = true;
+      relativenumber = true;
       tabstop = 4;
     };
 

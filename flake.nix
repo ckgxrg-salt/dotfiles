@@ -57,7 +57,7 @@
       ...
     }:
     {
-      # Daywarden
+      # Daywatchman
       nixosConfigurations.Daywatchman = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = {
@@ -75,7 +75,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.ckgxrg.imports = [
               ./daywatchman/home
-              flatpaks.homeManagerModules.nix-flatpak
               ags.homeManagerModules.default
               nixvim.homeManagerModules.nixvim
               ckgpkgs.homeManagerModules.ckgmods
