@@ -12,7 +12,7 @@
       cmd = [ "Surprisingly, you cannot use Lua code here, though this option is mandatory. " ];
       extraOptions.cmd = [
         "${lib.getExe pkgs.jdt-language-server}"
-        "--jvm-arg=javaagent:${pkgs.lombok}/share/java/lombok.jar"
+        "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
         "-configuration"
         { __raw = "vim.fn.expand(\"$XDG_CACHE_HOME/jdtls/config\")"; }
         "-data"
