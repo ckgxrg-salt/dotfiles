@@ -1,5 +1,9 @@
 { pkgs, lib, ... }:
 {
+  # Lombok support
+  programs.nixvim.extraPackages = with pkgs; [
+    lombok
+  ];
   programs.nixvim.plugins = {
     # Working with Java
     nvim-jdtls = {
@@ -8,9 +12,10 @@
       cmd = [ "Surprisingly, you cannot use Lua code here, though this option is mandatory. " ];
       extraOptions.cmd = [
         "${lib.getExe pkgs.jdt-language-server}"
-        "--configuration"
+        "--jvm-arg=javaagent:${pkgs.lombok}/share/java/lombok.jar"
+        "-configuration"
         { __raw = "vim.fn.expand(\"$XDG_CACHE_HOME/jdtls/config\")"; }
-        "--data"
+        "-data"
         { __raw = "vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:h')"; }
       ];
       settings = {

@@ -23,7 +23,7 @@
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = "hexagon_dots";
     };
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_lqx;
     kernelParams = [
       "noefi"
       "quiet"

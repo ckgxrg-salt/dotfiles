@@ -69,7 +69,7 @@
         style = "italic yellow";
       };
       gradle = {
-        format = "[$symbol($version Project )]($style)";
+        format = "[$symbol($version )]($style)";
         version_format = "\${raw}";
         style = "italic bright-blue";
         symbol = " ";
