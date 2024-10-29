@@ -29,10 +29,10 @@
       '';
     keyBindings = {
       normal = {
-        "pw" = "spawn --userscript qute-keepassxc --key DE3A8B9C65FBCBE2";
+        "pw" = "spawn --userscript qute-keepassxc --key 6D65636C688397F1";
       };
       insert = {
-        "<Alt-Shift-u>" = "spawn --userscript qute-keepassxc --key DE3A8B9C65FBCBE2";
+        "<Alt-Shift-u>" = "spawn --userscript qute-keepassxc --key 6D65636C688397F1";
       };
     };
     settings = {
@@ -42,10 +42,10 @@
         last_close = "close";
         new_position.unrelated = "next";
         favicons.scale = 1.5;
-        "padding['bottom']" = 7;
+        "padding['bottom']" = 10;
         "padding['left']" = 7;
         "padding['right']" = 7;
-        "padding['top']" = 7;
+        "padding['top']" = 10;
       };
       content = {
         cookies.accept = "no-unknown-3rdparty";

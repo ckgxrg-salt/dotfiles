@@ -48,8 +48,11 @@
 
         def ciallo [] { fortune | cowsay | lolcat }
 
-        def dotfiles [] { hyprctl --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/system"; hyprctl dispatch focusmonitor eDP-1; nvim ~/.config/nixos/system }
-        def ckgpkgs [] { hyprctl --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/ckgpkgs"; hyprctl dispatch focusmonitor eDP-1; nvim ~/.config/nixos/ckgpkgs }
+        def dotfiles [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/system"; hyprctl --quiet dispatch focusmonitor eDP-1; nvim ~/.config/nixos/system }
+        def ckgpkgs [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/ckgpkgs"; hyprctl --quiet dispatch focusmonitor eDP-1; nvim ~/.config/nixos/ckgpkgs }
+
+        def dev [ name ] { hyprctl --quiet --batch $"dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/Documents/Codes/($name) -e nix develop"; cd $"~/Documents/Codes/($name)"; hyprctl --quiet dispatch focusmonitor eDP-1; nix develop }
+
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask
       '';

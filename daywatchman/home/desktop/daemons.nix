@@ -64,20 +64,6 @@
         WantedBy = [ "hyprland-session.target" ];
       };
     };
-    # The application drawer
-    "nwg-drawer" = {
-      Unit = {
-        Description = "nwg Application Drawer";
-        Requires = [ "hyprland-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.nwg-drawer}/bin/nwg-drawer -r -fm dolphin -term alacritty -wm hyprland -pbexit \"systemctl --user start wlogout.service\" -pbuseicontheme -g ${config.ckgxrg.themes.gtk.name} -i ${config.ckgxrg.themes.icon.name}";
-        Restart = "on-failure";
-      };
-      Install = {
-        WantedBy = [ "hyprland-session.target" ];
-      };
-    };
     # NetworkManager Applet
     "nm-applet" = {
       Unit = {

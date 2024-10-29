@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ckgs, config, ... }:
 # Extra programs for Hyprland
 {
   imports = [
@@ -15,6 +15,7 @@
     blueberry
     networkmanagerapplet
     grimblast
+    keepmenu
 
     brightnessctl
     pamixer
@@ -35,15 +36,9 @@
     location = "top-right";
     plugins = with pkgs; [
       rofi-emoji-wayland
-      rofi-mpd
-      rofi-systemd
-      rofi-obsidian
-      rofi-bluetooth
-      rofi-screenshot
-      rofi-power-menu
     ];
     terminal = "${pkgs.alacritty}/bin/alacritty";
-    theme = "Adapta-Nokto";
+    theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-3.rasi";
     extraConfig = {
       show-icons = true;
       icon-theme = config.ckgxrg.themes.icon.name;
@@ -118,6 +113,20 @@
         color = "#ffffff";
         subfolders = true;
         monitors = "eDP-1";
+      };
+    };
+
+  # Keepmenu config
+  xdg.configFile."keepmenu/config.ini".source = 
+    let
+      iniFormat = pkgs.formats.ini { };
+    in
+    iniFormat.generate "keepmenu.ini" {
+      dmenu = {
+        dmenu_command = "rofi -dmenu";
+      };
+      dmenu_passphrase = {
+        obscure = true;
       };
     };
 
