@@ -2,7 +2,7 @@
   ckgs,
   ...
 }:
-# Daywarden terminal overrides
+# Daywatchman terminal overrides
 {
   ckgxrg = {
     alacritty = {
@@ -48,8 +48,8 @@
 
         def ciallo [] { fortune | cowsay | lolcat }
 
-        alias dotfiles = cd ~/.config/nixos/system
-        alias ckgpkgs = cd ~/.config/nixos/ckgpkgs
+        def dotfiles [] { hyprctl --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/system"; hyprctl dispatch focusmonitor eDP-1; nvim ~/.config/nixos/system }
+        def ckgpkgs [] { hyprctl --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/ckgpkgs"; hyprctl dispatch focusmonitor eDP-1; nvim ~/.config/nixos/ckgpkgs }
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask
       '';

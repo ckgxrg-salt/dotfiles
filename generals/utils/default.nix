@@ -7,7 +7,7 @@
     enable = true;
     enableSshSupport = true;
     enableZshIntegration = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentryPackage = pkgs.pinentry-rofi;
   };
 
   # Git VCS
@@ -28,4 +28,5 @@
     notifications = true;
     mpd.musicDirectory = config.xdg.userDirs.music;
   };
+
 }

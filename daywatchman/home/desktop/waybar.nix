@@ -30,7 +30,7 @@
 
         "image#launcher" = {
           path = "${config.home.homeDirectory}/.config/waybar/icon.png";
-          on-click = "nwg-drawer";
+          on-click = "rofi -show drun";
           tooltip = "Show Application Drawer";
           size = 32;
         };

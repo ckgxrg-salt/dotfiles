@@ -6,7 +6,6 @@
     fastfetch
     v2raya
     procs
-    btop
     dust
     cowsay
     asciiquarium
@@ -28,13 +27,14 @@
     gnome-decoder
     impression
     bottles
+    keepassxc
+    seahorse
 
     # Applications
     # Productivity
     obsidian
     libreoffice
     audacity
-    vscodium
     krita
     rnote
     blender

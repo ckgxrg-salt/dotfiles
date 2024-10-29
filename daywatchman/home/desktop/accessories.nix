@@ -24,9 +24,31 @@
 
     playerctl
     pwvucontrol
-
-    nwg-drawer
   ];
+
+  # Rofi
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    cycle = true;
+    font = "Maple Mono 16";
+    location = "top-right";
+    plugins = with pkgs; [
+      rofi-emoji-wayland
+      rofi-mpd
+      rofi-systemd
+      rofi-obsidian
+      rofi-bluetooth
+      rofi-screenshot
+      rofi-power-menu
+    ];
+    terminal = "${pkgs.alacritty}/bin/alacritty";
+    theme = "Adapta-Nokto";
+    extraConfig = {
+      show-icons = true;
+      icon-theme = config.ckgxrg.themes.icon.name;
+    };
+  };
 
   # Mako vs Alien
   services.mako = {
@@ -80,9 +102,7 @@
       tray: auto
   '';
 
-  services.cliphist = {
-    enable = true;
-  };
+  services.cliphist.enable = true;
 
   # Waypaper
   xdg.configFile."waypaper/config.ini".source =

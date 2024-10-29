@@ -23,7 +23,7 @@
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = "hexagon_dots";
     };
-    kernelPackages = pkgs.linuxPackages_lqx;
+    kernelPackages = pkgs.linuxPackages_xanmod;
     kernelParams = [
       "noefi"
       "quiet"
@@ -33,14 +33,5 @@
       #"i915.force_probe=!9a49"
       #"xe.force_probe=9a49"
     ];
-    kernelModules = [
-      "tcp_bbr"
-    ];
-    # BBR Congestion Algorithm
-    kernel.sysctl = {
-      "net.ipv4.tcp_congestion_control" = "bbr";
-      "net.ipv4.default_qdisc" = "cake";
-      "vm.laptop_mode" = 5;
-    };
   };
 }

@@ -27,6 +27,14 @@
       + ''
         set(c, scheme = 'dark', intensity = 'medium')
       '';
+    keyBindings = {
+      normal = {
+        "pw" = "spawn --userscript qute-keepassxc --key DE3A8B9C65FBCBE2";
+      };
+      insert = {
+        "<Alt-Shift-u>" = "spawn --userscript qute-keepassxc --key DE3A8B9C65FBCBE2";
+      };
+    };
     settings = {
       auto_save.session = true;
       changelog_after_upgrade = "never";

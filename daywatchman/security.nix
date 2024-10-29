@@ -12,10 +12,6 @@
     '';
   };
 
-  # Gnome Keyring
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
-
   # AppArmor MAC
   security.apparmor = {
     enable = true;

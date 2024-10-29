@@ -47,9 +47,10 @@
       }
       # Neotree: Summon
       {
-        action = "<Cmd>Neotree toggle<CR>";
+        action = "<Cmd>Neotree toggle<CR><Cmd>cd .<CR>";
         key = "<M-b>";
       }
+
       # Undotree: Summon
       {
         action = "<Cmd>UndotreeToggle<CR>";
@@ -57,11 +58,11 @@
       }
       # Trouble: Summon
       {
-        action = "<Cmd>Trouble diagnostics<CR>";
+        action = "<Cmd>Trouble diagnostics toggle<CR>";
         key = "<M-o>";
       }
       {
-        action = "<Cmd>Trouble lsp<CR>";
+        action = "<Cmd>Trouble lsp toggle<CR>";
         key = "<M-s>";
       }
       # Barbar: Navigate between tabs

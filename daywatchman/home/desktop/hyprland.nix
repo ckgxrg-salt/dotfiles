@@ -152,8 +152,6 @@
           "stayfocused, class:(polkit-kde-authentication-agent-1)"
           "size 50% 40%, class:(polkit-kde-authentication-agent-1)"
           "float, class:(xdg-desktop-portal-gtk)"
-          "float, class:(QQ)"
-          "center, class:(QQ)"
           "workspace name: , class:(Waydroid)"
           "fullscreen, class:(Waydroid)"
         ];
@@ -265,7 +263,7 @@
         "$mainMod" = "SUPER";
         "$terminal" = "alacritty";
         "$fileManager" = "dolphin";
-        "$menu" = "nwg-drawer";
+        "$menu" = "rofi -show drun";
         bind = [
           # Basics
           "$mainMod, Q, exec, $terminal"
