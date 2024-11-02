@@ -20,7 +20,7 @@
         WantedBy = [ "hyprland-session.target" ];
       };
     };
-    # Mako the lightweight notification daemon
+     # Mako the lightweight notification daemon
     "mako" = {
       Unit = {
         Description = "Lightweight Wayland notification daemon";

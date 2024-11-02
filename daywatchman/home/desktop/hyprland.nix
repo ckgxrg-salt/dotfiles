@@ -152,7 +152,7 @@
           "stayfocused, class:(polkit-kde-authentication-agent-1)"
           "size 50% 40%, class:(polkit-kde-authentication-agent-1)"
           "float, class:(xdg-desktop-portal-gtk)"
-          "workspace name: , class:(Waydroid)"
+          "workspace name: silent, class:(Waydroid)"
           "fullscreen, class:(Waydroid)"
         ];
         layerrule = [
@@ -310,7 +310,7 @@
           "$mainMod SHIFT, 0, movetoworkspace, 10"
           # Special workspaces
           "$mainMod, S, togglespecialworkspace, browser"
-          "$mainMod SHIFT, W, workspace, name: "
+          "$mainMod SHIFT, W, workspace, name:"
           "$mainMod, P, workspace, name:dashboard"
           "$mainMod SHIFT, S, movetoworkspace, special:browser"
           "$mainMod SHIFT, P, movetoworkspace, name:dashboard"
@@ -398,7 +398,7 @@
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
+        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
       ];
       config = {
         common = {
@@ -410,7 +410,7 @@
             "gtk"
           ];
           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+          "org.freedesktop.impl.portal.Secret" = [ "pass_secret_service" ];
         };
       };
     };

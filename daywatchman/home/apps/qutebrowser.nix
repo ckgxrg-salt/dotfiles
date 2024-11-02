@@ -29,10 +29,10 @@
       '';
     keyBindings = {
       normal = {
-        "pw" = "spawn --userscript qute-keepassxc --key 6D65636C688397F1";
+        "pw" = "spawn --userscript qute-pass";
       };
       insert = {
-        "<Alt-Shift-u>" = "spawn --userscript qute-keepassxc --key 6D65636C688397F1";
+        "<Alt-Shift-u>" = "spawn --userscript qute-pass";
       };
     };
     settings = {

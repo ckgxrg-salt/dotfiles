@@ -15,7 +15,6 @@
     blueberry
     networkmanagerapplet
     grimblast
-    keepmenu
 
     brightnessctl
     pamixer
@@ -38,7 +37,7 @@
       rofi-emoji-wayland
     ];
     terminal = "${pkgs.alacritty}/bin/alacritty";
-    theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-3.rasi";
+    theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-1/style-1.rasi";
     extraConfig = {
       show-icons = true;
       icon-theme = config.ckgxrg.themes.icon.name;

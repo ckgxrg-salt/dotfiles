@@ -4,7 +4,7 @@ I also included some packages and modules that are not included in nixpkgs from 
 Feel free to refer to my configurations, but don't expect they'll work out of box on your device.
 
 ### TODO
-0. change to rofi; add dotfiles script
-1. Remove Daywarden's waybar, use ags instead
-2. Impl Howdy
-3. Probably try to migrate to BSD
+1. Enhance greetd
+2. Remove Daywarden's waybar, use ags instead
+3. Impl Howdy
+inf. Probably try to migrate to BSD

@@ -16,6 +16,7 @@
     ../../generals/terminal/bash.nix
     ../../generals/nixvim
     ../../generals/utils
+    ../../generals/apps/pass.nix
   ];
 
   # Input Method

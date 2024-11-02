@@ -27,7 +27,6 @@
     gnome-decoder
     impression
     bottles
-    keepassxc
     seahorse
 
     # Applications
