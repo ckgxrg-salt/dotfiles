@@ -1,4 +1,9 @@
-{ pkgs, ckgs, config, ... }:
+{
+  pkgs,
+  ckgs,
+  config,
+  ...
+}:
 # Extra programs for Hyprland
 {
   imports = [
@@ -116,7 +121,7 @@
     };
 
   # Keepmenu config
-  xdg.configFile."keepmenu/config.ini".source = 
+  xdg.configFile."keepmenu/config.ini".source =
     let
       iniFormat = pkgs.formats.ini { };
     in

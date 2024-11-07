@@ -80,7 +80,6 @@
           ./daywatchman
           lanzaboote.nixosModules.lanzaboote
           ckgpkgs.nixosModules.ckgsys
-          lix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

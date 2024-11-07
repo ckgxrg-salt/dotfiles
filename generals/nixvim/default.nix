@@ -25,6 +25,7 @@
       number = true;
       relativenumber = true;
       tabstop = 4;
+      shiftwidth = 2;
     };
 
     # Diagnostics

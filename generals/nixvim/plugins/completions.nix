@@ -33,9 +33,6 @@
           '';
         };
         sources = [
-          { name = "buffer"; }
-          { name = "cmdline"; }
-          { name = "path"; }
           { name = "luasnip"; }
           { name = "treesitter"; }
           { name = "nvim_lsp"; }

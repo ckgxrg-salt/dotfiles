@@ -17,6 +17,7 @@
         formatters_by_ft = {
           rust = [ "rustfmt" ];
           java = [ "google-java-format" ];
+          markdown = [ "markdownfmt" ];
           "_" = [
             "squeeze_blanks"
             "trim_whitespace"

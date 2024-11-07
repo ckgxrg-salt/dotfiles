@@ -7,6 +7,7 @@
     ./desktop/ags
     ./desktop/daemons.nix
     ./terminal
+    ./terminal/starship.nix
     ./apps/nixvim.nix
     ./apps/qutebrowser.nix
     ./apps/misc.nix
@@ -30,8 +31,12 @@
   # Add fcitx5 to GTK settings
   gtk = {
     gtk2.extraConfig = "gtk-im-module=\"fcitx\"";
-    gtk3.extraConfig = { gtk-im-module = "fcitx"; };
-    gtk4.extraConfig = { gtk-im-module = "fcitx"; };
+    gtk3.extraConfig = {
+      gtk-im-module = "fcitx";
+    };
+    gtk4.extraConfig = {
+      gtk-im-module = "fcitx";
+    };
   };
 
   # User and home directory

@@ -36,7 +36,7 @@
     audacity
     krita
     rnote
-    blender
+    #TODO: wait until openusd fixed: blender
     blockbench
     # Media
     bilibili
@@ -50,7 +50,6 @@
     # Communication
     cinny-desktop
     qq
-    rustdesk-flutter
     # Web
     tor-browser
     thunderbird

@@ -43,6 +43,7 @@
       permittedInsecurePackages = [
         "cinny-4.2.2"
         "cinny-unwrapped-4.2.2"
+        "electron-30.5.1"
       ];
     };
   };
