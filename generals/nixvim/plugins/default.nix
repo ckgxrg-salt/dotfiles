@@ -98,6 +98,11 @@
     todo-comments = {
       enable = true;
     };
+    # Motions
+    leap = {
+      enable = true;
+      addDefaultMappings = true;
+    };
 
     # Project management
     project-nvim = {

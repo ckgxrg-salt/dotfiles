@@ -103,6 +103,7 @@
     nvim-bqf = {
       enable = true;
       autoEnable = true;
+      autoResizeHeight = true;
     };
     # Treesitter
     treesitter = {

@@ -22,7 +22,7 @@
           format = ''
             function(entry, item)
               local menu_icon ={
-                  nvim_lsp = ' ',
+                  nvim_lsp = ' ',
                   luasnip = '󰢱 ',
                   buffer = ' ',
                   path = ' ',

@@ -419,8 +419,32 @@
       createDirectories = true;
     };
     # Override some desktop entries
-    desktopEntries =
-      {
+    desktopEntries = {
+      # Fix Electron IME
+      "obsidian" = {
+        name = "Obsidian";
+        icon = "obsidian";
+        comment = "Knowledge base";
+        exec = "obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
+        type = "Application";
+        mimeType = [ "x-scheme-handler/obsidian" ];
+        categories = [ "Office" ];
+        settings = {
+          Version = "1.4";
+        };
       };
+      "qq" = {
+        name = "QQ";
+        icon = "${pkgs.qq}/share/icons/hicolor/512x512/apps/qq.png";
+        comment = "QQ";
+        terminal = false;
+        exec = "qq --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
+        type = "Application";
+        categories = [ "Network" ];
+        settings = {
+          StartupWMClass = "QQ";
+        };
+      };
+    };
   };
 }

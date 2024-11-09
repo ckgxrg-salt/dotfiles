@@ -9,20 +9,26 @@
     dust
     cowsay
     asciiquarium
+    lazygit
     lolcat
     fortune
     psmisc
     gamemode
     maa-cli
 
+    # So far, Qt 6 packages require qtwayland explicitly in path. 
+    qt6Packages.qtwayland
+    # And dolphin need this explicitly to show icons. 
+    qt6Packages.qtsvg
+
     # Desktop Utilities
     alacritty
     system-config-printer
     kdePackages.kdeconnect-kde
-    okular
+    kdePackages.okular
     pix
-    dolphin
-    ark
+    kdePackages.dolphin
+    kdePackages.ark
     snapshot
     gnome-decoder
     impression

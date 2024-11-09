@@ -8,7 +8,7 @@
     enableNushellIntegration = config.programs.nushell.enable;
     settings = {
       format = ''
-        [󱞡 ](bold green)[](#4F585E)[$shell$username($nix_shell)](bg:#3C4841)[](#3C4841)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle $java)(''\n| $rust)
+        [󱞡 ](bold green)[](#4F585E)[$shell$username($nix_shell)](bg:#3F5865)[](#3F5865)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle $java)(''\n| $rust)
         [󱞩 ](bold green)$directory[-> ](blue)
       '';
       right_format = ''
