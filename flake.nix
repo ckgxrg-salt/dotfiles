@@ -68,10 +68,16 @@
       lix,
       ...
     }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+    in
     {
       # Daywatchman
       nixosConfigurations.Daywatchman = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = {
           inherit inputs;
           ckgs = ckgpkgs.packages.${system};
@@ -104,7 +110,7 @@
           inherit inputs;
           ckgs = ckgpkgs.packages.${system};
         };
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./radilopa
           lanzaboote.nixosModules.lanzaboote
@@ -127,5 +133,22 @@
           }
         ];
       };
+
+      # A nix develop shell including formatter and linter to be used with Neovim
+      devShell.${system} = pkgs.mkShell {
+        name = "dotfiles";
+
+        buildInputs = with pkgs; [
+          nixfmt-rfc-style
+          deadnix
+        ];
+
+        shellHook = ''
+          exec nu
+        '';
+      };
+
+      # Support nix fmt command
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }

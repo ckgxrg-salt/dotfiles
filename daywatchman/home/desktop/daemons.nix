@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   ...
 }:
 # Daemons for the desktop environment

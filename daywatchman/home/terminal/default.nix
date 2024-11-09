@@ -44,12 +44,12 @@
         }
 
         $env.MANPAGER = "nvim +Man!";
-        $env.LS_COLORS = (vivid generate solarized-dark | str trim)
+        $env.LS_COLORS = (vivid generate catppuccin-mocha | str trim)
 
         def ciallo [] { fortune | cowsay | lolcat }
 
-        def dotfiles [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/system"; hyprctl --quiet dispatch focusmonitor eDP-1; nvim ~/.config/nixos/system }
-        def ckgpkgs [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/ckgpkgs"; hyprctl --quiet dispatch focusmonitor eDP-1; nvim ~/.config/nixos/ckgpkgs }
+        def dotfiles [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/system -e nix develop"; cd ~/.config/nixos/system; hyprctl --quiet dispatch focusmonitor eDP-1; nix develop }
+        def ckgpkgs [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/ckgpkgs -e nix develop"; cd ~/.config/nixos/ckgpkgs; hyprctl --quiet dispatch focusmonitor eDP-1; nix develop }
 
         def dev [ name ] { hyprctl --quiet --batch $"dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/Documents/Codes/($name) -e nix develop"; cd $"~/Documents/Codes/($name)"; hyprctl --quiet dispatch focusmonitor eDP-1; nix develop }
 

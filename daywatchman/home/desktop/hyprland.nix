@@ -223,11 +223,13 @@
             passes = 3;
             vibrancy = 0.1696;
           };
+          shadow = {
+            enabled = true;
+            range = 6;
+            render_power = 3;
+            color = "rgba(1c1c1cee)";
+          };
           rounding = 18;
-          drop_shadow = true;
-          shadow_range = 6;
-          shadow_render_power = 3;
-          "col.shadow" = "rgba(1c1c1cee)";
           active_opacity = 0.9;
           inactive_opacity = 0.8;
         };

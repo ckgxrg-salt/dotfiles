@@ -17,6 +17,7 @@
         formatters_by_ft = {
           rust = [ "rustfmt" ];
           java = [ "google-java-format" ];
+          nix = [ "nixfmt" ];
           markdown = [ "markdownfmt" ];
           "_" = [
             "squeeze_blanks"
@@ -39,6 +40,7 @@
       lintersByFt = {
         rust = [ "clippy" ];
         java = [ "checkstyle" ];
+        nix = [ "deadnix" ];
       };
       linters = {
         checkstyle = {
