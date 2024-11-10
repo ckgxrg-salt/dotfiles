@@ -156,11 +156,13 @@
     package = pkgs.kdePackages.sddm;
     wayland.enable = true;
     theme = "sddm-astronaut-theme";
-    extraPackages = with pkgs; [
-      qt6Packages.qtwayland
-      qt6Packages.qtsvg
+    extraPackages = with pkgs.kdePackages; [
+      breeze-icons
+      kirigami
+      plasma5support
+      qtsvg
+      qtvirtualkeyboard
     ];
-
   };
 
   # dconf
