@@ -136,6 +136,7 @@
           __GLX_VENDOR_LIBRARY_NAME = "nvidia";
           NVD_BACKEND = "direct";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
+          NIXOS_OZONE_WL = "1";
           ELM_DISPLAY = "wl";
           SDL_VIDEODRIVER = "wayland";
         };

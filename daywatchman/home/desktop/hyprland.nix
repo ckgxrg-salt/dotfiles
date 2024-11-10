@@ -141,6 +141,7 @@
         ];
         env = lib.mapAttrsToList (name: value: "${name},${toString value}") {
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
+          NIXOS_OZONE_WL = "1";
           ELM_DISPLAY = "wl";
           SDL_VIDEODRIVER = "wayland";
         };
