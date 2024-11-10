@@ -1,6 +1,5 @@
 {
   pkgs,
-  ckgs,
   config,
   ...
 }:
@@ -150,15 +149,18 @@
 
   # SDDM Session Manager
   environment.systemPackages = with pkgs; [
-    ckgs.sugar-candy-sddm
-    qt6Packages.qtwayland
-    qt6Packages.qtsvg
+    sddm-astronaut
   ];
   services.displayManager.sddm = {
     enable = true;
     package = pkgs.kdePackages.sddm;
     wayland.enable = true;
-    theme = "sugar-candy";
+    theme = "sddm-astronaut-theme";
+    extraPackages = with pkgs; [
+      qt6Packages.qtwayland
+      qt6Packages.qtsvg
+    ];
+
   };
 
   # dconf

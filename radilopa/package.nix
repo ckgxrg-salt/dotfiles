@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}:
+{ inputs, pkgs, ... }:
 {
   # Nix configuration
   nix.settings = {
@@ -43,4 +40,10 @@
 
   # Placeholders
   programs.nano.enable = false;
+  programs.hyprland = {
+    enable = true;
+    systemd.setPath.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+  };
 }
