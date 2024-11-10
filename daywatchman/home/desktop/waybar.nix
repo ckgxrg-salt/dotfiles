@@ -4,141 +4,137 @@
   # Waybar the Wayland Bar
   programs.waybar = {
     enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        output = "eDP-1";
-        position = "right";
-        width = 60;
-        spacing = 5;
-        margin = "6 6 6 6";
-        modules-left = [
-          "image#launcher"
-          "idle_inhibitor"
-          "hyprland/workspaces"
-          "image#add"
-        ];
-        modules-center = [ "gamemode" ];
-        modules-right = [
-          "mpris"
-          "network"
-          "pulseaudio/slider"
-          "clock"
-          "battery"
-          "tray"
-        ];
+    settings.mainBar = {
+      layer = "top";
+      output = "eDP-1";
+      position = "right";
+      width = 60;
+      spacing = 5;
+      margin = "6 6 6 6";
+      modules-left = [
+        "image#launcher"
+        "idle_inhibitor"
+        "hyprland/workspaces"
+        "image#add"
+      ];
+      modules-center = [ "gamemode" ];
+      modules-right = [
+        "mpris"
+        "network"
+        "pulseaudio/slider"
+        "clock"
+        "battery"
+        "tray"
+      ];
 
-        "image#launcher" = {
-          path = "${config.home.homeDirectory}/.config/waybar/icon.png";
-          on-click = "rofi -show drun";
-          tooltip = "Show Application Drawer";
-          size = 32;
+      "image#launcher" = {
+        path = "${config.home.homeDirectory}/.config/waybar/icon.png";
+        on-click = "rofi -show drun";
+        tooltip = "Show Application Drawer";
+        size = 32;
+      };
+      "hyprland/workspaces" = {
+        format = "{name}";
+        format-window-separator = " | ";
+        sort-by = "id";
+      };
+      "image#add" = {
+        path = "${config.home.homeDirectory}/.config/waybar/add.png";
+        on-click = "hyprctl dispatch workspace +1";
+        tooltip = "New Workspace";
+        size = 32;
+      };
+      "idle_inhibitor" = {
+        format = "{icon}";
+        tooltip-format-activated = "Inhibited Idle";
+        tooltip-format-deactivated = "This widget says Zzz, pretending to be asleep";
+        format-icons = {
+          activated = "";
+          deactivated = "󰒲";
         };
-        "hyprland/workspaces" = {
-          format = "{name}";
-          format-window-separator = " | ";
-          sort-by = "id";
+      };
+      "mpris" = {
+        format = "{player_icon}";
+        format-paused = "{status_icon}";
+        title-len = 16;
+        ellipsis = "...";
+        on-click-right = "next";
+        on-click-middle = "previous";
+        player-icons = {
+          default = "▶";
+          elisa = "🎵";
         };
-        "image#add" = {
-          path = "${config.home.homeDirectory}/.config/waybar/add.png";
-          on-click = "hyprctl dispatch workspace +1";
-          tooltip = "New Workspace";
-          size = 32;
+        status-icons.paused = "⏸";
+      };
+      "gamemode" = {
+        glyph = "";
+        hide-not-running = true;
+        format = "";
+        format-alt = "";
+      };
+      "battery" = {
+        interval = 10;
+        states = {
+          "ful" = 100;
+          "good" = 95;
+          "warning" = 20;
+          "critical" = 10;
         };
-        "idle_inhibitor" = {
-          format = "{icon}";
-          tooltip-format-activated = "Inhibited Idle";
-          tooltip-format-deactivated = "This widget says Zzz, pretending to be asleep";
-          format-icons = {
-            activated = "";
-            deactivated = "󰒲";
+        format = "{icon} {capacity}%";
+        format-charging = "󰂄 {capacity}%";
+        format-plugged = "󰂄";
+        format-ful = "󱟢 Full";
+        format-good = "{icon} {capacity}%";
+        format-warning = "󰂃 {capacity}%";
+        format-critical = "󱉞 {capacity}%";
+        format-icons = [
+          "󰁼"
+          "󰁾"
+          "󰁾"
+          "󰂂"
+          "󰂂"
+        ];
+      };
+      "pulseaudio/slider" = {
+        min = 0;
+        max = 100;
+        orientation = "vertical";
+      };
+      "network" = {
+        interval = 1;
+        format-wifi = "  =)";
+        format-ethernet = "󰈀  =)";
+        format-linked = "󰌷  =/";
+        format-disconnected = "󱛅  =(";
+      };
+      "clock" = {
+        format = "󰥔 {:%H:%M}";
+        format-alt = "󰥔 {:%A, %B %d, %Y (%R)}";
+        tooltip-format = "<tt><small>{calendar}</small></tt>";
+        calendar = {
+          mode = "year";
+          mode-mon-col = 3;
+          weeks-pos = "right";
+          on-scroll = 1;
+          format = {
+            months = "<span color='#ffead3'><b>{}</b></span>";
+            days = "<span color='#ecc6d9'><b>{}</b></span>";
+            weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+            weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+            today = "<span color='#ff6699'><b><u>{}</u></b></span>";
           };
         };
-        "mpris" = {
-          format = "{player_icon}";
-          format-paused = "{status_icon}";
-          title-len = 16;
-          ellipsis = "...";
-          on-click-right = "next";
-          on-click-middle = "previous";
-          player-icons = {
-            default = "▶";
-            elisa = "🎵";
-          };
-          status-icons = {
-            paused = "⏸";
-          };
+        actions = {
+          on-click-right = "mode";
+          on-click-forward = "tz_up";
+          on-click-backward = "tz_down";
+          on-scroll-up = "shift_up";
+          on-scroll-down = "shift_down";
         };
-        "gamemode" = {
-          glyph = "";
-          hide-not-running = true;
-          format = "";
-          format-alt = "";
-        };
-        "battery" = {
-          interval = 10;
-          states = {
-            "ful" = 100;
-            "good" = 95;
-            "warning" = 20;
-            "critical" = 10;
-          };
-          format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "󰂄";
-          format-ful = "󱟢 Full";
-          format-good = "{icon} {capacity}%";
-          format-warning = "󰂃 {capacity}%";
-          format-critical = "󱉞 {capacity}%";
-          format-icons = [
-            "󰁼"
-            "󰁾"
-            "󰁾"
-            "󰂂"
-            "󰂂"
-          ];
-        };
-        "pulseaudio/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "vertical";
-        };
-        "network" = {
-          interval = 1;
-          format-wifi = "  =)";
-          format-ethernet = "󰈀  =)";
-          format-linked = "󰌷  =/";
-          format-disconnected = "󱛅  =(";
-        };
-        "clock" = {
-          format = "󰥔 {:%H:%M}";
-          format-alt = "󰥔 {:%A, %B %d, %Y (%R)}";
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          calendar = {
-            mode = "year";
-            mode-mon-col = 3;
-            weeks-pos = "right";
-            on-scroll = 1;
-            format = {
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
-            };
-          };
-          actions = {
-            on-click-right = "mode";
-            on-click-forward = "tz_up";
-            on-click-backward = "tz_down";
-            on-scroll-up = "shift_up";
-            on-scroll-down = "shift_down";
-          };
-        };
-        "tray" = {
-          icon-size = 16;
-          spacing = 10;
-        };
+      };
+      "tray" = {
+        icon-size = 16;
+        spacing = 10;
       };
     };
     style = ''
@@ -330,6 +326,8 @@
   };
 
   # The Icons
-  home.file.".config/waybar/icon.png".source = ../../../assets/nixos.png;
-  home.file.".config/waybar/add.png".source = ../../../assets/add.png;
+  home.file = {
+    ".config/waybar/icon.png".source = ../../../assets/nixos.png;
+    ".config/waybar/add.png".source = ../../../assets/add.png;
+  };
 }

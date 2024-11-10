@@ -39,11 +39,11 @@
     };
   };
 
-  # User and home directory
-  home.username = "ckgxrg";
-  home.homeDirectory = "/home/ckgxrg";
-
-  # Home Manager
-  home.stateVersion = "24.05";
+  # Home-manager
+  home = {
+    username = "ckgxrg";
+    homeDirectory = "/home/ckgxrg";
+    stateVersion = "24.05";
+  };
   programs.home-manager.enable = true;
 }

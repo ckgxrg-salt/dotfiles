@@ -16,7 +16,7 @@
 
     cursor = {
       name = "Vimix-Cursors";
-      size = 24;
+      size = 28;
       pkg = pkgs.vimix-cursor-theme;
     };
 
@@ -34,7 +34,7 @@
 
     font = {
       name = "Maple Mono";
-      size = 14;
+      size = 16;
     };
   };
 }

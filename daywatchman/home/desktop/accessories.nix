@@ -24,6 +24,7 @@
     brightnessctl
     pamixer
     libnotify
+    wl-clipboard
 
     libsForQt5.polkit-kde-agent
 
@@ -117,20 +118,6 @@
         color = "#ffffff";
         subfolders = true;
         monitors = "eDP-1";
-      };
-    };
-
-  # Keepmenu config
-  xdg.configFile."keepmenu/config.ini".source =
-    let
-      iniFormat = pkgs.formats.ini { };
-    in
-    iniFormat.generate "keepmenu.ini" {
-      dmenu = {
-        dmenu_command = "rofi -dmenu";
-      };
-      dmenu_passphrase = {
-        obscure = true;
       };
     };
 

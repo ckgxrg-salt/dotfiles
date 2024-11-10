@@ -1,5 +1,4 @@
 {
-  ckgxrg,
   ckgs,
   ...
 }:
@@ -45,15 +44,14 @@
         $env.LS_COLORS = (vivid generate solarized-dark | str trim)
 
         def ciallo [] { fortune | cowsay | lolcat }
-        def clear [] { ^clear; ciallo }
 
-        alias true-clear = ^clear
-        alias syscfg = cd ~/.config/nixos/system
-        alias syspkg = cd ~/.config/nixos/ckgpkgs
+        def dotfiles [] { cd ~/.config/nixos/system; nix develop }
+        def ckgpkgs [] { cd ~/.config/nixos/ckgpkgs; nix develop }
+
+        def dev [ name ] { cd $"~/Documents/Codes/($name)"; nix develop }
+
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask
-
-        ciallo
       '';
     };
   };

@@ -1,66 +1,53 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   # Home-manager packages for Radilopa
   home.packages = with pkgs; [
     # Terminal Utilities
-    neofetch
-    wget
-    v2raya
-    procs
-    cowsay
     asciiquarium
-    lolcat
+    cowsay
+    fastfetch
     fortune
-    zellij
-    psmisc
     gamemode
-    nvitop
+    lazygit
+    lolcat
     maa-cli
+    inputs.nix-alien.packages.${system}.nix-alien
+    nvitop
+    procs
+    psmisc
     ripgrep
+    v2raya
+
+    # So far, Qt 6 packages require qtwayland explicitly in path. 
+    qt6Packages.qtwayland
+    # And dolphin need this explicitly to show icons. 
+    qt6Packages.qtsvg
 
     # Desktop Utilities
-    dolphin
-    okular
     alacritty
+    kdePackages.ark
+    bottles
+    kdePackages.dolphin
+    kdePackages.filelight
     lenovo-legion
-
-    # Games
-    prismlauncher
+    kdePackages.okular
+    pix
+    seahorse
 
     # Applications
-    tor
-    tor-browser
+    # Productivity
+    blockbench
+    libreoffice
+    obsidian
     vscodium
-    filelight
-    ark
+    # Media
+    kdePackages.elisa
+    # Gaming
+    prismlauncher
+    # Communication
+    qq
+    # Web
+    thunderbird
+    tor-browser
   ];
-
-  # Flatpak packages
-  services.flatpak = {
-    enable = true;
-    remotes = [
-      {
-        name = "flathub";
-        location = "https://mirror.sjtu.edu.cn/flathub";
-      }
-    ];
-    update.auto = {
-      enable = true;
-      onCalendar = "daily";
-    };
-    packages = [
-      "md.obsidian.Obsidian"
-      "com.qq.QQ"
-      "org.kde.elisa"
-      "org.mozilla.Thunderbird"
-      "org.kde.pix"
-
-      "net.blockbench.Blockbench"
-
-      "org.libreoffice.LibreOffice"
-      "org.gnome.SoundRecorder"
-
-      "com.usebottles.bottles"
-    ];
-  };
 }

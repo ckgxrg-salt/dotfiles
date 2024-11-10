@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # btop System Monitor
   programs.btop = {

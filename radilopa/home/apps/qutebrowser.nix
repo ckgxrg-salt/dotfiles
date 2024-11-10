@@ -25,16 +25,38 @@
         }
       }/city-lights-theme.py')
     '';
+    keyBindings = {
+      normal = {
+        "pw" = "spawn --userscript qute-pass";
+      };
+      insert = {
+        "<Alt-Shift-u>" = "spawn --userscript qute-pass";
+      };
+    };
     settings = {
       auto_save.session = true;
       changelog_after_upgrade = "never";
-      tabs.last_close = "close";
-      content.cookies.accept = "no-unknown-3rdparty";
-      content.headers.do_not_track = true;
+      tabs = {
+        last_close = "close";
+        new_position.unrelated = "next";
+        favicons.scale = 1.5;
+        "padding['bottom']" = 10;
+        "padding['left']" = 7;
+        "padding['right']" = 7;
+        "padding['top']" = 10;
+      };
+      content = {
+        cookies.accept = "no-unknown-3rdparty";
+        headers.do_not_track = true;
+      };
       colors.webpage.preferred_color_scheme = "dark";
       fonts.default_family = "Maple Mono";
       zoom.default = "125%";
-      url.start_pages = "about:blank";
+      url = {
+        start_pages = "about:blank";
+        default_page = "about:blank";
+        open_base_url = true;
+      };
     };
   };
 }

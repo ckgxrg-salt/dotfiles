@@ -4,15 +4,18 @@
   # Include home generals
   imports = [
     ./desktop/hyprland.nix
+    ./desktop/daemons.nix
+    ./terminal
+    ./terminal/starship.nix
+    ./apps/nixvim.nix
+    ./apps/qutebrowser.nix
     ./package.nix
     ./theme.nix
-    ./terminal
-    ./apps/qutebrowser.nix
-    ./apps/nixvim.nix
     ../../generals/terminal/accessories.nix
     ../../generals/terminal/bash.nix
     ../../generals/nixvim
     ../../generals/utils
+    ../../generals/apps/pass.nix
   ];
 
   # Input Method
@@ -24,12 +27,22 @@
       fcitx5-rime
     ];
   };
+  # Add fcitx5 to GTK settings
+  gtk = {
+    gtk2.extraConfig = "gtk-im-module=\"fcitx\"";
+    gtk3.extraConfig = {
+      gtk-im-module = "fcitx";
+    };
+    gtk4.extraConfig = {
+      gtk-im-module = "fcitx";
+    };
+  };
 
-  # User and home directory
-  home.username = "ckgxrg";
-  home.homeDirectory = "/home/ckgxrg";
-
-  # Home Manager
-  home.stateVersion = "23.11";
+  # Home-manager
+  home = {
+    username = "ckgxrg";
+    homeDirectory = "/home/ckgxrg";
+    stateVersion = "23.11";
+  };
   programs.home-manager.enable = true;
 }

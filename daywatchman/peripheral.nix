@@ -32,10 +32,14 @@
   services.pipewire = {
     enable = true;
     audio.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
   };
+  # Suppress the default impl of xdg sounds
+  ckgxrg.themes.sound.enable = true;
 
   # TLP the power saver
   services.tlp = {
@@ -45,9 +49,7 @@
     };
   };
 
-  services.thermald = {
-    enable = true;
-  };
+  services.thermald.enable = true;
 
   # Violent Power Save
   powerManagement = {
@@ -61,13 +63,13 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      mesa
       intel-media-driver
       intel-compute-runtime
+      libva-vdpau-driver
     ];
     extraPackages32 = with pkgs.driversi686Linux; [
-      mesa
       intel-media-driver
+      libva-vdpau-driver
     ];
   };
 }

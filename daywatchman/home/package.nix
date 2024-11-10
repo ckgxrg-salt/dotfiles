@@ -1,20 +1,23 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   # Home-manager packages for Daywatchman
   home.packages = with pkgs; [
     # Terminal Utilities
-    fastfetch
-    v2raya
-    procs
-    dust
-    cowsay
     asciiquarium
+    cowsay
+    dust
+    fastfetch
+    fortune
+    gamemode
     lazygit
     lolcat
-    fortune
-    psmisc
-    gamemode
     maa-cli
+    inputs.nix-alien.packages.${system}.nix-alien
+    powertop
+    procs
+    psmisc
+    ripgrep
+    v2raya
 
     # So far, Qt 6 packages require qtwayland explicitly in path. 
     qt6Packages.qtwayland
@@ -23,41 +26,40 @@
 
     # Desktop Utilities
     alacritty
-    system-config-printer
+    kdePackages.ark
+    bottles
+    kdePackages.dolphin
+    gnome-decoder
+    impression
     kdePackages.kdeconnect-kde
     kdePackages.okular
     pix
-    kdePackages.dolphin
-    kdePackages.ark
-    snapshot
-    gnome-decoder
-    impression
-    bottles
     seahorse
+    snapshot
+    system-config-printer
 
     # Applications
     # Productivity
-    obsidian
-    libreoffice
-    audacity
-    krita
-    rnote
     #TODO: wait until openusd fixed: blender
     blockbench
+    krita
+    libreoffice
+    obsidian
+    rnote
     # Media
     bilibili
-    freetube
     foliate
-    komikku
+    freetube
     gimp
+    komikku
     # Gaming
-    prismlauncher
     moonlight-qt
+    prismlauncher
     # Communication
     cinny-desktop
     qq
     # Web
-    tor-browser
     thunderbird
+    tor-browser
   ];
 }

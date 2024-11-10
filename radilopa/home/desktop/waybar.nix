@@ -4,132 +4,128 @@
   # Waybar the Wayland Bar
   programs.waybar = {
     enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 16;
-        spacing = 0;
-        modules-left = [
-          "image#launcher"
-          "hyprland/workspaces"
-          "idle_inhibitor"
-        ];
-        modules-center = [ "gamemode" ];
-        modules-right = [
-          "mpris"
-          "network"
-          "pulseaudio/slider"
-          "clock"
-          "battery"
-          "tray"
-        ];
+    settings.mainBar = {
+      layer = "top";
+      position = "top";
+      height = 16;
+      spacing = 0;
+      modules-left = [
+        "image#launcher"
+        "hyprland/workspaces"
+        "idle_inhibitor"
+      ];
+      modules-center = [ "gamemode" ];
+      modules-right = [
+        "mpris"
+        "network"
+        "pulseaudio/slider"
+        "clock"
+        "battery"
+        "tray"
+      ];
 
-        "image#launcher" = {
-          path = "${config.home.homeDirectory}/.config/waybar/icon.png";
-          on-click = "rofi -show drun";
-          tooltip = "Show Rofi Menu";
-          size = 32;
+      "image#launcher" = {
+        path = "${config.home.homeDirectory}/.config/waybar/icon.png";
+        on-click = "rofi -show drun";
+        tooltip = "Show Rofi Menu";
+        size = 32;
+      };
+      "idle_inhibitor" = {
+        format = "{icon}";
+        tooltip-format-activated = "Inhibited Hypridle";
+        tooltip-format-deactivated = "This widget says Zzz, pretending to be sleeping";
+        format-icons = {
+          activated = " No Idle";
+          deactivated = "󰒲";
         };
-        "idle_inhibitor" = {
-          format = "{icon}";
-          tooltip-format-activated = "Inhibited Hypridle";
-          tooltip-format-deactivated = "This widget says Zzz, pretending to be sleeping";
-          format-icons = {
-            activated = " No Idle";
-            deactivated = "󰒲";
+      };
+      "hyprland/workspaces" = {
+        format = "{name}";
+        format-window-separator = " | ";
+        sort-by = "id";
+      };
+      "mpris" = {
+        format = "{player_icon} {title}";
+        format-paused = "{status_icon} <i>{title}</i>";
+        title-len = 16;
+        ellipsis = "...";
+        on-click-right = "next";
+        on-click-middle = "previous";
+        player-icons = {
+          default = "▶";
+          elisa = "🎵";
+        };
+        status-icons.paused = "⏸";
+      };
+      "gamemode" = {
+        glyph = "";
+        hide-not-running = true;
+        format = "{glyph} |Gamemode Active| {glyph}";
+        format-alt = "{glyph} |Gamemode Active| {glyph}";
+      };
+      "battery" = {
+        interval = 10;
+        states = {
+          "ful" = 100;
+          "good" = 95;
+          "warning" = 20;
+          "critical" = 10;
+        };
+        format = "{icon} {capacity}%";
+        format-charging = "󰂄 {capacity}% | {time}  󱧥";
+        format-plugged = "󰂄{capacity}% | {time}  󱧥";
+        format-ful = "󱟢 Full";
+        format-good = "{icon} {capacity}%";
+        format-warning = "󰂃 {capacity}%";
+        format-critical = "󱉞 {capacity}%";
+        format-icons = [
+          "󰁼"
+          "󰁾"
+          "󰁾"
+          "󰂂"
+          "󰂂"
+        ];
+      };
+      "pulseaudio/slider" = {
+        min = 0;
+        max = 100;
+        orientation = "horizontal";
+      };
+      "network" = {
+        interval = 1;
+        format-wifi = "  {essid} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+        format-ethernet = "󰈀  Connected";
+        format-linked = "󰌷  Linked";
+        format-disconnected = "󱛅  你不过关！";
+      };
+      "clock" = {
+        format = "󰥔 {:%H:%M}";
+        format-alt = "󰥔 {:%A, %B %d, %Y (%R)}";
+        tooltip-format = "<tt><small>{calendar}</small></tt>";
+        calendar = {
+          mode = "year";
+          mode-mon-col = 3;
+          weeks-pos = "right";
+          on-scroll = 1;
+          format = {
+            months = "<span color='#ffead3'><b>{}</b></span>";
+            days = "<span color='#ecc6d9'><b>{}</b></span>";
+            weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+            weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+            today = "<span color='#ff6699'><b><u>{}</u></b></span>";
           };
         };
-        "hyprland/workspaces" = {
-          format = "{name}";
-          format-window-separator = " | ";
-          sort-by = "id";
+        actions = {
+          on-click-right = "mode";
+          on-click-forward = "tz_up";
+          on-click-backward = "tz_down";
+          on-scroll-up = "shift_up";
+          on-scroll-down = "shift_down";
         };
-        "mpris" = {
-          format = "{player_icon} {title}";
-          format-paused = "{status_icon} <i>{title}</i>";
-          title-len = 16;
-          ellipsis = "...";
-          on-click-right = "next";
-          on-click-middle = "previous";
-          player-icons = {
-            default = "▶";
-            elisa = "🎵";
-          };
-          status-icons = {
-            paused = "⏸";
-          };
-        };
-        "gamemode" = {
-          glyph = "";
-          hide-not-running = true;
-          format = "{glyph} |Gamemode Active| {glyph}";
-          format-alt = "{glyph} |Gamemode Active| {glyph}";
-        };
-        "battery" = {
-          interval = 10;
-          states = {
-            "ful" = 100;
-            "good" = 95;
-            "warning" = 20;
-            "critical" = 10;
-          };
-          format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}% | {time}  󱧥";
-          format-plugged = "󰂄{capacity}% | {time}  󱧥";
-          format-ful = "󱟢 Full";
-          format-good = "{icon} {capacity}%";
-          format-warning = "󰂃 {capacity}%";
-          format-critical = "󱉞 {capacity}%";
-          format-icons = [
-            "󰁼"
-            "󰁾"
-            "󰁾"
-            "󰂂"
-            "󰂂"
-          ];
-        };
-        "pulseaudio/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "horizontal";
-        };
-        "network" = {
-          interval = 1;
-          format-wifi = "  {essid} 󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
-          format-ethernet = "󰈀  Connected";
-          format-linked = "󰌷  Linked";
-          format-disconnected = "󱛅  你不过关！";
-        };
-        "clock" = {
-          format = "󰥔 {:%H:%M}";
-          format-alt = "󰥔 {:%A, %B %d, %Y (%R)}";
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          calendar = {
-            mode = "year";
-            mode-mon-col = 3;
-            weeks-pos = "right";
-            on-scroll = 1;
-            format = {
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
-            };
-          };
-          actions = {
-            on-click-right = "mode";
-            on-click-forward = "tz_up";
-            on-click-backward = "tz_down";
-            on-scroll-up = "shift_up";
-            on-scroll-down = "shift_down";
-          };
-        };
-        "tray" = {
-          icon-size = 16;
-          spacing = 10;
-        };
+      };
+      "tray" = {
+        icon-size = 16;
+        spacing = 10;
       };
     };
     style = ''

@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ckgs,
+  config,
+  ...
+}:
 # Extra programs for Hyprland
 {
   imports = [
@@ -11,13 +16,39 @@
   home.packages = with pkgs; [
     waypaper
     swww
-    brightnessctl
-    libnotify
-    libsForQt5.polkit-kde-agent
-    pwvucontrol
-    playerctl
+    udiskie
     blueberry
+    networkmanagerapplet
+    grimblast
+
+    brightnessctl
+    pamixer
+    libnotify
+    wl-clipboard
+
+    libsForQt5.polkit-kde-agent
+
+    playerctl
+    pwvucontrol
   ];
+
+  # Rofi
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    cycle = true;
+    font = "Maple Mono 16";
+    location = "top-right";
+    plugins = with pkgs; [
+      rofi-emoji-wayland
+    ];
+    terminal = "${pkgs.alacritty}/bin/alacritty";
+    theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-1.rasi";
+    extraConfig = {
+      show-icons = true;
+      icon-theme = config.ckgxrg.themes.icon.name;
+    };
+  };
 
   # Mako the Notification Daemon
   services.mako = {
@@ -29,40 +60,36 @@
     height = 150;
     width = 450;
     icons = true;
-    iconPath = "/etc/profiles/per-user/ckgxrg/share/icons:/run/current-system/sw/share/icons";
     maxIconSize = 64;
     maxVisible = 3;
+
+    iconPath = "${config.home.profileDirectory}/share/icons/${config.ckgxrg.themes.icon.name}";
   };
 
-  # Rofi the Application Launcher
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-    location = "top-left";
-    font = "Maple Mono 14";
-    theme = "material";
-  };
+  # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
+  xdg.configFile."udiskie/config.yml".text = ''
+    program_options:
+      automount: true
+      notify: true
+      tray: auto
+  '';
 
-  # UDiskie the Auto-Mount Manager
-  services.udiskie = {
-    enable = true;
-    notify = true;
-    tray = "auto";
-  };
-
-  services.cliphist = {
-    enable = true;
-  };
+  services.cliphist.enable = true;
 
   # Waypaper
-  xdg.configFile."waypaper/config.ini".text = ''
-    [Settings]
-    folder = /home/ckgxrg/Pictures/Wallpapers
-    fill = Fill
-    sort = name
-    backend = swww
-    color = #ffffff
-    subfolders = False
-    monitors = All
-  '';
+  xdg.configFile."waypaper/config.ini".source =
+    let
+      iniFormat = pkgs.formats.ini { };
+    in
+    iniFormat.generate "waypaper.ini" {
+      Settings = {
+        folder = "${config.xdg.userDirs.pictures}";
+        fill = "Fill";
+        sort = "name";
+        backend = "swww";
+        color = "#ffffff";
+        subfolders = true;
+        monitors = "eDP-1";
+      };
+    };
 }

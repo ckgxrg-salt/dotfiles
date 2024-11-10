@@ -2,11 +2,13 @@
 # System-wide settings for Daywarden
 {
 
-  # Network with NetworkManager and Firewall with NFTables
+  # Network with NetworkManager
   networking.networkmanager.enable = true;
   networking.wg-quick.interfaces = {
-    iof.configFile = "/etc/wireguard/iof.conf";
-    iof.autostart = false;
+    iof = {
+      configFile = "/etc/wireguard/iof.conf";
+      autostart = false;
+    };
   };
 
   # Allow KDE Connect
@@ -94,9 +96,6 @@
       }
     '';
   };
-
-  # Suppress system-default sound themes
-  ckgxrg.themes.sound.enable = true;
 
   documentation.nixos.enable = false;
 }

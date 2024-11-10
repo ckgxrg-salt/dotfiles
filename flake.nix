@@ -3,11 +3,6 @@
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Lix is a fork of Nix
-    lix = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/stable.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Custom packages
     ckgpkgs = {
       url = "github:ckgxrg-salt/ckgpkgs";
@@ -19,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix-Flatpak
-    flatpaks.url = "github:gmodena/nix-flatpak";
     # Nix-Alien
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
@@ -60,12 +53,10 @@
     inputs@{
       nixpkgs,
       ckgpkgs,
-      flatpaks,
       ags,
       home-manager,
       lanzaboote,
       nixvim,
-      lix,
       ...
     }:
     let
@@ -114,17 +105,15 @@
         modules = [
           ./radilopa
           lanzaboote.nixosModules.lanzaboote
-          home-manager.nixosModules.home-manager
-          lix.nixosModules.default
           ckgpkgs.nixosModules.ckgsys
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ckgxrg.imports = [
-              flatpaks.homeManagerModules.nix-flatpak
+              ./radilopa/home
               nixvim.homeManagerModules.nixvim
               ckgpkgs.homeManagerModules.ckgmods
-              ./radilopa/home
             ];
             home-manager.extraSpecialArgs = {
               inherit inputs;
@@ -135,7 +124,7 @@
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim
-      devShell.${system} = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShell {
         name = "dotfiles";
 
         buildInputs = with pkgs; [

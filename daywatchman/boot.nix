@@ -7,8 +7,10 @@
   boot = {
     bootspec.enable = true;
     loader = {
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot";
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
       timeout = 0;
       systemd-boot.enable = lib.mkForce false;
     };
@@ -21,7 +23,7 @@
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "hexagon_dots";
+      theme = "hexa_retro";
     };
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
@@ -33,5 +35,11 @@
       #"i915.force_probe=!9a49"
       #"xe.force_probe=9a49"
     ];
+    # BBR Congestion Algorithm
+    kernelModules = [ "tcp_bbr" ];
+    kernel.sysctl = {
+      "net.ipv4.tcp_congestion_control" = "bbr";
+      "net.ipv4.default_qdisc" = "cake";
+    };
   };
 }

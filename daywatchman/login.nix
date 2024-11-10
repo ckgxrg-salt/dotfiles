@@ -6,20 +6,22 @@
 }:
 {
   # Strange messages
-  environment.etc."motd".text = ''
-               \\
-                \\
-    ========     ||
-                 ||
-    ========     ||
-                //
-               //
-  '';
-  environment.etc."issue".text = ''
-    ============================
-    <-- The Daywatchmen Site -->
-    ============================
-  '';
+  environment.etc = {
+    "motd".text = ''
+                 \\
+                  \\
+      ========     ||
+                   ||
+      ========     ||
+                  //
+                 //
+    '';
+    "issue".text = ''
+      ============================
+      <-- The Daywatchmen Site -->
+      ============================
+    '';
+  };
 
   # Replace the default perl script
   services.userborn.enable = true;

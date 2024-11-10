@@ -1,14 +1,13 @@
 {
   pkgs,
   ckgs,
-  ckgxrg,
   config,
   ...
 }:
 # System-wide settings for Radilopa
 {
-  # My Name!
-  networking.hostName = "Radilopa";
+  # Replace the default perl script
+  services.userborn.enable = true;
 
   # Power Button Behaviour
   services.logind = {
@@ -41,8 +40,10 @@
   services.pipewire = {
     enable = true;
     audio.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
   };
   # Suppress the default impl of xdg sounds
@@ -52,18 +53,32 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages32 = [ pkgs.driversi686Linux.mesa ];
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      libva-vdpau-driver
+      amdvlk
+    ];
+    extraPackages32 = with pkgs.driversi686Linux; [
+      libva-vdpau-driver
+      amdvlk
+    ];
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+    dpi = 189;
+  };
   hardware.nvidia = {
-    open = false;
+    open = true;
     powerManagement.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     modesetting.enable = true;
     prime = {
       nvidiaBusId = "PCI:1:0:0";
       amdgpuBusId = "PCI:6:0:0";
-      sync.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
     };
   };
 
@@ -77,6 +92,7 @@
       "wheel"
       "input"
       "gamemode"
+      "video"
     ];
   };
 
@@ -107,12 +123,9 @@
     fontDir.enable = true;
     packages = with pkgs; [
       noto-fonts-emoji
-      noto-fonts-cjk
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       powerline-fonts
-      wqy_zenhei
-      wqy_microhei
       maple-mono
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
@@ -135,30 +148,21 @@
     };
   };
 
-  # Proxychains
-  programs.proxychains = {
-    enable = true;
-    package = pkgs.proxychains;
-    proxies = {
-      v2raya = {
-        type = "socks5";
-        host = "127.0.0.1";
-        port = 20170;
-      };
-    };
-  };
-
-  # SDDM Session Manager & Gnome Keyring
-  environment.systemPackages = [ ckgs.sugar-candy-sddm ];
-  security.pam.services.sddm.enableGnomeKeyring = true;
-  security.pam.services.hyprlock = { };
+  # SDDM Session Manager
+  environment.systemPackages = with pkgs; [
+    ckgs.sugar-candy-sddm
+    qt6Packages.qtwayland
+    qt6Packages.qtsvg
+  ];
   services.displayManager.sddm = {
     enable = true;
-    package = pkgs.libsForQt5.sddm;
+    package = pkgs.kdePackages.sddm;
     wayland.enable = true;
     theme = "sugar-candy";
   };
 
+  # dconf
+  programs.dconf.enable = true;
   # Polkit Authentication
   security.polkit.enable = true;
   # TLP the power saver
@@ -171,6 +175,8 @@
   programs.nix-ld.enable = true;
   # Waydroid Emulator
   virtualisation.waydroid.enable = true;
+  # Cooling
+  services.thermald.enable = true;
 
   # MPD daemon
   services.mpd = {
@@ -182,4 +188,6 @@
       }
     '';
   };
+
+  documentation.nixos.enable = false;
 }

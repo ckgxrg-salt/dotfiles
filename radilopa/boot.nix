@@ -9,30 +9,33 @@
   boot = {
     bootspec.enable = true;
     loader = {
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot";
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
       systemd-boot.enable = lib.mkForce false;
     };
     # Setup Secure Boot
     lanzaboote = {
       enable = true;
-      pkiBundle = "/home/ckgxrg/Keyring/SB-Bundle";
+      pkiBundle = "/etc/secureboot";
     };
     # Setup boot splash
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "liquid";
+      theme = "spin";
     };
     # Use Xanmod kernel with Nvidia modules
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     extraModulePackages = with config.boot.kernelPackages; [ lenovo-legion-module ];
     supportedFilesystems = [
-      "btrfs"
       "ntfs"
     ];
     kernelParams = [
+      "noefi"
       "quiet"
+      "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
