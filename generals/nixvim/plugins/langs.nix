@@ -58,6 +58,14 @@
       };
     };
 
+    # Working with Nix
+    nix = {
+      enable = true;
+    };
+    nix-develop = {
+      enable = true;
+    };
+
     # Other language servers
     lsp = {
       enable = true;
