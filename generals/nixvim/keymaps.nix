@@ -89,12 +89,6 @@
         mode = "n";
         options.desc = "hover.nvim (Next Source)";
       }
-      {
-        action = "<Cmd>lua require('hover').hover_mouse()<CR>";
-        key = "<MouseMove>";
-        mode = "n";
-        options.desc = "hover.nvim (Mouse)";
-      }
 
       # Barbar: Navigate between tabs
       {

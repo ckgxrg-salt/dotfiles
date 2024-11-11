@@ -26,7 +26,6 @@
       relativenumber = true;
       tabstop = 4;
       shiftwidth = 2;
-      mousemoveevent = true;
     };
 
     # Diagnostics
