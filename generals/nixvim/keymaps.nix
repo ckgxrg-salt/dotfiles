@@ -33,18 +33,21 @@
           silent = true;
         };
       }
+
       # Dap & Dap-UI: Enter debugging mode
       {
-        action = "<Cmd>lua require(\"dapui\").toggle()<CR>";
+        action = "<Cmd>lua require('dapui').toggle()<CR>";
         key = "<M-d>";
         mode = "n";
       }
+
       # Glow: Preview Markdown
       {
         action = "<Cmd>Glow<CR>";
         key = "<M-r>";
         mode = "n";
       }
+
       # Neotree: Summon
       {
         action = "<Cmd>Neotree toggle<CR><Cmd>cd .<CR>";
@@ -56,6 +59,7 @@
         action = "<Cmd>UndotreeToggle<CR>";
         key = "<M-u>";
       }
+
       # Trouble: Summon
       {
         action = "<Cmd>Trouble diagnostics toggle<CR>";
@@ -65,6 +69,33 @@
         action = "<Cmd>Trouble lsp toggle<CR>";
         key = "<M-s>";
       }
+
+      # Hover: Summon
+      {
+        action = "<Cmd>lua require('hover').hover()<CR>";
+        key = "K";
+        mode = "n";
+        options.desc = "hover.nvim";
+      }
+      {
+        action = "<Cmd>lua require('hover').hover_switch('previous')<CR>";
+        key = "<C-p>";
+        mode = "n";
+        options.desc = "hover.nvim (Previous Source)";
+      }
+      {
+        action = "<Cmd>lua require('hover').hover_switch('next')<CR>";
+        key = "<C-n>";
+        mode = "n";
+        options.desc = "hover.nvim (Next Source)";
+      }
+      {
+        action = "<Cmd>lua require('hover').hover_mouse()<CR>";
+        key = "<MouseMove>";
+        mode = "n";
+        options.desc = "hover.nvim (Mouse)";
+      }
+
       # Barbar: Navigate between tabs
       {
         action = "<Cmd>BufferPrevious<CR>";
