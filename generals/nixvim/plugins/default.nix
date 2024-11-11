@@ -68,6 +68,28 @@
     };
     # Fancy icons
     web-devicons.enable = true;
+    # Enhanced UI
+    nui = {
+      enable = true;
+    };
+    noice = {
+      enable = true;
+      settings = {
+        presets = {
+          command_palette = true;
+        };
+        hover = {
+          silent = true;
+        };
+      };
+    };
+    # Notifications
+    notify = {
+      enable = true;
+      stages = "slide";
+      topDown = true;
+      timeout = 3000;
+    };
 
     # Coding Experience
     # Dim inactive code
@@ -138,14 +160,6 @@
         current_line_blame_formatter = " <author>, <author_time> - <summary> ";
         word_diff = true;
       };
-    };
-
-    # Working with Nix
-    nix = {
-      enable = true;
-    };
-    nix-develop = {
-      enable = true;
     };
   };
 }
