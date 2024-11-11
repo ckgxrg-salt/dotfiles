@@ -145,7 +145,7 @@
           "build.gradle"
         ];
         scope_chdir = "win";
-        silent_chdir = false;
+        silent_chdir = true;
       };
     };
     git-worktree = {
