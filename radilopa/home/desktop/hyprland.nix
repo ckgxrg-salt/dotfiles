@@ -66,7 +66,7 @@
       brightnessScript = pkgs.writeShellScript "mako-brightness-script" ''
                     iDIR="$HOME/.config/mako/icons"
                     get_backlight() {
-        	            LIGHT=$(printf "%.0f\n" $(brightnessctl get --device=intel_backlight))
+        	            LIGHT=$(printf "%.0f\n" $(brightnessctl get))
         	            echo $(expr $LIGHT / 960)
                     }
                     get_icon() {
@@ -88,10 +88,10 @@
                       canberra-gtk-play -i audio-volume-change -d "changeBrightness"
                     }
                     inc_backlight() {
-        	            brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=asus_screenpad set 5%+ && get_icon && notify_user
+        	            brightnessctl set 5%+ && get_icon && notify_user
                     }
                     dec_backlight() {
-        	            brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=asus_screenpad set 5%- && get_icon && notify_user
+        	            brightnessctl set 5%- && get_icon && notify_user
                     }
                     if [[ "$1" == "--get" ]]; then
         	            get_backlight
