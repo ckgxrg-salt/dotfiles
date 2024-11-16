@@ -37,8 +37,8 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "cinny-4.2.2"
-      "cinny-unwrapped-4.2.2"
+      "cinny-4.2.3"
+      "cinny-unwrapped-4.2.3"
       "electron-30.5.1"
     ];
   };

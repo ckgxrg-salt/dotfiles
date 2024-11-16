@@ -11,6 +11,7 @@
     ./apps/nixvim.nix
     ./apps/qutebrowser.nix
     ./apps/misc.nix
+    ./apps/lf.nix
     ./package.nix
     ./theme.nix
     ../../generals/terminal/accessories.nix

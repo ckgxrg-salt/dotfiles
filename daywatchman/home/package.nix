@@ -28,7 +28,7 @@
     alacritty
     kdePackages.ark
     bottles
-    kdePackages.dolphin
+    libsForQt5.index
     gnome-decoder
     impression
     kdePackages.kdeconnect-kde
@@ -40,12 +40,13 @@
 
     # Applications
     # Productivity
-    #TODO: wait until openusd fixed: blender
     blockbench
     krita
     libreoffice
     obsidian
     rnote
+    errands
+    pomodoro-gtk
     # Media
     bilibili
     foliate

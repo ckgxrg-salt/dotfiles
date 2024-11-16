@@ -135,7 +135,6 @@
           "wl-paste --type image --watch cliphist store"
           "aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log"
           # Sync brightness of screens
-          "brightnessctl set --device=asus_screenpad `brightnessctl get --device=intel_backlight`"
           "notify-send 'Welcome to Hyprland'"
           "canberra-gtk-play -i desktop-login -d \"welcome\""
         ];
@@ -265,7 +264,7 @@
         # Binds
         "$mainMod" = "SUPER";
         "$terminal" = "alacritty";
-        "$fileManager" = "dolphin";
+        "$fileManager" = "index";
         "$menu" = "rofi -show drun";
         bind = [
           # Basics

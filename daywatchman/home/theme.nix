@@ -10,8 +10,11 @@
     };
 
     qt = {
-      name = "Otto";
-      pkg = ckgs.otto-kvantum;
+      name = "catppuccin-macchiato-lavender";
+      pkg = pkgs.catppuccin-kvantum.override {
+        accent = "lavender";
+        variant = "macchiato";
+      };
     };
 
     cursor = {
