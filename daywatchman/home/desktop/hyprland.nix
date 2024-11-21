@@ -409,7 +409,7 @@
             "gtk"
           ];
           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-          "org.freedesktop.impl.portal.Secret" = [ "pass_secret_service" ];
+          "org.freedesktop.impl.portal.Secret" = [ "pass-secret-service" ];
         };
       };
     };

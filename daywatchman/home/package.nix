@@ -57,7 +57,7 @@
     moonlight-qt
     prismlauncher
     # Communication
-    cinny-desktop
+    kdePackages.neochat
     qq
     # Web
     thunderbird
