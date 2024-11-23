@@ -18,6 +18,9 @@
           rust = [ "rustfmt" ];
           java = [ "google-java-format" ];
           nix = [ "nixfmt" ];
+          kotlin = [ "ktlint" ];
+          haskell = [ "stylish-haskell" ];
+          typescript = [ "deno_fmt" ];
           markdown = [ "markdownfmt" ];
           "_" = [
             "squeeze_blanks"
@@ -41,6 +44,9 @@
         rust = [ "clippy" ];
         java = [ "checkstyle" ];
         nix = [ "deadnix" ];
+        kotlin = [ "ktlint" ];
+        haskell = [ "hlint" ];
+        typescript = [ "deno" ];
       };
       linters = {
         checkstyle = {

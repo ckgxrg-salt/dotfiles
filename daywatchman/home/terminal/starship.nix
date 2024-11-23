@@ -8,7 +8,7 @@
     enableNushellIntegration = config.programs.nushell.enable;
     settings = {
       format = ''
-        [󱞡 ](bold green)[](#4F585E)[$shell$username($nix_shell)](bg:#3F5865)[](#3F5865)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle $java)(''\n| $rust)
+        [󱞡 ](bold green)[](#4F585E)[$shell$username($nix_shell)](bg:#3F5865)[](#3F5865)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $haskell)(''\n| $deno)
         [󱞩 ](bold green)$directory[-> ](blue)
       '';
       right_format = ''
@@ -62,10 +62,25 @@
         style = "fg:#E69875 bg:#514045";
         symbol = " ";
       };
+      kotlin = {
+        format = "[](#514045)[$symbol($version)]($style)[](#514045)";
+        style = "fg:italic purple bg:#514045";
+        symbol = "󱈙 ";
+      };
       rust = {
         format = "[](#493B40)[$symbol($version)]($style)[](#493B40)";
         style = "fg:bold red bg:#493B40";
         symbol = " ";
+      };
+      haskell = {
+        format = "[](#503040)[$symbol($version)]($style)[](#503040)";
+        style = "fg:#3B4252 bg:#503040";
+        symbol = " ";
+      };
+      deno = {
+        format = "[󰝤](#5E81AC)[$symbol($version)]($style)[](#5E81AC)";
+        style = "fg:#DBBC7F bg:#5E81AC";
+        symbol = "󰛦 ";
       };
       nix_shell = {
         format = "[( $symbol($name))]($style) ";

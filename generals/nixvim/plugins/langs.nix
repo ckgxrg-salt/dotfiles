@@ -70,10 +70,14 @@
     lsp = {
       enable = true;
       servers = {
-        clangd.enable = true;
         marksman.enable = true;
         nil_ls.enable = true;
         denols.enable = true;
+        hls = {
+          enable = true;
+          installGhc = false;
+        };
+        kotlin_language_server.enable = true;
       };
     };
   };
