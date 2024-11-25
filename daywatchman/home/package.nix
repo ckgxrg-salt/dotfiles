@@ -31,7 +31,7 @@
     libsForQt5.index
     gnome-decoder
     impression
-    kdePackages.kdeconnect-kde
+    localsend
     kdePackages.okular
     pix
     seahorse
