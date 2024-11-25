@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  # Home-manager packages for Daywatchman
+  # Home-manager packages for Daywatch
   home.packages = with pkgs; [
     # Terminal Utilities
     asciiquarium
@@ -59,6 +59,7 @@
     # Communication
     kdePackages.neochat
     qq
+    zoom-us
     # Web
     thunderbird
     tor-browser

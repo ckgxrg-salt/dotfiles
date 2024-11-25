@@ -2,7 +2,7 @@
   ckgs,
   ...
 }:
-# Daywatchman terminal overrides
+# Daywatch terminal overrides
 {
   ckgxrg = {
     alacritty = {

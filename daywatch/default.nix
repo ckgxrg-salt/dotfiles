@@ -12,7 +12,7 @@
   ];
 
   # My Name!
-  networking.hostName = "Daywatchman";
+  networking.hostName = "Daywatch";
 
   system.stateVersion = "24.05";
 }

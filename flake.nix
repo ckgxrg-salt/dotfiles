@@ -67,14 +67,14 @@
     in
     {
       # Daywatchman
-      nixosConfigurations.Daywatchman = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.Daywatch = nixpkgs.lib.nixosSystem rec {
         inherit system;
         specialArgs = {
           inherit inputs;
           ckgs = ckgpkgs.packages.${system};
         };
         modules = [
-          ./daywatchman
+          ./daywatch
           lanzaboote.nixosModules.lanzaboote
           ckgpkgs.nixosModules.ckgsys
           home-manager.nixosModules.home-manager
@@ -82,7 +82,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ckgxrg.imports = [
-              ./daywatchman/home
+              ./daywatch/home
               ags.homeManagerModules.default
               nixvim.homeManagerModules.nixvim
               ckgpkgs.homeManagerModules.ckgmods
