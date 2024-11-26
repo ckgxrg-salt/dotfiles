@@ -36,7 +36,7 @@
     };
 
     font = {
-      name = "Maple Mono";
+      name = "Maple UI";
       size = 16;
     };
   };

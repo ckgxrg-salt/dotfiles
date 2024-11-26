@@ -102,7 +102,7 @@
         Background = "Tree.svg";
         BaseColor = "Theme";
         TextColor = "Theme";
-        FontFamily = "Maple Mono";
+        FontFamily = "Maple UI";
       };
       PowerCommands = {
         Suspend = "dbus";

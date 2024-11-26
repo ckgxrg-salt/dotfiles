@@ -37,7 +37,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
     cycle = true;
-    font = "Maple Mono 16";
+    font = "Maple UI 16";
     location = "top-right";
     plugins = with pkgs; [
       rofi-emoji-wayland

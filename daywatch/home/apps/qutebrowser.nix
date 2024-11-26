@@ -52,7 +52,15 @@
         headers.do_not_track = true;
       };
       colors.webpage.preferred_color_scheme = "dark";
-      fonts.default_family = "Maple Mono";
+      fonts = {
+        default_family = "Maple UI";
+        web.family = {
+          fixed = "Maple Mono SC NF";
+          sans_serif = "Maple UI";
+          serif = "Maple UI";
+          standard = "Maple UI";
+        };
+      };
       zoom.default = "125%";
       url = {
         start_pages = "about:blank";

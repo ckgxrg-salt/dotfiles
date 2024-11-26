@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 # System-wide settings for Daywarden
 {
 
@@ -21,15 +21,15 @@
       "en_GB.UTF-8/UTF-8"
     ];
     extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
+      LC_ADDRESS = "en_GB.UTF-8";
+      LC_IDENTIFICATION = "en_GB.UTF-8";
+      LC_MEASUREMENT = "en_GB.UTF-8";
+      LC_MONETARY = "en_GB.UTF-8";
+      LC_NAME = "en_GB.UTF-8";
+      LC_NUMERIC = "en_GB.UTF-8";
+      LC_PAPER = "en_GB.UTF-8";
+      LC_TELEPHONE = "en_GB.UTF-8";
+      LC_TIME = "en_GB.UTF-8";
     };
   };
 
@@ -38,26 +38,20 @@
     fontDir.enable = true;
     packages = with pkgs; [
       noto-fonts-emoji
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      powerline-fonts
-      maple-mono
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      maple-mono-SC-NF
+      ckgs.maple-ui
     ];
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "Maple Mono"
-          "Noto Sans Mono CJK SC"
+          "Maple Mono SC NF"
         ];
         sansSerif = [
-          "Maple Mono"
-          "Noto Sans CJK SC"
+          "Maple UI"
         ];
         serif = [
-          "Maple Mono"
-          "Noto Serif CJK SC"
+          "Maple UI"
         ];
       };
     };

@@ -139,7 +139,7 @@
     };
     style = ''
             * {
-              font-family: Maple Mono;
+              font-family: Maple UI;
               font-size: 14px;
               color: #8fbcbb;
               opacity: 10;
