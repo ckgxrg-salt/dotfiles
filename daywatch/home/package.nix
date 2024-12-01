@@ -28,6 +28,7 @@
     alacritty
     kdePackages.ark
     bottles
+    celluloid
     libsForQt5.index
     gnome-decoder
     impression

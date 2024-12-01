@@ -11,6 +11,12 @@
     };
   };
 
+  # Allow Localsend 
+  networking.firewall = rec {
+    allowedTCPPorts = [ 53317 ];
+    allowedUDPPorts = allowedTCPPorts;
+  };
+
   # Locale, I18n and Fcitx5
   time.timeZone = "Asia/Shanghai";
   i18n = {
@@ -40,6 +46,7 @@
       noto-fonts-emoji
       maple-mono-SC-NF
       ckgs.maple-ui
+      (nerdfonts.override { fonts = [ "Recursive" ]; })
     ];
     fontconfig = {
       defaultFonts = {
