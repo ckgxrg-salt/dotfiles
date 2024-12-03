@@ -48,6 +48,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # microvm.nix
+    microvm = {
+      url = "github:astro/micro-vm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
@@ -57,6 +63,7 @@
       home-manager,
       lanzaboote,
       nixvim,
+      microvm,
       ...
     }:
     let
@@ -67,7 +74,7 @@
     in
     {
       # Daywatchman
-      nixosConfigurations.Daywatch = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.Daywatch = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
@@ -96,7 +103,7 @@
       };
 
       #Radilopa
-      nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           ckgs = ckgpkgs.packages.${system};
@@ -120,6 +127,19 @@
               ckgs = ckgpkgs.packages.${system};
             };
           }
+        ];
+      };
+
+      # The home server...
+      nixosConfigurations.Welkin = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        inherit system;
+        modules = [
+          ./welkin
+          lanzaboote.nixosModules.lanzaboote
+          microvm.nixosModules.host
         ];
       };
 
