@@ -6,6 +6,7 @@
     ./desktop/hyprland.nix
     ./desktop/ags
     ./desktop/daemons.nix
+    ./desktop/xdg.nix
     ./terminal
     ./terminal/starship.nix
     ./apps/nixvim.nix
