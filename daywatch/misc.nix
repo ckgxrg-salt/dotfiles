@@ -64,9 +64,6 @@
     };
   };
 
-  # Polkit Authentication
-  security.polkit.enable = true;
-
   # dconf
   programs.dconf.enable = true;
   # Auto-Mount Backend
@@ -75,17 +72,6 @@
   programs.nix-ld.enable = true;
   # Waydroid Emulator
   virtualisation.waydroid.enable = true;
-
-  # MPD daemon
-  services.mpd = {
-    enable = true;
-    extraConfig = ''
-      audio_output {
-          type "pipewire"
-          name "PipeWire Output"
-      }
-    '';
-  };
 
   documentation.nixos.enable = false;
 }

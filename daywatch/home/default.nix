@@ -20,6 +20,7 @@
     ../../generals/nixvim
     ../../generals/utils
     ../../generals/apps/pass.nix
+    ../../generals/apps/mpd.nix
   ];
 
   # Input Method

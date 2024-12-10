@@ -12,6 +12,9 @@
     '';
   };
 
+  # Polkit
+  security.polkit.enable = true;
+
   # AppArmor MAC
   security.apparmor = {
     enable = true;

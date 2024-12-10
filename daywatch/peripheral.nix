@@ -36,7 +36,6 @@
       enable = true;
       support32Bit = true;
     };
-    pulse.enable = true;
   };
   # Suppress the default impl of xdg sounds
   ckgxrg.themes.sound.enable = true;
