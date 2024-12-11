@@ -19,9 +19,9 @@
     ripgrep
     v2raya
 
-    # So far, Qt 6 packages require qtwayland explicitly in path. 
+    # So far, Qt 6 packages require qtwayland explicitly in path.
     qt6Packages.qtwayland
-    # And dolphin need this explicitly to show icons. 
+    # And dolphin need this explicitly to show icons.
     qt6Packages.qtsvg
 
     # Desktop Utilities
@@ -58,7 +58,7 @@
     moonlight-qt
     prismlauncher
     # Communication
-    element-desktop
+    cinny-desktop
     qq
     # Web
     thunderbird

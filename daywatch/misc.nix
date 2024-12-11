@@ -46,7 +46,7 @@
       noto-fonts-emoji
       maple-mono-SC-NF
       ckgs.maple-ui
-      (nerdfonts.override { fonts = [ "Recursive" ]; })
+      nerd-fonts.symbols-only
     ];
     fontconfig = {
       defaultFonts = {

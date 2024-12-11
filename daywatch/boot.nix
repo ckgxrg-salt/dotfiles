@@ -6,6 +6,12 @@
   # Bootloader
   boot = {
     bootspec.enable = true;
+    # Use systemd instead of busybox
+    initrd = {
+      systemd.enable = true;
+      verbose = false;
+    };
+    consoleLogLevel = 0;
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -31,6 +37,7 @@
       "quiet"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
+      "udev.log_level=3"
       # Cutting-edge xe drivers, but somehow broken
       #"i915.force_probe=!9a49"
       #"xe.force_probe=9a49"

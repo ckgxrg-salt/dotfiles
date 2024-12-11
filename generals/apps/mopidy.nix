@@ -19,6 +19,12 @@
         hostname = "127.0.0.1";
         port = 6600;
       };
+      notify = {
+        enabled = true;
+        fallback_icon = "notification-audio-play";
+        track_summary = "\${track}";
+        track_message = "\${artists} - \${album}";
+      };
     };
   };
 

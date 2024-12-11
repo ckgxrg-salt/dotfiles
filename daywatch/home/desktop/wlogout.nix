@@ -18,6 +18,7 @@
       WantedBy = [ "lock.target" ];
     };
   };
+
   # Wlogout the Logout Menu
   programs.wlogout = {
     enable = true;
