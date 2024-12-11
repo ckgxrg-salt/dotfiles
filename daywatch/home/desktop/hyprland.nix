@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }:
 # Options for Hyprland and XDG
@@ -105,12 +104,11 @@
     in
     {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       systemd.enable = true;
       xwayland.enable = true;
-      plugins = [
-        inputs.hyprgrass.packages.${pkgs.system}.default
-        inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+      plugins = with pkgs; [
+        hyprlandPlugins.hyprgrass
+        hyprlandPlugins.hyprfocus
       ];
       settings = {
         # Hardware

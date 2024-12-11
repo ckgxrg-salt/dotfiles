@@ -1,7 +1,6 @@
 {
   pkgs,
   ckgs,
-  inputs,
   ...
 }:
 {
@@ -77,11 +76,11 @@
       vt = 7;
       settings = {
         initial_session = {
-          command = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+          command = "${pkgs.hyprland}/bin/Hyprland";
           user = "ckgxrg";
         };
         default_session = {
-          command = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland -c ${hyprConfig}";
+          command = "${pkgs.hyprland}/bin/Hyprland -c ${hyprConfig}";
           user = "greeter";
         };
       };

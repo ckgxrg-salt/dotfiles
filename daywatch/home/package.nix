@@ -58,9 +58,8 @@
     moonlight-qt
     prismlauncher
     # Communication
-    kdePackages.neochat
+    element-desktop
     qq
-    zoom-us
     # Web
     thunderbird
     tor-browser

@@ -5,6 +5,6 @@ Feel free to refer to my configurations, but don't expect they'll work out of bo
 
 ### TODO: 
 1. Enhance greetd
-2. Remove Daywatchman's waybar, use ags instead
-3. Impl Howdy
+2. Remove Daywatchman's waybar, use AGS instead
+3. Wrap MPC using AGS
 inf. Probably try to migrate to BSD

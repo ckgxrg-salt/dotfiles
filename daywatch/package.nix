@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 {
   # Nix configuration
   nix.settings = {
@@ -37,8 +37,8 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
+      "cinny-unwrapped-4.2.3"
       "olm-3.2.16"
-      "electron-30.5.1"
     ];
   };
 
@@ -47,8 +47,6 @@
   programs.hyprland = {
     enable = true;
     systemd.setPath.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
   # XDG Portal Placeholder
   environment.pathsToLink = [
