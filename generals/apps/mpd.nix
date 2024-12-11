@@ -19,12 +19,43 @@
   };
 
   # MPRIS implementation for MPD
-  services.mpdris2 = {
+  services.mpd-mpris = {
     enable = true;
-    multimediaKeys = true;
-    notifications = true;
+    mpd.useLocal = true;
   };
 
-  # MPD Client
-  home.packages = with pkgs; [ rofi-mpd ];
+  # Accessories
+  home.packages = with pkgs; [
+    mpc
+    mpd-notification
+    ymuse
+  ];
+
+  # Notification Service
+  systemd.user.services."mpd-notification" = {
+    Unit = {
+      Description = "Notifications for MPD";
+      Requires = [ "mpd.service" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.mpd-notification}/bin/mpd-notification";
+      Restart = "on-failure";
+    };
+    Install = {
+      WantedBy = [ "mpd.service" ];
+    };
+  };
+
+  # Config Notifications
+  xdg.configFile."mpd-notification.conf".text = ''
+    host = localhost
+    port = 6600
+    music-dir = ${config.xdg.userDirs.music}
+    scale = 200
+    text-topic = MPD
+    text-play = Playing <b>%t</b>\nby <i>%a</i>\nfrom <i>%A</i>
+    text-pause = Paused <b>%t</b>\nby <i>%a</i>\nfrom <i>%A</i>
+    text-stop = Stopped playback
+    timeout = 5
+  '';
 }

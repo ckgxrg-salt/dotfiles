@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 # Miscellaneous gadgets
 {
   # GNU Privacy Guard
@@ -21,13 +21,4 @@
       commit.gpgsign = true;
     };
   };
-
-  # Mpris Media Control
-  services.mpdris2 = {
-    enable = true;
-    multimediaKeys = true;
-    notifications = true;
-    mpd.musicDirectory = config.xdg.userDirs.music;
-  };
-
 }
