@@ -56,8 +56,8 @@
     };
 
   # Background image
-  environment.etc."regreet/background-img.png" = {
-    source = "${config.users.users.ckgxrg.home}/Pictures/Wallpapers/desert-sunset.png";
+  environment.etc."regreet/background-img" = {
+    source = "${config.users.users.ckgxrg.home}/Pictures/Wallpapers/everforest/japanese_pedestrian_street.png";
     user = "greeter";
     mode = "660";
   };
@@ -88,7 +88,7 @@
     # Config
     settings = {
       background = {
-        path = "/etc/regreet/background-img.png";
+        path = "/etc/regreet/background-img";
         fit = "Fill";
       };
       appearance = {

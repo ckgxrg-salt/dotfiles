@@ -2,23 +2,28 @@
 # Options for WLogout
 {
   # Summon wlogout on lock event
-  systemd.user.services."wlogout" = {
-    Unit = {
-      Description = "wlogout Logout Screen";
-      Requires = [ "graphical-session.target" ];
+  systemd.user.services."wlogout" =
+    let
+      summon-wlogout = pkgs.writeShellScript "summon-wlogout" ''
+        hyprctl dispatch exec "canberra-gtk-play -i desktop-logout -d wlogout"
+        hyprctl dispatch exec uwsm app -- wlogout
+        systemctl --user start unlock.target
+      '';
+    in
+    {
+      Unit = {
+        Description = "wlogout Logout Screen";
+        Requires = [ "graphical-session.target" ];
+      };
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.bash}/bin/bash ${summon-wlogout}";
+        Slice = "app-graphical.slice";
+      };
+      Install = {
+        WantedBy = [ "lock.target" ];
+      };
     };
-    Service = {
-      Type = "exec";
-      Restart = "no";
-      ExecStartPost = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play -i desktop-logout -d \"wlogout\"";
-      ExecStart = "${pkgs.wlogout}/bin/wlogout";
-      ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
-      Slice = "app-graphical.slice";
-    };
-    Install = {
-      WantedBy = [ "lock.target" ];
-    };
-  };
 
   # Wlogout the Logout Menu
   programs.wlogout = {
@@ -38,7 +43,7 @@
       }
       {
         label = "logout";
-        action = "loginctl terminate-user \"\"";
+        action = "uwsm stop";
         text = "End Session";
         keybind = "e";
       }
