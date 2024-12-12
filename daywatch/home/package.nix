@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  # Home-manager packages for Daywatch
+  # Home-manager packages
   home.packages = with pkgs; [
     # Terminal Utilities
     asciiquarium
@@ -32,7 +32,6 @@
     libsForQt5.index
     gnome-decoder
     impression
-    localsend
     kdePackages.okular
     pix
     seahorse
@@ -60,6 +59,7 @@
     # Communication
     cinny-desktop
     qq
+    rustdesk
     # Web
     thunderbird
     tor-browser

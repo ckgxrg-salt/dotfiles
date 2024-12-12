@@ -4,41 +4,6 @@
   ...
 }:
 {
-  # Strange messages
-  environment.etc = {
-    "motd".text = ''
-                 \\
-                  \\
-      ========     ||
-                   ||
-      ========     ||
-                  //
-                 //
-    '';
-    "issue".text = ''
-        ============================
-      <-- The Daywatch Site -->
-        ============================
-    '';
-  };
-
-  # Replace the default perl script
-  services.userborn.enable = true;
-
-  # ckgxrg's Account
-  users.users.ckgxrg = {
-    isNormalUser = true;
-    description = "ckgxrg";
-    shell = pkgs.nushell;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "input"
-      "gamemode"
-      "video"
-    ];
-  };
-
   # Greetd Session Manager
   environment.systemPackages = [ ckgs.qtgreet ];
   services.greetd =

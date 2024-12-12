@@ -34,23 +34,14 @@
   };
 
   # Allow unfree and insecure packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      "cinny-4.2.3"
-      "cinny-unwrapped-4.2.3"
-    ];
+  nixpkgs = {
+    hostPlatform = "x86_64-linux";
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "cinny-4.2.3"
+        "cinny-unwrapped-4.2.3"
+      ];
+    };
   };
-
-  # Placeholders
-  programs.nano.enable = false;
-  programs.hyprland = {
-    enable = true;
-    systemd.setPath.enable = true;
-  };
-  # XDG Portal Placeholder
-  environment.pathsToLink = [
-    "/share/xdg-desktop-portal"
-    "/share/applications"
-  ];
 }

@@ -1,29 +1,12 @@
 {
-  config,
-  lib,
   modulesPath,
   ...
 }:
-
+#========== Filesystem ==========#
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
-  boot = {
-    initrd.availableKernelModules = [
-      "xhci_pci"
-      "thunderbolt"
-      "vmd"
-      "nvme"
-      "usbhid"
-      "usb_storage"
-      "sd_mod"
-      "rtsx_usb_sdmmc"
-    ];
-    kernelModules = [ "kvm-intel" ];
-  };
-
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/4475d92b-fa6e-4b0f-9aef-d9dd6e49a67a";
@@ -64,13 +47,8 @@
       ];
     };
   };
-
+  # Swap
   swapDevices = [
     { device = "/dev/disk/by-uuid/52b32533-3831-4659-b24b-06614e4e9e35"; }
   ];
-
-  networking.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

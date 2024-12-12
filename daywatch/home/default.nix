@@ -1,46 +1,33 @@
-{ pkgs, ... }:
-# Home-manager configuration for Daywarden
+{ ... }:
+# Home-manager entrypoint
 {
   # Include home modules
   imports = [
+    # Desktop environment
     ./desktop/hyprland.nix
-    ./desktop/ags
     ./desktop/daemons.nix
     ./desktop/xdg.nix
+
+    # Terminal environment
     ./terminal
     ./terminal/starship.nix
-    ./apps/nixvim.nix
-    ./apps/qutebrowser.nix
-    ./apps/misc.nix
-    ./apps/lf.nix
-    ./package.nix
-    ./theme.nix
     ../../generals/terminal/accessories.nix
     ../../generals/terminal/bash.nix
-    ../../generals/nixvim
-    ../../generals/utils
-    ../../generals/apps/pass.nix
-    ../../generals/apps/mopidy.nix
-  ];
 
-  # Input Method
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-fluent
-      fcitx5-rime
-    ];
-  };
-  # Add fcitx5 to GTK settings
-  gtk = {
-    gtk2.extraConfig = "gtk-im-module=\"fcitx\"";
-    gtk3.extraConfig = {
-      gtk-im-module = "fcitx";
-    };
-    gtk4.extraConfig = {
-      gtk-im-module = "fcitx";
-    };
-  };
+    # Applications
+    ./apps/nixvim.nix
+    ./apps/qutebrowser.nix
+    ./apps/btop.nix
+    ./apps/lf.nix
+    ./apps/localsend.nix
+    ../../generals/apps/pass.nix
+    ../../generals/apps/mpd.nix
+
+    # Other
+    ./package.nix
+    ./theme.nix
+    ../../generals/utils
+  ];
 
   # Home-manager
   home = {

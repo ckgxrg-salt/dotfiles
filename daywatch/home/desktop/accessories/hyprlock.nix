@@ -1,7 +1,6 @@
 { ... }:
-# Options for some hypr* programs
+#Hyprland's screen locker
 {
-  # Hyprlock the screen-locker
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -48,33 +47,6 @@
           placeholder_text = ''<span foreground="##cad3f5">Who asked you...</span>'';
           fail_text = "sus";
           shadow_passes = 2;
-        }
-      ];
-    };
-  };
-
-  # Hypridle the idle daemon
-  services.hypridle = {
-    enable = true;
-    settings = {
-      lock_cmd = "pidof hyprlock || hyprlock --immediate";
-      unlock_cmd = "pkill -USR1 hyprlock";
-      before_sleep_cmd = "hyprctl dispatch dpms off";
-      after_sleep_cmd = "hyprctl dispatch dpms on";
-      listener = [
-        {
-          timeout = 180;
-          on-timeout = "pidof hyprlock || hyprlock";
-          on-resume = ''notify-send "Kids, I'm back"'';
-        }
-        {
-          timeout = 300;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-        {
-          timeout = 600;
-          on-timeout = "systemctl suspend-then-hibernate";
         }
       ];
     };

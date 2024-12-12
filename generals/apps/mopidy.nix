@@ -20,7 +20,8 @@
         port = 6600;
       };
       notify = {
-        enabled = true;
+        enabled = false;
+        max_icon_size = 200;
         fallback_icon = "notification-audio-play";
         track_summary = "\${track}";
         track_message = "\${artists} - \${album}";

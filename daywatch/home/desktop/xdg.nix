@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  # XDG Config
+  # XDG config
   xdg = {
     enable = true;
     mime.enable = true;

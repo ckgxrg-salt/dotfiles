@@ -1,17 +1,10 @@
 { pkgs, lib, ... }:
 {
-
+  # Boot up process
   imports = [ ./fstab.nix ];
-
-  # Bootloader
   boot = {
-    bootspec.enable = true;
-    # Use systemd instead of busybox
-    initrd = {
-      systemd.enable = true;
-      verbose = false;
-    };
-    consoleLogLevel = 0;
+    #========== Bootloader ==========#
+    # Config systemd-boot
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -20,18 +13,46 @@
       timeout = 0;
       systemd-boot.enable = lib.mkForce false;
     };
+
     # Setup Secure Boot
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-    # Setup boot splash
+    bootspec.enable = true;
+
+    #========== Initrd ==========#
+    initrd = {
+      # Use systemd instead of busybox
+      systemd.enable = true;
+      verbose = false;
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "vmd"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_usb_sdmmc"
+      ];
+      kernelModules = [ "kvm-intel" ];
+    };
+    # Silent boot
+    consoleLogLevel = 0;
+
+    # Boot splash
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = "hexa_retro";
     };
+
+    #========== Kernel ==========#
+    # Use linux-zen kernel
     kernelPackages = pkgs.linuxPackages_zen;
+
+    # Kernel params
     kernelParams = [
       "noefi"
       "quiet"
@@ -42,7 +63,8 @@
       #"i915.force_probe=!9a49"
       #"xe.force_probe=9a49"
     ];
-    # BBR Congestion Algorithm
+
+    # Kernel extra config
     kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";

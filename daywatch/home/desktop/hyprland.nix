@@ -3,11 +3,10 @@
   lib,
   ...
 }:
-# Options for Hyprland and XDG
+# Hyprland the Wayland compositor
 {
-  imports = [ ./accessories.nix ];
+  imports = [ ./accessories ];
 
-  # Hyprland Window Manager
   wayland.windowManager.hyprland =
     let
       # Thanks for the ArchWiki for this awesome script

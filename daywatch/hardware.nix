@@ -1,5 +1,10 @@
 { pkgs, ... }:
+# Settings for hardware related stuff
 {
+  #========== Hardware ==========#
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+  };
   # Power Button Behaviour
   services.logind = {
     powerKey = "lock";
@@ -10,13 +15,30 @@
   };
   services.systemd-lock-handler.enable = true;
 
-  # Bluetooth Support
+  #========== Network & Devices ==========#
+  # Internet
+  networking = {
+    useDHCP = true;
+    # NetworkManager
+    networkmanager = {
+      enable = true;
+    };
+    # VPN
+    wg-quick.interfaces = {
+      iof = {
+        configFile = "/etc/wireguard/iof.conf";
+        autostart = false;
+      };
+    };
+  };
+
+  # Bluetooth
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
 
-  # CUPS for printers support
+  # CUPS
   services.printing = {
     enable = true;
     stateless = true;
@@ -24,10 +46,11 @@
     drivers = with pkgs; [ hplip ];
   };
 
-  # Connect with Android
+  # Android Debug Bridge
   programs.adb.enable = true;
 
-  # Sound with PipeWire
+  #========== Audio ==========#
+  # PipeWire
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -37,9 +60,11 @@
       support32Bit = true;
     };
   };
+
   # Suppress the default impl of xdg sounds
   ckgxrg.themes.sound.enable = true;
 
+  #========== Power ==========#
   # TLP the power saver
   services.tlp = {
     enable = true;
@@ -48,16 +73,16 @@
     };
   };
 
+  # Other power save features
   services.thermald.enable = true;
-
-  # Violent Power Save
   powerManagement = {
     enable = true;
     powertop.enable = true;
     cpuFreqGovernor = "ondemand";
   };
 
-  # Display Settings
+  #========== Graphics ==========#
+  # OpenGL & Hardware Accleration
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

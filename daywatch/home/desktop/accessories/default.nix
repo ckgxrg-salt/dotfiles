@@ -7,8 +7,11 @@
 # Extra programs for Hyprland
 {
   imports = [
+    ./ags
+    ./fcitx.nix
+    ./hyprlock.nix
+    ./hypridle.nix
     ./waybar.nix
-    ./hypreco.nix
     ./wlogout.nix
   ];
 
@@ -102,6 +105,7 @@
       tray: auto
   '';
 
+  # Clipboard management
   services.cliphist.enable = true;
 
   # Waypaper

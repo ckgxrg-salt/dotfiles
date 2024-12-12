@@ -7,5 +7,4 @@ Feel free to refer to my configurations, but don't expect they'll work out of bo
 1. Enhance greetd
 2. Remove Daywatchman's waybar, use AGS instead
 3. Wrap MPC using AGS
-4. Manage contacts using home-manager
 inf. Probably try to migrate to BSD
