@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  # Add some plugins that are not officially supported by Nixvim. 
+  # Add some plugins that are not officially supported by Nixvim.
   programs.nixvim = {
     extraPlugins = with pkgs.vimPlugins; [
       hover-nvim

@@ -1,5 +1,5 @@
 { ... }:
-#Hyprland's screen locker
+# Hyprland's screen locker
 {
   programs.hyprlock = {
     enable = true;

@@ -1,7 +1,6 @@
 { ... }:
-# Options for some hypr* programs
+# Hyprland's screen locker
 {
-  # Hyprlock the screen-locker
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -47,25 +46,6 @@
           fade_on_empty = false;
           placeholder_text = ''<span foreground="##cad3f5">Password...</span>'';
           shadow_passes = 2;
-        }
-      ];
-    };
-  };
-
-  # Hypridle the idle daemon
-  services.hypridle = {
-    enable = true;
-    settings = {
-      listener = [
-        {
-          timeout = 360;
-          on-timeout = "hyprlock";
-          on-resume = ''notify-send "Resumed from Idle"'';
-        }
-        {
-          timeout = 900;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
         }
       ];
     };

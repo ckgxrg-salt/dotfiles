@@ -34,7 +34,6 @@
     impression
     kdePackages.okular
     pix
-    pwvucontrol
     seahorse
     snapshot
     system-config-printer
@@ -65,5 +64,8 @@
     # Web
     thunderbird
     tor-browser
+    # System
+    blueberry
+    pwvucontrol
   ];
 }

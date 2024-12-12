@@ -1,15 +1,16 @@
 { ... }:
-# Master configuration for Radilopa
+# Entrypoint
 {
   imports = [
     ./boot.nix
     ./hardware.nix
-    ./syscfg.nix
-    ./package.nix
+    ./sddm.nix
+    ./userspace.nix
+    ./nix.nix
     ../generals/security.nix
+    ../generals/apps/steam.nix
     ../generals/dev/podman.nix
     ../generals/sunshine
-    ../generals/utils/steam.nix
   ];
 
   # My Name!

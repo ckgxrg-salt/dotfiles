@@ -7,6 +7,7 @@
     ./desktop/hyprland.nix
     ./desktop/daemons.nix
     ./desktop/xdg.nix
+    ./desktop/env.nix
 
     # Terminal environment
     ./terminal

@@ -1,13 +1,7 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 # Hyprland the Wayland compositor
 {
-  imports = [
-    ./accessories
-    ./env.nix
-  ];
+  imports = [ ./accessories ];
 
   wayland.windowManager.hyprland =
     let

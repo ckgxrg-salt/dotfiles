@@ -5,6 +5,7 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
   };
+
   # Power Button Behaviour
   services.logind = {
     powerKey = "lock";
@@ -23,7 +24,7 @@
       enable = true;
     };
 
-    # VPN
+    # WireGuard
     wg-quick.interfaces = {
       iof = {
         configFile = "/etc/wireguard/iof.conf";

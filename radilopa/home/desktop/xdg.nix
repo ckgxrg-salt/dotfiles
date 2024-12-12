@@ -7,11 +7,11 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "text/plain" = "nvim.desktop";
+        "text/plain" = "codium.desktop";
         "application/pdf" = "org.kde.okular.desktop";
         "image/jpeg" = "pix.desktop";
         "image/png" = "pix.desktop";
-        "inode/directory" = "org.kde.index.desktop";
+        "inode/directory" = "org.kde.dolphin.desktop";
         "text/html" = "qutebrowser.desktop";
         "x-scheme-handler/http" = "qutebrowser.desktop";
         "x-scheme-handler/https" = "qutebrowser.desktop";
@@ -76,21 +76,13 @@
           StartupWMClass = "QQ";
         };
       };
-      "io.github.msojocs.bilibili" = {
-        name = "Bilibili";
-        icon = "io.github.msojocs.bilibili";
-        comment = "Bilibili Desktop";
-        terminal = false;
-        exec = "bilibili --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
-        type = "Application";
-        categories = [
-          "AudioVideo"
-          "Video"
-          "TV"
-        ];
-        settings = {
-          StartupWMClass = "bilibili";
-        };
+
+      "nvitop" = {
+        name = "Nvitop";
+        genericName = "Nvidia GPU Monitor";
+        icon = "Alacritty";
+        exec = "nvitop";
+        terminal = true;
       };
     };
   };

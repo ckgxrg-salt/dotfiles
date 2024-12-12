@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 {
   # Nix configuration
   nix.settings = {
@@ -34,16 +34,10 @@
   };
 
   # Allow unfree and insecure packages
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
-  # Placeholders
-  programs.nano.enable = false;
-  programs.hyprland = {
-    enable = true;
-    systemd.setPath.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+  nixpkgs = {
+    hostPlatform = "x86_64-linux";
+    config = {
+      allowUnfree = true;
+    };
   };
 }

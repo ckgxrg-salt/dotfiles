@@ -6,7 +6,7 @@
   ...
 }:
 {
-  # Greetd Session Manager
+  # greetd Session Manager
   services.greetd =
     let
       # Cage cannot handle multi-screen circumstance...
@@ -56,8 +56,8 @@
     };
 
   # Background image
-  environment.etc."greetd/background-img.png" = {
-    source = "${config.users.users.ckgxrg.home}/Pictures/Wallpapers/neon-icons.png";
+  environment.etc."regreet/background-img.png" = {
+    source = "${config.users.users.ckgxrg.home}/Pictures/Wallpapers/desert-sunset.png";
     user = "greeter";
     mode = "660";
   };
@@ -88,7 +88,7 @@
     # Config
     settings = {
       background = {
-        path = "/etc/greetd/background-img.png";
+        path = "/etc/regreet/background-img.png";
         fit = "Fill";
       };
       appearance = {

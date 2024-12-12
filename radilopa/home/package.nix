@@ -5,6 +5,7 @@
     # Terminal Utilities
     asciiquarium
     cowsay
+    dust
     fastfetch
     fortune
     gamemode
@@ -18,9 +19,9 @@
     ripgrep
     v2raya
 
-    # So far, Qt 6 packages require qtwayland explicitly in path. 
+    # So far, Qt 6 packages require qtwayland explicitly in path.
     qt6Packages.qtwayland
-    # And dolphin need this explicitly to show icons. 
+    # And dolphin need this explicitly to show icons.
     qt6Packages.qtsvg
 
     # Desktop Utilities
@@ -28,7 +29,6 @@
     kdePackages.ark
     bottles
     kdePackages.dolphin
-    kdePackages.filelight
     lenovo-legion
     kdePackages.okular
     pix
@@ -40,8 +40,6 @@
     libreoffice
     obsidian
     vscodium
-    # Media
-    kdePackages.elisa
     # Gaming
     prismlauncher
     # Communication
@@ -49,5 +47,8 @@
     # Web
     thunderbird
     tor-browser
+    # System
+    blueberry
+    pwvucontrol
   ];
 }

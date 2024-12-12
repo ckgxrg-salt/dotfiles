@@ -18,7 +18,6 @@
   # Hyprland accessories
   home.packages = with pkgs; [
     waypaper
-    blueberry
     grimblast
 
     brightnessctl

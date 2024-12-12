@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 # Daemons for the desktop environment
 {
   systemd.user.services = {

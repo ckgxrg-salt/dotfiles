@@ -1,7 +1,4 @@
-{
-  modulesPath,
-  ...
-}:
+{ modulesPath, ... }:
 #========== Filesystem ==========#
 {
   imports = [
