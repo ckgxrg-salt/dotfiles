@@ -1,14 +1,16 @@
 {
   pkgs,
   ckgs,
+  config,
+  lib,
   ...
 }:
 {
   # Greetd Session Manager
-  environment.systemPackages = [ ckgs.qtgreet ];
   services.greetd =
     let
-      hyprConfig = pkgs.writeText "greetd-hyprland-config" ''
+      # Cage cannot handle multi-screen circumstance...
+      hyprConfig = pkgs.writeText "regreet-hyprland" ''
         monitor=eDP-1,preferred,auto,1
         monitor=DP-1,disabled
         device {
@@ -33,50 +35,87 @@
         animations {
           enabled = false
         }
-        exec-once = qtgreet --data-path /var/lib/qtgreet; hyprctl dispatch exit
+        exec-once = ${lib.getExe pkgs.greetd.regreet}; hyprctl dispatch exit
       '';
     in
     {
       enable = true;
       vt = 7;
       settings = {
+        # Skip login for the initial boot
         initial_session = {
-          command = "${pkgs.hyprland}/bin/Hyprland";
+          command = "${pkgs.dbus}/bin/dbus-run-session ${lib.getExe pkgs.hyprland}";
           user = "ckgxrg";
         };
+        # Ask ReGreet for login process
         default_session = {
-          command = "${pkgs.hyprland}/bin/Hyprland -c ${hyprConfig}";
+          command = "${pkgs.dbus}/bin/dbus-run-session ${lib.getExe pkgs.hyprland} -c ${hyprConfig}";
           user = "greeter";
         };
       };
     };
-  # QtGreet Config
-  environment.etc."qtgreet/config.ini".source =
-    let
-      iniFormat = pkgs.formats.ini { };
-    in
-    iniFormat.generate "qtgreet.ini" {
-      General = {
-        Backend = "GreetD";
-        Theme = "aerial";
-        BlurBackground = true;
-        IconTheme = "breeze";
+
+  # Background image
+  environment.etc."greetd/background-img.png" = {
+    source = "${config.users.users.ckgxrg.home}/Pictures/Wallpapers/neon-icons.png";
+    user = "greeter";
+    mode = "660";
+  };
+
+  # ReGreet greeter
+  programs.regreet = {
+    enable = true;
+
+    # Themes
+    theme = {
+      name = "Everforest-Dark-BL";
+      package = pkgs.everforest-gtk-theme;
+    };
+    cursorTheme = {
+      name = "GoogleDot-Black";
+      package = ckgs.googledot-cursor;
+    };
+    font = {
+      name = "Maple UI";
+      size = 16;
+      package = ckgs.maple-ui;
+    };
+    iconTheme = {
+      name = "Qogir-dark";
+      package = pkgs.qogir-icon-theme;
+    };
+
+    # Config
+    settings = {
+      background = {
+        path = "/etc/greetd/background-img.png";
+        fit = "Fill";
       };
-      Overrides = {
-        Background = "Tree.svg";
-        BaseColor = "Theme";
-        TextColor = "Theme";
-        FontFamily = "Maple UI";
+      appearance = {
+        greeting_msg = "<-- The Daywatch Site -->";
       };
-      PowerCommands = {
-        Suspend = "dbus";
-        Hibernate = "dbus";
-        Shutdown = "dbus";
-        Reboot = "dbus";
+      commands = {
+        reboot = [
+          "systemctl"
+          "reboot"
+        ];
+        poweroff = [
+          "systemctl"
+          "poweroff"
+        ];
       };
     };
-  # Authorise QtGreet's datadir
-  systemd.tmpfiles.rules = [
-    "d /var/lib/qtgreet 0755 greeter greeter - -"
-  ];
+  };
+
+  # Universal Wayland Session Manager
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors = {
+      hyprland = {
+        prettyName = "Hyprland";
+        comment = "Hyprland Session";
+        binPath = "/run/current-system/sw/bin/Hyprland";
+      };
+    };
+  };
 }

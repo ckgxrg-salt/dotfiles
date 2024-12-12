@@ -92,13 +92,13 @@
       };
     };
     # Polkit Authentication Agent
-    "polkit-kde-agent" = {
+    "polkit-hyprland-agent" = {
       Unit = {
-        Description = "Polkit KDE Authentication Agent";
+        Description = "Polkit Hyprland Authentication Agent";
         Requires = [ "hyprland-session.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+        ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
         Restart = "on-failure";
       };
       Install = {

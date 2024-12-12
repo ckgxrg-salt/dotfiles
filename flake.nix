@@ -61,74 +61,76 @@
       };
     in
     {
-      # Daywatchman
-      nixosConfigurations.Daywatch = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          ckgs = ckgpkgs.packages.${system};
+      nixosConfigurations = {
+        # Daywatch
+        Daywatch = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+            ckgs = ckgpkgs.packages.${system};
+          };
+          modules = [
+            ./daywatch
+            lanzaboote.nixosModules.lanzaboote
+            ckgpkgs.nixosModules.ckgsys
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ckgxrg.imports = [
+                ./daywatch/home
+                ags.homeManagerModules.default
+                nixvim.homeManagerModules.nixvim
+                ckgpkgs.homeManagerModules.ckgmods
+              ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                ckgs = ckgpkgs.packages.${system};
+              };
+            }
+          ];
         };
-        modules = [
-          ./daywatch
-          lanzaboote.nixosModules.lanzaboote
-          ckgpkgs.nixosModules.ckgsys
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ckgxrg.imports = [
-              ./daywatch/home
-              ags.homeManagerModules.default
-              nixvim.homeManagerModules.nixvim
-              ckgpkgs.homeManagerModules.ckgmods
-            ];
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              ckgs = ckgpkgs.packages.${system};
-            };
-          }
-        ];
-      };
 
-      #Radilopa
-      nixosConfigurations.Radilopa = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          ckgs = ckgpkgs.packages.${system};
+        # Radilopa
+        Radilopa = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            ckgs = ckgpkgs.packages.${system};
+          };
+          inherit system;
+          modules = [
+            ./radilopa
+            lanzaboote.nixosModules.lanzaboote
+            ckgpkgs.nixosModules.ckgsys
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ckgxrg.imports = [
+                ./radilopa/home
+                nixvim.homeManagerModules.nixvim
+                ckgpkgs.homeManagerModules.ckgmods
+              ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                ckgs = ckgpkgs.packages.${system};
+              };
+            }
+          ];
         };
-        inherit system;
-        modules = [
-          ./radilopa
-          lanzaboote.nixosModules.lanzaboote
-          ckgpkgs.nixosModules.ckgsys
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ckgxrg.imports = [
-              ./radilopa/home
-              nixvim.homeManagerModules.nixvim
-              ckgpkgs.homeManagerModules.ckgmods
-            ];
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              ckgs = ckgpkgs.packages.${system};
-            };
-          }
-        ];
-      };
 
-      # The home server...
-      nixosConfigurations.Welkin = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
+        # The home server...
+        Welkin = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          inherit system;
+          modules = [
+            ./welkin
+            lanzaboote.nixosModules.lanzaboote
+            microvm.nixosModules.host
+          ];
         };
-        inherit system;
-        modules = [
-          ./welkin
-          lanzaboote.nixosModules.lanzaboote
-          microvm.nixosModules.host
-        ];
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim

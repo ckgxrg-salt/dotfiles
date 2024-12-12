@@ -34,6 +34,7 @@
     impression
     kdePackages.okular
     pix
+    pwvucontrol
     seahorse
     snapshot
     system-config-printer
@@ -58,6 +59,7 @@
     prismlauncher
     # Communication
     cinny-desktop
+    localsend
     qq
     rustdesk
     # Web

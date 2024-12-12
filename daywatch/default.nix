@@ -4,6 +4,7 @@
   imports = [
     ./boot.nix
     ./hardware.nix
+    ./greetd.nix
     ./userspace.nix
     ./nix.nix
     ../generals/apps/steam.nix

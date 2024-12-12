@@ -19,7 +19,6 @@
     ./apps/qutebrowser.nix
     ./apps/btop.nix
     ./apps/lf.nix
-    ./apps/localsend.nix
     ../../generals/apps/pass.nix
     ../../generals/apps/mpd.nix
 

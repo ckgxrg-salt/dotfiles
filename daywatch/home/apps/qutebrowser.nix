@@ -7,8 +7,8 @@
       "DEFAULT" = "https://bing.com/search?q={}";
       "g" = "https://google.com/search?q={}";
       "aw" = "https://wiki.archlinux.org/?search={}";
-      "np" = "https://search.nixos.org/packages?channel=unstable&query={}";
-      "no" = "https://search.nixos.org/options?channel=unstable&query={}";
+      "pkg" = "https://search.nixos.org/packages?channel=unstable&query={}";
+      "opt" = "https://search.nixos.org/options?channel=unstable&query={}";
       "bili" = "https://search.bilibili.com/all?keyword={}";
       "prts" = "https://prts.wiki/index.php?title=特殊:搜索&search={}";
       "wp" = "https://en.wikipedia.org/w/index.php?search={}";

@@ -18,21 +18,15 @@
   # Hyprland accessories
   home.packages = with pkgs; [
     waypaper
-    swww
-    udiskie
     blueberry
-    networkmanagerapplet
     grimblast
 
     brightnessctl
+    swww
+    playerctl
     pamixer
     libnotify
     wl-clipboard
-
-    libsForQt5.polkit-kde-agent
-
-    playerctl
-    pwvucontrol
   ];
 
   # Rofi
@@ -83,15 +77,15 @@
   };
   # Mako's icons
   xdg.configFile = {
-    "mako/icons/brightness-20.png".source = ../../../assets/brightness-20.png;
-    "mako/icons/brightness-40.png".source = ../../../assets/brightness-40.png;
-    "mako/icons/brightness-60.png".source = ../../../assets/brightness-60.png;
-    "mako/icons/brightness-80.png".source = ../../../assets/brightness-80.png;
-    "mako/icons/brightness-100.png".source = ../../../assets/brightness-100.png;
-    "mako/icons/volume-high.png".source = ../../../assets/volume-high.png;
-    "mako/icons/volume-low.png".source = ../../../assets/volume-low.png;
-    "mako/icons/volume-mid.png".source = ../../../assets/volume-mid.png;
-    "mako/icons/volume-mute.png".source = ../../../assets/volume-mute.png;
+    "mako/icons/brightness-20.png".source = ../../../../assets/brightness-20.png;
+    "mako/icons/brightness-40.png".source = ../../../../assets/brightness-40.png;
+    "mako/icons/brightness-60.png".source = ../../../../assets/brightness-60.png;
+    "mako/icons/brightness-80.png".source = ../../../../assets/brightness-80.png;
+    "mako/icons/brightness-100.png".source = ../../../../assets/brightness-100.png;
+    "mako/icons/volume-high.png".source = ../../../../assets/volume-high.png;
+    "mako/icons/volume-low.png".source = ../../../../assets/volume-low.png;
+    "mako/icons/volume-mid.png".source = ../../../../assets/volume-mid.png;
+    "mako/icons/volume-mute.png".source = ../../../../assets/volume-mute.png;
   };
 
   # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options

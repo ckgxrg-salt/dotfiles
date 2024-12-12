@@ -18,17 +18,23 @@
   #========== Network & Devices ==========#
   # Internet
   networking = {
-    useDHCP = true;
     # NetworkManager
     networkmanager = {
       enable = true;
     };
+
     # VPN
     wg-quick.interfaces = {
       iof = {
         configFile = "/etc/wireguard/iof.conf";
         autostart = false;
       };
+    };
+
+    # Firewall
+    firewall = {
+      # Localsend
+      allowedTCPPorts = [ 53317 ];
     };
   };
 

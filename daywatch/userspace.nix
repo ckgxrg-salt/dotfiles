@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 # Settings for general userspace
 {
   #========== Localisation ==========#
@@ -53,15 +53,6 @@
   #========== Users ==========#
   # Greet messages
   environment.etc = {
-    "motd".text = ''
-                 \\
-                  \\
-      ========     ||
-                   ||
-      ========     ||
-                  //
-                 //
-    '';
     "issue".text = ''
       =========================
       <-- The Daywatch Site -->
@@ -97,6 +88,7 @@
   programs.nano.enable = false;
   programs.hyprland = {
     enable = true;
+    withUWSM = false;
     systemd.setPath.enable = true;
   };
 
