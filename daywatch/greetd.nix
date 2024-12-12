@@ -44,7 +44,7 @@
       settings = {
         # Skip login for the initial boot
         initial_session = {
-          command = "${pkgs.dbus}/bin/dbus-run-session ${lib.getExe pkgs.hyprland}";
+          command = "uwsm start -S Hyprland";
           user = "ckgxrg";
         };
         # Ask ReGreet for login process
@@ -110,7 +110,7 @@
   # Universal Wayland Session Manager
   programs.uwsm = {
     enable = true;
-    waylandCompositors = {
+    waylandCompositors = lib.mkForce {
       hyprland = {
         prettyName = "Hyprland";
         comment = "Hyprland Session";

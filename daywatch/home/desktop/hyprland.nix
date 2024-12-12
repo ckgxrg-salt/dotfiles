@@ -1,11 +1,13 @@
 {
   pkgs,
-  lib,
   ...
 }:
 # Hyprland the Wayland compositor
 {
-  imports = [ ./accessories ];
+  imports = [
+    ./accessories
+    ./env.nix
+  ];
 
   wayland.windowManager.hyprland =
     let
@@ -103,7 +105,7 @@
     in
     {
       enable = true;
-      systemd.enable = true;
+      systemd.enable = false;
       xwayland.enable = true;
       plugins = with pkgs; [
         hyprlandPlugins.hyprgrass
@@ -128,19 +130,9 @@
 
         # Initialisation
         exec-once = [
-          "wl-paste --type text --watch cliphist store"
-          "wl-paste --type image --watch cliphist store"
-          "aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log"
-          # Sync brightness of screens
           "notify-send 'Welcome to Hyprland'"
           "canberra-gtk-play -i desktop-login -d \"welcome\""
         ];
-        env = lib.mapAttrsToList (name: value: "${name},${toString value}") {
-          ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          NIXOS_OZONE_WL = "1";
-          ELM_DISPLAY = "wl";
-          SDL_VIDEODRIVER = "wayland";
-        };
 
         # Window, workspace and layer rules
         windowrulev2 = [
@@ -265,15 +257,15 @@
         "$menu" = "rofi -show drun";
         bind = [
           # Basics
-          "$mainMod, Q, exec, $terminal"
+          "$mainMod, Q, exec, uwsm app -- $terminal"
           "$mainMod, C, killactive,"
-          "$mainMod SHIFT, Escape, exec, wlogout"
-          "$mainMod, E, exec, $fileManager"
+          "$mainMod SHIFT, Escape, exec, uwsm app -- wlogout"
+          "$mainMod, E, exec, uwsm app -- $fileManager"
           "$mainMod, V, togglefloating,"
-          "$mainMod, R, exec, $menu"
-          "$mainMod, L, exec, hyprlock --immediate"
+          "$mainMod, R, exec, uwsm app -- $menu"
+          "$mainMod, L, exec, uwsm app -- hyprlock --immediate"
           "$mainMod, F, fullscreen,"
-          "$mainMod, Print, exec, grimblast copy area"
+          "$mainMod, Print, exec, uwsm app -- grimblast copy area"
           # Volume and brightness controls
           ", XF86AudioMute, exec, ${volumeScript} --toggle"
           ", XF86AudioLowerVolume, exec, ${volumeScript} --dec"

@@ -5,14 +5,15 @@
   systemd.user.services."wlogout" = {
     Unit = {
       Description = "wlogout Logout Screen";
-      Requisite = [ "graphical-session.target" ];
+      Requires = [ "graphical-session.target" ];
     };
     Service = {
-      Type = "simple";
+      Type = "exec";
       Restart = "no";
       ExecStartPost = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play -i desktop-logout -d \"wlogout\"";
       ExecStart = "${pkgs.wlogout}/bin/wlogout";
       ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
+      Slice = "app-graphical.slice";
     };
     Install = {
       WantedBy = [ "lock.target" ];
@@ -37,7 +38,7 @@
       }
       {
         label = "logout";
-        action = "hyprctl dispatch exit";
+        action = "loginctl terminate-user \"\"";
         text = "End Session";
         keybind = "e";
       }

@@ -24,9 +24,12 @@
     brightnessctl
     swww
     playerctl
+
     pamixer
     libnotify
+
     wl-clipboard
+    cliphist
   ];
 
   # Rofi
@@ -98,9 +101,6 @@
       notify: true
       tray: auto
   '';
-
-  # Clipboard management
-  services.cliphist.enable = true;
 
   # Waypaper
   xdg.configFile."waypaper/config.ini".source =

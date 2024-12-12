@@ -88,7 +88,7 @@
   programs.nano.enable = false;
   programs.hyprland = {
     enable = true;
-    withUWSM = false;
+    withUWSM = true;
     systemd.setPath.enable = true;
   };
 

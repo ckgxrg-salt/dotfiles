@@ -4,7 +4,8 @@ I also included some packages and modules that are not included in nixpkgs from 
 Feel free to refer to my configurations, but don't expect they'll work out of box on your device.
 
 ### TODO: 
-1. Migrate to UWSM
-2. Remove Daywatchman's waybar, use AGS instead
-3. Wrap MPC using AGS
+1. Remove Daywatchman's waybar, use AGS instead
+2. Wrap MPC using AGS
+3. Apparmor notifications
+
 inf. Probably try to migrate to BSD
