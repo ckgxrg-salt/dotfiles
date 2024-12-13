@@ -35,7 +35,9 @@
     # Firewall
     firewall = {
       # Localsend
-      allowedTCPPorts = [ 53317 ];
+      allowedTCPPorts = [
+        53317
+      ];
     };
   };
 
