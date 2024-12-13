@@ -8,8 +8,10 @@
     ./userspace.nix
     ./nix.nix
     ../generals/security.nix
-    ../generals/apps/steam.nix
     ../generals/dev/podman.nix
+
+    ../generals/apps/steam.nix
+    ../generals/apps/alvr.nix
     ../generals/sunshine
   ];
 

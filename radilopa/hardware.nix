@@ -35,6 +35,10 @@
         autostart = false;
       };
     };
+
+    # Firewall
+    firewall = {
+    };
   };
 
   # Bluetooth
