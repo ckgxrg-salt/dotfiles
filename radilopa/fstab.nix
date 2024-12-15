@@ -37,6 +37,8 @@
         "rw"
         "uid=1000"
         "windows_names"
+        # Prevent it blocking kernel startup
+        "force"
       ];
     };
 
@@ -47,6 +49,8 @@
         "rw"
         "uid=1000"
         "windows_names"
+        # Prevent it blocking kernel startup
+        "force"
       ];
     };
 

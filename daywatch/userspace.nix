@@ -78,6 +78,8 @@
       ];
     };
   };
+  # Polkit will not permit operations without this
+  environment.shells = with pkgs; [ nushell ];
 
   #========== Miscellaneous ==========#
   programs.dconf.enable = true;
@@ -86,6 +88,7 @@
 
   # Placeholders
   programs.nano.enable = false;
+  programs.command-not-found.enable = false;
   programs.hyprland = {
     enable = true;
     withUWSM = true;
