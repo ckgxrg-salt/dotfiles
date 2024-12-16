@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 # Input Method
 {
   # Fcitx5
@@ -18,6 +18,23 @@
     };
     gtk4.extraConfig = {
       gtk-im-module = "fcitx";
+    };
+  };
+
+  # Override the service for UWSM
+  systemd.user.services."fcitx5-daemon" = lib.mkForce {
+    Unit = {
+      Description = "Fcitx5 Input Method";
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "exec";
+      ExecStart = "${pkgs.fcitx5}/bin/fcitx5";
+      Restart = "on-failure";
+      Slice = "app-graphical.slice";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 }

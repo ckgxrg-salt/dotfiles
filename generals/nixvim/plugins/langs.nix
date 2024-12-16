@@ -72,7 +72,7 @@
       servers = {
         marksman.enable = true;
         nil_ls.enable = true;
-        denols.enable = true;
+        ts_ls.enable = true;
         hls = {
           enable = true;
           installGhc = false;

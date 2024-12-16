@@ -4,10 +4,10 @@
   config,
   ...
 }:
-# Extra programs for Hyprland
+# Extra programs for desktop environment
 {
   imports = [
-    ./ags
+    ./daemons.nix
     ./fcitx.nix
     ./hyprlock.nix
     ./hypridle.nix
@@ -46,6 +46,7 @@
     extraConfig = {
       show-icons = true;
       icon-theme = config.ckgxrg.themes.icon.name;
+      run-command = "uwsm app -- {cmd}";
     };
   };
 

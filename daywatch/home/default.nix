@@ -5,7 +5,7 @@
   imports = [
     # Desktop environment
     ./desktop/hyprland.nix
-    ./desktop/daemons.nix
+    ./desktop/accessories
     ./desktop/xdg.nix
     ./desktop/env.nix
 

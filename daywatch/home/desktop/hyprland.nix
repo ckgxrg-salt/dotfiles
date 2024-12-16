@@ -1,8 +1,6 @@
 { pkgs, ... }:
 # Hyprland the Wayland compositor
 {
-  imports = [ ./accessories ];
-
   wayland.windowManager.hyprland =
     let
       # Thanks for the ArchWiki for this awesome script
@@ -124,7 +122,6 @@
 
         # Initialisation
         exec-once = [
-          "notify-send 'Welcome to Hyprland'"
           "canberra-gtk-play -i desktop-login -d \"welcome\""
         ];
 
@@ -143,7 +140,7 @@
           "animation slide right, notifications"
         ];
         workspace = [
-          "special:browser, on-created-empty:qutebrowser"
+          "special:browser, on-created-empty:uwsm app -- qutebrowser"
           "name:dashboard, monitor:DP-1, persistent:true, default:true"
         ];
 

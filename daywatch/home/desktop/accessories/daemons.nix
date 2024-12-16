@@ -1,5 +1,5 @@
 { pkgs, ... }:
-# Daemons for the desktop environment
+# Run the extra programs as daemons
 {
   systemd.user.services = {
     # A Solution to your Wayland Wallpaper Woes
@@ -27,22 +27,7 @@
       };
       Service = {
         Type = "exec";
-        ExecStart = "wl-paste --type text --watch cliphist store";
-        Restart = "on-failure";
-        Slice = "background-graphical.slice";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
-    "cliphist-images" = {
-      Unit = {
-        Description = "Clipboard History Manager";
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        Type = "exec";
-        ExecStart = "wl-paste --type image --watch cliphist store";
+        ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store";
         Restart = "on-failure";
         Slice = "background-graphical.slice";
       };

@@ -1,9 +1,6 @@
 { pkgs, ... }:
-# Options for Hyprland and XDG
+# Hyprland Window Manager
 {
-  imports = [ ./accessories ];
-
-  # Hyprland Window Manager
   wayland.windowManager.hyprland =
     let
       # Thanks for the ArchWiki for this awesome script
@@ -116,7 +113,6 @@
 
         # Initialisation
         exec-once = [
-          "notify-send 'Welcome to Hyprland'"
           "canberra-gtk-play -i desktop-login -d \"welcome\""
         ];
 
@@ -128,7 +124,7 @@
           "float, class:(QQ)"
           "center, class:(QQ)"
         ];
-        workspace = [ "special:browser, on-created-empty:qutebrowser" ];
+        workspace = [ "special:browser, on-created-empty:uwsm app -- qutebrowser" ];
 
         # Some options
         general = {

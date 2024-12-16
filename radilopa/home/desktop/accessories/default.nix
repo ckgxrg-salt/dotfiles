@@ -4,7 +4,7 @@
   config,
   ...
 }:
-# Extra programs for Hyprland
+# Extra desktop programs
 {
   imports = [
     ./fcitx.nix
@@ -12,6 +12,7 @@
     ./hypridle.nix
     ./waybar.nix
     ./wlogout.nix
+    ./daemons.nix
   ];
 
   # Hyprland accessories
@@ -45,6 +46,7 @@
     extraConfig = {
       show-icons = true;
       icon-theme = config.ckgxrg.themes.icon.name;
+      run-command = "uwsm app -- {cmd}";
     };
   };
 
