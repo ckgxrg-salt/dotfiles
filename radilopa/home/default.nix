@@ -19,6 +19,7 @@
     ./apps/nixvim.nix
     ./apps/qutebrowser.nix
     ../../generals/apps/pass.nix
+    ../../generals/gaming/opencomposite.nix
 
     # Other
     ./package.nix

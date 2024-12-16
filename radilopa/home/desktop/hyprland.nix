@@ -128,8 +128,8 @@
 
         # Some options
         general = {
-          gaps_in = 2;
-          gaps_out = 2;
+          gaps_in = 20;
+          gaps_out = 20;
           border_size = 2;
           "col.active_border" = "rgba(80af8cee) rgba(7473afee) 45deg";
           "col.inactive_border" = "rgba(4a4949aa)";
@@ -162,7 +162,7 @@
         decoration = {
           blur = {
             enabled = true;
-            size = 3;
+            size = 6;
             passes = 1;
             vibrancy = 0.1696;
           };

@@ -59,7 +59,7 @@
           standard = "Maple UI";
         };
       };
-      zoom.default = "125%";
+      zoom.default = "150%";
       url = {
         start_pages = "about:blank";
         default_page = "about:blank";

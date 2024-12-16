@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # Terminal Utilities
     asciiquarium
+    bat
     cowsay
     dust
     fastfetch

@@ -146,8 +146,8 @@
 
         # Options
         general = {
-          gaps_in = 8;
-          gaps_out = 16;
+          gaps_in = 10;
+          gaps_out = 18;
           border_size = 0;
           "col.active_border" = "rgba(00000000)";
           "col.inactive_border" = "rgba(00000000)";

@@ -140,7 +140,7 @@
     style = ''
             * {
               font-family: Maple UI;
-              font-size: 14px;
+              font-size: 16px;
               color: #8fbcbb;
               opacity: 10;
             }

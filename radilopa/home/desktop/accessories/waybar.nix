@@ -7,7 +7,7 @@
     settings.mainBar = {
       layer = "top";
       position = "top";
-      height = 16;
+      height = 22;
       spacing = 0;
       modules-left = [
         "image#launcher"
@@ -131,9 +131,9 @@
     style = ''
             * {
               font-family: Maple Mono;
-              font-size: 14px;
+              font-size: 18px;
               color: #d8dee9;
-              min-height: 16px;
+              min-height: 22px;
               opacity: 10;
             }
             window#waybar {

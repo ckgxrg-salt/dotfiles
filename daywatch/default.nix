@@ -8,7 +8,7 @@
     ./userspace.nix
     ./nix.nix
     ../generals/security.nix
-    ../generals/apps/steam.nix
+    ../generals/gaming/steam.nix
   ];
 
   # Hostname

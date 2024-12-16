@@ -34,7 +34,7 @@
 
     font = {
       name = "Maple UI";
-      size = 16;
+      size = 18;
     };
   };
 }

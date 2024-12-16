@@ -10,9 +10,9 @@
     ../generals/security.nix
     ../generals/dev/podman.nix
 
-    ../generals/apps/steam.nix
-    ../generals/apps/alvr.nix
-    ../generals/sunshine
+    ../generals/gaming/steam.nix
+    ../generals/gaming/wivrn.nix
+    ../generals/gaming/sunshine.nix
   ];
 
   # My Name!

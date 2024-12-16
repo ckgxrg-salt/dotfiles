@@ -38,6 +38,9 @@
 
     # Firewall
     firewall = {
+      allowedTCPPorts = [
+        20171
+      ];
     };
   };
 

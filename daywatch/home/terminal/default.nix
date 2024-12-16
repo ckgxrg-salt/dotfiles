@@ -17,7 +17,7 @@
           decorations_theme_variant = "Dark";
         };
         font = {
-          size = 14;
+          size = 16;
         };
       };
     };

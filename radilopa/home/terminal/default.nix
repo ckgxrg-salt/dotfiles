@@ -16,6 +16,9 @@
           blur = true;
           decorations_theme_variant = "Dark";
         };
+        font = {
+          size = 18;
+        };
       };
     };
     nushell = {
