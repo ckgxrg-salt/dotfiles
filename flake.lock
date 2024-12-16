@@ -63,6 +63,26 @@
         "type": "github"
       }
     },
+    "ckgprv": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734351904,
+        "narHash": "sha256-Nfb0vnzzmoC6l7XGZ/rh5a1UrhvN1DhsO9Wpzu072Ls=",
+        "ref": "refs/heads/main",
+        "rev": "a90180e16bd685872be9c58fd6d8bd9413a5bdba",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/ckgxrg-salt/private-dotfiles"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/ckgxrg-salt/private-dotfiles"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1730652660,
@@ -321,11 +341,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734093295,
-        "narHash": "sha256-hSwgGpcZtdDsk1dnzA0xj5cNaHgN9A99hRF/mxMtwS4=",
+        "lastModified": 1734344598,
+        "narHash": "sha256-wNX3hsScqDdqKWOO87wETUEi7a/QlPVgpC/Lh5rFOuA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "66c5d8b62818ec4c1edb3e941f55ef78df8141a8",
+        "rev": "83ecd50915a09dca928971139d3a102377a8d242",
         "type": "github"
       },
       "original": {
@@ -558,11 +578,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1734299751,
-        "narHash": "sha256-PFJ/Wwk57XzmRkU0pJLnz4tJX81ln2OaFeqcOQqp7G0=",
+        "lastModified": 1734346666,
+        "narHash": "sha256-en0654KcOVZj0J3LVUzd/sbNkDSUZTWP2fHlnyfaXnc=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "ec24d496d52c2620b5ce3d237a2a1029a197b412",
+        "rev": "76e9d89d96502a4ee8e1cd74a5b50077cf204134",
         "type": "github"
       },
       "original": {
@@ -626,6 +646,7 @@
         "ags": "ags",
         "astal": "astal",
         "ckgpkgs": "ckgpkgs",
+        "ckgprv": "ckgprv",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "microvm": "microvm",

@@ -8,6 +8,11 @@
       url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Private information
+    ckgprv = {
+      url = "git+ssh://git@github.com/ckgxrg-salt/private-dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Lanzaboote Secureboot
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -52,6 +57,7 @@
     inputs@{
       nixpkgs,
       ckgpkgs,
+      ckgprv,
       ags,
       home-manager,
       lanzaboote,
@@ -87,6 +93,7 @@
                 ags.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim
                 ckgpkgs.homeManagerModules.ckgmods
+                ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;

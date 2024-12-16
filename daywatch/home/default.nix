@@ -24,6 +24,7 @@
     ../../generals/apps/mpd.nix
 
     # Other
+    ./accounts.nix
     ./package.nix
     ./theme.nix
     ../../generals/utils
