@@ -2,6 +2,7 @@
   pkgs,
   ckgs,
   config,
+  lib,
   ...
 }:
 # Extra programs for desktop environment
@@ -119,20 +120,26 @@
       };
     };
 
-  # Redshift the color temperature adjuster
-  services.redshift = {
+  # wlsunset the color temperature adjuster
+  services.wlsunset = {
     enable = true;
-    longitude = 117.0702181;
-    latitude = 36.6663163;
-    tray = false;
+    gamma = 1.0;
+    systemdTarget = "graphical-session.target";
+
+    # Current position
+    longitude = 117.1;
+    latitude = 36.7;
+
     temperature = {
-      day = 5000;
-      night = 3200;
+      day = 6500;
+      night = 5500;
     };
-    settings = {
-      redshift = {
-        fade = 1;
-      };
+  };
+  # ...and because of UWSM we again need to overwrite the systemd service
+  systemd.user.services."wlsunset" = {
+    Unit = {
+      PartOf = lib.mkForce [ ];
+      After = lib.mkForce [ "graphical-session.target" ];
     };
   };
 }
