@@ -22,19 +22,16 @@
   };
 
   # Override the service for UWSM
-  systemd.user.services."fcitx5-daemon" = lib.mkForce {
+  systemd.user.services."fcitx5-daemon" = {
     Unit = {
-      Description = "Fcitx5 Input Method";
-      After = [ "graphical-session.target" ];
+      Description = lib.mkForce "Fcitx5 Input Method";
+      PartOf = lib.mkForce [ ];
+      After = lib.mkForce [ "graphical-session.target" ];
     };
     Service = {
       Type = "exec";
-      ExecStart = "${pkgs.fcitx5}/bin/fcitx5";
       Restart = "on-failure";
       Slice = "app-graphical.slice";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
     };
   };
 }

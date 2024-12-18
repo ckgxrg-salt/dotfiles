@@ -7,12 +7,13 @@
     ./sddm.nix
     ./userspace.nix
     ./nix.nix
-    ../generals/security.nix
-    ../generals/dev/podman.nix
+    ../shared/security.nix
+    ../shared/dev/podman.nix
 
-    ../generals/gaming/steam.nix
-    ../generals/gaming/wivrn.nix
-    ../generals/gaming/sunshine.nix
+    ./gaming/gamemode.nix
+    ../shared/gaming/steam.nix
+    ../shared/gaming/wivrn.nix
+    ../shared/gaming/sunshine.nix
   ];
 
   # My Name!

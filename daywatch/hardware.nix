@@ -22,6 +22,7 @@
     # NetworkManager
     networkmanager = {
       enable = true;
+      wifi.powersave = true;
     };
 
     # WireGuard
@@ -64,6 +65,7 @@
   services.pipewire = {
     enable = true;
     audio.enable = true;
+    pulse.enable = true;
     alsa = {
       enable = true;
       support32Bit = true;

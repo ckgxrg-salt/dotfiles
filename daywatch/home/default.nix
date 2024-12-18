@@ -12,8 +12,8 @@
     # Terminal environment
     ./terminal
     ./terminal/starship.nix
-    ../../generals/terminal/accessories.nix
-    ../../generals/terminal/bash.nix
+    ../../shared/terminal/accessories.nix
+    ../../shared/terminal/bash.nix
 
     # Applications
     ./apps/nixvim.nix
@@ -21,14 +21,15 @@
     ./apps/btop.nix
     ./apps/lf.nix
     ./apps/cava.nix
-    ../../generals/apps/pass.nix
-    ../../generals/apps/mpd.nix
+    ../../shared/apps/pass.nix
+    ../../shared/apps/mpd.nix
+    ../../shared/gaming/mangohud.nix
 
     # Other
     ./accounts.nix
     ./package.nix
     ./theme.nix
-    ../../generals/utils
+    ../../shared/utils
   ];
 
   # Home-manager

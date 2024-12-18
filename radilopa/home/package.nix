@@ -9,7 +9,6 @@
     dust
     fastfetch
     fortune
-    gamemode
     lazygit
     lolcat
     maa-cli

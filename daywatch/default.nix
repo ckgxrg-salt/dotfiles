@@ -7,8 +7,9 @@
     ./greetd.nix
     ./userspace.nix
     ./nix.nix
-    ../generals/security.nix
-    ../generals/gaming/steam.nix
+    ../shared/security.nix
+    ../shared/gaming/steam.nix
+    ../shared/gaming/gamemode.nix
   ];
 
   # Hostname

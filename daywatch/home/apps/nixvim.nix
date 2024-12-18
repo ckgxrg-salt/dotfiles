@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ../../../generals/nixvim ];
+  imports = [ ../../../shared/nixvim ];
   # Neovim themes
   programs.nixvim = {
     colorscheme = "everforest";
