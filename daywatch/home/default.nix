@@ -20,6 +20,7 @@
     ./apps/qutebrowser.nix
     ./apps/btop.nix
     ./apps/lf.nix
+    ./apps/cava.nix
     ../../generals/apps/pass.nix
     ../../generals/apps/mpd.nix
 

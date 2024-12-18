@@ -127,13 +127,25 @@
 
         # Window, workspace and layer rules
         windowrulev2 = [
+          # Dialogs
           "float, class:(polkit-kde-authentication-agent-1)"
           "center, class:(polkit-kde-authentication-agent-1)"
           "stayfocused, class:(polkit-kde-authentication-agent-1)"
           "size 50% 40%, class:(polkit-kde-authentication-agent-1)"
           "float, class:(xdg-desktop-portal-gtk)"
+
+          # Open Waydroid in a dedicated workspace
           "workspace name: silent, class:(Waydroid)"
           "fullscreen, class:(Waydroid)"
+
+          # Wrap C.A.V.A. as the background audio visualiser
+          "workspace name:dashboard silent, class:(alacritty-cava)"
+          "noanim, class:(alacritty-cava)"
+          "nodim, class:(alacritty-cava)"
+          "noblur, class:(alacritty-cava)"
+          "nofocus, class:(alacritty-cava)"
+          "float, class:(alacritty-cava)"
+          "size 1920 515, class:(alacritty-cava)"
         ];
         layerrule = [
           "noanim, swww-daemon"
@@ -141,7 +153,7 @@
         ];
         workspace = [
           "special:browser, on-created-empty:uwsm app -- qutebrowser"
-          "name:dashboard, monitor:DP-1, persistent:true, default:true"
+          "name:dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow: false, rounding: false, border: false"
         ];
 
         # Options
@@ -158,25 +170,6 @@
         dwindle = {
           smart_split = true;
           smart_resizing = true;
-        };
-        plugin.touch_gestures = {
-          sensitivity = 2.0;
-          workspace_swipe_fingers = 4;
-          workspace_swipe_edge = "no";
-        };
-        plugin.hyprfocus = {
-          enabled = "yes";
-          animate_floating = "yes";
-          animate_workspacechange = "yes";
-          focus_animation = "shrink";
-          bezier = [ "realsmooth, 0.28,0.29,.69,1.08" ];
-          shrink = {
-            shrink_percentage = 0.99;
-            in_bezier = "realsmooth";
-            in_speed = 1;
-            out_bezier = "realsmooth";
-            out_speed = 2;
-          };
         };
         gestures = {
           workspace_swipe = true;
@@ -231,6 +224,29 @@
             "workspaces, 1, 4, easeInOutCubic, slidefadevert"
             "specialWorkspace, 1, 4, easeInOutCubic, slide"
           ];
+        };
+
+        # Plugins Config
+        plugin = {
+          touch_gestures = {
+            sensitivity = 2.0;
+            workspace_swipe_fingers = 4;
+            workspace_swipe_edge = "no";
+          };
+          hyprfocus = {
+            enabled = "yes";
+            animate_floating = "yes";
+            animate_workspacechange = "yes";
+            focus_animation = "shrink";
+            bezier = [ "realsmooth, 0.28,0.29,.69,1.08" ];
+            shrink = {
+              shrink_percentage = 0.99;
+              in_bezier = "realsmooth";
+              in_speed = 1;
+              out_bezier = "realsmooth";
+              out_speed = 2;
+            };
+          };
         };
 
         # Touchscreen binds

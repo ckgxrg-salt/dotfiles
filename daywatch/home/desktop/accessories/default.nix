@@ -141,5 +141,8 @@
       PartOf = lib.mkForce [ ];
       After = lib.mkForce [ "graphical-session.target" ];
     };
+    Service = {
+      Slice = lib.mkForce "background-graphical.slice";
+    };
   };
 }
