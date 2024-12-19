@@ -93,7 +93,7 @@
     in
     iniFormat.generate "waypaper.ini" {
       Settings = {
-        folder = "${config.xdg.userDirs.pictures}";
+        folder = "${config.xdg.userDirs.pictures}/Wallpapers";
         fill = "Fill";
         sort = "name";
         backend = "swww";

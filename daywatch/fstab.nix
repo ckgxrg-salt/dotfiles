@@ -8,31 +8,46 @@
     "/" = {
       device = "/dev/disk/by-uuid/4475d92b-fa6e-4b0f-9aef-d9dd6e49a67a";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [
+        "subvol=@"
+        "commit=60"
+      ];
     };
 
     "/home" = {
       device = "/dev/disk/by-uuid/4475d92b-fa6e-4b0f-9aef-d9dd6e49a67a";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
+      options = [
+        "subvol=@home"
+        "commit=60"
+      ];
     };
 
     "/nix/store" = {
       device = "/dev/disk/by-uuid/4475d92b-fa6e-4b0f-9aef-d9dd6e49a67a";
       fsType = "btrfs";
-      options = [ "subvol=@nix" ];
+      options = [
+        "subvol=@nix"
+        "commit=60"
+      ];
     };
 
     "/var/log" = {
       device = "/dev/disk/by-uuid/4475d92b-fa6e-4b0f-9aef-d9dd6e49a67a";
       fsType = "btrfs";
-      options = [ "subvol=@log" ];
+      options = [
+        "subvol=@log"
+        "commit=60"
+      ];
     };
 
     "/var/cache" = {
       device = "/dev/disk/by-uuid/4475d92b-fa6e-4b0f-9aef-d9dd6e49a67a";
       fsType = "btrfs";
-      options = [ "subvol=@cache" ];
+      options = [
+        "subvol=@cache"
+        "commit=60"
+      ];
     };
 
     "/boot" = {

@@ -59,9 +59,10 @@
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
       "udev.log_level=3"
+      "pcie_aspm.policy=powersupersave"
       # Cutting-edge xe drivers, but somehow broken
-      #"i915.force_probe=!9a49"
-      #"xe.force_probe=9a49"
+      "i915.force_probe=!9a49"
+      "xe.force_probe=9a49"
     ];
 
     # Kernel extra config
@@ -69,6 +70,8 @@
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.ipv4.default_qdisc" = "cake";
+      "vm.laptop_mode" = 5;
+      "kernel.nmi_watchdog" = 0;
     };
   };
 }

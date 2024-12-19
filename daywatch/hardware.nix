@@ -42,6 +42,16 @@
     };
   };
 
+  # Zeroconf
+  services.avahi = {
+    enable = true;
+    openFirewall = true;
+    hostName = "Daywatch";
+
+    nssmdns4 = true;
+    nssmdns6 = true;
+  };
+
   # Bluetooth
   hardware.bluetooth = {
     enable = true;

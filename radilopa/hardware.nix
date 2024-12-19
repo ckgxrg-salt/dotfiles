@@ -44,6 +44,16 @@
     };
   };
 
+  # Zeroconf
+  services.avahi = {
+    enable = true;
+    openFirewall = true;
+    hostName = "Radilopa";
+
+    nssmdns4 = true;
+    nssmdns6 = true;
+  };
+
   # Bluetooth
   hardware.bluetooth = {
     enable = true;

@@ -122,14 +122,14 @@
     };
 
     # Polkit Authentication Agent
-    "polkit-hyprland-agent" = {
+    "polkit-gnome-agent" = {
       Unit = {
-        Description = "Polkit Hyprland Authentication Agent";
+        Description = "GNOME's Polkit Authentication Agent";
         After = [ "graphical-session.target" ];
       };
       Service = {
         Type = "exec";
-        ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         Restart = "on-failure";
         Slice = "app-graphical.slice";
       };
