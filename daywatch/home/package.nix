@@ -60,6 +60,7 @@
     qq
     rustdesk
     # Web
+    thunderbird
     tor-browser
     # System
     blueberry

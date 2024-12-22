@@ -23,7 +23,6 @@
     ./apps/cava.nix
     ../../shared/apps/pass.nix
     ../../shared/apps/mpd.nix
-    ../../shared/apps/thunderbird.nix
     ../../shared/gaming/mangohud.nix
 
     # Other
