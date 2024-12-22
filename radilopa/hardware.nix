@@ -108,8 +108,12 @@
     dpi = 189;
   };
   hardware.nvidia = {
-    open = true;
-    powerManagement.enable = true;
+    open = false;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
+    dynamicBoost.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     modesetting.enable = true;
     prime = {

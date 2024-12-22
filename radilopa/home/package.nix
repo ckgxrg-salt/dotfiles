@@ -38,6 +38,7 @@
     # Productivity
     blockbench
     libreoffice
+    kdePackages.kdenlive
     obsidian
     vscodium
     # Gaming
