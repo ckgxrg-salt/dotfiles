@@ -92,6 +92,26 @@
           StartupWMClass = "bilibili";
         };
       };
+
+      # There's some issues about kvantum style
+      "nheko" = {
+        name = "nheko";
+        comment = "Desktop client for Matrix";
+        exec = "env QT_STYLE_OVERRIDE= nheko %u";
+        icon = "nheko";
+        type = "Application";
+        categories = [
+          "Network"
+          "InstantMessaging"
+          "Qt"
+        ];
+        terminal = false;
+        mimeType = [ "x-scheme-handler/matrix" ];
+        settings = {
+          Version = "1.0";
+          StartupWMClass = "nheko";
+        };
+      };
     };
   };
 }

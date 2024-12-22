@@ -10,7 +10,6 @@
     fortune
     lazygit
     lolcat
-    maa-cli
     inputs.nix-alien.packages.${system}.nix-alien
     powertop
     procs
@@ -56,12 +55,11 @@
     moonlight-qt
     prismlauncher
     # Communication
-    cinny-desktop
     localsend
+    nheko
     qq
     rustdesk
     # Web
-    thunderbird
     tor-browser
     # System
     blueberry

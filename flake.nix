@@ -3,6 +3,12 @@
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Use Lix
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/stable.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Custom packages
     ckgpkgs = {
       url = "github:ckgxrg-salt/ckgpkgs";
@@ -56,6 +62,7 @@
   outputs =
     inputs@{
       nixpkgs,
+      lix-module,
       ckgpkgs,
       ckgprv,
       ags,
@@ -82,6 +89,7 @@
           };
           modules = [
             ./daywatch
+            lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             ckgpkgs.nixosModules.ckgsys
             home-manager.nixosModules.home-manager
@@ -112,6 +120,7 @@
           inherit system;
           modules = [
             ./radilopa
+            lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             ckgpkgs.nixosModules.ckgsys
             home-manager.nixosModules.home-manager
@@ -139,6 +148,7 @@
           inherit system;
           modules = [
             ./welkin
+            lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             microvm.nixosModules.host
           ];

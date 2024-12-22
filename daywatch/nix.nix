@@ -3,12 +3,8 @@
   # Nix configuration
   nix.settings = {
     substituters = [
-      "https://hyprland.cachix.org"
       "https://mirror.sjtu.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
-    ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
     trusted-users = [
       "root"
@@ -38,8 +34,7 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
-        "cinny-4.2.3"
-        "cinny-unwrapped-4.2.3"
+        "olm-3.2.16"
       ];
     };
   };

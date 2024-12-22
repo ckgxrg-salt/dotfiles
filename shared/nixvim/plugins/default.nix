@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   imports = [
     ./completions.nix
@@ -65,6 +65,7 @@
       settings = {
         close_on_exit = true;
         direction = "horizontal";
+        shell = "nu";
       };
     };
     # Fancy icons

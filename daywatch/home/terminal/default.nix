@@ -17,6 +17,13 @@
           decorations_theme_variant = "Dark";
         };
         font = {
+          normal = {
+            family = "Maple Mono SC NF";
+            style = "Regular";
+          };
+          bold.style = "Bold";
+          italic.style = "Italic";
+          bold_italic.style = "BoldItalic";
           size = 16;
         };
       };
@@ -48,10 +55,10 @@
 
         def ciallo [] { fortune | cowsay | lolcat }
 
-        def dotfiles [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/system -e nix develop"; cd ~/.config/nixos/system; hyprctl --quiet dispatch focusmonitor eDP-1; nix develop }
-        def ckgpkgs [] { hyprctl --quiet --batch "dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/.config/nixos/ckgpkgs -e nix develop"; cd ~/.config/nixos/ckgpkgs; hyprctl --quiet dispatch focusmonitor eDP-1; nix develop }
+        def dotfiles [] { cd ~/.config/nixos/system; nix develop }
+        def ckgpkgs [] { cd ~/.config/nixos/ckgpkgs; nix develop }
 
-        def dev [ name ] { hyprctl --quiet --batch $"dispatch focusmonitor DP-1; dispatch exec alacritty --working-directory ~/Documents/Codes/($name) -e nix develop"; cd $"~/Documents/Codes/($name)"; hyprctl --quiet dispatch focusmonitor eDP-1; nix develop }
+        def dev [ name ] { cd $"~/Documents/Codes/($name)"; nix develop }
 
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask

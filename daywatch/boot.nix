@@ -61,8 +61,8 @@
       "udev.log_level=3"
       "pcie_aspm.policy=powersupersave"
       # Cutting-edge xe drivers, but somehow broken
-      "i915.force_probe=!9a49"
-      "xe.force_probe=9a49"
+      #"i915.force_probe=!9a49"
+      #"xe.force_probe=9a49"
     ];
 
     # Kernel extra config
