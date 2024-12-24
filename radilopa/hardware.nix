@@ -8,14 +8,12 @@
 
   # Power Button Behaviour
   services.logind = {
-    powerKey = "lock";
+    powerKey = "ignore";
     powerKeyLongPress = "poweroff";
     lidSwitch = "suspend";
     lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
   };
-  # Let logind summon wlogout menu instead
-  services.systemd-lock-handler.enable = true;
 
   # fwupd
   services.fwupd.enable = true;

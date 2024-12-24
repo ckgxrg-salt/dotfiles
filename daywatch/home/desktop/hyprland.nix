@@ -99,9 +99,9 @@
       enable = true;
       systemd.enable = false;
       xwayland.enable = true;
-      plugins = with pkgs; [
-        hyprlandPlugins.hyprgrass
-        hyprlandPlugins.hyprfocus
+      plugins = with pkgs.hyprlandPlugins; [
+        hyprgrass
+        hyprspace
       ];
       settings = {
         # Hardware
@@ -153,7 +153,7 @@
         ];
         workspace = [
           "special:browser, on-created-empty:uwsm app -- qutebrowser"
-          "name:dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow: false, rounding: false, border: false"
+          "name:dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow:false, rounding:false, border:false"
         ];
 
         # Options
@@ -233,20 +233,6 @@
             workspace_swipe_fingers = 4;
             workspace_swipe_edge = "no";
           };
-          hyprfocus = {
-            enabled = "yes";
-            animate_floating = "yes";
-            animate_workspacechange = "yes";
-            focus_animation = "shrink";
-            bezier = [ "realsmooth, 0.28,0.29,.69,1.08" ];
-            shrink = {
-              shrink_percentage = 0.99;
-              in_bezier = "realsmooth";
-              in_speed = 1;
-              out_bezier = "realsmooth";
-              out_speed = 2;
-            };
-          };
         };
 
         # Touchscreen binds
@@ -268,7 +254,9 @@
           "SUPER, R, exec, uwsm app -- rofi -show drun"
           "SUPER, L, exec, uwsm app -- hyprlock --immediate"
           "SUPER, F, fullscreen,"
+          "SUPER, O, overview:toggle,"
           "SUPER, Print, exec, uwsm app -- grimblast copy area"
+          ", XF86PowerOff, exec, uwsm app -- wlogout"
           # Volume and brightness controls
           ", XF86AudioMute, exec, ${volumeScript} --toggle"
           ", XF86AudioLowerVolume, exec, ${volumeScript} --dec"

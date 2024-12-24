@@ -33,6 +33,10 @@
     hostPlatform = "x86_64-linux";
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        # For nheko
+        "olm-3.2.16"
+      ];
     };
   };
 }

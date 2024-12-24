@@ -8,13 +8,12 @@
 
   # Power Button Behaviour
   services.logind = {
-    powerKey = "lock";
+    powerKey = "ignore";
     powerKeyLongPress = "poweroff";
     lidSwitch = "suspend-then-hibernate";
     lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
   };
-  services.systemd-lock-handler.enable = true;
 
   #========== Network & Devices ==========#
   # Internet

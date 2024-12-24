@@ -1,4 +1,5 @@
 { ... }:
+# Host entrypoint
 {
   imports = [
     ./boot.nix

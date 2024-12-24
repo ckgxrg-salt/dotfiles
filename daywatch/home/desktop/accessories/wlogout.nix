@@ -1,31 +1,6 @@
 { pkgs, ... }:
 # Options for WLogout
 {
-  # Summon wlogout on lock event
-  systemd.user.services."wlogout" = {
-    Unit = {
-      Description = "wlogout Logout Screen";
-      Requires = [
-        "graphical-session.target"
-        "lock.target"
-      ];
-      Conflicts = [
-        "unlock.target"
-        "sleep.target"
-      ];
-    };
-    Service = {
-      Type = "exec";
-      ExecStart = "${pkgs.wlogout}/bin/wlogout";
-      ExecStartPost = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play -i desktop-logout -d wlogout";
-      ExecStopPost = "${pkgs.systemd}/bin/systemctl --user start unlock.target";
-      Slice = "app-graphical.slice";
-    };
-    Install = {
-      WantedBy = [ "lock.target" ];
-    };
-  };
-
   # Wlogout the Logout Menu
   programs.wlogout = {
     enable = true;

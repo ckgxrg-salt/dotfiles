@@ -2,7 +2,7 @@
   ckgs,
   ...
 }:
-# Daywarden terminal overrides
+# Radilopa terminal overrides
 {
   ckgxrg = {
     alacritty = {

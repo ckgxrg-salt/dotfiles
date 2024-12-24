@@ -183,21 +183,18 @@
         };
 
         # Binds
-        "$mainMod" = "SUPER";
-        "$terminal" = "alacritty";
-        "$fileManager" = "dolphin";
-        "$menu" = "rofi -show drun";
         bind = [
-          "$mainMod, Q, exec, $terminal"
-          "$mainMod, C, killactive,"
-          "$mainMod SHIFT, Escape, exec, wlogout"
-          "$mainMod, E, exec, $fileManager"
-          "$mainMod, V, togglefloating,"
-          "$mainMod, R, exec, $menu"
-          "$mainMod, J, togglesplit,"
-          "$mainMod, L, exec, hyprlock --immediate"
-          "$mainMod, F, fullscreen,"
-          "$mainMod, Print, exec, grimblast copy area"
+          "SUPER, Q, exec, alacritty"
+          "SUPER, C, killactive,"
+          "SUPER SHIFT, Escape, exec, wlogout"
+          "SUPER, E, exec, dolphin"
+          "SUPER, V, togglefloating,"
+          "SUPER, R, exec, rofi -show drun"
+          "SUPER, J, togglesplit,"
+          "SUPER, L, exec, hyprlock --immediate"
+          "SUPER, F, fullscreen,"
+          "SUPER, Print, exec, grimblast copy area"
+          ", XF86PowerOff, exec, uwsm app -- wlogout"
           # Volume and brightness controls
           ", XF86AudioMute, exec, ${volumeScript} --toggle"
           ", XF86AudioLowerVolume, exec, ${volumeScript} --dec"
@@ -205,43 +202,43 @@
           ", XF86MonBrightnessUp, exec, ${brightnessScript} --inc"
           ", XF86MonBrightnessDown, exec, ${brightnessScript} --dec"
           # Move focus with mainMod + arrow keys
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
+          "SUPER, left, movefocus, l"
+          "SUPER, right, movefocus, r"
+          "SUPER, up, movefocus, u"
+          "SUPER, down, movefocus, d"
           # Switch workspaces with mainMod + [0-9]
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-          "$mainMod, 5, workspace, 5"
-          "$mainMod, 6, workspace, 6"
-          "$mainMod, 7, workspace, 7"
-          "$mainMod, 8, workspace, 8"
-          "$mainMod, 9, workspace, 9"
-          "$mainMod, 0, workspace, 10"
+          "SUPER, 1, workspace, 1"
+          "SUPER, 2, workspace, 2"
+          "SUPER, 3, workspace, 3"
+          "SUPER, 4, workspace, 4"
+          "SUPER, 5, workspace, 5"
+          "SUPER, 6, workspace, 6"
+          "SUPER, 7, workspace, 7"
+          "SUPER, 8, workspace, 8"
+          "SUPER, 9, workspace, 9"
+          "SUPER, 0, workspace, 10"
           # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
+          "SUPER SHIFT, 1, movetoworkspace, 1"
+          "SUPER SHIFT, 2, movetoworkspace, 2"
+          "SUPER SHIFT, 3, movetoworkspace, 3"
+          "SUPER SHIFT, 4, movetoworkspace, 4"
+          "SUPER SHIFT, 5, movetoworkspace, 5"
+          "SUPER SHIFT, 6, movetoworkspace, 6"
+          "SUPER SHIFT, 7, movetoworkspace, 7"
+          "SUPER SHIFT, 8, movetoworkspace, 8"
+          "SUPER SHIFT, 9, movetoworkspace, 9"
+          "SUPER SHIFT, 0, movetoworkspace, 10"
           # Example special workspace (scratchpad)
-          "$mainMod, S, togglespecialworkspace, browser"
-          "$mainMod SHIFT, S, movetoworkspace, special:browser"
+          "SUPER, S, togglespecialworkspace, browser"
+          "SUPER SHIFT, S, movetoworkspace, special:browser"
           # Scroll through existing workspaces with mainMod + scroll
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
+          "SUPER, mouse_down, workspace, e+1"
+          "SUPER, mouse_up, workspace, e-1"
         ];
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = [
-          "$mainMod, mouse:272, movewindow"
-          "$mainMod, mouse:273, resizewindow"
+          "SUPER, mouse:272, movewindow"
+          "SUPER, mouse:273, resizewindow"
         ];
       };
     };

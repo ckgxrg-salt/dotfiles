@@ -1,6 +1,6 @@
 { ... }:
 {
-  # etc messages
+  # Login Messages
   environment.etc = {
     "motd" = ''
       Welcome from the Welkin - Host

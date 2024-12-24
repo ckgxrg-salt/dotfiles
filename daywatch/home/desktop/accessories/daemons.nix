@@ -137,22 +137,21 @@
         WantedBy = [ "graphical-session.target" ];
       };
     };
-  };
-
-  # Battery indicator
-  "cbatticon" = {
-    Unit = {
-      Description = "Battery Indicator";
-      After = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "exec";
-      ExecStart = "${pkgs.cbatticon}/bin/cbatticon -u 60 -i symbolic -l 15 -r 5 -o \"notify-send -i battery 'Low Battery' '15% Battery Remaining'\" -c \"notify-send -i battery 'Low Battery' 'Only 5% Battery Remaining'\"";
-      Restart = "on-failure";
-      Slice = "background-graphical.slice";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
+    # Battery indicator
+    "cbatticon" = {
+      Unit = {
+        Description = "Battery Indicator";
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        Type = "exec";
+        ExecStart = "${pkgs.cbatticon}/bin/cbatticon -u 60 -i symbolic -l 15 -r 5 -o \"notify-send -i battery 'Low Battery' '15% Battery Remaining'\" -c \"notify-send -i battery 'Low Battery' 'Only 5% Battery Remaining'\"";
+        Restart = "on-failure";
+        Slice = "background-graphical.slice";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
     };
   };
 }
