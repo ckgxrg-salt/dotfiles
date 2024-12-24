@@ -33,9 +33,6 @@
     hostPlatform = "x86_64-linux";
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "olm-3.2.16"
-      ];
     };
   };
 }

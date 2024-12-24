@@ -24,7 +24,11 @@
   programs.astroid = {
     enable = true;
     externalEditor = "nvim -- -c 'set ft=mail' '+set fileencoding=utf-8' '+set ff=unix' '+set enc=utf-8' '+set fo+=w' %1";
-    pollScript = "mbsync -a";
+    pollScript = "offlineimap";
+  };
+  programs.notmuch = {
+    enable = true;
+    maildir.synchronizeFlags = true;
   };
   programs.offlineimap.enable = true;
   programs.msmtp.enable = true;

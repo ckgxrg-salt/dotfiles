@@ -16,7 +16,7 @@
     ../shared/gaming/sunshine.nix
   ];
 
-  # My Name!
+  # Hostname
   networking.hostName = "Radilopa";
 
   system.stateVersion = "23.11";

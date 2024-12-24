@@ -12,6 +12,7 @@
     # Terminal environment
     ./terminal
     ./terminal/starship.nix
+    ../../shared/terminal/carapace.nix
     ../../shared/terminal/accessories.nix
     ../../shared/terminal/bash.nix
 
@@ -24,18 +25,20 @@
     ../../shared/apps/pass.nix
     ../../shared/apps/mpd.nix
     ../../shared/gaming/mangohud.nix
+    ../../shared/utils/git.nix
+    ../../shared/utils/gpg.nix
 
     # Other
     ./accounts.nix
     ./package.nix
     ./theme.nix
-    ../../shared/utils
   ];
 
   # Home-manager
   home = {
     username = "ckgxrg";
     homeDirectory = "/home/ckgxrg";
+    preferXdgDirectories = true;
     stateVersion = "24.05";
   };
   programs.home-manager.enable = true;

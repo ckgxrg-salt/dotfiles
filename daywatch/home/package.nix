@@ -66,4 +66,12 @@
     blueberry
     pwvucontrol
   ];
+
+  # Nixpkgs config at home-manager level
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      # For nheko
+      "olm-3.2.16"
+    ];
+  };
 }

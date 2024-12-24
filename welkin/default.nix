@@ -2,16 +2,12 @@
 {
   imports = [
     ./boot.nix
-    ./peripheral.nix
     ./login.nix
-    ./package.nix
-    ./misc.nix
-    ../generals/dev/podman.nix
-    ../generals/utils/steam.nix
-    ../generals/security.nix
+    ./settings.nix
+    ./security.nix
   ];
 
-  # My Name!
+  # Hostname
   networking.hostName = "Welkin";
 
   system.stateVersion = "25.05";

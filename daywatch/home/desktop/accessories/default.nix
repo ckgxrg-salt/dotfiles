@@ -153,30 +153,9 @@
     };
   };
 
-  # batsignel
-  services.batsignal = {
-    enable = true;
-    extraArgs = [
-      "-b"
-      "-p"
-      "-w 15"
-      "-c 10"
-      "-d 5"
-      "-W '15% Battery Remaining'"
-      "-C '10% Battery Remaining'"
-      "-D 'Only 5% Battery Remaining'"
-      "-a batsignal"
-      "-I battery"
-    ];
-  };
-  # also override...
-  systemd.user.services."batsignal" = {
-    Unit = {
-      PartOf = lib.mkForce [ ];
-      After = lib.mkForce [ "graphical-session.target" ];
-    };
-    Service = {
-      Slice = lib.mkForce "background-graphical.slice";
-    };
+  # TODO: Battery warnings
+  services.cbatticon = {
+    enable = false;
+    commandCriticalLevel = "notify-send -i battery 'Low Battery' 'Only 5% Battery Remaining'";
   };
 }

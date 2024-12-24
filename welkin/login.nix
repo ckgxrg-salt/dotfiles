@@ -3,7 +3,7 @@
   # etc messages
   environment.etc = {
     "motd" = ''
-      Welcome from the Welkin - Dom0
+      Welcome from the Welkin - Host
     '';
     "issue" = ''
       Dunno what to say yet...
@@ -16,12 +16,12 @@
   # Users
   users.users = {
     # System administration & maintance
-    akacloud = {
+    "akacloud" = {
       isNormalUser = true;
       uid = 1001;
       description = "System administrator";
     };
-    bse = {
+    "bse" = {
       isNormalUser = true;
       uid = 1002;
       description = "Normal user";
