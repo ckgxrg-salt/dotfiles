@@ -4,6 +4,9 @@
   #========== Localisation ==========#
   # Timezone, Locale
   time.timeZone = "Asia/Shanghai";
+  services.timesyncd.enable = false;
+  services.openntpd.enable = true;
+
   i18n = {
     defaultLocale = "en_GB.UTF-8";
     supportedLocales = [
@@ -85,6 +88,8 @@
   programs.dconf.enable = true;
   services.udisks2.enable = true;
   virtualisation.waydroid.enable = true;
+
+  systemd.oomd.enable = false;
 
   # Placeholders
   programs.nano.enable = false;

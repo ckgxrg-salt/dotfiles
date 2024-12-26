@@ -23,8 +23,6 @@
 
     #========== Initrd ==========#
     initrd = {
-      # Use systemd instead of busybox
-      systemd.enable = true;
       verbose = false;
       availableKernelModules = [
         "xhci_pci"

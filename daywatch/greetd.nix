@@ -31,6 +31,7 @@
         }
         misc {
           disable_hyprland_logo = true
+          disable_hyprland_qtutils_check = true
         }
         animations {
           enabled = false
@@ -115,6 +116,11 @@
         prettyName = "Hyprland";
         comment = "Hyprland Session";
         binPath = "/run/current-system/sw/bin/Hyprland";
+      };
+      river = {
+        prettyName = "River";
+        comment = "River Session";
+        binPath = "/run/current-system/sw/bin/river";
       };
     };
   };
