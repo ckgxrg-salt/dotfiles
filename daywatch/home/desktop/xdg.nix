@@ -26,7 +26,6 @@
       xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-wlr
         xdg-desktop-portal-hyprland
       ];
       config = {
@@ -36,14 +35,6 @@
         hyprland = {
           default = [
             "hyprland"
-            "gtk"
-          ];
-          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-          "org.freedesktop.impl.portal.Secret" = [ "pass-secret-service" ];
-        };
-        river = {
-          default = [
-            "wlr"
             "gtk"
           ];
           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];

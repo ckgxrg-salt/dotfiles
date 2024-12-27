@@ -117,11 +117,6 @@
         comment = "Hyprland Session";
         binPath = "/run/current-system/sw/bin/Hyprland";
       };
-      river = {
-        prettyName = "River";
-        comment = "River Session";
-        binPath = "/run/current-system/sw/bin/river";
-      };
     };
   };
 }

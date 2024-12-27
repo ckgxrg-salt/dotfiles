@@ -89,15 +89,14 @@
   services.udisks2.enable = true;
   virtualisation.waydroid.enable = true;
 
-  systemd.oomd.enable = false;
+  systemd = {
+    oomd.enable = false;
+    coredump.enable = false;
+  };
 
   # Placeholders
   programs.nano.enable = false;
   programs.command-not-found.enable = false;
-  programs.river = {
-    enable = true;
-    extraPackages = [ ];
-  };
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -112,4 +111,5 @@
 
   # Who'll need this...
   documentation.nixos.enable = false;
+  services.speechd.enable = false;
 }
