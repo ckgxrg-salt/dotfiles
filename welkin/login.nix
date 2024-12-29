@@ -21,10 +21,5 @@
       uid = 1001;
       description = "System administrator";
     };
-    "bse" = {
-      isNormalUser = true;
-      uid = 1002;
-      description = "Normal user";
-    };
   };
 }

@@ -31,9 +31,9 @@ let
       wpctl set-volume @DEFAULT_SINK@ 0.05- && notify_user
     }
     toggle_mute() {
-      if [ "$(pamixer --get-mute)" == "false" ]; then
+      if [ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" == "" ]; then
         wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/volume-mute.png" "Muted"
-      elif [ "$(pamixer --get-mute)" == "true" ]; then
+      elif [ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" == "[MUTED]" ]; then
         wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Unmuted"
       fi
     }

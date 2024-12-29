@@ -7,6 +7,7 @@
     ./greetd.nix
     ./userspace.nix
     ./nix.nix
+    ./firejail.nix
     ../shared/security.nix
     ../shared/gaming/steam.nix
     ../shared/gaming/gamemode.nix

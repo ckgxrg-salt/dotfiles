@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
+# Bootstrap process
 {
-  # Boot up process
   imports = [ ./fstab.nix ];
   boot = {
     #========== Bootloader ==========#

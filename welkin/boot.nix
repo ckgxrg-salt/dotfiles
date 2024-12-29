@@ -1,5 +1,5 @@
 { pkgs, ... }:
-# Bootup Process
+# Bootstrap Process
 {
   imports = [ ./fstab.nix ];
   boot = {

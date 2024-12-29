@@ -6,6 +6,7 @@
     ./login.nix
     ./settings.nix
     ./security.nix
+    ./vm
   ];
 
   # Hostname

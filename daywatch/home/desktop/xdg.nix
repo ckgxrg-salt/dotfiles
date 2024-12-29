@@ -69,7 +69,7 @@
         icon = "${pkgs.qq}/share/icons/hicolor/512x512/apps/qq.png";
         comment = "QQ";
         terminal = false;
-        exec = "qq --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
+        exec = "/run/current-system/sw/bin/qq --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
         type = "Application";
         categories = [ "Network" ];
         settings = {

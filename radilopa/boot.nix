@@ -4,7 +4,7 @@
   lib,
   ...
 }:
-# Boot up process
+# Bootstrap process
 {
   imports = [ ./fstab.nix ];
   boot = {
