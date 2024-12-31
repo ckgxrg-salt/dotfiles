@@ -10,6 +10,7 @@
     ./fcitx.nix
     ./hyprlock.nix
     ./hypridle.nix
+    ./scripts.nix
     ./waybar.nix
     ./wlogout.nix
     ./daemons.nix
@@ -19,14 +20,10 @@
   home.packages = with pkgs; [
     waypaper
     grimblast
-
     brightnessctl
     swww
     playerctl
-
-    pamixer
     libnotify
-
     wl-clipboard
     cliphist
   ];
