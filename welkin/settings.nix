@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 # Hardware related
 {
   #========== Hardware ==========#
@@ -11,11 +11,6 @@
   networking = {
     # Ethernet only
     wireless.enable = false;
-
-    # Firewall
-    firewall = {
-      enable = true;
-    };
   };
 
   #========== Power ==========#
@@ -55,7 +50,15 @@
     supportedLocales = [
       "en_GB.UTF-8/UTF-8"
     ];
+    extraLocaleSettings = {
+      LC_ALL = "en_GB.UTF-8";
+    };
   };
+
+  #========== Packages ==========#
+  environment.systemPackages = with pkgs; [
+    neovim
+  ];
 
   #========== Miscellaneous ==========#
   # Who'll need this...

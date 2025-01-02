@@ -139,17 +139,6 @@
             }
           ];
         };
-
-        # Temporary
-        Welkin = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./welkin
-            lix-module.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
-            microvm.nixosModules.host
-          ];
-        };
       };
 
       # The home server...
@@ -163,7 +152,7 @@
         Welkin = {
           deployment = {
             buildOnTarget = true;
-            targetUser = "akacloud";
+            targetUser = "deployer";
             tags = [ "welkin" ];
           };
           imports = [

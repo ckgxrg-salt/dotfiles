@@ -16,12 +16,18 @@
   # Users
   users.users = {
     # System administration & maintance
-    # Also the target colmena will ssh into
     "akacloud" = {
       isNormalUser = true;
       uid = 1001;
       extraGroups = [ "wheel" ];
       description = "System administrator";
+    };
+    # The target colmena will ssh into
+    "deployer" = {
+      isNormalUser = true;
+      uid = 1002;
+      extraGroups = [ "wheel" ];
+      description = "Colmena deployer";
     };
   };
 }

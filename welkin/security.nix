@@ -20,6 +20,9 @@
     "akacloud".openssh.authorizedKeys.keyFiles = [
       ./keys/daywatch-ssh.pub
     ];
+    "deployer".openssh.authorizedKeys.keyFiles = [
+      ./keys/daywatch-ssh.pub
+    ];
   };
 
   # sudo
@@ -30,14 +33,40 @@
     extraRules = [
       # Allow remote deployment to use the command without password
       {
-        users = [ "akacloud" ];
+        users = [ "deployer" ];
         commands = [
           {
-            command = "nixos-rebuild";
+            command = "ALL";
             options = [ "NOPASSWD" ];
           }
         ];
       }
     ];
+  };
+
+  # Firewall with NFTables
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+  };
+
+  # AppArmor MAC
+  security.apparmor = {
+    enable = true;
+    enableCache = true;
+  };
+  services.dbus = {
+    apparmor = "enabled";
+    implementation = "broker";
+  };
+
+  # Audit Framework
+  security.audit.enable = true;
+  security.auditd.enable = true;
+
+  # TPM2 Support
+  security.tpm2 = {
+    enable = true;
+    applyUdevRules = true;
   };
 }
