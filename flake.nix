@@ -140,13 +140,33 @@
           ];
         };
 
-        # The home server...
+        # Temporary
         Welkin = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-          };
           inherit system;
           modules = [
+            ./welkin
+            lix-module.nixosModules.default
+            lanzaboote.nixosModules.lanzaboote
+            microvm.nixosModules.host
+          ];
+        };
+      };
+
+      # The home server...
+      colmena = {
+        meta = {
+          nixpkgs = import nixpkgs {
+            system = "x86_64-linux";
+          };
+        };
+
+        Welkin = {
+          deployment = {
+            buildOnTarget = true;
+            targetUser = "akacloud";
+            tags = [ "welkin" ];
+          };
+          imports = [
             ./welkin
             lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
@@ -162,6 +182,7 @@
         buildInputs = with pkgs; [
           nixfmt-rfc-style
           deadnix
+          colmena
         ];
 
         shellHook = ''

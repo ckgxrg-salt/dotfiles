@@ -9,8 +9,11 @@
     ./vm
   ];
 
-  # Hostname
-  networking.hostName = "Welkin";
+  # Hostname & Host ID
+  networking = {
+    hostName = "Welkin";
+    hostId = "9ff456c1";
+  };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "24.11";
 }

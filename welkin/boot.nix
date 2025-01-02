@@ -12,14 +12,30 @@
       };
       grub = {
         enable = true;
+        zfsSupport = true;
+        efiSupport = true;
+        mirroredBoots = [
+          {
+            devices = [ "nodev" ];
+            path = "/boot";
+          }
+        ];
       };
     };
 
     #========== Initrd ==========#
     initrd = {
-      # Use systemd instead of busybox
-      systemd.enable = true;
       verbose = true;
+      availableKernelModules = [
+        "xhci_pci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
+      kernelModules = [
+        "kvm-intel"
+      ];
     };
 
     #========== Kernel ==========#

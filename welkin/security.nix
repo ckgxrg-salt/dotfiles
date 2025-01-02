@@ -2,7 +2,7 @@
 # Security configuration
 {
   # SSH to the host should be strictly limited
-  programs.openssh = {
+  services.openssh = {
     enable = true;
     startWhenNeeded = true;
     openFirewall = true;
@@ -15,10 +15,29 @@
       PasswordAuthentication = false;
     };
   };
-  # Only allow Daywatch and Radilopa
+  # Only allow Daywatch and Radilopa to access the host
   users.users = {
-    "akacloud".openssh.authorizedKeys.keys = [
+    "akacloud".openssh.authorizedKeys.keyFiles = [
       ./keys/daywatch-ssh.pub
+    ];
+  };
+
+  # sudo
+  security.sudo = {
+    enable = true;
+    wheelNeedsPassword = true;
+    execWheelOnly = true;
+    extraRules = [
+      # Allow remote deployment to use the command without password
+      {
+        users = [ "akacloud" ];
+        commands = [
+          {
+            command = "nixos-rebuild";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
     ];
   };
 }

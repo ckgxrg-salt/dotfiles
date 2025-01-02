@@ -1,20 +1,23 @@
 { ... }:
 {
   # Nix configuration
-  nix.settings = {
-    substituters = [
-      "https://mirror.sjtu.edu.cn/nix-channels/store"
-      "https://cache.nixos.org"
-    ];
-    trusted-users = [
-      "root"
-      "@wheel"
-    ];
-    # Enable flakes
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+  nix = {
+    channel.enable = false;
+    settings = {
+      substituters = [
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
+      ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+      # Enable flakes
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
   # An advanced cli for Nix

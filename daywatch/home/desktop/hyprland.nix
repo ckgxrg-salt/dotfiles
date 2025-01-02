@@ -89,11 +89,6 @@
         smart_split = true;
         smart_resizing = true;
       };
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 3;
-        workspace_swipe_min_fingers = true;
-      };
       cursor = {
         no_hardware_cursors = true;
       };
@@ -149,8 +144,6 @@
       plugin = {
         touch_gestures = {
           sensitivity = 2.0;
-          workspace_swipe_fingers = 4;
-          workspace_swipe_edge = "no";
         };
         scroller = {
           column_widths = "onethird onehalf twothirds one";
@@ -203,6 +196,10 @@
         "SUPER, mouse_down, scroller:cyclewidth, next"
         "SUPER SHIFT, mouse_up, scroller:cycleheight, prev"
         "SUPER SHIFT, mouse_down, scroller:cycleheight, next"
+        "SUPER, minus, scroller:cyclewidth, prev"
+        "SUPER, equals, scroller:cyclewidth, next"
+        "SUPER SHIFT, minus, scroller:cycleheight, prev"
+        "SUPER SHIFT, equals, scroller:cycleheight, next"
         "SUPER, F11, scroller:pin,"
         "SUPER, bracketleft, scroller:admitwindow,"
         "SUPER, bracketright, scroller:expelwindow,"

@@ -2,10 +2,10 @@
 {
   # Login Messages
   environment.etc = {
-    "motd" = ''
+    "motd".text = ''
       Welcome from the Welkin - Host
     '';
-    "issue" = ''
+    "issue".text = ''
       Dunno what to say yet...
     '';
   };
@@ -16,9 +16,11 @@
   # Users
   users.users = {
     # System administration & maintance
+    # Also the target colmena will ssh into
     "akacloud" = {
       isNormalUser = true;
       uid = 1001;
+      extraGroups = [ "wheel" ];
       description = "System administrator";
     };
   };
