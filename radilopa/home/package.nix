@@ -11,7 +11,7 @@
     fortune
     lazygit
     lolcat
-    maa-cli
+    #maa-cli
     inputs.nix-alien.packages.${system}.nix-alien
     nvitop
     procs

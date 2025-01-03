@@ -17,7 +17,7 @@
       privateNetwork = true;
       hostBridge = "br0";
       localAddress = "192.168.50.103/24";
-      localAddress6 = "2408:8215:123:16d0:e251:d8ff:95ca:72a1/64";
+      localAddress6 = "2408:8215:123:16d0:e251:d8ff:81bc:1da2/64";
       config = import ./goatfold;
     };
   };

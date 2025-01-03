@@ -3,7 +3,8 @@
 {
   programs.tmux = {
     enable = true;
-    secureSocket = true;
+    # So server keeps running with we ssh out
+    secureSocket = false;
     clock24 = true;
   };
 }
