@@ -146,12 +146,14 @@
           deployment = {
             buildOnTarget = true;
             targetUser = "deployer";
-            tags = [ "welkin" ];
+            tags = [
+              "welkin"
+              "host"
+            ];
           };
           imports = [
             ./welkin
             lix-module.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
           ];
         };
       };

@@ -5,6 +5,7 @@
     ./login.nix
     ./security.nix
     ./settings.nix
+    ./tmux.nix
   ];
 
   # Hostname & Host ID

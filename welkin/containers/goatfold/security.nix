@@ -36,6 +36,8 @@
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
+    # Everyone knows what is this
+    allowedTCPPorts = [ 25565 ];
   };
 
   # AppArmor MAC
@@ -49,13 +51,5 @@
   };
 
   # Audit Framework
-  security.audit.enable = true;
   security.auditd.enable = true;
-
-  # TPM Support
-  boot.initrd.systemd.tpm2.enable = true;
-  security.tpm2 = {
-    enable = true;
-    applyUdevRules = true;
-  };
 }
