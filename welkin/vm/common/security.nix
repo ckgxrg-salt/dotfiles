@@ -1,7 +1,7 @@
 { ... }:
 # Security configuration
 {
-  # SSH to the host should be strictly limited
+  # SSH
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
@@ -18,10 +18,7 @@
   # Only allow Daywatch and Radilopa to access the host
   users.users = {
     "akacloud".openssh.authorizedKeys.keyFiles = [
-      ./keys/daywatch-ssh.pub
-    ];
-    "deployer".openssh.authorizedKeys.keyFiles = [
-      ./keys/daywatch-ssh.pub
+      ../../keys/daywatch-ssh.pub
     ];
   };
 
@@ -30,18 +27,6 @@
     enable = true;
     wheelNeedsPassword = true;
     execWheelOnly = true;
-    extraRules = [
-      # Allow remote deployment to use the command without password
-      {
-        users = [ "deployer" ];
-        commands = [
-          {
-            command = "ALL";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-      }
-    ];
   };
 
   # Firewall with NFTables

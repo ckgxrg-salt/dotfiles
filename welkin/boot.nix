@@ -25,6 +25,7 @@
 
     #========== Initrd ==========#
     initrd = {
+      systemd.enable = true;
       verbose = true;
       availableKernelModules = [
         "xhci_pci"

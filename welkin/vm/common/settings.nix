@@ -1,19 +1,10 @@
 { pkgs, ... }:
 # Configuration
 {
-  #========== Hardware ==========#
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-  };
-  services.zfs = {
-    autoScrub.enable = true;
-    trim.enable = true;
-  };
-
   #========== Network & Devices ==========#
   # Internet
   networking = {
-    # Ethernet only
+    # Virtual network...
     wireless.enable = false;
     useNetworkd = true;
   };
@@ -22,33 +13,18 @@
   systemd.network = {
     enable = true;
     networks = {
-      "10-lan" = {
-        matchConfig.Name = [
-          "enp3s0"
-          "vm-*"
-        ];
-        networkConfig = {
-          Bridge = "br0";
-        };
-      };
-      "10-lan-bridge" = {
-        matchConfig.Name = "br0";
+      "20-lan" = {
+        matchConfig.Type = "ether";
         networkConfig = {
           Address = [
-            "192.168.50.100/24"
-            "2408:8215:123:16d0:e251:d8ff:fe17:c7ff/64"
+            "192.168.50.101/24"
+            "2408:8215:123:16d0:e251:d8ff:95ca:72a1/64"
           ];
           Gateway = "192.168.50.1";
           DNS = [ "192.168.50.1" ];
           IPv6AcceptRA = true;
+          DHCP = "no";
         };
-        linkConfig.RequiredForOnline = "routable";
-      };
-    };
-    netdevs."br0" = {
-      netdevConfig = {
-        Name = "br0";
-        Kind = "bridge";
       };
     };
   };

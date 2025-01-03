@@ -9,7 +9,7 @@
 
   # Hostname & Host ID
   networking = {
-    hostName = "Everpivot";
+    hostName = "Welkin-Common";
     hostId = "f058329f";
   };
 

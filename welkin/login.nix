@@ -10,24 +10,28 @@
     '';
   };
 
-  # Replace the default perl script
-  services.userborn.enable = true;
-
-  # Users
-  users.users = {
-    # System administration & maintance
-    "akacloud" = {
-      isNormalUser = true;
-      uid = 1001;
-      extraGroups = [ "wheel" ];
-      description = "System administrator";
+  # Users & Groups
+  users = {
+    users = {
+      # System administration & maintance
+      "akacloud" = {
+        isNormalUser = true;
+        uid = 1001;
+        extraGroups = [ "wheel" ];
+        description = "System administrator";
+      };
+      # The target colmena will ssh into
+      "deployer" = {
+        isNormalUser = true;
+        group = "deployer";
+        home = "/var/empty";
+        createHome = false;
+        extraGroups = [ "wheel" ];
+        description = "Colmena deployer";
+      };
     };
-    # The target colmena will ssh into
-    "deployer" = {
-      isNormalUser = true;
-      uid = 1002;
-      extraGroups = [ "wheel" ];
-      description = "Colmena deployer";
+    groups = {
+      "deployer" = { };
     };
   };
 }
