@@ -52,12 +52,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # microvm.nix
-    microvm = {
-      url = "github:astro/microvm.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     inputs@{
@@ -69,7 +63,6 @@
       home-manager,
       lanzaboote,
       nixvim,
-      microvm,
       ...
     }:
     let
@@ -159,7 +152,6 @@
             ./welkin
             lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
-            microvm.nixosModules.host
           ];
         };
       };

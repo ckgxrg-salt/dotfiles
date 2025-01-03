@@ -20,12 +20,15 @@
     "akacloud".openssh.authorizedKeys.keyFiles = [
       ../../keys/daywatch-ssh.pub
     ];
+    "goat".openssh.authorizedKeys.keyFiles = [
+      ../../keys/daywatch-ssh.pub
+    ];
   };
 
   # sudo
   security.sudo = {
     enable = true;
-    wheelNeedsPassword = true;
+    wheelNeedsPassword = false;
     execWheelOnly = true;
   };
 

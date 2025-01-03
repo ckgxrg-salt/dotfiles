@@ -25,7 +25,7 @@
   # sudo
   security.sudo = {
     enable = true;
-    wheelNeedsPassword = true;
+    wheelNeedsPassword = false;
     execWheelOnly = true;
   };
 

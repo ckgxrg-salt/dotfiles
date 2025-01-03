@@ -29,9 +29,6 @@
     };
   };
 
-  #========== Power ==========#
-  services.thermald.enable = true;
-
   #========== Nix ==========#
   nix = {
     channel.enable = false;

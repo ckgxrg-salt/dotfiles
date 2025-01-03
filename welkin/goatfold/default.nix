@@ -1,17 +1,16 @@
 { ... }:
-# Host entrypoint
+# This vm runs Minecraft servers
 {
   imports = [
-    ./boot.nix
     ./login.nix
-    ./settings.nix
     ./security.nix
+    ./settings.nix
   ];
 
   # Hostname & Host ID
   networking = {
-    hostName = "Welkin";
-    hostId = "9ff456c1";
+    hostName = "Goatfold";
+    hostId = "951c4139";
   };
 
   system.stateVersion = "24.11";

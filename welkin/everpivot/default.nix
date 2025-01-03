@@ -1,17 +1,16 @@
 { ... }:
-# Host entrypoint
+# This vm runs miscellaneous services
 {
   imports = [
-    ./boot.nix
     ./login.nix
-    ./settings.nix
     ./security.nix
+    ./settings.nix
   ];
 
   # Hostname & Host ID
   networking = {
-    hostName = "Welkin";
-    hostId = "9ff456c1";
+    hostName = "Everpivot";
+    hostId = "f058329f";
   };
 
   system.stateVersion = "24.11";
