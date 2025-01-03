@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 # Configuration
 {
   #========== Hardware ==========#
@@ -25,7 +25,7 @@
       "10-lan" = {
         matchConfig.Name = [
           "enp3s0"
-          "ve-*"
+          "vb-*"
         ];
         networkConfig = {
           Bridge = "br0";
@@ -92,11 +92,6 @@
       LC_ALL = "en_GB.UTF-8";
     };
   };
-
-  #========== Packages ==========#
-  environment.systemPackages = with pkgs; [
-    neovim
-  ];
 
   #========== Miscellaneous ==========#
   # Who'll need this...
