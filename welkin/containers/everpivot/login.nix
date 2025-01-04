@@ -3,10 +3,10 @@
   # Login Messages
   environment.etc = {
     "motd".text = ''
-      Welcome from the Welkin - Everpivot
+      Welcome from the Welkin - Everlight Pivot
     '';
     "issue".text = ''
-      Everpivot is online
+      Everlight Pivot is online
     '';
   };
 

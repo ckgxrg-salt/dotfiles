@@ -5,6 +5,8 @@
     ./login.nix
     ./security.nix
     ./settings.nix
+
+    ./services/jellyfin.nix
   ];
 
   # Hostname & Host ID

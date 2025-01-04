@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 # Configuration
 {
   #========== Network & Devices ==========#
@@ -62,11 +62,6 @@
       LC_ALL = "en_GB.UTF-8";
     };
   };
-
-  #========== Packages ==========#
-  environment.systemPackages = with pkgs; [
-    neovim
-  ];
 
   #========== Miscellaneous ==========#
   # Who'll need this...

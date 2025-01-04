@@ -44,7 +44,4 @@
     apparmor = "enabled";
     implementation = "broker";
   };
-
-  # Audit Framework
-  security.auditd.enable = true;
 }

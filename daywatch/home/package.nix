@@ -50,6 +50,7 @@
     foliate
     freetube
     gimp
+    jellyfin-media-player
     komikku
     # Gaming
     moonlight-qt
