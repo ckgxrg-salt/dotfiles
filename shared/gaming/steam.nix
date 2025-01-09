@@ -11,6 +11,8 @@
       enable = true;
       args = [ "-O eDP-1" ];
     };
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
+    protontricks.enable = true;
   };
 
   programs.gamescope = {

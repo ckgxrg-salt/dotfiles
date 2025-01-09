@@ -68,6 +68,7 @@
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.ipv4.default_qdisc" = "cake";
+      "kernel.core_pattern" = "|${pkgs.coreutils}/bin/false";
     };
   };
 }

@@ -11,6 +11,15 @@
       localAddress6 = "2408:8215:123:16d0:e251:d8ff:95ca:72a1/64";
       config = import ./everpivot;
     };
+    # Gitlab
+    "archiva" = {
+      autoStart = true;
+      privateNetwork = true;
+      hostBridge = "br0";
+      localAddress = "192.168.50.102/24";
+      localAddress6 = "2408:8215:123:16d0:e251:d8ff:5bd9:8a1c/64";
+      config = import ./archiva;
+    };
     # Minecraft server
     "goatfold" = {
       autoStart = true;

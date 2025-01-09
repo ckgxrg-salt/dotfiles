@@ -197,7 +197,7 @@
         "SUPER SHIFT, mouse_up, scroller:cycleheight, prev"
         "SUPER SHIFT, mouse_down, scroller:cycleheight, next"
         "SUPER, minus, scroller:cyclewidth, prev"
-        "SUPER, equals, scroller:cyclewidth, next"
+        "SUPER, equal, scroller:cyclewidth, next"
         "SUPER SHIFT, minus, scroller:cycleheight, prev"
         "SUPER SHIFT, equals, scroller:cycleheight, next"
         "SUPER, F11, scroller:pin,"

@@ -76,22 +76,6 @@
           StartupWMClass = "QQ";
         };
       };
-      "io.github.msojocs.bilibili" = {
-        name = "Bilibili";
-        icon = "io.github.msojocs.bilibili";
-        comment = "Bilibili Desktop";
-        terminal = false;
-        exec = "bilibili --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
-        type = "Application";
-        categories = [
-          "AudioVideo"
-          "Video"
-          "TV"
-        ];
-        settings = {
-          StartupWMClass = "bilibili";
-        };
-      };
 
       # There's some issues about kvantum style
       "nheko" = {

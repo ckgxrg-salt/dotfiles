@@ -57,17 +57,6 @@
     powerOnBoot = true;
   };
 
-  # CUPS
-  services.printing = {
-    enable = true;
-    stateless = true;
-    startWhenNeeded = true;
-    drivers = with pkgs; [ hplip ];
-  };
-
-  # Android Debug Bridge
-  programs.adb.enable = true;
-
   #========== Audio ==========#
   # PipeWire
   security.rtkit.enable = true;

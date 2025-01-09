@@ -3,7 +3,6 @@
   # Home-manager packages
   home.packages = with pkgs; [
     # Terminal Utilities
-    asciiquarium
     cowsay
     dust
     fastfetch
@@ -28,17 +27,14 @@
     bottles
     celluloid
     libsForQt5.index
-    gnome-decoder
     impression
     kdePackages.okular
     pix
     seahorse
     snapshot
-    system-config-printer
 
     # Applications
     # Productivity
-    blockbench
     krita
     libreoffice
     obsidian
@@ -46,7 +42,6 @@
     errands
     pomodoro-gtk
     # Media
-    bilibili
     foliate
     freetube
     gimp
@@ -59,7 +54,6 @@
     localsend
     nheko
     qq
-    rustdesk
     # Web
     thunderbird
     tor-browser

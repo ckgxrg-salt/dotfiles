@@ -56,7 +56,7 @@ let
     iDIR="$HOME/.config/mako/icons"
     get_backlight() {
       LIGHT=$(printf "%.0f\n" $(brightnessctl get))
-      echo $(expr $LIGHT / 2.55)
+      echo $(expr ($LIGHT / 255 * 100))
     }
     get_icon() {
       current="$(get_backlight)"

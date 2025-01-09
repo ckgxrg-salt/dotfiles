@@ -70,6 +70,7 @@
       "net.ipv4.default_qdisc" = "cake";
       "vm.laptop_mode" = 5;
       "kernel.nmi_watchdog" = 0;
+      "kernel.core_pattern" = "|${pkgs.coreutils}/bin/false";
     };
   };
 }
