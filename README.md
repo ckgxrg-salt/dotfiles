@@ -7,4 +7,3 @@ Feel free to refer to my configurations, but don't expect they'll work out of bo
 1. Remove Daywatchman's waybar, use AGS instead
 2. Wrap MPC using AGS
 3. Apparmor notifications
-4. Migrate Welkin from LXC to Xen

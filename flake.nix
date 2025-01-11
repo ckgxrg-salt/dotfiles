@@ -134,30 +134,6 @@
         };
       };
 
-      # The home server...
-      colmena = {
-        meta = {
-          nixpkgs = import nixpkgs {
-            system = "x86_64-linux";
-          };
-        };
-
-        Welkin = {
-          deployment = {
-            buildOnTarget = true;
-            targetUser = "deployer";
-            tags = [
-              "welkin"
-              "host"
-            ];
-          };
-          imports = [
-            ./welkin
-            lix-module.nixosModules.default
-          ];
-        };
-      };
-
       # A nix develop shell including formatter and linter to be used with Neovim
       devShells.${system}.default = pkgs.mkShell {
         name = "dotfiles";
@@ -165,7 +141,6 @@
         buildInputs = with pkgs; [
           nixfmt-rfc-style
           deadnix
-          colmena
         ];
 
         shellHook = ''
