@@ -25,17 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix-Alien
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # NixVim
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # AGS
     astal = {
       url = "github:Aylur/astal";
@@ -135,7 +129,7 @@
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShellNoCC {
         name = "dotfiles";
 
         buildInputs = with pkgs; [

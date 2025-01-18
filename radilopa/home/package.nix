@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   # Home-manager packages for Radilopa
   home.packages = with pkgs; [
@@ -11,8 +11,7 @@
     fortune
     lazygit
     lolcat
-    #maa-cli
-    inputs.nix-alien.packages.${system}.nix-alien
+    maa-cli
     nvitop
     procs
     psmisc

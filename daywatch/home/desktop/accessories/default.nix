@@ -63,18 +63,7 @@
     icons = true;
     maxIconSize = 64;
     maxVisible = 3;
-
     iconPath = "${config.home.profileDirectory}/share/icons/${config.ckgxrg.themes.icon.name}";
-
-    extraConfig = ''
-      on-notify=exec canberra-gtk-play -i dialog-information -d "makoNotification"
-      [urgency=low]
-      on-notify=exec canberra-gtk-play -i dialog-question -d "makoNotification"
-      [urgency=normal]
-      on-notify=exec canberra-gtk-play -i dialog-information -d "makoNotification"
-      [urgency=critical]
-      on-notify=exec canberra-gtk-play -i dialog-error-critical -d "makoNotification";
-    '';
   };
   # Mako's icons
   xdg.configFile = {

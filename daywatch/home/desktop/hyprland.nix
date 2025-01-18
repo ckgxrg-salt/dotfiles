@@ -231,12 +231,13 @@
         "SUPER, minus, scroller:cyclewidth, prev"
         "SUPER, equal, scroller:cyclewidth, next"
         "SUPER SHIFT, minus, scroller:cycleheight, prev"
-        "SUPER SHIFT, equals, scroller:cycleheight, next"
+        "SUPER SHIFT, equal, scroller:cycleheight, next"
         "SUPER, F11, scroller:pin,"
 
-        # Scroller modes
-        "SUPER SHIFT, asciitilde, scroller:setmode, row"
-        "SUPER, asciitilde, scroller:setmode, col"
+        # Switch hyprscroller modes
+        "SUPER, F9, scroller:setmode, col"
+        "SUPER, F9, exec, notify-send 'Hyprscroller' 'Switched to Column Mode' -i activities"
+        "SUPER, F9, submap, scroller-col"
 
         # Workspaces
         "SUPER, S, togglespecialworkspace, browser"
@@ -245,8 +246,9 @@
         "SUPER, D, workspace, name:Dashboard"
         "SUPER SHIFT, S, movetoworkspace, special:browser"
         "SUPER SHIFT, H, movetoworkspace, name:Home"
-        "SUPER SHIFT, D, movetoworkspace, name:Home"
+        "SUPER SHIFT, D, movetoworkspace, name:Dashboard"
       ];
+
       # Move, resize and scroller mode
       bindm = [
         "SUPER, mouse:272, movewindow"
@@ -271,6 +273,12 @@
         name = elan9009:00-04f3:2c1b-stylus
         output = DP-1
       }
+
+      submap = scroller-col
+      bind = SUPER, F9, scroller:setmode, row
+      bind = SUPER, F9, exec, notify-send 'Hyprscroller' 'Switched to Row Mode' -i activities
+      bind = SUPER, F9, submap, reset
+      submap = reset
     '';
   };
 }

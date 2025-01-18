@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   # Home-manager packages
   home.packages = with pkgs; [
@@ -9,7 +9,6 @@
     fortune
     lazygit
     lolcat
-    inputs.nix-alien.packages.${system}.nix-alien
     powertop
     procs
     psmisc
