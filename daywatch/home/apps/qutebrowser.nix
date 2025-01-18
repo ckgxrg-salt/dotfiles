@@ -30,6 +30,14 @@
     keyBindings = {
       normal = {
         "pw" = "spawn --userscript qute-pass";
+        # Align with standard vim keybind
+        "H" = "tab-prev";
+        "L" = "tab-next";
+        "<Shift-left>" = "back";
+        "<Shift-right>" = "forward";
+        "J" = "nop";
+        "K" = "nop";
+        "." = "nop";
       };
       insert = {
         "<Alt-Shift-u>" = "spawn --userscript qute-pass";

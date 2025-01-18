@@ -112,4 +112,5 @@
   # Who'll need this...
   documentation.nixos.enable = false;
   services.speechd.enable = false;
+  system.tools.nixos-option.enable = false;
 }

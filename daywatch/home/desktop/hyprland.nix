@@ -8,6 +8,7 @@
     plugins = with pkgs.hyprlandPlugins; [
       hyprgrass
       hyprscroller
+      hypr-dynamic-cursors
     ];
     settings = {
       # Hardware
@@ -31,7 +32,7 @@
 
       # Initialisation
       exec-once = [
-        "canberra-gtk-play -i desktop-login -d \"welcome\""
+        "canberra-gtk-play -i desktop-login"
       ];
 
       # Window, workspace and layer rules
@@ -51,8 +52,8 @@
         "plugin:scroller:columnwidth one, class:(org.qutebrowser.qutebrowser)"
         "plugin:scroller:windowheight one, class:(org.qutebrowser.qutebrowser)"
 
-        # Wrap C.A.V.A. as the background audio visualiser
-        "workspace name:dashboard silent, class:(alacritty-cava)"
+        # Wrap C.A.V.A. the background audio visualiser
+        "workspace name:Dashboard silent, class:(alacritty-cava)"
         "noanim, class:(alacritty-cava)"
         "nodim, class:(alacritty-cava)"
         "noblur, class:(alacritty-cava)"
@@ -68,13 +69,14 @@
       ];
       workspace = [
         "special:browser, on-created-empty:uwsm app -- qutebrowser"
-        "name:dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow:false, rounding:false, border:false"
+        "name:Home, monitor:eDP-1, persistent:true, default:true"
+        "name:Dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow:false, rounding:false, border:false"
       ];
 
       # Options
       general = {
         gaps_in = 10;
-        gaps_out = 18;
+        gaps_out = 8;
         border_size = 0;
         "col.active_border" = "rgba(00000000)";
         "col.inactive_border" = "rgba(00000000)";
@@ -85,12 +87,9 @@
           enabled = true;
         };
       };
-      dwindle = {
-        smart_split = true;
-        smart_resizing = true;
-      };
-      cursor = {
-        no_hardware_cursors = true;
+      gestures = {
+        workspace_swipe = false;
+        workspace_swipe_touch = false;
       };
       misc = {
         disable_hyprland_logo = true;
@@ -144,21 +143,49 @@
       plugin = {
         touch_gestures = {
           sensitivity = 2.0;
+          workspace_swipe_fingers = 0;
+          workspace_swipe_edge = false;
+          resize_on_border_long_press = true;
         };
         scroller = {
-          column_widths = "onethird onehalf twothirds one";
-          column_default_width = "onethird";
-          window_heights = "onethird twothirds one";
+          column_widths = "onethird twothirds one";
+          column_default_width = "twothirds";
+          window_heights = "twothirds one";
           window_default_height = "one";
-          cyclesize_wrap = 0;
-          focus_wrap = 0;
+          cyclesize_wrap = false;
+          focus_wrap = false;
           monitor_options = "(DP-1 = (column_default_width = one))";
+
+          # Gestures
+          gesture_scroll_enable = true;
+          gesture_scroll_fingers = 3;
+          gesture_scroll_distance = 75;
+          gesture_workspace_switch_enable = false;
+        };
+        dynamic-cursors = {
+          enabled = true;
+          mode = "stretch";
+          threshold = 5;
+          stretch = {
+            limit = 10000;
+            function = "linear";
+          };
+          shake = {
+            enabled = false;
+          };
         };
       };
 
       # Touchscreen binds
       hyprgrass-bind = [
-        ", swipe:4:l, togglespecialworkspace, browser"
+        ", edge:r:l, togglespecialworkspace, browser"
+        ", swipe:5:ld, exec, uwsm app -- wlogout"
+        ", swipe:3:l, scroller:movefocus, r"
+        ", swipe:3:r, scroller:movefocus, l"
+        ", swipe:3:u, scroller:movefocus, d"
+        ", swipe:3:d, scroller:movefocus, u"
+        ", swipe:3:ld, scroller:admitwindow,"
+        ", swipe:3:ru, scroller:expelwindow,"
       ];
       hyprgrass-bindm = [
         ", longpress:2, movewindow"
@@ -176,21 +203,26 @@
         "SUPER, Tab, scroller:toggleoverview,"
         "SUPER, Print, exec, uwsm app -- grimblast copy area"
         ", XF86PowerOff, exec, uwsm app -- wlogout"
+
         # Volume and brightness controls
         ", XF86AudioMute, exec, volume --toggle"
         ", XF86AudioLowerVolume, exec, volume --dec"
         ", XF86AudioRaiseVolume, exec, volume --inc"
         ", XF86MonBrightnessUp, exec, brightness --inc"
         ", XF86MonBrightnessDown, exec, brightness --dec"
+
         # Move focus
-        "SUPER, J, scroller:movefocus, d"
-        "SUPER, K, scroller:movefocus, u"
-        "SUPER, H, scroller:movefocus, l"
-        "SUPER, L, scroller:movefocus, r"
-        "SUPER SHIFT, J, scroller:movewindow, d"
-        "SUPER SHIFT, K, scroller:movewindow, u"
-        "SUPER SHIFT, H, scroller:movewindow, l"
-        "SUPER SHIFT, L, scroller:movewindow, r"
+        "SUPER, J, movefocus, d"
+        "SUPER, K, movefocus, u"
+        "SUPER, H, movefocus, l"
+        "SUPER, L, movefocus, r"
+        "SUPER SHIFT, J, movewindow, d"
+        "SUPER SHIFT, K, movewindow, u"
+        "SUPER SHIFT, H, movewindow, l"
+        "SUPER SHIFT, L, movewindow, r"
+        "SUPER CTRL, H, scroller:admitwindow,"
+        "SUPER CTRL, L, scroller:expelwindow,"
+
         # Adjust windows
         "SUPER, mouse_up, scroller:cyclewidth, prev"
         "SUPER, mouse_down, scroller:cyclewidth, next"
@@ -201,26 +233,19 @@
         "SUPER SHIFT, minus, scroller:cycleheight, prev"
         "SUPER SHIFT, equals, scroller:cycleheight, next"
         "SUPER, F11, scroller:pin,"
-        "SUPER, bracketleft, scroller:admitwindow,"
-        "SUPER, bracketright, scroller:expelwindow,"
+
         # Scroller modes
-        "SUPER, F12, scroller:setmode, row"
-        "SUPER SHIFT, F12, scroller:setmode, col"
-        # Special workspaces
+        "SUPER SHIFT, asciitilde, scroller:setmode, row"
+        "SUPER, asciitilde, scroller:setmode, col"
+
+        # Workspaces
         "SUPER, S, togglespecialworkspace, browser"
         "SUPER SHIFT, W, workspace, name:"
-        "SUPER, P, workspace, name:dashboard"
+        "SUPER, H, workspace, name:Home"
+        "SUPER, D, workspace, name:Dashboard"
         "SUPER SHIFT, S, movetoworkspace, special:browser"
-        "SUPER SHIFT, P, movetoworkspace, name:dashboard"
-
-        # Sound effects
-        "SUPER, S, exec, canberra-gtk-play -i message-highlight -d \"openBrowser\""
-        "SUPER SHIFT, W, exec, canberra-gtk-play -i service-login -d \"openWaydroid\""
-        "SUPER, Print, exec, canberra-gtk-play -i dialog-question -d \"screenshot\""
-        ", XF86PowerOff, exec, canberra-gtk-play -i service-logout -d \"wlogout\""
-        "SUPER, V, exec, canberra-gtk-play -i outcome-success -d \"floating\""
-        "SUPER, F, exec, canberra-gtk-play -i outcome-success -d \"fullscreen\""
-        "SUPER, C, exec, canberra-gtk-play -i outcome-failure -d \"close\""
+        "SUPER SHIFT, H, movetoworkspace, name:Home"
+        "SUPER SHIFT, D, movetoworkspace, name:Home"
       ];
       # Move, resize and scroller mode
       bindm = [

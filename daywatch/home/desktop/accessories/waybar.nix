@@ -34,9 +34,14 @@
         size = 32;
       };
       "hyprland/workspaces" = {
-        format = "{name}";
-        format-window-separator = " | ";
+        format = "{icon}";
         sort-by = "id";
+        format-icons = {
+          "Home" = "";
+          "Dashboard" = "";
+          "active" = "";
+          "default" = "";
+        };
       };
       "image#add" = {
         path = "${config.home.homeDirectory}/.config/waybar/add.png";

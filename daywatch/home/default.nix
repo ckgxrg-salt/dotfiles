@@ -20,7 +20,7 @@
     ./apps/nixvim.nix
     ./apps/qutebrowser.nix
     ./apps/btop.nix
-    ./apps/lf.nix
+    ./apps/yazi.nix
     ./apps/cava.nix
     ../../shared/apps/pass.nix
     ../../shared/apps/mpd.nix

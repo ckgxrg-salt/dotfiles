@@ -57,6 +57,7 @@
 
         def dotfiles [] { cd ~/.config/nixos/system; nix develop }
         def ckgpkgs [] { cd ~/.config/nixos/ckgpkgs; nix develop }
+        def welkin [] { cd ~/.config/nixos/welkin; nix develop }
 
         def dev [ name ] { cd $"~/Documents/Codes/($name)"; nix develop }
 

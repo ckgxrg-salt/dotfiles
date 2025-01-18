@@ -22,7 +22,6 @@ let
     }
     notify_user() {
       notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume : $(get_volume) %"
-      canberra-gtk-play -i audio-volume-change -d "changeVolume"
     }
     inc_volume() {
       wpctl set-volume @DEFAULT_SINK@ 0.05+ && notify_user
@@ -74,7 +73,6 @@ let
     }
     notify_user() {
       notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)%"
-      canberra-gtk-play -i audio-volume-change -d "changeBrightness"
     }
     inc_backlight() {
       brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=asus_screenpad set 5%+ && get_icon && notify_user
