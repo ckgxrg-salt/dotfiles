@@ -4,6 +4,7 @@
   #========== Hardware ==========#
   hardware = {
     cpu.amd.updateMicrocode = true;
+    enableRedistributableFirmware = true;
   };
 
   # Power Button Behaviour

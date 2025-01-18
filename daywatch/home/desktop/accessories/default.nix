@@ -81,7 +81,7 @@
   # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
   xdg.configFile."udiskie/config.yml".text = ''
     device_config:
-    - device_file: /dev/loop0
+    - device_file: /dev/loop*
       ignore: true
     program_options:
       automount: true
@@ -90,21 +90,18 @@
   '';
 
   # Waypaper
-  xdg.configFile."waypaper/config.ini".source =
-    let
-      iniFormat = pkgs.formats.ini { };
-    in
-    iniFormat.generate "waypaper.ini" {
-      Settings = {
-        folder = "${config.xdg.userDirs.pictures}/Wallpapers";
-        fill = "Fill";
-        sort = "name";
-        backend = "swww";
-        color = "#ffffff";
-        subfolders = true;
-        monitors = "eDP-1";
-      };
-    };
+  xdg.configFile."waypaper/config.ini".text = ''
+    [Settings]
+    folder = ${config.xdg.userDirs.pictures}/Wallpapers
+    fill = Fill
+    sort = name
+    backend = swww
+    color = #ffffff
+    subfolders = true
+    monitors = eDP-1
+    swww_transition_type = wipe
+    swww_transition_angle = 30
+  '';
 
   # Gammastep the color temperature adjuster
   services.gammastep = {
@@ -139,9 +136,9 @@
     };
   };
 
-  # TODO: Battery warnings
   services.cbatticon = {
     enable = false;
+    iconType = "notification";
     commandCriticalLevel = "notify-send -i battery 'Low Battery' 'Only 5% Battery Remaining'";
   };
 }

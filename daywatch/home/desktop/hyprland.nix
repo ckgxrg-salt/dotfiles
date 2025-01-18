@@ -179,7 +179,7 @@
       # Touchscreen binds
       hyprgrass-bind = [
         ", edge:r:l, togglespecialworkspace, browser"
-        ", swipe:5:ld, exec, uwsm app -- wlogout"
+        ", swipe:4:ld, exec, uwsm app -- wlogout"
         ", swipe:3:l, scroller:movefocus, r"
         ", swipe:3:r, scroller:movefocus, l"
         ", swipe:3:u, scroller:movefocus, d"
@@ -235,9 +235,7 @@
         "SUPER, F11, scroller:pin,"
 
         # Switch hyprscroller modes
-        "SUPER, F9, scroller:setmode, col"
-        "SUPER, F9, exec, notify-send 'Hyprscroller' 'Switched to Column Mode' -i activities"
-        "SUPER, F9, submap, scroller-col"
+        "SUPER, F9, exec, scrollermod --toggle"
 
         # Workspaces
         "SUPER, S, togglespecialworkspace, browser"
@@ -273,12 +271,6 @@
         name = elan9009:00-04f3:2c1b-stylus
         output = DP-1
       }
-
-      submap = scroller-col
-      bind = SUPER, F9, scroller:setmode, row
-      bind = SUPER, F9, exec, notify-send 'Hyprscroller' 'Switched to Row Mode' -i activities
-      bind = SUPER, F9, submap, reset
-      submap = reset
     '';
   };
 }

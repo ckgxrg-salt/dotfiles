@@ -4,6 +4,7 @@
   #========== Hardware ==========#
   hardware = {
     cpu.intel.updateMicrocode = true;
+    enableRedistributableFirmware = true;
   };
 
   # Power Button Behaviour

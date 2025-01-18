@@ -88,6 +88,7 @@
   programs.dconf.enable = true;
   services.udisks2.enable = true;
   virtualisation.waydroid.enable = true;
+  system.etc.overlay.enable = true;
 
   systemd = {
     oomd.enable = false;
@@ -110,7 +111,11 @@
   ];
 
   # Who'll need this...
-  documentation.nixos.enable = false;
+  documentation = {
+    nixos.enable = false;
+    info.enable = false;
+  };
+  environment.defaultPackages = [ ];
   services.speechd.enable = false;
   system.tools.nixos-option.enable = false;
 }

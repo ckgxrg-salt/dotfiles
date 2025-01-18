@@ -38,6 +38,7 @@
         "J" = "nop";
         "K" = "nop";
         "." = "nop";
+        "d" = "nop";
       };
       insert = {
         "<Alt-Shift-u>" = "spawn --userscript qute-pass";

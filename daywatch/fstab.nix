@@ -1,9 +1,6 @@
-{ modulesPath, ... }:
+{ ... }:
 #========== Filesystem ==========#
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/4475d92b-fa6e-4b0f-9aef-d9dd6e49a67a";

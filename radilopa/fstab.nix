@@ -1,7 +1,6 @@
-{ modulesPath, ... }:
+{ ... }:
 #========== Filesystem ==========#
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
   fileSystems = {
     "/boot" = {
       device = "/dev/disk/by-uuid/FF2D-AAA9";
@@ -37,7 +36,6 @@
         "rw"
         "uid=1000"
         "windows_names"
-        # Prevent it blocking kernel startup
         "force"
       ];
     };
@@ -49,7 +47,6 @@
         "rw"
         "uid=1000"
         "windows_names"
-        # Prevent it blocking kernel startup
         "force"
       ];
     };

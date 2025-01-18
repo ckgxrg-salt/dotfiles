@@ -3,6 +3,7 @@
   # Home-manager packages
   home.packages = with pkgs; [
     # Terminal Utilities
+    bat
     cowsay
     dust
     fastfetch

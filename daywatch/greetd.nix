@@ -1,15 +1,13 @@
 {
   pkgs,
   ckgs,
-  config,
   lib,
   ...
 }:
 {
   # greetd Session Manager
   services.greetd =
-    let
-      # Cage cannot handle multi-screen circumstance...
+    let # Cage cannot handle multi-screen circumstance...
       hyprConfig = pkgs.writeText "regreet-hyprland" ''
         monitor=eDP-1,preferred,auto,1
         monitor=DP-1,disabled
@@ -56,13 +54,6 @@
       };
     };
 
-  # Background image
-  environment.etc."regreet/background-img" = {
-    source = "${config.users.users.ckgxrg.home}/Pictures/Wallpapers/everforest/japanese_pedestrian_street.png";
-    user = "greeter";
-    mode = "660";
-  };
-
   # ReGreet greeter
   programs.regreet = {
     enable = true;
@@ -89,6 +80,7 @@
     # Config
     settings = {
       background = {
+        # Manually copy the image to this path
         path = "/etc/regreet/background-img";
         fit = "Fill";
       };

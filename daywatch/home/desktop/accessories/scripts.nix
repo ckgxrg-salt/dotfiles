@@ -90,10 +90,43 @@ let
       get_backlight
     fi
   '';
+
+  scrollerMode = pkgs.writeShellScriptBin "scrollermod" ''
+    FILE="$XDG_DATA_HOME/hyprland/scroller_mode"
+    get_status() {
+      touch $FILE
+      MODE=$(cat $FILE)
+      echo $MODE
+    }
+    notify_user() {
+      notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "activities" "Hyprscroller" "Switched to $MODE Mode"
+    }
+    switch() {
+      if [[ $(get_status) == "Row" ]]; then
+        MODE="Column"
+        hyprctl dispatch scroller:setmode col
+        echo $MODE > $FILE
+        notify_user
+      else
+        MODE="Row"
+        hyprctl dispatch scroller:setmode row
+        echo $MODE > $FILE
+        notify_user
+      fi
+    }
+    if [[ "$1" == "--get" ]]; then
+      get_status
+    elif [[ "$1" == "--toggle" ]]; then
+      switch
+    else
+      get_status
+    fi
+  '';
 in
 {
   home.packages = [
     brightnessScript
     volumeScript
+    scrollerMode
   ];
 }

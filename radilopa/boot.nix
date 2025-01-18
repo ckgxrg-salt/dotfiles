@@ -25,8 +25,12 @@
     };
     bootspec.enable = true;
 
+    # Not using containers here
+    enableContainers = false;
+
     #========== Initrd ==========#
     initrd = {
+      systemd.enable = true;
       verbose = false;
       availableKernelModules = [
         "nvme"
