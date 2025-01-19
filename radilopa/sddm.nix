@@ -13,6 +13,7 @@
       plasma5support
       qtsvg
       qtvirtualkeyboard
+      qtmultimedia
     ];
   };
 

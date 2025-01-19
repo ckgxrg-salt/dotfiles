@@ -54,8 +54,8 @@ let
   brightnessScript = pkgs.writeShellScriptBin "brightness" ''
     iDIR="$HOME/.config/mako/icons"
     get_backlight() {
-      LIGHT=$(printf "%.0f\n" $(brightnessctl get --device=intel_backlight))
-      echo $(expr $LIGHT / 960)
+      LIGHT=$(brightnessctl get --device=intel_backlight | awk '{printf "%d", $0 / 960}')
+      echo $LIGHT
     }
     get_icon() {
       current="$(get_backlight)"

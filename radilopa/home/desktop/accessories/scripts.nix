@@ -22,7 +22,6 @@ let
     }
     notify_user() {
       notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume : $(get_volume) %"
-      canberra-gtk-play -i audio-volume-change -d "changeVolume"
     }
     inc_volume() {
       wpctl set-volume @DEFAULT_SINK@ 0.05+ && notify_user
@@ -55,8 +54,8 @@ let
   brightnessScript = pkgs.writeShellScriptBin "brightness" ''
     iDIR="$HOME/.config/mako/icons"
     get_backlight() {
-      LIGHT=$(printf "%.0f\n" $(brightnessctl get))
-      echo $(expr ($LIGHT / 255 * 100))
+      LIGHT=$(brightnessctl get | awk '{printf "%d", $0 / 2.55}')
+      echo $LIGHT
     }
     get_icon() {
       current="$(get_backlight)"
@@ -74,7 +73,6 @@ let
     }
     notify_user() {
       notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)%"
-      canberra-gtk-play -i audio-volume-change -d "changeBrightness"
     }
     inc_backlight() {
       brightnessctl set 5%+ && get_icon && notify_user

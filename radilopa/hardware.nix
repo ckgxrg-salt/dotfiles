@@ -107,7 +107,7 @@
     dpi = 189;
   };
   hardware.nvidia = {
-    open = false;
+    open = true;
     powerManagement = {
       enable = true;
       finegrained = true;

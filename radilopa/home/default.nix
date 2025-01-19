@@ -21,7 +21,7 @@
     ./apps/qutebrowser.nix
     ./apps/btop.nix
     ../../shared/apps/pass.nix
-    ../../shared/gaming/opencomposite.nix
+    #../../shared/gaming/opencomposite.nix
     ../../shared/gaming/mangohud.nix
     ../../shared/utils/git.nix
     ../../shared/utils/gpg.nix

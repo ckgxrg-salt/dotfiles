@@ -12,6 +12,7 @@
     ../shared/dev/podman.nix
 
     ./gaming/gamemode.nix
+    ../shared/gaming/alvr.nix
     ../shared/gaming/steam.nix
     ../shared/gaming/wivrn.nix
     ../shared/gaming/sunshine.nix

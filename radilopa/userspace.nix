@@ -89,6 +89,7 @@
   services.udisks2.enable = true;
   virtualisation.waydroid.enable = true;
   system.etc.overlay.enable = true;
+  programs.nix-ld.enable = true;
 
   systemd = {
     oomd.enable = false;
