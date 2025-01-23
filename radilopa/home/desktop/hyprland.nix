@@ -94,7 +94,6 @@
         "SUPER, Q, exec, alacritty"
         "SUPER, C, killactive,"
         "SUPER SHIFT, Escape, exec, wlogout"
-        "SUPER, E, exec, dolphin"
         "SUPER, V, togglefloating,"
         "SUPER, R, exec, rofi -show drun"
         "SUPER, J, togglesplit,"

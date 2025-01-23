@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 # Settings for hardware related stuff
 {
   #========== Hardware ==========#
@@ -16,15 +21,13 @@
     lidSwitchDocked = "ignore";
   };
 
-  # fwupd
-  services.fwupd.enable = true;
-
   #========== Network & Devices ==========#
   # Internet
   networking = {
     # NetworkManager
     networkmanager = {
       enable = true;
+      plugins = lib.mkForce [ ];
     };
 
     # WireGuard

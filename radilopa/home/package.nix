@@ -27,7 +27,6 @@
     alacritty
     kdePackages.ark
     bottles
-    kdePackages.dolphin
     lenovo-legion
     kdePackages.okular
     pix
@@ -41,6 +40,7 @@
     obsidian
     vscodium
     # Gaming
+    cartridges
     prismlauncher
     # Communication
     qq
@@ -49,6 +49,7 @@
     tor-browser
     # System
     blueberry
+    nautilus
     pwvucontrol
   ];
 }

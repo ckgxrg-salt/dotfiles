@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 # Settings for hardware related stuff
 {
   #========== Hardware ==========#
@@ -23,6 +23,7 @@
     networkmanager = {
       enable = true;
       wifi.powersave = true;
+      plugins = lib.mkForce [ ];
     };
 
     # WireGuard

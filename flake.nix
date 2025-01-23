@@ -1,5 +1,5 @@
 {
-  description = "ckgxrg's Dotfiles";
+  description = "ckgxrg's NixOS Configuration";
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Custom packages
-    ckgpkgs = {
-      url = "github:ckgxrg-salt/ckgpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Private information
     ckgprv = {
       url = "git+ssh://git@github.com/ckgxrg-salt/private-dotfiles";
@@ -48,10 +43,10 @@
     };
   };
   outputs =
-    inputs@{
+    {
+      self,
       nixpkgs,
       lix-module,
-      ckgpkgs,
       ckgprv,
       ags,
       home-manager,
@@ -71,14 +66,12 @@
         Daywatch = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
-            ckgs = ckgpkgs.packages.${system};
+            ckgs = self.packages.${system};
           };
           modules = [
             ./daywatch
             lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
-            ckgpkgs.nixosModules.ckgsys
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -87,12 +80,10 @@
                 ./daywatch/home
                 ags.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim
-                ckgpkgs.homeManagerModules.ckgmods
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                inherit inputs;
-                ckgs = ckgpkgs.packages.${system};
+                ckgs = self.packages.${system};
               };
             }
           ];
@@ -101,15 +92,13 @@
         # Radilopa
         Radilopa = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
-            ckgs = ckgpkgs.packages.${system};
+            ckgs = self.packages.${system};
           };
           inherit system;
           modules = [
             ./radilopa
             lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
-            ckgpkgs.nixosModules.ckgsys
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -117,15 +106,26 @@
               home-manager.users.ckgxrg.imports = [
                 ./radilopa/home
                 nixvim.homeManagerModules.nixvim
-                ckgpkgs.homeManagerModules.ckgmods
               ];
               home-manager.extraSpecialArgs = {
-                inherit inputs;
-                ckgs = ckgpkgs.packages.${system};
+                ckgs = self.packages.${system};
               };
             }
           ];
         };
+      };
+
+      # The packages
+      packages.${pkgs.system} = with pkgs; {
+        alacritty-themes = callPackage ./packages/theming/alacritty-themes.nix { };
+        googledot-cursor = callPackage ./packages/theming/googledot-cursor.nix { };
+        nu-scripts = callPackage ./packages/theming/nu-scripts.nix { };
+        otis-gtk = callPackage ./packages/theming/otis-gtk.nix { };
+        vivid-icons = callPackage ./packages/theming/vivid-icons.nix { };
+        wvkbd-desktop = callPackage ./packages/wvkbd-desktop.nix { };
+        fyrox-template = callPackage ./packages/fyrox-template.nix { };
+        rofi-themes = callPackage ./packages/theming/rofi-themes.nix { };
+        maple-ui = callPackage ./packages/theming/maple-ui.nix { };
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim

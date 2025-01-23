@@ -56,7 +56,6 @@
 
     # Kernel params
     kernelParams = [
-      "noefi"
       "quiet"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"

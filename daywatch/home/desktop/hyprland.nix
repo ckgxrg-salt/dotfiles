@@ -196,7 +196,6 @@
         # Basics
         "SUPER, Q, exec, uwsm app -- alacritty"
         "SUPER, C, killactive,"
-        "SUPER, E, exec, uwsm app -- index"
         "SUPER, V, togglefloating,"
         "SUPER, R, exec, uwsm app -- rofi -show drun"
         "SUPER, F, fullscreen,"
@@ -212,14 +211,14 @@
         ", XF86MonBrightnessDown, exec, brightness --dec"
 
         # Move focus
-        "SUPER, J, movefocus, d"
-        "SUPER, K, movefocus, u"
-        "SUPER, H, movefocus, l"
-        "SUPER, L, movefocus, r"
-        "SUPER SHIFT, J, movewindow, d"
-        "SUPER SHIFT, K, movewindow, u"
-        "SUPER SHIFT, H, movewindow, l"
-        "SUPER SHIFT, L, movewindow, r"
+        "SUPER, J, scroller:movefocus, d"
+        "SUPER, K, scroller:movefocus, u"
+        "SUPER, H, scroller:movefocus, l"
+        "SUPER, L, scroller:movefocus, r"
+        "SUPER SHIFT, J, scroller:movewindow, d"
+        "SUPER SHIFT, K, scroller:movewindow, u"
+        "SUPER SHIFT, H, scroller:movewindow, l"
+        "SUPER SHIFT, L, scroller:movewindow, r"
         "SUPER CTRL, H, scroller:admitwindow,"
         "SUPER CTRL, L, scroller:expelwindow,"
 
@@ -228,10 +227,8 @@
         "SUPER, mouse_down, scroller:cyclewidth, next"
         "SUPER SHIFT, mouse_up, scroller:cycleheight, prev"
         "SUPER SHIFT, mouse_down, scroller:cycleheight, next"
-        "SUPER, minus, scroller:cyclewidth, prev"
-        "SUPER, equal, scroller:cyclewidth, next"
-        "SUPER SHIFT, minus, scroller:cycleheight, prev"
-        "SUPER SHIFT, equal, scroller:cycleheight, next"
+        "SUPER, minus, scroller:cyclesize, prev"
+        "SUPER, equal, scroller:cyclesize, next"
         "SUPER, F11, scroller:pin,"
 
         # Switch hyprscroller modes

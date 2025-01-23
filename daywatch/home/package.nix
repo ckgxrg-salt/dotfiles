@@ -26,7 +26,6 @@
     kdePackages.ark
     bottles
     celluloid
-    libsForQt5.index
     impression
     kdePackages.okular
     pix
@@ -48,6 +47,7 @@
     jellyfin-media-player
     komikku
     # Gaming
+    cartridges
     moonlight-qt
     prismlauncher
     # Communication
@@ -59,6 +59,7 @@
     tor-browser
     # System
     blueberry
+    nautilus
     pwvucontrol
   ];
 }
