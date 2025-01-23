@@ -43,26 +43,6 @@
         "type": "github"
       }
     },
-    "ckgpkgs": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1737178342,
-        "narHash": "sha256-Vb92pOWiBFQ4kSNxxJTEsEFcVxgBdsrSPvXPo0Mt1Us=",
-        "owner": "ckgxrg-salt",
-        "repo": "ckgpkgs",
-        "rev": "c570fc669e4f90422f784fc5b98e76beedffa986",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ckgxrg-salt",
-        "repo": "ckgpkgs",
-        "type": "github"
-      }
-    },
     "ckgprv": {
       "inputs": {
         "nixpkgs": [
@@ -576,7 +556,6 @@
       "inputs": {
         "ags": "ags",
         "astal": "astal",
-        "ckgpkgs": "ckgpkgs",
         "ckgprv": "ckgprv",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",

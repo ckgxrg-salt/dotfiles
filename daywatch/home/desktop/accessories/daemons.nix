@@ -3,21 +3,21 @@
 {
   systemd.user.services = {
     # A Solution to your Wayland Wallpaper Woes
-    "swww-daemon" = {
-      Unit = {
-        Description = "A Solution to your Wayland Wallpaper Woes";
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        Type = "exec";
-        ExecStart = "${pkgs.swww}/bin/swww-daemon";
-        Restart = "on-failure";
-        Slice = "background-graphical.slice";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
+    #"swww-daemon" = {
+    #  Unit = {
+    #    Description = "A Solution to your Wayland Wallpaper Woes";
+    #    After = [ "graphical-session.target" ];
+    #  };
+    #  Service = {
+    #    Type = "exec";
+    #    ExecStart = "${pkgs.swww}/bin/swww-daemon";
+    #    Restart = "on-failure";
+    #    Slice = "background-graphical.slice";
+    #  };
+    #  Install = {
+    #    WantedBy = [ "graphical-session.target" ];
+    #  };
+    #};
 
     # Cliphist the clipboard manager
     "cliphist" = {

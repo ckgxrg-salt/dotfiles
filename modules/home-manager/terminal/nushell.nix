@@ -1,6 +1,4 @@
 {
-  ckgxrg,
-  ckgpkgs,
   config,
   lib,
   pkgs,
@@ -13,17 +11,20 @@ let
 in
 {
   options.ckgxrg.nushell = {
-    enable = mkEnableOption "ckgxrg's Nushell Configurations";
+    enable = mkEnableOption "ckgxrg's nushell configurations";
     package = mkOption {
       type = types.package;
+      description = "The nushell package to use";
       default = pkgs.nushell;
     };
     theme = mkOption {
       type = types.package;
+      description = "The theme package to use";
       default = ckgs.nu-scripts;
     };
     settings = mkOption {
       type = types.lines;
+      description = "Nushell configuration in Nu format";
       default = '''';
     };
   };

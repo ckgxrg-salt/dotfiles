@@ -11,49 +11,60 @@ let
 in
 {
   options.ckgxrg.themes = {
-    enable = mkEnableOption "ckgxrg's Theme Configurations";
+    enable = mkEnableOption "ckgxrg's theme configurations";
     gtk = {
       name = mkOption {
         type = types.str;
+        description = "The GTK theme name to use";
       };
       pkg = mkOption {
         type = types.package;
+        description = "The GTK theme package to use";
       };
     };
     qt = {
-      followGTK = mkEnableOption "Use GTK theme for Qt, may not work properly. ";
+      followGTK = mkEnableOption "Use GTK theme for Qt, may not work properly";
       name = mkOption {
         type = types.str;
+        description = "The Qt(Kvantum) theme name to use";
       };
       pkg = mkOption {
         type = types.package;
+        description = "The Qt(Kvantum) theme package to use";
       };
     };
     cursor = {
       name = mkOption {
         type = types.str;
+        description = "The cursor theme name to use";
       };
       size = mkOption {
         type = types.int;
+        description = "The cursor size";
       };
       pkg = mkOption {
         type = types.package;
+        description = "The cursor theme package to use";
       };
     };
     icon = {
       name = mkOption {
         type = types.str;
+        description = "The icon theme name to use";
       };
       pkg = mkOption {
         type = types.package;
+        description = "The icon theme package to use";
       };
     };
     font = {
       name = mkOption {
         type = types.str;
+        description = "Font used in userspace";
       };
       size = mkOption {
         type = types.int;
+        description = "Font size";
       };
     };
   };

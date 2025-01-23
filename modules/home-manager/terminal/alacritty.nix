@@ -16,14 +16,17 @@ in
     enable = mkEnableOption "ckgxrg's Alacritty Configurations";
     package = mkOption {
       type = types.package;
+      description = "The alacritty package to use";
       default = pkgs.alacritty;
     };
     theme = mkOption {
       type = types.package;
+      description = "The theme package to use";
       default = ckgs.alacritty-themes;
     };
     settings = mkOption {
       type = tomlFormat.type;
+      description = "Alacritty configuration";
       default = { };
     };
   };

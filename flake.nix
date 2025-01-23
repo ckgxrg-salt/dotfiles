@@ -70,6 +70,7 @@
           };
           modules = [
             ./daywatch
+            ./modules/nixos
             lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
@@ -78,6 +79,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.ckgxrg.imports = [
                 ./daywatch/home
+                ./modules/home-manager
                 ags.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private

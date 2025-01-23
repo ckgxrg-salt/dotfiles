@@ -78,6 +78,18 @@
     "mako/icons/volume-mute.png".source = ../../../../assets/volume-mute.png;
   };
 
+  ckgxrg.theme.wallpaper.linux-wallpaperengine = {
+    enable = true;
+    clamping = "repeat";
+    wallpapers = [
+      {
+        monitor = "eDP-1";
+        wallpaperId = "824586497";
+        scaling = "fit";
+      }
+    ];
+  };
+
   # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
   xdg.configFile."udiskie/config.yml".text = ''
     device_config:
