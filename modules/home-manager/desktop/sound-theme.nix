@@ -7,10 +7,10 @@
 # Enable XDG Sound Themes
 with lib;
 let
-  cfg = config.ckgxrg.themes.sound;
+  cfg = config.theme.sound;
 in
 {
-  options.ckgxrg.themes.sound = {
+  options.theme.sound = {
     enable = mkEnableOption "Enable the XDG Sound Themes";
     theme = mkOption {
       type = types.str;

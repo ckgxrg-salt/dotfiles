@@ -6,10 +6,10 @@
 # Override system default XDG sounds
 with lib;
 let
-  cfg = config.ckgxrg.themes.sound;
+  cfg = config.theme.sound;
 in
 {
-  options.ckgxrg.themes.sound = {
+  options.theme.sound = {
     enable = mkEnableOption "Suppress default sound theme implementation";
   };
   config = mkIf cfg.enable {

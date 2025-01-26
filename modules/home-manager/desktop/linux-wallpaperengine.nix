@@ -7,10 +7,10 @@
 # Linux Wallpaperengine
 with lib;
 let
-  cfg = config.ckgxrg.theme.wallpaper.linux-wallpaperengine;
+  cfg = config.theme.wallpaper.linux-wallpaperengine;
 in
 {
-  options.ckgxrg.theme.wallpaper.linux-wallpaperengine = {
+  options.theme.wallpaper.linux-wallpaperengine = {
     enable = mkEnableOption "Whether to enable linux-wallpaperengine, an implementation of Wallpaper Engine functionality on Linux";
     package = mkOption {
       type = types.package;
@@ -57,6 +57,11 @@ in
               default = "default";
               description = "Scaling mode for this wallpaper";
             };
+            fps = mkOption {
+              type = types.nullOr types.int;
+              default = null;
+              description = "Limits the FPS to a given number";
+            };
             audio = {
               silent = mkOption {
                 type = types.bool;
@@ -88,6 +93,9 @@ in
   };
 
   config = mkIf cfg.enable {
+    # Install the package for testing
+    home.packages = [ cfg.package ];
+
     # Run the program
     systemd.user.services."linux-wallpaperengine" =
       let
@@ -96,7 +104,7 @@ in
           concatStringsSep " " (
             cli.toGNUCommandLine { } {
               screen-root = each.monitor;
-              inherit (each) scaling;
+              inherit (each) scaling fps;
               silent = each.audio.silent;
               noautomute = !each.audio.automute;
               no-audio-processing = !each.audio.audio-processing;

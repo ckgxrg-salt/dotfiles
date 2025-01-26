@@ -7,10 +7,10 @@
 # A unified solution for themes
 with lib;
 let
-  cfg = config.ckgxrg.themes;
+  cfg = config.theme;
 in
 {
-  options.ckgxrg.themes = {
+  options.theme = {
     enable = mkEnableOption "ckgxrg's theme configurations";
     gtk = {
       name = mkOption {
