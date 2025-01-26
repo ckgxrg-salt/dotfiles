@@ -140,10 +140,6 @@
           nixfmt-rfc-style
           deadnix
         ];
-
-        shellHook = ''
-          exec nu
-        '';
       };
 
       # Support `nix fmt` command

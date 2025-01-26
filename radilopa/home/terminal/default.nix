@@ -41,18 +41,6 @@
           filesize: {
             metric: true
           }
-          hooks: {
-            pre_prompt: [{ ||
-              if (which direnv | is-empty) {
-                return
-              }
-
-              direnv export json | from json | default {} | load-env
-              if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
-                $env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
-              }
-            }]
-          }
         }
 
         $env.MANPAGER = "nvim +Man!";
@@ -60,13 +48,11 @@
 
         def ciallo [] { fortune | cowsay | lolcat }
 
-        def dotfiles [] { cd ~/.config/nixos/system; nix develop }
-        def ckgpkgs [] { cd ~/.config/nixos/ckgpkgs; nix develop }
-
-        def dev [ name ] { cd $"~/Documents/Codes/($name)"; nix develop }
-
         alias deploy = nh os switch --ask
         alias purge = nh clean all --ask
+
+        alias dotfiles = cd ~/.config/nixos/system
+        alias welkin = cd ~/.config/nixos/welkin
       '';
     };
   };
