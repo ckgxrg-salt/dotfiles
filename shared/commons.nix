@@ -1,17 +1,19 @@
-{ lib, pkgs, ... }:
+{ pkgs, ckgs, ... }:
 # These options are almost identical on each system
-lib.mkDefault {
+{
   #========== Boot ==========#
-  # Setup Secure Boot
-  lanzaboote = {
-    enable = true;
-    pkiBundle = "/etc/secureboot";
-  };
-  bootspec.enable = true;
+  boot = {
+    # Setup Secure Boot
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    bootspec.enable = true;
 
-  # Not using containers here
-  enableContainers = false;
-  tmp.cleanOnBoot = true;
+    # Not using containers here
+    enableContainers = false;
+    tmp.cleanOnBoot = true;
+  };
 
   #========== Appearance ==========#
   # Fonts

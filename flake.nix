@@ -99,6 +99,7 @@
           inherit system;
           modules = [
             ./radilopa
+            ./modules/nixos
             lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
@@ -107,6 +108,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.ckgxrg.imports = [
                 ./radilopa/home
+                ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
@@ -118,7 +120,7 @@
       };
 
       # Inline ckgpkgs
-      packages.${pkgs.system} = with pkgs; {
+      packages.${system} = with pkgs; {
         alacritty-themes = callPackage ./ckgpkgs/theming/alacritty-themes.nix { };
         googledot-cursor = callPackage ./ckgpkgs/theming/googledot-cursor.nix { };
         nu-scripts = callPackage ./ckgpkgs/theming/nu-scripts.nix { };

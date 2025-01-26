@@ -7,7 +7,6 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./mako.nix
-    ./rofi.nix
     ./scripts.nix
     ./waybar.nix
     ./wlogout.nix

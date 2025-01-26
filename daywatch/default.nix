@@ -6,8 +6,9 @@
     ./configuration.nix
     ./greetd.nix
     ./nix.nix
+    ../shared/commons.nix
     ../shared/security.nix
-    ../shared/util/firejail.nix
+    ../shared/utils/firejail.nix
     ../shared/gaming/steam.nix
   ];
 

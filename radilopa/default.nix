@@ -6,10 +6,10 @@
     ./configuration.nix
     ./sddm.nix
     ./nix.nix
+    ../shared/commons.nix
     ../shared/security.nix
-    ../shared/util/firejail.nix
+    ../shared/utils/firejail.nix
 
-    ./gaming/gamemode.nix
     ../shared/gaming/alvr.nix
     ../shared/gaming/steam.nix
     ../shared/gaming/wivrn.nix

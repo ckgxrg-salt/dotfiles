@@ -19,7 +19,7 @@
     theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-2/style-4.rasi";
     extraConfig = {
       show-icons = true;
-      icon-theme = config.ckgxrg.themes.icon.name;
+      icon-theme = config.theme.icon.name;
       run-command = "uwsm app -- {cmd}";
     };
   };

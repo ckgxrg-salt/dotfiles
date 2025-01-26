@@ -332,7 +332,7 @@
 
   # The Icons
   home.file = {
-    ".config/waybar/icon.png".source = ../../../../assets/nixos.png;
-    ".config/waybar/add.png".source = ../../../../assets/add.png;
+    ".config/waybar/icon.png".source = ../../../assets/nixos.png;
+    ".config/waybar/add.png".source = ../../../assets/add.png;
   };
 }

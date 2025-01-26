@@ -1,7 +1,7 @@
 { pkgs, ckgs, ... }:
 # Define theme names and pkgs here
 {
-  ckgxrg.themes = {
+  theme = {
     enable = true;
 
     gtk = {

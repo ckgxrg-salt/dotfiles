@@ -74,7 +74,7 @@
     };
   };
   # Suppress the default impl of xdg sounds
-  ckgxrg.themes.sound.enable = true;
+  theme.sound.enable = true;
 
   #========== Power ==========#
   # TLP the power saver
@@ -160,10 +160,12 @@
   environment.shells = with pkgs; [ nushell ];
 
   #========== Miscellaneous ==========#
-  gaming = {
+  gaming.gamemode = {
     enable = true;
+    overclock = true;
+    nvidia = true;
   };
 
   # It wont work on NVIDIA
-  virtualisation.waydroid.enable = false;
+  virtualisation.waydroid.enable = lib.mkForce false;
 }

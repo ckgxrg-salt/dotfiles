@@ -135,4 +135,9 @@
   };
   # Polkit will not permit operations without this
   environment.shells = with pkgs; [ nushell ];
+
+  #========== Miscellaneous ==========#
+  gaming.gamemode = {
+    enable = true;
+  };
 }

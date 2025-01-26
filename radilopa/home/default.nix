@@ -14,7 +14,6 @@
     # Terminal environment
     ./terminal
     ./terminal/starship.nix
-    ../../shared/terminal/carapace.nix
     ../../shared/terminal/accessories.nix
     ../../shared/terminal/bash.nix
 
