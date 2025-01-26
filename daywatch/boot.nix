@@ -28,7 +28,10 @@
         "sd_mod"
         "rtsx_usb_sdmmc"
       ];
-      kernelModules = [ "kvm-intel" ];
+      kernelModules = [
+        "kvm-intel"
+        "i915"
+      ];
     };
     # Silent boot
     consoleLogLevel = 0;
@@ -49,11 +52,9 @@
       "quiet"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
+      "plymouth.use-simpledrm"
       "udev.log_level=3"
       "pcie_aspm.policy=powersupersave"
-      # Cutting-edge xe drivers, but somehow broken
-      #"i915.force_probe=!9a49"
-      #"xe.force_probe=9a49"
     ];
 
     # Kernel extra config

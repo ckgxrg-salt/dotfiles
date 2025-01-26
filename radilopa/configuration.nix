@@ -21,6 +21,11 @@
     lidSwitchDocked = "ignore";
   };
 
+  # Mouse & Touchpad
+  services.libinput = {
+    enable = true;
+  };
+
   #========== Network & Devices ==========#
   # Internet
   networking = {

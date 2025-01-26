@@ -36,7 +36,7 @@
         "rw"
         "uid=1000"
         "windows_names"
-        "force"
+        "nofail"
       ];
     };
 
@@ -47,7 +47,7 @@
         "rw"
         "uid=1000"
         "windows_names"
-        "force"
+        "nofail"
       ];
     };
 
