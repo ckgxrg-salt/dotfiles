@@ -16,6 +16,7 @@
     ./terminal/starship.nix
     ../../shared/terminal/accessories.nix
     ../../shared/terminal/bash.nix
+    ../../shared/terminal/direnv.nix
 
     # Applications
     ./apps/btop.nix
