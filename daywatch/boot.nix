@@ -52,7 +52,6 @@
       "quiet"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
-      "plymouth.use-simpledrm"
       "udev.log_level=3"
       "pcie_aspm.policy=powersupersave"
     ];

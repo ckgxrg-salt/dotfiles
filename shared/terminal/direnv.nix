@@ -7,6 +7,6 @@
     enableZshIntegration = config.programs.zsh.enable;
     enableNushellIntegration = config.programs.nushell.enable;
     nix-direnv.enable = true;
-    silent = false;
+    silent = true;
   };
 }

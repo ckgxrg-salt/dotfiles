@@ -56,7 +56,6 @@
       "quiet"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
-      "plymouth.use-simpledrm"
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
 
