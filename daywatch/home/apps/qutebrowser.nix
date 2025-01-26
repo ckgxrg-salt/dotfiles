@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   # A lightweight web browser
   programs.qutebrowser = {
@@ -23,10 +23,7 @@
           hash = "sha256-1DiqL5gQhJ7l8ympdsIVq1wql4HwiyX/0BAJwA+gVmk=";
         };
       in
-      builtins.readFile "${src}/everforest.py"
-      + ''
-        set(c, scheme = 'dark', intensity = 'medium')
-      '';
+      lib.strings.fileContents "${src}/everforest.py" + "\nset(c, scheme = 'dark', intensity = 'medium')";
     keyBindings = {
       normal = {
         "pw" = "spawn --userscript qute-pass";
