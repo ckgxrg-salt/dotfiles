@@ -40,7 +40,6 @@
     obsidian
     vscodium
     # Gaming
-    cartridges
     prismlauncher
     # Communication
     qq

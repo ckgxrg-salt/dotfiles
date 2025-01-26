@@ -1,7 +1,7 @@
 { pkgs, ckgs, ... }:
 # Define theme names and pkgs here
 {
-  ckgxrg.themes = {
+  theme = {
     enable = true;
 
     gtk = {
@@ -38,6 +38,19 @@
     font = {
       name = "Maple UI";
       size = 18;
+    };
+
+    wallpaper.linux-wallpaperengine = {
+      enable = true;
+      clamping = "repeat";
+      wallpapers = [
+        {
+          monitor = "eDP-1";
+          wallpaperId = "2349470260";
+          fps = 6;
+          scaling = "fill";
+        }
+      ];
     };
   };
 }

@@ -3,14 +3,12 @@
 {
   imports = [
     ./boot.nix
-    ./hardware.nix
+    ./configuration.nix
     ./greetd.nix
-    ./userspace.nix
     ./nix.nix
-    ./firejail.nix
     ../shared/security.nix
+    ../shared/util/firejail.nix
     ../shared/gaming/steam.nix
-    ../shared/gaming/gamemode.nix
   ];
 
   # Hostname

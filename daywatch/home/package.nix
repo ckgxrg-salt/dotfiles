@@ -47,7 +47,6 @@
     jellyfin-media-player
     komikku
     # Gaming
-    cartridges
     moonlight-qt
     prismlauncher
     # Communication

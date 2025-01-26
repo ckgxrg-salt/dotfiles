@@ -117,17 +117,17 @@
         };
       };
 
-      # The packages
+      # Inline ckgpkgs
       packages.${pkgs.system} = with pkgs; {
-        alacritty-themes = callPackage ./packages/theming/alacritty-themes.nix { };
-        googledot-cursor = callPackage ./packages/theming/googledot-cursor.nix { };
-        nu-scripts = callPackage ./packages/theming/nu-scripts.nix { };
-        otis-gtk = callPackage ./packages/theming/otis-gtk.nix { };
-        vivid-icons = callPackage ./packages/theming/vivid-icons.nix { };
-        wvkbd-desktop = callPackage ./packages/wvkbd-desktop.nix { };
-        fyrox-template = callPackage ./packages/fyrox-template.nix { };
-        rofi-themes = callPackage ./packages/theming/rofi-themes.nix { };
-        maple-ui = callPackage ./packages/theming/maple-ui.nix { };
+        alacritty-themes = callPackage ./ckgpkgs/theming/alacritty-themes.nix { };
+        googledot-cursor = callPackage ./ckgpkgs/theming/googledot-cursor.nix { };
+        nu-scripts = callPackage ./ckgpkgs/theming/nu-scripts.nix { };
+        otis-gtk = callPackage ./ckgpkgs/theming/otis-gtk.nix { };
+        vivid-icons = callPackage ./ckgpkgs/theming/vivid-icons.nix { };
+        wvkbd-desktop = callPackage ./ckgpkgs/wvkbd-desktop.nix { };
+        fyrox-template = callPackage ./ckgpkgs/fyrox-template.nix { };
+        rofi-themes = callPackage ./ckgpkgs/theming/rofi-themes.nix { };
+        maple-ui = callPackage ./ckgpkgs/theming/maple-ui.nix { };
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim
@@ -144,7 +144,7 @@
         '';
       };
 
-      # Support nix fmt command
+      # Support `nix fmt` command
       formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }

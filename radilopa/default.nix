@@ -3,13 +3,11 @@
 {
   imports = [
     ./boot.nix
-    ./hardware.nix
+    ./configuration.nix
     ./sddm.nix
-    ./userspace.nix
     ./nix.nix
-    ./firejail.nix
     ../shared/security.nix
-    ../shared/dev/podman.nix
+    ../shared/util/firejail.nix
 
     ./gaming/gamemode.nix
     ../shared/gaming/alvr.nix

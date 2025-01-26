@@ -3,7 +3,7 @@
 {
   imports = [ ./fstab.nix ];
   boot = {
-    #========== Bootloader ==========#
+    #========== Boot ==========#
     # Config systemd-boot
     loader = {
       efi = {
@@ -13,16 +13,6 @@
       timeout = 0;
       systemd-boot.enable = lib.mkForce false;
     };
-
-    # Setup Secure Boot
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
-    bootspec.enable = true;
-
-    # Not using containers here
-    enableContainers = false;
 
     #========== Initrd ==========#
     initrd = {

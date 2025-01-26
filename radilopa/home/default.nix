@@ -5,9 +5,11 @@
   imports = [
     # Desktop environment
     ./desktop/hyprland.nix
-    ./desktop/accessories
     ./desktop/xdg.nix
     ./desktop/env.nix
+
+    # Desktop accessories
+    ./accessories
 
     # Terminal environment
     ./terminal
@@ -17,11 +19,12 @@
     ../../shared/terminal/bash.nix
 
     # Applications
+    ./apps/btop.nix
     ./apps/nixvim.nix
     ./apps/qutebrowser.nix
-    ./apps/btop.nix
+    ./apps/rofi.nix
     ../../shared/apps/pass.nix
-    #../../shared/gaming/opencomposite.nix
+    ../../shared/apps/fcitx.nix
     ../../shared/gaming/mangohud.nix
     ../../shared/utils/git.nix
     ../../shared/utils/gpg.nix

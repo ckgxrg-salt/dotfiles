@@ -5,25 +5,28 @@
   imports = [
     # Desktop environment
     ./desktop/hyprland.nix
-    ./desktop/accessories
     ./desktop/xdg.nix
     ./desktop/env.nix
+
+    # Desktop accessories
+    ./accessories
 
     # Terminal environment
     ./terminal
     ./terminal/starship.nix
-    ../../shared/terminal/carapace.nix
     ../../shared/terminal/accessories.nix
     ../../shared/terminal/bash.nix
 
     # Applications
+    ./apps/btop.nix
+    ./apps/cava.nix
     ./apps/nixvim.nix
     ./apps/qutebrowser.nix
-    ./apps/btop.nix
-    ./apps/yazi.nix
-    ./apps/cava.nix
-    ../../shared/apps/pass.nix
+    ./apps/rofi.nix
+    ../../shared/apps/fcitx.nix
     ../../shared/apps/mpd.nix
+    ../../shared/apps/pass.nix
+    ../../shared/apps/yazi.nix
     ../../shared/gaming/mangohud.nix
     ../../shared/utils/git.nix
     ../../shared/utils/gpg.nix
