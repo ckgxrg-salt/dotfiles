@@ -1,14 +1,9 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 # Settings for hardware related stuff
 {
   #========== Hardware ==========#
   hardware = {
-    cpu.amd.updateMicrocode = true;
+    cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
   };
 
@@ -16,7 +11,7 @@
   services.logind = {
     powerKey = "ignore";
     powerKeyLongPress = "poweroff";
-    lidSwitch = "suspend";
+    lidSwitch = "suspend-then-hibernate";
     lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
   };
@@ -27,6 +22,7 @@
     # NetworkManager
     networkmanager = {
       enable = true;
+      wifi.powersave = true;
       plugins = lib.mkForce [ ];
     };
 
@@ -40,8 +36,9 @@
 
     # Firewall
     firewall = {
+      # Localsend
       allowedTCPPorts = [
-        20171
+        53317
       ];
     };
   };
@@ -50,7 +47,7 @@
   services.avahi = {
     enable = true;
     openFirewall = true;
-    hostName = "Radilopa";
+    hostName = "Daywatch";
 
     nssmdns4 = true;
     nssmdns6 = true;
@@ -68,13 +65,15 @@
   services.pipewire = {
     enable = true;
     audio.enable = true;
+    pulse.enable = true;
     alsa = {
       enable = true;
       support32Bit = true;
     };
   };
+
   # Suppress the default impl of xdg sounds
-  ckgxrg.themes.sound.enable = true;
+  theme.sound.enable = true;
 
   #========== Power ==========#
   # TLP the power saver
@@ -85,8 +84,13 @@
     };
   };
 
-  # Prevent overheating
+  # Other power save features
   services.thermald.enable = true;
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = "powersave";
+  };
 
   #========== Graphics ==========#
   # OpenGL & Hardware Accleration
@@ -94,37 +98,41 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      nvidia-vaapi-driver
+      intel-media-driver
+      intel-compute-runtime
       libva-vdpau-driver
-      amdvlk
     ];
     extraPackages32 = with pkgs.driversi686Linux; [
+      intel-media-driver
       libva-vdpau-driver
-      amdvlk
     ];
   };
 
-  # Nvidia
-  services.xserver = {
-    videoDrivers = [ "nvidia" ];
-    dpi = 189;
+  #========== Users ==========#
+  # Greet messages
+  environment.etc = {
+    "issue".text = ''
+      =========================
+      <-- The Daywatch Site -->
+      =========================
+    '';
   };
-  hardware.nvidia = {
-    open = true;
-    powerManagement = {
-      enable = true;
-      finegrained = true;
-    };
-    dynamicBoost.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-    modesetting.enable = true;
-    prime = {
-      nvidiaBusId = "PCI:1:0:0";
-      amdgpuBusId = "PCI:6:0:0";
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+
+  # Users
+  users.users = {
+    "ckgxrg" = {
+      isNormalUser = true;
+      description = "ckgxrg";
+      shell = pkgs.nushell;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "gamemode"
+        "video"
+      ];
     };
   };
+  # Polkit will not permit operations without this
+  environment.shells = with pkgs; [ nushell ];
 }

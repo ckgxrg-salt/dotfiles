@@ -1,9 +1,14 @@
-{ pkgs, lib, ... }:
-# Settings for hardware related stuff
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+# General system configuration
 {
   #========== Hardware ==========#
   hardware = {
-    cpu.intel.updateMicrocode = true;
+    cpu.amd.updateMicrocode = true;
     enableRedistributableFirmware = true;
   };
 
@@ -11,7 +16,7 @@
   services.logind = {
     powerKey = "ignore";
     powerKeyLongPress = "poweroff";
-    lidSwitch = "suspend-then-hibernate";
+    lidSwitch = "suspend";
     lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
   };
@@ -22,7 +27,6 @@
     # NetworkManager
     networkmanager = {
       enable = true;
-      wifi.powersave = true;
       plugins = lib.mkForce [ ];
     };
 
@@ -36,9 +40,8 @@
 
     # Firewall
     firewall = {
-      # Localsend
       allowedTCPPorts = [
-        53317
+        20171
       ];
     };
   };
@@ -47,7 +50,7 @@
   services.avahi = {
     enable = true;
     openFirewall = true;
-    hostName = "Daywatch";
+    hostName = "Radilopa";
 
     nssmdns4 = true;
     nssmdns6 = true;
@@ -65,13 +68,11 @@
   services.pipewire = {
     enable = true;
     audio.enable = true;
-    pulse.enable = true;
     alsa = {
       enable = true;
       support32Bit = true;
     };
   };
-
   # Suppress the default impl of xdg sounds
   ckgxrg.themes.sound.enable = true;
 
@@ -84,13 +85,8 @@
     };
   };
 
-  # Other power save features
+  # Prevent overheating
   services.thermald.enable = true;
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-    cpuFreqGovernor = "powersave";
-  };
 
   #========== Graphics ==========#
   # OpenGL & Hardware Accleration
@@ -98,13 +94,76 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver
-      intel-compute-runtime
+      nvidia-vaapi-driver
       libva-vdpau-driver
+      amdvlk
     ];
     extraPackages32 = with pkgs.driversi686Linux; [
-      intel-media-driver
       libva-vdpau-driver
+      amdvlk
     ];
   };
+
+  # Nvidia
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+    dpi = 189;
+  };
+  hardware.nvidia = {
+    open = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
+    dynamicBoost.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    modesetting.enable = true;
+    prime = {
+      nvidiaBusId = "PCI:1:0:0";
+      amdgpuBusId = "PCI:6:0:0";
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+    };
+  };
+
+  #========== Users ==========#
+  # Greet messages
+  environment.etc = {
+    "issue".text = ''
+      ========================
+      <-- Radilopa Farland -->
+      ========================
+    '';
+  };
+
+  # Replace the default perl script
+  services.userborn.enable = true;
+
+  # ckgxrg's Account
+  users.users = {
+    ckgxrg = {
+      isNormalUser = true;
+      description = "ckgxrg";
+      shell = pkgs.nushell;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "gamemode"
+        "video"
+      ];
+    };
+  };
+  # Polkit will not permit operations without this
+  environment.shells = with pkgs; [ nushell ];
+
+  #========== Miscellaneous ==========#
+  gaming = {
+    enable = true;
+  };
+
+  # It wont work on NVIDIA
+  virtualisation.waydroid.enable = false;
 }
