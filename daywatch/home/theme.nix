@@ -1,4 +1,9 @@
-{ pkgs, ckgs, ... }:
+{
+  config,
+  pkgs,
+  ckgs,
+  ...
+}:
 # Define theme names and pkgs here
 {
   theme = {
@@ -40,17 +45,38 @@
       size = 18;
     };
 
-    wallpaper.linux-wallpaperengine = {
-      enable = true;
-      clamping = "repeat";
-      wallpapers = [
-        {
-          monitor = "eDP-1";
-          wallpaperId = "2349470260";
-          fps = 6;
-          scaling = "fill";
-        }
-      ];
+    wallpaper = {
+      linux-wallpaperengine = {
+        enable = true;
+        clamping = "repeat";
+        wallpapers = [
+          {
+            monitor = "eDP-1";
+            wallpaperId = "2349470260";
+            fps = 6;
+            scaling = "fill";
+          }
+        ];
+      };
+      swww-daemon = {
+        enable = true;
+      };
+      waypaper = {
+        enable = true;
+        settings = {
+          Settings = {
+            folder = "${config.xdg.userDirs.pictures}/Wallpapers";
+            fill = "Fill";
+            sort = "name";
+            backend = "swww";
+            color = "#ffffff";
+            subfolders = true;
+            monitors = "DP-1";
+            swww_transition_type = "wipe";
+            swww_transition_angle = 30;
+          };
+        };
+      };
     };
   };
 }

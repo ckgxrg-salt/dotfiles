@@ -26,7 +26,6 @@ in
 {
   # Accessories packages
   home.packages = with pkgs; [
-    waypaper
     grimblast
     brightnessctl
     playerctl

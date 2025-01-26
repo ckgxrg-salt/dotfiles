@@ -36,5 +36,18 @@
       name = "Maple UI";
       size = 18;
     };
+
+    wallpaper.linux-wallpaperengine = {
+      enable = true;
+      clamping = "repeat";
+      wallpapers = [
+        {
+          monitor = "eDP-1";
+          wallpaperId = "1804480340";
+          fps = 10;
+          scaling = "fill";
+        }
+      ];
+    };
   };
 }

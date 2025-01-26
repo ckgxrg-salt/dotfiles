@@ -11,16 +11,16 @@ let
 in
 {
   options.theme.wallpaper.linux-wallpaperengine = {
-    enable = mkEnableOption "Whether to enable linux-wallpaperengine, an implementation of Wallpaper Engine functionality on Linux";
+    enable = mkEnableOption "Enable linux-wallpaperengine, an implementation of Wallpaper Engine functionality on Linux.";
     package = mkOption {
       type = types.package;
-      description = "The linux-wallpaperengine package to use";
+      description = "The linux-wallpaperengine package to use.";
       default = pkgs.linux-wallpaperengine;
     };
     assetsPath = mkOption {
       type = types.str;
       default = "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";
-      description = "Path to the assets directory if not the default";
+      description = "Path to the assets directory if not the default.";
     };
     clamping = mkOption {
       type = types.enum [
@@ -29,7 +29,7 @@ in
         "repeat"
       ];
       default = "clamp";
-      description = "Clamping mode for all wallpapers";
+      description = "Clamping mode for all wallpapers.";
     };
     wallpapers = mkOption {
       type = types.listOf (
@@ -37,15 +37,11 @@ in
           options = {
             monitor = mkOption {
               type = types.str;
-              description = "Which monitor to show the wallpaper";
+              description = "Which monitor to show the wallpaper.";
             };
             wallpaperId = mkOption {
               type = types.str;
-              description = "Wallpaper ID to be used";
-            };
-            wallpaperIdEnv = mkOption {
-              type = types.str;
-              description = "Environment variable storing a wallpaper ID, may be used to dynamically change the wallpaper without rebuilding the system, intended to be used with LWPEHelper";
+              description = "Wallpaper ID to be used.";
             };
             scaling = mkOption {
               type = types.enum [
@@ -55,33 +51,33 @@ in
                 "default"
               ];
               default = "default";
-              description = "Scaling mode for this wallpaper";
+              description = "Scaling mode for this wallpaper.";
             };
             fps = mkOption {
               type = types.nullOr types.int;
               default = null;
-              description = "Limits the FPS to a given number";
+              description = "Limits the FPS to a given number.";
             };
             audio = {
               silent = mkOption {
                 type = types.bool;
                 default = false;
-                description = "Mutes all sound of the wallpaper";
+                description = "Mutes all sound of the wallpaper.";
               };
               automute = mkOption {
                 type = types.bool;
                 default = true;
-                description = "Automute when another app is playing sound";
+                description = "Automute when another app is playing sound.";
               };
               audio-processing = mkOption {
                 type = types.bool;
                 default = true;
-                description = "Enables audio processing for background";
+                description = "Enables audio processing for background.";
               };
               volume = mkOption {
                 type = types.nullOr types.float;
                 default = null;
-                description = "Sets the volume of the background";
+                description = "Sets the volume of the background.";
               };
             };
           };

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 # Accessories that run as daemons
 let
   mkDaemon =
@@ -26,10 +26,8 @@ in
 {
   # Accessories packages
   home.packages = with pkgs; [
-    waypaper
     grimblast
     brightnessctl
-    swww
     playerctl
     libnotify
     wl-clipboard
@@ -47,30 +45,9 @@ in
         notify: true
         tray: auto
     '';
-
-    # Waypaper
-    "waypaper/config.ini".text = ''
-      [Settings]
-      folder = ${config.xdg.userDirs.pictures}/Wallpapers
-      fill = Fill
-      sort = name
-      backend = swww
-      color = #ffffff
-      subfolders = true
-      monitors = eDP-1
-      swww_transition_type = wipe
-      swww_transition_angle = 30
-    '';
   };
 
   systemd.user.services = {
-    # A Solution to your Wayland Wallpaper Woes
-    "swww-daemon" = mkDaemon {
-      desc = "A Solution to your Wayland Wallpaper Woes";
-      exec = "${pkgs.swww}/bin/swww-daemon";
-      slice = "background-graphical.slice";
-    };
-
     # Cliphist the clipboard manager
     "cliphist" = mkDaemon {
       desc = "Clipboard History Manager";
