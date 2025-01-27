@@ -73,6 +73,7 @@
   #========== Miscellaneous ==========#
   programs.dconf.enable = true;
   services.udisks2.enable = true;
+  services.gvfs.enable = true;
   virtualisation.waydroid.enable = true;
   system.etc.overlay.enable = true;
   programs.nix-ld.enable = true;
