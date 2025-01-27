@@ -56,7 +56,6 @@
     # Web
     thunderbird
     tor-browser
-    remmina
     # System
     blueberry
     nautilus

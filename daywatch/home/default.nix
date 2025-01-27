@@ -21,7 +21,7 @@
     # Applications
     ./apps/btop.nix
     ./apps/cava.nix
-    ./apps/nixvim.nix
+    ./apps/neovim.nix
     ./apps/qutebrowser.nix
     ./apps/rofi.nix
     ../../shared/apps/fcitx.nix

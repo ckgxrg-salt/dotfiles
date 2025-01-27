@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   imports = [
     ./completions.nix
@@ -147,6 +147,12 @@
         ];
         scope_chdir = "win";
         silent_chdir = true;
+      };
+    };
+    direnv = {
+      enable = true;
+      settings = {
+        direnv_silent_load = 1;
       };
     };
     git-worktree = {
