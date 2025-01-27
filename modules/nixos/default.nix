@@ -3,5 +3,6 @@
   imports = [
     ./gamemode.nix
     ./sound-theme.nix
+    ./wayvnc.nix
   ];
 }

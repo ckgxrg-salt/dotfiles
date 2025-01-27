@@ -43,7 +43,7 @@
       wallpapers = [
         {
           monitor = "eDP-1";
-          wallpaperId = "1804480340";
+          wallpaperId = "2282120494";
           fps = 10;
           scaling = "fill";
         }

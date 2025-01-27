@@ -4,8 +4,8 @@
   imports = [
     ./boot.nix
     ./configuration.nix
-    ./sddm.nix
     ./nix.nix
+    ./sddm.nix
     ../shared/commons.nix
     ../shared/security.nix
     ../shared/utils/firejail.nix

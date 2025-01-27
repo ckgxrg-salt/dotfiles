@@ -43,6 +43,7 @@
     prismlauncher
     # Communication
     qq
+    localsend
     # Web
     thunderbird
     tor-browser
