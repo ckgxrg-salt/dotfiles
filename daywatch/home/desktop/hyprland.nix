@@ -77,9 +77,9 @@
       general = {
         gaps_in = 10;
         gaps_out = 8;
-        border_size = 0;
-        "col.active_border" = "rgba(00000000)";
-        "col.inactive_border" = "rgba(00000000)";
+        border_size = 8;
+        "col.active_border" = "rgba(A7C08044)";
+        "col.inactive_border" = "rgba(42504799)";
         layout = "scroller";
         allow_tearing = false;
         resize_on_border = true;
@@ -105,19 +105,22 @@
       decoration = {
         blur = {
           enabled = true;
-          size = 2;
-          passes = 3;
-          vibrancy = 0.1696;
+          size = 12;
+          passes = 1;
+          noise = 0.3;
+          vibrancy = 0.2;
+          brightness = 1.5;
+          contrast = 1.2;
         };
         shadow = {
           enabled = true;
           range = 6;
           render_power = 3;
-          color = "rgba(1c1c1cee)";
+          color = "rgba(1C1C1CEE)";
         };
-        rounding = 18;
-        active_opacity = 0.9;
-        inactive_opacity = 0.8;
+        rounding = 0;
+        active_opacity = 0.8;
+        inactive_opacity = 0.7;
       };
       animations = {
         enabled = true;

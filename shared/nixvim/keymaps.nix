@@ -41,13 +41,6 @@
         mode = "n";
       }
 
-      # Glow: Preview Markdown
-      {
-        action = "<Cmd>Glow<CR>";
-        key = "<M-r>";
-        mode = "n";
-      }
-
       # Neotree: Summon
       {
         action = "<Cmd>Neotree toggle<CR><Cmd>cd .<CR>";
