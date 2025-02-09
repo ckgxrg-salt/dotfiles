@@ -18,13 +18,10 @@
 
     # So far, Qt 6 packages require qtwayland explicitly in path.
     qt6Packages.qtwayland
-    # And dolphin need this explicitly to show icons.
-    qt6Packages.qtsvg
 
     # Desktop Utilities
     alacritty
     kdePackages.ark
-    bottles
     celluloid
     impression
     kdePackages.okular
@@ -35,7 +32,6 @@
     # Applications
     # Productivity
     krita
-    libreoffice
     obsidian
     rnote
     errands
@@ -43,12 +39,10 @@
     # Media
     foliate
     freetube
-    gimp
     jellyfin-media-player
     komikku
     # Gaming
     moonlight-qt
-    prismlauncher
     # Communication
     localsend
     nheko

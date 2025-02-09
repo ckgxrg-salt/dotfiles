@@ -5,10 +5,17 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     intelgpu = {
-      driver = "xe";
+      driver = "i915";
       vaapiDriver = "intel-media-driver";
     };
   };
+
+  # ZFS
+  services.zfs = {
+    autoScrub.enable = true;
+    trim.enable = true;
+  };
+  services.fstrim.enable = false;
 
   # Power Button Behaviour
   services.logind = {

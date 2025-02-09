@@ -54,7 +54,7 @@ let
   brightnessScript = pkgs.writeShellScriptBin "brightness" ''
     iDIR="$HOME/.config/mako/icons"
     get_backlight() {
-      LIGHT=$(brightnessctl get --device=intel_backlight | awk '{printf "%d", $0 / 960}')
+      LIGHT=$(brightnessctl get | awk '{printf "%d", $0 / 960}')
       echo $LIGHT
     }
     get_icon() {
@@ -75,10 +75,10 @@ let
       notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)%"
     }
     inc_backlight() {
-      brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=asus_screenpad set 5%+ && get_icon && notify_user
+      brightnessctl set 5%+ && get_icon && notify_user
     }
     dec_backlight() {
-      brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=asus_screenpad set 5%- && get_icon && notify_user
+      brightnessctl set 5%- && get_icon && notify_user
     }
     if [[ "$1" == "--get" ]]; then
       get_backlight

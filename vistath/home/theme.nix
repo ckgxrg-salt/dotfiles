@@ -46,18 +46,6 @@
     };
 
     wallpaper = {
-      linux-wallpaperengine = {
-        enable = true;
-        clamping = "repeat";
-        wallpapers = [
-          {
-            monitor = "eDP-1";
-            wallpaperId = "2349470260";
-            fps = 6;
-            scaling = "fill";
-          }
-        ];
-      };
       swww-daemon = {
         enable = true;
       };

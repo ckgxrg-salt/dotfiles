@@ -33,7 +33,7 @@
 
     # Working with Rust
     rustaceanvim = {
-      enable = true;
+      enable = false;
       rustAnalyzerPackage = pkgs.rust-analyzer;
       settings = {
         dap.autoload_configurations = false;

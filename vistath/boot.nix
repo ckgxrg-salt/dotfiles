@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 # Bootstrap process
 {
   boot = {
@@ -11,8 +11,8 @@
       };
       timeout = 0;
       systemd-boot.enable = true;
-      lanzaboote.enable = false;
     };
+    lanzaboote.enable = lib.mkForce false;
 
     #========== Initrd ==========#
     initrd = {
@@ -20,17 +20,13 @@
       verbose = false;
       availableKernelModules = [
         "xhci_pci"
-        "thunderbolt"
-        "vmd"
         "nvme"
         "usbhid"
         "usb_storage"
         "sd_mod"
-        "rtsx_usb_sdmmc"
       ];
       kernelModules = [
         "kvm-intel"
-        "i915"
       ];
     };
     # Silent boot
@@ -40,7 +36,7 @@
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "hexa_retro";
+      theme = "polaroid";
     };
 
     #========== Kernel ==========#

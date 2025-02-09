@@ -19,5 +19,5 @@
     hostId = "7811019c";
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }

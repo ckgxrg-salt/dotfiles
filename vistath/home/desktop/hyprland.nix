@@ -14,7 +14,6 @@
       # Hardware
       monitor = [
         "eDP-1, highres, 0x0, 1"
-        "DP-1, highres, 0x1080, 1"
       ];
       input = {
         kb_layout = "us";
@@ -70,7 +69,6 @@
       workspace = [
         "special:browser, on-created-empty:uwsm app -- qutebrowser"
         "name:Home, monitor:eDP-1, persistent:true, default:true"
-        "name:Dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow:false, rounding:false, border:false"
       ];
 
       # Options
@@ -241,10 +239,8 @@
         "SUPER, S, togglespecialworkspace, browser"
         "SUPER SHIFT, W, workspace, name:"
         "SUPER, H, workspace, name:Home"
-        "SUPER, D, workspace, name:Dashboard"
         "SUPER SHIFT, S, movetoworkspace, special:browser"
         "SUPER SHIFT, H, movetoworkspace, name:Home"
-        "SUPER SHIFT, D, movetoworkspace, name:Dashboard"
       ];
 
       # Move, resize and scroller mode
@@ -253,24 +249,5 @@
         "SUPER, mouse:273, resizewindow"
       ];
     };
-    # Hardware(Touchscreen & Tablet)
-    extraConfig = ''
-      device {
-        name = elan9008:00-04f3:2d55
-        output = eDP-1
-      }
-      device {
-        name = elan9009:00-04f3:2c1b
-        output = DP-1
-      }
-      device {
-        name = elan9008:00-04f3:2d55-stylus
-        output = eDP-1
-      }
-      device {
-        name = elan9009:00-04f3:2c1b-stylus
-        output = DP-1
-      }
-    '';
   };
 }

@@ -11,7 +11,7 @@
 
   # Calendar & Contacts
   programs.khal = {
-    enable = true;
+    enable = false;
     locale = {
       firstweekday = 0;
     };

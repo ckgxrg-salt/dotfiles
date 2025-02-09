@@ -2,7 +2,7 @@
 {
   imports = [
     ./completions.nix
-    ./debug.nix
+    #./debug.nix
     ./syntax.nix
     ./langs.nix
     ./manual.nix
@@ -88,9 +88,11 @@
     # Notifications
     notify = {
       enable = true;
-      stages = "slide";
-      topDown = true;
-      timeout = 3000;
+      settings = {
+        top_down = true;
+        stages = "slide";
+        timeout = 3000;
+      };
     };
 
     # Coding Experience

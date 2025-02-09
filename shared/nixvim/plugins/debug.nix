@@ -14,10 +14,6 @@
           command = "${pkgs.lldb}/bin/lldb-dap";
         };
       };
-      # User interface
-      extensions.dap-ui = {
-        enable = true;
-      };
       # Debug profiles
       configurations = {
         "rust" = [
@@ -72,6 +68,10 @@
           }
         ];
       };
+    };
+    # User interface
+    dap-ui = {
+      enable = true;
     };
   };
 }
