@@ -41,12 +41,21 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Disko
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # Nixos-hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
   outputs =
     {
       self,
       nixpkgs,
       lix-module,
+      disko,
+      nixos-hardware,
       ckgprv,
       ags,
       home-manager,
@@ -110,6 +119,37 @@
                 ./radilopa/home
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
+              ];
+              home-manager.extraSpecialArgs = {
+                ckgs = self.packages.${system};
+              };
+            }
+          ];
+        };
+
+        # Vistath
+        Vistath = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            ckgs = self.packages.${system};
+          };
+          modules = [
+            ./vistath
+            ./modules/nixos
+            lix-module.nixosModules.default
+            lanzaboote.nixosModules.lanzaboote
+            disko.nixosModules.disko
+            nixos-hardware.nixosModules.microsoft-surface-pro-intel
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ckgxrg.imports = [
+                ./vistath/home
+                ./modules/home-manager
+                ags.homeManagerModules.default
+                nixvim.homeManagerModules.nixvim
+                ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
                 ckgs = self.packages.${system};
