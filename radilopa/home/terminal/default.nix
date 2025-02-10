@@ -39,7 +39,7 @@
             algorithm: "fuzzy"
           }
           filesize: {
-            metric: true
+            unit: metric
           }
         }
 
