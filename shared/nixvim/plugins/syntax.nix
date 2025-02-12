@@ -6,7 +6,6 @@
       enable = true;
       settings = {
         auto_close = false;
-        auto_jump = true;
         open_no_results = true;
       };
     };
@@ -20,7 +19,6 @@
           nix = [ "nixfmt" ];
           kotlin = [ "ktlint" ];
           haskell = [ "stylish-haskell" ];
-          typescript = [ "deno_fmt" ];
           markdown = [ "markdownfmt" ];
           "_" = [
             "squeeze_blanks"
@@ -46,7 +44,6 @@
         nix = [ "deadnix" ];
         kotlin = [ "ktlint" ];
         haskell = [ "hlint" ];
-        typescript = [ "deno" ];
       };
       linters = {
         checkstyle = {
