@@ -69,13 +69,6 @@ in
       slice = "background-graphical.slice";
     };
 
-    # A daemon that controls music players
-    "playerctld" = mkDaemon {
-      desc = "Music Player Control";
-      exec = "${pkgs.playerctl}/bin/playerctld";
-      slice = "app-graphical.slice";
-    };
-
     # The sidebar
     "waybar" = mkDaemon {
       desc = "A Lightweight Wayland Sidebar";

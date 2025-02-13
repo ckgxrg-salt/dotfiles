@@ -16,6 +16,13 @@
     lidSwitchDocked = "ignore";
   };
 
+  # Let astal monitor battery
+  services.upower = {
+    enable = true;
+    percentageLow = 10;
+    percentageAction = 3;
+  };
+
   # Mouse & Touchpad
   services.libinput = {
     enable = true;

@@ -33,7 +33,7 @@
 
     # Working with Rust
     rustaceanvim = {
-      enable = false;
+      enable = true;
       rustAnalyzerPackage = pkgs.rust-analyzer;
       settings = {
         dap.autoload_configurations = false;
@@ -78,6 +78,7 @@
           installGhc = false;
         };
         kotlin_language_server.enable = true;
+        cssls.enable = true;
       };
     };
   };

@@ -2,7 +2,7 @@
 {
   imports = [
     ./completions.nix
-    ./debug.nix
+    #./debug.nix
     ./syntax.nix
     ./langs.nix
     ./manual.nix

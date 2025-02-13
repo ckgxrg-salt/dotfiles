@@ -20,6 +20,7 @@
           kotlin = [ "ktlint" ];
           haskell = [ "stylish-haskell" ];
           markdown = [ "markdownfmt" ];
+          css = [ "stylelint" ];
           "_" = [
             "squeeze_blanks"
             "trim_whitespace"
@@ -29,7 +30,7 @@
         default_format_opts = {
           lsp_format = "fallback";
         };
-        notify_no_formatters = false;
+        notify_no_formatters = true;
         format_on_save = {
           timeout_ms = 2000;
         };
@@ -44,6 +45,7 @@
         nix = [ "deadnix" ];
         kotlin = [ "ktlint" ];
         haskell = [ "hlint" ];
+        css = [ "stylelint" ];
       };
       linters = {
         checkstyle = {
