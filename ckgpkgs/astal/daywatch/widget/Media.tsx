@@ -1,25 +1,71 @@
 import { Gtk } from "astal/gtk3";
 import Mpris from "gi://AstalMpris";
-import { bind } from "astal";
+import { bind, Variable } from "astal";
+
+const mpris = Mpris.get_default();
+const activePlayer = Variable<Mpris.Player | undefined>(undefined);
+mpris.connect('player-added', (_, addedPlayer) => {
+	if (activePlayer.get() === undefined) {
+		activePlayer.set(addedPlayer);
+	}
+});
+mpris.connect('player-closed', (_, closedPlayer) => {
+	if (mpris.get_players().length === 1 && closedPlayer.busName === mpris.get_players()[0]?.busName) {
+		return activePlayer.set(undefined);
+	}
+
+	if (closedPlayer.busName === activePlayer.get()?.busName) {
+		const nextPlayer = mpris.get_players().find((player) => player.busName !== closedPlayer.busName);
+		activePlayer.set(nextPlayer);
+	}
+});
 
 export default function Media() {
-	const mpris = Mpris.get_default();
-	return <box
-		className="Media"
-	>
-		{bind(mpris, "players").as(arr => defaultPlayer(arr))}
+	activePlayer.set(mpris.get_players().find(player => player.get_can_play()) || undefined);
+	return <box vertical className="Media">
+		{Switchers()}
+		{bind(activePlayer).as(player => {
+			if (player === undefined) {
+				return <label>No Players Found</label>;
+			} else {
+				return <PlayerControl player={player} />;
+			}
+		})}
 	</box>;
 }
 
-function defaultPlayer(players: Mpris.Player[]) {
-	// We have a dedicated widget for mpd
-	if (players.length > 0 && players[0].get_bus_name() != "org.mpris.MediaPlayer2.mpd") {
-		return <MprisControl player={players[0]} />;
+// Switches between players
+function nextPlayer() {
+	let list = mpris.get_players().filter(player => player.get_can_play());
+	let index = list.findIndex(player => player === activePlayer.get());
+	if (index === list.length - 1) {
+		activePlayer.set(list[0]);
 	} else {
-		return <label>No Players Found</label>;
+		activePlayer.set(list[index + 1]);
 	}
 }
+function prevPlayer() {
+	let list = mpris.get_players().filter(player => player.get_can_play());
+	let index = list.findIndex(player => player === activePlayer.get());
+	if (index === 0) {
+		activePlayer.set(list[list.length - 1]);
+	} else {
+		activePlayer.set(list[index - 1]);
+	}
+}
+function Switchers() {
+	return <centerbox className="Switchers">
+		<button onClicked={() => prevPlayer()}>
+			<icon icon="media-skip-backward-symbolic" />
+		</button>
+		<label truncate label={bind(activePlayer).as(player => player?.get_identity())} />
+		< button onClicked={() => nextPlayer()}>
+			<icon icon="media-skip-forward-symbolic" />
+		</button>
+	</centerbox >;
+}
 
+// Controls MPRIS itself
 function lengthStr(length: number) {
 	const min = Math.floor(length / 60)
 	const sec = Math.floor(length % 60)
@@ -27,7 +73,7 @@ function lengthStr(length: number) {
 	return `${min}:${sec0}${sec}`
 }
 
-function MprisControl({ player }: { player: Mpris.Player }) {
+function PlayerControl({ player }: { player: Mpris.Player }) {
 	const { START, CENTER, END } = Gtk.Align;
 	const title = bind(player, "title").as(t => t || "");
 	const artist = bind(player, "artist").as(a => a || "");

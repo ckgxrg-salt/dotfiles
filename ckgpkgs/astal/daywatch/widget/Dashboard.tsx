@@ -9,6 +9,7 @@ import Workspaces from "./Workspaces";
 
 export default function Dashboard(monitor: number) {
 	const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor;
+
 	return <window
 		application={App}
 		className="Dashboard"

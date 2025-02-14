@@ -1,5 +1,7 @@
-import { bind, Variable } from "astal";
+import { bind, Variable, execAsync } from "astal";
 import Tray from "gi://AstalTray";
+
+import { switch_focus } from "../util/hyprland";
 
 export default function Dock() {
 	return <box
@@ -30,7 +32,10 @@ function Memory() {
 	const memCmd = Variable(0).poll(5000, ["bash", "-c", "printf \"%.0f\\n\" $(free -m | grep Mem | awk '{print ($3 / $2 ) * 100}')"], (out) => parseInt(out));
 
 	return <button className="Memory"
-		onClicked="uwsm app -- alacritty -e btop"
+		onClicked={() => {
+			switch_focus();
+			execAsync("uwsm app -- alacritty -e btop");
+		}}
 	>
 		{(memCmd())}
 	</button>;
