@@ -39,6 +39,7 @@
     errands
     pomodoro-gtk
     # Media
+    bilibili
     foliate
     freetube
     gimp
