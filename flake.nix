@@ -25,15 +25,9 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # AGS
-    astal = {
-      url = "github:Aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.astal.follows = "astal";
     };
 
     # Home manager
@@ -89,7 +83,6 @@
               home-manager.users.ckgxrg.imports = [
                 ./daywatch/home
                 ./modules/home-manager
-                ags.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
               ];
@@ -147,7 +140,6 @@
               home-manager.users.ckgxrg.imports = [
                 ./vistath/home
                 ./modules/home-manager
-                ags.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
               ];
@@ -170,6 +162,8 @@
         fyrox-template = callPackage ./ckgpkgs/fyrox-template.nix { };
         rofi-themes = callPackage ./ckgpkgs/theming/rofi-themes.nix { };
         maple-ui = callPackage ./ckgpkgs/theming/maple-ui.nix { };
+
+        daywatch-astal = import ./ckgpkgs/astal/daywatch { inherit ags pkgs; };
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim

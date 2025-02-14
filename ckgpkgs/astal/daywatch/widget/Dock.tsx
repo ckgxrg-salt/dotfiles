@@ -1,39 +1,13 @@
 import { bind, Variable } from "astal";
-import { App, Gtk } from "astal/gtk3";
 import Tray from "gi://AstalTray";
 
 export default function Dock() {
 	return <box
 		className="Dock"
 	>
-		{Coffee()}
-		{SysTray()}
-		{Memory()}
+		<SysTray />
+		<Memory />
 	</box>;
-}
-
-// Inhibits screenlocker
-function Coffee() {
-	const state = Variable(false);
-	const inhibitId = Variable(0);
-
-	return <button
-		className="CoffeeZzz"
-		onClicked={self => {
-			state.set(!state.get());
-			if (state.get()) {
-				self.set_class_name("CoffeeDrunk");
-				self.set_label("");
-				inhibitId.set(App.inhibit(null, Gtk.ApplicationInhibitFlags.IDLE, "Too excited to sleep."));
-			} else {
-				self.set_class_name("CoffeeZzz");
-				self.set_label("󰒲");
-				App.uninhibit(inhibitId.get());
-			}
-		}}
-	>
-		󰒲
-	</button>
 }
 
 function SysTray() {

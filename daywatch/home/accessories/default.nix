@@ -8,7 +8,6 @@
     ./hyprlock.nix
     ./mako.nix
     ./scripts.nix
-    ./waybar.nix
     ./wlogout.nix
   ];
 }

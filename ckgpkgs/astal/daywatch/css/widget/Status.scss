@@ -1,0 +1,23 @@
+@use "../palette" as p;
+@use "sass:color";
+
+.Status {
+  min-width: 210px;
+  min-height: 200px;
+  margin: 10px 10px 10px 10px;
+  background-color: color.change(p.$light-gray-1, $alpha: 0.5);
+
+  .Clock {
+    background-color: p.$green;
+    min-width: 210px;
+    min-height: 80px;
+    margin: 10px 10px 10px 10px;
+  }
+
+  .Battery {
+    background-color: p.$red;
+    min-width: 210px;
+    min-height: 80px;
+    margin: 10px 10px 10px 10px;
+  }
+}

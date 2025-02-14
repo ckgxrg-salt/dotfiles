@@ -1,0 +1,43 @@
+@use "../palette" as p;
+
+.Media {
+  min-width: 400px;
+  min-height: 420px;
+  margin: 10px 10px 10px 10px;
+
+  .MediaPlayer {
+    background-color: p.$light-gray-1;
+
+    .CoverArt {
+      min-width: 120px;
+      min-height: 120px;
+      margin: 10px 10px 10px 10px;
+      background-color: p.$gray;
+    }
+
+    .Progress {
+      margin: 10px 10px 0 10px;
+
+      slider {
+        all: unset;
+      }
+
+      trough {
+        min-height: 50px;
+        border-radius: 14px;
+      }
+
+      highlight {
+        all: unset;
+        border-radius: 14px;
+        background-color: p.$fg-blue;
+      }
+    }
+
+    .Actions {
+      min-width: 400px;
+      min-height: 50px;
+      margin: 10px 10px 10px 10px;
+    }
+  }
+}

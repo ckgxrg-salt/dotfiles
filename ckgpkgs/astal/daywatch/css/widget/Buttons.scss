@@ -1,0 +1,26 @@
+@use "../palette" as p;
+
+.Buttons {
+  button {
+    font-size: 96px;
+    min-width: 120px;
+    min-height: 120px;
+    margin: 10px 10px 10px 10px;
+  }
+
+  .Apps {
+    background-color: p.$light_gray_1;
+  }
+
+  .Power {
+    background-color: p.$red;
+  }
+
+  .CoffeeZzz {
+    background-color: p.$green;
+  }
+
+  .CoffeeDrunk {
+    background-color: p.$yellow;
+  }
+}

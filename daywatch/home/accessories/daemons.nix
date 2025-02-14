@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ckgs,
+  ...
+}:
 # Accessories that run as daemons
 let
   mkDaemon =
@@ -32,6 +37,8 @@ in
     libnotify
     wl-clipboard
     cliphist
+
+    ckgs.daywatch-astal
   ];
 
   xdg.configFile = {
@@ -62,18 +69,18 @@ in
   };
 
   systemd.user.services = {
+    # Astal desktop shell
+    "astal" = mkDaemon {
+      desc = "Astal Desktop Widgets";
+      exec = "${ckgs.daywatch-astal}/bin/daywatch-astal";
+      slice = "background-graphical.slice";
+    };
+
     # Cliphist the clipboard manager
     "cliphist" = mkDaemon {
       desc = "Clipboard History Manager";
       exec = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
       slice = "background-graphical.slice";
-    };
-
-    # The sidebar
-    "waybar" = mkDaemon {
-      desc = "A Lightweight Wayland Sidebar";
-      exec = "${pkgs.waybar}/bin/waybar";
-      slice = "app-graphical.slice";
     };
 
     # NetworkManager Applet
@@ -95,13 +102,6 @@ in
       desc = "GNOME's Polkit Authentication Agent";
       exec = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       slice = "app-graphical.slice";
-    };
-
-    # Battery indicator
-    "cbatticon" = mkDaemon {
-      desc = "Battery Indicator";
-      exec = "${pkgs.cbatticon}/bin/cbatticon -u 60 -i symbolic -l 15 -r 5 -o \"notify-send -i battery 'Low Battery' '15% Battery Remaining'\" -c \"notify-send -i battery 'Low Battery' 'Only 5% Battery Remaining'\"";
-      slice = "background-graphical.slice";
     };
   };
 }

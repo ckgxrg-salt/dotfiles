@@ -1,0 +1,23 @@
+@use "../palette" as p;
+
+.Dock {
+  min-height: 75px;
+
+  .SysTray {
+    min-width: 800px;
+    margin: 10px 0 10px 10px;
+    background-color: p.$dark-gray-2;
+
+    button {
+      min-width: 25px;
+      margin: 5px 5px 5px 5px;
+      background-color: p.$light-gray-1;
+    }
+  }
+
+  .Memory {
+    min-width: 75px;
+    margin: 10px 10px 10px 0;
+    background-color: p.$yellow;
+  }
+}

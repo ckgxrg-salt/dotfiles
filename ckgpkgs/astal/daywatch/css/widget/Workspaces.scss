@@ -1,0 +1,29 @@
+@use "../palette" as p;
+
+.Workspaces {
+  min-height: 360px;
+  min-width: 800px;
+  margin: 10px 10px 10px 10px;
+  background-color: p.$light-gray-2;
+
+  button {
+    all: unset;
+    min-width: 200px;
+    margin: 10px 10px 10px 10px;
+    background-color: p.$blue;
+
+    &:hover label {}
+
+    &:active label {}
+  }
+
+  label {
+    transition: 200ms;
+    padding: 0 8px;
+    margin: 2px;
+    border-radius: 3px;
+    border: 1pt solid transparent;
+  }
+
+  .focused label {}
+}
