@@ -13,6 +13,8 @@ export default function Dashboard(monitor: number) {
 	return <window
 		application={App}
 		className="Dashboard"
+		namespace="astal-dashboard"
+		layer={Astal.Layer.BOTTOM}
 		monitor={monitor}
 		exclusivity={Astal.Exclusivity.EXCLUSIVE}
 		anchor={TOP | BOTTOM | LEFT | RIGHT}

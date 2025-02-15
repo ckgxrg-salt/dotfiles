@@ -1,12 +1,16 @@
 @use "../palette" as p;
+@use "sass:color";
 
 .Media {
-  min-width: 400px;
-  min-height: 420px;
+  min-width: 380px;
+  min-height: 400px;
   margin: 10px 10px 10px 10px;
 
   .Switchers {
-    background-color: p.$light-gray-2;
+    background-color: color.change(p.$light-gray-2, $alpha: 0.5);
+    border: solid color.change(p.$light-gray-2, $alpha: 0.7) 10px;
+    border-bottom-width: 0;
+    border-radius: 3px;
 
     label {
       min-width: 300px;
@@ -14,13 +18,17 @@
   }
 
   .MediaPlayer {
-    background-color: p.$light-gray-1;
+    background-color: color.change(p.$light-gray-1, $alpha: 0.5);
+    border: solid color.change(p.$light-gray-1, $alpha: 0.7) 10px;
+    border-top-width: 0;
+    border-radius: 3px;
 
     .CoverArt {
       min-width: 120px;
       min-height: 120px;
       margin: 10px 10px 10px 10px;
-      background-color: p.$gray;
+      background-color: color.change(p.$gray, $alpha: 0.5);
+      background-size: 120px 120px;
     }
 
     .Progress {
@@ -38,7 +46,7 @@
       highlight {
         all: unset;
         border-radius: 14px;
-        background-color: p.$fg-blue;
+        background-color: color.change(p.$fg-blue, $alpha: 0.5);
       }
     }
 

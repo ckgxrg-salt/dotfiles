@@ -1,7 +1,7 @@
 import { App, Gtk, Astal } from "astal/gtk3";
 import { Variable, execAsync } from "astal";
 
-import { switch_focus } from "../util/hyprland";
+import { switchFocus } from "../util/hyprland";
 
 export default function Buttons() {
 	return <box vertical className="Buttons">
@@ -14,8 +14,9 @@ export default function Buttons() {
 function Apps() {
 	return <button
 		className="Apps"
+		tooltipText="Application Launcher"
 		onClicked={() => {
-			switch_focus();
+			switchFocus();
 			execAsync("uwsm app -- rofi -show drun");
 		}}
 	>
@@ -26,8 +27,9 @@ function Apps() {
 function Power() {
 	return <button
 		className="Power"
+		tooltipText="Power Options"
 		onClicked={() => {
-			switch_focus();
+			switchFocus();
 			execAsync("uwsm app -- wlogout");
 		}}
 	>
@@ -42,18 +44,21 @@ function Coffee() {
 
 	return <button
 		className="CoffeeZzz"
+		tooltipText="This widget says Zzz, pretending sleeping"
 		onClicked={self => {
 			state.set(!state.get());
 			if (state.get()) {
 				self.set_class_name("CoffeeDrunk");
 				(self.get_child() as Astal.Icon).icon = "caffeine-cup-full";
+				self.set_tooltip_text("Inhibited System Idle");
 				inhibitId.set(App.inhibit(null, Gtk.ApplicationInhibitFlags.IDLE, "Too excited to sleep."));
 			} else {
 				self.set_class_name("CoffeeZzz");
 				(self.get_child() as Astal.Icon).icon = "view-refresh";
+				self.set_tooltip_text("This widget says Zzz, pretending sleeping");
 				App.uninhibit(inhibitId.get());
 			}
-			switch_focus();
+			switchFocus();
 		}}
 	>
 		<icon icon="view-refresh" />

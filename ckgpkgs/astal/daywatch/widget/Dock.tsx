@@ -1,7 +1,9 @@
 import { bind, Variable, execAsync } from "astal";
 import Tray from "gi://AstalTray";
 
-import { switch_focus } from "../util/hyprland";
+import { switchFocus } from "../util/hyprland";
+
+const mem = Variable(0).poll(5000, ["bash", "-c", "printf \"%.0f\\n\" $(free -m | grep Mem | awk '{print ($3 / $2 ) * 100}')"], (out) => parseInt(out));
 
 export default function Dock() {
 	return <box
@@ -29,14 +31,15 @@ function SysTray() {
 }
 
 function Memory() {
-	const memCmd = Variable(0).poll(5000, ["bash", "-c", "printf \"%.0f\\n\" $(free -m | grep Mem | awk '{print ($3 / $2 ) * 100}')"], (out) => parseInt(out));
-
-	return <button className="Memory"
-		onClicked={() => {
-			switch_focus();
-			execAsync("uwsm app -- alacritty -e btop");
-		}}
-	>
-		{(memCmd())}
-	</button>;
+	return <box className="Memory" tooltipText="Memory Usage">
+		<icon icon="drive-virtual" />
+		<button
+			onClicked={() => {
+				switchFocus();
+				execAsync("uwsm app -- alacritty -e btop");
+			}}
+		>
+			{mem().as(num => `${num}%`)}
+		</button>
+	</box >;
 }

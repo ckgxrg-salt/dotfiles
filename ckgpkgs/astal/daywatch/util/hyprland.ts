@@ -12,6 +12,6 @@ export function awake() {
 }
 
 // Switch the focus back to primary monitor before any task
-export function switch_focus() {
+export function switchFocus() {
 	hypr.dispatch("focusmonitor", "eDP-1");
 }

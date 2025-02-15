@@ -29,16 +29,23 @@ function Clock({ format = "%H:%M - %A %e." }) {
 function Bat() {
 	const bat = Battery.get_default();
 
-	return <box className="Battery"
-		visible={bind(bat, "isPresent")}
-		halign={Gtk.Align.CENTER}
-		valign={Gtk.Align.CENTER}
-	>
-		<icon
-			icon={bind(bat, "batteryIconName")}
-		/>
-		<label
-			label={bind(bat, "percentage").as(p => `${Math.floor(p * 100)} %`)}
-		/>
+	return <box className="Battery" tooltipText="Battery Percentage">
+		<overlay>
+			<circularprogress
+				rounded
+				value={bind(bat, "percentage")}
+				startAt={0.75}
+				endAt={0.75}
+			>
+			</circularprogress>
+			<box vertical valign={Gtk.Align.CENTER}>
+				<icon
+					icon={bind(bat, "batteryIconName")}
+				/>
+				<label
+					label={bind(bat, "percentage").as(p => `${Math.floor(p * 100)} %`)}
+				/>
+			</box>
+		</overlay>
 	</box>;
 }
