@@ -69,13 +69,6 @@ in
       slice = "background-graphical.slice";
     };
 
-    # A daemon that controls music players
-    "playerctld" = mkDaemon {
-      desc = "Music Player Control";
-      exec = "${pkgs.playerctl}/bin/playerctld";
-      slice = "app-graphical.slice";
-    };
-
     # The sidebar
     "waybar" = mkDaemon {
       desc = "A Lightweight Wayland Sidebar";
@@ -102,13 +95,6 @@ in
       desc = "GNOME's Polkit Authentication Agent";
       exec = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       slice = "app-graphical.slice";
-    };
-
-    # Battery indicator
-    "cbatticon" = mkDaemon {
-      desc = "Battery Indicator";
-      exec = "${pkgs.cbatticon}/bin/cbatticon -u 60 -i symbolic -l 15 -r 5 -o \"notify-send -i battery 'Low Battery' '15% Battery Remaining'\" -c \"notify-send -i battery 'Low Battery' 'Only 5% Battery Remaining'\"";
-      slice = "background-graphical.slice";
     };
   };
 }

@@ -29,11 +29,11 @@
                 type = "swap";
               };
             };
-            "WELKIN" = {
+            "Vistath" = {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "welkin";
+                pool = "vistath";
               };
             };
           };
@@ -69,10 +69,6 @@
           "var" = {
             type = "zfs_fs";
             mountpoint = "/var";
-          };
-          "waydroid" = {
-            type = "zfs_fs";
-            mountpoint = "/var/lib/waydroid";
           };
         };
       };

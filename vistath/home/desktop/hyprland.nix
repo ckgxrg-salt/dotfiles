@@ -68,7 +68,6 @@
       ];
       workspace = [
         "special:browser, on-created-empty:uwsm app -- qutebrowser"
-        "name:Home, monitor:eDP-1, persistent:true, default:true"
       ];
 
       # Options
@@ -103,9 +102,8 @@
       decoration = {
         blur = {
           enabled = true;
-          size = 12;
-          passes = 1;
-          noise = 0.3;
+          size = 8;
+          passes = 2;
           vibrancy = 0.2;
           brightness = 1.5;
           contrast = 1.2;
@@ -235,12 +233,19 @@
         # Switch hyprscroller modes
         "SUPER, F9, exec, scrollermod --toggle"
 
-        # Workspaces
+        # Special Workspaces
         "SUPER, S, togglespecialworkspace, browser"
         "SUPER SHIFT, W, workspace, name:"
-        "SUPER, H, workspace, name:Home"
         "SUPER SHIFT, S, movetoworkspace, special:browser"
-        "SUPER SHIFT, H, movetoworkspace, name:Home"
+        # Ordinary workspaces
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER SHIFT, 1, movetoworkspace, 1"
+        "SUPER SHIFT, 2, movetoworkspace, 2"
+        "SUPER SHIFT, 3, movetoworkspace, 3"
+        "SUPER SHIFT, 4, movetoworkspace, 4"
       ];
 
       # Move, resize and scroller mode

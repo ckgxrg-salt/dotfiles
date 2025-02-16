@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  ckgs,
   ...
 }:
 # Define theme names and pkgs here
@@ -10,8 +9,8 @@
     enable = true;
 
     gtk = {
-      name = "Everforest-Dark-BL";
-      pkg = pkgs.everforest-gtk-theme;
+      name = "rose-pine-moon";
+      pkg = pkgs.rose-pine-gtk-theme;
     };
 
     qt = {
@@ -23,14 +22,14 @@
     };
 
     cursor = {
-      name = "GoogleDot-Black";
+      name = "BreezeX-RosePine-Linux";
       size = 24;
-      pkg = ckgs.googledot-cursor;
+      pkg = pkgs.rose-pine-cursor;
     };
 
     icon = {
-      name = "Qogir-dark";
-      pkg = pkgs.qogir-icon-theme;
+      name = "rose-pine-moon";
+      pkg = pkgs.rose-pine-icon-theme;
     };
 
     sound = {

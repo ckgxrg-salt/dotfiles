@@ -4,18 +4,8 @@
   #========== Hardware ==========#
   hardware = {
     cpu.intel.updateMicrocode = true;
-    intelgpu = {
-      driver = "i915";
-      vaapiDriver = "intel-media-driver";
-    };
+    enableRedistributableFirmware = true;
   };
-
-  # ZFS
-  services.zfs = {
-    autoScrub.enable = true;
-    trim.enable = true;
-  };
-  services.fstrim.enable = false;
 
   # Power Button Behaviour
   services.logind = {
@@ -24,6 +14,13 @@
     lidSwitch = "suspend-then-hibernate";
     lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
+  };
+
+  # Let astal monitor battery
+  services.upower = {
+    enable = true;
+    percentageLow = 10;
+    percentageAction = 3;
   };
 
   # Mouse & Touchpad
@@ -64,7 +61,7 @@
   services.avahi = {
     enable = true;
     openFirewall = true;
-    hostName = "Vistath";
+    hostName = "Daywatch";
 
     nssmdns4 = true;
     nssmdns6 = true;
@@ -93,6 +90,14 @@
   theme.sound.enable = true;
 
   #========== Power ==========#
+  # TLP the power saver
+  services.tlp = {
+    enable = true;
+    settings = {
+      BAY_POWEROFF_ON_BAT = 1;
+    };
+  };
+
   # Other power save features
   services.thermald.enable = true;
   powerManagement = {
@@ -109,9 +114,11 @@
     extraPackages = with pkgs; [
       intel-media-driver
       intel-compute-runtime
+      libva-vdpau-driver
     ];
     extraPackages32 = with pkgs.driversi686Linux; [
       intel-media-driver
+      libva-vdpau-driver
     ];
   };
 
@@ -119,9 +126,9 @@
   # Greet messages
   environment.etc = {
     "issue".text = ''
-      ==========================
-      <-- The Vistath Garden -->
-      ==========================
+      =========================
+      <-- The Daywatch Site -->
+      =========================
     '';
   };
 
@@ -133,7 +140,6 @@
       shell = pkgs.nushell;
       extraGroups = [
         "networkmanager"
-        "surface-control"
         "wheel"
         "input"
         "gamemode"

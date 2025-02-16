@@ -10,7 +10,7 @@
         efiSysMountPoint = "/boot";
       };
       timeout = 0;
-      systemd-boot.enable = true;
+      systemd-boot.enable = lib.mkForce true;
     };
     lanzaboote.enable = lib.mkForce false;
 
@@ -20,13 +20,14 @@
       verbose = false;
       availableKernelModules = [
         "xhci_pci"
+        "thunderbolt"
         "nvme"
-        "usbhid"
         "usb_storage"
         "sd_mod"
       ];
       kernelModules = [
         "kvm-intel"
+        "i915"
       ];
     };
     # Silent boot
@@ -40,6 +41,9 @@
     };
 
     #========== Kernel ==========#
+    # Use linux-zen kernel
+    kernelPackages = pkgs.linuxPackages_xanmod_stable;
+
     # Kernel params
     kernelParams = [
       "quiet"

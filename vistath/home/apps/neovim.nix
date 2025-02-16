@@ -1,12 +1,14 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [ ../../../shared/nixvim ];
 
   # Neovim themes
   programs.nixvim = {
-    colorscheme = "everforest";
-    plugins.lualine.settings.options.theme = "everforest";
-    extraPlugins = [ pkgs.vimPlugins.everforest ];
+    colorscheme = "rose-pine";
+    plugins.lualine.settings.options.theme = "nightfly";
+    colorschemes.rose-pine.settings = {
+      variant = "moon";
+    };
   };
 
   # GUI

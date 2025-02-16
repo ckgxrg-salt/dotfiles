@@ -37,6 +37,7 @@
     errands
     pomodoro-gtk
     # Media
+    bilibili
     foliate
     freetube
     jellyfin-media-player

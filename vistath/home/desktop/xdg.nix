@@ -64,6 +64,18 @@
           Version = "1.4";
         };
       };
+      "io.github.msojocs.bilibili" = {
+        name = "Bilibili";
+        icon = "io.github.msojocs.bilibili";
+        comment = "Bilibili desktop client";
+        exec = "bilibili --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
+        type = "Application";
+        categories = [
+          "AudioVideo"
+          "Video"
+          "TV"
+        ];
+      };
       "qq" = {
         name = "QQ";
         icon = "${pkgs.qq}/share/icons/hicolor/512x512/apps/qq.png";

@@ -43,12 +43,12 @@
 
     # Themes
     theme = {
-      name = "Everforest-Dark-BL";
-      package = pkgs.everforest-gtk-theme;
+      name = "rose-pine-moon";
+      package = pkgs.rose-pine-gtk-theme;
     };
     cursorTheme = {
-      name = "GoogleDot-Black";
-      package = ckgs.googledot-cursor;
+      name = "BreezeX-RosePine-Linux";
+      package = pkgs.rose-pine-cursor;
     };
     font = {
       name = "Maple UI";
@@ -56,8 +56,8 @@
       package = ckgs.maple-ui;
     };
     iconTheme = {
-      name = "Qogir-dark";
-      package = pkgs.qogir-icon-theme;
+      name = "rose-pine-moon";
+      package = pkgs.rose-pine-icon-theme;
     };
 
     # Config

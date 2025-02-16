@@ -40,8 +40,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Nixos-hardware
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
   outputs =
     {
@@ -49,7 +47,6 @@
       nixpkgs,
       lix-module,
       disko,
-      nixos-hardware,
       ckgprv,
       ags,
       home-manager,
@@ -132,7 +129,6 @@
             lix-module.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
-            nixos-hardware.nixosModules.microsoft-surface-pro-intel
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
