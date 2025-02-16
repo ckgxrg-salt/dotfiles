@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ckgs, ... }:
 {
   # A lightweight web browser
   programs.qutebrowser = {
@@ -15,15 +15,12 @@
       "trans" = "https://www.deepl.com/en/translator?il=zh#zh/en_gb/{}";
     };
     # Apply the colorscheme
-    extraConfig =
-      let
-        src = pkgs.fetchgit {
-          url = "https://gist.github.com/04704c7860704aef5067491f5332005d.git";
-          rev = "9db514efa5bfe373097cf8bb8cd0b0fa55203c2d";
-          hash = "sha256-1DiqL5gQhJ7l8ympdsIVq1wql4HwiyX/0BAJwA+gVmk=";
-        };
-      in
-      lib.strings.fileContents "${src}/everforest.py" + "\nset(c, scheme = 'dark', intensity = 'medium')";
+    extraConfig = ''
+      import sys
+      sys.path.append('${ckgs.qutebrowser-everforest}')
+      import everforest
+      everforest.set(c, scheme = 'dark', intensity = 'soft')
+    '';
     keyBindings = {
       normal = {
         "pw" = "spawn --userscript qute-pass";

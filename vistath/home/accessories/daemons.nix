@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ckgs,
+  ...
+}:
 # Accessories that run as daemons
 let
   mkDaemon =
@@ -32,6 +37,7 @@ in
     libnotify
     wl-clipboard
     cliphist
+    ckgs.wvkbd-desktop
   ];
 
   xdg.configFile = {
@@ -73,6 +79,13 @@ in
     "waybar" = mkDaemon {
       desc = "A Lightweight Wayland Sidebar";
       exec = "${pkgs.waybar}/bin/waybar";
+      slice = "app-graphical.slice";
+    };
+
+    # Virtual keyboard
+    "wvkbd-desktop" = mkDaemon {
+      desc = "Virtual Keyboard";
+      exec = "${ckgs.wvkbd-desktop}/bin/wvkbd-desktop --hidden -L 500";
       slice = "app-graphical.slice";
     };
 

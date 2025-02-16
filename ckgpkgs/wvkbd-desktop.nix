@@ -39,14 +39,12 @@ stdenv.mkDerivation {
   postPatch = ''
     substituteInPlace Makefile \
       --replace "pkg-config" "$PKG_CONFIG"
-  '';
-  buildPhase = ''
     substituteInPlace layout.desktop.h \
       --replace "" ""
-    make LAYOUT=desktop
+    substituteInPlace main.c \
+      --replace "DEFAULT_ROUNDING" "5"
   '';
-  installPhase = ''
-    mkdir -p $out/bin
-    mv wvkbd-desktop $out/bin
-  '';
+
+  makeFlags = [ "LAYOUT=desktop" ];
+  installFlags = [ "PREFIX=$(out)" ];
 }

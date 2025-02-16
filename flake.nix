@@ -148,19 +148,7 @@
       };
 
       # Inline ckgpkgs
-      packages.${system} = with pkgs; {
-        alacritty-themes = callPackage ./ckgpkgs/theming/alacritty-themes.nix { };
-        googledot-cursor = callPackage ./ckgpkgs/theming/googledot-cursor.nix { };
-        nu-scripts = callPackage ./ckgpkgs/theming/nu-scripts.nix { };
-        otis-gtk = callPackage ./ckgpkgs/theming/otis-gtk.nix { };
-        vivid-icons = callPackage ./ckgpkgs/theming/vivid-icons.nix { };
-        wvkbd-desktop = callPackage ./ckgpkgs/wvkbd-desktop.nix { };
-        fyrox-template = callPackage ./ckgpkgs/fyrox-template.nix { };
-        rofi-themes = callPackage ./ckgpkgs/theming/rofi-themes.nix { };
-        maple-ui = callPackage ./ckgpkgs/theming/maple-ui.nix { };
-
-        daywatch-astal = import ./ckgpkgs/astal/daywatch { inherit ags pkgs; };
-      };
+      packages.${system} = import ./ckgpkgs/catalog.nix { inherit pkgs ags; };
 
       # A nix develop shell including formatter and linter to be used with Neovim
       devShells.${system}.default = pkgs.mkShellNoCC {
