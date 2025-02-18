@@ -8,6 +8,10 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/stable.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Private information
     ckgprv = {
@@ -46,6 +50,7 @@
       self,
       nixpkgs,
       lix-module,
+      nur,
       disko,
       ckgprv,
       ags,
@@ -127,6 +132,7 @@
             ./vistath
             ./modules/nixos
             lix-module.nixosModules.default
+            nur.modules.nixos.default
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager

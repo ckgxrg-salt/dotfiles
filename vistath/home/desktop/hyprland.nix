@@ -47,8 +47,8 @@
         "fullscreen, class:(Waydroid)"
 
         # Some special windows should ignore hyprscroller
-        "plugin:scroller:columnwidth one, class:(org.qutebrowser.qutebrowser)"
-        "plugin:scroller:windowheight one, class:(org.qutebrowser.qutebrowser)"
+        "plugin:scroller:columnwidth one, class:(firefox)"
+        "plugin:scroller:windowheight one, class:(firefox)"
 
         # Wrap C.A.V.A. the background audio visualiser
         "workspace name:Dashboard silent, class:(alacritty-cava)"
@@ -66,7 +66,7 @@
         "animation slide right, notifications"
       ];
       workspace = [
-        "special:browser, on-created-empty:uwsm app -- qutebrowser"
+        "special:browser, on-created-empty:uwsm app -- firefox"
       ];
 
       # Options

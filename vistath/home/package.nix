@@ -35,13 +35,12 @@
     obsidian
     rnote
     errands
-    pomodoro-gtk
     # Media
-    bilibili
     foliate
     freetube
     jellyfin-media-player
     komikku
+    wiliwili
     # Gaming
     moonlight-qt
     # Communication

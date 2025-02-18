@@ -11,7 +11,7 @@
   services.logind = {
     powerKey = "ignore";
     powerKeyLongPress = "poweroff";
-    lidSwitch = "suspend-then-hibernate";
+    lidSwitch = "suspend";
     lidSwitchExternalPower = "suspend";
     lidSwitchDocked = "ignore";
   };
@@ -35,6 +35,7 @@
     networkmanager = {
       enable = true;
       wifi = {
+        backend = "iwd";
         powersave = true;
       };
       plugins = lib.mkForce [ ];

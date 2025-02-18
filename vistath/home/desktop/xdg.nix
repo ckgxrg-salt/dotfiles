@@ -12,11 +12,9 @@
         "image/jpeg" = "pix.desktop";
         "image/png" = "pix.desktop";
         "inode/directory" = "org.kde.index.desktop";
-        "text/html" = "qutebrowser.desktop";
-        "x-scheme-handler/http" = "qutebrowser.desktop";
-        "x-scheme-handler/https" = "qutebrowser.desktop";
-        "x-scheme-handler/about" = "qutebrowser.desktop";
-        "x-scheme-handler/unknown" = "qutebrowser.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
       };
     };
 
@@ -63,18 +61,6 @@
         settings = {
           Version = "1.4";
         };
-      };
-      "io.github.msojocs.bilibili" = {
-        name = "Bilibili";
-        icon = "io.github.msojocs.bilibili";
-        comment = "Bilibili desktop client";
-        exec = "bilibili --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
-        type = "Application";
-        categories = [
-          "AudioVideo"
-          "Video"
-          "TV"
-        ];
       };
       "qq" = {
         name = "QQ";

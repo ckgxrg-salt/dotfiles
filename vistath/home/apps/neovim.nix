@@ -6,8 +6,11 @@
   programs.nixvim = {
     colorscheme = "rose-pine";
     plugins.lualine.settings.options.theme = "nightfly";
-    colorschemes.rose-pine.settings = {
-      variant = "moon";
+    colorschemes.rose-pine = {
+      enable = true;
+      settings = {
+        variant = "moon";
+      };
     };
   };
 
