@@ -8,7 +8,6 @@
     plugins = with pkgs.hyprlandPlugins; [
       hyprgrass
       hyprscroller
-      hypr-dynamic-cursors
     ];
     settings = {
       # Hardware
@@ -73,7 +72,7 @@
       # Options
       general = {
         gaps_in = 10;
-        gaps_out = 8;
+        gaps_out = 0;
         border_size = 8;
         "col.active_border" = "rgba(A7C08044)";
         "col.inactive_border" = "rgba(42504799)";
@@ -115,8 +114,7 @@
           color = "rgba(1C1C1CEE)";
         };
         rounding = 0;
-        active_opacity = 0.8;
-        inactive_opacity = 0.7;
+        dim_inactive = true;
       };
       animations = {
         enabled = true;
@@ -160,18 +158,6 @@
           gesture_scroll_fingers = 3;
           gesture_scroll_distance = 75;
           gesture_workspace_switch_enable = false;
-        };
-        dynamic-cursors = {
-          enabled = true;
-          mode = "stretch";
-          threshold = 5;
-          stretch = {
-            limit = 10000;
-            function = "linear";
-          };
-          shake = {
-            enabled = false;
-          };
         };
       };
 

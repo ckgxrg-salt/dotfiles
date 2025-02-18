@@ -24,7 +24,7 @@
     ./apps/neovim.nix
     ./apps/qutebrowser.nix
     ./apps/rofi.nix
-    ../../shared/apps/fcitx.nix
+    ./apps/fcitx.nix
     ../../shared/apps/mpd.nix
     ../../shared/apps/pass.nix
     ../../shared/apps/yazi.nix
