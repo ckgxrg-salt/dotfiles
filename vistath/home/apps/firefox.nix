@@ -26,23 +26,27 @@
           "Bing".metaData.alias = "@b";
           "Google".metaData.alias = "@g";
           "Nix Packages" = {
-            urls = [ { template = "https://search.nixos.org/packages?channel=unstable?query={searchTerms}"; } ];
+            urls = [ { template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}"; } ];
             iconUpdateURL = "https://nixos.org/favicon.png";
+            updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@pkg" ];
           };
           "NixOS Options" = {
-            urls = [ { template = "https://search.nixos.org/options?channel=unstable?query={searchTerms}"; } ];
+            urls = [ { template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}"; } ];
             iconUpdateURL = "https://nixos.org/favicon.png";
+            updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@opt" ];
           };
           "Bilibili" = {
             urls = [ { template = "https://search.bilibili.com/all?keyword={searchTerms}"; } ];
             iconUpdateURL = "https://bilibili.com/favicon.ico";
+            updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@bili" ];
           };
           "PRTS Wiki" = {
             urls = [ { template = "https://prts.wiki/index.php?title=特殊:搜索&search={searchTerms}"; } ];
             iconUpdateURL = "https://prts.wiki/favicon.ico";
+            updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@prts" ];
           };
         };
