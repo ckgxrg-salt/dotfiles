@@ -1,4 +1,4 @@
-import { App, Gtk, Astal } from "astal/gtk3";
+import { App, Astal } from "astal/gtk3";
 import { Variable, execAsync } from "astal";
 
 export default function Buttons() {
@@ -36,7 +36,6 @@ function Power() {
 // Inhibits screenlocker
 function Coffee() {
 	const state = Variable(false);
-	const inhibitId = Variable(0);
 
 	return <button
 		className="CoffeeZzz"
@@ -47,12 +46,12 @@ function Coffee() {
 				self.set_class_name("CoffeeDrunk");
 				(self.get_child() as Astal.Icon).icon = "caffeine-cup-full";
 				self.set_tooltip_text("Inhibited System Idle");
-				inhibitId.set(App.inhibit(null, Gtk.ApplicationInhibitFlags.IDLE, "Too excited to sleep."));
+				(App.get_window("astal-dashboard") as Astal.Window).set_inhibit(true);
 			} else {
 				self.set_class_name("CoffeeZzz");
 				(self.get_child() as Astal.Icon).icon = "view-refresh";
 				self.set_tooltip_text("This widget says Zzz, pretending sleeping");
-				App.uninhibit(inhibitId.get());
+				(App.get_window("astal-dashboard") as Astal.Window).set_inhibit(false);
 			}
 		}}
 	>

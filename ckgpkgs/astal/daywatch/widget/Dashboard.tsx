@@ -16,6 +16,7 @@ export default function Dashboard(monitor: number) {
 	return <window
 		application={App}
 		className="Dashboard"
+		name="astal-dashboard"
 		namespace="astal-dashboard"
 		layer={Astal.Layer.BOTTOM}
 		monitor={monitor}
