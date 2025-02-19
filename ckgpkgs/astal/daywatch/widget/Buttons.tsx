@@ -1,8 +1,6 @@
 import { App, Gtk, Astal } from "astal/gtk3";
 import { Variable, execAsync } from "astal";
 
-import { switchFocus } from "../util/hyprland";
-
 export default function Buttons() {
 	return <box vertical className="Buttons">
 		<Apps />
@@ -16,7 +14,6 @@ function Apps() {
 		className="Apps"
 		tooltipText="Application Launcher"
 		onClicked={() => {
-			switchFocus();
 			execAsync("uwsm app -- rofi -show drun");
 		}}
 	>
@@ -29,7 +26,6 @@ function Power() {
 		className="Power"
 		tooltipText="Power Options"
 		onClicked={() => {
-			switchFocus();
 			execAsync("uwsm app -- wlogout");
 		}}
 	>
@@ -58,7 +54,6 @@ function Coffee() {
 				self.set_tooltip_text("This widget says Zzz, pretending sleeping");
 				App.uninhibit(inhibitId.get());
 			}
-			switchFocus();
 		}}
 	>
 		<icon icon="view-refresh" />

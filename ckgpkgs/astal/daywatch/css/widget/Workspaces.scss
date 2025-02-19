@@ -2,7 +2,7 @@
 @use "sass:color";
 
 .Workspaces {
-  min-height: 360px;
+  min-height: 210px;
   min-width: 800px;
   margin: 10px 10px 10px 10px;
   background-color: color.change(p.$light-gray-2, $alpha: 0.7);
