@@ -12,14 +12,7 @@
       name = "rose-pine-moon";
       pkg = pkgs.rose-pine-gtk-theme;
     };
-
-    qt = {
-      name = "catppuccin-macchiato-lavender";
-      pkg = pkgs.catppuccin-kvantum.override {
-        accent = "lavender";
-        variant = "macchiato";
-      };
-    };
+    qt.followGTK = true;
 
     cursor = {
       name = "BreezeX-RosePine-Linux";

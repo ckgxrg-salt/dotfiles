@@ -25,11 +25,13 @@ in
     qt = {
       followGTK = mkEnableOption "Use GTK theme for Qt, may not work properly";
       name = mkOption {
-        type = types.str;
+        type = types.nullOr types.str;
+        default = null;
         description = "The Qt(Kvantum) theme name to use";
       };
       pkg = mkOption {
-        type = types.package;
+        type = types.nullOr types.package;
+        default = null;
         description = "The Qt(Kvantum) theme package to use";
       };
     };
@@ -107,8 +109,7 @@ in
       if cfg.qt.followGTK then
         {
           enable = true;
-          platformTheme.name = "gtk2";
-          style.name = "gtk2";
+          platformTheme.name = "gtk";
         }
       else
         {
@@ -116,6 +117,7 @@ in
           platformTheme.name = "qtct";
           style.name = "kvantum";
         };
+
     xdg.configFile = mkIf (!cfg.qt.followGTK) {
       "Kvantum/kvantum.kvconfig".text = ''
         [General]

@@ -35,11 +35,6 @@ in
       cfg.package
     ];
     gtk = {
-      gtk2.extraConfig = ''
-        gtk-enable-event-sounds=true
-        gtk-enable-input-feedback-sounds=true
-        gtk-sound-theme-name=${cfg.theme}
-      '';
       gtk3.extraConfig = {
         gtk-enable-event-sounds = true;
         gtk-enable-input-feedback-sounds = true;

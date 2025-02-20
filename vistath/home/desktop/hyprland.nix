@@ -7,7 +7,7 @@
     xwayland.enable = true;
     plugins = with pkgs.hyprlandPlugins; [
       hyprgrass
-      hyprscroller
+      hy3
     ];
     settings = {
       # Hardware
@@ -76,7 +76,7 @@
         border_size = 8;
         "col.active_border" = "rgba(A7C08044)";
         "col.inactive_border" = "rgba(42504799)";
-        layout = "scroller";
+        layout = "hy3";
         allow_tearing = false;
         resize_on_border = true;
         snap = {
@@ -144,20 +144,11 @@
           workspace_swipe_edge = false;
           resize_on_border_long_press = true;
         };
-        scroller = {
-          column_widths = "onethird twothirds one";
-          column_default_width = "twothirds";
-          window_heights = "twothirds one";
-          window_default_height = "one";
-          cyclesize_wrap = false;
-          focus_wrap = false;
-          monitor_options = "(DP-1 = (column_default_width = one))";
-
-          # Gestures
-          gesture_scroll_enable = true;
-          gesture_scroll_fingers = 3;
-          gesture_scroll_distance = 75;
-          gesture_workspace_switch_enable = false;
+        hy3 = {
+          no_gaps_when_only = 1;
+          autotile = {
+            enable = true;
+          };
         };
       };
 
@@ -166,10 +157,10 @@
         ", edge:r:l, togglespecialworkspace, browser"
         ", edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
         ", swipe:4:ld, exec, uwsm app -- wlogout"
-        ", swipe:3:l, scroller:movefocus, r"
-        ", swipe:3:r, scroller:movefocus, l"
-        ", swipe:3:u, scroller:movefocus, d"
-        ", swipe:3:d, scroller:movefocus, u"
+        ", swipe:3:l, hy3:movefocus, r"
+        ", swipe:3:r, hy3:movefocus, l"
+        ", swipe:3:u, hy3:movefocus, d"
+        ", swipe:3:d, hy3:movefocus, u"
         ", swipe:3:ld, scroller:admitwindow,"
         ", swipe:3:ru, scroller:expelwindow,"
       ];
@@ -197,14 +188,14 @@
         ", XF86MonBrightnessDown, exec, brightness --dec"
 
         # Move focus
-        "SUPER, J, scroller:movefocus, d"
-        "SUPER, K, scroller:movefocus, u"
-        "SUPER, H, scroller:movefocus, l"
-        "SUPER, L, scroller:movefocus, r"
-        "SUPER SHIFT, J, scroller:movewindow, d"
-        "SUPER SHIFT, K, scroller:movewindow, u"
-        "SUPER SHIFT, H, scroller:movewindow, l"
-        "SUPER SHIFT, L, scroller:movewindow, r"
+        "SUPER, J, hy3:movefocus, d"
+        "SUPER, K, hy3:movefocus, u"
+        "SUPER, H, hy3:movefocus, l"
+        "SUPER, L, hy3:movefocus, r"
+        "SUPER SHIFT, J, hy3:movewindow, d"
+        "SUPER SHIFT, K, hy3:movewindow, u"
+        "SUPER SHIFT, H, hy3:movewindow, l"
+        "SUPER SHIFT, L, hy3:movewindow, r"
         "SUPER CTRL, H, scroller:admitwindow,"
         "SUPER CTRL, L, scroller:expelwindow,"
 

@@ -4,15 +4,17 @@
   # Fcitx5
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-rose-pine
-      fcitx5-rime
-    ];
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-rose-pine
+        fcitx5-rime
+      ];
+    };
   };
 
   # Add fcitx5 to GTK settings
   gtk = {
-    gtk2.extraConfig = "gtk-im-module=\"fcitx\"";
     gtk3.extraConfig = {
       gtk-im-module = "fcitx";
     };

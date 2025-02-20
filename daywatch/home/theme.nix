@@ -13,14 +13,7 @@
       name = "Everforest-Dark-BL";
       pkg = pkgs.everforest-gtk-theme;
     };
-
-    qt = {
-      name = "catppuccin-macchiato-lavender";
-      pkg = pkgs.catppuccin-kvantum.override {
-        accent = "lavender";
-        variant = "macchiato";
-      };
-    };
+    qt.followGTK = true;
 
     cursor = {
       name = "GoogleDot-Black";

@@ -35,6 +35,7 @@
     networkmanager = {
       enable = true;
       wifi = {
+        backend = "iwd";
         powersave = true;
       };
       plugins = lib.mkForce [ ];
