@@ -17,5 +17,9 @@ with pkgs;
   qutebrowser-rose-pine = callPackage ./theming/qutebrowser/rose-pine.nix { };
   qutebrowser-city-lights = callPackage ./theming/qutebrowser/city-lights.nix { };
 
+  # Astal bundles
   daywatch-astal = import ./astal/daywatch { inherit ags pkgs; };
+
+  # My personal packages
+  lxwengd = callPackage ./lxwengd.nix { };
 }

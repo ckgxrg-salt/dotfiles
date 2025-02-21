@@ -69,7 +69,6 @@
       ];
       workspace = [
         "special:browser, on-created-empty:uwsm app -- qutebrowser"
-        "name:Home, monitor:eDP-1, persistent:true, default:true"
         "name:Dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow:false, rounding:false, border:false"
       ];
 
@@ -239,10 +238,8 @@
         # Special Workspaces
         "SUPER, S, togglespecialworkspace, browser"
         "SUPER SHIFT, W, workspace, name:"
-        "SUPER, H, workspace, name:Home"
         "SUPER, D, workspace, name:Dashboard"
         "SUPER SHIFT, S, movetoworkspace, special:browser"
-        "SUPER SHIFT, H, movetoworkspace, name:Home"
         "SUPER SHIFT, D, movetoworkspace, name:Dashboard"
         # Ordinary workspaces
         "SUPER, 1, workspace, 1"

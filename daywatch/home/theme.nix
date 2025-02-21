@@ -39,17 +39,10 @@
     };
 
     wallpaper = {
-      linux-wallpaperengine = {
+      lxwengd = {
         enable = true;
-        clamping = "repeat";
-        wallpapers = [
-          {
-            monitor = "eDP-1";
-            wallpaperId = "2349470260";
-            fps = 6;
-            scaling = "fill";
-          }
-        ];
+        package = ckgs.lxwengd;
+        assetsPath = "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";
       };
       swww-daemon = {
         enable = true;

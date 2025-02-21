@@ -1,4 +1,9 @@
-{ pkgs, ckgs, ... }:
+{
+  pkgs,
+  ckgs,
+  config,
+  ...
+}:
 # Define theme names and pkgs here
 {
   theme = {
@@ -37,17 +42,10 @@
       size = 18;
     };
 
-    wallpaper.linux-wallpaperengine = {
+    wallpaper.lxwengd = {
       enable = true;
-      clamping = "repeat";
-      wallpapers = [
-        {
-          monitor = "eDP-1";
-          wallpaperId = "2282120494";
-          fps = 10;
-          scaling = "fill";
-        }
-      ];
+      package = ckgs.lxwengd;
+      assetsPath = "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";
     };
   };
 }
