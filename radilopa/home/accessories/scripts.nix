@@ -3,7 +3,6 @@
 let
   # Thanks for the ArchWiki for this awesome script
   volumeScript = pkgs.writeShellScriptBin "volume" ''
-    iDIR="$HOME/.config/mako/icons"
     get_volume() {
       volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 * 100}')
       echo "$volume"
@@ -11,13 +10,13 @@ let
     get_icon() {
       current=$(get_volume)
       if [[ "$current" -eq "0" ]]; then
-        echo "$iDIR/volume-mute.png"
+        echo audio-volume-low-zero
       elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
-        echo "$iDIR/volume-low.png"
+        echo audio-volume-low
       elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
-        echo "$iDIR/volume-mid.png"
+        echo audio-volume-medium
       elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
-        echo "$iDIR/volume-high.png"
+        echo audio-volume-high
       fi
     }
     notify_user() {
@@ -31,7 +30,7 @@ let
     }
     toggle_mute() {
       if [ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" == "" ]; then
-        wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/volume-mute.png" "Muted"
+        wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i audio-volume-muted "Muted"
       elif [ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" == "[MUTED]" ]; then
         wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Unmuted"
       fi
@@ -52,7 +51,6 @@ let
   '';
 
   brightnessScript = pkgs.writeShellScriptBin "brightness" ''
-    iDIR="$HOME/.config/mako/icons"
     get_backlight() {
       LIGHT=$(brightnessctl get | awk '{printf "%d", $0 / 2.55}')
       echo $LIGHT
@@ -60,15 +58,15 @@ let
     get_icon() {
       current="$(get_backlight)"
       if [[ ("$current" -ge "0") && ("$current" -le "20") ]]; then
-    	icon="$iDIR/brightness-20.png"
+    	icon="weather-tornado"
       elif [[ ("$current" -ge "20") && ("$current" -le "40") ]]; then
-    	icon="$iDIR/brightness-40.png"
+    	icon="weather-clear-night"
       elif [[ ("$current" -ge "40") && ("$current" -le "60") ]]; then
-    	icon="$iDIR/brightness-60.png"
+    	icon="brightness-low"
       elif [[ ("$current" -ge "60") && ("$current" -le "80") ]]; then
-    	icon="$iDIR/brightness-80.png"
+    	icon="brightness-high"
       elif [[ ("$current" -ge "80") && ("$current" -le "100") ]]; then
-    	icon="$iDIR/brightness-100.png"
+        icon="weather-clear"
       fi
     }
     notify_user() {

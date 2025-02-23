@@ -22,7 +22,7 @@
     };
 
     icon = {
-      name = "Qogir-dark";
+      name = "Qogir-Manjaro-Dark";
       pkg = pkgs.qogir-icon-theme;
     };
 

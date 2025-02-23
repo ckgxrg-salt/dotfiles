@@ -6,15 +6,15 @@
 # LxWEngD
 rustPlatform.buildRustPackage {
   pname = "lxwengd";
-  version = "0.1.2";
+  version = "0.1.3";
 
   src = fetchFromGitHub {
     owner = "ckgxrg-salt";
     repo = "LxWEngD";
-    rev = "0b41a9e86d3d56119385e5f46bf9a53da7e1820a";
-    hash = "sha256-qQDOZJPHpc58ws4YARrAV11xYrSdNMY9hbzj5MVlXQg=";
+    rev = "581fe1ec9adf5b76f502c52c8959fe0760cc7f6d";
+    hash = "sha256-Yz7JF84D0zFVCrTgMvVxpu1Ij6qlC6jADx4JD4JKcYw=";
   };
-  cargoHash = "sha256-21yr1jWCjB8szwEHRfxXAXdGlEKY/IVZJbL4suPvIIE=";
+  cargoHash = "sha256-xjvungzXEoc46RTZS2QH3sMOX5CJdG1fIpAjWKgzmIE=";
   useFetchCargoVendor = true;
 
   meta = {
