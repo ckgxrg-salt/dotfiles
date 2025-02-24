@@ -48,7 +48,6 @@
     nheko
     qq
     # Web
-    thunderbird
     tor-browser
     # System
     blueberry

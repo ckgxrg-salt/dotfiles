@@ -15,6 +15,7 @@
     psmisc
     ripgrep
     v2raya
+    w3m
 
     # So far, Qt 6 packages require qtwayland explicitly in path.
     qt6Packages.qtwayland
@@ -53,7 +54,6 @@
     nheko
     qq
     # Web
-    thunderbird
     tor-browser
     # System
     blueberry

@@ -122,9 +122,12 @@
                 ./radilopa/home
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
+                ckgprv.homeManagerModules.private
+                agenix.homeManagerModules.age
               ];
               home-manager.extraSpecialArgs = {
                 ckgs = self.packages.${system};
+                inherit agenix;
               };
             }
           ];
@@ -152,9 +155,11 @@
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
+                agenix.homeManagerModules.age
               ];
               home-manager.extraSpecialArgs = {
                 ckgs = self.packages.${system};
+                inherit agenix;
               };
             }
           ];

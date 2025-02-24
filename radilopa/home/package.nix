@@ -45,7 +45,6 @@
     qq
     localsend
     # Web
-    thunderbird
     tor-browser
     # System
     blueberry

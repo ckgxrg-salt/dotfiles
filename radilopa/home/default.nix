@@ -30,6 +30,7 @@
     ../../shared/utils/gpg.nix
 
     # Other
+    ./pim.nix
     ./package.nix
     ./theme.nix
   ];
