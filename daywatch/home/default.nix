@@ -33,7 +33,7 @@
     ../../shared/utils/gpg.nix
 
     # Other
-    ./accounts.nix
+    ./pim.nix
     ./package.nix
     ./theme.nix
   ];

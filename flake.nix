@@ -18,6 +18,11 @@
       url = "git+ssh://git@github.com/ckgxrg-salt/private-dotfiles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # agenix secret tool
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Lanzaboote Secureboot
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -54,6 +59,7 @@
       disko,
       ckgprv,
       ags,
+      agenix,
       home-manager,
       lanzaboote,
       nixvim,
@@ -87,9 +93,11 @@
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
+                agenix.homeManagerModules.age
               ];
               home-manager.extraSpecialArgs = {
                 ckgs = self.packages.${system};
+                inherit agenix;
               };
             }
           ];
