@@ -46,10 +46,6 @@
         "workspace name: silent, class:(Waydroid)"
         "fullscreen, class:(Waydroid)"
 
-        # Some special windows should ignore hyprscroller
-        "plugin:scroller:columnwidth one, class:(firefox)"
-        "plugin:scroller:windowheight one, class:(firefox)"
-
         # Wrap C.A.V.A. the background audio visualiser
         "workspace name:Dashboard silent, class:(alacritty-cava)"
         "noanim, class:(alacritty-cava)"
@@ -58,8 +54,6 @@
         "nofocus, class:(alacritty-cava)"
         "float, class:(alacritty-cava)"
         "size 1920 515, class:(alacritty-cava)"
-        "plugin:scroller:columnwidth one, class:(alacritty-cava)"
-        "plugin:scroller:windowheight one, class:(alacritty-cava)"
       ];
       layerrule = [
         "noanim, swww-daemon"
@@ -161,8 +155,6 @@
         ", swipe:3:r, hy3:movefocus, l"
         ", swipe:3:u, hy3:movefocus, d"
         ", swipe:3:d, hy3:movefocus, u"
-        ", swipe:3:ld, scroller:admitwindow,"
-        ", swipe:3:ru, scroller:expelwindow,"
       ];
       hyprgrass-bindm = [
         ", longpress:2, movewindow"
@@ -176,7 +168,6 @@
         "SUPER, V, togglefloating,"
         "SUPER, R, exec, uwsm app -- rofi -show drun"
         "SUPER, F, fullscreen,"
-        "SUPER, Tab, scroller:toggleoverview,"
         "SUPER, Print, exec, uwsm app -- grimblast copy area"
         ", XF86PowerOff, exec, uwsm app -- wlogout"
 
@@ -196,20 +187,6 @@
         "SUPER SHIFT, K, hy3:movewindow, u"
         "SUPER SHIFT, H, hy3:movewindow, l"
         "SUPER SHIFT, L, hy3:movewindow, r"
-        "SUPER CTRL, H, scroller:admitwindow,"
-        "SUPER CTRL, L, scroller:expelwindow,"
-
-        # Adjust windows
-        "SUPER, mouse_up, scroller:cyclewidth, prev"
-        "SUPER, mouse_down, scroller:cyclewidth, next"
-        "SUPER SHIFT, mouse_up, scroller:cycleheight, prev"
-        "SUPER SHIFT, mouse_down, scroller:cycleheight, next"
-        "SUPER, minus, scroller:cyclesize, prev"
-        "SUPER, equal, scroller:cyclesize, next"
-        "SUPER, F11, scroller:pin,"
-
-        # Switch hyprscroller modes
-        "SUPER, F9, exec, scrollermod --toggle"
 
         # Special Workspaces
         "SUPER, S, togglespecialworkspace, browser"
