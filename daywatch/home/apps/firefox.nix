@@ -71,28 +71,21 @@
         force = true;
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           absolute-enable-right-click
-          browserpass
           dark-background-light-text
           disconnect
-          firefox-color
+          keepassxc-browser
         ];
         settings = {
           # Dark background light text
           "jid1-QoFqdK4qzUfGWQ@jetpack".settings = {
-            default_background_color = "#232136";
-            default_link_color = "#9ccfd8";
-            default_visited_color = "#c4a7e7";
-            default_active_color = "#ea9a97";
-            default_selection_color = "#44415a";
+            default_background_color = "#2d353b";
+            default_link_color = "#7fbbb3";
+            default_visited_color = "#543a48";
+            default_active_color = "#d699b6";
+            default_selection_color = "#a7c080";
           };
         };
       };
     };
-  };
-
-  # Read the pass store
-  programs.browserpass = {
-    enable = true;
-    browsers = [ "firefox" ];
   };
 }

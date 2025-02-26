@@ -12,11 +12,11 @@
         "image/jpeg" = "pix.desktop";
         "image/png" = "pix.desktop";
         "inode/directory" = "org.kde.index.desktop";
-        "text/html" = "qutebrowser.desktop";
-        "x-scheme-handler/http" = "qutebrowser.desktop";
-        "x-scheme-handler/https" = "qutebrowser.desktop";
-        "x-scheme-handler/about" = "qutebrowser.desktop";
-        "x-scheme-handler/unknown" = "qutebrowser.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
       };
     };
 
