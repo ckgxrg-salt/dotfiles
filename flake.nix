@@ -18,9 +18,9 @@
       url = "git+ssh://git@github.com/ckgxrg-salt/private-dotfiles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # agenix secret tool
-    agenix = {
-      url = "github:ryantm/agenix";
+    # Secrix secret tool
+    secrix = {
+      url = "github:Platonic-Systems/secrix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Lanzaboote Secureboot
@@ -59,7 +59,7 @@
       disko,
       ckgprv,
       ags,
-      agenix,
+      secrix,
       home-manager,
       lanzaboote,
       nixvim,
@@ -83,6 +83,8 @@
             ./daywatch
             ./modules/nixos
             lix-module.nixosModules.default
+            ckgprv.nixosModules.default
+            secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             {
@@ -93,11 +95,9 @@
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
-                agenix.homeManagerModules.age
               ];
               home-manager.extraSpecialArgs = {
                 ckgs = self.packages.${system};
-                inherit agenix;
               };
             }
           ];
@@ -113,6 +113,8 @@
             ./radilopa
             ./modules/nixos
             lix-module.nixosModules.default
+            ckgprv.nixosModules.default
+            secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             {
@@ -123,11 +125,9 @@
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
-                agenix.homeManagerModules.age
               ];
               home-manager.extraSpecialArgs = {
                 ckgs = self.packages.${system};
-                inherit agenix;
               };
             }
           ];
@@ -144,6 +144,8 @@
             ./modules/nixos
             lix-module.nixosModules.default
             nur.modules.nixos.default
+            ckgprv.nixosModules.default
+            secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
@@ -155,16 +157,16 @@
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
-                agenix.homeManagerModules.age
               ];
               home-manager.extraSpecialArgs = {
                 ckgs = self.packages.${system};
-                inherit agenix;
               };
             }
           ];
         };
       };
+
+      apps.x86_64-linux.secrix = secrix.secrix self;
 
       # Inline ckgpkgs
       packages.${system} = import ./ckgpkgs/catalog.nix { inherit pkgs ags; };

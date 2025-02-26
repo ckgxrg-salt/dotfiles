@@ -151,6 +151,8 @@
   # Polkit will not permit operations without this
   environment.shells = with pkgs; [ nushell ];
 
+  secrix.hostIdentityFile = "/home/ckgxrg/.ssh/id_ed25519";
+
   #========== Miscellaneous ==========#
   gaming.gamemode = {
     enable = true;

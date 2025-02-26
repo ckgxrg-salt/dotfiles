@@ -23,7 +23,7 @@
     '';
     keyBindings = {
       normal = {
-        "pw" = "spawn --userscript qute-pass";
+        "pw" = "spawn --userscript qute-keepass -p ~/.local/share/keepassxc/Passwords.kdbx";
         # Align with standard vim keybind
         "H" = "tab-prev";
         "L" = "tab-next";
@@ -35,7 +35,7 @@
         "d" = "nop";
       };
       insert = {
-        "<Alt-Shift-u>" = "spawn --userscript qute-pass";
+        "<Alt-Shift-u>" = "spawn --userscript qute-keepass -p ~/.local/share/keepassxc/Passwords.kdbx";
       };
     };
     settings = {

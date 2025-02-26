@@ -23,7 +23,7 @@
     ./apps/nixvim.nix
     ./apps/qutebrowser.nix
     ./apps/rofi.nix
-    ../../shared/apps/pass.nix
+    ../../shared/apps/keepassxc.nix
     ../../shared/apps/fcitx.nix
     ../../shared/gaming/mangohud.nix
     ../../shared/utils/git.nix
