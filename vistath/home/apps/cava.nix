@@ -21,16 +21,15 @@
         show_idle_bar_heads = 0;
       };
       color = {
-        # Use everforest color scheme
+        # Use rose-pine color scheme
         gradient = 1;
-        gradient_color_1 = "'#a6b0a0'";
-        gradient_color_2 = "'#93b259'";
-        gradient_color_3 = "'#a7c080'";
-        gradient_color_4 = "'#7fbbb3'";
-        gradient_color_5 = "'#829181'";
-        gradient_color_6 = "'#8da101'";
-        gradient_color_7 = "'#83c092'";
-        gradient_color_8 = "'#7a8478'";
+        gradient_count = 6;
+        gradient_color_1 = "'#3e8fb0'";
+        gradient_color_2 = "'#9ccfd8'";
+        gradient_color_3 = "'#c4a7e7'";
+        gradient_color_4 = "'#ea9a97'";
+        gradient_color_5 = "'#f6c177'";
+        gradient_color_6 = "'#eb6f92'";
       };
     };
   };
@@ -38,7 +37,6 @@
   # WM needs to wrap it
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
-      # Wrap C.A.V.A. the background audio visualiser
       "workspace name:Dashboard silent, class:(alacritty-cava)"
       "noanim, class:(alacritty-cava)"
       "nodim, class:(alacritty-cava)"
@@ -46,8 +44,6 @@
       "nofocus, class:(alacritty-cava)"
       "float, class:(alacritty-cava)"
       "size 1920 515, class:(alacritty-cava)"
-      "plugin:scroller:columnwidth one, class:(alacritty-cava)"
-      "plugin:scroller:windowheight one, class:(alacritty-cava)"
     ];
   };
 
@@ -56,7 +52,7 @@
     let
       alacritty-cava-cfg = pkgs.writeText "alacritty-cava-cfg.toml" ''
         [window]
-        decorations_theme_variant = "Dark"
+        decorations = "None"
         opacity = 0.0
       '';
     in

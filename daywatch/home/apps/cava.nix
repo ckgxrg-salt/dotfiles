@@ -38,16 +38,13 @@
   # WM needs to wrap it
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
-      # Wrap C.A.V.A. the background audio visualiser
       "workspace name:Dashboard silent, class:(alacritty-cava)"
       "noanim, class:(alacritty-cava)"
       "nodim, class:(alacritty-cava)"
       "noblur, class:(alacritty-cava)"
       "nofocus, class:(alacritty-cava)"
       "float, class:(alacritty-cava)"
-      "size 1920 515, class:(alacritty-cava)"
-      "plugin:scroller:columnwidth one, class:(alacritty-cava)"
-      "plugin:scroller:windowheight one, class:(alacritty-cava)"
+      "size 1920 540, class:(alacritty-cava)"
     ];
   };
 
@@ -56,7 +53,7 @@
     let
       alacritty-cava-cfg = pkgs.writeText "alacritty-cava-cfg.toml" ''
         [window]
-        decorations_theme_variant = "Dark"
+        decorations = "None"
         opacity = 0.0
       '';
     in

@@ -69,6 +69,7 @@
         header-layout = "To|From,Cc|Bcc,Subject";
       };
       hooks = {
+        aerc-startup = "hyprctl dispatch exec mbsync -a";
         mail-received = "notify-send -i mail-message \"[$AERC_ACCOUNT/$AERC_FOLDER] New mail from $AERC_FROM_NAME\" \"$AERC_SUBJECT\"";
         mail-deleted = "hyprctl dispatch exec mbsync \"$AERC_ACCOUNT:$AERC_FOLDER\"";
         mail-added = "hyprctl dispatch exec mbsync \"$AERC_ACCOUNT:$AERC_FOLDER\"";
