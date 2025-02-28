@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 # The Music Player Daemon
 {
   # MPD
@@ -17,6 +22,9 @@
       }
     '';
   };
+  # Start MPD on-demand
+  systemd.user.services."mpd".Install = lib.mkForce { };
+  systemd.user.services."mpd-mpris".Install = lib.mkForce { };
 
   # MPRIS implementation for MPD
   services.mpd-mpris = {

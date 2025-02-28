@@ -45,15 +45,6 @@
         # Open Waydroid in a dedicated workspace
         "workspace name: silent, class:(Waydroid)"
         "fullscreen, class:(Waydroid)"
-
-        # Wrap C.A.V.A. the background audio visualiser
-        "workspace name:Dashboard silent, class:(alacritty-cava)"
-        "noanim, class:(alacritty-cava)"
-        "nodim, class:(alacritty-cava)"
-        "noblur, class:(alacritty-cava)"
-        "nofocus, class:(alacritty-cava)"
-        "float, class:(alacritty-cava)"
-        "size 1920 515, class:(alacritty-cava)"
       ];
       layerrule = [
         "noanim, swww-daemon"

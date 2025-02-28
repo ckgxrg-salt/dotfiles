@@ -9,6 +9,7 @@ import Status from "./Status";
 import Workspaces from "./Workspaces";
 
 import { switchFocus } from "../util/hyprland";
+import MediaServices from "./MediaServices";
 
 export default function Dashboard(monitor: number) {
 	const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -42,7 +43,10 @@ export default function Dashboard(monitor: number) {
 				<Quote />
 				<Dock />
 			</box>
-			<Media />
+			<box vertical>
+				<Media />
+				<MediaServices />
+			</box>
 			<box vertical>
 				<Sliders />
 				<Status />

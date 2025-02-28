@@ -51,17 +51,6 @@
         # Some special windows should ignore hyprscroller
         "plugin:scroller:columnwidth one, class:(firefox)"
         "plugin:scroller:windowheight one, class:(firefox)"
-
-        # Wrap C.A.V.A. the background audio visualiser
-        "workspace name:Dashboard silent, class:(alacritty-cava)"
-        "noanim, class:(alacritty-cava)"
-        "nodim, class:(alacritty-cava)"
-        "noblur, class:(alacritty-cava)"
-        "nofocus, class:(alacritty-cava)"
-        "float, class:(alacritty-cava)"
-        "size 1920 515, class:(alacritty-cava)"
-        "plugin:scroller:columnwidth one, class:(alacritty-cava)"
-        "plugin:scroller:windowheight one, class:(alacritty-cava)"
       ];
       layerrule = [
         "noanim, swww-daemon"

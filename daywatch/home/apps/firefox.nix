@@ -80,7 +80,7 @@
           "jid1-QoFqdK4qzUfGWQ@jetpack".settings = {
             default_background_color = "#2d353b";
             default_link_color = "#7fbbb3";
-            default_visited_color = "#543a48";
+            default_visited_color = "#d699b6";
             default_active_color = "#d699b6";
             default_selection_color = "#a7c080";
           };

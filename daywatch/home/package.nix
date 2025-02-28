@@ -33,7 +33,6 @@
 
     # Applications
     # Productivity
-    krita
     libreoffice
     obsidian
     rnote
@@ -41,11 +40,9 @@
     pomodoro-gtk
     # Media
     bilibili
-    foliate
     freetube
     gimp
     jellyfin-media-player
-    komikku
     # Gaming
     moonlight-qt
     prismlauncher
