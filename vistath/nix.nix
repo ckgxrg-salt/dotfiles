@@ -37,8 +37,6 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
-        # For nheko
-        "olm-3.2.16"
       ];
     };
   };

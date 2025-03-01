@@ -44,8 +44,8 @@
     # Gaming
     moonlight-qt
     # Communication
+    cinny-desktop
     localsend
-    nheko
     qq
     # Web
     tor-browser

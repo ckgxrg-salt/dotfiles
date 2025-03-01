@@ -71,10 +71,10 @@
         force = true;
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           absolute-enable-right-click
-          browserpass
           dark-background-light-text
           disconnect
           firefox-color
+          keepassxc-browser
         ];
         settings = {
           # Dark background light text
@@ -88,11 +88,5 @@
         };
       };
     };
-  };
-
-  # Read the pass store
-  programs.browserpass = {
-    enable = true;
-    browsers = [ "firefox" ];
   };
 }
