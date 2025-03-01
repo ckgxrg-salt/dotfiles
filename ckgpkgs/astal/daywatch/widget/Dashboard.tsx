@@ -3,13 +3,13 @@ import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import Buttons from "./Buttons";
 import Dock from "./Dock";
 import Media from "./Media";
+import MediaServices from "./MediaServices";
 import Quote from "./Quote";
 import Sliders from "./Sliders";
 import Status from "./Status";
 import Workspaces from "./Workspaces";
 
 import { switchFocus } from "../util/hyprland";
-import MediaServices from "./MediaServices";
 
 export default function Dashboard(monitor: number) {
 	const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor;

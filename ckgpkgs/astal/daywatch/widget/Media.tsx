@@ -26,7 +26,7 @@ export default function Media() {
 		{Switchers()}
 		{bind(activePlayer).as(player => {
 			if (player === undefined) {
-				return <label>No Players Found</label>;
+				return <label className="NotFound">No Players Found</label>;
 			} else {
 				return <PlayerControl player={player} />;
 			}
@@ -53,13 +53,22 @@ function prevPlayer() {
 		activePlayer.set(list[index - 1]);
 	}
 }
+// Map some player names
+function mapPlayers(original: Mpris.Player | undefined) {
+	switch (original?.get_identity()) {
+		case undefined: return "MPRIS";
+		case "MPD on localhost:6600": return "Music Player Daemon";
+		case "Mozilla firefox": return "Firefox";
+		case "bilibili": return "Bilibili";
+	}
+}
 function Switchers() {
 	return <centerbox className="Switchers">
-		<button onClicked={() => prevPlayer()}>
+		<button tooltipText="Previous Player" onClicked={() => prevPlayer()}>
 			<icon icon="media-skip-backward-symbolic" />
 		</button>
-		<label truncate label={bind(activePlayer).as(player => player?.get_identity())} />
-		< button onClicked={() => nextPlayer()}>
+		<label truncate label={bind(activePlayer).as(player => mapPlayers(player))} />
+		<button tooltipText="Next Player" onClicked={() => nextPlayer()}>
 			<icon icon="media-skip-forward-symbolic" />
 		</button>
 	</centerbox >;

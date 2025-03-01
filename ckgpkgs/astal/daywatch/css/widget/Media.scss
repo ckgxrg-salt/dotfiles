@@ -16,6 +16,15 @@
     }
   }
 
+  .NotFound {
+    min-width: 420px;
+    min-height: 200px;
+    background-color: color.change(p.$light-gray-1, $alpha: 0.5);
+    border: solid color.change(p.$light-gray-1, $alpha: 0.7) 10px;
+    border-top-width: 0;
+    border-radius: 3px;
+  }
+
   .MediaPlayer {
     background-color: color.change(p.$light-gray-1, $alpha: 0.5);
     border: solid color.change(p.$light-gray-1, $alpha: 0.7) 10px;

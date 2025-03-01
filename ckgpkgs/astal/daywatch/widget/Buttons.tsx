@@ -34,15 +34,14 @@ function Power() {
 }
 
 // Inhibits screenlocker
+const coffeeState = Variable(false);
 function Coffee() {
-	const state = Variable(false);
-
 	return <button
 		className="CoffeeZzz"
 		tooltipText="This widget says Zzz, pretending sleeping"
 		onClicked={self => {
-			state.set(!state.get());
-			if (state.get()) {
+			coffeeState.set(!coffeeState.get());
+			if (coffeeState.get()) {
 				self.set_class_name("CoffeeDrunk");
 				(self.get_child() as Astal.Icon).icon = "caffeine-cup-full";
 				self.set_tooltip_text("Inhibited System Idle");

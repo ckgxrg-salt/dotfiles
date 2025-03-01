@@ -1,6 +1,9 @@
 import { Gtk } from "astal/gtk3";
 import { Variable, execAsync } from "astal";
 
+export const cavaState = Variable(false);
+export const mpdState = Variable(false);
+
 export default function MediaServices() {
 	return <box className="MediaServices" halign={Gtk.Align.CENTER}>
 		<Cava />
@@ -9,14 +12,19 @@ export default function MediaServices() {
 }
 
 function Cava() {
-	const state = Variable(false);
-
 	return <button
-		className="CavaInactive"
-		tooltipText="Our DJ is out for lunch"
+		setup={self => {
+			if (cavaState.get()) {
+				self.set_class_name("CavaActive");
+				self.set_tooltip_text("Our DJ C.A.V.A. is back!");
+			} else {
+				self.set_class_name("CavaInactive");
+				self.set_tooltip_text("Our DJ is out for lunch");
+			}
+		}}
 		onClicked={self => {
-			state.set(!state.get());
-			if (state.get()) {
+			cavaState.set(!cavaState.get());
+			if (cavaState.get()) {
 				self.set_class_name("CavaActive");
 				self.set_tooltip_text("Our DJ C.A.V.A. is back!");
 				execAsync(["systemctl", "--user", "start", "cava.service"]);
@@ -32,14 +40,19 @@ function Cava() {
 }
 
 function MPD() {
-	const state = Variable(false);
-
 	return <button
-		className="MPDInactive"
-		tooltipText="I'm here to disband Mpdchic"
+		setup={self => {
+			if (mpdState.get()) {
+				self.set_class_name("MPDActive");
+				self.set_tooltip_text("Climax! MPD's love letter to MPRIS!");
+			} else {
+				self.set_class_name("MPDInactive");
+				self.set_tooltip_text("I'm here to disband Mpdchic");
+			}
+		}}
 		onClicked={self => {
-			state.set(!state.get());
-			if (state.get()) {
+			mpdState.set(!mpdState.get());
+			if (mpdState.get()) {
 				self.set_class_name("MPDActive");
 				self.set_tooltip_text("Climax! MPD's love letter to MPRIS!");
 				execAsync(["systemctl", "--user", "start", "mpd.service"]);
