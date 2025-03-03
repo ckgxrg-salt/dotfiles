@@ -1,4 +1,5 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
+import { Variable } from "astal";
 
 import Buttons from "./Buttons";
 import Dock from "./Dock";
@@ -10,6 +11,8 @@ import Status from "./Status";
 import Workspaces from "./Workspaces";
 
 import { switchFocus } from "../util/hyprland";
+
+export const coffeeState = Variable(false);
 
 export default function Dashboard(monitor: number) {
 	const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -30,6 +33,8 @@ export default function Dashboard(monitor: number) {
 					switchFocus();
 				}
 			})
+			self.set_inhibit(coffeeState.get());
+			coffeeState.subscribe(state => self.set_inhibit(state));
 		}}
 	>
 		<box

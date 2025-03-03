@@ -56,10 +56,10 @@ function prevPlayer() {
 // Map some player names
 function mapPlayers(original: Mpris.Player | undefined) {
 	switch (original?.get_identity()) {
-		case undefined: return "MPRIS";
 		case "MPD on localhost:6600": return "Music Player Daemon";
 		case "Mozilla firefox": return "Firefox";
 		case "bilibili": return "Bilibili";
+		default: return "MPRIS";
 	}
 }
 function Switchers() {

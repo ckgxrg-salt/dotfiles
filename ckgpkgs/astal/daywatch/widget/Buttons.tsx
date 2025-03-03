@@ -1,5 +1,7 @@
-import { App, Astal } from "astal/gtk3";
-import { Variable, execAsync } from "astal";
+import { Astal } from "astal/gtk3";
+import { execAsync } from "astal";
+
+import { coffeeState } from "./Dashboard";
 
 export default function Buttons() {
 	return <box vertical className="Buttons">
@@ -34,26 +36,32 @@ function Power() {
 }
 
 // Inhibits screenlocker
-const coffeeState = Variable(false);
 function Coffee() {
 	return <button
-		className="CoffeeZzz"
-		tooltipText="This widget says Zzz, pretending sleeping"
+		setup={self => {
+			if (coffeeState.get()) {
+				self.set_class_name("CoffeeDrunk");
+				(self.get_child() as Astal.Icon).icon = "caffeine-cup-full";
+				self.set_tooltip_text("Inhibited System Idle");
+			} else {
+				self.set_class_name("CoffeeZzz");
+				(self.get_child() as Astal.Icon).icon = "view-refresh";
+				self.set_tooltip_text("This widget says Zzz, pretending sleeping");
+			}
+		}}
 		onClicked={self => {
 			coffeeState.set(!coffeeState.get());
 			if (coffeeState.get()) {
 				self.set_class_name("CoffeeDrunk");
 				(self.get_child() as Astal.Icon).icon = "caffeine-cup-full";
 				self.set_tooltip_text("Inhibited System Idle");
-				(App.get_window("astal-dashboard") as Astal.Window).set_inhibit(true);
 			} else {
 				self.set_class_name("CoffeeZzz");
 				(self.get_child() as Astal.Icon).icon = "view-refresh";
 				self.set_tooltip_text("This widget says Zzz, pretending sleeping");
-				(App.get_window("astal-dashboard") as Astal.Window).set_inhibit(false);
 			}
 		}}
 	>
-		<icon icon="view-refresh" />
+		<icon />
 	</button>
 }

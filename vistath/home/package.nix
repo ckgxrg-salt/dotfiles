@@ -48,6 +48,7 @@
     localsend
     qq
     # Web
+    newsflash
     tor-browser
     # System
     blueberry

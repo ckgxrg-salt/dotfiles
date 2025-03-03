@@ -98,12 +98,6 @@ in
       };
     };
 
-    # Home-manager cursor
-    home.pointerCursor = {
-      name = cfg.cursor.name;
-      package = cfg.cursor.pkg;
-    };
-
     # Qt Style
     qt =
       if cfg.qt.followGTK then

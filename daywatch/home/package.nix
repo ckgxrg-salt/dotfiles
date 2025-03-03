@@ -51,6 +51,7 @@
     nheko
     qq
     # Web
+    newsflash
     tor-browser
     # System
     blueberry
