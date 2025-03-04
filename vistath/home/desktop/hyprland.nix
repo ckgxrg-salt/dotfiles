@@ -51,7 +51,7 @@
         "animation slide right, notifications"
       ];
       workspace = [
-        "special:browser, on-created-empty:uwsm app -- firefox"
+        "special:browser, on-created-empty:uwsm app -- floorp"
       ];
 
       # Options

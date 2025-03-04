@@ -22,7 +22,7 @@
     ./apps/btop.nix
     ./apps/cava.nix
     ./apps/neovim.nix
-    ./apps/firefox.nix
+    ./apps/floorp.nix
     ./apps/rofi.nix
     ./apps/fcitx.nix
     ../../shared/apps/mpd.nix

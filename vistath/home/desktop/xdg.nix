@@ -11,10 +11,10 @@
         "application/pdf" = "org.kde.okular.desktop";
         "image/jpeg" = "pix.desktop";
         "image/png" = "pix.desktop";
-        "inode/directory" = "org.kde.index.desktop";
-        "text/html" = "firefox.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
+        "inode/directory" = "org.gnome.Nautilus.desktop";
+        "text/html" = "floorp.desktop";
+        "x-scheme-handler/http" = "floorp.desktop";
+        "x-scheme-handler/https" = "floorp.desktop";
       };
     };
 

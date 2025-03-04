@@ -49,15 +49,15 @@
         "fullscreen, class:(Waydroid)"
 
         # Some special windows should ignore hyprscroller
-        "plugin:scroller:columnwidth one, class:(firefox)"
-        "plugin:scroller:windowheight one, class:(firefox)"
+        "plugin:scroller:columnwidth one, class:(floorp)"
+        "plugin:scroller:windowheight one, class:(floorp)"
       ];
       layerrule = [
         "noanim, swww-daemon"
         "animation slide right, notifications"
       ];
       workspace = [
-        "special:browser, on-created-empty:uwsm app -- firefox"
+        "special:browser, on-created-empty:uwsm app -- floorp"
         "name:Dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow:false, rounding:false, border:false"
       ];
 

@@ -57,7 +57,7 @@ function prevPlayer() {
 function mapPlayers(original: Mpris.Player | undefined) {
 	switch (original?.get_identity()) {
 		case "MPD on localhost:6600": return "Music Player Daemon";
-		case "Mozilla firefox": return "Firefox";
+		case "Mozilla floorp": return "Floorp";
 		case "bilibili": return "Bilibili";
 		default: return "MPRIS";
 	}
