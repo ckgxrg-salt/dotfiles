@@ -10,10 +10,14 @@
     enable = true;
 
     gtk = {
-      name = "Everforest-Dark-BL";
-      pkg = pkgs.everforest-gtk-theme;
+      name = "Juno-mirage";
+      pkg = ckgs.juno-mirage-gtk-theme;
     };
-    qt.followGTK = true;
+
+    qt = {
+      name = "Marge";
+      pkg = ckgs.marge-kvantum-theme;
+    };
 
     cursor = {
       name = "GoogleDot-Black";

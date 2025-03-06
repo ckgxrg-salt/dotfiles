@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 # A unified solution for themes
@@ -103,7 +102,7 @@ in
       if cfg.qt.followGTK then
         {
           enable = true;
-          platformTheme.name = "gtk";
+          platformTheme.name = "gtk3";
         }
       else
         {
@@ -121,14 +120,12 @@ in
       "Kvantum/${cfg.qt.name}".source = "${cfg.qt.pkg}/share/Kvantum/${cfg.qt.name}";
     };
 
-    # Hyprland Managed Cursor
-    home.packages = with pkgs; [ hyprcursor ];
-    wayland.windowManager.hyprland.extraConfig = ''
-      env = HYPRCURSOR_THEME,${cfg.cursor.name}
-      env = HYPRCURSOR_SIZE,${builtins.toString cfg.cursor.size}
-      env = XCURSOR_THEME,${cfg.cursor.name}
-      env = XCURSOR_SIZE,${builtins.toString cfg.cursor.size}
-      env = ICON_THEME,${cfg.icon.name}
-    '';
+    # Home-manager cursor
+    home.pointerCursor = {
+      name = cfg.cursor.name;
+      package = cfg.cursor.pkg;
+      size = cfg.cursor.size;
+      hyprcursor.enable = true;
+    };
   };
 }
