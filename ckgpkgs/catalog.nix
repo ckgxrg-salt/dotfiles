@@ -13,7 +13,7 @@ with pkgs;
 
   # GTK & Qt themes
   otis-gtk-theme = callPackage ./theming/otis-gtk.nix { };
-  juno-mirage-gtk-theme = callPackage ./theming/juno-mirage-gtk.nix { };
+  squared-gtk-theme = callPackage ./theming/squared-gtk.nix { };
   marge-kvantum-theme = qt6Packages.callPackage ./theming/marge-kvantum.nix { };
 
   # Astal bundles

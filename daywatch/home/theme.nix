@@ -10,8 +10,8 @@
     enable = true;
 
     gtk = {
-      name = "Juno-mirage";
-      pkg = ckgs.juno-mirage-gtk-theme;
+      name = "Squared";
+      pkg = ckgs.squared-gtk-theme;
     };
 
     qt = {
