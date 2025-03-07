@@ -1,7 +1,7 @@
 import { Astal } from "astal/gtk3";
 import { execAsync } from "astal";
 
-import { coffeeState } from "./Dashboard";
+import { coffeeState } from "../../app";
 
 export default function Buttons() {
 	return <box vertical className="Buttons">
@@ -46,20 +46,22 @@ function Coffee() {
 			} else {
 				self.set_class_name("CoffeeZzz");
 				(self.get_child() as Astal.Icon).icon = "view-refresh";
-				self.set_tooltip_text("This widget says Zzz, pretending sleeping");
+				self.set_tooltip_text("This widget says Zzz, pretending to sleep");
 			}
+			coffeeState.subscribe(state => {
+				if (state) {
+					self.set_class_name("CoffeeDrunk");
+					(self.get_child() as Astal.Icon).icon = "caffeine-cup-full";
+					self.set_tooltip_text("Inhibited System Idle");
+				} else {
+					self.set_class_name("CoffeeZzz");
+					(self.get_child() as Astal.Icon).icon = "view-refresh";
+					self.set_tooltip_text("This widget says Zzz, pretending to sleep");
+				}
+			});
 		}}
-		onClicked={self => {
+		onClicked={() => {
 			coffeeState.set(!coffeeState.get());
-			if (coffeeState.get()) {
-				self.set_class_name("CoffeeDrunk");
-				(self.get_child() as Astal.Icon).icon = "caffeine-cup-full";
-				self.set_tooltip_text("Inhibited System Idle");
-			} else {
-				self.set_class_name("CoffeeZzz");
-				(self.get_child() as Astal.Icon).icon = "view-refresh";
-				self.set_tooltip_text("This widget says Zzz, pretending sleeping");
-			}
 		}}
 	>
 		<icon />

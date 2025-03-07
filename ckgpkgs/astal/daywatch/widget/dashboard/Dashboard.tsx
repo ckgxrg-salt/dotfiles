@@ -1,5 +1,5 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
-import { Variable } from "astal";
+import { bind } from "astal";
 
 import Buttons from "./Buttons";
 import Dock from "./Dock";
@@ -10,13 +10,10 @@ import Sliders from "./Sliders";
 import Status from "./Status";
 import Workspaces from "./Workspaces";
 
-import { switchFocus } from "../util/hyprland";
-
-export const coffeeState = Variable(false);
+import { switchFocus } from "../../util/hyprland";
+import { focused } from "../../app";
 
 export default function Dashboard(monitor: number) {
-	const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor;
-
 	return <window
 		application={App}
 		className="Dashboard"
@@ -25,7 +22,7 @@ export default function Dashboard(monitor: number) {
 		layer={Astal.Layer.BOTTOM}
 		monitor={monitor}
 		exclusivity={Astal.Exclusivity.EXCLUSIVE}
-		anchor={TOP | BOTTOM | LEFT | RIGHT}
+		visible={bind(focused).as(v => !v)}
 		// Send cursor back to primary screen
 		setup={self => {
 			self.connect("touch-event", (_, event) => {
@@ -33,8 +30,6 @@ export default function Dashboard(monitor: number) {
 					switchFocus();
 				}
 			})
-			self.set_inhibit(coffeeState.get());
-			coffeeState.subscribe(state => self.set_inhibit(state));
 		}}
 	>
 		<box

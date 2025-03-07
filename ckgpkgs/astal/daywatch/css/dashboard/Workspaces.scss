@@ -11,11 +11,13 @@
     all: unset;
     min-width: 200px;
     margin: 10px 10px 10px 10px;
-    background-color: color.change(p.$blue, $alpha: 0.7);
+    font-size: 24px;
+    background-color: color.change(p.$blue, $alpha: 0.5);
 
-    &:hover label {}
-
-    &:active label {}
+    &:hover {
+      background-color: color.change(p.$blue, $alpha: 0.9);
+      font-size: 32px;
+    }
   }
 
   label {
@@ -26,5 +28,8 @@
     border: 1pt solid transparent;
   }
 
-  .focused label {}
+  .focused {
+    background-color: color.change(p.$green, $alpha: 0.7);
+    font-size: 32px;
+  }
 }

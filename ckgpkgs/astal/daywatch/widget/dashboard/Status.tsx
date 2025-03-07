@@ -12,9 +12,9 @@ export default function Status() {
 	</box>;
 }
 
-function Clock({ format = "%H:%M - %A %e." }) {
+function Clock() {
 	const time = Variable<string>("").poll(1000, () =>
-		GLib.DateTime.new_now_local().format(format)!);
+		GLib.DateTime.new_now_local().format("%b. %d %H:%M")!);
 
 	return <box
 		className="Clock"

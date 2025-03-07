@@ -1,13 +1,26 @@
 import { App } from "astal/gtk3";
-import style from "./css/style.scss";
+import { Variable } from "astal";
 
-import Dashboard from "./widget/Dashboard";
-import { awake } from "./util/hyprland";
+import Dashboard from "./widget/dashboard/Dashboard";
+import Bar from "./widget/bar/Bar";
+import Inhibitor from "./widget/Inhibitor";
+import { hyprInit } from "./util/hyprland";
+import { mprisInit } from "./util/mpris";
+
+import dashboardCss from "./css/dashboard.scss";
+import barCss from "./css/bar.scss";
+
+export const coffeeState = Variable(false);
+
+export const focused = Variable(false);
 
 App.start({
-	css: style,
+	css: dashboardCss + barCss,
 	main() {
-		awake();
+		mprisInit();
+		hyprInit();
+		Inhibitor(0);
+		Bar(0);
 		Dashboard(1);
 	},
 });

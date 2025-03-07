@@ -58,16 +58,16 @@
       ];
       workspace = [
         "special:browser, on-created-empty:uwsm app -- floorp"
-        "name:Dashboard, monitor:DP-1, persistent:true, default:true, gapsin:0, gapsout:0, shadow:false, rounding:false, border:false"
+        "name:Dashboard, monitor:DP-1, persistent:true, default:true"
       ];
 
       # Options
       general = {
         gaps_in = 10;
         gaps_out = 8;
-        border_size = 8;
-        "col.active_border" = "rgba(A7C08044)";
-        "col.inactive_border" = "rgba(42504799)";
+        border_size = 5;
+        "col.active_border" = "rgba(56635FAA)";
+        "col.inactive_border" = "rgba(4F585EAA)";
         layout = "scroller";
         allow_tearing = false;
         resize_on_border = true;
@@ -93,11 +93,10 @@
       decoration = {
         blur = {
           enabled = true;
-          size = 8;
-          passes = 2;
+          size = 16;
+          passes = 3;
+          brightness = 1.2;
           vibrancy = 0.2;
-          brightness = 1.5;
-          contrast = 1.2;
         };
         shadow = {
           enabled = true;
