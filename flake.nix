@@ -121,6 +121,7 @@
             ./radilopa
             ./modules/nixos
             lix-module.nixosModules.default
+            nur.modules.nixos.default
             ckgprv.nixosModules.default
             secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote

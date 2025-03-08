@@ -21,7 +21,7 @@
     # Applications
     ./apps/btop.nix
     ./apps/nixvim.nix
-    ./apps/qutebrowser.nix
+    ./apps/floorp.nix
     ./apps/rofi.nix
     ../../shared/apps/keepassxc.nix
     ../../shared/apps/fcitx.nix

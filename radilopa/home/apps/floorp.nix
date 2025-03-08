@@ -73,17 +73,17 @@
           absolute-enable-right-click
           dark-background-light-text
           disconnect
-          firefox-color
           keepassxc-browser
+          tokyo-night-v2
         ];
         settings = {
           # Dark background light text
           "jid1-QoFqdK4qzUfGWQ@jetpack".settings = {
-            default_background_color = "#232136";
-            default_link_color = "#9ccfd8";
-            default_visited_color = "#c4a7e7";
-            default_active_color = "#ea9a97";
-            default_selection_color = "#44415a";
+            default_background_color = "#3b4261";
+            default_link_color = "#41a6b5";
+            default_visited_color = "#9d7cd8";
+            default_active_color = "#4fd6be";
+            default_selection_color = "#c0caf5";
           };
         };
       };

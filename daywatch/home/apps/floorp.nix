@@ -1,5 +1,5 @@
 { pkgs, ... }:
-# Firefox browser
+# Floorp browser
 {
   programs.floorp = {
     enable = true;

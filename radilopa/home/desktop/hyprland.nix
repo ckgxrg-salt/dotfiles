@@ -30,7 +30,7 @@
         "float, class:(QQ)"
         "center, class:(QQ)"
       ];
-      workspace = [ "special:browser, on-created-empty:uwsm app -- qutebrowser" ];
+      workspace = [ "special:browser, on-created-empty:uwsm app -- floorp" ];
 
       # Some options
       general = {
