@@ -10,8 +10,8 @@
     enable = true;
 
     gtk = {
-      name = "Otis";
-      pkg = ckgs.otis-gtk;
+      name = "Space";
+      pkg = ckgs.space-gtk-theme;
     };
 
     qt = {
@@ -26,8 +26,8 @@
     };
 
     icon = {
-      name = "Vivid-Dark-Icons";
-      pkg = ckgs.vivid-icons;
+      name = "Arc";
+      pkg = pkgs.arc-icon-theme;
     };
 
     sound = {
