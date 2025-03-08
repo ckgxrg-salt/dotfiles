@@ -8,6 +8,10 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/stable.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ckgpkgs = {
+      url = "github:ckgxrg-salt/ckgpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,8 +38,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags = {
-      url = "github:Aylur/ags";
+    daywatch-astal = {
+      url = "github:ckgxrg-salt/daywatch-astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -56,9 +60,10 @@
       nixpkgs,
       lix-module,
       nur,
+      ckgpkgs,
+      daywatch-astal,
       disko,
       ckgprv,
-      ags,
       secrix,
       home-manager,
       lanzaboote,
@@ -70,6 +75,7 @@
       pkgs = import nixpkgs {
         inherit system;
       };
+      ckgs = ckgpkgs.packages.${system};
     in
     {
       nixosConfigurations = {
@@ -77,7 +83,7 @@
         Daywatch = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            ckgs = self.packages.${system};
+            inherit ckgs;
           };
           modules = [
             ./daywatch
@@ -98,7 +104,8 @@
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                ckgs = self.packages.${system};
+                inherit ckgs;
+                daywatch-astal = daywatch-astal.packages.${system}.default;
               };
             }
           ];
@@ -107,7 +114,7 @@
         # Radilopa
         Radilopa = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            ckgs = self.packages.${system};
+            inherit ckgs;
           };
           inherit system;
           modules = [
@@ -128,7 +135,7 @@
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                ckgs = self.packages.${system};
+                inherit ckgs;
               };
             }
           ];
@@ -138,7 +145,7 @@
         Vistath = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            ckgs = self.packages.${system};
+            inherit ckgs;
           };
           modules = [
             ./vistath
@@ -160,7 +167,7 @@
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                ckgs = self.packages.${system};
+                inherit ckgs;
               };
             }
           ];
@@ -168,9 +175,6 @@
       };
 
       apps.x86_64-linux.secrix = secrix.secrix self;
-
-      # Inline ckgpkgs
-      packages.${system} = import ./ckgpkgs/catalog.nix { inherit pkgs ags; };
 
       # A nix develop shell including formatter and linter to be used with Neovim
       devShells.${system}.default = pkgs.mkShellNoCC {

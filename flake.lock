@@ -2,21 +2,25 @@
   "nodes": {
     "ags": {
       "inputs": {
-        "astal": "astal",
+        "astal": [
+          "daywatch-astal",
+          "astal"
+        ],
         "nixpkgs": [
+          "daywatch-astal",
           "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 1738087375,
         "narHash": "sha256-GLyNtU9A2VN22jNRHZ2OXuFfTJLh8uEVVt+ftsKUX0c=",
-        "owner": "Aylur",
+        "owner": "aylur",
         "repo": "ags",
         "rev": "a6a7a0adb17740f4c34a59902701870d46fbb6a4",
         "type": "github"
       },
       "original": {
-        "owner": "Aylur",
+        "owner": "aylur",
         "repo": "ags",
         "type": "github"
       }
@@ -24,21 +28,41 @@
     "astal": {
       "inputs": {
         "nixpkgs": [
-          "ags",
+          "daywatch-astal",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1737670815,
-        "narHash": "sha256-ZCxxshGN7XooabArcoGkYSNx5yVunqjKJi2aTv6cznI=",
+        "lastModified": 1740081950,
+        "narHash": "sha256-h6RFLln99Br7o0TmtKE+vd6F2PQiGBIrRobf4Ld2wRA=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "127e9cdcbf173846a3c40ddc0abfbb038df48042",
+        "rev": "3620d51bc6c23ada1bd4b7c9cf1c458c138e68df",
         "type": "github"
       },
       "original": {
         "owner": "aylur",
         "repo": "astal",
+        "type": "github"
+      }
+    },
+    "ckgpkgs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741401244,
+        "narHash": "sha256-V2IZ6i9GmDWBe3PFJsLJ3GEItDsvy5mMGCCQ8qI8u14=",
+        "owner": "ckgxrg-salt",
+        "repo": "ckgpkgs",
+        "rev": "e135bfd9107202ceaeaa1cc1b4e35ef7493f0103",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ckgxrg-salt",
+        "repo": "ckgpkgs",
         "type": "github"
       }
     },
@@ -74,6 +98,28 @@
       "original": {
         "owner": "ipetkov",
         "repo": "crane",
+        "type": "github"
+      }
+    },
+    "daywatch-astal": {
+      "inputs": {
+        "ags": "ags",
+        "astal": "astal",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741401863,
+        "narHash": "sha256-wV/HYM5a4XBP99p0qf/VZ/Zlb81gFiEQWXzRg3c4yNA=",
+        "owner": "ckgxrg-salt",
+        "repo": "daywatch-astal",
+        "rev": "2a3b71d7cf79845837033e569e0847583ad522b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ckgxrg-salt",
+        "repo": "daywatch-astal",
         "type": "github"
       }
     },
@@ -485,8 +531,9 @@
     },
     "root": {
       "inputs": {
-        "ags": "ags",
+        "ckgpkgs": "ckgpkgs",
         "ckgprv": "ckgprv",
+        "daywatch-astal": "daywatch-astal",
         "disko": "disko",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",

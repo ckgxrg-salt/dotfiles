@@ -3,7 +3,6 @@
   # Nix configuration
   nix.settings = {
     substituters = [
-      "https://mirror.sjtu.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
     ];
     trusted-users = [

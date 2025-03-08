@@ -93,7 +93,7 @@
       decoration = {
         blur = {
           enabled = true;
-          size = 16;
+          size = 8;
           passes = 3;
           brightness = 1.2;
           vibrancy = 0.2;

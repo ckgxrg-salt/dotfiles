@@ -2,6 +2,7 @@
   config,
   pkgs,
   ckgs,
+  daywatch-astal,
   ...
 }:
 # Accessories that run as daemons
@@ -38,7 +39,7 @@ in
     wl-clipboard
     cliphist
 
-    ckgs.daywatch-astal
+    daywatch-astal
   ];
 
   xdg.configFile = {
@@ -72,7 +73,7 @@ in
     # Astal desktop shell
     "astal" = mkDaemon {
       desc = "Astal Desktop Widgets";
-      exec = "${ckgs.daywatch-astal}/bin/daywatch-astal";
+      exec = "${daywatch-astal}/bin/daywatch-astal";
       slice = "background-graphical.slice";
     };
 
