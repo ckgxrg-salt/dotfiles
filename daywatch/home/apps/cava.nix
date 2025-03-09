@@ -42,9 +42,12 @@
       "noanim, class:(alacritty-cava)"
       "nodim, class:(alacritty-cava)"
       "noblur, class:(alacritty-cava)"
+      "noshadow, class:(alacritty-cava)"
+      "noborder, class:(alacritty-cava)"
       "nofocus, class:(alacritty-cava)"
       "float, class:(alacritty-cava)"
-      "size 1920 540, class:(alacritty-cava)"
+      "size 1920 500, class:(alacritty-cava)"
+      "move 0 15, class:(alacritty-cava)"
     ];
   };
 

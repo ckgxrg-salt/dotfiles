@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 # Calendar, Contacts and Emails
 {
   # Info from the private repository
@@ -42,7 +42,7 @@
   };
   programs.vdirsyncer = {
     enable = true;
-    statusPath = "$XDG_CACHE_HOME/vdirsyncer/status";
+    statusPath = "${config.xdg.configHome}/vdirsyncer/status";
   };
 
   # Mail utilities

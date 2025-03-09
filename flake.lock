@@ -73,11 +73,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740583824,
-        "narHash": "sha256-BI3pngzMohB3b6ShQSEdrNXSTFP5t5z0xG1GYkufBaQ=",
+        "lastModified": 1741509805,
+        "narHash": "sha256-I9SN9XrcFgP1lQRDRuzTczB9slE83kGRWa6gFvlIlyE=",
         "ref": "refs/heads/main",
-        "rev": "a5b156ad68047b1975dc83172158699c7acd7322",
-        "revCount": 27,
+        "rev": "bef342759b52518703a135fcc43469ecf5a78d6e",
+        "revCount": 28,
         "type": "git",
         "url": "ssh://git@github.com/ckgxrg-salt/private-dotfiles"
       },
@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741401863,
-        "narHash": "sha256-wV/HYM5a4XBP99p0qf/VZ/Zlb81gFiEQWXzRg3c4yNA=",
+        "lastModified": 1741483265,
+        "narHash": "sha256-BPn4NXXscS4czSntHten2so+vJ5TngtKxyHsVsX6KYQ=",
         "owner": "ckgxrg-salt",
         "repo": "daywatch-astal",
-        "rev": "2a3b71d7cf79845837033e569e0847583ad522b5",
+        "rev": "d1933e80dc1790102263472d2ab460e1b22b2277",
         "type": "github"
       },
       "original": {
