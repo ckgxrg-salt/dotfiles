@@ -1,0 +1,28 @@
+{ ... }:
+{
+  imports = [
+    ./java.nix
+    ./rust.nix
+  ];
+
+  programs.nixvim.plugins = {
+    # Working with Nix
+    nix = {
+      enable = true;
+    };
+    nix-develop = {
+      enable = true;
+    };
+
+    # Other language servers
+    lsp = {
+      enable = true;
+      servers = {
+        marksman.enable = true;
+        nil_ls.enable = true;
+        ts_ls.enable = true;
+        cssls.enable = true;
+      };
+    };
+  };
+}

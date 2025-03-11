@@ -4,6 +4,7 @@
   imports = [
     ./keymaps.nix
     ./plugins
+    ./langs
   ];
 
   programs.nixvim = {

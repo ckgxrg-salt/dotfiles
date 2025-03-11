@@ -47,7 +47,7 @@
       "nofocus, class:(alacritty-cava)"
       "float, class:(alacritty-cava)"
       "size 1920 500, class:(alacritty-cava)"
-      "move 0 15, class:(alacritty-cava)"
+      "move 0 1100, class:(alacritty-cava)"
     ];
   };
 

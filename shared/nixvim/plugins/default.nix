@@ -4,7 +4,6 @@
     ./completions.nix
     ./debug.nix
     ./syntax.nix
-    ./langs.nix
     ./manual.nix
   ];
   programs.nixvim.plugins = {

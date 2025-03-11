@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741483265,
-        "narHash": "sha256-BPn4NXXscS4czSntHten2so+vJ5TngtKxyHsVsX6KYQ=",
+        "lastModified": 1741689816,
+        "narHash": "sha256-tMFE3YrFPR3SXBI1xQWQxjQjn822Of8fAwrljY4m/QI=",
         "owner": "ckgxrg-salt",
         "repo": "daywatch-astal",
-        "rev": "d1933e80dc1790102263472d2ab460e1b22b2277",
+        "rev": "3794dcfcba1e796cb62c4cd7acebf6470646e741",
         "type": "github"
       },
       "original": {
