@@ -31,15 +31,5 @@
     lsp-lines = {
       enable = true;
     };
-
-    # Add icons
-    lspkind = {
-      enable = true;
-      mode = "symbol_text";
-      preset = "codicons";
-      cmp = {
-        enable = true;
-      };
-    };
   };
 }

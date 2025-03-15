@@ -3,7 +3,7 @@
 {
   wayland.windowManager.hyprland =
     let
-      scripts = import ./accessories/scripts.nix;
+      scripts = import ../accessories/scripts.nix { inherit pkgs; };
     in
     {
       enable = true;
