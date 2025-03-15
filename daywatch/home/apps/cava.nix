@@ -38,7 +38,6 @@
   # WM needs to wrap it
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
-      "workspace name:Dashboard silent, class:(alacritty-cava)"
       "noanim, class:(alacritty-cava)"
       "nodim, class:(alacritty-cava)"
       "noblur, class:(alacritty-cava)"
@@ -47,7 +46,7 @@
       "nofocus, class:(alacritty-cava)"
       "float, class:(alacritty-cava)"
       "size 1920 500, class:(alacritty-cava)"
-      "move 0 1100, class:(alacritty-cava)"
+      "move onscreen 0 1095, class:(alacritty-cava)"
     ];
   };
 
