@@ -14,7 +14,7 @@
         dapBreakpointCondition.text = "";
         dapBreakpointRejected.text = "";
         dapLogPoint.text = "󰣕";
-        dapStopped = "󰆷";
+        dapStopped.text = "󰆷";
       };
       # Adapters
       adapters.executables = {

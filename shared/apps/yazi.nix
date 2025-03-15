@@ -12,7 +12,7 @@
         show_symlink = true;
       };
       preview = {
-        wrap = true;
+        wrap = "yes";
       };
     };
   };

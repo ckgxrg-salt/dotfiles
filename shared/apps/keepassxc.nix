@@ -16,4 +16,9 @@
       "org.freedesktop.impl.portal.Secret" = [ "keepassxc" ];
     };
   };
+
+  # Float KeepassXC windows
+  wayland.windowManager.hyprland.settings.windowrulev2 = [
+    "float, class:(org.keepassxc.KeePassXC)"
+  ];
 }

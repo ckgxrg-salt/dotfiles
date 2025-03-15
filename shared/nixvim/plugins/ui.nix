@@ -31,6 +31,7 @@
           '';
           separator_style = "slant";
           indicator.style = "underline";
+          right_mouse_command = null;
         };
       };
     };

@@ -3,7 +3,7 @@
 {
   wayland.windowManager.hyprland =
     let
-      scripts = import ./accessories/scripts.nix;
+      scripts = import ../accessories/scripts.nix { inherit pkgs; };
     in
     {
       enable = true;
@@ -101,10 +101,7 @@
             vibrancy = 0.2;
           };
           shadow = {
-            enabled = true;
-            range = 6;
-            render_power = 3;
-            color = "rgba(1C1C1CEE)";
+            enabled = false;
           };
           rounding = 0;
           active_opacity = 0.8;

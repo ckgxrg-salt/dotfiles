@@ -2,7 +2,7 @@
 # Brightness and volume scripts
 let
   # Thanks for the ArchWiki for this awesome script
-  volume = pkgs.writeShellScriptBin "volume" ''
+  volume = pkgs.writeShellScript "volume" ''
     get_volume() {
       volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 * 100}')
       echo "$volume"
@@ -50,7 +50,7 @@ let
     fi
   '';
 
-  brightness = pkgs.writeShellScriptBin "brightness" ''
+  brightness = pkgs.writeShellScript "brightness" ''
     get_backlight() {
       LIGHT=$(brightnessctl get --device=intel_backlight | awk '{printf "%d", $0 / 960}')
       echo $LIGHT
@@ -89,7 +89,7 @@ let
     fi
   '';
 
-  scroller = pkgs.writeShellScriptBin "scrollermod" ''
+  scroller = pkgs.writeShellScript "scrollermod" ''
     FILE="$XDG_DATA_HOME/hyprland/scroller_mode"
     get_status() {
       touch $FILE
@@ -121,7 +121,7 @@ let
     fi
   '';
 
-  clipboard = pkgs.writeShellScriptBin "clipmenu" ''
+  clipboard = pkgs.writeShellScript "clipmenu" ''
     cliphist list | dmenu | cliphist decode | wl-copy
     wl-paste
   '';

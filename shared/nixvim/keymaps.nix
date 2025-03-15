@@ -38,24 +38,35 @@
           {
             '<M-d>',
             function()
-              require('dapui')}.toggle()
+              require('dapui').toggle()
             end,
-            description = 'Toggle Debug View';
-          }
+            description = 'Toggle Debug View',
+          },
 
           -- Legendary
-          { '<C-p>', ':Legendary', description = 'Show Command Palette' }
+          { '<C-p>', ':Legendary<CR>', description = 'Show Command Palette' },
+
+          -- File Manager
+          { '<M-b>', ':Yazi<CR>', description = 'Browse Files' },
 
           -- Undotree
-          { '<M-u>', ':UndotreeToggle', description = 'Toggle Undo Tree' }
+          { '<M-u>', ':UndotreeToggle<CR>', description = 'Toggle Undo Tree' },
 
           -- Trouble
-          { '<M-o>', ':Trouble diagnostics toggle', description = 'Toggle Diagnostics' }
-          { '<M-s>', ':Trouble lsp toggle', description = 'Toggle LSP View' }
-          { '<M-p>', ':TodoTelescope', description = 'Toggle Todo List' }
+          { '<M-o>', ':Trouble diagnostics toggle<CR>', description = 'Toggle Diagnostics' },
+          { '<M-s>', ':Trouble lsp toggle<CR>', description = 'Toggle LSP View' },
+          { '<M-p>', ':TodoTelescope<CR>', description = 'Toggle Todo List' },
 
           -- DAP
-          { '/b', ':DapToggleBreakpoint', description = 'Add/Remove Breakpoint' }
+          { '/b', ':DapToggleBreakpoint<CR>', description = 'Add/Remove Breakpoint' },
+
+          -- Twilight
+          { '<M-t>', ':Twilight<CR>', description = 'Toggle Code Dimming' },
+
+          -- Bufferline
+          { '<C-Right>', ':BufferLineCycleNext<CR>', description = 'Move to Next Tab' },
+          { '<C-Left>', ':BufferLineCyclePrev<CR>', description = 'Move to Previous Tab' },
+          { '<M-w>', ':bdelete<CR>', description = 'Close Current Tab' },
 
           -- Hop
           {
@@ -65,9 +76,9 @@
                 direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
               })
             end,
-            opts = { remap = true }
-            description = 'Hop After'
-          }
+            opts = { remap = true },
+            description = 'Hop After',
+          },
           {
             'F',
             function()
@@ -75,9 +86,9 @@
                 direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
               })
             end,
-            opts = { remap = true }
-            description = 'Hop Before'
-          }
+            opts = { remap = true },
+            description = 'Hop Before',
+          },
           {
             't',
             function()
@@ -86,9 +97,9 @@
                 hint_offset = -1
               })
             end,
-            opts = { remap = true }
-            description = 'Reimplement After'
-          }
+            opts = { remap = true },
+            description = 'Reimplement After',
+          },
           {
             'T',
             function()
@@ -97,12 +108,9 @@
                 hint_offset = 1
               })
             end,
-            opts = { remap = true }
-            description = 'Reimplement Before'
-          }
-
-          -- Twilight
-          { '<M-t>', ':Twilight', description = 'Toggle Code Dimming' }
+            opts = { remap = true },
+            description = 'Reimplement Before',
+          },
 
           -- Hover
           {
@@ -110,13 +118,13 @@
             function()
               require('hover').hover()
             end,
-            description = 'Toggle Hover Hint'
-          }
-        }
+            description = 'Toggle Hover Hint',
+          },
+        },
         extensions = {
           -- Smart-splits
-          smart_splits = {}
-        }
+          smart_splits = {},
+        },
       })
     '';
   };

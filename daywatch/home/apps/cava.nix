@@ -36,19 +36,17 @@
   };
 
   # WM needs to wrap it
-  wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
-      "noanim, class:(alacritty-cava)"
-      "nodim, class:(alacritty-cava)"
-      "noblur, class:(alacritty-cava)"
-      "noshadow, class:(alacritty-cava)"
-      "noborder, class:(alacritty-cava)"
-      "nofocus, class:(alacritty-cava)"
-      "float, class:(alacritty-cava)"
-      "size 1920 500, class:(alacritty-cava)"
-      "move onscreen 0 1095, class:(alacritty-cava)"
-    ];
-  };
+  wayland.windowManager.hyprland.settings.windowrulev2 = [
+    "noanim, class:(alacritty-cava)"
+    "nodim, class:(alacritty-cava)"
+    "noblur, class:(alacritty-cava)"
+    "noshadow, class:(alacritty-cava)"
+    "noborder, class:(alacritty-cava)"
+    "nofocus, class:(alacritty-cava)"
+    "float, class:(alacritty-cava)"
+    "size 1920 500, class:(alacritty-cava)"
+    "move onscreen 0 1095, class:(alacritty-cava)"
+  ];
 
   # Wrap cava in alacritty for use of hyprwinwrap
   systemd.user.services."cava" =
