@@ -14,6 +14,15 @@
       enable = true;
     };
 
+    # Markdown preview
+    markdown-preview = {
+      enable = true;
+      settings = {
+        browser = "firefox";
+        theme = "dark";
+      };
+    };
+
     # Other language servers
     lsp = {
       enable = true;

@@ -8,6 +8,14 @@
   programs.nixvim.plugins = {
     dap = {
       enable = true;
+      # Signs
+      signs = {
+        dapBreakpoint.text = "󰺕";
+        dapBreakpointCondition.text = "";
+        dapBreakpointRejected.text = "";
+        dapLogPoint.text = "󰣕";
+        dapStopped = "󰆷";
+      };
       # Adapters
       adapters.executables = {
         "lldb" = {
@@ -24,7 +32,7 @@
             cwd = "\${workspaceFolder}";
             program.__raw = ''
               function()
-                return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+                return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.tolower(vim.fn.fnamemodify(vim.fn.getcwd(), ':t'))
               end
             '';
           }
@@ -69,9 +77,18 @@
         ];
       };
     };
+
     # User interface
     dap-ui = {
       enable = true;
+    };
+
+    # Show inline info
+    dap-virtual-text = {
+      enable = true;
+      settings = {
+        commented = true;
+      };
     };
   };
 }

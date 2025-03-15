@@ -68,38 +68,8 @@
     friendly-snippets.enable = true;
 
     # Auto-generate paired letters
-    nvim-autopairs = {
+    nvim-surround = {
       enable = true;
-      settings = {
-        enable_check_bracket_line = false;
-        fast_wrap = {
-          after_key = "l";
-          before_key = "h";
-          map = "<M-e>";
-          chars = [
-            "{"
-            "["
-            "("
-            "\""
-            "'"
-          ];
-          cursor_pos_before = false;
-          end_key = "$";
-          highlight = "Search";
-          highlight_grey = "Comment";
-          keys = "abcdefghijklmnopqrstuvwxyz";
-          pattern = "[=[[%'%\"%>%]%)%}%,]]=]";
-          manual_position = true;
-        };
-      };
-      luaConfig.post = ''
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-        local cmp = require('cmp')
-        cmp.event:on(
-          'confirm_done',
-          cmp_autopairs.on_confirm_done()
-        )
-      '';
     };
   };
 }

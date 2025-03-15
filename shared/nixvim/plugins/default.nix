@@ -3,130 +3,46 @@
   imports = [
     ./completions.nix
     ./debug.nix
+    ./lsp.nix
     ./syntax.nix
-    ./manual.nix
+    ./ui.nix
   ];
   programs.nixvim.plugins = {
-    # Components
-    # Markdown preview
-    glow = {
-      enable = true;
-      settings = {
-        border = "double";
-        pager = true;
-      };
-    };
-    # File explorer
-    neo-tree = {
-      enable = true;
-      enableGitStatus = true;
-      popupBorderStyle = "double";
-    };
-    # Tab bar
-    barbar = {
-      enable = true;
-      settings = {
-        icons.preset = "powerline";
-      };
-    };
-    # Status bar
-    lualine = {
-      enable = true;
-      settings = {
-        options = {
-          globalstatus = true;
-        };
-      };
-    };
-    # Startup page
-    dashboard = {
-      enable = true;
-      settings = {
-        config = {
-          header = [
-            "   ,##.                   ,==."
-            " ,#    #.                 \\ o ',"
-            "#        #     _     _     \\    \\"
-            "#        #    (_)   (_)    /    ; "
-            " `#    #'                 /   .'  "
-            "   `##'                   \"==\""
-          ];
-          footer = [
-            "Neovim !"
-          ];
-          project.enable = true;
-        };
-      };
-    };
-    # Terminal
-    toggleterm = {
-      enable = true;
-      settings = {
-        close_on_exit = true;
-        direction = "horizontal";
-        shell = "nu";
-      };
-    };
-    # Fancy icons
-    web-devicons.enable = true;
-    # Enhanced UI
-    nui = {
-      enable = true;
-    };
-    noice = {
-      enable = true;
-      settings = {
-        presets = {
-          command_palette = true;
-        };
-        hover = {
-          silent = true;
-        };
-      };
-    };
-    # Notifications
-    notify = {
-      enable = true;
-      settings = {
-        top_down = true;
-        stages = "slide";
-        timeout = 3000;
-      };
-    };
-
-    # Coding Experience
     # Dim inactive code
     twilight = {
       enable = true;
       settings = {
-        dimming.alpha = 0.3;
+        dimming = {
+          alpha = 1;
+        };
       };
     };
-    # Highlights
-    illuminate = {
-      enable = true;
-      underCursor = true;
-      providers = [
-        "lsp"
-        "treesitter"
-        "regex"
-      ];
-    };
+
+    # Fancy icons
+    web-devicons.enable = true;
     # Undo tree
     undotree.enable = true;
+    # Better scroll
+    neoscroll.enable = true;
+
     # Fuzzy search
     telescope = {
       enable = true;
       highlightTheme = "ivy";
     };
+
     # Todo
     todo-comments = {
       enable = true;
     };
-    # Motions
-    leap = {
+
+    # Better motion
+    hop = {
       enable = true;
-      addDefaultMappings = true;
+      settings = {
+        dim_unmatched = true;
+        jump_on_sole_occurence = false;
+      };
     };
 
     # Project management
@@ -142,20 +58,29 @@
           ".git"
           "flake.nix"
           "Makefile"
-          "build.ninja"
           "Cargo.toml"
-          "build.gradle"
+          "./gradlew"
         ];
-        scope_chdir = "win";
+        scope_chdir = "global";
         silent_chdir = true;
       };
     };
+
+    # Session management
+    persisted = {
+      enable = true;
+      enableTelescope = true;
+    };
+
+    # Direnv Integration
     direnv = {
       enable = true;
       settings = {
         direnv_silent_load = 1;
       };
     };
+
+    # Git Integration
     git-worktree = {
       enable = true;
       enableTelescope = true;
