@@ -34,7 +34,14 @@
     krita
     obsidian
     rnote
-    errands
+    (errands.overrideAttrs {
+      src = fetchFromGitHub {
+        owner = "mrvladus";
+        repo = "Errands";
+        tag = "46.2.8";
+        hash = "sha256-Gs3/DPMsoPTxH+fR7H3gPJr8ITrQDPlmw236vDnmBaA=";
+      };
+    })
     # Media
     foliate
     freetube
