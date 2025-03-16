@@ -67,9 +67,35 @@
     # Some ready-to-use snippets
     friendly-snippets.enable = true;
 
-    # Auto-generate paired letters
+    # Quick pair letters
     nvim-surround = {
       enable = true;
+    };
+
+    # Auto generate paired letters
+    nvim-autopairs = {
+      enable = true;
+      settings = {
+        enable_check_bracket_line = false;
+        fast_wrap = {
+          after_key = "l";
+          before_key = "h";
+          map = "<M-e>";
+          chars = [
+            "{"
+            "["
+            "("
+            "\""
+            "'"
+          ];
+          cursor_pos_before = false;
+          end_key = "$";
+          highlight = "Search";
+          highlight_grey = "Comment";
+          keys = "abcdefghijklmnopqrstuvwxyz";
+          pattern = "[=[[%'%\"%>%]%)%}%,]]=]";
+        };
+      };
     };
   };
 }

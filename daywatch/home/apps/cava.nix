@@ -37,6 +37,7 @@
 
   # WM needs to wrap it
   wayland.windowManager.hyprland.settings.windowrulev2 = [
+    "workspace name:Dashboard silent, class:(alacritty-cava)"
     "noanim, class:(alacritty-cava)"
     "nodim, class:(alacritty-cava)"
     "noblur, class:(alacritty-cava)"
