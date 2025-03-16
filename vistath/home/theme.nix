@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  ckgs,
   ...
 }:
 # Define theme names and pkgs here
@@ -12,7 +13,11 @@
       name = "rose-pine-moon";
       pkg = pkgs.rose-pine-gtk-theme;
     };
-    qt.followGTK = true;
+
+    qt = {
+      name = "MoeDark";
+      pkg = ckgs.moe-kvantum-theme;
+    };
 
     cursor = {
       name = "BreezeX-RosePine-Linux";

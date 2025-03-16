@@ -28,6 +28,12 @@
     enable = true;
   };
 
+  # Camera
+  hardware.ipu6 = {
+    enable = true;
+    platform = "ipu6";
+  };
+
   #========== Network & Devices ==========#
   # Internet
   networking = {

@@ -42,7 +42,7 @@
 
     #========== Kernel ==========#
     # Use linux-zen kernel
-    kernelPackages = pkgs.linuxPackages_xanmod_stable;
+    kernelPackages = pkgs.linuxPackages_zen;
 
     # Kernel params
     kernelParams = [
