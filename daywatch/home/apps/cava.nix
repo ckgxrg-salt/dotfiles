@@ -23,30 +23,31 @@
       color = {
         # Use everforest color scheme
         gradient = 1;
-        gradient_color_1 = "'#a6b0a0'";
-        gradient_color_2 = "'#93b259'";
-        gradient_color_3 = "'#a7c080'";
-        gradient_color_4 = "'#7fbbb3'";
-        gradient_color_5 = "'#829181'";
-        gradient_color_6 = "'#8da101'";
-        gradient_color_7 = "'#83c092'";
-        gradient_color_8 = "'#7a8478'";
+        gradient_color_1 = "'#425047'";
+        gradient_color_2 = "'#A7C080'";
+        gradient_color_3 = "'#A7C080'";
+        gradient_color_4 = "'#83C092'";
+        gradient_color_5 = "'#7FBBB3'";
+        gradient_color_6 = "'#DBBC7F'";
+        gradient_color_7 = "'#E69875'";
+        gradient_color_8 = "'#E67E80'";
       };
     };
   };
 
   # WM needs to wrap it
   wayland.windowManager.hyprland.settings.windowrulev2 = [
-    "workspace name:Dashboard silent, class:(alacritty-cava)"
     "noanim, class:(alacritty-cava)"
     "nodim, class:(alacritty-cava)"
     "noblur, class:(alacritty-cava)"
     "noshadow, class:(alacritty-cava)"
     "noborder, class:(alacritty-cava)"
     "nofocus, class:(alacritty-cava)"
+    "monitor DP-1, class:(alacritty-cava)"
+    "opacity 0.6, class:(alacritty-cava)"
     "float, class:(alacritty-cava)"
     "size 1920 500, class:(alacritty-cava)"
-    "move onscreen 0 1095, class:(alacritty-cava)"
+    "move 0 15, class:(alacritty-cava)"
   ];
 
   # Wrap cava in alacritty for use of hyprwinwrap
