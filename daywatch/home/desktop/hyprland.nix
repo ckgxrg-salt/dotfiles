@@ -190,7 +190,7 @@
           "SUPER, Tab, scroller:toggleoverview,"
           "SUPER, Print, exec, uwsm app -- grimblast copy area"
           ", XF86PowerOff, exec, uwsm app -- wlogout"
-          "CTRL SHIFT, C, exec, ${scripts.clipboard}"
+          "CTRL ALT, C, exec, ${scripts.clipboard}"
 
           # Volume and brightness controls
           ", XF86AudioMute, exec, ${scripts.volume} --toggle"

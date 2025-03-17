@@ -122,7 +122,7 @@ let
   '';
 
   clipboard = pkgs.writeShellScript "clipmenu" ''
-    cliphist list | dmenu | cliphist decode | wl-copy
+    cliphist list | rofi -dmenu | cliphist decode | wl-copy
     wl-paste
   '';
 in

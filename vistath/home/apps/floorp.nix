@@ -75,6 +75,7 @@
           disconnect
           firefox-color
           keepassxc-browser
+          surfingkeys
         ];
         settings = {
           # Dark background light text
@@ -84,6 +85,45 @@
             default_visited_color = "#c4a7e7";
             default_active_color = "#ea9a97";
             default_selection_color = "#44415a";
+          };
+
+          # Surfingkeys
+          "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}".settings = {
+            showAdvanced = true;
+            snippets = ''
+              // Disable unused functionalities
+              api.unmapAllExcept([
+                'af', 'E', 'R', 'T', 't', 'f',
+                '?', '<Alt-i>',
+                '0', 'e', 'U', 'd', 'P', 'gg', 'G', 'j', 'k', 'h', 'l', '$',
+                'yt', 'x', 'X', '<<', '>>',
+                'r', 'S', 'D',
+                'yy', 'yv',
+                'go', ':', '<Esc>', '<Tab>', '<Ctrl-n>', '<Ctrl-p>'
+              ]);
+              // Rebind some keys
+              api.map('F', 'af');
+              api.map('H', 'E');
+              api.map('L', 'R');
+              api.map('<Shift-Tab>', 'T');
+              api.map('O', 't');
+              settings.defaultSearchEngine = "b";
+              // Rose-pine
+              settings.theme = `
+                .sk_theme {
+                  background: #232136;
+                  color: #e0def4;
+                }
+                .sk_bubble {
+                  background: #232136;
+                  color: #e0def4;
+                }
+                .sk_omnibar {
+                  background: #232136;
+                  color: #e0def4;
+                }
+              `
+            '';
           };
         };
       };
