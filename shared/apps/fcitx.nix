@@ -9,6 +9,7 @@
       addons = with pkgs; [
         fcitx5-fluent
         fcitx5-rime
+        fcitx5-mozc-ut
       ];
     };
   };

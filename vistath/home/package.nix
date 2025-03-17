@@ -42,6 +42,7 @@
         hash = "sha256-Gs3/DPMsoPTxH+fR7H3gPJr8ITrQDPlmw236vDnmBaA=";
       };
     })
+    kana
     # Media
     foliate
     freetube

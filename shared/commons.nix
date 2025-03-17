@@ -23,7 +23,7 @@
       noto-fonts-emoji
       maple-mono-SC-NF
       ckgs.maple-ui
-      nerd-fonts.jetbrains-mono
+      hachimarupop
     ];
     fontconfig = {
       defaultFonts = {
@@ -33,9 +33,11 @@
         ];
         sansSerif = [
           "Maple UI"
+          "HachiMaruPop"
         ];
         serif = [
           "Maple UI"
+          "HachiMaruPop"
         ];
       };
     };
@@ -52,6 +54,7 @@
     supportedLocales = [
       "zh_CN.UTF-8/UTF-8"
       "en_GB.UTF-8/UTF-8"
+      "ja_JP.UTF-8/UTF-8"
     ];
     extraLocaleSettings = {
       LC_ADDRESS = "en_GB.UTF-8";
