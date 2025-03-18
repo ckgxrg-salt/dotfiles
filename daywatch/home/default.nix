@@ -22,9 +22,9 @@
     ./apps/btop.nix
     ./apps/cava.nix
     ./apps/neovim.nix
+    ./apps/fcitx.nix
     ./apps/floorp.nix
     ./apps/rofi.nix
-    ../../shared/apps/fcitx.nix
     ../../shared/apps/mpd.nix
     ../../shared/apps/keepassxc.nix
     ../../shared/apps/yazi.nix

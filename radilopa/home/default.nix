@@ -21,10 +21,10 @@
     # Applications
     ./apps/btop.nix
     ./apps/nixvim.nix
+    ./apps/fcitx.nix
     ./apps/floorp.nix
     ./apps/rofi.nix
     ../../shared/apps/keepassxc.nix
-    ../../shared/apps/fcitx.nix
     ../../shared/gaming/mangohud.nix
     ../../shared/utils/git.nix
     ../../shared/utils/gpg.nix

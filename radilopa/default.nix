@@ -3,10 +3,10 @@
 {
   imports = [
     ./boot.nix
-    ./configuration.nix
+    ./hardware.nix
+    ./common.nix
     ./nix.nix
     ./sddm.nix
-    ../shared/commons.nix
     ../shared/security.nix
     ../shared/utils/firejail.nix
 

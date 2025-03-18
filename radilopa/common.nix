@@ -1,19 +1,38 @@
 { pkgs, ckgs, ... }:
 # These options are almost identical on each system
 {
-  #========== Boot ==========#
-  boot = {
-    # Setup Secure Boot
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
-    bootspec.enable = true;
-
-    # Not using containers here
-    enableContainers = false;
-    tmp.cleanOnBoot = true;
+  #========== Users ==========#
+  # Greet messages
+  environment.etc = {
+    "issue".text = ''
+      ========================
+      <-- Radilopa Farland -->
+      ========================
+    '';
   };
+
+  # Replace the default perl script
+  services.userborn.enable = true;
+
+  # ckgxrg's Account
+  users.users = {
+    ckgxrg = {
+      isNormalUser = true;
+      description = "ckgxrg";
+      shell = pkgs.nushell;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "gamemode"
+        "video"
+      ];
+    };
+  };
+  # Polkit will not permit operations without this
+  environment.shells = with pkgs; [ nushell ];
+
+  secrix.hostIdentityFile = "/home/ckgxrg/.ssh/id_rsa";
 
   #========== Appearance ==========#
   # Fonts
@@ -69,10 +88,6 @@
     };
   };
 
-  #========== Users ==========#
-  # Replace the default perl script
-  services.userborn.enable = true;
-
   #========== Miscellaneous ==========#
   programs.dconf.enable = true;
   services.udisks2.enable = true;
@@ -80,6 +95,12 @@
   virtualisation.waydroid.enable = true;
   system.etc.overlay.enable = true;
   programs.nix-ld.enable = true;
+
+  gaming.gamemode = {
+    enable = true;
+    overclock = true;
+    nvidia = true;
+  };
 
   systemd = {
     oomd.enable = false;

@@ -1,6 +1,20 @@
 { pkgs, lib, ... }:
 # Settings for hardware related stuff
 {
+  #========== Boot ==========#
+  boot = {
+    # Setup Secure Boot
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    bootspec.enable = true;
+
+    # Not using containers here
+    enableContainers = false;
+    tmp.cleanOnBoot = true;
+  };
+
   #========== Hardware ==========#
   hardware = {
     cpu.intel.updateMicrocode = true;
@@ -121,40 +135,5 @@
       intel-media-driver
       libva-vdpau-driver
     ];
-  };
-
-  #========== Users ==========#
-  # Greet messages
-  environment.etc = {
-    "issue".text = ''
-      =========================
-      <-- The Daywatch Site -->
-      =========================
-    '';
-  };
-
-  # Users
-  users.users = {
-    "ckgxrg" = {
-      isNormalUser = true;
-      description = "ckgxrg";
-      shell = pkgs.nushell;
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "input"
-        "gamemode"
-        "video"
-      ];
-    };
-  };
-  # Polkit will not permit operations without this
-  environment.shells = with pkgs; [ nushell ];
-
-  secrix.hostIdentityFile = "/home/ckgxrg/.ssh/id_ed25519";
-
-  #========== Miscellaneous ==========#
-  gaming.gamemode = {
-    enable = true;
   };
 }
