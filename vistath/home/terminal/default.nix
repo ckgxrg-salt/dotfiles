@@ -17,14 +17,7 @@
           decorations_theme_variant = "Dark";
         };
         font = {
-          normal = {
-            family = "Maple Mono SC NF";
-            style = "Regular";
-          };
-          bold.style = "Bold";
-          italic.style = "Italic";
-          bold_italic.style = "BoldItalic";
-          size = 16;
+          size = 18;
         };
       };
     };

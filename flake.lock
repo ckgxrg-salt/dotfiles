@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741837931,
-        "narHash": "sha256-WumdSshs0EIVc7OYBPM7TafYzuROOloBGlEJqqXIwhs=",
+        "lastModified": 1742312018,
+        "narHash": "sha256-S2tEiRkroQvyf3tEUv+RqJ9b9U0i2M8OeLZOLVBtjeU=",
         "owner": "ckgxrg-salt",
         "repo": "ckgpkgs",
-        "rev": "c8ec73170f2806ff06e60154a2ec50fbe4c16b04",
+        "rev": "a91072c1ac1a8e72fe1d66a8a6f05131850f6f04",
         "type": "github"
       },
       "original": {

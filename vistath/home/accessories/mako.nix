@@ -9,7 +9,6 @@
     backgroundColor = "#8fbcbb66";
     borderColor = "#4c566a66";
     defaultTimeout = 15000;
-    font = "maple mono 12";
     height = 150;
     width = 450;
     icons = true;

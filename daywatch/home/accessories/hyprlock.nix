@@ -29,7 +29,6 @@
           halign = "center";
           valign = "center";
           font_size = 48;
-          font_family = "Maple UI";
           color = "rgba(216, 222, 233)";
         }
       ];

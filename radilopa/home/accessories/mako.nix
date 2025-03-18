@@ -6,7 +6,6 @@
     anchor = "top-right";
     borderRadius = 15;
     defaultTimeout = 15000;
-    font = "maple mono 12";
     height = 150;
     width = 450;
     icons = true;

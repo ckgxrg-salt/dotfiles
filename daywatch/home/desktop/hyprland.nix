@@ -69,7 +69,9 @@
         general = {
           gaps_in = 10;
           gaps_out = 8;
-          border_size = 0;
+          border_size = 8;
+          "col.active_border" = "0x42504799";
+          "col.inactive_border" = "0x56635f77";
           layout = "scroller";
           allow_tearing = false;
           resize_on_border = true;
@@ -95,15 +97,15 @@
         decoration = {
           blur = {
             enabled = true;
-            size = 8;
+            size = 10;
             passes = 3;
-            brightness = 1.2;
-            vibrancy = 0.2;
+            brightness = 1.1;
+            vibrancy = 0.1;
           };
           shadow = {
             enabled = false;
           };
-          rounding = 0;
+          rounding = 12;
           active_opacity = 0.8;
           inactive_opacity = 0.7;
         };

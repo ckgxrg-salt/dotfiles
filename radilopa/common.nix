@@ -40,27 +40,50 @@
     fontDir.enable = true;
     packages = with pkgs; [
       noto-fonts-emoji
-      maple-mono-SC-NF
+      maple-mono-NF
+      jost
+      libre-bodoni
       ckgs.maple-ui
-      hachimarupop
     ];
     fontconfig = {
+      enable = true;
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "Maple Mono SC NF"
+          "Maple Mono NF"
         ];
         sansSerif = [
+          "Jost*"
           "Maple UI"
-          "HachiMaruPop"
         ];
         serif = [
+          "Libre Bodoni"
           "Maple UI"
-          "HachiMaruPop"
         ];
       };
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <fontconfig>
+          <alias>
+            <family>Jost*</family>
+            <prefer>
+              <family>Jost*</family>
+              <family>Maple UI</family>
+            </prefer>
+          </alias>
+          <alias>
+            <family>Libre Bodoni</family>
+            <prefer>
+              <family>Libre Bodoni</family>
+              <family>Maple UI</family>
+            </prefer>
+          </alias>
+        </fontconfig>
+      '';
     };
   };
+
 
   #========== Localisation ==========#
   # Timezone, Locale
