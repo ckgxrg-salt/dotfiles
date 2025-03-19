@@ -73,9 +73,9 @@
           absolute-enable-right-click
           dark-background-light-text
           disconnect
-          firefox-color
           keepassxc-browser
           surfingkeys
+          tokyo-night-v2
         ];
         settings = {
           # Dark background light text

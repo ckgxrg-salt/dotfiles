@@ -7,8 +7,9 @@
     fcitx5 = {
       waylandFrontend = true;
       addons = with pkgs; [
-        fcitx5-rose-pine
+        fcitx5-tokyonight
         fcitx5-rime
+        fcitx5-mozc-ut
       ];
     };
   };

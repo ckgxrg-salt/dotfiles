@@ -8,7 +8,7 @@
     alacritty = {
       enable = true;
       theme = ckgs.alacritty-themes.override {
-        theme = "rose_pine_moon";
+        theme = "tokyo_night_storm";
       };
       settings = {
         window = {
@@ -24,7 +24,7 @@
     nushell = {
       enable = true;
       theme = ckgs.nu-scripts.override {
-        theme = "rose-pine-moon";
+        theme = "tokyo-storm";
       };
       settings = ''
         $env.config = {
@@ -44,7 +44,7 @@
         }
 
         $env.MANPAGER = "nvim +Man!";
-        $env.LS_COLORS = (vivid generate rose-pine-moon | str trim)
+        $env.LS_COLORS = (vivid generate tokyonight-storm | str trim)
 
         def ciallo [] { fortune | cowsay | lolcat }
 

@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  ckgs,
   ...
 }:
 # Define theme names and pkgs here
@@ -10,24 +9,30 @@
     enable = true;
 
     gtk = {
-      name = "rose-pine-moon";
-      pkg = pkgs.rose-pine-gtk-theme;
+      name = "Tokyonight-Dark-Storm";
+      pkg = pkgs.tokyonight-gtk-theme.override {
+        colorVariants = [ "dark" ];
+        sizeVariants = [ "standard" ];
+        themeVariants = [ "default" ];
+        tweakVariants = [ "storm" ];
+        iconVariants = [ "Dark" ];
+      };
     };
 
     qt = {
-      name = "MoeDark";
-      pkg = ckgs.moe-kvantum-theme;
+      name = "MateriaDark";
+      pkg = pkgs.materia-kde-theme;
     };
 
     cursor = {
-      name = "BreezeX-RosePine-Linux";
-      size = 24;
-      pkg = pkgs.rose-pine-cursor;
+      name = "graphite-dark";
+      size = 28;
+      pkg = pkgs.graphite-cursors;
     };
 
     icon = {
-      name = "rose-pine-moon";
-      pkg = pkgs.rose-pine-icon-theme;
+      name = "Vimix-black-dark";
+      pkg = pkgs.vimix-icon-theme;
     };
 
     sound = {

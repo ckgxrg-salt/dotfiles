@@ -38,7 +38,7 @@
     };
 
     font = {
-      name = "Maple UI";
+      name = "Jost*";
       size = 18;
     };
 

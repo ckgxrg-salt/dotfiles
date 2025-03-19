@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       vim_keys = true;
-      color_theme = "horizon";
+      color_theme = "tokyo-storm";
     };
   };
 }

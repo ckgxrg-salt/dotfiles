@@ -4,12 +4,13 @@
 
   # Neovim themes
   programs.nixvim = {
-    colorscheme = "rose-pine";
-    plugins.lualine.settings.options.theme = "nightfly";
-    colorschemes.rose-pine = {
+    colorscheme = "tokyonight-storm";
+    plugins.lualine.settings.options.theme = "tokyonight-storm";
+    colorschemes.tokyonight = {
       enable = true;
       settings = {
-        variant = "moon";
+        day_brightness = 0.9;
+        dim_inactive = true;
       };
     };
   };

@@ -20,7 +20,7 @@
 
     # Applications
     ./apps/btop.nix
-    ./apps/nixvim.nix
+    ./apps/neovim.nix
     ./apps/fcitx.nix
     ./apps/floorp.nix
     ./apps/rofi.nix

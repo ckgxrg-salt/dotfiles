@@ -10,24 +10,24 @@
     enable = true;
 
     gtk = {
-      name = "Space";
-      pkg = ckgs.space-gtk-theme;
+      name = "rose-pine-moon";
+      pkg = pkgs.rose-pine-gtk-theme;
     };
 
     qt = {
-      name = "MateriaDark";
-      pkg = pkgs.materia-kde-theme;
+      name = "MoeDark";
+      pkg = ckgs.moe-kvantum-theme;
     };
 
     cursor = {
-      name = "Vimix-Cursors";
-      size = 28;
-      pkg = pkgs.vimix-cursor-theme;
+      name = "BreezeX-RosePine-Linux";
+      size = 24;
+      pkg = pkgs.rose-pine-cursor;
     };
 
     icon = {
-      name = "Arc";
-      pkg = pkgs.arc-icon-theme;
+      name = "rose-pine-moon";
+      pkg = pkgs.rose-pine-icon-theme;
     };
 
     sound = {
