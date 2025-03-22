@@ -16,43 +16,43 @@
       isDefault = true;
       name = "Default";
       search = {
-        default = "Bing";
+        default = "bing";
         force = true;
         order = [
-          "Bing"
-          "Google"
+          "bing"
+          "google"
         ];
         engines = {
-          "Bing".metaData.alias = "@b";
-          "Google".metaData.alias = "@g";
-          "ArchWiki" = {
+          bing.metaData.alias = "@b";
+          google.metaData.alias = "@g";
+          archwiki = {
+            name = "ArchWiki";
             urls = [ { template = "https://wiki.archlinux.org/?search={searchTerms}"; } ];
-            iconUpdateURL = "https://archlinux.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000;
+            icon = "https://archlinux.org/favicon.png";
             definedAliases = [ "@aw" ];
           };
-          "Nix Packages" = {
+          nixpkgs = {
+            name = "Nix Packages";
             urls = [ { template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}"; } ];
-            iconUpdateURL = "https://nixos.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000;
+            icon = "https://nixos.org/favicon.png";
             definedAliases = [ "@pkg" ];
           };
-          "NixOS Options" = {
+          nixopts = {
+            name = "NixOS Options";
             urls = [ { template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}"; } ];
-            iconUpdateURL = "https://nixos.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000;
+            icon = "https://nixos.org/favicon.png";
             definedAliases = [ "@opt" ];
           };
-          "Bilibili" = {
+          bili = {
+            name = "Bilibili";
             urls = [ { template = "https://search.bilibili.com/all?keyword={searchTerms}"; } ];
-            iconUpdateURL = "https://bilibili.com/favicon.ico";
-            updateInterval = 24 * 60 * 60 * 1000;
+            icon = "https://bilibili.com/favicon.ico";
             definedAliases = [ "@bili" ];
           };
-          "PRTS Wiki" = {
+          prts = {
+            name = "PRTS Wiki";
             urls = [ { template = "https://prts.wiki/index.php?title=特殊:搜索&search={searchTerms}"; } ];
-            iconUpdateURL = "https://prts.wiki/favicon.ico";
-            updateInterval = 24 * 60 * 60 * 1000;
+            icon = "https://prts.wiki/favicon.ico";
             definedAliases = [ "@prts" ];
           };
         };

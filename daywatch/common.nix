@@ -42,7 +42,6 @@
       noto-fonts-emoji
       maple-mono-NF
       jost
-      libre-bodoni
       ckgs.maple-ui
     ];
     fontconfig = {
@@ -53,12 +52,12 @@
           "Maple Mono NF"
         ];
         sansSerif = [
-          "Jost*"
           "Maple UI"
+          "Jost*"
         ];
         serif = [
-          "Libre Bodoni"
           "Maple UI"
+          "Jost*"
         ];
       };
       localConf = ''
@@ -66,16 +65,9 @@
         <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
         <fontconfig>
           <alias>
-            <family>Jost*</family>
+            <family>Maple UI</family>
             <prefer>
               <family>Jost*</family>
-              <family>Maple UI</family>
-            </prefer>
-          </alias>
-          <alias>
-            <family>Libre Bodoni</family>
-            <prefer>
-              <family>Libre Bodoni</family>
               <family>Maple UI</family>
             </prefer>
           </alias>
