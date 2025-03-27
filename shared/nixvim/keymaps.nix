@@ -3,48 +3,22 @@
   # For coding time, start with Meta
   # For "running", including Markdown preview, start with Ctrl
   programs.nixvim = {
-    keymaps = [
-      # Neovim: Generals
-      {
-        action = "gj";
-        key = "j";
-        options.silent = true;
-      }
-      {
-        action = "gk";
-        key = "k";
-        options.silent = true;
-      }
-      {
-        action = "gj";
-        key = "<Down>";
-        options.silent = true;
-      }
-      {
-        action = "gk";
-        key = "<Up>";
-        options.silent = true;
-      }
-    ];
-
-    # Use legendary to generate rest of keymaps
+    # Use legendary to generate keymaps
     extraPlugins = with pkgs.vimPlugins; [
       legendary-nvim
     ];
     extraConfigLua = ''
       require('legendary').setup({
         keymaps = {
-          -- Dap & Dap-UI: Enter debugging mode
-          {
-            '<M-d>',
-            function()
-              require('dapui').toggle()
-            end,
-            description = 'Toggle Debug View',
-          },
+          -- Allow moving in auto-wrapped lines
+          { 'j', 'gj', description = 'Move Downwards' },
+          { 'k', 'gk', description = 'Move Upwards' },
+          { '<Up>', 'gj', description = 'Move Downwards' },
+          { '<Down>', 'gk', description = 'Move Upwards' },
 
-          -- Legendary
-          { '<C-p>', ':Legendary<CR>', description = 'Show Command Palette' },
+          -- Telescope
+          { '<C-t>k', ':Telescope keymaps<CR>', description = 'Show Command Palette' },
+          { '<C-t>s', ':Telescope persisted<CR>', description = 'View Sessions' },
 
           -- File Manager
           { '<M-b>', ':Yazi<CR>', description = 'Browse Files' },
@@ -58,15 +32,22 @@
           { '<M-p>', ':TodoTelescope<CR>', description = 'Toggle Todo List' },
 
           -- DAP
-          { '/b', ':DapToggleBreakpoint<CR>', description = 'Add/Remove Breakpoint' },
+          { '<M-d>d', ':DapToggleBreakpoint<CR>', description = 'Add/Remove Breakpoint' },
+          {
+            '<M-d>ui',
+            function()
+              require('dapui').toggle()
+            end,
+            description = 'Toggle Debug View',
+          },
 
           -- Twilight
           { '<M-t>', ':Twilight<CR>', description = 'Toggle Code Dimming' },
 
           -- Bufferline
-          { '<C-Right>', ':BufferLineCycleNext<CR>', description = 'Move to Next Tab' },
-          { '<C-Left>', ':BufferLineCyclePrev<CR>', description = 'Move to Previous Tab' },
-          { '<M-w>', ':bdelete<CR>', description = 'Close Current Tab' },
+          { '<C-S-l>', ':BufferLineCycleNext<CR>', description = 'Move to Next Tab' },
+          { '<C-S-h>', ':BufferLineCyclePrev<CR>', description = 'Move to Previous Tab' },
+          { '<C-S-w>', ':bdelete<CR>', description = 'Close Current Tab' },
 
           -- Hop
           {

@@ -15,22 +15,6 @@
     settings = {
       font = {
         size = 16;
-        normal = {
-          family = "Maple Mono SC NF";
-          style = "Regular";
-        };
-        bold = {
-          family = "Maple Mono SC NF";
-          style = "Bold";
-        };
-        italic = {
-          family = "Maple Mono SC NF";
-          style = "Italic";
-        };
-        bold_italic = {
-          family = "Maple Mono SC NF";
-          style = "BoldItalic";
-        };
       };
     };
   };
