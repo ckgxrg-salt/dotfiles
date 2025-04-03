@@ -7,6 +7,5 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./mako.nix
-    ./wlogout.nix
   ];
 }

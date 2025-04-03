@@ -104,8 +104,7 @@
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                inherit ckgs;
-                daywatch-astal = daywatch-astal.packages.${system}.default;
+                inherit ckgs daywatch-astal;
               };
             }
           ];

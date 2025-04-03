@@ -13,8 +13,8 @@
           -- Allow moving in auto-wrapped lines
           { 'j', 'gj', description = 'Move Downwards' },
           { 'k', 'gk', description = 'Move Upwards' },
-          { '<Up>', 'gj', description = 'Move Downwards' },
-          { '<Down>', 'gk', description = 'Move Upwards' },
+          { '<Down>', 'gj', description = 'Move Downwards' },
+          { '<Up>', 'gk', description = 'Move Upwards' },
 
           -- Telescope
           { '<C-t>k', ':Telescope keymaps<CR>', description = 'Show Command Palette' },

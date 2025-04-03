@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  ckgs,
   daywatch-astal,
   ...
 }:
@@ -39,7 +38,8 @@ in
     wl-clipboard
     cliphist
 
-    daywatch-astal
+    daywatch-astal.packages.x86_64-linux.default
+    daywatch-astal.packages.x86_64-linux.logout
   ];
 
   xdg.configFile = {
@@ -73,7 +73,7 @@ in
     # Astal desktop shell
     "astal" = mkDaemon {
       desc = "Astal Desktop Widgets";
-      exec = "${daywatch-astal}/bin/daywatch-astal";
+      exec = "${daywatch-astal.packages.x86_64-linux.default}/bin/daywatch-astal";
       slice = "background-graphical.slice";
     };
 

@@ -59,6 +59,10 @@
         layerrule = [
           "noanim, swww-daemon"
           "animation slide right, notifications"
+          "blur, astal-logout"
+          "animation fade, astal-logout"
+          "blur, astal-logout-cover"
+          "animation fade, astal-logout-cover"
         ];
         workspace = [
           "special:browser, on-created-empty:uwsm app -- floorp"
@@ -169,7 +173,7 @@
         # Touchscreen binds
         hyprgrass-bind = [
           ", edge:r:l, togglespecialworkspace, browser"
-          ", swipe:4:ld, exec, uwsm app -- wlogout"
+          ", swipe:4:ld, exec, uwsm app -- astal-logout"
           ", swipe:3:l, scroller:movefocus, r"
           ", swipe:3:r, scroller:movefocus, l"
           ", swipe:3:u, scroller:movefocus, d"
@@ -191,7 +195,7 @@
           "SUPER, F, fullscreen,"
           "SUPER, Tab, scroller:toggleoverview,"
           "SUPER, Print, exec, uwsm app -- grimblast copy area"
-          ", XF86PowerOff, exec, uwsm app -- wlogout"
+          ", XF86PowerOff, exec, uwsm app -- astal-logout"
           "CTRL ALT, C, exec, ${scripts.clipboard}"
 
           # Volume and brightness controls

@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742219106,
-        "narHash": "sha256-8gWNDDVS7TqLiS+eR1XhfMHBeknmTzLQ3ItB40OK3p0=",
+        "lastModified": 1742571008,
+        "narHash": "sha256-5WgfJAeBpxiKbTR/gJvxrGYfqQRge5aUDcGKmU1YZ1Q=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "e5a8e3b60e41d06450284baf7008abe4ac27a53d",
+        "rev": "dc0e5d37abe9424c53dcbd2506a4886ffee6296e",
         "type": "github"
       },
       "original": {
@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742481778,
-        "narHash": "sha256-42CMYKrrAjfjOb18qLjqT7etT4dHRP/7d/bPKaZHJgM=",
+        "lastModified": 1743096044,
+        "narHash": "sha256-SIkD7X0ugc2COtf5RYGy+fd9enl58vySOf1nHnfTjE0=",
         "owner": "ckgxrg-salt",
         "repo": "daywatch-astal",
-        "rev": "a095012d775329e40874c7a330c33528298bc74f",
+        "rev": "d5b34fd821c97c788042ce3f1ffab3615d58f9fc",
         "type": "github"
       },
       "original": {
