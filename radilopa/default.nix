@@ -8,7 +8,6 @@
     ./nix.nix
     ./sddm.nix
     ../shared/security.nix
-    ../shared/utils/firejail.nix
 
     ../shared/gaming/alvr.nix
     ../shared/gaming/steam.nix

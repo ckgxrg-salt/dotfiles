@@ -56,7 +56,6 @@
     # Communication
     localsend
     nheko
-    qq
     # Web
     newsflash
     tor-browser

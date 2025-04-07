@@ -54,7 +54,6 @@
     # Communication
     cinny-desktop
     localsend
-    qq
     # Web
     newsflash
     tor-browser

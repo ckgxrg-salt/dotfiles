@@ -61,6 +61,10 @@
         configFile = "/etc/wireguard/iof.conf";
         autostart = false;
       };
+      fariof = {
+        configFile = "/etc/wireguard/fariof.conf";
+        autostart = false;
+      };
     };
 
     # Firewall

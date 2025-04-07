@@ -8,7 +8,6 @@
     ./greetd.nix
     ./nix.nix
     ../shared/security.nix
-    ../shared/utils/firejail.nix
     ../shared/gaming/steam.nix
   ];
 

@@ -42,7 +42,6 @@
     # Gaming
     prismlauncher
     # Communication
-    qq
     localsend
     # Web
     newsflash
