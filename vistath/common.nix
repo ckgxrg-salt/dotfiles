@@ -40,7 +40,7 @@
     fontDir.enable = true;
     packages = with pkgs; [
       noto-fonts-emoji
-      maple-mono.NF
+      maple-mono-NF
       jost
       ckgs.maple-ui
     ];

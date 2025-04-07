@@ -15,6 +15,7 @@
     psmisc
     ripgrep
     v2raya
+    wego
 
     # So far, Qt 6 packages require qtwayland explicitly in path.
     qt6Packages.qtwayland
