@@ -3,6 +3,14 @@
   # For coding time, start with Meta
   # For "running", including Markdown preview, start with Ctrl
   programs.nixvim = {
+    # which-key to display keymap palette
+    plugins.which-key = {
+      enable = true;
+      settings = {
+        preset = "modern";
+      };
+    };
+
     # Use legendary to generate keymaps
     extraPlugins = with pkgs.vimPlugins; [
       legendary-nvim
