@@ -140,7 +140,7 @@
       # Touchscreen binds
       hyprgrass-bind = [
         ", edge:r:l, togglespecialworkspace, browser"
-        ", edge:d:u, exec, pkill -RTMIN wvkbd-desktop"
+        ", edge:d:u, exec, pkill -RTMIN wvkbd-vistath"
         ", swipe:4:ld, exec, uwsm app -- wlogout"
         ", swipe:3:l, hy3:movefocus, r"
         ", swipe:3:r, hy3:movefocus, l"

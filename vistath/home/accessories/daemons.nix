@@ -37,7 +37,7 @@ in
     libnotify
     wl-clipboard
     cliphist
-    ckgs.wvkbd-desktop
+    ckgs.wvkbd-vistath
   ];
 
   xdg.configFile = {
@@ -83,9 +83,9 @@ in
     };
 
     # Virtual keyboard
-    "wvkbd-desktop" = mkDaemon {
+    "wvkbd-vistath" = mkDaemon {
       desc = "Virtual Keyboard";
-      exec = "${ckgs.wvkbd-desktop}/bin/wvkbd-desktop --hidden -L 500";
+      exec = "${ckgs.wvkbd-desktop}/bin/wvkbd-vistath --hidden -L 500";
       slice = "app-graphical.slice";
     };
 

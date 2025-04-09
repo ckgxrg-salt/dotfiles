@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742571008,
-        "narHash": "sha256-5WgfJAeBpxiKbTR/gJvxrGYfqQRge5aUDcGKmU1YZ1Q=",
+        "lastModified": 1744127010,
+        "narHash": "sha256-Y3Yr8U46Ss3F85RW4NLanE7/yhV9d2e6+bHHOUrp/0Y=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "dc0e5d37abe9424c53dcbd2506a4886ffee6296e",
+        "rev": "3ac89cab8a2a9f5ef86dc9fdc3a3dce2188ca8f7",
         "type": "github"
       },
       "original": {
@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742312018,
-        "narHash": "sha256-S2tEiRkroQvyf3tEUv+RqJ9b9U0i2M8OeLZOLVBtjeU=",
+        "lastModified": 1744173062,
+        "narHash": "sha256-yHKXDE1IXEODRzlROxLF00DZLG2C4iPLuRpBBU/sFfM=",
         "owner": "ckgxrg-salt",
         "repo": "ckgpkgs",
-        "rev": "a91072c1ac1a8e72fe1d66a8a6f05131850f6f04",
+        "rev": "bd07c3437957b78d3c6796b43cd0a4a5533369cd",
         "type": "github"
       },
       "original": {
@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743096044,
-        "narHash": "sha256-SIkD7X0ugc2COtf5RYGy+fd9enl58vySOf1nHnfTjE0=",
+        "lastModified": 1744135458,
+        "narHash": "sha256-wd4SHzwqerZsD8lpaEQE5p4v7wA2iQZSGPbISbZyr64=",
         "owner": "ckgxrg-salt",
         "repo": "daywatch-astal",
-        "rev": "d5b34fd821c97c788042ce3f1ffab3615d58f9fc",
+        "rev": "5d38a1bf96e9348015bb6f78abba56bd7a4e0a50",
         "type": "github"
       },
       "original": {
