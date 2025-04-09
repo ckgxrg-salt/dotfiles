@@ -18,10 +18,6 @@
       search = {
         default = "bing";
         force = true;
-        order = [
-          "bing"
-          "google"
-        ];
         engines = {
           bing.metaData.alias = "@b";
           google.metaData.alias = "@g";
@@ -106,7 +102,10 @@
               api.map('L', 'R');
               api.map('<Shift-Tab>', 'T');
               api.map('O', 't');
-              settings.defaultSearchEngine = "b";
+              // "Disable" omnibar
+              api.cmap('t', '!!!nope');
+              api.cmap('go', '!!!nope');
+              api.cmap('O', '!!!nope');
               // Everforest
               settings.theme = `
                 .sk_theme {
