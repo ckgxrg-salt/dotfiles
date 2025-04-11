@@ -54,8 +54,8 @@
     moonlight-qt
     prismlauncher
     # Communication
+    cinny-desktop
     localsend
-    nheko
     # Web
     newsflash
     tor-browser
