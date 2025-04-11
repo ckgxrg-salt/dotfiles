@@ -6,6 +6,7 @@
       enable = true;
       settings = {
         formatters_by_ft = {
+          cpp = [ "clang-format" ];
           rust = [ "rustfmt" ];
           java = [ "google-java-format" ];
           nix = [ "nixfmt" ];
@@ -31,6 +32,7 @@
     lint = {
       enable = true;
       lintersByFt = {
+        cpp = [ "clangtidy" ];
         rust = [ "clippy" ];
         java = [ "checkstyle" ];
         nix = [ "deadnix" ];
