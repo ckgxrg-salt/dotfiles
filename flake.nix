@@ -42,6 +42,10 @@
       url = "github:ckgxrg-salt/daywatch-astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vistath-astal = {
+      url = "github:ckgxrg-salt/vistath-astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Home manager
     home-manager = {
@@ -62,6 +66,7 @@
       nur,
       ckgpkgs,
       daywatch-astal,
+      vistath-astal,
       disko,
       ckgprv,
       secrix,
@@ -167,7 +172,7 @@
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                inherit ckgs;
+                inherit ckgs vistath-astal;
               };
             }
           ];

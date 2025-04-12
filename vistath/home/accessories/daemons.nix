@@ -2,6 +2,7 @@
   config,
   pkgs,
   ckgs,
+  vistath-astal,
   ...
 }:
 # Accessories that run as daemons
@@ -38,6 +39,8 @@ in
     wl-clipboard
     cliphist
     ckgs.wvkbd-vistath
+
+    vistath-astal.packages.x86_64-linux.default
   ];
 
   xdg.configFile = {
@@ -68,6 +71,13 @@ in
   };
 
   systemd.user.services = {
+    # Astal desktop shell
+    "astal" = mkDaemon {
+      desc = "Astal Desktop Widgets";
+      exec = "${vistath-astal.packages.x86_64-linux.default}/bin/vistath-astal";
+      slice = "background-graphical.slice";
+    };
+
     # Cliphist the clipboard manager
     "cliphist" = mkDaemon {
       desc = "Clipboard History Manager";
@@ -75,17 +85,10 @@ in
       slice = "background-graphical.slice";
     };
 
-    # The sidebar
-    "waybar" = mkDaemon {
-      desc = "A Lightweight Wayland Sidebar";
-      exec = "${pkgs.waybar}/bin/waybar";
-      slice = "app-graphical.slice";
-    };
-
     # Virtual keyboard
     "wvkbd-vistath" = mkDaemon {
       desc = "Virtual Keyboard";
-      exec = "${ckgs.wvkbd-desktop}/bin/wvkbd-vistath --hidden -L 500";
+      exec = "${ckgs.wvkbd-vistath}/bin/wvkbd-vistath --hidden -L 500";
       slice = "app-graphical.slice";
     };
 
