@@ -33,6 +33,7 @@
 
     # Applications
     # Productivity
+    blender
     libreoffice
     obsidian
     rnote
@@ -54,7 +55,7 @@
     moonlight-qt
     prismlauncher
     # Communication
-    cinny-desktop
+    kdePackages.neochat
     localsend
     # Web
     newsflash
