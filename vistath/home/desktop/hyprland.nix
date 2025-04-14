@@ -50,17 +50,12 @@
         "noanim, swww-daemon"
         "animation slide right, notifications"
       ];
-      workspace = [
-        "special:browser, on-created-empty:uwsm app -- floorp"
-      ];
 
       # Options
       general = {
         gaps_in = 10;
         gaps_out = 0;
-        border_size = 8;
-        "col.active_border" = "rgba(A7C08044)";
-        "col.inactive_border" = "rgba(42504799)";
+        border_size = 0;
         layout = "hy3";
         allow_tearing = false;
         resize_on_border = true;
@@ -94,7 +89,7 @@
         };
         shadow = {
           enabled = true;
-          range = 6;
+          range = 8;
           render_power = 3;
           color = "rgba(1C1C1CEE)";
         };
@@ -139,13 +134,9 @@
 
       # Touchscreen binds
       hyprgrass-bind = [
-        ", edge:r:l, togglespecialworkspace, browser"
-        ", edge:d:u, exec, pkill -RTMIN wvkbd-vistath"
-        ", swipe:4:ld, exec, uwsm app -- wlogout"
-        ", swipe:3:l, hy3:movefocus, r"
-        ", swipe:3:r, hy3:movefocus, l"
-        ", swipe:3:u, hy3:movefocus, d"
-        ", swipe:3:d, hy3:movefocus, u"
+        ", edge:d:u, exec, vistath-astal navigator"
+        ", edge:u:d, exec, vistath-astal quickcontrol"
+        ", swipe:3:u, exec, pkill -RTMIN wvkbd-vistath"
       ];
       hyprgrass-bindm = [
         ", longpress:2, movewindow"
@@ -180,18 +171,24 @@
         "SUPER SHIFT, L, hy3:movewindow, r"
 
         # Special Workspaces
-        "SUPER, S, togglespecialworkspace, browser"
         "SUPER SHIFT, W, workspace, name:"
-        "SUPER SHIFT, S, movetoworkspace, special:browser"
         # Ordinary workspaces
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"
         "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+        "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 7"
+        "SUPER, 8, workspace, 8"
         "SUPER SHIFT, 1, movetoworkspace, 1"
         "SUPER SHIFT, 2, movetoworkspace, 2"
         "SUPER SHIFT, 3, movetoworkspace, 3"
         "SUPER SHIFT, 4, movetoworkspace, 4"
+        "SUPER SHIFT, 5, movetoworkspace, 5"
+        "SUPER SHIFT, 6, movetoworkspace, 6"
+        "SUPER SHIFT, 7, movetoworkspace, 7"
+        "SUPER SHIFT, 8, movetoworkspace, 8"
       ];
 
       # Move, resize and scroller mode

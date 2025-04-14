@@ -675,11 +675,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744461046,
-        "narHash": "sha256-QPZJHSXfZ2jzFZAO+ot9E34r3QUNcOYegw+S1diGkiM=",
+        "lastModified": 1744627724,
+        "narHash": "sha256-0LK2rIUL+50zoeDai/eNWuKakM83AjFq6l0fVk0TBfc=",
         "owner": "ckgxrg-salt",
         "repo": "vistath-astal",
-        "rev": "559e70e37b575e08b744890d6b4d5771b0074c8c",
+        "rev": "92fb574214b29769564400ed3d613e9a8bf163da",
         "type": "github"
       },
       "original": {
