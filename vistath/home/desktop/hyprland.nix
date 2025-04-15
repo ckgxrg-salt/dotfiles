@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 # Hyprland the Wayland compositor
 {
   wayland.windowManager.hyprland = {
@@ -8,6 +8,7 @@
     plugins = with pkgs.hyprlandPlugins; [
       hyprgrass
       hy3
+      ckgs.show-my-osk
     ];
     settings = {
       # Hardware
@@ -49,6 +50,9 @@
       layerrule = [
         "noanim, swww-daemon"
         "animation slide right, notifications"
+        "blur, astal-quickcontrol"
+        "animation fade, astal-quickcontrol"
+        "animation slide down, astal-navigator"
       ];
 
       # Options
@@ -129,6 +133,10 @@
           autotile = {
             enable = true;
           };
+        };
+        showmyosk = {
+          on_focus = "exec pkill -USR2 wvkbd-vistath";
+          on_leave = "exec pkill -USR1 wvkbd-vistath";
         };
       };
 

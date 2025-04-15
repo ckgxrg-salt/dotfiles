@@ -99,11 +99,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744173062,
-        "narHash": "sha256-yHKXDE1IXEODRzlROxLF00DZLG2C4iPLuRpBBU/sFfM=",
+        "lastModified": 1744711089,
+        "narHash": "sha256-xtXs2jzY5p/jp3U151m8jAUVWj4ZgaZ08GTBw0hBOLs=",
         "owner": "ckgxrg-salt",
         "repo": "ckgpkgs",
-        "rev": "bd07c3437957b78d3c6796b43cd0a4a5533369cd",
+        "rev": "c1d66f1bd24e0a78f16100d1d8901b7c3ab5c6db",
         "type": "github"
       },
       "original": {
@@ -675,11 +675,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744627724,
-        "narHash": "sha256-0LK2rIUL+50zoeDai/eNWuKakM83AjFq6l0fVk0TBfc=",
+        "lastModified": 1744628279,
+        "narHash": "sha256-TJScZ1sgm0KOLT75EE16zqRDriDVKorEZL7jDXpCaIk=",
         "owner": "ckgxrg-salt",
         "repo": "vistath-astal",
-        "rev": "92fb574214b29769564400ed3d613e9a8bf163da",
+        "rev": "f04b4867e9983f4e4b7ac04c21ce9e0976826a76",
         "type": "github"
       },
       "original": {
