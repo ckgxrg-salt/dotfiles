@@ -54,6 +54,9 @@
         "animation fade, astal-quickcontrol"
         "animation slide down, astal-navigator"
       ];
+      workspace = [
+        "special:browser, on-created-empty:uwsm app -- floorp"
+      ];
 
       # Options
       general = {
@@ -145,6 +148,7 @@
         ", edge:d:u, exec, vistath-astal navigator"
         ", edge:u:d, exec, vistath-astal quickcontrol"
         ", swipe:3:u, exec, pkill -RTMIN wvkbd-vistath"
+        ", edge:r:l, togglespecialworkspace, browser"
       ];
       hyprgrass-bindm = [
         ", longpress:2, movewindow"
@@ -180,6 +184,8 @@
 
         # Special Workspaces
         "SUPER SHIFT, W, workspace, name:"
+        "SUPER, S, togglespecialworkspace, browser"
+        "SUPER SHIFT, S, movetoworkspace, special:browser"
         # Ordinary workspaces
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
