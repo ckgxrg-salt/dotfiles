@@ -55,6 +55,7 @@
     # Communication
     cinny-desktop
     localsend
+    nextcloud-client
     # Web
     newsflash
     tor-browser
