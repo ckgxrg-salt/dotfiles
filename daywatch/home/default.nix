@@ -24,10 +24,10 @@
     ./apps/neovim.nix
     ./apps/fcitx.nix
     ./apps/floorp.nix
-    ./apps/rclone.nix
     ./apps/rofi.nix
     ../../shared/apps/mpd.nix
     ../../shared/apps/keepassxc.nix
+    ../../shared/apps/rclone.nix
     ../../shared/apps/yazi.nix
     ../../shared/gaming/mangohud.nix
     ../../shared/utils/git.nix

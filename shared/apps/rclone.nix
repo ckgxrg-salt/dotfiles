@@ -35,12 +35,23 @@
         Unit.Description = "Sync Music with rclone";
         Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync ${config.xdg.userDirs.music} paralace:Music";
       };
+      "rclone-KeeShare" = base // {
+        Unit.Description = "Sync KeeShare with rclone";
+        Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync --force ${config.xdg.dataHome}/keepassxc/keeshare paralace:KeeShare";
+      };
     };
     timers = {
       "rclone-Music" = base-timer // {
         Unit.Description = "Sync Music with rclone";
         Timer = {
-          OnBootSec = "1h";
+          OnBootSec = "10s";
+          OnUnitActiveSec = "1h";
+        };
+      };
+      "rclone-KeeShare" = base-timer // {
+        Unit.Description = "Sync KeeShare with rclone";
+        Timer = {
+          OnBootSec = "10s";
           OnUnitActiveSec = "1h";
         };
       };
