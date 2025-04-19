@@ -57,7 +57,6 @@
     # Communication
     kdePackages.neochat
     localsend
-    nextcloud-client
     # Web
     newsflash
     tor-browser

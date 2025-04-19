@@ -24,6 +24,7 @@
     ./apps/neovim.nix
     ./apps/fcitx.nix
     ./apps/floorp.nix
+    ./apps/rclone.nix
     ./apps/rofi.nix
     ../../shared/apps/mpd.nix
     ../../shared/apps/keepassxc.nix
