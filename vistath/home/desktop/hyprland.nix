@@ -163,7 +163,7 @@
         "SUPER, R, exec, uwsm app -- rofi -show drun"
         "SUPER, F, fullscreen,"
         "SUPER, Print, exec, uwsm app -- grimblast copy area"
-        ", XF86PowerOff, exec, uwsm app -- wlogout"
+        ", XF86PowerOff, exec, uwsm app -- astal-logout"
 
         # Volume and brightness controls
         ", XF86AudioMute, exec, volume --toggle"

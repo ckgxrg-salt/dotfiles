@@ -41,6 +41,7 @@ in
     ckgs.wvkbd-vistath
 
     vistath-astal.packages.x86_64-linux.default
+    vistath-astal.packages.x86_64-linux.logout
   ];
 
   xdg.configFile = {
