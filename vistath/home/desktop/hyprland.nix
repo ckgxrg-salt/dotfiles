@@ -52,6 +52,7 @@
         "animation slide right, notifications"
         "blur, astal-quickcontrol"
         "animation fade, astal-quickcontrol"
+        "animation fade, astal-logout"
         "animation slide bottom, astal-navigator"
       ];
       workspace = [
