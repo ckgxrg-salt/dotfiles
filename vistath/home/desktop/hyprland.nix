@@ -52,7 +52,7 @@
         "animation slide right, notifications"
         "blur, astal-quickcontrol"
         "animation fade, astal-quickcontrol"
-        "animation slide down, astal-navigator"
+        "animation slide bottom, astal-navigator"
       ];
       workspace = [
         "special:browser, on-created-empty:uwsm app -- floorp"
