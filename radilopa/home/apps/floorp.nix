@@ -43,6 +43,12 @@
             icon = "https://nixos.org/favicon.png";
             definedAliases = [ "@opt" ];
           };
+          crates = {
+            name = "Rust Crates";
+            urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
+            icon = "https://crates.io/favicon.png";
+            definedAliases = [ "@rust" ];
+          };
           bili = {
             name = "Bilibili";
             urls = [ { template = "https://search.bilibili.com/all?keyword={searchTerms}"; } ];
