@@ -27,7 +27,7 @@
       "astal-reload" = {
         Unit = {
           Description = "Reload Astal everyday";
-          Requires = [ "graphical-session.target" ];
+          Requisite = [ "astal.service" ];
         };
         Service = {
           Type = "oneshot";
@@ -40,7 +40,7 @@
     timers."astal-reload" = {
       Unit = {
         Description = "Reload Astal everyday";
-        Requires = [ "graphical-session.target" ];
+        Requisite = [ "astal.service" ];
       };
       Timer = {
         OnCalendar = "daily";
