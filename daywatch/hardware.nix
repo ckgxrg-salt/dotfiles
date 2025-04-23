@@ -9,9 +9,6 @@
       pkiBundle = "/etc/secureboot";
     };
     bootspec.enable = true;
-
-    # Not using containers here
-    enableContainers = false;
     tmp.cleanOnBoot = true;
   };
 
