@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 {
   # Home-manager packages
   home.packages = with pkgs; [
@@ -53,7 +53,7 @@
     # Gaming
     moonlight-qt
     # Communication
-    cinny-desktop
+    ckgs.commet-chat
     localsend
     # Web
     newsflash

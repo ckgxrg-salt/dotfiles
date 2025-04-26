@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs,... }:
 {
   # Home-manager packages
   home.packages = with pkgs; [
@@ -56,6 +56,7 @@
     prismlauncher
     # Communication
     kdePackages.neochat
+    ckgs.commet-chat
     localsend
     # Web
     newsflash
