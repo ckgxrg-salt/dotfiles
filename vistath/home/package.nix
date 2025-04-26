@@ -17,9 +17,6 @@
     v2raya
     wego
 
-    # So far, Qt 6 packages require qtwayland explicitly in path.
-    qt6Packages.qtwayland
-
     # Desktop Utilities
     alacritty
     kdePackages.ark
@@ -35,14 +32,7 @@
     krita
     obsidian
     rnote
-    (errands.overrideAttrs {
-      src = fetchFromGitHub {
-        owner = "mrvladus";
-        repo = "Errands";
-        tag = "46.2.8";
-        hash = "sha256-Gs3/DPMsoPTxH+fR7H3gPJr8ITrQDPlmw236vDnmBaA=";
-      };
-    })
+    errands
     kana
     # Media
     foliate

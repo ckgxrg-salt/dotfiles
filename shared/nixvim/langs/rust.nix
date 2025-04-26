@@ -1,10 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.nixvim.plugins = {
     # Working with Rust
     rustaceanvim = {
       enable = true;
-      rustAnalyzerPackage = pkgs.rust-analyzer;
       settings = {
         dap.autoload_configurations = false;
         server = {

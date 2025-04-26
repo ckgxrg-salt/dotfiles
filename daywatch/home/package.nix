@@ -1,4 +1,4 @@
-{ pkgs, ckgs,... }:
+{ pkgs,... }:
 {
   # Home-manager packages
   home.packages = with pkgs; [
@@ -15,15 +15,10 @@
     psmisc
     ripgrep
     v2raya
-    w3m
-
-    # So far, Qt 6 packages require qtwayland explicitly in path.
-    qt6Packages.qtwayland
 
     # Desktop Utilities
     alacritty
     kdePackages.ark
-    bottles
     celluloid
     impression
     kdePackages.okular
@@ -37,14 +32,7 @@
     libreoffice
     obsidian
     rnote
-    (errands.overrideAttrs {
-      src = fetchFromGitHub {
-        owner = "mrvladus";
-        repo = "Errands";
-        tag = "46.2.8";
-        hash = "sha256-Gs3/DPMsoPTxH+fR7H3gPJr8ITrQDPlmw236vDnmBaA=";
-      };
-    })
+    errands
     pomodoro-gtk
     # Media
     bilibili
@@ -55,8 +43,7 @@
     moonlight-qt
     prismlauncher
     # Communication
-    kdePackages.neochat
-    ckgs.commet-chat
+    nheko
     localsend
     # Web
     newsflash

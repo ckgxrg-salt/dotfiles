@@ -6,11 +6,11 @@
   ];
   programs.nixvim.plugins = {
     # Working with Java
-    nvim-jdtls = {
+    jdtls = {
       enable = true;
-      rootDir.__raw = "vim.fs.root(0, {\".git\", \"mvnw\", \"gradlew\"})";
-      cmd = [ "Surprisingly, you cannot use Lua code here, though this option is mandatory. " ];
-      extraOptions.cmd = [
+      settings = {
+        root_dir.__raw = "require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})";
+      cmd = [
         "${lib.getExe pkgs.jdt-language-server}"
         "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
         "-configuration"
@@ -18,7 +18,7 @@
         "-data"
         { __raw = "vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:h')"; }
       ];
-      settings = {
+      init_options = {
         java = {
           codeGeneration = {
             useBlocks = true;
@@ -28,6 +28,7 @@
             };
           };
         };
+      };
       };
     };
   };
