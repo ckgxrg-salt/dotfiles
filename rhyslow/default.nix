@@ -3,20 +3,19 @@
 {
   imports = [
     ./boot.nix
+    ./disko.nix
+    ./greetd.nix
     ./hardware.nix
     ./common.nix
     ./nix.nix
-    ./sddm.nix
-    ../shared/security.nix
 
-    ../shared/gaming/alvr.nix
+    ../shared/security.nix
     ../shared/gaming/steam.nix
-    ../shared/gaming/wivrn.nix
     ../shared/gaming/sunshine.nix
   ];
 
   # Hostname
-  networking.hostName = "Radilopa";
+  networking.hostName = "Rhyslow";
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "25.05";
 }

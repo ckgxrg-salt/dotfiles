@@ -1,12 +1,9 @@
 {
   pkgs,
-  config,
-  lib,
   ...
 }:
 # Bootstrap process
 {
-  imports = [ ./fstab.nix ];
   boot = {
     #========== Boot ==========#
     # Config systemd-boot
@@ -15,7 +12,7 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot.enable = true;
     };
 
     #========== Initrd ==========#
@@ -31,8 +28,7 @@
         "sd_mod"
       ];
       kernelModules = [
-        "kvm-amd"
-        "amdgpu"
+        "kvm-intel"
       ];
     };
 
@@ -40,23 +36,18 @@
     plymouth = {
       enable = true;
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "spin";
+      theme = "connect";
     };
 
     #========== Kernel ==========#
     # Use Xanmod kernel with Nvidia modules
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    extraModulePackages = with config.boot.kernelPackages; [ lenovo-legion-module ];
-    supportedFilesystems = [
-      "ntfs"
-    ];
 
     # Kernel params
     kernelParams = [
       "quiet"
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
       "plymouth.nolog"
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
 
     # Kernel extra config

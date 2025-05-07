@@ -5,9 +5,9 @@
   # Greet messages
   environment.etc = {
     "issue".text = ''
-      ========================
-      <-- Radilopa Farland -->
-      ========================
+      ===============
+      <-- Rhyslow -->
+      ===============
     '';
   };
 
@@ -32,7 +32,7 @@
   # Polkit will not permit operations without this
   environment.shells = with pkgs; [ nushell ];
 
-  secrix.hostIdentityFile = "/home/ckgxrg/.ssh/id_rsa";
+  secrix.hostIdentityFile = "/home/ckgxrg/.ssh/id_ed25519";
 
   #========== Appearance ==========#
   # Fonts
@@ -112,7 +112,7 @@
 
   gaming.gamemode = {
     enable = true;
-    overclock = true;
+    overclock = false;
     nvidia = true;
   };
 

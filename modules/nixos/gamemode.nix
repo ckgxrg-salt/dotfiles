@@ -11,9 +11,9 @@ let
 in
 {
   options.gaming.gamemode = {
-    enable = mkEnableOption "Enable GameMode and Gamescope.";
-    overclock = mkEnableOption "Let GameMode apply radical GPU policies.";
-    nvidia = mkEnableOption "Indicate Gamescope to use NVIDIA.";
+    enable = mkEnableOption "Enable GameMode and Gamescope";
+    overclock = mkEnableOption "Let GameMode apply radical GPU policies";
+    nvidia = mkEnableOption "Indicate Gamescope to use NVIDIA";
   };
 
   config = mkIf cfg.enable {

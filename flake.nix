@@ -115,26 +115,27 @@
           ];
         };
 
-        # Radilopa
-        Radilopa = nixpkgs.lib.nixosSystem {
+        # Rhyslow
+        Rhyslow = nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
             inherit ckgs;
           };
-          inherit system;
           modules = [
-            ./radilopa
+            ./rhyslow
             ./modules/nixos
             lix-module.nixosModules.default
             nur.modules.nixos.default
             ckgprv.nixosModules.default
             secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ckgxrg.imports = [
-                ./radilopa/home
+                ./rhyslow/home
                 ./modules/home-manager
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private

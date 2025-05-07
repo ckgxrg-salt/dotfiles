@@ -3,7 +3,6 @@
   # Home-manager packages for Radilopa
   home.packages = with pkgs; [
     # Terminal Utilities
-    asciiquarium
     bat
     cowsay
     dust
@@ -11,7 +10,6 @@
     fortune
     lazygit
     lolcat
-    maa-cli
     nvitop
     procs
     psmisc
@@ -21,8 +19,6 @@
     # Desktop Utilities
     alacritty
     kdePackages.ark
-    bottles
-    lenovo-legion
     kdePackages.okular
     pix
     seahorse
@@ -30,14 +26,12 @@
     # Applications
     # Productivity
     blockbench
-    libreoffice
-    kdePackages.kdenlive
     obsidian
-    vscodium
     # Gaming
     prismlauncher
     # Communication
     localsend
+    nheko
     # Web
     newsflash
     tor-browser
