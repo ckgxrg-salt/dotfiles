@@ -28,6 +28,7 @@
         Unit = {
           Description = "Reload Astal everyday";
           Requisite = [ "astal.service" ];
+          After = [ "astal.service" ];
         };
         Service = {
           Type = "oneshot";
