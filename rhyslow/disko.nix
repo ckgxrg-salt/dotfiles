@@ -29,11 +29,11 @@
                 type = "swap";
               };
             };
-            "NeoRadilopa" = {
+            "Rhyslow" = {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "neoradilopa";
+                pool = "rhyslow";
               };
             };
           };

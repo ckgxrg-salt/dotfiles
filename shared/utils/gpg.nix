@@ -6,6 +6,6 @@
     enable = true;
     enableSshSupport = true;
     enableZshIntegration = true;
-    pinentryPackage = pkgs.pinentry-rofi;
+    pinentry.package = pkgs.pinentry-rofi;
   };
 }

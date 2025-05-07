@@ -15,7 +15,10 @@
   ];
 
   # Hostname
-  networking.hostName = "Rhyslow";
+  networking = {
+    hostName = "Rhyslow";
+    hostId = "aa2caad5";
+  };
 
   system.stateVersion = "25.05";
 }

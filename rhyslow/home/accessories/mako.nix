@@ -3,16 +3,17 @@
   # Mako the Notification Daemon
   services.mako = {
     enable = true;
-    anchor = "top-right";
-    borderRadius = 15;
-    defaultTimeout = 15000;
-    height = 150;
-    width = 450;
-    icons = true;
-    maxIconSize = 64;
-    maxVisible = 3;
-
-    iconPath = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
+    settings = {
+      anchor = "top-right";
+      borderRadius = 15;
+      defaultTimeout = 15000;
+      iconPath = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
+      maxIconSize = 64;
+      icons = true;
+      height = 150;
+      width = 450;
+      maxVisible = 3;
+    };
   };
 
   # Run as daemon

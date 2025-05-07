@@ -30,7 +30,7 @@
     };
 
     # Diagnostics
-    diagnostics = {
+    diagnostic.settings = {
       virtual_text = true;
       signs = true;
       update_in_insert = true;
