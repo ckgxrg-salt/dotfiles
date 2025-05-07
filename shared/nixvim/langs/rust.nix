@@ -10,7 +10,7 @@
           default_settings = {
             rust-analyzer = {
               check = {
-                command = "cargo clippy";
+                command = "clippy";
               };
               inlayHints = {
                 lifetimeElisionHints = {
