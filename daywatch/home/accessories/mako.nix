@@ -3,18 +3,20 @@
   # Mako vs Alien
   services.mako = {
     enable = true;
-    output = "DP-1";
-    anchor = "bottom-right";
-    borderRadius = 0;
-    backgroundColor = "#8fbcbb66";
-    borderColor = "#4c566a66";
-    defaultTimeout = 15000;
-    height = 150;
-    width = 450;
-    icons = true;
-    maxIconSize = 64;
-    maxVisible = 3;
-    iconPath = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
+    settings = {
+      output = "DP-1";
+      anchor = "bottom-right";
+      borderRadius = 0;
+      backgroundColor = "#8fbcbb66";
+      borderColor = "#4c566a66";
+      defaultTimeout = 15000;
+      height = 150;
+      width = 450;
+      icons = true;
+      maxIconSize = 64;
+      maxVisible = 3;
+      iconPath = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
+    };
   };
 
   # Run as daemon
