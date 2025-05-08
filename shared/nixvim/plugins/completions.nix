@@ -36,6 +36,8 @@
           { name = "luasnip"; }
           { name = "treesitter"; }
           { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
         ];
         # Cmp / Luasnip: Handle keymaps themselves
         mapping.__raw = ''
@@ -53,10 +55,8 @@
     cmp-nvim-lsp.enable = true;
     cmp-buffer.enable = true;
     cmp-path.enable = true;
-    cmp-cmdline.enable = true;
     cmp_luasnip.enable = true;
     cmp-treesitter.enable = true;
-    cmp-dap.enable = true;
     # Snippet Engine
     luasnip = {
       enable = true;

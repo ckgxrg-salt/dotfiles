@@ -10,10 +10,19 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
+    performance.combinePlugins = {
+      enable = true;
+      standalonePlugins = [
+        "nvim-treesitter"
+      ];
+    };
     withRuby = false;
     clipboard.providers.wl-copy.enable = true;
 
     # Options
+    globals = {
+      mapleader = " ";
+    };
     opts = {
       completeopt = [
         "menuone"
@@ -25,7 +34,8 @@
       foldlevelstart = 99;
       number = true;
       relativenumber = true;
-      tabstop = 4;
+      mouse = "a";
+      tabstop = 2;
       shiftwidth = 2;
     };
 
