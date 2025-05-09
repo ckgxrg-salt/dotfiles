@@ -10,6 +10,7 @@
     ./nix.nix
 
     ../shared/security.nix
+    ../shared/gaming/openrgb.nix
     ../shared/gaming/steam.nix
     ../shared/gaming/sunshine.nix
   ];

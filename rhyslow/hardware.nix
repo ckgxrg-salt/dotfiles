@@ -24,6 +24,12 @@
     enableRedistributableFirmware = true;
   };
 
+  # Power Button Behaviour
+  services.logind = {
+    powerKey = "ignore";
+    powerKeyLongPress = "poweroff";
+  };
+
   # Mouse & Touchpad
   services.libinput = {
     enable = true;
