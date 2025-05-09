@@ -37,6 +37,10 @@
       enable = true;
       plugins = lib.mkForce [ ];
     };
+    # Localsend
+    firewall = {
+      allowedTCPPorts = [ 53317 ];
+    };
   };
 
   # Zeroconf

@@ -25,9 +25,14 @@
               icon = "󰭎 ";
             }
             {
-              __unkeyed = "<Leader>Movement";
+              __unkeyed = "<Leader>m";
               group = "Movement";
               icon = " ";
+            }
+            {
+              __unkeyed = "<Leader>d";
+              group = "Debug";
+              icon = " ";
             }
           ];
         };
@@ -56,50 +61,5 @@
         action = "gk";
       }
     ];
-
-    extraConfigLua = ''
-      require('legendary').setup({
-        keymaps = {
-
-          -- DAP
-          { '<M-d>d', ':DapToggleBreakpoint<CR>', description = 'Add/Remove Breakpoint' },
-          {
-            '<M-d>ui',
-            function()
-              require('dapui').toggle()
-            end,
-            description = 'Toggle Debug View',
-          },
-
-          { '<C-S-w>', ':bdelete<CR>', description = 'Close Current Tab' },
-
-          -- Hop
-          {
-            'f',
-            function()
-              require'hop'.hint_char1({
-                direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-              })
-            end,
-            opts = { remap = true },
-            description = 'Hop After',
-          },
-          {
-            'F',
-            function()
-              require'hop'.hint_char1({
-                direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
-              })
-            end,
-            opts = { remap = true },
-            description = 'Hop Before',
-          },
-        },
-        extensions = {
-          -- Smart-splits
-          smart_splits = {},
-        },
-      })
-    '';
   };
 }

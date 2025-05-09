@@ -11,9 +11,11 @@
     enable = true;
     defaultEditor = true;
     performance.combinePlugins = {
-      enable = true;
+      # TODO:Currently does not work with smart-splits
+      enable = false;
       standalonePlugins = [
         "nvim-treesitter"
+        "everforest"
       ];
     };
     withRuby = false;

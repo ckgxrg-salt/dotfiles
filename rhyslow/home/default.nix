@@ -25,6 +25,7 @@
     ./apps/floorp.nix
     ./apps/rofi.nix
     ../../shared/apps/keepassxc.nix
+    ../../shared/apps/rclone.nix
     ../../shared/gaming/mangohud.nix
     ../../shared/utils/git.nix
     ../../shared/utils/gpg.nix
