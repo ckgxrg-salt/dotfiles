@@ -5,14 +5,13 @@
     enable = true;
     settings = {
       anchor = "top-right";
-      borderRadius = 15;
-      defaultTimeout = 15000;
-      iconPath = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
-      maxIconSize = 64;
+      border-radius = 15;
+      icon-path = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
+      max-icon-size = 64;
       icons = true;
       height = 150;
       width = 450;
-      maxVisible = 3;
+      max-visible = 3;
     };
   };
 

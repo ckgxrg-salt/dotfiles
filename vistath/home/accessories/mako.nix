@@ -5,16 +5,15 @@
     enable = true;
     output = "DP-1";
     anchor = "bottom-right";
-    borderRadius = 0;
-    backgroundColor = "#8fbcbb66";
-    borderColor = "#4c566a66";
-    defaultTimeout = 15000;
+    border-radius = 0;
+    background-color = "#8fbcbb66";
+    border-color = "#4c566a66";
     height = 150;
     width = 450;
     icons = true;
-    maxIconSize = 64;
-    maxVisible = 3;
-    iconPath = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
+    max-icon-size = 64;
+    max-visible = 3;
+    icon-path = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
   };
 
   # Run as daemon
