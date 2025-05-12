@@ -81,6 +81,7 @@
           disconnect
           firefox-color
           keepassxc-browser
+          surfingkeys
         ];
         settings = {
           # Dark background light text
@@ -90,6 +91,48 @@
             default_visited_color = "#9d7cd8";
             default_active_color = "#4fd6be";
             default_selection_color = "#c0caf5";
+          };
+
+          # Surfingkeys
+          "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}".settings = {
+            showAdvanced = true;
+            snippets = ''
+              // Disable unused functionalities
+              api.unmapAllExcept([
+                'af', 'E', 'R', 'T', 't', 'f',
+                '?', '<Alt-i>',
+                '0', 'e', 'U', 'd', 'P', 'gg', 'G', 'j', 'k', 'h', 'l', '$',
+                'yt', 'x', 'X', '<<', '>>',
+                'r', 'S', 'D',
+                'yy', 'yv',
+                'go', ':', '<Esc>', '<Tab>', '<Ctrl-n>', '<Ctrl-p>'
+              ]);
+              // Rebind some keys
+              api.map('F', 'af');
+              api.map('H', 'E');
+              api.map('L', 'R');
+              api.map('<Shift-Tab>', 'T');
+              api.map('O', 't');
+              // "Disable" omnibar
+              api.cmap('t', '!!!nope');
+              api.cmap('go', '!!!nope');
+              api.cmap('O', '!!!nope');
+              // rose-pine
+              settings.theme = `
+                .sk_theme {
+                  background: #232136;
+                  color: #44415a;
+                }
+                .sk_bubble {
+                  background: #2a273f;
+                  color: #44415a;
+                }
+                .sk_omnibar {
+                  background: #393552;
+                  color: #44415a;
+                }
+              `
+            '';
           };
         };
       };
