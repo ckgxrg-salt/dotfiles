@@ -80,6 +80,7 @@
         disable_splash_rendering = true;
         new_window_takes_over_fullscreen = 2;
         disable_hyprland_qtutils_check = true;
+        enable_anr_dialog = false;
       };
       xwayland = {
         force_zero_scaling = true;
