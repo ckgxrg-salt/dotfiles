@@ -27,6 +27,7 @@
             natural_scroll = true;
             tap-to-click = true;
             tap-and-drag = true;
+            disable_while_typing = false;
           };
           sensitivity = 0;
         };
@@ -71,21 +72,20 @@
 
         # Options
         general = {
-          gaps_in = 10;
-          gaps_out = 8;
+          gaps_in = 16;
+          gaps_out = 24;
           border_size = 8;
-          "col.active_border" = "0x42504799";
-          "col.inactive_border" = "0x56635f77";
+          "col.active_border" = "rgba(48584EDD)";
+          "col.inactive_border" = "rgba(3C4841BB)";
           layout = "scroller";
-          allow_tearing = false;
           resize_on_border = true;
           snap = {
             enabled = true;
           };
         };
         gestures = {
-          workspace_swipe = false;
-          workspace_swipe_touch = false;
+          workspace_swipe = true;
+          workspace_swipe_touch = true;
         };
         misc = {
           disable_hyprland_logo = true;
@@ -106,13 +106,18 @@
             passes = 3;
             brightness = 1.1;
             vibrancy = 0.1;
+            xray = true;
           };
           shadow = {
-            enabled = false;
+            enabled = true;
+            range = 16;
+            offset = "16 16";
+            color = "rgba(272E33CC)";
+            ignore_window = false;
           };
           rounding = 12;
-          active_opacity = 0.8;
-          inactive_opacity = 0.7;
+          active_opacity = 0.75;
+          inactive_opacity = 0.6;
         };
         animations = {
           enabled = true;
