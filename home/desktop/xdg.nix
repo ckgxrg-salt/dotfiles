@@ -59,35 +59,6 @@ in
         enable = true;
         createDirectories = true;
       };
-
-      # Override some desktop entries
-      desktopEntries = {
-        # Fix Electron IME
-        "obsidian" = {
-          name = "Obsidian";
-          icon = "obsidian";
-          comment = "Knowledge base";
-          exec = "obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
-          type = "Application";
-          mimeType = [ "x-scheme-handler/obsidian" ];
-          categories = [ "Office" ];
-          settings = {
-            Version = "1.4";
-          };
-        };
-        "io.github.msojocs.bilibili" = {
-          name = "Bilibili";
-          icon = "io.github.msojocs.bilibili";
-          comment = "Bilibili desktop client";
-          exec = "bilibili --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime";
-          type = "Application";
-          categories = [
-            "AudioVideo"
-            "Video"
-            "TV"
-          ];
-        };
-      };
     };
   };
 }

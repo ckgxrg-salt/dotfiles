@@ -11,6 +11,9 @@
     ./apps/keepassxc.nix
     ./apps/kodi.nix
     ./apps/mpd.nix
+    ./apps/opencomposite.nix
+    ./apps/packages.nix
+    ./apps/pim.nix
     ./apps/rofi.nix
     ./apps/yazi.nix
 
