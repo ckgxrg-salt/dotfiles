@@ -24,7 +24,7 @@ in
   config = {
     xdg.configFile = {
       "uwsm/env".text =
-        mkIf cfg.default ''
+        optionalString cfg.default ''
           export ELECTRON_OZONE_PLATFORM_HINT=auto
           export NIXOS_OZONE_WL=1
           export ELM_DISPLAY=wl
@@ -36,7 +36,7 @@ in
           export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
           export W3M_DIR=$XDG_DATA_HOME/w3m
         ''
-        + concatStringsSep "\n" cfg.extraVars;
+        + (concatStringsSep "\n" cfg.extraVars);
     };
   };
 }

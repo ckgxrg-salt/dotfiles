@@ -11,7 +11,7 @@ let
   tomlFormat = pkgs.formats.toml { };
 in
 {
-  options.ckgxrg.alacritty = {
+  options.terminal.alacritty = {
     enable = mkEnableOption "ckgxrg's Alacritty Configurations";
     theme = mkOption {
       type = types.package;
@@ -37,7 +37,7 @@ in
       );
     in
     mkIf cfg.enable {
-      home.packages = [ cfg.package ];
+      home.packages = [ pkgs.alacritty ];
 
       xdg.configFile."alacritty/alacritty.toml".text =
         "general.import = ["

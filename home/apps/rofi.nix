@@ -30,7 +30,7 @@ in
       theme = cfg.theme;
       extraConfig = {
         show-icons = true;
-        icon-theme = config.theme.icon.name;
+        #icon-theme = config.theme.icon.name;
         run-command = "uwsm app -- {cmd}";
       };
     };

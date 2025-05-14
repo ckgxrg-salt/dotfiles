@@ -6,7 +6,7 @@ in
 {
   options.apps.nix = mkEnableOption "Enable default Nix settings";
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg {
     # Nix configuration
     nix = {
       channel.enable = false;

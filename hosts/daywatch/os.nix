@@ -5,7 +5,7 @@
   system.stateVersion = "24.05";
   boot = {
     default = true;
-    kernel = pkgs.linuxPackages_zen;
+    kernelVariant = pkgs.linuxPackages_zen;
     bbr = true;
     laptop = true;
     noCoredump = true;
@@ -14,8 +14,8 @@
     default = true;
     secureBoot = true;
     laptop = true;
-    cpu = "intel";
-    gpu = "intel";
+    hostCPU = "intel";
+    hostGPU = "intel";
   };
   login = {
     greetd = {

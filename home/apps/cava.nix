@@ -11,7 +11,7 @@ in
 {
   options.apps.cava = mkEnableOption "Enable CAVA audio visualiser";
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg {
     # cava itself
     programs.cava = {
       enable = true;

@@ -12,15 +12,15 @@ in
   options.hardware = {
     default = mkEnableOption "Apply default hardware settings";
     secureBoot = mkEnableOption "Enable secureboot, must be set up manually";
-    cpu = mkOption {
-      type = types.oneOf [
+    hostCPU = mkOption {
+      type = types.enum [
         "intel"
         "amd"
       ];
       description = "The host's CPU manufacturer";
     };
-    gpu = mkOption {
-      type = types.oneOf [
+    hostGPU = mkOption {
+      type = types.enum [
         "intel"
         "amd"
         "nvidia"
@@ -44,8 +44,8 @@ in
 
     #========== Hardware ==========#
     hardware = {
-      cpu.intel.updateMicrocode = (cfg.cpu == "intel");
-      cpu.amd.updateMicrocode = (cfg.cpu == "amd");
+      cpu.intel.updateMicrocode = (cfg.hostCPU == "intel");
+      cpu.amd.updateMicrocode = (cfg.hostCPU == "amd");
       enableRedistributableFirmware = true;
     };
 
@@ -84,18 +84,6 @@ in
           powersave = true;
         };
         plugins = lib.mkForce [ ];
-      };
-
-      # WireGuard
-      wg-quick.interfaces = {
-        iof = {
-          configFile = "/etc/wireguard/iof.conf";
-          autostart = false;
-        };
-        fariof = {
-          configFile = "/etc/wireguard/fariof.conf";
-          autostart = false;
-        };
       };
 
       # Firewall
@@ -161,18 +149,30 @@ in
         [
           libva-vdpau-driver
         ]
-        ++ optional cfg.gpu == "intel" [
+        ++ optionals (cfg.hostGPU == "intel") [
           intel-media-driver
           intel-compute-runtime
+        ]
+        ++ optionals (cfg.hostGPU == "nvidia") [
+          nvidia-vaapi-driver
         ];
       extraPackages32 =
         with pkgs.driversi686Linux;
         [
           libva-vdpau-driver
         ]
-        ++ optional cfg.gpu == "intel" [
+        ++ optionals (cfg.hostGPU == "intel") [
           intel-media-driver
         ];
+    };
+
+    services.xserver = mkIf (cfg.hostGPU == "nvidia") {
+      videoDrivers = [ "nvidia" ];
+    };
+    hardware.nvidia = mkIf (cfg.hostGPU == "nvidia") {
+      package = config.boot.kernelPackages.nvidiaPackages.production;
+      open = true;
+      powerManagement.enable = true;
     };
   };
 }

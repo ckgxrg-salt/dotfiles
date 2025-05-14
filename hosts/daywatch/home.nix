@@ -6,6 +6,7 @@
 }:
 # Daywatch HM entrypoint
 {
+  home.stateVersion = "24.05";
   apps = {
     btop = {
       enable = true;

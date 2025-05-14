@@ -11,7 +11,7 @@ in
 {
   options.boot = {
     default = mkEnableOption "Apply default boot configurations";
-    kernel = mkOption {
+    kernelVariant = mkOption {
       type = types.raw;
       default = pkgs.linuxPackages;
       description = "Kernel variant to be used";
@@ -48,7 +48,7 @@ in
       };
 
       # Use linux-zen kernel
-      kernelPackages = cfg.kernel;
+      kernelPackages = cfg.kernelVariant;
 
       # Kernel params
       kernelParams =
@@ -58,7 +58,7 @@ in
           "plymouth.nolog"
           "udev.log_level=3"
         ]
-        ++ optionalAttrs cfg.laptop [
+        ++ optionals cfg.laptop [
           "pcie_aspm.policy=powersupersave"
         ];
 

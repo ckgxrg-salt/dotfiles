@@ -10,6 +10,7 @@ let
 in
 {
   options.apps.kodi = mkEnableOption "Enable Kodi home media centre";
+
   config = mkIf cfg {
     programs.kodi = {
       enable = true;

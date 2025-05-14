@@ -42,11 +42,11 @@ in
   config = {
     # Accessories packages
     home.packages =
-      optional cfg.astal [
+      optionals cfg.astal [
         ckgs.astal.daywatch
         ckgs.astal.daywatch-logout
       ]
-      ++ optional cfg.cliphist [
+      ++ optionals cfg.cliphist [
         pkgs.cliphist
         pkgs.wl-clipboard
       ];
@@ -73,46 +73,44 @@ in
         color = #ffffff
         subfolders = true
         monitors = eDP-1
-        swww_transition_type = wipe
-        swww_transition_angle = 30
       '';
     };
 
     systemd.user.services = {
       # Astal desktop shell
-      "astal" = mkIf cfg.astal mkDaemon {
+      "astal" = mkIf cfg.astal (mkDaemon {
         desc = "Astal Desktop Widgets";
         exec = "${ckgs.astal.daywatch}/bin/daywatch-astal";
         slice = "background-graphical.slice";
-      };
+      });
 
       # Cliphist the clipboard manager
-      "cliphist" = mkIf cfg.cliphist mkDaemon {
+      "cliphist" = mkIf cfg.cliphist (mkDaemon {
         desc = "Clipboard History Manager";
         exec = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
         slice = "background-graphical.slice";
-      };
+      });
 
       # NetworkManager Applet
-      "nm-applet" = mkIf cfg.nm-applet mkDaemon {
+      "nm-applet" = mkIf cfg.nm-applet (mkDaemon {
         desc = "NetworkManager Applet";
         exec = "${pkgs.networkmanagerapplet}/bin/nm-applet";
         slice = "app-graphical.slice";
-      };
+      });
 
       # Udiskie Automount
-      "udiskie" = mkIf cfg.udiskie mkDaemon {
+      "udiskie" = mkIf cfg.udiskie (mkDaemon {
         desc = "Udiskie Auto Mount Manager";
         exec = "${pkgs.udiskie}/bin/udiskie --event-hook \"canberra-gtk-play -i device-added\"";
         slice = "app-graphical.slice";
-      };
+      });
 
       # Polkit Authentication Agent
-      "polkit-gnome-agent" = mkIf cfg.polkit-gnome-agent mkDaemon {
+      "polkit-gnome-agent" = mkIf cfg.polkit-gnome-agent (mkDaemon {
         desc = "GNOME's Polkit Authentication Agent";
         exec = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         slice = "app-graphical.slice";
-      };
+      });
     };
   };
 }

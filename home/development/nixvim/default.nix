@@ -9,7 +9,7 @@ in
     enable = mkEnableOption "Enable default Neovim settings";
   };
 
-  imports = mkIf cfg.enable [
+  imports = [
     ./keymaps.nix
     ./plugins
     ./langs

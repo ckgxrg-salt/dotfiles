@@ -25,7 +25,7 @@ in
         icons = true;
         max-icon-size = 64;
         max-visible = 3;
-        icon-path = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
+        #icon-path = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
       };
     };
 
