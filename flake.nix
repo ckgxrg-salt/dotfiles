@@ -38,14 +38,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    daywatch-astal = {
-      url = "github:ckgxrg-salt/daywatch-astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    vistath-astal = {
-      url = "github:ckgxrg-salt/vistath-astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Home manager
     home-manager = {
@@ -65,8 +57,6 @@
       lix-module,
       nur,
       ckgpkgs,
-      daywatch-astal,
-      vistath-astal,
       disko,
       ckgprv,
       secrix,
@@ -109,7 +99,7 @@
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                inherit ckgs daywatch-astal;
+                inherit ckgs;
               };
             }
           ];
@@ -173,7 +163,7 @@
                 ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
-                inherit ckgs vistath-astal;
+                inherit ckgs;
               };
             }
           ];

@@ -113,7 +113,6 @@
             range = 16;
             offset = "16 16";
             color = "rgba(272E33CC)";
-            ignore_window = false;
           };
           rounding = 12;
           active_opacity = 0.75;
