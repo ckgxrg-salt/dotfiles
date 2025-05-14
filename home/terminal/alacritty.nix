@@ -5,20 +5,14 @@
   pkgs,
   ...
 }:
-# Custom alacritty module
 with lib;
 let
-  cfg = config.ckgxrg.alacritty;
+  cfg = config.terminal.alacritty;
   tomlFormat = pkgs.formats.toml { };
 in
 {
   options.ckgxrg.alacritty = {
     enable = mkEnableOption "ckgxrg's Alacritty Configurations";
-    package = mkOption {
-      type = types.package;
-      description = "The alacritty package to use";
-      default = pkgs.alacritty;
-    };
     theme = mkOption {
       type = types.package;
       description = "The theme package to use";
