@@ -12,6 +12,10 @@ in
   options.apps.cava = mkEnableOption "Enable CAVA audio visualiser";
 
   config = mkIf cfg {
+    stylix.targets.cava = {
+      rainbow.enable = true;
+    };
+
     # cava itself
     programs.cava = {
       enable = true;

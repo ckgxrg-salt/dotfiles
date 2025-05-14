@@ -24,17 +24,11 @@
           "float, class:(xdg-desktop-portal-gtk)"
 
           # cava
-          "noanim, class:(alacritty-cava)"
-          "nodim, class:(alacritty-cava)"
-          "noblur, class:(alacritty-cava)"
-          "noshadow, class:(alacritty-cava)"
-          "noborder, class:(alacritty-cava)"
-          "nofocus, class:(alacritty-cava)"
           "monitor DP-1, class:(alacritty-cava)"
           "opacity 0.6, class:(alacritty-cava)"
           "float, class:(alacritty-cava)"
           "size 1920 500, class:(alacritty-cava)"
-          "move 0 15, class:(alacritty-cava)"
+          "move 0 30, class:(alacritty-cava)"
 
           # Some special windows should ignore hyprscroller
           "plugin:scroller:columnwidth one, class:(floorp)"
