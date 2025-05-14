@@ -86,6 +86,7 @@
             ckgprv.nixosModules.default
             secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
+            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

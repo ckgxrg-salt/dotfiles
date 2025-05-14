@@ -8,10 +8,7 @@
 {
   home.stateVersion = "24.05";
   apps = {
-    btop = {
-      enable = true;
-      colorscheme = "everforest-dark-hard";
-    };
+    btop = true;
     cava = true;
     defaultPkgs = true;
     fcitx5 = {
@@ -24,6 +21,7 @@
     git = true;
     gpg = true;
     keepassxc = true;
+    mangohud = true;
     mpd = true;
     pim = true;
     rofi = {
@@ -59,6 +57,14 @@
   };
   development = {
     neovim.enable = true;
+    neovide = true;
+  };
+  stylix = {
+    iconTheme = {
+      enable = true;
+      package = pkgs.qogir-icon-theme;
+      dark = "Qogir-Manjaro-Dark";
+    };
   };
   theme = {
     wallpaper = {
@@ -104,8 +110,8 @@
           blur = true;
           decorations_theme_variant = "Dark";
           padding = {
-            x = 12;
-            y = 12;
+            x = 18;
+            y = 18;
           };
         };
         font = {

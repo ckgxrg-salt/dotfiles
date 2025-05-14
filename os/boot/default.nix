@@ -41,11 +41,7 @@ in
       consoleLogLevel = 0;
 
       # Boot splash
-      plymouth = {
-        enable = true;
-        themePackages = [ pkgs.adi1090x-plymouth-themes ];
-        theme = "hexa_retro";
-      };
+      plymouth.enable = true;
 
       # Use linux-zen kernel
       kernelPackages = cfg.kernelVariant;

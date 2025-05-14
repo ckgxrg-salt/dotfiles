@@ -1,8 +1,6 @@
-{ pkgs, ckgs, ... }:
-# These options are almost identical on each system
+{ pkgs, ... }:
+# Make a custom font overriding
 {
-  #========== Appearance ==========#
-  # Fonts
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [

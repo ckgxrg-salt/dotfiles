@@ -19,6 +19,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    stylix.targets.floorp = {
+      colorTheme.enable = true;
+      profileNames = [ "default" ];
+    };
+
     programs.floorp = {
       enable = true;
       languagePacks = [ "en-GB" ];
@@ -97,6 +102,15 @@ in
             surfingkeys
           ];
           settings = {
+            # Dark background light text
+            "jid1-QoFqdK4qzUfGWQ@jetpack".settings = with config.lib.stylix.colors; {
+              default_background_color = "#${base00}";
+              default_link_color = "#${base05}";
+              default_visited_color = "#${base06}";
+              default_active_color = "#${base0A}";
+              default_selection_color = "#${base02}";
+            };
+
             # Surfingkeys
             "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}".settings = {
               showAdvanced = true;

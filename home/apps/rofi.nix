@@ -22,15 +22,10 @@ in
       enable = true;
       package = pkgs.rofi-wayland;
       cycle = true;
-      location = "top-right";
-      plugins = with pkgs; [
-        rofi-emoji-wayland
-      ];
       terminal = "${pkgs.alacritty}/bin/alacritty";
-      theme = cfg.theme;
+      theme = lib.mkForce cfg.theme;
       extraConfig = {
         show-icons = true;
-        #icon-theme = config.theme.icon.name;
         run-command = "uwsm app -- {cmd}";
       };
     };

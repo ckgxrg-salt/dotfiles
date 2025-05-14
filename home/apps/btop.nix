@@ -4,22 +4,13 @@ let
   cfg = config.apps.btop;
 in
 {
-  options = {
-    apps.btop = {
-      enable = mkEnableOption "Enable btop system monitor";
-      colorscheme = mkOption {
-        type = types.str;
-        description = "Colour scheme to be used";
-      };
-    };
-  };
+  options.apps.btop = mkEnableOption "Enable btop system monitor";
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg {
     programs.btop = {
       enable = true;
       settings = {
         vim_keys = true;
-        color_theme = cfg.colorscheme;
       };
     };
   };

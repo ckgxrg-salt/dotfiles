@@ -30,14 +30,8 @@ in
         };
         binds = {
           scroll_event_delay = 20;
-        };
+        }; # Options
 
-        # Initialisation
-        exec-once = [
-          "canberra-gtk-play -i desktop-login"
-        ];
-
-        # Options
         general = {
           resize_on_border = true;
           snap = {

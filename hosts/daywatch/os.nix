@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ckgs,
+  lib,
+  ...
+}:
 # Daywatch OS entrypoint
 {
   networking.hostName = "Daywatch";
@@ -9,6 +15,10 @@
     bbr = true;
     laptop = true;
     noCoredump = true;
+    plymouth = {
+      themePackages = [ pkgs.adi1090x-plymouth-themes ];
+      theme = lib.mkForce "hexa_retro";
+    };
   };
   hardware = {
     default = true;
@@ -39,6 +49,39 @@
     gamemode.enable = true;
     nix = true;
     steam = true;
+  };
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    image = ./abandoned_buildings_2.png;
+    imageScalingMode = "fill";
+    polarity = "dark";
+    cursor = {
+      package = ckgs.googledot-cursor;
+      name = "GoogleDot-Black";
+      size = 24;
+    };
+    fonts = {
+      sizes = {
+        applications = 18;
+        desktop = 18;
+        popups = 12;
+        terminal = 18;
+      };
+      sansSerif = {
+        package = ckgs.maple-ui;
+        name = "Maple UI";
+      };
+      serif = config.stylix.fonts.sansSerif;
+      monospace = {
+        package = pkgs.maple-mono.NF;
+        name = "Maple Mono NF";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
   };
   theme.sound.enable = true;
 

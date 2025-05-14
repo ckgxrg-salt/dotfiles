@@ -16,6 +16,9 @@ in
   ];
 
   config = mkIf cfg.enable {
+    stylix.targets.nixvim = {
+      plugin = "base16-nvim";
+    };
     programs.nixvim = {
       enable = true;
       defaultEditor = true;

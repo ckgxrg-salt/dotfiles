@@ -18,14 +18,11 @@ in
         output = "DP-1";
         anchor = "bottom-right";
         border-radius = 0;
-        background-color = "#8fbcbb66";
-        border-color = "#4c566a66";
         height = 150;
         width = 450;
         icons = true;
         max-icon-size = 64;
         max-visible = 3;
-        #icon-path = "${config.home.profileDirectory}/share/icons/${config.theme.icon.name}";
       };
     };
 

@@ -10,6 +10,7 @@
     ./apps/gpg.nix
     ./apps/keepassxc.nix
     ./apps/kodi.nix
+    ./apps/mangohud.nix
     ./apps/mpd.nix
     ./apps/opencomposite.nix
     ./apps/packages.nix
@@ -18,6 +19,7 @@
     ./apps/yazi.nix
 
     ./development/nixvim
+    ./development/neovide.nix
 
     ./daemons/daemons.nix
     ./daemons/gammastep.nix

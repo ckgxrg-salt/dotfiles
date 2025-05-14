@@ -54,11 +54,6 @@ in
     programs.regreet = {
       enable = true;
       settings = {
-        background = {
-          # Manually copy the image to this path
-          path = "/etc/regreet/background-img";
-          fit = "Fill";
-        };
         appearance = {
           greeting_msg = cfg.greetMessage;
         };

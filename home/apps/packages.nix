@@ -15,12 +15,15 @@ in
     home.packages = with pkgs; [
       # Terminal Utilities
       bat
+      brightnessctl
       cowsay
       dust
       fastfetch
       fortune
+      grimblast
       lazygit
       lolcat
+      playerctl
       procs
       psmisc
       ripgrep
