@@ -16,6 +16,7 @@ in
       description = "Rofi theme to be used";
     };
   };
+
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;

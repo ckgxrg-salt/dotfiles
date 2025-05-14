@@ -10,6 +10,7 @@ let
 in
 {
   options.apps.mpd = mkEnableOption "Enable the Music Player Daemon";
+
   config = mkIf cfg {
     # MPD
     services.mpd = {

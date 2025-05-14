@@ -1,32 +1,27 @@
 {
+  config,
   pkgs,
   ckgs,
   lib,
   ...
 }:
+with lib;
+let
+  cfg = config.login.greetd;
+in
 {
+  options.login.greetd = {
+    enable = mkEnableOption "Enable greetd login manager";
+    greetMessage = mkOption {
+      type = types.str;
+      description = "Greet message displayed by the greeter";
+    };
+  };
   # greetd Session Manager
   services.greetd =
-    let # Cage cannot handle multi-screen circumstance...
+    let
       hyprConfig = pkgs.writeText "regreet-hyprland" ''
-        monitor=eDP-1,preferred,auto,1
-        monitor=DP-1,disabled
-        device {
-          name = elan9008:00-04f3:2d55
-          output = eDP-1
-        }
-        device {
-          name = elan9009:00-04f3:2c1b
-          enabled = false
-        }
-        device {
-          name = elan9008:00-04f3:2d55-stylus
-          output = eDP-1
-        }
-        device {
-          name = elan9009:00-04f3:2c1b-stylus
-          enabled = false
-        }
+        monitor=,preferred,auto,1
         misc {
           disable_hyprland_logo = true
           disable_hyprland_qtutils_check = true
@@ -85,7 +80,7 @@
         fit = "Fill";
       };
       appearance = {
-        greeting_msg = "<-- The Daywatch Site -->";
+        greeting_msg = cfg.greetMessage;
       };
       commands = {
         reboot = [

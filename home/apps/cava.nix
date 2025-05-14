@@ -9,9 +9,7 @@ let
   cfg = config.apps.cava;
 in
 {
-  options.apps.cava = {
-    enable = mkEnableOption "Enable CAVA audio visualiser";
-  };
+  options.apps.cava = mkEnableOption "Enable CAVA audio visualiser";
 
   config = mkIf cfg.enable {
     # cava itself

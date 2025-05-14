@@ -1,18 +1,24 @@
 { ... }:
-# Entrypoint
+# Entrypoint for all os modules
 {
   imports = [
-    ./boot.nix
-    ./hardware.nix
-    ./common.nix
-    ./greetd.nix
-    ./nix.nix
-    ../shared/security.nix
-    ../shared/gaming/steam.nix
+    ./boot
+
+    ./login/users.nix
+    ./login/greetd.nix
+
+    ./hardware
+
+    ./apps/gamemode.nix
+    ./apps/nix.nix
+    ./apps/openrgb.nix
+    ./apps/steam.nix
+    ./apps/wivrn.nix
+
+    ./misc/locale.nix
+    ./misc/misc.nix
+    ./misc/security.nix
+
+    ./theme/sound-theme.nix
   ];
-
-  # Hostname
-  networking.hostName = "Daywatch";
-
-  system.stateVersion = "24.05";
 }

@@ -10,6 +10,7 @@ let
 in
 {
   options.apps.keepassxc = mkEnableOption "Enable KeepassXC password manager";
+
   config = mkIf cfg {
     home.packages = with pkgs; [
       keepassxc
