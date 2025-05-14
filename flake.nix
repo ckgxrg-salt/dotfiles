@@ -1,9 +1,7 @@
 {
   description = "ckgxrg's NixOS Configuration";
   inputs = {
-    # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Use Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/release-2.92.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,29 +15,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Private information
     ckgprv = {
       url = "git+ssh://git@github.com/ckgxrg-salt/private-dotfiles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Secrix secret tool
     secrix = {
       url = "github:Platonic-Systems/secrix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Lanzaboote Secureboot
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # NixVim
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +60,7 @@
       home-manager,
       lanzaboote,
       nixvim,
+      stylix,
       ...
     }:
     let
@@ -81,20 +79,21 @@
             inherit ckgs;
           };
           modules = [
-            ./daywatch
-            ./modules/nixos
+            ./hosts/daywatch/os.nix
+            ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
             ckgprv.nixosModules.default
             secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
+            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ckgxrg.imports = [
-                ./daywatch/home
-                ./modules/home-manager
+                ./hosts/daywatch/home.nix
+                ./home
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
               ];
@@ -120,6 +119,7 @@
             secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
+            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -152,6 +152,7 @@
             secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
+            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
