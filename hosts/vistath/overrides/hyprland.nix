@@ -58,7 +58,6 @@
             brightness = 1.5;
             vibrancy = 0.2;
             contrast = 1.2;
-            xray = true;
           };
           shadow = {
             enabled = true;

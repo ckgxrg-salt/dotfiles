@@ -97,23 +97,7 @@
   };
   terminal = {
     accessories = true;
-    alacritty = {
-      enable = true;
-      settings = {
-        window = {
-          opacity = 1.0;
-          blur = true;
-          decorations_theme_variant = "Dark";
-          padding = {
-            x = 18;
-            y = 18;
-          };
-        };
-        font = {
-          size = 16;
-        };
-      };
-    };
+    alacritty = true;
     bash = true;
     direnv = true;
     nushell = {
