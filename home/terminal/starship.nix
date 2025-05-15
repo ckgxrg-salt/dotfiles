@@ -14,38 +14,44 @@ in
       enableNushellIntegration = config.programs.nushell.enable;
       settings = {
         format = ''
-          [󱞡 ](bold green)[](#4F585E)[$shell$username($nix_shell)](bg:#3F5865)[](#3F5865)[----> ](bold blue)$git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $haskell)(''\n| $deno)
-          [󱞩 ](bold green)$directory[-> ](blue)
+          [󱞡 ](bold base0B)[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)[----> ](bold base02)$git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $cpp)(''\n| $haskell)(''\n| $deno)
+          [󱞩 ](bold base0B)$directory[-> ](base08)
         '';
         right_format = ''
-          [](#55544A)[(󱑀 $cmd_duration)](fg:bold yellow bg:#59464C)$status
+          [](base03)[(󱑀 $cmd_duration)](fg:bold base09 bg:base03)$status
         '';
         shell = {
           disabled = false;
-          bash_indicator = "󱆃 :";
+          bash_indicator = "#:";
           zsh_indicator = "Z:";
           nu_indicator = ">:";
           format = "[$indicator]($style)";
-          style = "fg:#D3C6AA bg:#4F585E";
+          style = "fg:white bg:base02";
         };
         cmd_duration = {
           show_notifications = true;
-          style = "fg:#DBBC7F bg:#59464C";
+          style = "fg:base09 bg:base03";
         };
         status = {
           disabled = false;
           format = "[$symbol $status]($style)";
-          style = "fg:bold yellow bg:#59464C";
+          style = "fg:bold base09 bg:base03";
           success_symbol = " ";
         };
         username = {
           show_always = true;
           format = "[$user]($style)";
-          style_user = "fg:#D699B6 bg:#3C4841";
+          style_user = "fg:magenta bg:base02";
+        };
+        nix_shell = {
+          format = "[( $symbol($name))]($style) ";
+          symbol = "󱄅 ";
+          style = "fg:cyan bg:base02";
+          heuristic = true;
         };
         git_branch = {
           format = "[$symbol$branch(:$remote_branch)]($style) ";
-          style = "green";
+          style = "bold yellow";
         };
         git_state = {
           rebase = "󰳖 ";
@@ -58,41 +64,37 @@ in
           style = "italic yellow";
         };
         gradle = {
-          format = "[](#384B55)[$symbol($version)]($style)[](#384B55)";
+          format = "[\\( ](blue)[$symbol($version)]($style)[ \\)](blue)";
           version_format = "\${raw}";
-          style = "fg:italic bright-blue bg:#384B55";
+          style = "fg:italic blue";
           symbol = " ";
         };
         java = {
-          format = "[](#514045)[$symbol($version)]($style)[](#514045)";
-          style = "fg:#E69875 bg:#514045";
+          format = "[{ ](orange)[$symbol($version)]($style)[ }](orange)";
+          style = "fg:orange";
           symbol = " ";
         };
-        kotlin = {
-          format = "[](#514045)[$symbol($version)]($style)[](#514045)";
-          style = "fg:italic purple bg:#514045";
-          symbol = "󱈙 ";
-        };
         rust = {
-          format = "[](#493B40)[$symbol($version)]($style)[](#493B40)";
-          style = "fg:bold red bg:#493B40";
+          format = "[](red)[$symbol($version)]($style)[](red)";
+          style = "fg:bold black bg:red";
           symbol = " ";
         };
+        cpp = {
+          disabled = false;
+          detect_files = [ "meson.build" ];
+          format = "[=](blue)[$symbol($version)]($style)[=](blue)";
+          style = "fg:blue";
+          symbol = " ";
+        };
         haskell = {
-          format = "[](#503040)[$symbol($version)]($style)[](#503040)";
-          style = "fg:#3B4252 bg:#503040";
+          format = "[](magenta)[$symbol($version)]($style)[](magenta)";
+          style = "fg:bold magenta";
           symbol = " ";
         };
         deno = {
-          format = "[󰝤](#5E81AC)[$symbol($version)]($style)[](#5E81AC)";
-          style = "fg:#DBBC7F bg:#5E81AC";
+          format = "[ ](blue)[$symbol($version)]($style)[ ](blue)";
+          style = "fg:yellow";
           symbol = "󰛦 ";
-        };
-        nix_shell = {
-          format = "[( $symbol($name))]($style) ";
-          symbol = "󱄅 ";
-          style = "fg:italic bright-blue bg:#3F5865";
-          heuristic = true;
         };
       };
     };
