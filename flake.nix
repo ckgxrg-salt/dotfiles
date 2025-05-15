@@ -144,8 +144,8 @@
             inherit ckgs;
           };
           modules = [
-            ./vistath
-            ./modules/nixos
+            ./hosts/vistath/os.nix
+            ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
             ckgprv.nixosModules.default
@@ -158,8 +158,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ckgxrg.imports = [
-                ./vistath/home
-                ./modules/home-manager
+                ./hosts/vistath/home.nix
+                ./home
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
               ];

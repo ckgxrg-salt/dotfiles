@@ -102,8 +102,8 @@
         };
 
         hyprgrass-bind = [
-          ", edge:d:u, exec, vistath-astal navigator"
-          ", edge:u:d, exec, vistath-astal quickcontrol"
+          ", edge:d:u, exec, astal navigator"
+          ", edge:u:d, exec, astal quickcontrol"
           ", swipe:3:u, exec, pkill -RTMIN wvkbd-vistath"
           ", edge:r:l, togglespecialworkspace, browser"
         ];

@@ -30,11 +30,11 @@
   login = {
     greetd = {
       enable = true;
-      greetMessage = "====> Daywatch <====";
+      greetMessage = ''====> Daywatch <===='';
     };
     users = {
       default = true;
-      issue = "====> Daywatch <====";
+      issue = ''====> Daywatch <===='';
     };
   };
   misc = {
@@ -69,8 +69,8 @@
         terminal = 18;
       };
       sansSerif = {
-        package = ckgs.maple-ui;
-        name = "Maple UI";
+        package = pkgs.jost;
+        name = "Jost*";
       };
       serif = config.stylix.fonts.sansSerif;
       monospace = {

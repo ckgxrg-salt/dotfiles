@@ -99,9 +99,6 @@
     accessories = true;
     alacritty = {
       enable = true;
-      theme = ckgs.alacritty-themes.override {
-        theme = "tokyo_night_storm";
-      };
       settings = {
         window = {
           opacity = 1.0;
@@ -121,9 +118,6 @@
     direnv = true;
     nushell = {
       enable = true;
-      theme = ckgs.nu-scripts.override {
-        theme = "everforest";
-      };
       settings = ''
         $env.LS_COLORS = (vivid generate tokyonight-storm | str trim)
       '';

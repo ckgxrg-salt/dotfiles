@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  ckgs,
   lib,
   ...
 }:
@@ -31,11 +30,11 @@
   login = {
     greetd = {
       enable = true;
-      greetMessage = "====> Vistath <====";
+      greetMessage = ''====> Vistath <===='';
     };
     users = {
       default = true;
-      issue = "====> Vistath <====";
+      issue = ''====> Vistath <===='';
     };
   };
   misc = {
@@ -44,8 +43,12 @@
       default = true;
       timezone = "Asia/Hong_Kong";
     };
-    security.default = true;
+    security = {
+      default = true;
+      waydroid = true;
+    };
   };
+  virtualisation.waydroid.enable = true;
   apps = {
     gamemode.enable = true;
     nix = true;
@@ -54,11 +57,11 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
-    image = ./abandoned_buildings_2.png;
+    image = ./rose_pine_circle.png;
     imageScalingMode = "fill";
     polarity = "dark";
     cursor = {
-      package = ckgs.graphite-cursors;
+      package = pkgs.graphite-cursors;
       name = "graphite-dark";
       size = 28;
     };
@@ -70,8 +73,8 @@
         terminal = 18;
       };
       sansSerif = {
-        package = ckgs.maple-ui;
-        name = "Maple UI";
+        package = pkgs.jost;
+        name = "Jost*";
       };
       serif = config.stylix.fonts.sansSerif;
       monospace = {

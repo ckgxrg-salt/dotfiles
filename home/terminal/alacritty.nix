@@ -1,5 +1,4 @@
 {
-  ckgs,
   config,
   lib,
   pkgs,
@@ -14,9 +13,9 @@ in
   options.terminal.alacritty = {
     enable = mkEnableOption "ckgxrg's Alacritty Configurations";
     theme = mkOption {
-      type = types.package;
+      type = types.nullOr types.package;
       description = "The theme package to use";
-      default = ckgs.alacritty-themes;
+      default = null;
     };
     settings = mkOption {
       type = tomlFormat.type;
@@ -42,7 +41,7 @@ in
       xdg.configFile."alacritty/alacritty.toml".text =
         "general.import = ["
         + "\"${generalConfig}\""
-        + lib.optionalString (cfg.theme != null) ", \"${cfg.theme}/theme.toml\""
+        + optionalString (cfg.theme != null) ", \"${cfg.theme}/theme.toml\""
         + "]";
     };
 }

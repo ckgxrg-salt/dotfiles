@@ -11,9 +11,9 @@ in
   options.terminal.nushell = {
     enable = mkEnableOption "ckgxrg's nushell configurations";
     theme = mkOption {
-      type = types.package;
+      type = types.nullOr types.package;
       description = "The theme package to use";
-      default = ckgs.nu-scripts;
+      default = null;
     };
     settings = mkOption {
       type = types.lines;
@@ -26,8 +26,7 @@ in
     programs.nushell = {
       enable = cfg.enable;
       configFile.text =
-        "source ${cfg.theme}/theme.nu\n"
-        + ''
+        ''
           $env.config = {
             show_banner: false
             error_style: "fancy"
@@ -50,7 +49,8 @@ in
           alias purge = nh clean all --ask
           alias dotfiles = cd ~/.config/nixos/system
         ''
-        + cfg.settings;
+        + cfg.settings
+        + optionalString (cfg.theme != null) "source ${cfg.theme}/theme.nu";
     };
   };
 }
