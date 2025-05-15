@@ -53,8 +53,6 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-    image = ./abandoned_buildings_2.png;
-    imageScalingMode = "fill";
     polarity = "dark";
     cursor = {
       package = ckgs.googledot-cursor;

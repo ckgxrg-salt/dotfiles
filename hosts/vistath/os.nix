@@ -57,8 +57,6 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
-    image = ./rose_pine_circle.png;
-    imageScalingMode = "fill";
     polarity = "dark";
     cursor = {
       package = pkgs.graphite-cursors;
