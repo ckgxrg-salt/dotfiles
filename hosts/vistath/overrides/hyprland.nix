@@ -50,10 +50,6 @@
           border_size = 0;
           layout = "master";
         };
-        gestures = {
-          workspace_swipe = true;
-          workspace_swipe_touch = true;
-        };
         decoration = {
           blur = {
             enabled = true;

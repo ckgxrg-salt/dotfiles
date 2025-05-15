@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   lib,
   ckgs,
   ...
@@ -32,7 +33,7 @@ in
         else if osConfig.networking.hostName == "Vistath" then
           [
             ckgs.astal.vistath
-            ckgs.astal.daywatch-logout
+            ckgs.astal.vistath-logout
           ]
         else
           abort "No astal implementation for this device";

@@ -53,10 +53,6 @@
           border_size = 8;
           layout = "scroller";
         };
-        gestures = {
-          workspace_swipe = true;
-          workspace_swipe_touch = true;
-        };
         decoration = {
           blur = {
             enabled = true;

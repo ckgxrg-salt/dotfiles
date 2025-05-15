@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 # Make a custom font overriding
 {
   fonts = {
