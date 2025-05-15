@@ -21,6 +21,7 @@
     ./development/nixvim
     ./development/neovide.nix
 
+    ./daemons/astal.nix
     ./daemons/daemons.nix
     ./daemons/gammastep.nix
     ./daemons/hypridle.nix

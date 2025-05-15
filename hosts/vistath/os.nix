@@ -5,10 +5,11 @@
   lib,
   ...
 }:
-# Daywatch OS entrypoint
+# Vistath OS entrypoint
 {
-  networking.hostName = "Daywatch";
-  system.stateVersion = "24.05";
+  networking.hostName = "Vistath";
+  networking.hostId = "7811019c";
+  system.stateVersion = "24.11";
   boot = {
     default = true;
     kernelVariant = pkgs.linuxPackages_zen;
@@ -17,7 +18,7 @@
     noCoredump = true;
     plymouth = {
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = lib.mkForce "hexa_retro";
+      theme = lib.mkForce "polaroid";
     };
   };
   hardware = {
@@ -30,18 +31,18 @@
   login = {
     greetd = {
       enable = true;
-      greetMessage = "====> Daywatch <====";
+      greetMessage = "====> Vistath <====";
     };
     users = {
       default = true;
-      issue = "====> Daywatch <====";
+      issue = "====> Vistath <====";
     };
   };
   misc = {
     default = true;
     locale = {
       default = true;
-      timezone = "Asia/Taipei";
+      timezone = "Asia/Hong_Kong";
     };
     security.default = true;
   };
@@ -52,14 +53,14 @@
   };
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
     image = ./abandoned_buildings_2.png;
     imageScalingMode = "fill";
     polarity = "dark";
     cursor = {
-      package = ckgs.googledot-cursor;
-      name = "GoogleDot-Black";
-      size = 24;
+      package = ckgs.graphite-cursors;
+      name = "graphite-dark";
+      size = 28;
     };
     fonts = {
       sizes = {
@@ -87,8 +88,7 @@
 
   imports = [
     ./overrides/boot.nix
+    ./overrides/disko.nix
     ./overrides/fonts.nix
-    ./overrides/fstab.nix
-    ./overrides/greetd.nix
   ];
 }

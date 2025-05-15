@@ -32,24 +32,19 @@ let
 in
 {
   options.daemons = {
-    astal = mkEnableOption "Enable Astal desktop widgets";
     cliphist = mkEnableOption "Enable cliphist clipboard manager";
     nm-applet = mkEnableOption "Enable the networkmanager applet";
     udiskie = mkEnableOption "Enable udiskie device manager";
     polkit-gnome-agent = mkEnableOption "Enable the GNOME polkit agent";
+    wvkbd-vistath = mkEnableOption "Enable wvkbd virtual keyboard";
   };
 
   config = {
     # Accessories packages
-    home.packages =
-      optionals cfg.astal [
-        ckgs.astal.daywatch
-        ckgs.astal.daywatch-logout
-      ]
-      ++ optionals cfg.cliphist [
-        pkgs.cliphist
-        pkgs.wl-clipboard
-      ];
+    home.packages = optionals cfg.cliphist [
+      pkgs.cliphist
+      pkgs.wl-clipboard
+    ];
 
     xdg.configFile = mkIf cfg.udiskie {
       # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
@@ -62,33 +57,21 @@ in
           notify: true
           tray: auto
       '';
-
-      # Waypaper
-      "waypaper/config.ini".text = ''
-        [Settings]
-        folder = ${config.xdg.userDirs.pictures}/Wallpapers
-        fill = Fill
-        sort = name
-        backend = swww
-        color = #ffffff
-        subfolders = true
-        monitors = eDP-1
-      '';
     };
 
     systemd.user.services = {
-      # Astal desktop shell
-      "astal" = mkIf cfg.astal (mkDaemon {
-        desc = "Astal Desktop Widgets";
-        exec = "${ckgs.astal.daywatch}/bin/daywatch-astal";
-        slice = "background-graphical.slice";
-      });
-
       # Cliphist the clipboard manager
       "cliphist" = mkIf cfg.cliphist (mkDaemon {
         desc = "Clipboard History Manager";
         exec = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
         slice = "background-graphical.slice";
+      });
+
+      # Virtual keyboard
+      "wvkbd-vistath" = mkIf cfg.wvkbd-vistath (mkDaemon {
+        desc = "Virtual Keyboard";
+        exec = "${ckgs.wvkbd-vistath}/bin/wvkbd-vistath --hidden -L 500";
+        slice = "app-graphical.slice";
       });
 
       # NetworkManager Applet

@@ -4,9 +4,9 @@
   ckgs,
   ...
 }:
-# Daywatch HM entrypoint
+# Vistath HM entrypoint
 {
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
   home.username = "ckgxrg";
   home.homeDirectory = "/home/ckgxrg";
   home.preferXdgDirectories = true;
@@ -22,7 +22,6 @@
     git = true;
     gpg = true;
     keepassxc = true;
-    mangohud = true;
     mpd = true;
     pim = true;
     rofi = {
@@ -32,24 +31,27 @@
     yazi = true;
   };
   home.packages = with pkgs; [
-    impression
-    snapshot
-    blender
-    libreoffice
+    wego
+    krita
     rnote
-    pomodoro-gtk
-    bilibili
+    kana
+    foliate
+    komikku
+    wiliwili
     freetube
-    gimp
+    nheko
     jellyfin-media-player
     moonlight-qt
-    prismlauncher
   ];
   daemons = {
-    astal.enable = true;
+    astal = {
+      enable = true;
+      autoreload = true;
+    };
     cliphist = true;
     nm-applet = true;
     udiskie = true;
+    wvkbd-vistath = true;
     polkit-gnome-agent = true;
     gammastep = true;
     hypridle = true;
@@ -63,17 +65,12 @@
   stylix = {
     iconTheme = {
       enable = true;
-      package = pkgs.qogir-icon-theme;
-      dark = "Qogir-Manjaro-Dark";
+      package = pkgs.vimix-icon-theme;
+      dark = "Vimix-black-dark";
     };
   };
   theme = {
     wallpaper = {
-      lxwengd = {
-        enable = true;
-        package = ckgs.lxwengd;
-        assetsPath = "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";
-      };
       swww-daemon.enable = true;
       waypaper = {
         enable = true;
@@ -103,7 +100,7 @@
     alacritty = {
       enable = true;
       theme = ckgs.alacritty-themes.override {
-        theme = "everforest_dark";
+        theme = "tokyo_night_storm";
       };
       settings = {
         window = {
@@ -128,7 +125,7 @@
         theme = "everforest";
       };
       settings = ''
-        $env.LS_COLORS = (vivid generate catppuccin-mocha | str trim)
+        $env.LS_COLORS = (vivid generate tokyonight-storm | str trim)
       '';
     };
     starship = true;
