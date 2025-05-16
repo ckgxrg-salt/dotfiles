@@ -19,7 +19,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Fcitx5
+    stylix.targets.fcitx5.enable = true;
+
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";

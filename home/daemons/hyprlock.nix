@@ -8,6 +8,7 @@ in
 
   config = mkIf cfg {
     stylix.targets.hyprlock = {
+      enable = true;
       useWallpaper = false;
     };
 

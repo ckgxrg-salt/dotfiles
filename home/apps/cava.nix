@@ -13,6 +13,7 @@ in
 
   config = mkIf cfg {
     stylix.targets.cava = {
+      enable = true;
       rainbow.enable = true;
     };
 

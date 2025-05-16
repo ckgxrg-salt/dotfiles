@@ -11,6 +11,8 @@ in
   options.terminal.alacritty = mkEnableOption "ckgxrg's default Alacritty configurations";
 
   config = mkIf cfg {
+    stylix.targets.alacritty.enable = true;
+
     programs.alacritty = {
       enable = true;
       settings = {

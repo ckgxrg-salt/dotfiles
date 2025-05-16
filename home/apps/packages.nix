@@ -12,6 +12,11 @@ in
   options.apps.defaultPkgs = mkEnableOption "Install default packages";
 
   config = mkIf cfg {
+    stylix.targets = {
+      bat.enable = true;
+      lazygit.enable = true;
+    };
+
     home.packages = with pkgs; [
       # Terminal Utilities
       bat

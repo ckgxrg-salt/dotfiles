@@ -11,6 +11,8 @@ in
   options.desktop.hyprland = mkEnableOption "Enable default Hyprland settings";
 
   config = mkIf cfg {
+    stylix.targets.hyprland.enable = true;
+
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false;

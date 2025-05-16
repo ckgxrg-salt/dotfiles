@@ -19,6 +19,7 @@
     ./misc/misc.nix
     ./misc/security.nix
 
+    ./theme/stylix.nix
     ./theme/sound-theme.nix
   ];
 }

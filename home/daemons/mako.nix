@@ -12,6 +12,8 @@ in
   options.daemons.mako = mkEnableOption "Enable mako notification daemon";
 
   config = mkIf cfg {
+    stylix.targets.mako.enable = true;
+
     services.mako = {
       enable = true;
       settings = {

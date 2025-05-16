@@ -51,6 +51,8 @@ in
       };
 
     # ReGreet greeter
+    stylix.targets.regreet.enable = true;
+
     programs.regreet = {
       enable = true;
       settings = {

@@ -23,6 +23,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    stylix.targets.nushell.enable = true;
+
     programs.nushell = {
       enable = cfg.enable;
       configFile.text =

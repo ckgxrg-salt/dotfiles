@@ -22,6 +22,8 @@ in
   };
 
   config = mkIf cfg.default {
+    stylix.targets.console.enable = true;
+
     boot = {
       # Config systemd-boot
       loader = {

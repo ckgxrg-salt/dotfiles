@@ -7,6 +7,8 @@ in
   options.terminal.starship = mkEnableOption "Enable default starship configuration";
 
   config = mkIf cfg {
+    stylix.targets.starship.enable = true;
+
     programs.starship = {
       enable = true;
       enableBashIntegration = config.programs.bash.enable;

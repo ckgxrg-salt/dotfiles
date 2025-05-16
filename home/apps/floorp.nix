@@ -20,6 +20,7 @@ in
 
   config = mkIf cfg.enable {
     stylix.targets.floorp = {
+      enable = true;
       colorTheme.enable = true;
       profileNames = [ "default" ];
     };

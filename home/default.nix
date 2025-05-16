@@ -40,6 +40,7 @@
     ./terminal/starship.nix
 
     ./theme/lxwengd.nix
+    ./theme/stylix.nix
     ./theme/sound-theme.nix
     ./theme/wallpaper.nix
   ];
