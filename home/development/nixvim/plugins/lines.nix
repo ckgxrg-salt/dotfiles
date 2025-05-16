@@ -104,15 +104,6 @@
           action = ":BufferLineMoveNext<CR>";
           options.desc = "Move Current Tab to the Right";
         }
-        {
-          mode = "n";
-          key = "<C-w>";
-          action = ":bdelete<CR>";
-          options = {
-            nowait = true;
-            desc = "Close Current Tab";
-          };
-        }
       ];
     };
   };
