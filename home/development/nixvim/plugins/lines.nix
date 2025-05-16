@@ -24,6 +24,9 @@
               separator_style = "slant";
               indicator.style = "underline";
               right_mouse_command = null;
+              buffer_close_icon = "󰅚 ";
+              close_icon = "󰢃 ";
+              numbers = "ordinal";
             };
           };
         };
@@ -53,13 +56,13 @@
         {
           mode = "n";
           key = "<C-h>";
-          action = ":BufferLineCyclePrev<CR>";
+          action = ":bprev<CR>";
           options.desc = "Switch to Previous Tab";
         }
         {
           mode = "n";
           key = "<C-l>";
-          action = ":BufferLineCycleNext<CR>";
+          action = ":bnext<CR>";
           options.desc = "Switch to Next Tab";
         }
         {

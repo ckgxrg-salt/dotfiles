@@ -63,6 +63,11 @@
         enableTelescope = true;
       };
 
+      # Practice
+      hardtime = {
+        enable = true;
+      };
+
       # Direnv Integration
       direnv = {
         enable = true;
