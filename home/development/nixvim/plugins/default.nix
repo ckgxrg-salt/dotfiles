@@ -66,6 +66,9 @@
       # Practice
       hardtime = {
         enable = true;
+        settings = {
+          disable_mouse = false;
+        };
       };
 
       # Direnv Integration
