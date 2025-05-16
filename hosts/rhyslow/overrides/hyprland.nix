@@ -83,7 +83,7 @@
           "SUPER, R, exec, uwsm app -- rofi -show drun"
           "SUPER, F, fullscreen,"
           "SUPER, Print, exec, uwsm app -- grimblast copy area"
-          ", XF86PowerOff, exec, uwsm app -- astal-logout"
+          ", XF86PowerOff, exec, uwsm app -- wlogout"
           "CTRL ALT, C, exec, ${scripts.clipboard}"
 
           # Volume and brightness controls

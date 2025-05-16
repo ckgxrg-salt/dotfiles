@@ -23,6 +23,7 @@
     default = true;
     hostCPU = "intel";
     hostGPU = "nvidia";
+    bt = true;
   };
   login = {
     greetd = {
@@ -45,23 +46,27 @@
   apps = {
     gamemode.enable = true;
     nix = true;
+    openrgb = {
+      enable = true;
+      loadDefault = true;
+    };
     steam = true;
   };
   stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/icy.yaml";
+    default = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atlas.yaml";
     polarity = "dark";
     cursor = {
       package = pkgs.lyra-cursors;
       name = "LyraB-cursors";
-      size = 24;
+      size = 48;
     };
     fonts = {
       sizes = {
-        applications = 18;
-        desktop = 18;
-        popups = 12;
-        terminal = 18;
+        applications = 24;
+        desktop = 24;
+        popups = 20;
+        terminal = 22;
       };
       sansSerif = {
         package = pkgs.jost;
@@ -84,6 +89,5 @@
     ./overrides/boot.nix
     ./overrides/disko.nix
     ./overrides/fonts.nix
-    ./overrides/greetd.nix
   ];
 }

@@ -58,9 +58,9 @@
   };
   development = {
     neovim.enable = true;
-    neovide = true;
   };
   stylix = {
+    default = true;
     iconTheme = {
       enable = true;
       package = pkgs.qogir-icon-theme;

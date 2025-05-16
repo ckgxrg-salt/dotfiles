@@ -24,6 +24,8 @@
     default = true;
     secureBoot = true;
     laptop = true;
+    wifi = true;
+    bt = true;
     hostCPU = "intel";
     hostGPU = "intel";
   };
@@ -51,7 +53,7 @@
     steam = true;
   };
   stylix = {
-    enable = true;
+    default = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     polarity = "dark";
     cursor = {
