@@ -108,7 +108,7 @@
         {
           mode = "n";
           key = "<Leader>du";
-          action = "require('dapui').toggle";
+          action = ":lua require('dapui').toggle<CR>";
           options.desc = "Toggle Debug View";
         }
       ];

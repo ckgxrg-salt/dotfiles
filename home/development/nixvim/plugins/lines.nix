@@ -52,25 +52,55 @@
       keymaps = [
         {
           mode = "n";
-          key = "<Leader>mh";
+          key = "<C-h>";
           action = ":BufferLineCyclePrev<CR>";
           options.desc = "Switch to Previous Tab";
         }
         {
           mode = "n";
-          key = "<Leader>ml";
+          key = "<C-l>";
           action = ":BufferLineCycleNext<CR>";
           options.desc = "Switch to Next Tab";
         }
         {
           mode = "n";
-          key = "<Leader>mH";
+          key = "<C-1>";
+          action = ":BufferLineGoToBuffer 1<CR>";
+          options.desc = "Switch to Tab 1";
+        }
+        {
+          mode = "n";
+          key = "<C-2>";
+          action = ":BufferLineGoToBuffer 2<CR>";
+          options.desc = "Switch to Tab 2";
+        }
+        {
+          mode = "n";
+          key = "<C-3>";
+          action = ":BufferLineGoToBuffer 3<CR>";
+          options.desc = "Switch to Tab 3";
+        }
+        {
+          mode = "n";
+          key = "<C-4>";
+          action = ":BufferLineGoToBuffer 4<CR>";
+          options.desc = "Switch to Tab 4";
+        }
+        {
+          mode = "n";
+          key = "<C-5>";
+          action = ":BufferLineGoToBuffer 5<CR>";
+          options.desc = "Switch to Tab 5";
+        }
+        {
+          mode = "n";
+          key = "<C-S-h>";
           action = ":BufferLineMovePrev<CR>";
           options.desc = "Move Current Tab to the Left";
         }
         {
           mode = "n";
-          key = "<Leader>mL";
+          key = "<C-S-l>";
           action = ":BufferLineMoveNext<CR>";
           options.desc = "Move Current Tab to the Right";
         }
