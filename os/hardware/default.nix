@@ -28,6 +28,8 @@ in
       description = "The host's GPU manufacturer";
     };
     laptop = mkEnableOption "Whether this is a laptop";
+    wifi = mkEnableOption "Whether to support wireless network";
+    bt = mkEnableOption "Whether to support Bluetooth";
   };
 
   config = mkIf cfg.default {
@@ -77,7 +79,7 @@ in
     # Internet
     networking = {
       # NetworkManager
-      networkmanager = {
+      networkmanager = mkIf cfg.wifi {
         enable = true;
         wifi = {
           backend = "iwd";
@@ -104,7 +106,7 @@ in
     };
 
     # Bluetooth
-    hardware.bluetooth = {
+    hardware.bluetooth = mkIf cfg.bt {
       enable = true;
       powerOnBoot = true;
     };
@@ -132,7 +134,7 @@ in
     };
 
     # Other power save features
-    services.thermald.enable = cfg.laptop;
+    services.thermald.enable = cfg.hostCPU == "intel";
     powerManagement = mkIf cfg.laptop {
       enable = true;
       powertop.enable = true;
