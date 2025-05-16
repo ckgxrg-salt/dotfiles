@@ -13,7 +13,6 @@ in
   options.apps.gamemode = {
     enable = mkEnableOption "Enable Gamemode and Gamescope";
     overclock = mkEnableOption "Let Gamemode apply radical GPU policies";
-    nvidia = mkEnableOption "Indicate Gamescope to use NVIDIA";
   };
 
   config = mkIf cfg.enable {
@@ -35,7 +34,7 @@ in
     programs.gamescope = {
       enable = true;
       capSysNice = true;
-      env = mkIf cfg.nvidia {
+      env = mkIf (config.hardware.hostGPU == "nvidia") {
         __NV_PRIME_RENDER_OFFLOAD = "1";
         __VK_LAYER_NV_optimus = "NVIDIA_only";
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";

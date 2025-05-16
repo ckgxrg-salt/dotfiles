@@ -111,8 +111,8 @@
             inherit ckgs;
           };
           modules = [
-            ./rhyslow
-            ./modules/nixos
+            ./hosts/rhyslow/os.nix
+            ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
             ckgprv.nixosModules.default
@@ -125,8 +125,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ckgxrg.imports = [
-                ./rhyslow/home
-                ./modules/home-manager
+                ./hosts/rhyslow/home.nix
+                ./home
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
               ];
