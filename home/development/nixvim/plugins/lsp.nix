@@ -53,7 +53,7 @@
         {
           mode = "n";
           key = "<Leader>la";
-          action = ":Lspsaga code_actions<CR>";
+          action = ":Lspsaga code_action<CR>";
           options.desc = "Display Actions for Selected";
         }
       ];

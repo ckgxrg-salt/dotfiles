@@ -18,6 +18,8 @@ in
       coredump.enable = !config.boot.noCoredump;
     };
 
+    fonts.enableDefaultPackages = false;
+
     # Placeholders
     programs.nano.enable = false;
     programs.command-not-found.enable = false;
