@@ -135,11 +135,14 @@ in
 
     # Other power save features
     services.thermald.enable = cfg.hostCPU == "intel";
-    powerManagement = mkIf cfg.laptop {
-      enable = true;
-      powertop.enable = true;
-      cpuFreqGovernor = "powersave";
-    };
+    powerManagement =
+      {
+        enable = true;
+      }
+      // optionalAttrs cfg.laptop {
+        powertop.enable = true;
+        cpuFreqGovernor = "powersave";
+      };
 
     #========== Graphics ==========#
     # OpenGL & Hardware Accleration

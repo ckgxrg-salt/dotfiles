@@ -27,8 +27,14 @@ in
       description = "Load default OpenRGB profile";
       requisite = [ "openrgb.service" ];
       after = [ "openrgb.service" ];
-      script = "${pkgs.openrgb}/bin/openrgb --profile default";
+      script = ''
+        ${pkgs.openrgb}/bin/openrgb --profile ${config.users.users.ckgxrg.home}/.config/OpenRGB/default.orp
+      '';
       wantedBy = [ "openrgb.service" ];
     };
+
+    powerManagement.resumeCommands = mkIf cfg.loadDefault ''
+      ${pkgs.openrgb}/bin/openrgb --profile ${config.users.users.ckgxrg.home}/.config/OpenRGB/default.orp
+    '';
   };
 }
