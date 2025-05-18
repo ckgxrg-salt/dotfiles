@@ -46,13 +46,12 @@ in
     systemd.user.services."swww-daemon" = mkIf cfg.swww-daemon.enable {
       Unit = {
         Description = "A Solution to your Wayland Wallpaper Woes";
-        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
       };
       Service = {
         Type = "exec";
         ExecStart = "${cfg.swww-daemon.package}/bin/swww-daemon";
         Restart = "on-failure";
-        Slice = "background-graphical.slice";
       };
       Install = {
         WantedBy = [ "graphical-session.target" ];

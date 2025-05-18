@@ -46,13 +46,12 @@ in
           "astal" = {
             Unit = {
               Description = "Astal Desktop Widgets";
-              After = [ "graphical-session.target" ];
+              PartOf = [ "graphical-session.target" ];
             };
             Service = {
               Type = "exec";
               ExecStart = "${variant}/bin/astal";
               Restart = "on-failure";
-              Slice = "background-graphical.slice";
             };
             Install = {
               WantedBy = [ "graphical-session.target" ];

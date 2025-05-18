@@ -32,6 +32,7 @@
   login = {
     greetd = {
       enable = true;
+      autoLogin = true;
       greetMessage = ''====> Vistath <===='';
     };
     users = {

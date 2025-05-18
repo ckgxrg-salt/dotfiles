@@ -41,7 +41,7 @@
           "animation slide bottom, astal-navigator"
         ];
         workspace = [
-          "special:browser, on-created-empty:uwsm app -- floorp"
+          "special:browser, on-created-empty:floorp"
         ];
 
         general = {
@@ -112,13 +112,13 @@
         ];
         bind = [
           # Basics
-          "SUPER, Q, exec, uwsm app -- alacritty"
+          "SUPER, Q, exec, alacritty"
           "SUPER, C, killactive,"
           "SUPER, V, togglefloating,"
-          "SUPER, R, exec, uwsm app -- rofi -show drun"
+          "SUPER, R, exec, rofi -show drun"
           "SUPER, F, fullscreen,"
-          "SUPER, Print, exec, uwsm app -- grimblast copy area"
-          ", XF86PowerOff, exec, uwsm app -- astal-logout"
+          "SUPER, Print, exec, grimblast copy area"
+          ", XF86PowerOff, exec, astal-logout"
           "CTRL ALT, C, exec, ${scripts.clipboard}"
 
           # Volume and brightness controls

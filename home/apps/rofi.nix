@@ -26,7 +26,6 @@ in
       theme = lib.mkForce cfg.theme;
       extraConfig = {
         show-icons = true;
-        run-command = "uwsm app -- {cmd}";
       };
     };
   };

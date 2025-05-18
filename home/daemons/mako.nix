@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib;
@@ -25,25 +24,6 @@ in
         icons = true;
         max-icon-size = 64;
         max-visible = 3;
-      };
-    };
-
-    # Run as daemon
-    systemd.user.services."mako" = {
-      Unit = {
-        Description = "Lightweight Wayland notification daemon";
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        Type = "dbus";
-        BusName = "org.freedesktop.Notifications";
-        ExecStart = "${pkgs.mako}/bin/mako";
-        ExecReload = "${pkgs.mako}/bin/makoctl reload";
-        Restart = "on-failure";
-        Slice = "background-graphical.slice";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
       };
     };
   };

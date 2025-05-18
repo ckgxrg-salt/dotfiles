@@ -43,7 +43,7 @@
           "animation fade, astal-logout-cover"
         ];
         workspace = [
-          "special:browser, on-created-empty:uwsm app -- floorp"
+          "special:browser, on-created-empty:floorp"
           "name:Dashboard, monitor:DP-1, persistent:true, default:true"
         ];
 
@@ -128,7 +128,7 @@
 
         hyprgrass-bind = [
           ", edge:r:l, togglespecialworkspace, browser"
-          ", swipe:4:ld, exec, uwsm app -- astal-logout"
+          ", swipe:4:ld, exec, astal-logout"
           ", swipe:3:l, scroller:movefocus, r"
           ", swipe:3:r, scroller:movefocus, l"
           ", swipe:3:u, scroller:movefocus, d"
@@ -142,14 +142,14 @@
         ];
         bind = [
           # Basics
-          "SUPER, Q, exec, uwsm app -- alacritty"
+          "SUPER, Q, exec, alacritty"
           "SUPER, C, killactive,"
           "SUPER, V, togglefloating,"
-          "SUPER, R, exec, uwsm app -- rofi -show drun"
+          "SUPER, R, exec, rofi -show drun"
           "SUPER, F, fullscreen,"
           "SUPER, Tab, scroller:toggleoverview,"
-          "SUPER, Print, exec, uwsm app -- grimblast copy area"
-          ", XF86PowerOff, exec, uwsm app -- astal-logout"
+          "SUPER, Print, exec, grimblast copy area"
+          ", XF86PowerOff, exec, astal-logout"
           "CTRL ALT, C, exec, ${scripts.clipboard}"
 
           # Volume and brightness controls

@@ -51,13 +51,12 @@ in
       {
         Unit = {
           Description = "Wrapper daemon of linux-wallpaperengine";
-          After = [ "graphical-session.target" ];
+          PartOf = [ "graphical-session.target" ];
         };
         Service = {
           Type = "exec";
           ExecStart = "${cfg.package}/bin/lxwengd " + (strings.concatStringsSep " " args);
           Restart = "on-failure";
-          Slice = "background-graphical.slice";
         };
         Install = {
           WantedBy = [ "graphical-session.target" ];

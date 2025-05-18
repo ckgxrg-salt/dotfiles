@@ -28,15 +28,5 @@ in
         };
       };
     };
-    # ...and because of UWSM we again need to overwrite the systemd service
-    systemd.user.services."gammastep" = {
-      Unit = {
-        PartOf = lib.mkForce [ ];
-        After = lib.mkForce [ "graphical-session.target" ];
-      };
-      Service = {
-        Slice = lib.mkForce "background-graphical.slice";
-      };
-    };
   };
 }

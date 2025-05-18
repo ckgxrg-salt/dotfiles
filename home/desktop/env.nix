@@ -17,26 +17,22 @@ in
             str
           ])
         );
-      apply = mapAttrsToList (k: v: ''export ${k}=${toString v}'');
     };
   };
 
   config = {
-    xdg.configFile = {
-      "uwsm/env".text =
-        optionalString cfg.default ''
-          export ELECTRON_OZONE_PLATFORM_HINT=auto
-          export NIXOS_OZONE_WL=1
-          export ELM_DISPLAY=wl
-          export SDL_VIDEODRIVER=wayland
+    home.sessionVariables =
+      optionalAttrs cfg.default {
+        ELECTRON_OZONE_PLATFORM_HINT = "auto";
+        NIXOS_OZONE_WL = 1;
+        ELM_DISPLAY = "wl";
+        SDL_VIDEODRIVER = "wayland";
 
-          export HISTFILE=$XDG_STATE_HOME/bash/history
-          export CARGO_HOME=$XDG_DATA_HOME/cargo
-          export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
-          export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
-          export W3M_DIR=$XDG_DATA_HOME/w3m
-        ''
-        + (concatStringsSep "\n" cfg.extraVars);
-    };
+        HISTFILE = "${config.xdg.stateHome}/bash/history";
+        CARGO_HOME = "${config.xdg.dataHome}/cargo";
+        GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+        W3M_DIR = "${config.xdg.dataHome}/w3m";
+      }
+      // cfg.extraVars;
   };
 }

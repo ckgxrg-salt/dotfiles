@@ -28,6 +28,7 @@
   login = {
     greetd = {
       enable = true;
+      autoLogin = true;
       greetMessage = ''====> Rhyslow <===='';
     };
     users = {

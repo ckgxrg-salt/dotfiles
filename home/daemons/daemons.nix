@@ -12,18 +12,16 @@ let
     {
       desc,
       exec,
-      slice,
     }:
     {
       Unit = {
         Description = desc;
-        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
       };
       Service = {
         Type = "exec";
         ExecStart = exec;
         Restart = "on-failure";
-        Slice = slice;
       };
       Install = {
         WantedBy = [ "graphical-session.target" ];
@@ -64,35 +62,30 @@ in
       "cliphist" = mkIf cfg.cliphist (mkDaemon {
         desc = "Clipboard History Manager";
         exec = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
-        slice = "background-graphical.slice";
       });
 
       # Virtual keyboard
       "wvkbd-vistath" = mkIf cfg.wvkbd-vistath (mkDaemon {
         desc = "Virtual Keyboard";
         exec = "${ckgs.wvkbd-vistath}/bin/wvkbd-vistath --hidden -L 500";
-        slice = "app-graphical.slice";
       });
 
       # NetworkManager Applet
       "nm-applet" = mkIf cfg.nm-applet (mkDaemon {
         desc = "NetworkManager Applet";
         exec = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-        slice = "app-graphical.slice";
       });
 
       # Udiskie Automount
       "udiskie" = mkIf cfg.udiskie (mkDaemon {
         desc = "Udiskie Auto Mount Manager";
         exec = "${pkgs.udiskie}/bin/udiskie --event-hook \"canberra-gtk-play -i device-added\"";
-        slice = "app-graphical.slice";
       });
 
       # Polkit Authentication Agent
       "polkit-gnome-agent" = mkIf cfg.polkit-gnome-agent (mkDaemon {
         desc = "GNOME's Polkit Authentication Agent";
         exec = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        slice = "app-graphical.slice";
       });
     };
   };

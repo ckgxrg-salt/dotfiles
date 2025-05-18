@@ -15,7 +15,11 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      systemd.enable = false;
+      systemd = {
+        enable = true;
+        enableXdgAutostart = true;
+        variables = [ "--all" ];
+      };
       xwayland.enable = true;
       settings = {
         # Hardware
@@ -32,7 +36,7 @@ in
         };
         binds = {
           scroll_event_delay = 20;
-        }; # Options
+        };
 
         general = {
           resize_on_border = true;

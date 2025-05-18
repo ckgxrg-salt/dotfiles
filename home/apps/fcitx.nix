@@ -57,19 +57,5 @@ in
         gtk-im-module = "fcitx";
       };
     };
-
-    # Override the service for UWSM
-    systemd.user.services."fcitx5-daemon" = {
-      Unit = {
-        Description = lib.mkForce "Fcitx5 Input Method";
-        PartOf = lib.mkForce [ ];
-        After = lib.mkForce [ "graphical-session.target" ];
-      };
-      Service = {
-        Type = "exec";
-        Restart = "on-failure";
-        Slice = "app-graphical.slice";
-      };
-    };
   };
 }
