@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib;
@@ -12,6 +13,8 @@ in
 
   config = mkIf cfg {
     stylix.targets.mako.enable = true;
+
+    home.packages = [ pkgs.libnotify ];
 
     services.mako = {
       enable = true;
