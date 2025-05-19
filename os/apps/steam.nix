@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  ckgs,
   ...
 }:
 with lib;
@@ -15,7 +16,7 @@ in
     # Steam and Gamescope Settings
     programs.steam = {
       enable = true;
-      fontPackages = with pkgs; [ maple-mono.NF-CN ];
+      fontPackages = [ ckgs.maple-ui ];
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       extest.enable = true;
