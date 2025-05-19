@@ -27,13 +27,13 @@ in
       packages =
         if osConfig.networking.hostName == "Daywatch" then
           [
-            ckgs.astal.daywatch
-            ckgs.astal.daywatch-logout
+            ckgs.astal.daywatch.main
+            ckgs.astal.daywatch.logout
           ]
         else if osConfig.networking.hostName == "Vistath" then
           [
-            ckgs.astal.vistath
-            ckgs.astal.vistath-logout
+            ckgs.astal.vistath.main
+            ckgs.astal.vistath.logout
           ]
         else
           abort "No astal implementation for this device";
@@ -50,7 +50,7 @@ in
             };
             Service = {
               Type = "exec";
-              ExecStart = "${variant}/bin/astal";
+              ExecStart = "${variant.main}/bin/astal";
               Restart = "on-failure";
             };
             Install = {
@@ -65,7 +65,7 @@ in
             };
             Service = {
               Type = "oneshot";
-              ExecStart = "${variant}/bin/astal reload";
+              ExecStart = "${variant.main}/bin/astal reload";
               Restart = "on-failure";
               RestartSec = "10s";
             };
