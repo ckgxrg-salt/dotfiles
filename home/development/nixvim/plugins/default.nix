@@ -5,7 +5,6 @@
     ./debug.nix
     ./lines.nix
     ./lsp.nix
-    ./syntax.nix
     ./ui.nix
   ];
   programs.nixvim = {
