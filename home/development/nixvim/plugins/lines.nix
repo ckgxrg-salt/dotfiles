@@ -56,13 +56,13 @@
         {
           mode = "n";
           key = "<C-h>";
-          action = ":bprev<CR>";
+          action = ":BufferLineCyclePrev<CR>";
           options.desc = "Switch to Previous Tab";
         }
         {
           mode = "n";
           key = "<C-l>";
-          action = ":bnext<CR>";
+          action = ":BufferLineCycleNext<CR>";
           options.desc = "Switch to Next Tab";
         }
         {
