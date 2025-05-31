@@ -83,6 +83,7 @@
           "SUPER, R, exec, rofi -show drun"
           "SUPER, F, fullscreen,"
           "SUPER, Print, exec, grimblast copy area"
+          "SUPER SHIFT, Print, exec, hyprpicker --autocopy --quiet"
           ", XF86PowerOff, exec, wlogout"
           "CTRL ALT, C, exec, ${scripts.clipboard}"
 

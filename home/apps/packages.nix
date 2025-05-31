@@ -26,6 +26,7 @@ in
       fastfetch
       fortune
       grimblast
+      hyprpicker
       lazygit
       lolcat
       playerctl
