@@ -20,7 +20,7 @@ let
       fi
     }
     notify_user() {
-      notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume : $(get_volume) %"
+      notify-send -t 5000 -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume : $(get_volume) %"
     }
     inc_volume() {
       wpctl set-volume @DEFAULT_SINK@ 0.05+ && notify_user
@@ -30,9 +30,9 @@ let
     }
     toggle_mute() {
       if [ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" == "" ]; then
-        wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i audio-volume-muted "Muted"
+        wpctl set-mute @DEFAULT_SINK@ 1 && notify-send -t 5000 -h string:x-canonical-private-synchronous:sys-notify -u low -i audio-volume-muted "Muted"
       elif [ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" == "[MUTED]" ]; then
-        wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Unmuted"
+        wpctl set-mute @DEFAULT_SINK@ 0 && notify-send -t 5000 -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Unmuted"
       fi
     }
     if [[ "$1" == "--get" ]]; then
@@ -70,7 +70,7 @@ let
       fi
     }
     notify_user() {
-      notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)%"
+      notify-send -t 5000 -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)%"
     }
     inc_backlight() {
       brightnessctl set 5%+ && get_icon && notify_user
