@@ -42,11 +42,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Disko
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:nixos/nixos-hardware";
   };
   outputs =
     {
@@ -62,6 +62,7 @@
       lanzaboote,
       nixvim,
       stylix,
+      nixos-hardware,
       ...
     }:
     let
@@ -73,7 +74,6 @@
     in
     {
       nixosConfigurations = {
-        # Daywatch
         Daywatch = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
@@ -105,7 +105,6 @@
           ];
         };
 
-        # Rhyslow
         Rhyslow = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
@@ -138,7 +137,6 @@
           ];
         };
 
-        # Vistath
         Vistath = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
@@ -160,6 +158,38 @@
               home-manager.useUserPackages = true;
               home-manager.users.ckgxrg.imports = [
                 ./hosts/vistath/home.nix
+                ./home
+                nixvim.homeManagerModules.nixvim
+                ckgprv.homeManagerModules.private
+              ];
+              home-manager.extraSpecialArgs = {
+                inherit ckgs;
+              };
+            }
+          ];
+        };
+
+        Asedia = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit ckgs;
+          };
+          modules = [
+            ./hosts/asedia/os.nix
+            ./os
+            lix-module.nixosModules.default
+            nur.modules.nixos.default
+            ckgprv.nixosModules.default
+            secrix.nixosModules.secrix
+            nixos-hardware.nixosModules.microsoft-surface-common
+            disko.nixosModules.disko
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ckgxrg.imports = [
+                ./hosts/asedia/home.nix
                 ./home
                 nixvim.homeManagerModules.nixvim
                 ckgprv.homeManagerModules.private
