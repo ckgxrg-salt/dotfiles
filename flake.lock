@@ -142,11 +142,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745051153,
-        "narHash": "sha256-v1qTLrJ5Z4H7Co4Q9Htfu9zelIeU//ZYi8io+u3W+B8=",
+        "lastModified": 1748795061,
+        "narHash": "sha256-HaMfq2Lr6yw9VgKrW1MOa/kYZbFkMVUHMtnIHFFOCC4=",
         "ref": "refs/heads/main",
-        "rev": "006e3c05e9754ab3cde83bb9bb27f57ee9b1e330",
-        "revCount": 30,
+        "rev": "617b7c3c9b5ed3e95547b0afc0929eafe67bf5fe",
+        "revCount": 32,
         "type": "git",
         "url": "ssh://git@github.com/ckgxrg-salt/private-dotfiles"
       },

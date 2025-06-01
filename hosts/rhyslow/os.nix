@@ -25,6 +25,18 @@
     hostGPU = "nvidia";
     bt = true;
   };
+  services.zfs = {
+    trim.enable = true;
+    autoScrub.enable = true;
+    autoSnapshot = {
+      enable = true;
+      weekly = 4;
+      monthly = 2;
+      hourly = 0;
+      frequent = 0;
+      daily = 7;
+    };
+  };
   login = {
     greetd = {
       enable = true;

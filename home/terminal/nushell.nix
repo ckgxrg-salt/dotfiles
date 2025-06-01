@@ -50,6 +50,7 @@ in
           alias deploy = nh os switch --ask
           alias purge = nh clean all --ask
           alias dotfiles = cd ~/.config/nixos/system
+          alias rm = rm -i
         ''
         + cfg.settings
         + optionalString (cfg.theme != null) "source ${cfg.theme}/theme.nu";

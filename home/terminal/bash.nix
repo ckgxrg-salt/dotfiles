@@ -19,6 +19,7 @@ in
         "deploy" = "nh os switch --ask";
         "purge" = "nh clean all --ask";
         "clear" = "clear && ciallo";
+        "rm" = "rm -i";
       };
     };
   };
