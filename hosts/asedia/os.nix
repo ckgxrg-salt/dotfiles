@@ -28,18 +28,10 @@
     bt = true;
     hostCPU = "intel";
     hostGPU = "intel";
+    zfs = true;
   };
-  services.zfs = {
-    trim.enable = true;
-    autoScrub.enable = true;
-    autoSnapshot = {
-      enable = true;
-      weekly = 4;
-      monthly = 2;
-      hourly = 0;
-      frequent = 0;
-      daily = 7;
-    };
+  services.sanoid.datasets = {
+    "asedia/home".useTemplate = [ "default" ];
   };
   login = {
     greetd = {

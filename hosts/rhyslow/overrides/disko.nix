@@ -70,6 +70,10 @@
             type = "zfs_fs";
             mountpoint = "/var";
           };
+          "game" = {
+            type = "zfs_fs";
+            mountpoint = "/data/game";
+          };
         };
       };
     };

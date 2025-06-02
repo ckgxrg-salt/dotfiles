@@ -8,6 +8,7 @@
     ./login/greetd.nix
 
     ./hardware
+    ./hardware/zfs.nix
 
     ./apps/gamemode.nix
     ./apps/nix.nix

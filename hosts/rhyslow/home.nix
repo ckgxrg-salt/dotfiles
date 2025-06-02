@@ -45,6 +45,7 @@
     hypridle = true;
     hyprlock = true;
     mako = true;
+    syncthing = true;
   };
   development = {
     neovim.enable = true;
