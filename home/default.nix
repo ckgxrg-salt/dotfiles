@@ -27,6 +27,7 @@
     ./daemons/hypridle.nix
     ./daemons/hyprlock.nix
     ./daemons/mako.nix
+    ./daemons/syncthing.nix
 
     ./desktop/env.nix
     ./desktop/hyprland.nix
