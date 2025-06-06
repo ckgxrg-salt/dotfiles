@@ -20,23 +20,30 @@ in
     ];
 
     # Auto refresh token every day
-    systemd.user = mkIf cfg.autoRefresh {
-      services."oauth2l-refresh" = {
+    systemd.user = {
+      services."oauth2l-refresh" = mkIf cfg.autoRefresh {
         Unit = {
           Description = "Refresh Gmail OAuth Tokens";
-          Requisite = [ "network-online.target" ];
-          After = [ "network-online.target" ];
+          After = [ "sops-nix.service" ];
         };
         Service = {
           Type = "oneshot";
-          ExecStart = "${pkgs.oauth2l}/bin/oauth2l fetch --cache ${config.home.homeDirectory}/.oauth2l --refresh --scope https://mail.google.com --credentials ${config.xdg.configHome}/sops-nix/secrets/gmail-oauth";
-          Restart = "never";
+          ExecStart = ''
+            ${pkgs.oauth2l}/bin/oauth2l fetch \
+                        --cache ${config.home.homeDirectory}/.oauth2l \
+                        --scope https://mail.google.com \
+                        --credentials ${config.xdg.configHome}/sops-nix/secrets/gmail-oauth \
+                        --refresh \
+                        --disableAutoOpenConsentPage \
+                        --consentPageInteractionTimeout=0 \
+                        --consentPageInteractionTimeoutUnits=seconds
+          '';
+          Restart = "no";
         };
       };
       timers."oauth2l-refresh" = mkIf cfg.autoRefresh {
         Unit = {
           Description = "Refresh Gmail OAuth Tokens everyday";
-          Requisite = [ "network-online.target" ];
         };
         Timer = {
           OnCalendar = "daily";
@@ -165,6 +172,10 @@ in
           withCyrusSaslXoauth2 = true;
         })
       ];
+    };
+    systemd.user.services = {
+      "imapnotify-General".Unit.After = [ "sops-nix.service" ];
+      "imapnotify-Gmail".Unit.After = [ "sops-nix.service" ];
     };
 
     programs.aerc = {

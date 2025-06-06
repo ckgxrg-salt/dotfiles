@@ -44,7 +44,5 @@ in
 
     # Replace the default perl script
     services.userborn.enable = true;
-
-    secrix.hostIdentityFile = "/home/ckgxrg/.ssh/id_ed25519";
   };
 }
