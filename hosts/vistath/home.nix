@@ -11,10 +11,25 @@
   home.homeDirectory = "/home/ckgxrg";
   home.preferXdgDirectories = true;
   programs.home-manager.enable = true;
+  sops = {
+    defaultSopsFile = ../../secrets/default.yaml;
+    age.keyFile = "/home/ckgxrg/.config/sops/age/keys.txt";
+    secrets = {
+      "gmail-oauth" = { };
+      "private-email" = { };
+      "dav-passwd" = { };
+    };
+  };
   apps = {
     btop = true;
+    calendar = true;
     cava = true;
+    contacts = true;
     defaultPkgs = true;
+    email = {
+      enable = true;
+      autoRefresh = true;
+    };
     fcitx5.enable = true;
     floorp = {
       enable = true;
@@ -23,7 +38,6 @@
     gpg = true;
     keepassxc = true;
     mpd = true;
-    pim = true;
     rofi = {
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-2/style-4.rasi";

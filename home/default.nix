@@ -3,7 +3,10 @@
 {
   imports = [
     ./apps/btop.nix
+    ./apps/calendar.nix
     ./apps/cava.nix
+    ./apps/contacts.nix
+    ./apps/email.nix
     ./apps/fcitx.nix
     ./apps/floorp.nix
     ./apps/git.nix
@@ -14,7 +17,6 @@
     ./apps/mpd.nix
     ./apps/opencomposite.nix
     ./apps/packages.nix
-    ./apps/pim.nix
     ./apps/rofi.nix
     ./apps/yazi.nix
 
