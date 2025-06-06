@@ -84,7 +84,7 @@ in
           };
         };
         settings = {
-          "browser.startup.homepage" = "about:blank";
+          "browser.startup.homepage" = "https://welkin.ckgxrg.io";
           "dom.security.https_only_mode" = true;
           "browser.newtabpage.pinned" = [
             {
