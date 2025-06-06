@@ -15,12 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ckgprv = {
-      url = "git+ssh://git@github.com/ckgxrg-salt/private-dotfiles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    secrix = {
-      url = "github:Platonic-Systems/secrix";
+    sops-nix = {
+      url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
@@ -50,14 +46,12 @@
   };
   outputs =
     {
-      self,
       nixpkgs,
       lix-module,
       nur,
       ckgpkgs,
       disko,
-      ckgprv,
-      secrix,
+      sops-nix,
       home-manager,
       lanzaboote,
       nixvim,
@@ -84,19 +78,19 @@
             ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
-            ckgprv.nixosModules.default
-            secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
+              ];
               home-manager.users.ckgxrg.imports = [
                 ./hosts/daywatch/home.nix
                 ./home
                 nixvim.homeManagerModules.nixvim
-                ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -115,8 +109,6 @@
             ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
-            ckgprv.nixosModules.default
-            secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             stylix.nixosModules.stylix
@@ -124,11 +116,13 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
+              ];
               home-manager.users.ckgxrg.imports = [
                 ./hosts/rhyslow/home.nix
                 ./home
                 nixvim.homeManagerModules.nixvim
-                ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -147,8 +141,6 @@
             ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
-            ckgprv.nixosModules.default
-            secrix.nixosModules.secrix
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             stylix.nixosModules.stylix
@@ -156,11 +148,13 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
+              ];
               home-manager.users.ckgxrg.imports = [
                 ./hosts/vistath/home.nix
                 ./home
                 nixvim.homeManagerModules.nixvim
-                ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -179,8 +173,6 @@
             ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
-            ckgprv.nixosModules.default
-            secrix.nixosModules.secrix
             nixos-hardware.nixosModules.microsoft-surface-common
             disko.nixosModules.disko
             stylix.nixosModules.stylix
@@ -188,11 +180,13 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
+              ];
               home-manager.users.ckgxrg.imports = [
                 ./hosts/asedia/home.nix
                 ./home
                 nixvim.homeManagerModules.nixvim
-                ckgprv.homeManagerModules.private
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -202,8 +196,6 @@
         };
       };
 
-      apps.x86_64-linux.secrix = secrix.secrix self;
-
       # A nix develop shell including formatter and linter to be used with Neovim
       devShells.${system}.default = pkgs.mkShellNoCC {
         name = "dotfiles";
@@ -211,6 +203,7 @@
         buildInputs = with pkgs; [
           nixfmt-rfc-style
           deadnix
+          sops
         ];
       };
 

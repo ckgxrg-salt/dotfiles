@@ -135,26 +135,6 @@
         "type": "github"
       }
     },
-    "ckgprv": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1748943638,
-        "narHash": "sha256-GdKiuPbePU1vExp+9AIkE4YFOaYJCDb4uSWF0HWmAqw=",
-        "ref": "refs/heads/main",
-        "rev": "32ca37cd79e18c345058a6501510546c7860c3c1",
-        "revCount": 33,
-        "type": "git",
-        "url": "ssh://git@github.com/ckgxrg-salt/private-dotfiles"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/ckgxrg-salt/private-dotfiles"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1741481578,
@@ -731,7 +711,6 @@
     "root": {
       "inputs": {
         "ckgpkgs": "ckgpkgs",
-        "ckgprv": "ckgprv",
         "disko": "disko",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
@@ -740,7 +719,7 @@
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "nur": "nur",
-        "secrix": "secrix",
+        "sops-nix": "sops-nix",
         "stylix": "stylix"
       }
     },
@@ -765,23 +744,23 @@
         "type": "github"
       }
     },
-    "secrix": {
+    "sops-nix": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1727012350,
-        "narHash": "sha256-sP4LXXvp9b6hYf/tQMxI+gURf1uXhqb6oytXCFRkw3A=",
-        "owner": "Platonic-Systems",
-        "repo": "secrix",
-        "rev": "0726d0382d679f983f97ede9da8aaf426e2b5003",
+        "lastModified": 1747603214,
+        "narHash": "sha256-lAblXm0VwifYCJ/ILPXJwlz0qNY07DDYdLD+9H+Wc8o=",
+        "owner": "mic92",
+        "repo": "sops-nix",
+        "rev": "8d215e1c981be3aa37e47aeabd4e61bb069548fd",
         "type": "github"
       },
       "original": {
-        "owner": "Platonic-Systems",
-        "repo": "secrix",
+        "owner": "mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },
