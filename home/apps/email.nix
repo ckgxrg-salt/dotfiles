@@ -21,26 +21,34 @@ in
 
     # Auto refresh token every day
     systemd.user = {
-      services."oauth2l-refresh" = mkIf cfg.autoRefresh {
-        Unit = {
-          Description = "Refresh Gmail OAuth Tokens";
-          After = [ "sops-nix.service" ];
-        };
-        Service = {
-          Type = "oneshot";
-          ExecStart = ''
-            ${pkgs.oauth2l}/bin/oauth2l fetch \
+      services."oauth2l-refresh" =
+        let
+          script = pkgs.writeShellScript "oauth2l-refresh" ''
+            TOKEN=$(${pkgs.oauth2l}/bin/oauth2l fetch \
                         --cache ${config.home.homeDirectory}/.oauth2l \
                         --scope https://mail.google.com \
                         --credentials ${config.xdg.configHome}/sops-nix/secrets/gmail-oauth \
                         --refresh \
                         --disableAutoOpenConsentPage \
                         --consentPageInteractionTimeout=0 \
-                        --consentPageInteractionTimeoutUnits=seconds
+                        --consentPageInteractionTimeoutUnits=seconds)
+            # Then validate
+            STATUS=$(${pkgs.oauth2l}/bin/oauth2l test --token $TOKEN)
+            exit $STATUS
           '';
-          Restart = "no";
+        in
+        mkIf cfg.autoRefresh {
+          Unit = {
+            Description = "Refresh Gmail OAuth Tokens";
+            After = [ "sops-nix.service" ];
+          };
+          Service = {
+            Type = "oneshot";
+            ExecStart = "${script}";
+            Restart = "on-failure";
+            RestartSec = 60;
+          };
         };
-      };
       timers."oauth2l-refresh" = mkIf cfg.autoRefresh {
         Unit = {
           Description = "Refresh Gmail OAuth Tokens everyday";
