@@ -12,8 +12,12 @@ in
   options.terminal.accessories = mkEnableOption "Enable default terminal accessories";
 
   config = mkIf cfg {
-    programs.thefuck = {
+    programs.pay-respects = {
       enable = true;
+      options = [
+        "--alias"
+        "f"
+      ];
       enableBashIntegration = config.programs.bash.enable;
       enableZshIntegration = config.programs.zsh.enable;
       enableNushellIntegration = config.programs.nushell.enable;
