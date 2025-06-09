@@ -45,7 +45,6 @@ in
       # Applications
       # Productivity
       obsidian
-      errands
       # Communication
       nheko
       localsend
