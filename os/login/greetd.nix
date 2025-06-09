@@ -52,11 +52,21 @@ in
       };
 
     # ReGreet greeter
-    stylix.targets.regreet.enable = true;
-
+    # Manually do stylix things to silence the warning
     programs.regreet = {
       enable = true;
       settings = {
+        GTK.application_prefer_dark_theme = config.stylix.polarity == "dark";
+        font = {
+          inherit (config.stylix.fonts.sansSerif) name package;
+        };
+        cursorTheme = lib.mkIf (config.stylix.cursor != null) {
+          inherit (config.stylix.cursor) name package;
+        };
+        theme = {
+          package = pkgs.adw-gtk3;
+          name = "adw-gtk3";
+        };
         appearance = {
           greeting_msg = cfg.greetMessage;
         };
