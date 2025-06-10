@@ -97,19 +97,6 @@ in
               outgoing = "msmtp --read-envelope-from --read-recipients";
             };
           };
-          imapnotify = {
-            enable = true;
-            boxes = [
-              "Inbox"
-              "Spam"
-            ];
-            onNotify = "${
-              (pkgs.isync.override {
-                withCyrusSaslXoauth2 = true;
-              })
-            }/bin/mbsync General";
-            onNotifyPost = "${pkgs.libnotify}/bin/notify-send -i mail-receive 'IMAP Notify' 'New Mail Arrived for ckgxrg@ckgxrg.io'";
-          };
         };
 
         "Gmail" = {
@@ -143,22 +130,6 @@ in
               postpone = "[Gmail]/Drafts";
             };
           };
-          imapnotify = {
-            enable = true;
-            boxes = [
-              "Inbox"
-              "[Gmail]/Spam"
-            ];
-            extraConfig = {
-              xoauth2 = true;
-            };
-            onNotify = "${
-              (pkgs.isync.override {
-                withCyrusSaslXoauth2 = true;
-              })
-            }/bin/mbsync Gmail";
-            onNotifyPost = "${pkgs.libnotify}/bin/notify-send -i mail-receive 'IMAP Notify' 'New Mail Arrived for ckgxrg@gmail.com'";
-          };
         };
       };
     };
@@ -171,20 +142,6 @@ in
     };
 
     programs.msmtp.enable = true;
-    services.imapnotify = {
-      enable = true;
-      path = with pkgs; [
-        coreutils
-        oauth2l
-        (isync.override {
-          withCyrusSaslXoauth2 = true;
-        })
-      ];
-    };
-    systemd.user.services = {
-      "imapnotify-General".Unit.After = [ "sops-nix.service" ];
-      "imapnotify-Gmail".Unit.After = [ "sops-nix.service" ];
-    };
 
     programs.aerc = {
       enable = true;
