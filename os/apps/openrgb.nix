@@ -30,6 +30,7 @@ in
       script = ''
         ${pkgs.openrgb}/bin/openrgb --profile ${config.users.users.ckgxrg.home}/.config/OpenRGB/default.orp
       '';
+      serviceConfig.WorkingDirectory = "/var/empty";
       wantedBy = [ "openrgb.service" ];
     };
 
