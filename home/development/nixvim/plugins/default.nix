@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
+    ./coding.nix
     ./completions.nix
+    ./components.nix
     ./debug.nix
-    ./lines.nix
-    ./lsp.nix
     ./ui.nix
   ];
   programs.nixvim = {

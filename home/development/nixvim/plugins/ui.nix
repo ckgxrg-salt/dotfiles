@@ -1,193 +1,111 @@
 { config, lib, ... }:
-# Plugins that enhances nvim's UI
+# Plugins related to the lines
 {
   config = lib.mkIf config.development.neovim.enable {
     programs.nixvim = {
       plugins = {
-        # File explorer
-        yazi = {
+        # Tabline
+        bufferline = {
           enable = true;
           settings = {
-            enable_mouse_support = true;
-            yazi_floating_window_border = "solid";
-            yazi_floating_window_winblend = 25;
-          };
-        };
-
-        # Startup page
-        alpha = {
-          enable = true;
-          theme = "dashboard";
-        };
-
-        # Splits
-        smart-splits = {
-          enable = true;
-          settings = {
-            at_edge = "stop";
-          };
-        };
-
-        # Terminal
-        toggleterm = {
-          enable = true;
-          settings = {
-            close_on_exit = true;
-            direction = "horizontal";
-            shell = "nu";
-          };
-        };
-
-        # Enhanced UI
-        nui = {
-          enable = true;
-        };
-        noice = {
-          enable = true;
-          settings = {
-            presets = {
-              command_palette = true;
-            };
-            messages = {
-              enabled = false;
-            };
-            lsp = {
-              hover = {
-                silent = true;
-              };
+            options = {
+              diagnostics = "nvim_lsp";
+              diagnostics_indicator.__raw = ''
+                function(count, level, diagnostics_dict, context)
+                  local s = " "
+                  for e, n in pairs(diagnostics_dict) do
+                    local sym = e == "error" and " "
+                      or (e == "warning" and " " or " ")
+                    s = s .. n .. sym
+                  end
+                  return s
+                end
+              '';
+              separator_style = "slant";
+              indicator.style = "underline";
+              right_mouse_command = null;
+              buffer_close_icon = "󰅚 ";
+              close_icon = "󰢃 ";
+              numbers = "ordinal";
             };
           };
         };
 
-        # Indent lines
-        indent-blankline = {
+        # Statusline
+        lualine = {
           enable = true;
           settings = {
-            exclude = {
-              buftypes = [
-                "terminal"
-                "nofile"
-                "quickfix"
-                "prompt"
-              ];
-              filetypes = [
-                "lspinfo"
-                "packer"
-                "checkhealth"
-                "help"
-                "man"
-                "gitcommit"
-                "TelescopePrompt"
-                "TelescopeResults"
-                "dashboard"
-                "''"
-              ];
-            };
-            scope = {
-              enabled = true;
-              injected_languages = true;
-              show_exact_scope = true;
-              show_start = true;
+            options = {
+              globalstatus = true;
             };
           };
+        };
+
+        # Cursorline
+        illuminate = {
+          enable = true;
+          underCursor = true;
+          providers = [
+            "lsp"
+            "treesitter"
+            "regex"
+          ];
         };
       };
       keymaps = [
         {
           mode = "n";
-          key = "<A-Tab>";
-          action = ":Yazi<CR>";
-          options.desc = "Browse Files";
+          key = "<C-h>";
+          action = ":BufferLineCyclePrev<CR>";
+          options.desc = "Switch to Previous Tab";
         }
         {
           mode = "n";
-          key = "<Leader>cu";
-          action = ":UndotreeToggle<CR>";
-          options.desc = "Toggle Undo Tree";
+          key = "<C-l>";
+          action = ":BufferLineCycleNext<CR>";
+          options.desc = "Switch to Next Tab";
         }
         {
           mode = "n";
-          key = "<A-h>";
-          action = ":lua require('smart-splits').resize_left()<CR>";
-          options.desc = "Resize the Current Split to the Left";
+          key = "<C-1>";
+          action = ":BufferLineGoToBuffer 1<CR>";
+          options.desc = "Switch to Tab 1";
         }
         {
           mode = "n";
-          key = "<A-j>";
-          action = ":lua require('smart-splits').resize_down()<CR>";
-          options.desc = "Resize the Current Split to the Bottom";
+          key = "<C-2>";
+          action = ":BufferLineGoToBuffer 2<CR>";
+          options.desc = "Switch to Tab 2";
         }
         {
           mode = "n";
-          key = "<A-k>";
-          action = ":lua require('smart-splits').resize_up()<CR>";
-          options.desc = "Resize the Current Split to the Top";
+          key = "<C-3>";
+          action = ":BufferLineGoToBuffer 3<CR>";
+          options.desc = "Switch to Tab 3";
         }
         {
           mode = "n";
-          key = "<A-l>";
-          action = ":lua require('smart-splits').resize_right()<CR>";
-          options.desc = "Resize the Current Split to the Right";
+          key = "<C-4>";
+          action = ":BufferLineGoToBuffer 4<CR>";
+          options.desc = "Switch to Tab 4";
         }
         {
           mode = "n";
-          key = "<Leader>mh";
-          action = ":lua require('smart-splits').move_cursor_left()<CR>";
-          options.desc = "Move to the Split Left";
+          key = "<C-5>";
+          action = ":BufferLineGoToBuffer 5<CR>";
+          options.desc = "Switch to Tab 5";
         }
         {
           mode = "n";
-          key = "<Leader>mj";
-          action = ":lua require('smart-splits').move_cursor_down()<CR>";
-          options.desc = "Move to the Split Down";
+          key = "<C-S-h>";
+          action = ":BufferLineMovePrev<CR>";
+          options.desc = "Move Current Tab to the Left";
         }
         {
           mode = "n";
-          key = "<Leader>mk";
-          action = ":lua require('smart-splits').move_cursor_up()<CR>";
-          options.desc = "Move to the Split Up";
-        }
-        {
-          mode = "n";
-          key = "<Leader>ml";
-          action = ":lua require('smart-splits').move_cursor_right()<CR>";
-          options.desc = "Move to the Split Right";
-        }
-        {
-          mode = "n";
-          key = "<Leader>mH";
-          action = ":lua require('smart-splits').swap_buf_left()<CR>";
-          options.desc = "Swap with the Split Left";
-        }
-        {
-          mode = "n";
-          key = "<Leader>mJ";
-          action = ":lua require('smart-splits').swap_buf_down()<CR>";
-          options.desc = "Swap with the Split Down";
-        }
-        {
-          mode = "n";
-          key = "<Leader>mK";
-          action = ":lua require('smart-splits').swap_buf_up()<CR>";
-          options.desc = "Swap with the Split Up";
-        }
-        {
-          mode = "n";
-          key = "<Leader>mL";
-          action = ":lua require('smart-splits').swap_buf_right()<CR>";
-          options.desc = "Swap with the Split Right";
-        }
-        {
-          mode = "n";
-          key = "<Leader>mn";
-          action = ":vsplit #<CR>";
-          options.desc = "Make a new vertical Split";
-        }
-        {
-          mode = "n";
-          key = "<Leader>mc";
-          action = ":close<CR>";
-          options.desc = "Close current Split";
+          key = "<C-S-l>";
+          action = ":BufferLineMoveNext<CR>";
+          options.desc = "Move Current Tab to the Right";
         }
       ];
     };
