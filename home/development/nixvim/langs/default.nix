@@ -7,12 +7,13 @@
   imports = [
     ./java.nix
     ./rust.nix
+    ./lints.nix
   ];
 
   config = lib.mkIf config.development.neovim.enable {
     programs.nixvim.plugins.lspconfig.enable = true;
     programs.nixvim.lsp = {
-      inlayHints = true;
+      inlayHints.enable = true;
       servers = {
         clangd.enable = true;
         marksman.enable = true;
