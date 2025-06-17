@@ -11,7 +11,7 @@ in
 {
   options.apps.openrgb = {
     enable = mkEnableOption "Enable default OpenRGB settings";
-    loadDefault = mkEnableOption "Load the default profile on startup";
+    loadDefault = mkEnableOption "Load the default profile on resume";
   };
 
   config = mkIf cfg.enable {
@@ -23,19 +23,8 @@ in
 
     environment.systemPackages = [ pkgs.openrgb-with-all-plugins ];
 
-    systemd.services."openrgb-default-profile" = mkIf cfg.loadDefault {
-      description = "Load default OpenRGB profile";
-      requisite = [ "openrgb.service" ];
-      after = [ "openrgb.service" ];
-      script = ''
-        ${pkgs.openrgb}/bin/openrgb --profile ${config.users.users.ckgxrg.home}/.config/OpenRGB/default.orp
-      '';
-      serviceConfig.WorkingDirectory = "/var/empty";
-      wantedBy = [ "openrgb.service" ];
-    };
-
     powerManagement.resumeCommands = mkIf cfg.loadDefault ''
-      ${pkgs.openrgb}/bin/openrgb --profile ${config.users.users.ckgxrg.home}/.config/OpenRGB/default.orp
+      ${pkgs.openrgb-with-all-plugins}/bin/.openrgb-wrapped --profile ${config.users.users.ckgxrg.home}/.config/OpenRGB/default.orp --config ${config.users.users.ckgxrg.home}/.config/OpenRGB
     '';
   };
 }
