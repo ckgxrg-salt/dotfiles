@@ -41,17 +41,6 @@ in
     # Allow unfree and insecure packages
     nixpkgs = {
       hostPlatform = "x86_64-linux";
-      # Temporary fix
-      overlays = [
-        (_final: prev: {
-          nheko = prev.nheko.override {
-            curl = prev.curlHTTP3;
-            coeurl = prev.coeurl.override {
-              curl = prev.curlHTTP3;
-            };
-          };
-        })
-      ];
       config = {
         allowUnfree = true;
         permittedInsecurePackages = [

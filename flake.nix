@@ -33,6 +33,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nur.follows = "nur";
     };
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -56,6 +60,7 @@
       lanzaboote,
       nixvim,
       stylix,
+      aagl,
       nixos-hardware,
       ...
     }:
@@ -112,6 +117,7 @@
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             stylix.nixosModules.stylix
+            aagl.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

@@ -57,6 +57,7 @@
     };
     steam = true;
   };
+  programs.anime-game-launcher.enable = true;
   stylix = {
     default = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/atlas.yaml";

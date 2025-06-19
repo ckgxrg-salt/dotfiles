@@ -49,6 +49,7 @@
     blockbench
     blender
     gimp
+    libreoffice
     prismlauncher
   ];
   daemons = {
