@@ -7,7 +7,7 @@
   imports = [
     ./java.nix
     ./rust.nix
-    ./lints.nix
+    ./formats.nix
   ];
 
   config = lib.mkIf config.development.neovim.enable {

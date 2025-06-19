@@ -18,7 +18,8 @@
             java = [ "google-java-format" ];
             nix = [ "nixfmt" ];
             markdown = [ "markdownfmt" ];
-            scss = [ "stylelint" ];
+            scss = [ "prettier" ];
+            css = [ "prettier" ];
             typescript = [ "prettier" ];
             typescriptreact = [ "prettier" ];
             "_" = [
@@ -45,7 +46,8 @@
           rust = [ "clippy" ];
           java = [ "checkstyle" ];
           nix = [ "deadnix" ];
-          scss = [ "stylelint" ];
+          scss = [ "eslint" ];
+          css = [ "eslint" ];
           typescript = [ "eslint" ];
           typescriptreact = [ "eslint" ];
         };
