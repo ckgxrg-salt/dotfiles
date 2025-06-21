@@ -39,7 +39,7 @@ in
       kdePackages.ark
       celluloid
       kdePackages.okular
-      pix
+      #pix
       seahorse
 
       # Applications

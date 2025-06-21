@@ -37,7 +37,7 @@
     gpg = true;
     keepassxc = true;
     mangohud = true;
-    mpd = true;
+    #mpd = true;
     rofi = {
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-1.rasi";
@@ -45,7 +45,7 @@
     yazi = true;
   };
   home.packages = with pkgs; [
-    nvtopPackages.nvidia
+    nvitop
     blockbench
     blender
     gimp
