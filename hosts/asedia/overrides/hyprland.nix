@@ -11,7 +11,7 @@
       ];
       settings = {
         monitor = [
-          "eDP-1, highres, 0x0, 1"
+          ",highres, 0x0, 1"
         ];
         windowrulev2 = [
           # Dialogs
@@ -38,7 +38,7 @@
           "blur, astal-quickcontrol"
           "animation fade, astal-quickcontrol"
           "animation fade, astal-logout"
-          "animation slide bottom, astal-navigator"
+          "animation slide bottom, astal-dock"
         ];
         workspace = [
           "special:browser, on-created-empty:floorp"
@@ -101,8 +101,8 @@
         };
 
         hyprgrass-bind = [
-          ", edge:d:u, exec, astal navigator"
-          ", edge:u:d, exec, astal quickcontrol"
+          ", edge:d:u, exec, astal-shell dock"
+          ", edge:u:d, exec, astal-shell quickcontrol"
           ", swipe:3:u, exec, pkill -RTMIN wvkbd-vistath"
           ", edge:r:l, togglespecialworkspace, browser"
         ];
@@ -115,7 +115,7 @@
           "SUPER, Q, exec, alacritty"
           "SUPER, C, killactive,"
           "SUPER, V, togglefloating,"
-          "SUPER, R, exec, rofi -show drun"
+          "SUPER, R, exec, astal-launchpad"
           "SUPER, F, fullscreen,"
           "SUPER, Print, exec, grimblast copy area"
           ", XF86PowerOff, exec, astal-logout"

@@ -17,40 +17,25 @@ in
 
   config =
     let
-      variant =
-        if osConfig.networking.hostName == "Daywatch" then
-          ckgs.astal.daywatch
-        else if osConfig.networking.hostName == "Vistath" then
-          ckgs.astal.vistath
-        else
-          abort "No astal implementation for this device";
-      packages =
-        if osConfig.networking.hostName == "Daywatch" then
-          [
-            ckgs.astal.daywatch.main
-            ckgs.astal.daywatch.logout
-          ]
-        else if osConfig.networking.hostName == "Vistath" then
-          [
-            ckgs.astal.vistath.main
-            ckgs.astal.vistath.logout
-          ]
+      package =
+        if osConfig.networking.hostName == "Asedia" then
+          ckgs.astal.asedia
         else
           abort "No astal implementation for this device";
     in
     mkIf cfg.enable {
-      home.packages = packages;
+      home.packages = [ package ];
 
       systemd.user = {
         services = {
           "astal" = {
             Unit = {
-              Description = "Astal Desktop Widgets";
+              Description = "Astal Desktop Shell";
               PartOf = [ "graphical-session.target" ];
             };
             Service = {
               Type = "exec";
-              ExecStart = "${variant.main}/bin/astal";
+              ExecStart = "${package}/bin/astal-shell";
               Restart = "on-failure";
             };
             Install = {
@@ -65,7 +50,7 @@ in
             };
             Service = {
               Type = "oneshot";
-              ExecStart = "${variant.main}/bin/astal reload";
+              ExecStart = "${package}/bin/astal-shell reload";
               Restart = "on-failure";
               RestartSec = "10s";
             };
