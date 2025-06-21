@@ -25,20 +25,26 @@
         general = {
           gaps_in = 20;
           gaps_out = 20;
-          border_size = 2;
+          border_size = 8;
           layout = "dwindle";
         };
         decoration = {
           blur = {
             enabled = true;
-            size = 6;
-            passes = 1;
-            vibrancy = 0.1696;
+            size = 10;
+            passes = 3;
+            brightness = 1.1;
+            vibrancy = 0.1;
+            xray = true;
           };
           shadow = {
-            enabled = false;
+            enabled = true;
+            range = 16;
+            offset = "20 20";
           };
-          dim_inactive = true;
+          rounding = 12;
+          active_opacity = 0.8;
+          inactive_opacity = 0.6;
         };
         animations = {
           enabled = true;
@@ -55,7 +61,7 @@
             "layersIn, 1, 2, easeInSine, slide right"
             "layersOut, 1, 3, easeOutSine, slide left"
             "fade, 1, 3, default"
-            "workspaces, 1, 4, easeInOutCubic, slidefadevert"
+            "workspaces, 1, 4, easeInOutCubic, slidefade"
             "specialWorkspace, 1, 4, easeInOutCubic, slide"
           ];
         };
