@@ -11,7 +11,7 @@
   system.stateVersion = "24.11";
   boot = {
     default = true;
-    kernelVariant = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_zen;
     bbr = true;
     laptop = true;
     noCoredump = true;
@@ -37,11 +37,11 @@
     greetd = {
       enable = true;
       autoLogin = true;
-      greetMessage = ''====> Vistath <===='';
+      greetMessage = "====> Vistath <====";
     };
     users = {
       default = true;
-      issue = ''====> Vistath <===='';
+      issue = "====> Vistath <====";
     };
   };
   misc = {

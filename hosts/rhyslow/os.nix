@@ -11,7 +11,7 @@
   system.stateVersion = "25.05";
   boot = {
     default = true;
-    kernelVariant = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     bbr = true;
     noCoredump = true;
     plymouth = {
@@ -33,11 +33,11 @@
     greetd = {
       enable = true;
       autoLogin = true;
-      greetMessage = ''====> Rhyslow <===='';
+      greetMessage = "====> Rhyslow <====";
     };
     users = {
       default = true;
-      issue = ''====> Rhyslow <===='';
+      issue = "====> Rhyslow <====";
     };
   };
   misc = {

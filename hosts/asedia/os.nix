@@ -11,7 +11,6 @@
   system.stateVersion = "25.11";
   boot = {
     default = true;
-    kernelVariant = pkgs.linuxPackages_zen;
     bbr = true;
     laptop = true;
     noCoredump = true;
@@ -29,6 +28,7 @@
     hostCPU = "intel";
     hostGPU = "intel";
     zfs = true;
+    microsoft-surface.kernelVersion = "stable";
   };
   services.sanoid.datasets = {
     "asedia/home".useTemplate = [ "default" ];
@@ -37,11 +37,11 @@
     greetd = {
       enable = true;
       autoLogin = true;
-      greetMessage = ''====> Asedia <===='';
+      greetMessage = "====> Asedia <====";
     };
     users = {
       default = true;
-      issue = ''====> Asedia <===='';
+      issue = "====> Asedia <====\n";
     };
   };
   misc = {
@@ -55,7 +55,7 @@
       waydroid = true;
     };
   };
-  virtualisation.waydroid.enable = true;
+  #virtualisation.waydroid.enable = true;
   apps = {
     gamemode.enable = true;
     nix = true;

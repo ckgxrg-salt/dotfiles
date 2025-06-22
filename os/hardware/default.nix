@@ -28,6 +28,7 @@ in
       description = "The host's GPU manufacturer";
     };
     laptop = mkEnableOption "Whether this is a laptop";
+    tlp = mkEnableOption "Whether to use TLP power saver";
     wifi = mkEnableOption "Whether to support wireless network";
     bt = mkEnableOption "Whether to support Bluetooth";
   };
@@ -126,7 +127,7 @@ in
 
     #========== Power ==========#
     # TLP the power saver
-    services.tlp = mkIf cfg.laptop {
+    services.tlp = mkIf cfg.tlp {
       enable = true;
       settings = {
         BAY_POWEROFF_ON_BAT = 1;

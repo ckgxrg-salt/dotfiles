@@ -179,6 +179,7 @@
             ./os
             lix-module.nixosModules.default
             nur.modules.nixos.default
+            lanzaboote.nixosModules.lanzaboote
             nixos-hardware.nixosModules.microsoft-surface-common
             disko.nixosModules.disko
             stylix.nixosModules.stylix

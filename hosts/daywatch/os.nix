@@ -11,7 +11,7 @@
   system.stateVersion = "24.05";
   boot = {
     default = true;
-    kernelVariant = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_zen;
     bbr = true;
     laptop = true;
     noCoredump = true;
@@ -33,11 +33,11 @@
     greetd = {
       enable = true;
       autoLogin = true;
-      greetMessage = ''====> Daywatch <===='';
+      greetMessage = "====> Daywatch <====";
     };
     users = {
       default = true;
-      issue = ''====> Daywatch <===='';
+      issue = "====> Daywatch <====";
     };
   };
   misc = {

@@ -11,11 +11,6 @@ in
 {
   options.boot = {
     default = mkEnableOption "Apply default boot configurations";
-    kernelVariant = mkOption {
-      type = types.raw;
-      default = pkgs.linuxPackages;
-      description = "Kernel variant to be used";
-    };
     bbr = mkEnableOption "Apply bbr congestion control algorithm";
     laptop = mkEnableOption "Apply laptop optimisations";
     noCoredump = mkEnableOption "Disable core dump files";
@@ -44,9 +39,6 @@ in
 
       # Boot splash
       plymouth.enable = true;
-
-      # Use linux-zen kernel
-      kernelPackages = cfg.kernelVariant;
 
       # Kernel params
       kernelParams =
