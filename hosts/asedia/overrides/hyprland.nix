@@ -1,4 +1,4 @@
-{ pkgs, ckgs, ... }:
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland =
     let
@@ -101,7 +101,7 @@
         };
 
         hyprgrass-bind = [
-          ", edge:d:u, exec, astal-shell dock"
+          ", edge:d:u, exec, astal-shell show-dock"
           ", edge:u:d, exec, astal-shell quickcontrol"
           ", swipe:3:u, exec, pkill -RTMIN wvkbd-vistath"
           ", edge:r:l, togglespecialworkspace, browser"
@@ -116,6 +116,7 @@
           "SUPER, C, killactive,"
           "SUPER, V, togglefloating,"
           "SUPER, R, exec, astal-launchpad"
+          "SUPER, D, exec, astal-shell toggle-dock"
           "SUPER, F, fullscreen,"
           "SUPER, Print, exec, grimblast copy area"
           ", XF86PowerOff, exec, astal-logout"

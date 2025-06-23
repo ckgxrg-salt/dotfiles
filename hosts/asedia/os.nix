@@ -30,6 +30,7 @@
     zfs = true;
     microsoft-surface.kernelVersion = "stable";
   };
+  services.iptsd.enable = true;
   services.sanoid.datasets = {
     "asedia/home".useTemplate = [ "default" ];
   };
@@ -48,7 +49,7 @@
     default = true;
     locale = {
       default = true;
-      timezone = "Asia/Macao";
+      timezone = "Asia/Shanghai";
     };
     security = {
       default = true;

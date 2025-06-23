@@ -17,7 +17,7 @@ in
     # Timezone, Locale
     time.timeZone = cfg.timezone;
     services.timesyncd.enable = false;
-    services.openntpd.enable = true;
+    services.chrony.enable = true;
 
     i18n = {
       defaultLocale = "en_GB.UTF-8";
