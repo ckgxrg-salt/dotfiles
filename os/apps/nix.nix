@@ -29,7 +29,7 @@ in
     # An advanced cli for Nix
     programs.nh = {
       enable = true;
-      flake = "/home/ckgxrg/.config/nixos/system";
+      flake = "/home/ckgxrg/Projects/dotfiles";
       # Automatic garbage collection
       clean = {
         enable = true;

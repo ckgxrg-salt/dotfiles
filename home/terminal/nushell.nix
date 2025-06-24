@@ -49,7 +49,8 @@ in
           def ciallo [] { fortune | cowsay | lolcat }
           alias deploy = nh os switch --ask
           alias purge = nh clean all --ask
-          alias dotfiles = cd ~/.config/nixos/system
+          alias dotfiles = cd ~/Projects/dotfiles
+          alias proj = cd ~/Projects
           alias rm = rm -i
         ''
         + cfg.settings
