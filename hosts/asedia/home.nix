@@ -37,7 +37,7 @@
     git = true;
     gpg = true;
     keepassxc = true;
-    #mpd = true;
+    mpd = true;
     rofi = {
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-2/style-4.rasi";
