@@ -95,6 +95,5 @@
     ./overrides/boot.nix
     ./overrides/disko.nix
     ./overrides/fonts.nix
-    ./overrides/udev.nix
   ];
 }
