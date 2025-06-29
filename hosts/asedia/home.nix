@@ -49,7 +49,6 @@
     krita
     rnote
     kana
-    foliate
     komikku
     wiliwili
     freetube

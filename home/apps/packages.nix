@@ -43,6 +43,8 @@ in
       seahorse
 
       # Applications
+      # Entertainment
+      foliate
       # Productivity
       obsidian
       # Communication
