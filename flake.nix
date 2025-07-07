@@ -46,7 +46,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware";
   };
   outputs =
     {
@@ -61,7 +60,6 @@
       nixvim,
       stylix,
       aagl,
-      nixos-hardware,
       ...
     }:
     let
@@ -137,38 +135,6 @@
           ];
         };
 
-        Vistath = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit ckgs;
-          };
-          modules = [
-            ./hosts/vistath/os.nix
-            ./os
-            lix-module.nixosModules.default
-            nur.modules.nixos.default
-            lanzaboote.nixosModules.lanzaboote
-            disko.nixosModules.disko
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-              ];
-              home-manager.users.ckgxrg.imports = [
-                ./hosts/vistath/home.nix
-                ./home
-                nixvim.homeManagerModules.nixvim
-              ];
-              home-manager.extraSpecialArgs = {
-                inherit ckgs;
-              };
-            }
-          ];
-        };
-
         Asedia = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
@@ -180,7 +146,6 @@
             lix-module.nixosModules.default
             nur.modules.nixos.default
             lanzaboote.nixosModules.lanzaboote
-            nixos-hardware.nixosModules.microsoft-surface-common
             disko.nixosModules.disko
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
