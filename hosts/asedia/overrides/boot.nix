@@ -14,7 +14,6 @@
     ];
     kernelModules = [
       "kvm-intel"
-      "i915"
     ];
   };
 }

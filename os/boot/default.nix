@@ -44,7 +44,6 @@ in
       kernelParams =
         [
           "quiet"
-          "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
           "plymouth.nolog"
           "udev.log_level=3"
         ]

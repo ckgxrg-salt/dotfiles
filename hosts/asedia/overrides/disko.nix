@@ -24,16 +24,16 @@
               };
             };
             "SWAP" = {
-              size = "16G";
+              size = "32G";
               content = {
                 type = "swap";
               };
             };
-            "Vistath" = {
+            "Asedia" = {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "vistath";
+                pool = "asedia";
               };
             };
           };
@@ -43,7 +43,7 @@
 
     # Primary zpool
     zpool = {
-      "vistath" = {
+      "asedia" = {
         type = "zpool";
         options = {
           cachefile = "none";

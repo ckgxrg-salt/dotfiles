@@ -52,7 +52,6 @@
     komikku
     wiliwili
     freetube
-    nheko
     jellyfin-media-player
     moonlight-qt
   ];
