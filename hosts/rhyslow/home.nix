@@ -11,15 +11,7 @@
   home.homeDirectory = "/home/ckgxrg";
   home.preferXdgDirectories = true;
   programs.home-manager.enable = true;
-  sops = {
-    defaultSopsFile = ../../secrets/default.yaml;
-    age.keyFile = "/home/ckgxrg/.config/sops/age/keys.txt";
-    secrets = {
-      "gmail-oauth" = { };
-      "private-email" = { };
-      "dav-passwd" = { };
-    };
-  };
+  secrets.sops = true;
   apps = {
     btop = true;
     calendar = true;
