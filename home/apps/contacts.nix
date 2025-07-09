@@ -17,7 +17,7 @@ in
             userName = "ckgxrg";
             passwordCommand = [
               "cat"
-              "${config.xdg.configHome}/sops-nix/secrets/dav-passwd"
+              "${config.xdg.configHome}/sops-nix/secrets/carddav-passwd"
             ];
           };
           local = {

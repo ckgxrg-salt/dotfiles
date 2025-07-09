@@ -18,11 +18,11 @@ in
           primary = true;
           remote = {
             type = "caldav";
-            url = "https://davis.welkin.ckgxrg.io/dav/calendars/ckgxrg/personal";
+            url = "https://todo.welkin.ckgxrg.io/dav/principals/ckgxrg";
             userName = "ckgxrg";
             passwordCommand = [
               "cat"
-              "${config.xdg.configHome}/sops-nix/secrets/dav-passwd"
+              "${config.xdg.configHome}/sops-nix/secrets/caldav-token"
             ];
           };
           local = {
@@ -34,7 +34,7 @@ in
             collections = [
               [
                 "Calendar"
-                "personal"
+                "projects"
                 "."
               ]
             ];

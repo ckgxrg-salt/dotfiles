@@ -46,5 +46,7 @@
     ./theme/stylix.nix
     ./theme/sound-theme.nix
     ./theme/wallpaper.nix
+
+    ../secrets
   ];
 }
