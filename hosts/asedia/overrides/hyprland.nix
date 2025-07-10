@@ -41,7 +41,7 @@
           "animation slide bottom, astal-dock"
         ];
         workspace = [
-          "special:browser, on-created-empty:floorp"
+          "special:browser, on-created-empty:chromium"
         ];
 
         general = {

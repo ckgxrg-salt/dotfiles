@@ -23,9 +23,7 @@
       autoRefresh = true;
     };
     fcitx5.enable = true;
-    floorp = {
-      enable = true;
-    };
+    chromium.enable = true;
     git = true;
     gpg = true;
     pass = true;

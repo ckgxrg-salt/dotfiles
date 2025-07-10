@@ -5,6 +5,7 @@
     ./apps/btop.nix
     ./apps/calendar.nix
     ./apps/cava.nix
+    ./apps/chromium.nix
     ./apps/contacts.nix
     ./apps/email.nix
     ./apps/fcitx.nix

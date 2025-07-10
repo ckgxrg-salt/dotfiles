@@ -30,7 +30,7 @@ in
     # Browser integration
     programs.browserpass = {
       enable = true;
-      browsers = [ "firefox" ];
+      browsers = [ "chromium" ];
     };
   };
 }

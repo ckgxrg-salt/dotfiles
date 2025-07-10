@@ -14,7 +14,7 @@ in
     extraPackages = mkOption {
       type = types.listOf types.package;
       default = [ ];
-      description = "List of extra floorp extensions";
+      description = "List of extra Floorp extensions";
     };
   };
 
