@@ -45,6 +45,7 @@ in
       # Applications
       # Entertainment
       foliate
+      prismlauncher
       # Productivity
       obsidian
       # Communication

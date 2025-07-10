@@ -42,7 +42,6 @@
     blender
     gimp
     libreoffice
-    prismlauncher
   ];
   daemons = {
     cliphist = true;

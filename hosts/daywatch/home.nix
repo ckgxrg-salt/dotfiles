@@ -49,7 +49,6 @@
     gimp
     jellyfin-media-player
     moonlight-qt
-    prismlauncher
   ];
   daemons = {
     astal.enable = true;
