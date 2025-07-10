@@ -17,6 +17,7 @@
     ./apps/mpd.nix
     ./apps/opencomposite.nix
     ./apps/packages.nix
+    ./apps/pass.nix
     ./apps/rofi.nix
     ./apps/yazi.nix
 

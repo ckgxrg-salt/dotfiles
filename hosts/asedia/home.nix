@@ -28,7 +28,7 @@
     };
     git = true;
     gpg = true;
-    keepassxc = true;
+    pass = true;
     mpd = true;
     rofi = {
       enable = true;

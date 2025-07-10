@@ -99,7 +99,7 @@ in
             absolute-enable-right-click
             dark-background-light-text
             disconnect
-            keepassxc-browser
+            browserpass
             surfingkeys
           ];
           settings = {

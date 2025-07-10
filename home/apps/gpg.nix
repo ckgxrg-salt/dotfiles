@@ -16,8 +16,11 @@ in
     services.gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      enableZshIntegration = true;
-      pinentry.package = pkgs.pinentry-rofi;
+      enableNushellIntegration = true;
+      defaultCacheTtl = 3600;
+      pinentry = {
+        package = pkgs.pinentry-qt;
+      };
     };
   };
 }
