@@ -21,15 +21,14 @@ in
         "--enable-features=AcceleratedVideoEncoder"
         "--ignore-gpu-blocklist"
         "--enable-zero-copy"
+        "--force-device-scale-factor=1.5"
       ];
 
-      # Install these extensions since chromium cannot be configured declaratively
-
-      # Disconnect
-      # Browserpass
-      # Surfingkeys
-      # ublock origin
-      # Tokyo Night Storm Theme
+      extensions = [
+        { id = "jeoacafpbcihiomhlakheieifhpjdfeo"; } # Disconnect
+        { id = "naepdomgkenhinolocfifgehidddafch"; } # Browserpass
+        { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; } # ublock origin lite
+      ];
     };
   };
 }

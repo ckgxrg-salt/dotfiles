@@ -34,7 +34,7 @@ in
     nm-applet = mkEnableOption "Enable the networkmanager applet";
     udiskie = mkEnableOption "Enable udiskie device manager";
     polkit-gnome-agent = mkEnableOption "Enable the GNOME polkit agent";
-    wvkbd-vistath = mkEnableOption "Enable wvkbd virtual keyboard";
+    wvkbd = mkEnableOption "Enable wvkbd virtual keyboard";
   };
 
   config = {
@@ -65,9 +65,9 @@ in
       });
 
       # Virtual keyboard
-      "wvkbd-vistath" = mkIf cfg.wvkbd-vistath (mkDaemon {
+      "wvkbd" = mkIf cfg.wvkbd (mkDaemon {
         desc = "Virtual Keyboard";
-        exec = "${ckgs.wvkbd-vistath}/bin/wvkbd-vistath --hidden -L 500";
+        exec = "${ckgs.wvkbd}/bin/wvkbd-vistath --hidden -L 500";
       });
 
       # NetworkManager Applet

@@ -53,7 +53,7 @@
     cliphist = true;
     nm-applet = true;
     udiskie = true;
-    wvkbd-vistath = true;
+    wvkbd = true;
     polkit-gnome-agent = true;
     gammastep = true;
     hypridle = true;
