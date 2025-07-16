@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 {
   wayland.windowManager.hyprland =
     let
@@ -7,7 +7,7 @@
     {
       plugins = with pkgs.hyprlandPlugins; [
         hyprgrass
-        #ckgs.show-my-osk
+        ckgs.show-my-osk
       ];
       settings = {
         monitor = [
@@ -94,10 +94,10 @@
             workspace_swipe_edge = false;
             resize_on_border_long_press = true;
           };
-          #showmyosk = {
-          #  on_focus = "exec pkill -USR2 wvkbd-vistath";
-          #  on_leave = "exec pkill -USR1 wvkbd-vistath";
-          #};
+          show-my-osk = {
+            on-focus = "pkill -USR2 wvkbd-vistath";
+            on-unfocus = "pkill -USR1 wvkbd-vistath";
+          };
         };
 
         hyprgrass-bind = [
