@@ -6,26 +6,30 @@
 }:
 with lib;
 let
-  cfg = config.apps.floorp;
+  cfg = config.apps.librewolf;
 in
 {
-  options.apps.floorp = {
-    enable = mkEnableOption "Enable Floorp web browser";
+  options.apps.librewolf = {
+    enable = mkEnableOption "Enable Librewolf web browser";
     extraPackages = mkOption {
       type = types.listOf types.package;
       default = [ ];
-      description = "List of extra Floorp extensions";
+      description = "List of extra Firefox extensions";
     };
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.floorp = {
+    stylix.targets.librewolf = {
       enable = true;
       colorTheme.enable = true;
       profileNames = [ "default" ];
     };
 
-    programs.floorp = {
+    programs.browserpass = {
+      browsers = [ "librewolf" ];
+    };
+
+    programs.librewolf = {
       enable = true;
       languagePacks = [ "en-GB" ];
       policies = {
@@ -67,7 +71,7 @@ in
               name = "Rust Crates";
               urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
               icon = "https://crates.io/favicon.png";
-              definedAliases = [ "@rust" ];
+              definedAliases = [ "@rs" ];
             };
             bili = {
               name = "Bilibili";
@@ -85,6 +89,8 @@ in
         };
         settings = {
           "browser.startup.homepage" = "https://welkin.ckgxrg.io";
+          # Restore Session
+          "browser.startup.page" = 3;
           "dom.security.https_only_mode" = true;
           "browser.newtabpage.pinned" = [
             {
@@ -92,6 +98,13 @@ in
               url = "about:blank";
             }
           ];
+
+          "privacy.resistFingerprinting" = false;
+          "privacy.fingerprintingProtection" = true;
+          "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
+          "privacy.clearOnShutdown.history" = false;
+          "privacy.clearOnShutdown.downloads" = false;
+          "webgl.disabled" = false;
         };
         extensions = {
           force = true;
@@ -100,7 +113,6 @@ in
             dark-background-light-text
             disconnect
             browserpass
-            surfingkeys
           ];
           settings = {
             # Dark background light text
@@ -110,33 +122,6 @@ in
               default_visited_color = "#${base06}";
               default_active_color = "#${base0A}";
               default_selection_color = "#${base02}";
-            };
-
-            # Surfingkeys
-            "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}".settings = {
-              showAdvanced = true;
-              snippets = ''
-                // Disable unused functionalities
-                api.unmapAllExcept([
-                  'af', 'E', 'R', 'T', 't', 'f',
-                  '?', '<Alt-i>',
-                  '0', 'e', 'U', 'd', 'P', 'gg', 'G', 'j', 'k', 'h', 'l', '$',
-                  'yt', 'x', 'X', '<<', '>>',
-                  'r', 'S', 'D',
-                  'yy', 'yv',
-                  'go', ':', '<Esc>', '<Tab>', '<Ctrl-n>', '<Ctrl-p>'
-                ]);
-                // Rebind some keys
-                api.map('F', 'af');
-                api.map('H', 'E');
-                api.map('L', 'R');
-                api.map('<Shift-Tab>', 'T');
-                api.map('O', 't');
-                // "Disable" omnibar
-                api.cmap('t', '!!!nope');
-                api.cmap('go', '!!!nope');
-                api.cmap('O', '!!!nope');
-              '';
             };
           };
         };

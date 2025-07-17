@@ -23,9 +23,9 @@
       autoRefresh = true;
     };
     fcitx5.enable = true;
-    chromium.enable = true;
     git = true;
     gpg = true;
+    librewolf.enable = true;
     pass = true;
     mpd = true;
     rofi = {

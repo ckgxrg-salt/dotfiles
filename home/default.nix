@@ -9,11 +9,11 @@
     ./apps/contacts.nix
     ./apps/email.nix
     ./apps/fcitx.nix
-    ./apps/floorp.nix
     ./apps/git.nix
     ./apps/gpg.nix
     ./apps/keepassxc.nix
     ./apps/kodi.nix
+    ./apps/librewolf.nix
     ./apps/mangohud.nix
     ./apps/mpd.nix
     ./apps/opencomposite.nix

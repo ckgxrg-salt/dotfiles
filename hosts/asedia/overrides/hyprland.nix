@@ -41,7 +41,7 @@
           "animation slide bottom, astal-dock"
         ];
         workspace = [
-          "special:browser, on-created-empty:chromium"
+          "special:browser, on-created-empty:librewolf"
         ];
 
         general = {
