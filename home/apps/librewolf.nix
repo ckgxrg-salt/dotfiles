@@ -31,6 +31,9 @@ in
 
     programs.librewolf = {
       enable = true;
+      nativeMessagingHosts = [
+        pkgs.tridactyl-native
+      ];
       languagePacks = [ "en-GB" ];
       policies = {
         DisableAppUpdate = true;
@@ -44,10 +47,10 @@ in
         isDefault = true;
         name = "Default";
         search = {
-          default = "bing";
+          default = "policy-StartPage";
+          privateDefault = "policy-StartPage";
           force = true;
           engines = {
-            bing.metaData.alias = "@b";
             google.metaData.alias = "@g";
             archwiki = {
               name = "ArchWiki";
@@ -113,6 +116,7 @@ in
             dark-background-light-text
             disconnect
             browserpass
+            tridactyl
           ];
           settings = {
             # Dark background light text
