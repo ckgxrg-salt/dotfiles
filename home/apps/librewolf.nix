@@ -51,7 +51,6 @@ in
           privateDefault = "policy-StartPage";
           force = true;
           engines = {
-            google.metaData.alias = "@g";
             archwiki = {
               name = "ArchWiki";
               urls = [ { template = "https://wiki.archlinux.org/?search={searchTerms}"; } ];
@@ -126,6 +125,22 @@ in
               default_visited_color = "#${base06}";
               default_active_color = "#${base0A}";
               default_selection_color = "#${base02}";
+            };
+
+            # Tridactyl
+            "tridactyl.vim@cmcaine.co.uk".settings = {
+              userconfig = {
+                configversion = "2.0";
+                smoothscroll = true;
+                searchurls = {
+                  "aw" = "https://wiki.archlinux.org/?search=%s";
+                  "pkg" = "https://search.nixos.org/packages?channel=unstable&query=%s";
+                  "opt" = "https://search.nixos.org/options?channel=unstable&query=%s";
+                  "rs" = "https://crates.io/search?q=%s";
+                  "bili" = "https://search.bilibili.com/all?keyword=%s";
+                  "prts" = "https://prts.wiki/index.php?title=特殊:搜索&search=%s";
+                };
+              };
             };
           };
         };
