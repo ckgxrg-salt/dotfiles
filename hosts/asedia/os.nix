@@ -98,5 +98,6 @@
     ./overrides/boot.nix
     ./overrides/disko.nix
     ./overrides/fonts.nix
+    ./overrides/touchscreen.nix
   ];
 }
