@@ -19,7 +19,7 @@
           "float, class:(xdg-desktop-portal-gtk)"
         ];
         workspace = [
-          "special:browser, on-created-empty:floorp"
+          "special:browser, on-created-empty:librewolf"
         ];
 
         general = {

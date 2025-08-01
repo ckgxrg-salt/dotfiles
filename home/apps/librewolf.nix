@@ -140,6 +140,10 @@ in
                   "bili" = "https://search.bilibili.com/all?keyword=%s";
                   "prts" = "https://prts.wiki/index.php?title=特殊:搜索&search=%s";
                 };
+                nmaps = {
+                  "d" = "";
+                  "." = "";
+                };
               };
             };
           };
