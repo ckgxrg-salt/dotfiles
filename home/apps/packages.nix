@@ -52,7 +52,6 @@ in
       nheko
       localsend
       # Web
-      newsflash
       tor-browser
       # System
       blueberry

@@ -29,7 +29,7 @@
         animations {
           enabled = false
         }
-        exec-once = ${lib.getExe pkgs.greetd.regreet}; hyprctl dispatch exit
+        exec-once = ${lib.getExe pkgs.regreet}; hyprctl dispatch exit
       '';
     in
     {
