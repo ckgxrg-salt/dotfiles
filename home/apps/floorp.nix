@@ -47,8 +47,8 @@ in
         isDefault = true;
         name = "Default";
         search = {
-          default = "policy-StartPage";
-          privateDefault = "policy-StartPage";
+          default = "Startpage";
+          privateDefault = "Startpage";
           force = true;
           engines = {
             archwiki = {
