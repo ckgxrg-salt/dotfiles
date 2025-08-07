@@ -31,12 +31,11 @@ in
           animations {
             enabled = false
           }
-          exec-once = ${lib.getExe pkgs.greetd.regreet}; hyprctl dispatch exit
+          exec-once = ${lib.getExe pkgs.regreet}; hyprctl dispatch exit
         '';
       in
       {
         enable = true;
-        vt = 7;
         settings = {
           # Skip login for the initial boot
           initial_session = mkIf cfg.autoLogin {

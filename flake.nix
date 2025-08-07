@@ -2,12 +2,8 @@
   description = "ckgxrg's NixOS Configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     ckgpkgs = {
-      url = "github:ckgxrg-salt/ckgpkgs";
+      url = "git+https://codeberg.org/ckgxrg/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
@@ -33,10 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nur.follows = "nur";
     };
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -50,7 +42,6 @@
   outputs =
     {
       nixpkgs,
-      lix-module,
       nur,
       ckgpkgs,
       disko,
@@ -59,7 +50,6 @@
       lanzaboote,
       nixvim,
       stylix,
-      aagl,
       ...
     }:
     let
@@ -79,7 +69,6 @@
           modules = [
             ./hosts/daywatch/os.nix
             ./os
-            lix-module.nixosModules.default
             nur.modules.nixos.default
             lanzaboote.nixosModules.lanzaboote
             stylix.nixosModules.stylix
@@ -93,7 +82,7 @@
               home-manager.users.ckgxrg.imports = [
                 ./hosts/daywatch/home.nix
                 ./home
-                nixvim.homeManagerModules.nixvim
+                nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -110,12 +99,10 @@
           modules = [
             ./hosts/rhyslow/os.nix
             ./os
-            lix-module.nixosModules.default
             nur.modules.nixos.default
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             stylix.nixosModules.stylix
-            aagl.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -126,7 +113,7 @@
               home-manager.users.ckgxrg.imports = [
                 ./hosts/rhyslow/home.nix
                 ./home
-                nixvim.homeManagerModules.nixvim
+                nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -143,7 +130,6 @@
           modules = [
             ./hosts/asedia/os.nix
             ./os
-            lix-module.nixosModules.default
             nur.modules.nixos.default
             lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
@@ -158,7 +144,7 @@
               home-manager.users.ckgxrg.imports = [
                 ./hosts/asedia/home.nix
                 ./home
-                nixvim.homeManagerModules.nixvim
+                nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
