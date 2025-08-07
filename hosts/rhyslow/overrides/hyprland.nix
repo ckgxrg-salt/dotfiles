@@ -9,7 +9,7 @@
         hypr-dynamic-cursors
       ];
       settings = {
-        monitor = [ ",highres, 0x0, 1" ];
+        monitor = [ ", highres, 0x0, 1" ];
         windowrulev2 = [
           # Dialogs
           "float, class:(polkit-gnome-authentication-agent-1)"
@@ -19,7 +19,7 @@
           "float, class:(xdg-desktop-portal-gtk)"
         ];
         workspace = [
-          "special:browser, on-created-empty:librewolf"
+          "special:browser, on-created-empty:floorp"
         ];
 
         general = {

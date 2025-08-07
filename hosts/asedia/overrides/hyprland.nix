@@ -11,7 +11,7 @@
       ];
       settings = {
         monitor = [
-          ",highres, 0x0, 1"
+          ", highres, 0x0, 1"
         ];
         windowrulev2 = [
           # Dialogs
@@ -41,7 +41,7 @@
           "animation slide bottom, astal-dock"
         ];
         workspace = [
-          "special:browser, on-created-empty:librewolf"
+          "special:browser, on-created-empty:floorp"
         ];
 
         general = {
