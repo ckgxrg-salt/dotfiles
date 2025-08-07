@@ -14,6 +14,7 @@
     ./apps/nix.nix
     ./apps/openrgb.nix
     ./apps/steam.nix
+    ./apps/tailscale.nix
     ./apps/wivrn.nix
 
     ./misc/locale.nix

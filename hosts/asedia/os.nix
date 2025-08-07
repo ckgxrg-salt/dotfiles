@@ -60,6 +60,7 @@
     gamemode.enable = true;
     nix = true;
     steam = true;
+    tailscale = true;
   };
   stylix = {
     default = true;

@@ -6,11 +6,11 @@
 }:
 with lib;
 let
-  cfg = config.apps.librewolf;
+  cfg = config.apps.floorp;
 in
 {
-  options.apps.librewolf = {
-    enable = mkEnableOption "Enable Librewolf web browser";
+  options.apps.floorp = {
+    enable = mkEnableOption "Enable Floorp web browser";
     extraPackages = mkOption {
       type = types.listOf types.package;
       default = [ ];
@@ -19,17 +19,17 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.librewolf = {
+    stylix.targets.floorp = {
       enable = true;
       colorTheme.enable = true;
       profileNames = [ "default" ];
     };
 
     programs.browserpass = {
-      browsers = [ "librewolf" ];
+      browsers = [ "firefox" ];
     };
 
-    programs.librewolf = {
+    programs.floorp = {
       enable = true;
       nativeMessagingHosts = [
         pkgs.tridactyl-native
@@ -100,13 +100,6 @@ in
               url = "about:blank";
             }
           ];
-
-          "privacy.resistFingerprinting" = false;
-          "privacy.fingerprintingProtection" = true;
-          "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
-          "privacy.clearOnShutdown.history" = false;
-          "privacy.clearOnShutdown.downloads" = false;
-          "webgl.disabled" = false;
         };
         extensions = {
           force = true;

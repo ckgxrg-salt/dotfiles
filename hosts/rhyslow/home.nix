@@ -22,9 +22,9 @@
       autoRefresh = true;
     };
     fcitx5.enable = true;
+    floorp.enable = true;
     git = true;
     gpg = true;
-    librewolf.enable = true;
     mangohud = true;
     mpd = true;
     pass = true;
