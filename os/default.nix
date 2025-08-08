@@ -21,6 +21,7 @@
     ./misc/misc.nix
     ./misc/security.nix
 
+    ./theme/fonts.nix
     ./theme/stylix.nix
     ./theme/sound-theme.nix
   ];

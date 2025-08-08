@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -71,26 +70,31 @@
       name = "graphite-dark";
       size = 28;
     };
-    fonts = {
-      sizes = {
-        applications = 18;
-        desktop = 18;
-        popups = 12;
-        terminal = 18;
-      };
-      sansSerif = {
-        package = pkgs.jost;
-        name = "Jost*";
-      };
-      serif = config.stylix.fonts.sansSerif;
-      monospace = {
-        package = pkgs.maple-mono.NF;
-        name = "Maple Mono NF";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
+    fonts.sizes = {
+      applications = 24;
+      desktop = 24;
+      popups = 20;
+      terminal = 22;
+    };
+  };
+  fonts = {
+    packages = with pkgs; [
+      jost
+      noto-fonts-cjk-sans
+      maple-mono.NF
+      noto-fonts-emoji
+    ];
+    fontconfig.defaultFonts = {
+      sansSerif = [
+        "Jost*"
+        "NotoSansCJK-VF"
+      ];
+      serif = [
+        "Jost*"
+        "NotoSansCJK-VF"
+      ];
+      monospace = [ "Maple Mono NF" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
   theme.sound.enable = true;
@@ -98,7 +102,6 @@
   imports = [
     ./overrides/boot.nix
     ./overrides/disko.nix
-    ./overrides/fonts.nix
     ./overrides/touchscreen.nix
   ];
 }

@@ -13,8 +13,6 @@ in
       targets = {
         gtk.enable = true;
         qt.enable = true;
-        font-packages.enable = true;
-        fontconfig.enable = true;
       };
     };
   };
