@@ -87,11 +87,11 @@
     fontconfig.defaultFonts = {
       sansSerif = [
         "Jost*"
-        "NotoSansCJK-VF"
+        "Noto Sans CJK SC"
       ];
       serif = [
         "Jost*"
-        "NotoSansCJK-VF"
+        "Noto Sans CJK SC"
       ];
       monospace = [ "Maple Mono NF" ];
       emoji = [ "Noto Color Emoji" ];
