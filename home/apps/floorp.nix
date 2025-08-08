@@ -47,8 +47,8 @@ in
         isDefault = true;
         name = "Default";
         search = {
-          default = "Startpage";
-          privateDefault = "Startpage";
+          default = "startpage@search.mozilla.orgdefault";
+          privateDefault = "startpage@search.mozilla.orgdefault";
           force = true;
           engines = {
             archwiki = {
