@@ -1,7 +1,5 @@
-{ ... }:
 {
-  programs.nixvim.plugins = {
-    # Completion
+  plugins = {
     cmp = {
       enable = true;
       autoEnableSources = true;
@@ -22,10 +20,9 @@
           format = ''
             function(entry, item)
               local menu_icon ={
-                  nvim_lsp = ' ',
-                  luasnip = '󰢱 ',
-                  buffer = ' ',
-                  path = ' ',
+                nvim_lsp = ' ',
+                luasnip = '󰢱 ',
+                path = ' ',
               }
               item.menu = menu_icon[entry.source.name]
               return item
@@ -33,46 +30,61 @@
           '';
         };
         sources = [
+          { name = "nvim_lsp"; }
           { name = "luasnip"; }
           { name = "treesitter"; }
-          { name = "nvim_lsp"; }
           { name = "path"; }
-          { name = "buffer"; }
         ];
-        # Cmp / Luasnip: Handle keymaps themselves
         mapping.__raw = ''
-          cmp.mapping.preset.insert({
-            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
-          })
+          ['<CR>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              if luasnip.expandable() then
+                luasnip.expand()
+              else
+                cmp.confirm({
+                  select = true,
+                })
+              end
+            else
+              fallback()
+            end
+          end),
+
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.locally_jumpable(1) then
+              luasnip.jump(1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         '';
       };
     };
-    # Addons for Cmp
-    cmp-nvim-lsp.enable = true;
-    cmp-buffer.enable = true;
-    cmp-path.enable = true;
-    cmp_luasnip.enable = true;
-    cmp-treesitter.enable = true;
-    # Snippet Engine
+
     luasnip = {
       enable = true;
       settings = {
         enable_autosnippets = true;
       };
     };
-    # Some ready-to-use snippets
     friendly-snippets.enable = true;
 
-    # Quick pair letters
     nvim-surround = {
       enable = true;
     };
 
-    # Auto generate paired letters
     nvim-autopairs = {
       enable = true;
       settings = {
