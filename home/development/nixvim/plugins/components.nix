@@ -9,11 +9,6 @@
       };
     };
 
-    alpha = {
-      enable = true;
-      theme = "dashboard";
-    };
-
     smart-splits = {
       enable = true;
       settings = {
