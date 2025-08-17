@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.development.nixvim;
@@ -18,7 +23,11 @@ in
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
+      withRuby = false;
+      withPython3 = false;
     }
-    // (import ./settings.nix);
+    // import ./settings.nix
+    // import ./keymaps.nix
+    // import ./plugins pkgs lib;
   };
 }

@@ -23,23 +23,18 @@
     number = true;
     relativenumber = true;
     mouse = "a";
-    tabstop = 2;
+    softtabstop = 4;
     shiftwidth = 2;
+    expandtab = true;
     splitright = true;
   };
 
   # Diagnostics
   diagnostic.settings = {
-    virtual_text = true;
+    virtual_lines = true;
     signs = true;
     update_in_insert = true;
     underline = true;
-    severity_sort = false;
-    float = {
-      border = "rounded";
-      source = "always";
-      header = "";
-      prefix = "<- ";
-    };
+    severity_sort = true;
   };
 }

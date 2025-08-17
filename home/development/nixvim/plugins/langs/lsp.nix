@@ -1,13 +1,6 @@
-{ ... }:
 {
-  imports = [
-    ./java.nix
-    ./rust.nix
-    ./formats.nix
-  ];
-
-  programs.nixvim.plugins.lspconfig.enable = true;
-  programs.nixvim.lsp = {
+  plugins.lspconfig.enable = true;
+  lsp = {
     inlayHints.enable = true;
     servers = {
       clangd.enable = true;

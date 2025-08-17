@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-# Formatting, linting and syntax
 {
-  programs.nixvim.plugins = {
-    # Formatting
+  plugins = {
     conform-nvim = {
       enable = true;
       settings = {
@@ -32,7 +29,6 @@
       };
     };
 
-    # Linting
     lint = {
       enable = true;
       lintersByFt = {
@@ -48,37 +44,6 @@
       linters = {
         checkstyle = {
           config_file = "/google_checks.xml";
-        };
-      };
-    };
-
-    # Treesitter
-    treesitter = {
-      enable = true;
-      folding = true;
-
-      nixGrammars = true;
-      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        json
-        markdown
-        nix
-        toml
-        rust
-        java
-        typescript
-        cpp
-      ];
-
-      settings = {
-        highlight = {
-          enable = true;
-          additional_vim_regex_highlighting = false;
-        };
-        indent.enable = true;
-        rainbow = {
-          enable = true;
-          extended_mode = true;
-          max_file_lines = "nil";
         };
       };
     };
