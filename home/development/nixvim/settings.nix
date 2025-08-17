@@ -1,6 +1,9 @@
 {
   performance.combinePlugins = {
     enable = true;
+    standalonePlugins = [
+      "smart-splits.nvim"
+    ];
   };
 
   clipboard = {
