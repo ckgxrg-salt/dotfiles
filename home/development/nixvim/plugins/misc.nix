@@ -2,15 +2,16 @@
   plugins = {
     web-devicons.enable = true;
     undotree.enable = true;
-    neoscroll.enable = true;
+    telescope.enable = true;
+    todo-comments.enable = true;
+    lsp-signature.enable = true;
 
-    telescope = {
+    neoscroll = {
       enable = true;
-      highlightTheme = "ivy";
-    };
-
-    todo-comments = {
-      enable = true;
+      settings = {
+        step_eof = false;
+        respect_scrolloff = true;
+      };
     };
 
     hop = {
@@ -28,11 +29,6 @@
       };
     };
 
-    git-worktree = {
-      enable = true;
-      enableTelescope = true;
-    };
-
     gitsigns = {
       enable = true;
       settings = {
@@ -43,14 +39,6 @@
       };
     };
 
-    lsp-signature = {
-      enable = true;
-    };
-
-    lsp-lines = {
-      enable = true;
-    };
-
     lspsaga = {
       enable = true;
       lightbulb.enable = false;
@@ -58,13 +46,17 @@
 
     guess-indent = {
       enable = true;
-      settings = {
-        auto_cmd = true;
-      };
+      settings.auto_cmd = true;
     };
   };
 
   keymaps = [
+    {
+      mode = "n";
+      key = "<Leader>cu";
+      action = ":UndotreeToggle<CR>";
+      options.desc = "Toggle Undo Tree";
+    }
     {
       mode = "n";
       key = "<Leader>td";

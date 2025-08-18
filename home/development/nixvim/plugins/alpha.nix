@@ -46,7 +46,18 @@
             '';
             opts.shortcut = "s";
             type = "button";
-            val = "  Sessions";
+            val = "  Projects";
+          }
+          {
+            on_press.__raw = ''
+              function()
+                local key = vim.api.nvim_replace_termcodes("<cmd>Telescope persisted<CR>", true, false, true)
+                vim.api.nvim_feedkeys(key, "t", false)
+              end
+            '';
+            opts.shortcut = "s";
+            type = "button";
+            val = "  Sessions";
           }
           {
             on_press.__raw = ''
@@ -57,7 +68,7 @@
             '';
             opts.shortcut = "l";
             type = "button";
-            val = "󰮲  Last Session";
+            val = "󱑀  Last Session";
           }
           {
             on_press.__raw = "function() vim.cmd[[qa]] end";

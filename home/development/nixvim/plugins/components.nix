@@ -4,6 +4,7 @@
       enable = true;
       settings = {
         enable_mouse_support = true;
+        open_for_directories = true;
         yazi_floating_window_border = "solid";
         yazi_floating_window_winblend = 25;
       };
@@ -16,63 +17,24 @@
       };
     };
 
-    toggleterm = {
-      enable = true;
-      settings = {
-        close_on_exit = true;
-        direction = "horizontal";
-        shell = "nu";
-      };
-    };
-
-    nui = {
-      enable = true;
-    };
     noice = {
       enable = true;
       settings = {
-        presets = {
-          command_palette = true;
-        };
-        messages = {
-          enabled = false;
-        };
-        lsp = {
-          hover = {
-            silent = true;
-          };
-        };
+        presets.command_palette = true;
       };
     };
 
-    indent-blankline = {
+    hlchunk = {
       enable = true;
       settings = {
-        exclude = {
-          buftypes = [
-            "terminal"
-            "nofile"
-            "quickfix"
-            "prompt"
-          ];
-          filetypes = [
-            "lspinfo"
-            "packer"
-            "checkhealth"
-            "help"
-            "man"
-            "gitcommit"
-            "TelescopePrompt"
-            "TelescopeResults"
-            "dashboard"
-            "''"
-          ];
+        chunk = {
+          enable = true;
         };
-        scope = {
-          enabled = true;
-          injected_languages = true;
-          show_exact_scope = true;
-          show_start = true;
+        indent = {
+          enable = true;
+        };
+        line_num = {
+          enable = true;
         };
       };
     };
@@ -84,12 +46,6 @@
       key = "<A-Tab>";
       action = ":Yazi<CR>";
       options.desc = "Browse Files";
-    }
-    {
-      mode = "n";
-      key = "<Leader>cu";
-      action = ":UndotreeToggle<CR>";
-      options.desc = "Toggle Undo Tree";
     }
     {
       mode = "n";

@@ -1,6 +1,5 @@
 {
   plugins = {
-    # Tabline
     bufferline = {
       enable = true;
       settings = {
@@ -17,17 +16,13 @@
               return s
             end
           '';
-          separator_style = "slant";
-          indicator.style = "underline";
+          separator_style = "thin";
           right_mouse_command = null;
-          buffer_close_icon = "󰅚 ";
-          close_icon = "󰢃 ";
           numbers = "ordinal";
         };
       };
     };
 
-    # Statusline
     lualine = {
       enable = true;
       settings = {
@@ -37,7 +32,6 @@
       };
     };
 
-    # Cursorline
     illuminate = {
       enable = true;
       underCursor = true;

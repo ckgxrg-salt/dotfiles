@@ -30,6 +30,7 @@
     shiftwidth = 2;
     expandtab = true;
     splitright = true;
+    scrolloff = 8;
   };
 
   # Diagnostics

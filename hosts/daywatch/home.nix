@@ -62,7 +62,7 @@
     mako = true;
   };
   development = {
-    neovim.enable = true;
+    nixvim.enable = true;
   };
   stylix = {
     default = true;

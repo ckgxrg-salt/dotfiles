@@ -1,7 +1,6 @@
 pkgs: {
   extraPackages = with pkgs; [
     lldb
-    fd
   ];
   plugins = {
     dap = {
@@ -17,59 +16,6 @@ pkgs: {
         "lldb" = {
           command = "${pkgs.lldb}/bin/lldb-dap";
         };
-      };
-      configurations = {
-        "rust" = [
-          {
-            name = "Current Project";
-            request = "launch";
-            type = "lldb";
-            cwd = "\${workspaceFolder}";
-            program.__raw = ''
-              function()
-                return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.tolower(vim.fn.fnamemodify(vim.fn.getcwd(), ':t'))
-              end
-            '';
-          }
-          {
-            name = "Attach to a Process...";
-            request = "attach";
-            type = "lldb";
-            pid.__raw = "require('dap.utils').pick_process";
-          }
-          {
-            name = "Choose a Program...";
-            request = "launch";
-            type = "lldb";
-            cwd = "\${workspaceFolder}";
-            program.__raw = ''
-              function()
-                local pickers = require("telescope.pickers")
-                local finders = require("telescope.finders")
-                local conf = require("telescope.config").values
-                local actions = require("telescope.actions")
-                local action_state = require("telescope.actions.state")
-                return coroutine.create(function(coro)
-                  local opts = {};
-                  pickers
-                    .new(opts, {
-                      prompt_title = "Path to executable",
-                      finder = finders.new_oneshot_job({ "fd", "--hidden", "--no-ignore", "--type", "x" }, {}),
-                      sorter = conf.generic_sorter(opts),
-                      attach_mappings = function(buffer_number)
-                        actions.select_default:replace(function()
-                          actions.close(buffer_number)
-                          coroutine.resume(coro, action_state.get_selected_entry()[1])
-                        end)
-                        return true
-                      end,
-                    })
-                    :find()
-                end)
-              end
-            '';
-          }
-        ];
       };
     };
 
@@ -87,15 +33,39 @@ pkgs: {
   keymaps = [
     {
       mode = "n";
+      key = "<Leader>du";
+      action = ":lua require('dapui').toggle()<CR>";
+      options.desc = "Toggle Debug View";
+    }
+    {
+      mode = "n";
       key = "<Leader>db";
       action = ":DapToggleBreakpoint<CR>";
       options.desc = "Add/Remove Breakpoint";
     }
     {
       mode = "n";
-      key = "<Leader>du";
-      action = ":lua require('dapui').toggle()<CR>";
-      options.desc = "Toggle Debug View";
+      key = "<Leader>dc";
+      action = ":DapContinue<CR>";
+      options.desc = "Continue Debug";
+    }
+    {
+      mode = "n";
+      key = "<Leader>ds";
+      action = ":DapStepOver<CR>";
+      options.desc = "Step Over";
+    }
+    {
+      mode = "n";
+      key = "<Leader>di";
+      action = ":DapStepInto<CR>";
+      options.desc = "Step Into";
+    }
+    {
+      mode = "n";
+      key = "<Leader>do";
+      action = ":DapStepOut<CR>";
+      options.desc = "Step Out";
     }
   ];
 }
