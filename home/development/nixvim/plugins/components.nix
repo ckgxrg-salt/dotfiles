@@ -29,6 +29,13 @@
       settings = {
         chunk = {
           enable = true;
+          chars = {
+            horizontal_line = "─";
+            vertical_line = "│";
+            left_top = "┌";
+            left_bottom = "└";
+            right_arrow = "─";
+          };
         };
         indent = {
           enable = true;
@@ -73,61 +80,61 @@
     }
     {
       mode = "n";
-      key = "<Leader>mh";
+      key = "<Leader>sh";
       action = ":lua require('smart-splits').move_cursor_left()<CR>";
       options.desc = "Move to the Split Left";
     }
     {
       mode = "n";
-      key = "<Leader>mj";
+      key = "<Leader>sj";
       action = ":lua require('smart-splits').move_cursor_down()<CR>";
       options.desc = "Move to the Split Down";
     }
     {
       mode = "n";
-      key = "<Leader>mk";
+      key = "<Leader>sk";
       action = ":lua require('smart-splits').move_cursor_up()<CR>";
       options.desc = "Move to the Split Up";
     }
     {
       mode = "n";
-      key = "<Leader>ml";
+      key = "<Leader>sl";
       action = ":lua require('smart-splits').move_cursor_right()<CR>";
       options.desc = "Move to the Split Right";
     }
     {
       mode = "n";
-      key = "<Leader>mH";
+      key = "<Leader>sH";
       action = ":lua require('smart-splits').swap_buf_left()<CR>";
       options.desc = "Swap with the Split Left";
     }
     {
       mode = "n";
-      key = "<Leader>mJ";
+      key = "<Leader>sJ";
       action = ":lua require('smart-splits').swap_buf_down()<CR>";
       options.desc = "Swap with the Split Down";
     }
     {
       mode = "n";
-      key = "<Leader>mK";
+      key = "<Leader>sK";
       action = ":lua require('smart-splits').swap_buf_up()<CR>";
       options.desc = "Swap with the Split Up";
     }
     {
       mode = "n";
-      key = "<Leader>mL";
+      key = "<Leader>sL";
       action = ":lua require('smart-splits').swap_buf_right()<CR>";
       options.desc = "Swap with the Split Right";
     }
     {
       mode = "n";
-      key = "<Leader>mn";
+      key = "<Leader>sn";
       action = ":vsplit #<CR>";
       options.desc = "Make a new vertical Split";
     }
     {
       mode = "n";
-      key = "<Leader>mc";
+      key = "<Leader>sc";
       action = ":close<CR>";
       options.desc = "Close current Split";
     }

@@ -1,6 +1,7 @@
 pkgs: {
   extraPackages = with pkgs; [
     lldb
+    fd
   ];
   plugins = {
     dap = {
@@ -14,13 +15,71 @@ pkgs: {
       };
       adapters.executables = {
         "lldb" = {
-          command = "${pkgs.lldb}/bin/lldb-dap";
+          command = "lldb-dap";
         };
+      };
+      configurations = {
+        "rust" = [
+          {
+            name = "Launch an executable";
+            type = "lldb";
+            request = "launch";
+            cwd = "\${workspaceFolder}";
+            program.__raw = ''
+              function()
+                local pickers = require("telescope.pickers")
+                local finders = require("telescope.finders")
+                local conf = require("telescope.config").values
+                local actions = require("telescope.actions")
+                local action_state = require("telescope.actions.state")
+                return coroutine.create(function(coro)
+                  local opts = {}
+                  pickers
+                    .new(opts, {
+                      prompt_title = "Path to executable",
+                      finder = finders.new_oneshot_job({ "fd", "--hidden", "--no-ignore", "--type", "x" }, {}),
+                      sorter = conf.generic_sorter(opts),
+                      attach_mappings = function(buffer_number)
+                        actions.select_default:replace(function()
+                          actions.close(buffer_number)
+                          coroutine.resume(coro, action_state.get_selected_entry()[1])
+                        end)
+                        return true
+                      end,
+                    })
+                    :find()
+                end)
+              end
+            '';
+          }
+          {
+            name = "Select and attach to process";
+            type = "lldb";
+            request = "attach";
+            program.__raw = ''
+              function()
+                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+              end
+            '';
+            pid.__raw = ''
+              function()
+                local name = vim.fn.input('Executable name (filter): ')
+                return require("dap.utils").pick_process({ filter = name })
+              end
+            '';
+            cwd = "\${workspaceFolder}";
+          }
+        ];
       };
     };
 
-    dap-ui = {
+    dap-view = {
       enable = true;
+      settings = {
+        winbar = {
+          default_section = "breakpoints";
+        };
+      };
     };
 
     dap-virtual-text = {
@@ -34,7 +93,7 @@ pkgs: {
     {
       mode = "n";
       key = "<Leader>du";
-      action = ":lua require('dapui').toggle()<CR>";
+      action = ":DapViewToggle<CR>";
       options.desc = "Toggle Debug View";
     }
     {

@@ -41,20 +41,17 @@
         ];
         mapping.__raw = ''
           {
-            ['<CR>'] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                if luasnip.expandable() then
-                  luasnip.expand()
+            ['<CR>'] = cmp.mapping({
+              i = function(fallback)
+                if cmp.visible() and cmp.get_active_entry() then
+                  cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
                 else
-                  cmp.confirm({
-                    select = true,
-                  })
+                  fallback()
                 end
-              else
-                fallback()
-              end
-            end),
-
+              end,
+              s = cmp.mapping.confirm({ select = true }),
+              c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+            }),
             ["<Tab>"] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
@@ -64,7 +61,6 @@
                 fallback()
               end
             end, { "i", "s" }),
-
             ["<S-Tab>"] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_prev_item()

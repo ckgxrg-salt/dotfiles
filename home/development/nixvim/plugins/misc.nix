@@ -9,16 +9,7 @@
     neoscroll = {
       enable = true;
       settings = {
-        step_eof = false;
-        respect_scrolloff = true;
-      };
-    };
-
-    hop = {
-      enable = true;
-      settings = {
-        dim_unmatched = true;
-        jump_on_sole_occurence = false;
+        stop_eof = false;
       };
     };
 
@@ -53,7 +44,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "<Leader>cu";
+      key = "<Leader>vu";
       action = ":UndotreeToggle<CR>";
       options.desc = "Toggle Undo Tree";
     }
@@ -95,31 +86,25 @@
     }
     {
       mode = "n";
-      key = "<Leader>h";
-      action = ":HopChar1<CR>";
-      options.desc = "Hop 1 Char";
-    }
-    {
-      mode = "n";
       key = "K";
       action = ":Lspsaga hover_doc<CR>";
       options.desc = "Check Hover Doc";
     }
     {
       mode = "n";
-      key = "<Leader>lo";
+      key = "<Leader>co";
       action = ":Lspsaga outline<CR>";
       options.desc = "Display Outline";
     }
     {
       mode = "n";
-      key = "<Leader>lr";
+      key = "<Leader>cr";
       action = ":Lspsaga rename<CR>";
       options.desc = "Rename Selected";
     }
     {
       mode = "n";
-      key = "<Leader>la";
+      key = "<Leader>ca";
       action = ":Lspsaga code_action<CR>";
       options.desc = "Display Actions for Selected";
     }

@@ -2,7 +2,6 @@
   plugins.rustaceanvim = {
     enable = true;
     settings = {
-      dap.autoload_configurations = false;
       server = {
         default_settings = {
           rust-analyzer = {

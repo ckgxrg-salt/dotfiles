@@ -2,7 +2,7 @@
   plugins.which-key = {
     enable = true;
     settings = {
-      preset = "classic";
+      preset = "modern";
       spec = [
         {
           __unkeyed = "<Leader>v";
@@ -10,7 +10,7 @@
           icon = " ";
         }
         {
-          __unkeyed = "<Leader>l";
+          __unkeyed = "<Leader>c";
           group = "Code Actions";
           icon = "󰲒 ";
         }
@@ -20,7 +20,7 @@
           icon = "󰭎 ";
         }
         {
-          __unkeyed = "<Leader>m";
+          __unkeyed = "<Leader>s";
           group = "Splits";
           icon = " ";
         }

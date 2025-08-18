@@ -27,6 +27,11 @@ in
       stylix.targets.nixvim = {
         enable = true;
         plugin = "base16-nvim";
+        transparentBackground = {
+          main = true;
+          numberLine = true;
+          signColumn = true;
+        };
       };
 
       programs.nixvim = {
