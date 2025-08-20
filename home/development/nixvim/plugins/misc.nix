@@ -5,11 +5,55 @@
     telescope.enable = true;
     todo-comments.enable = true;
     lsp-signature.enable = true;
+    flash.enable = true;
+    mini-bufremove.enable = true;
+
+    mini-surround = {
+      enable = true;
+      settings = {
+        n_lines = 50;
+        respect_selection_type = true;
+      };
+    };
+
+    mini-pairs = {
+      enable = true;
+      settings = {
+        modes = {
+          command = true;
+        };
+      };
+    };
+
+    smear-cursor = {
+      enable = true;
+      settings = {
+        stiffness = 0.8;
+        trailing_stiffness = 0.5;
+        stiffness_insert_mode = 0.7;
+        trailing_stiffness_insert_mode = 0.7;
+        damping = 0.95;
+        damping_insert_mode = 0.95;
+        distance_stop_animating = 0.5;
+      };
+    };
 
     neoscroll = {
       enable = true;
       settings = {
         stop_eof = false;
+      };
+    };
+
+    nvim-lightbulb = {
+      enable = true;
+      settings = {
+        sign = {
+          enabled = true;
+          text = "";
+          lens_text = "";
+        };
+        number.enabled = true;
       };
     };
 
@@ -30,11 +74,6 @@
       };
     };
 
-    lspsaga = {
-      enable = true;
-      lightbulb.enable = false;
-    };
-
     guess-indent = {
       enable = true;
       settings.auto_cmd = true;
@@ -44,69 +83,45 @@
   keymaps = [
     {
       mode = "n";
-      key = "<Leader>vu";
+      key = "<Leader>w";
+      action.__raw = "function() MiniBufremove.delete() end";
+      options.desc = "Close current buffer";
+    }
+    {
+      mode = "n";
+      key = "<Leader>q";
+      action = ":close<CR>";
+      options.desc = "Close current window";
+    }
+    {
+      mode = "n";
+      key = "<Leader>eu";
       action = ":UndotreeToggle<CR>";
-      options.desc = "Toggle Undo Tree";
-    }
-    {
-      mode = "n";
-      key = "<Leader>td";
-      action = ":Telescope diagnostics<CR>";
-      options.desc = "Toggle Diagnostics";
-    }
-    {
-      mode = "n";
-      key = "<Leader>tl";
-      action = ":Trouble lsp toggle<CR>";
-      options.desc = "Toggle LSP View";
+      options.desc = "Undo tree";
     }
     {
       mode = "n";
       key = "<Leader>tt";
       action = ":TodoTelescope<CR>";
-      options.desc = "Toggle Todo List";
+      options.desc = "Todo list";
     }
     {
       mode = "n";
       key = "<Leader>tf";
       action = ":Telescope live_grep<CR>";
-      options.desc = "Find in Current Project";
+      options.desc = "Find in current project";
     }
     {
       mode = "n";
       key = "<Leader>tk";
       action = ":Telescope keymaps<CR>";
-      options.desc = "Show Command Palette";
+      options.desc = "Command palette";
     }
     {
       mode = "n";
       key = "<Leader>ts";
-      action = ":Telescope persisted<CR>";
-      options.desc = "View Sessions";
-    }
-    {
-      mode = "n";
-      key = "K";
-      action = ":Lspsaga hover_doc<CR>";
-      options.desc = "Check Hover Doc";
-    }
-    {
-      mode = "n";
-      key = "<Leader>co";
-      action = ":Lspsaga outline<CR>";
-      options.desc = "Display Outline";
-    }
-    {
-      mode = "n";
-      key = "<Leader>cr";
-      action = ":Lspsaga rename<CR>";
-      options.desc = "Rename Selected";
-    }
-    {
-      mode = "n";
-      key = "<Leader>ca";
-      action = ":Lspsaga code_action<CR>";
-      options.desc = "Display Actions for Selected";
+      action = ":Telescope session-lens<CR>";
+      options.desc = "Sessions";
     }
   ];
 }

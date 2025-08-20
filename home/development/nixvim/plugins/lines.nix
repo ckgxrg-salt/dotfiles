@@ -17,8 +17,17 @@
             end
           '';
           separator_style = "thin";
-          right_mouse_command = null;
           numbers = "ordinal";
+          close_command.__raw = ''
+            function()
+              MiniBufremove.delete()
+            end
+          '';
+          right_mouse_command.__raw = ''
+            function()
+              MiniBufremove.delete()
+            end
+          '';
         };
       };
     };
@@ -47,55 +56,50 @@
       mode = "n";
       key = "<C-h>";
       action = ":BufferLineCyclePrev<CR>";
-      options.desc = "Switch to Previous Tab";
+      options.desc = "Previous tab";
     }
     {
       mode = "n";
       key = "<C-l>";
       action = ":BufferLineCycleNext<CR>";
-      options.desc = "Switch to Next Tab";
+      options.desc = "Next tab";
     }
     {
       mode = "n";
       key = "<C-1>";
       action = ":BufferLineGoToBuffer 1<CR>";
-      options.desc = "Switch to Tab 1";
     }
     {
       mode = "n";
       key = "<C-2>";
       action = ":BufferLineGoToBuffer 2<CR>";
-      options.desc = "Switch to Tab 2";
     }
     {
       mode = "n";
       key = "<C-3>";
       action = ":BufferLineGoToBuffer 3<CR>";
-      options.desc = "Switch to Tab 3";
     }
     {
       mode = "n";
       key = "<C-4>";
       action = ":BufferLineGoToBuffer 4<CR>";
-      options.desc = "Switch to Tab 4";
     }
     {
       mode = "n";
       key = "<C-5>";
       action = ":BufferLineGoToBuffer 5<CR>";
-      options.desc = "Switch to Tab 5";
     }
     {
       mode = "n";
       key = "<C-S-h>";
       action = ":BufferLineMovePrev<CR>";
-      options.desc = "Move Current Tab to the Left";
+      options.desc = "Move buffer  ";
     }
     {
       mode = "n";
       key = "<C-S-l>";
       action = ":BufferLineMoveNext<CR>";
-      options.desc = "Move Current Tab to the Right";
+      options.desc = "Move buffer  ";
     }
   ];
 }

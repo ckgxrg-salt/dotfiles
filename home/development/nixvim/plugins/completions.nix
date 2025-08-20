@@ -1,115 +1,36 @@
 {
   plugins = {
-    cmp = {
+    blink-cmp = {
       enable = true;
-      autoEnableSources = true;
-      luaConfig.pre = ''
-        local luasnip = require('luasnip')
-        local cmp = require('cmp')
-      '';
       settings = {
-        snippet = {
-          expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+        completion = {
+          accept = {
+            dot_repeat = false;
+          };
+          documentation.auto_show = true;
         };
-        window = {
-          completion.__raw = "cmp.config.window.bordered()";
-          documentation.__raw = "cmp.config.window.bordered()";
-        };
-        formatting = {
-          fields = [
-            "abbr"
-            "kind"
-            "menu"
+        signature.enabled = true;
+        keymap = {
+          "<CR>" = [
+            "accept"
+            "fallback"
           ];
-          format = ''
-            function(entry, item)
-              local menu_icon ={
-                nvim_lsp = ' ',
-                luasnip = '󰢱 ',
-                path = ' ',
-              }
-              item.menu = menu_icon[entry.source.name]
-              return item
-            end
-          '';
+          "<C-Tab>" = [ "show" ];
+          "<Tab>" = [
+            "select_next"
+            "snippet_forward"
+            "fallback"
+          ];
+          "<S-Tab>" = [
+            "select_prev"
+            "snippet_backward"
+            "fallback"
+          ];
         };
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          { name = "treesitter"; }
-          { name = "path"; }
-        ];
-        mapping.__raw = ''
-          {
-            ['<CR>'] = cmp.mapping({
-              i = function(fallback)
-                if cmp.visible() and cmp.get_active_entry() then
-                  cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-                else
-                  fallback()
-                end
-              end,
-              s = cmp.mapping.confirm({ select = true }),
-              c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-            }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.locally_jumpable(1) then
-                luasnip.jump(1)
-              else
-                fallback()
-              end
-            end, { "i", "s" }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end, { "i", "s" }),
-          }
-        '';
+        cmdline.completion.ghost_text.enabled = false;
       };
     };
 
-    luasnip = {
-      enable = true;
-      settings = {
-        enable_autosnippets = true;
-      };
-    };
     friendly-snippets.enable = true;
-
-    nvim-surround = {
-      enable = true;
-    };
-
-    nvim-autopairs = {
-      enable = true;
-      settings = {
-        enable_check_bracket_line = false;
-        fast_wrap = {
-          after_key = "l";
-          before_key = "h";
-          map = "<M-e>";
-          chars = [
-            "{"
-            "["
-            "("
-            "\""
-            "'"
-          ];
-          cursor_pos_before = false;
-          end_key = "$";
-          highlight = "Search";
-          highlight_grey = "Comment";
-          keys = "abcdefghijklmnopqrstuvwxyz";
-          pattern = "[=[[%'%\"%>%]%)%}%,]]=]";
-        };
-      };
-    };
   };
 }

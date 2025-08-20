@@ -5,8 +5,8 @@
       preset = "modern";
       spec = [
         {
-          __unkeyed = "<Leader>v";
-          group = "Views";
+          __unkeyed = "<Leader>e";
+          group = "Editor";
           icon = " ";
         }
         {
@@ -20,14 +20,14 @@
           icon = "󰭎 ";
         }
         {
-          __unkeyed = "<Leader>s";
-          group = "Splits";
-          icon = " ";
-        }
-        {
           __unkeyed = "<Leader>d";
           group = "Debug";
           icon = " ";
+        }
+        {
+          __unkeyed = "<Leader>r";
+          group = "Test";
+          icon = "󰙨 ";
         }
       ];
     };

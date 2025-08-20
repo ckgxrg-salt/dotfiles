@@ -15,7 +15,7 @@ pkgs: {
       };
       adapters.executables = {
         "lldb" = {
-          command = "lldb-dap";
+          command = "${pkgs.lldb}/bin/lldb-dap";
         };
       };
       configurations = {
@@ -94,37 +94,37 @@ pkgs: {
       mode = "n";
       key = "<Leader>du";
       action = ":DapViewToggle<CR>";
-      options.desc = "Toggle Debug View";
+      options.desc = "Toggle debug view";
     }
     {
       mode = "n";
       key = "<Leader>db";
       action = ":DapToggleBreakpoint<CR>";
-      options.desc = "Add/Remove Breakpoint";
+      options.desc = "Add/Remove breakpoint";
     }
     {
       mode = "n";
       key = "<Leader>dc";
       action = ":DapContinue<CR>";
-      options.desc = "Continue Debug";
+      options.desc = "Start/Continue debug";
     }
     {
       mode = "n";
       key = "<Leader>ds";
       action = ":DapStepOver<CR>";
-      options.desc = "Step Over";
+      options.desc = "Step over";
     }
     {
       mode = "n";
       key = "<Leader>di";
       action = ":DapStepInto<CR>";
-      options.desc = "Step Into";
+      options.desc = "Step into";
     }
     {
       mode = "n";
       key = "<Leader>do";
       action = ":DapStepOut<CR>";
-      options.desc = "Step Out";
+      options.desc = "Step out";
     }
   ];
 }

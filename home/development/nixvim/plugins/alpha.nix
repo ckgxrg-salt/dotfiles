@@ -32,46 +32,31 @@
         };
         val = [
           {
-            on_press.__raw = "function() vim.cmd[[ene]] end";
+            on_press.__raw = "function() vim.cmd('ene') end";
             opts.shortcut = "n";
             type = "button";
             val = "  New file";
           }
           {
-            on_press.__raw = ''
-              function()
-                local key = vim.api.nvim_replace_termcodes("<cmd>Telescope persisted<CR>", true, false, true)
-                vim.api.nvim_feedkeys(key, "t", false)
-              end
-            '';
+            on_press.__raw = "function() vim.cmd('Telescope projects') end";
             opts.shortcut = "s";
             type = "button";
             val = "  Projects";
           }
           {
-            on_press.__raw = ''
-              function()
-                local key = vim.api.nvim_replace_termcodes("<cmd>Telescope persisted<CR>", true, false, true)
-                vim.api.nvim_feedkeys(key, "t", false)
-              end
-            '';
+            on_press.__raw = "function() vim.cmd('Telescope session-lens') end";
             opts.shortcut = "s";
             type = "button";
             val = "  Sessions";
           }
           {
-            on_press.__raw = ''
-              function()
-                local key = vim.api.nvim_replace_termcodes("<cmd>SessionLoadLast<CR>", true, false, true)
-                vim.api.nvim_feedkeys(key, "t", false)
-              end
-            '';
+            on_press.__raw = "function() vim.cmd('SessionRestore') end";
             opts.shortcut = "l";
             type = "button";
             val = "󱑀  Last Session";
           }
           {
-            on_press.__raw = "function() vim.cmd[[qa]] end";
+            on_press.__raw = "function() vim.cmd('qa') end";
             opts.shortcut = "q";
             type = "button";
             val = " Quit Neovim";

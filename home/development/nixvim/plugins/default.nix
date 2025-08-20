@@ -3,16 +3,18 @@ let
   plugins = [
     (import ./alpha.nix)
     (import ./completions.nix)
-    (import ./components.nix)
     (import ./debug.nix pkgs)
+    (import ./editor.nix)
     (import ./lines.nix)
     (import ./misc.nix)
+    (import ./neotest.nix)
     (import ./project.nix)
     (import ./which-key.nix)
 
     (import ./langs/codestyle.nix)
     (import ./langs/jdtls.nix pkgs lib)
     (import ./langs/lsp.nix)
+    (import ./langs/markdown.nix)
     (import ./langs/rustaceanvim.nix)
     (import ./langs/treesitter.nix pkgs)
   ];

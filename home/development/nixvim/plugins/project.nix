@@ -20,9 +20,8 @@
       };
     };
 
-    persisted = {
+    auto-session = {
       enable = true;
-      enableTelescope = true;
     };
   };
 }
