@@ -105,21 +105,11 @@ in
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
             absolute-enable-right-click
-            dark-background-light-text
             disconnect
             browserpass
             tridactyl
           ];
           settings = {
-            # Dark background light text
-            "jid1-QoFqdK4qzUfGWQ@jetpack".settings = with config.lib.stylix.colors; {
-              default_background_color = "#${base00}";
-              default_link_color = "#${base05}";
-              default_visited_color = "#${base06}";
-              default_active_color = "#${base0A}";
-              default_selection_color = "#${base02}";
-            };
-
             # Tridactyl
             "tridactyl.vim@cmcaine.co.uk".settings = {
               userconfig = {
