@@ -2,7 +2,9 @@
   performance.combinePlugins = {
     enable = true;
     standalonePlugins = [
-      "smart-splits.nvim"
+      "codecompanion.nvim"
+      "markview.nvim"
+      "conform.nvim"
     ];
   };
 
@@ -30,9 +32,9 @@
     shiftwidth = 2;
     expandtab = true;
     splitright = true;
+    winborder = "single";
   };
 
-  # Diagnostics
   diagnostic.settings = {
     virtual_lines = true;
     signs = true;

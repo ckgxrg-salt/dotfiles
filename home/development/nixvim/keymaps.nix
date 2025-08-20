@@ -20,14 +20,5 @@
       key = "<Up>";
       action = "gk";
     }
-    {
-      mode = "n";
-      key = "<C-w>";
-      action = ":bdelete<CR>";
-      options = {
-        nowait = true;
-        desc = "Close Current File";
-      };
-    }
   ];
 }
