@@ -15,6 +15,7 @@ in
         "private-email" = { };
         "caldav-token" = { };
         "carddav-passwd" = { };
+        "gemini-token" = { };
       };
     };
   };
