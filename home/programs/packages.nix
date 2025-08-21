@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.defaultPkgs;
+  cfg = config.program.defaultPkgs;
 in
 {
-  options.apps.defaultPkgs = mkEnableOption "Install default packages";
+  options.program.defaultPkgs = mkEnableOption "Install default packages";
 
   config = mkIf cfg {
     stylix.targets = {

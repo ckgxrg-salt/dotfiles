@@ -5,10 +5,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.calendar;
+  cfg = config.program.calendar;
 in
 {
-  options.apps.calendar = mkEnableOption "Enable default calendar settings";
+  options.program.calendar = mkEnableOption "Enable default calendar settings";
 
   config = mkIf cfg {
     accounts.calendar = {

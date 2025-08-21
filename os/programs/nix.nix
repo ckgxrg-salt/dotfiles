@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.apps.nix;
+  cfg = config.program.nix;
 in
 {
-  options.apps.nix = mkEnableOption "Enable default Nix settings";
+  options.program.nix = mkEnableOption "Enable default Nix settings";
 
   config = mkIf cfg {
     # Nix configuration

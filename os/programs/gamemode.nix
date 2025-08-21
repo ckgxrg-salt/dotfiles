@@ -7,10 +7,10 @@
 # Gamemode and Gamescope
 with lib;
 let
-  cfg = config.apps.gamemode;
+  cfg = config.program.gamemode;
 in
 {
-  options.apps.gamemode = {
+  options.program.gamemode = {
     enable = mkEnableOption "Enable Gamemode and Gamescope";
     overclock = mkEnableOption "Let Gamemode apply radical GPU policies";
   };

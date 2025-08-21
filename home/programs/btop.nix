@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.apps.btop;
+  cfg = config.program.btop;
 in
 {
-  options.apps.btop = mkEnableOption "Enable btop system monitor";
+  options.program.btop = mkEnableOption "Enable btop system monitor";
 
   config = mkIf cfg {
     stylix.targets.btop.enable = true;

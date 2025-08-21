@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.apps.mangohud;
+  cfg = config.program.mangohud;
 in
 {
-  options.apps.mangohud = mkEnableOption "Enable mangohud game HUD";
+  options.program.mangohud = mkEnableOption "Enable mangohud game HUD";
 
   config = mkIf cfg {
     stylix.targets.mangohud.enable = true;

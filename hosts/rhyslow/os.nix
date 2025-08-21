@@ -47,7 +47,7 @@
     };
     security.default = true;
   };
-  apps = {
+  program = {
     gamemode.enable = true;
     nix = true;
     openrgb = {

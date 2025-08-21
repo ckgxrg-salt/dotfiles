@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.apps.contacts;
+  cfg = config.program.contacts;
 in
 {
-  options.apps.contacts = mkEnableOption "Enable default contacts settings";
+  options.program.contacts = mkEnableOption "Enable default contacts settings";
 
   config = mkIf cfg {
     accounts.contact = {

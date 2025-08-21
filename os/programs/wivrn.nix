@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.wivrn;
+  cfg = config.program.wivrn;
 in
 {
-  options.apps.wivrn = mkEnableOption "Enable default WiVRn settings";
+  options.program.wivrn = mkEnableOption "Enable default WiVRn settings";
 
   config = mkIf cfg {
     services.wivrn = {

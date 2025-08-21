@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.gpg;
+  cfg = config.program.gpg;
 in
 {
-  options.apps.gpg = mkEnableOption "Enable default gpg settings";
+  options.program.gpg = mkEnableOption "Enable default gpg settings";
 
   config = mkIf cfg {
     programs.gpg.enable = true;

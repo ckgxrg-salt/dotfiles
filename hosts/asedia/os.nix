@@ -55,7 +55,7 @@
     };
   };
   virtualisation.waydroid.enable = true;
-  apps = {
+  program = {
     gamemode.enable = true;
     nix = true;
     steam = true;

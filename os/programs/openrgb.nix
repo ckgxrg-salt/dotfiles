@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.openrgb;
+  cfg = config.program.openrgb;
 in
 {
-  options.apps.openrgb = {
+  options.program.openrgb = {
     enable = mkEnableOption "Enable default OpenRGB settings";
     loadDefault = mkEnableOption "Load the default profile on resume";
   };

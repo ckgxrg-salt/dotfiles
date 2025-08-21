@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.chromium;
+  cfg = config.program.chromium;
 in
 {
-  options.apps.chromium = {
+  options.program.chromium = {
     enable = mkEnableOption "Enable Chromium web browser";
   };
 

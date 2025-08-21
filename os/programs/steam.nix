@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.steam;
+  cfg = config.program.steam;
 in
 {
-  options.apps.steam = mkEnableOption "Enable default Steam & Gamescope settings";
+  options.program.steam = mkEnableOption "Enable default Steam & Gamescope settings";
 
   config = mkIf cfg {
     # Steam and Gamescope Settings

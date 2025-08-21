@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.fcitx5;
+  cfg = config.program.fcitx5;
 in
 {
-  options.apps.fcitx5 = {
+  options.program.fcitx5 = {
     enable = mkEnableOption "Enable Fcitx5 input method";
     extraPackages = mkOption {
       type = types.listOf types.package;

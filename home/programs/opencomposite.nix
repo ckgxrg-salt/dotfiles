@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.opencomposite;
+  cfg = config.program.opencomposite;
 in
 {
-  options.apps.opencomposite = mkEnableOption "Enable OpenComposite OpenVR compatibility layer";
+  options.program.opencomposite = mkEnableOption "Enable OpenComposite OpenVR compatibility layer";
 
   config = mkIf cfg {
     # OpenComposite package

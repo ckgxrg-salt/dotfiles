@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.mpd;
+  cfg = config.program.mpd;
 in
 {
-  options.apps.mpd = mkEnableOption "Enable the Music Player Daemon";
+  options.program.mpd = mkEnableOption "Enable the Music Player Daemon";
 
   config = mkIf cfg {
     # MPD

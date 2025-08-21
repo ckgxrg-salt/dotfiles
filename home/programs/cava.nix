@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.cava;
+  cfg = config.program.cava;
 in
 {
-  options.apps.cava = mkEnableOption "Enable CAVA audio visualiser";
+  options.program.cava = mkEnableOption "Enable CAVA audio visualiser";
 
   config = mkIf cfg {
     stylix.targets.cava = {

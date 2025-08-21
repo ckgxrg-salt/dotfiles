@@ -2,25 +2,25 @@
 # Entrypoint for all home-manager modules
 {
   imports = [
-    ./apps/btop.nix
-    ./apps/calendar.nix
-    ./apps/cava.nix
-    ./apps/chromium.nix
-    ./apps/contacts.nix
-    ./apps/email.nix
-    ./apps/fcitx.nix
-    ./apps/floorp.nix
-    ./apps/git.nix
-    ./apps/gpg.nix
-    ./apps/keepassxc.nix
-    ./apps/kodi.nix
-    ./apps/mangohud.nix
-    ./apps/mpd.nix
-    ./apps/opencomposite.nix
-    ./apps/packages.nix
-    ./apps/pass.nix
-    ./apps/rofi.nix
-    ./apps/yazi.nix
+    ./programs/btop.nix
+    ./programs/calendar.nix
+    ./programs/cava.nix
+    ./programs/chromium.nix
+    ./programs/contacts.nix
+    ./programs/email.nix
+    ./programs/fcitx.nix
+    ./programs/floorp.nix
+    ./programs/git.nix
+    ./programs/gpg.nix
+    ./programs/keepassxc.nix
+    ./programs/kodi.nix
+    ./programs/mangohud.nix
+    ./programs/mpd.nix
+    ./programs/opencomposite.nix
+    ./programs/packages.nix
+    ./programs/pass.nix
+    ./programs/rofi.nix
+    ./programs/yazi.nix
 
     ./development/nixvim
     ./development/neovide.nix

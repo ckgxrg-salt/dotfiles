@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.apps.yazi;
+  cfg = config.program.yazi;
 in
 {
-  options.apps.yazi = mkEnableOption "Enable yazi terminal file manager";
+  options.program.yazi = mkEnableOption "Enable yazi terminal file manager";
 
   config = mkIf cfg {
     stylix.targets.yazi.enable = true;

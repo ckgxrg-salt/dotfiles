@@ -10,12 +10,12 @@
     ./hardware
     ./hardware/zfs.nix
 
-    ./apps/gamemode.nix
-    ./apps/nix.nix
-    ./apps/openrgb.nix
-    ./apps/steam.nix
-    ./apps/tailscale.nix
-    ./apps/wivrn.nix
+    ./programs/gamemode.nix
+    ./programs/nix.nix
+    ./programs/openrgb.nix
+    ./programs/steam.nix
+    ./programs/tailscale.nix
+    ./programs/wivrn.nix
 
     ./misc/locale.nix
     ./misc/misc.nix

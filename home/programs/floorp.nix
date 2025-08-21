@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.floorp;
+  cfg = config.program.floorp;
 in
 {
-  options.apps.floorp = {
+  options.program.floorp = {
     enable = mkEnableOption "Enable Floorp web browser";
     extraPackages = mkOption {
       type = types.listOf types.package;

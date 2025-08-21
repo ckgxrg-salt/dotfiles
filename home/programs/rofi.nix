@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.rofi;
+  cfg = config.program.rofi;
 in
 {
-  options.apps.rofi = {
+  options.program.rofi = {
     enable = mkEnableOption "Enable Rofi";
     theme = mkOption {
       type = types.str;

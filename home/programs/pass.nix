@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.pass;
+  cfg = config.program.pass;
 in
 {
-  options.apps.pass = mkEnableOption "Enable pass password manager";
+  options.program.pass = mkEnableOption "Enable pass password manager";
 
   config = mkIf cfg {
     programs.password-store = {

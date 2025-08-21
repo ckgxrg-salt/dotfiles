@@ -12,7 +12,7 @@
   home.preferXdgDirectories = true;
   programs.home-manager.enable = true;
   secrets.sops = true;
-  apps = {
+  program = {
     btop = true;
     calendar = true;
     contacts = true;
@@ -67,7 +67,7 @@
       lxwengd = {
         enable = true;
         package = ckgs.lxwengd;
-        assetsPath = "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";
+        assetsPath = "${config.xdg.dataHome}/Steam/steamprogram/common/wallpaper_engine/assets";
       };
     };
   };

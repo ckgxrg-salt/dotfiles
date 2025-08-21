@@ -12,7 +12,7 @@
   home.preferXdgDirectories = true;
   programs.home-manager.enable = true;
   secrets.sops = true;
-  apps = {
+  program = {
     btop = true;
     calendar = true;
     cava = true;

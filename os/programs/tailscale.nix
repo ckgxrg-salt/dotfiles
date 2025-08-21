@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.apps.tailscale;
+  cfg = config.program.tailscale;
 in
 {
-  options.apps.tailscale = mkEnableOption "Enable Tailscale service";
+  options.program.tailscale = mkEnableOption "Enable Tailscale service";
 
   config = mkIf cfg {
     services.tailscale = {

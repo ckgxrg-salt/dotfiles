@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.apps.email;
+  cfg = config.program.email;
 in
 {
-  options.apps.email = {
+  options.program.email = {
     enable = mkEnableOption "Enable default email settings";
     autoRefresh = mkEnableOption "Automatically refresh Gmail OAuth token everyday";
   };
