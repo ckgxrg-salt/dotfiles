@@ -21,6 +21,7 @@
     ./programs/pass.nix
     ./programs/rofi.nix
     ./programs/yazi.nix
+    ./programs/zk.nix
 
     ./development/nixvim
     ./development/neovide.nix
