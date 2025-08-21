@@ -92,37 +92,37 @@ pkgs: {
   keymaps = [
     {
       mode = "n";
-      key = "<Leader>du";
+      key = "<leader>du";
       action = ":DapViewToggle<CR>";
       options.desc = "Toggle debug view";
     }
     {
       mode = "n";
-      key = "<Leader>db";
+      key = "<leader>db";
       action = ":DapToggleBreakpoint<CR>";
       options.desc = "Add/Remove breakpoint";
     }
     {
       mode = "n";
-      key = "<Leader>dc";
+      key = "<leader>dc";
       action = ":DapContinue<CR>";
       options.desc = "Start/Continue debug";
     }
     {
       mode = "n";
-      key = "<Leader>ds";
+      key = "<leader>ds";
       action = ":DapStepOver<CR>";
       options.desc = "Step over";
     }
     {
       mode = "n";
-      key = "<Leader>di";
+      key = "<leader>di";
       action = ":DapStepInto<CR>";
       options.desc = "Step into";
     }
     {
       mode = "n";
-      key = "<Leader>do";
+      key = "<leader>do";
       action = ":DapStepOut<CR>";
       options.desc = "Step out";
     }

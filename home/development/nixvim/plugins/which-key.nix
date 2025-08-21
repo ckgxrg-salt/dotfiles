@@ -5,29 +5,36 @@
       preset = "modern";
       spec = [
         {
-          __unkeyed = "<Leader>e";
+          __unkeyed = "<leader>e";
           group = "Editor";
           icon = " ";
         }
         {
-          __unkeyed = "<Leader>c";
+          __unkeyed = "<leader>c";
           group = "Code Actions";
           icon = "󰲒 ";
         }
         {
-          __unkeyed = "<Leader>t";
+          __unkeyed = "<leader>t";
           group = "Telescope";
           icon = "󰭎 ";
         }
         {
-          __unkeyed = "<Leader>d";
+          __unkeyed = "<leader>d";
           group = "Debug";
           icon = " ";
         }
         {
-          __unkeyed = "<Leader>r";
+          __unkeyed = "<leader>r";
           group = "Test";
           icon = "󰙨 ";
+        }
+
+        # Filtype specific keymaps
+        {
+          __unkeyed = "<leader>n";
+          group = "Notebook";
+          icon = "󰠮 ";
         }
       ];
     };

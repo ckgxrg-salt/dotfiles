@@ -2,11 +2,20 @@
   plugins = {
     web-devicons.enable = true;
     undotree.enable = true;
-    telescope.enable = true;
     todo-comments.enable = true;
     lsp-signature.enable = true;
     flash.enable = true;
     mini-bufremove.enable = true;
+
+    telescope = {
+      enable = true;
+      settings = {
+        pickers = {
+          keymaps.theme = "dropdown";
+          live_grep.theme = "dropdown";
+        };
+      };
+    };
 
     mini-surround = {
       enable = true;
@@ -83,43 +92,43 @@
   keymaps = [
     {
       mode = "n";
-      key = "<Leader>w";
+      key = "<leader>w";
       action.__raw = "function() MiniBufremove.delete() end";
       options.desc = "Close current buffer";
     }
     {
       mode = "n";
-      key = "<Leader>q";
+      key = "<leader>q";
       action = ":close<CR>";
       options.desc = "Close current window";
     }
     {
       mode = "n";
-      key = "<Leader>eu";
+      key = "<leader>eu";
       action = ":UndotreeToggle<CR>";
       options.desc = "Undo tree";
     }
     {
       mode = "n";
-      key = "<Leader>tt";
-      action = ":TodoTelescope<CR>";
+      key = "<leader>tt";
+      action = ":Telescope todo-comments theme=dropdown<CR>";
       options.desc = "Todo list";
     }
     {
       mode = "n";
-      key = "<Leader>tf";
+      key = "<leader>tf";
       action = ":Telescope live_grep<CR>";
       options.desc = "Find in current project";
     }
     {
       mode = "n";
-      key = "<Leader>tk";
+      key = "<leader>tk";
       action = ":Telescope keymaps<CR>";
       options.desc = "Command palette";
     }
     {
       mode = "n";
-      key = "<Leader>ts";
+      key = "<leader>ts";
       action = ":Telescope session-lens<CR>";
       options.desc = "Sessions";
     }

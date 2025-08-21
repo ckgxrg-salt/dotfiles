@@ -136,38 +136,38 @@
   keymaps = [
     {
       mode = "n";
-      key = "<Leader>eo";
+      key = "<leader>eo";
       action = ":AerialToggle<CR>";
       options.desc = "Display outline";
     }
     {
       mode = "n";
-      key = "<Leader>cr";
+      key = "<leader>cr";
       action = ":IncRename ";
       options.desc = "Rename selected";
     }
 
     {
       mode = "n";
-      key = "<Leader>cd";
+      key = "<leader>cd";
       action = ":Trouble diagnostics toggle<CR>";
       options.desc = "Show diagnostics";
     }
     {
       mode = "n";
-      key = "<Leader>cq";
+      key = "<leader>cq";
       action = ":Trouble quickfix toggle<CR>";
       options.desc = "Show quickfix";
     }
     {
       mode = "n";
-      key = "<Leader>cf";
+      key = "<leader>cf";
       action = ":Trouble lsp_definitions toggle<CR>";
       options.desc = "Show definitions";
     }
     {
       mode = "n";
-      key = "<Leader>ce";
+      key = "<leader>ce";
       action = ":Trouble lsp_references toggle<CR>";
       options.desc = "Show references";
     }
@@ -180,7 +180,7 @@
     }
     {
       mode = "n";
-      key = "<Leader>ea";
+      key = "<leader>ea";
       action = ":CodeCompanionChat Toggle<CR>";
       options.desc = "Toggle CodeCompanion";
     }

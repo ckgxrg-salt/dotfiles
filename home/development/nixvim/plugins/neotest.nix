@@ -11,25 +11,25 @@
   keymaps = [
     {
       mode = "n";
-      key = "<Leader>rr";
+      key = "<leader>rt";
       action.__raw = "function() require('neotest').run.run() end";
       options.desc = "Run nearest test";
     }
     {
       mode = "n";
-      key = "<Leader>rf";
+      key = "<leader>rf";
       action.__raw = "function() require('neotest').run.run(vim.fn.expand('%')) end";
       options.desc = "Run tests in this file";
     }
     {
       mode = "n";
-      key = "<Leader>rs";
+      key = "<leader>rs";
       action.__raw = "function() require('neotest').summary.toggle() end";
       options.desc = "Show tests summary";
     }
     {
       mode = "n";
-      key = "<Leader>ro";
+      key = "<leader>ro";
       action.__raw = "function() require('neotest').output.open({enter = true}) end";
       options.desc = "Show test output";
     }
