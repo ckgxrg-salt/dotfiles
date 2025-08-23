@@ -7,6 +7,7 @@
           accept = {
             dot_repeat = false;
           };
+          list.selection.preselect = false;
           documentation.auto_show = true;
         };
         signature.enabled = true;

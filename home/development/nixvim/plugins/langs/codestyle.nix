@@ -8,7 +8,6 @@
           rust = [ "rustfmt" ];
           java = [ "google-java-format" ];
           nix = [ "nixfmt" ];
-          markdown = [ "markdownfmt" ];
           scss = [ "prettier" ];
           css = [ "prettier" ];
           typescript = [ "prettier" ];
