@@ -43,18 +43,23 @@ in
             };
             "Groups/0/Items/0".Name = "keyboard-us";
             "Groups/0/Items/1".Name = "rime";
+            "Groups/0/Items/2".Name = "mozc";
+          };
+
+          globalOptions = {
+            Hotkey = {
+              AltTriggerKeys = "";
+            };
+            "Hotkey/TriggerKeys"."0" = "Control+space";
+          };
+
+          addons = {
+            clipboard.globalSection = {
+              # Disable
+              TriggerKey = "";
+            };
           };
         };
-      };
-    };
-
-    # Add fcitx5 to GTK settings
-    gtk = {
-      gtk3.extraConfig = {
-        gtk-im-module = "fcitx";
-      };
-      gtk4.extraConfig = {
-        gtk-im-module = "fcitx";
       };
     };
   };
