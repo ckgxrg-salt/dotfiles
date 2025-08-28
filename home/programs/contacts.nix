@@ -71,7 +71,8 @@ in
     };
 
     programs.vdirsyncer = {
-      enable = true;
+      # TODO: Until nixpkgs fix
+      enable = false;
       statusPath = "${config.xdg.configHome}/vdirsyncer/status";
     };
   };
