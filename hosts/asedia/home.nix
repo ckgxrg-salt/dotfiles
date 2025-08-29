@@ -42,7 +42,6 @@
     komikku
     wiliwili
     freetube
-    jellyfin-media-player
     moonlight-qt
   ];
   daemons = {
