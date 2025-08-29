@@ -56,16 +56,14 @@ in
     };
 
     programs.khal = {
-      # TODO: Until nixpkgs fix
-      enable = false;
+      enable = true;
       locale = {
         firstweekday = 0;
       };
     };
 
     programs.vdirsyncer = {
-      # TODO: Until nixpkgs fix
-      enable = false;
+      enable = true;
       statusPath = "${config.xdg.configHome}/vdirsyncer/status";
     };
   };

@@ -1,6 +1,7 @@
 {
   plugins = {
     web-devicons.enable = true;
+    auto-session.enable = true;
     undotree.enable = true;
     todo-comments.enable = true;
     lsp-signature.enable = true;

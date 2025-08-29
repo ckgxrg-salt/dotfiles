@@ -53,16 +53,15 @@ in
     };
 
     # Power Button Behaviour
-    services.logind =
-      {
-        powerKey = "ignore";
-        powerKeyLongPress = "poweroff";
-      }
-      // optionalAttrs cfg.laptop {
-        lidSwitch = "suspend-then-hibernate";
-        lidSwitchExternalPower = "suspend";
-        lidSwitchDocked = "ignore";
-      };
+    services.logind.settings.Login = {
+      HandlePowerKey = "ignore";
+      HandlePowerKeyLongPress = "poweroff";
+    }
+    // optionalAttrs cfg.laptop {
+      HandleLidSwitch = "suspend-then-hibernate";
+      HandleLidSwitchExternalPower = "suspend";
+      HandleLidSwitchDocked = "ignore";
+    };
 
     # Let astal monitor battery
     services.upower = mkIf cfg.laptop {
@@ -136,14 +135,13 @@ in
 
     # Other power save features
     services.thermald.enable = cfg.hostCPU == "intel";
-    powerManagement =
-      {
-        enable = true;
-      }
-      // optionalAttrs cfg.laptop {
-        powertop.enable = true;
-        cpuFreqGovernor = "powersave";
-      };
+    powerManagement = {
+      enable = true;
+    }
+    // optionalAttrs cfg.laptop {
+      powertop.enable = true;
+      cpuFreqGovernor = "powersave";
+    };
 
     #========== Graphics ==========#
     # OpenGL & Hardware Accleration

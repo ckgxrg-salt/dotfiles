@@ -8,7 +8,6 @@ let
     (import ./lines.nix)
     (import ./misc.nix)
     (import ./neotest.nix)
-    (import ./project.nix)
     (import ./which-key.nix)
 
     (import ./langs/codestyle.nix)
