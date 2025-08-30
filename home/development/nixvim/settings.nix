@@ -36,10 +36,9 @@
   };
 
   diagnostic.settings = {
-    virtual_lines = true;
+    virtual_text = true;
     signs = true;
     update_in_insert = true;
     underline = true;
-    severity_sort = true;
   };
 }
