@@ -87,6 +87,10 @@
           ];
         };
 
+        input = {
+          kb_options = "ctrl:nocaps";
+        };
+
         plugin = {
           touch_gestures = {
             sensitivity = 2.0;
