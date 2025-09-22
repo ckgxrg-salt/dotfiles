@@ -31,6 +31,7 @@ in
 
     programs.floorp = {
       enable = true;
+      package = pkgs.floorp-bin;
       nativeMessagingHosts = [
         pkgs.tridactyl-native
       ];

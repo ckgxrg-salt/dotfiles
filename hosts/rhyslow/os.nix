@@ -43,7 +43,7 @@
     default = true;
     locale = {
       default = true;
-      timezone = "Asia/Singapore";
+      timezone = "Europe/London";
     };
     security.default = true;
   };

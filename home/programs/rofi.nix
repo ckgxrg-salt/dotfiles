@@ -20,7 +20,6 @@ in
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
       cycle = true;
       terminal = "${pkgs.alacritty}/bin/alacritty";
       theme = lib.mkForce cfg.theme;

@@ -47,7 +47,7 @@
     default = true;
     locale = {
       default = true;
-      timezone = "Asia/Shanghai";
+      timezone = "Europe/London";
     };
     security = {
       default = true;
