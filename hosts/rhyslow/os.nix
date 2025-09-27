@@ -64,13 +64,13 @@
     cursor = {
       package = pkgs.lyra-cursors;
       name = "LyraB-cursors";
-      size = 48;
+      size = 16;
     };
     fonts.sizes = {
-      applications = 24;
-      desktop = 24;
-      popups = 20;
-      terminal = 22;
+      applications = 16;
+      desktop = 16;
+      popups = 14;
+      terminal = 14;
     };
   };
   fonts = {

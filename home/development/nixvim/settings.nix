@@ -5,6 +5,7 @@
       "codecompanion.nvim"
       "markview.nvim"
       "conform.nvim"
+      "nvim-jdtls"
     ];
   };
 
