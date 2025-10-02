@@ -35,9 +35,10 @@ in
       ripgrep
       v2raya
 
-      # Nix formatter and linter
+      # Nix utilities
       nixfmt-rfc-style
       deadnix
+      nix-output-monitor
 
       # Desktop Utilities
       kdePackages.ark
