@@ -82,8 +82,10 @@
       jost
       noto-fonts-cjk-sans
       maple-mono.NF
-      noto-fonts-emoji
+      noto-fonts-color-emoji
+      # Fallback fonts
       fira-math
+      noto-fonts
     ];
     fontconfig.defaultFonts = {
       sansSerif = [
