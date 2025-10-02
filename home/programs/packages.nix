@@ -35,6 +35,10 @@ in
       ripgrep
       v2raya
 
+      # Nix formatter and linter
+      nixfmt-rfc-style
+      deadnix
+
       # Desktop Utilities
       kdePackages.ark
       celluloid
