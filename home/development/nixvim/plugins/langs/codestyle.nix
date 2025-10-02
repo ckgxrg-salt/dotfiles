@@ -12,6 +12,7 @@
           css = [ "prettier" ];
           typescript = [ "prettier" ];
           typescriptreact = [ "prettier" ];
+          haskell = [ "ormolu" ];
           "_" = [
             "squeeze_blanks"
             "trim_whitespace"
@@ -39,6 +40,7 @@
         css = [ "eslint" ];
         typescript = [ "eslint" ];
         typescriptreact = [ "eslint" ];
+        haskell = [ "hlint" ];
       };
       linters = {
         checkstyle = {

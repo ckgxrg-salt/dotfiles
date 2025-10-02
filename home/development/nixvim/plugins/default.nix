@@ -11,6 +11,7 @@ let
     (import ./which-key.nix)
 
     (import ./langs/codestyle.nix)
+    (import ./langs/haskell.nix)
     (import ./langs/jdtls.nix pkgs lib)
     (import ./langs/lsp.nix)
     (import ./langs/markdown.nix)
