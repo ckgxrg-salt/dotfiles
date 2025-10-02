@@ -7,6 +7,7 @@
       nil_ls.enable = true;
       ts_ls.enable = true;
       cssls.enable = true;
+      texlab.enable = true;
     };
   };
 }

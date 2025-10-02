@@ -6,6 +6,7 @@ pkgs: {
     nixGrammars = true;
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       json
+      latex
       markdown
       nix
       toml

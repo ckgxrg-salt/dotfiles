@@ -79,6 +79,7 @@
       noto-fonts-cjk-sans
       maple-mono.NF
       noto-fonts-emoji
+      fira-math
     ];
     fontconfig.defaultFonts = {
       sansSerif = [
