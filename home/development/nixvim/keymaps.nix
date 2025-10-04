@@ -2,22 +2,22 @@
   keymaps = [
     {
       mode = "n";
-      key = "j";
+      key = "<A-j>";
       action = "gj";
     }
     {
       mode = "n";
-      key = "k";
+      key = "<A-k>";
       action = "gk";
     }
     {
       mode = "n";
-      key = "<Down>";
+      key = "<A-Down>";
       action = "gj";
     }
     {
       mode = "n";
-      key = "<Up>";
+      key = "<A-Up>";
       action = "gk";
     }
   ];

@@ -24,7 +24,9 @@
       "noselect"
       "noinsert"
     ];
+    wrap = true;
     linebreak = true;
+    breakindent = true;
     foldlevelstart = 99;
     number = true;
     relativenumber = true;
