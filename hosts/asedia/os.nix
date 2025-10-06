@@ -63,7 +63,7 @@
   };
   stylix = {
     default = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nova.yaml";
     polarity = "dark";
     cursor = {
       package = pkgs.graphite-cursors;
