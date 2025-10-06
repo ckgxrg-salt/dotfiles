@@ -12,6 +12,7 @@ pkgs: {
       toml
       rust
       java
+      haskell
       typescript
       cpp
     ];
