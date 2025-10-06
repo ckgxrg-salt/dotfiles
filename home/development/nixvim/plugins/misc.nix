@@ -32,6 +32,14 @@
         modes = {
           command = true;
         };
+        mappings = {
+          "`" = {
+            action = "closeopen";
+            pair = "``";
+            neigh_pattern = "[^`\\].";
+            register.cr = false;
+          };
+        };
       };
     };
 
