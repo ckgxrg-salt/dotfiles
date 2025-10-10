@@ -23,7 +23,6 @@
     ./programs/yazi.nix
     ./programs/zk.nix
 
-    ./development/nixvim
     ./development/neovim
     ./development/neovide.nix
 

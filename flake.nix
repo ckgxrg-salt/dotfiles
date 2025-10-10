@@ -20,10 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +44,6 @@
       sops-nix,
       home-manager,
       lanzaboote,
-      nixvim,
       stylix,
       ...
     }:
@@ -82,7 +77,6 @@
               home-manager.users.ckgxrg.imports = [
                 ./hosts/daywatch/home.nix
                 ./home
-                nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -113,7 +107,6 @@
               home-manager.users.ckgxrg.imports = [
                 ./hosts/rhyslow/home.nix
                 ./home
-                nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
@@ -144,7 +137,6 @@
               home-manager.users.ckgxrg.imports = [
                 ./hosts/asedia/home.nix
                 ./home
-                nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = {
                 inherit ckgs;
