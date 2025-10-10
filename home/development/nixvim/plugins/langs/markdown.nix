@@ -8,6 +8,7 @@
             "markdown"
             "codecompanion"
           ];
+          ignore_buftypes = [ ];
         };
       };
     };

@@ -24,6 +24,7 @@
     ./programs/zk.nix
 
     ./development/nixvim
+    ./development/neovim
     ./development/neovide.nix
 
     ./daemons/astal.nix

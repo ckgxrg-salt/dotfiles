@@ -7,6 +7,7 @@
           cpp = [ "clang-format" ];
           rust = [ "rustfmt" ];
           java = [ "google-java-format" ];
+          lua = [ "stylua" ];
           nix = [ "nixfmt" ];
           scss = [ "prettier" ];
           css = [ "prettier" ];
@@ -35,6 +36,7 @@
         cpp = [ "clangtidy" ];
         rust = [ "clippy" ];
         java = [ "checkstyle" ];
+        lua = [ "luacheck" ];
         nix = [ "deadnix" ];
         scss = [ "eslint" ];
         css = [ "eslint" ];
