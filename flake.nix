@@ -159,8 +159,8 @@
         name = "dotfiles";
 
         buildInputs = with pkgs; [
-          nixfmt-rfc-style
-          deadnix
+          stylua
+          luajitPackages.luacheck
           sops
         ];
       };

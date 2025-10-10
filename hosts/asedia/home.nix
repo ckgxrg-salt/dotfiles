@@ -62,7 +62,7 @@
     syncthing = true;
   };
   development = {
-    nixvim.enable = true;
+    neovim.enable = true;
   };
   stylix = {
     default = true;

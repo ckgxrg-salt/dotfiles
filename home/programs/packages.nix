@@ -36,6 +36,7 @@ in
       v2raya
 
       # Nix utilities
+      nil
       nixfmt-rfc-style
       deadnix
       nix-output-monitor
