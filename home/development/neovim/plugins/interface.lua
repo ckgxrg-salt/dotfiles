@@ -93,7 +93,7 @@ require("alpha").setup({
 				"          |___/          |___/           ",
 			},
 		},
-		{ type = "padding", val = 10 },
+		{ type = "padding", val = 4 },
 		{
 			opts = { inherit = { position = "center" } },
 			type = "group",
@@ -104,15 +104,15 @@ require("alpha").setup({
 					end,
 					opts = { shortcut = "n" },
 					type = "button",
-					val = "  New file",
+					val = "     New file  ",
 				},
 				{
 					on_press = function()
 						vim.cmd("Telescope projects")
 					end,
-					opts = { shortcut = "s" },
+					opts = { shortcut = "p" },
 					type = "button",
-					val = "  Projects",
+					val = "     Projects  ",
 				},
 				{
 					on_press = function()
@@ -120,7 +120,7 @@ require("alpha").setup({
 					end,
 					opts = { shortcut = "s" },
 					type = "button",
-					val = "  Sessions",
+					val = "     Sessions  ",
 				},
 				{
 					on_press = function()
@@ -128,7 +128,7 @@ require("alpha").setup({
 					end,
 					opts = { shortcut = "l" },
 					type = "button",
-					val = "󱑀  Last Session",
+					val = " 󱑀  Last session",
 				},
 				{
 					on_press = function()
@@ -136,19 +136,18 @@ require("alpha").setup({
 					end,
 					opts = { shortcut = "q" },
 					type = "button",
-					val = " Quit Neovim",
+					val = " 󰜎    Run away  ",
 				},
 			},
 		},
-		{ type = "padding", val = 10 },
+		{ type = "padding", val = 4 },
 		{
 			opts = { hl = "Keyword", position = "center" },
 			type = "text",
-			val = "Surprisingly, there's a 'Surprisingly, there's a...'.",
+			val = function() return vim.fn.system("fortune") end
 		},
 	},
 })
-require("alpha.term")
 
 vim.keymap.set("n", "<leader>eo", ":AerialToggle<CR>", { desc = "Display outline" })
 vim.keymap.set("n", "<leader>cr", ":IncRename ", { desc = "Rename selected" })
