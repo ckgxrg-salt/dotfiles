@@ -68,7 +68,7 @@ in
         mini-bufremove
         telescope-nvim
         mini-surround
-        mini-pairs
+        nvim-autopairs
         smear-cursor-nvim
         neoscroll-nvim
         nvim-lightbulb

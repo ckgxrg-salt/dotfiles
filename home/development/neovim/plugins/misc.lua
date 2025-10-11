@@ -18,16 +18,9 @@ require("mini.surround").setup({
 	respect_selection_type = true,
 })
 
-require("mini.pairs").setup({
-	mappings = {
-		["`"] = {
-			action = "closeopen",
-			neigh_pattern = "[^`\\].",
-			pair = "``",
-			register = { cr = false },
-		},
-	},
-	modes = { command = true },
+require("nvim-autopairs").setup({
+	check_ts = true,
+	map_cr = true,
 })
 
 require("smear_cursor").setup({
