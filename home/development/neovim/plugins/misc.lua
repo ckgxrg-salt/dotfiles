@@ -37,15 +37,6 @@ require("neoscroll").setup({
 	stop_eof = false,
 })
 
-require("nvim-lightbulb").setup({
-	number = { enabled = true },
-	sign = {
-		enabled = true,
-		lens_text = "",
-		text = "",
-	},
-})
-
 -- direnv.vim does not need setup
 vim.g.direnv_silent_load = 1
 

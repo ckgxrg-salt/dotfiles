@@ -71,7 +71,6 @@ in
         nvim-autopairs
         smear-cursor-nvim
         neoscroll-nvim
-        nvim-lightbulb
         direnv-vim
         gitsigns-nvim
         guess-indent-nvim
