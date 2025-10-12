@@ -1,10 +1,16 @@
 require("nvim-web-devicons").setup({})
 require("auto-session").setup({})
 require("todo-comments").setup({})
+
 -- undotree does not need setup
+vim.keymap.set("n", "<leader>eu", ":UndotreeToggle<CR>", { desc = "Undo tree" })
+
 require("lsp_signature").setup({})
 require("flash").setup({})
+
 require("mini.bufremove").setup({})
+vim.keymap.set("n", "<leader>w", MiniBufremove.delete, { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close current window" })
 
 require("telescope").setup({
 	pickers = {
@@ -12,6 +18,10 @@ require("telescope").setup({
 		live_grep = { theme = "dropdown" },
 	},
 })
+vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo list" })
+vim.keymap.set("n", "<leader>tf", ":Telescope live_grep<CR>", { desc = "Find in current project" })
+vim.keymap.set("n", "<leader>tk", ":Telescope keymaps<CR>", { desc = "Keymap palette" })
+vim.keymap.set("n", "<leader>ts", ":Telescope session-lens<CR>", { desc = "Sessions" })
 
 require("mini.surround").setup({
 	n_lines = 50,
@@ -48,11 +58,3 @@ require("gitsigns").setup({
 })
 
 require("guess-indent").setup({ auto_cmd = true })
-
-vim.keymap.set("n", "<leader>w", MiniBufremove.delete, { desc = "Close current buffer" })
-vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close current window" })
-vim.keymap.set("n", "<leader>eu", ":UndotreeToggle<CR>", { desc = "Undo tree" })
-vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo list" })
-vim.keymap.set("n", "<leader>tf", ":Telescope live_grep<CR>", { desc = "Find in current project" })
-vim.keymap.set("n", "<leader>tk", ":Telescope keymaps<CR>", { desc = "Keymap palette" })
-vim.keymap.set("n", "<leader>ts", ":Telescope session-lens<CR>", { desc = "Sessions" })

@@ -51,26 +51,24 @@ require("dap").configurations = {
 		},
 	},
 }
+vim.fn.sign_define("DapBreakpoint", { text = "󰺕 " })
+vim.fn.sign_define("DapBreakpointCondition", { text = " " })
+vim.fn.sign_define("DapBreakpointRejected", { text = " " })
+vim.fn.sign_define("DapLogPoint", { text = "󰣕 " })
+vim.fn.sign_define("DapStopped", { text = "󰆷 " })
+vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Add/Remove breakpoint" })
+vim.keymap.set("n", "<leader>dc", ":DapContinue<CR>", { desc = "Start/Continue debugging" })
+vim.keymap.set("n", "<leader>ds", ":DapStepOver<CR>", { desc = "Step over" })
+vim.keymap.set("n", "<leader>di", ":DapStepInto<CR>", { desc = "Step into" })
+vim.keymap.set("n", "<leader>do", ":DapStepOut<CR>", { desc = "Step out" })
 
 require("dap-view").setup({
 	winbar = {
 		default_section = "breakpoints",
 	},
 })
+vim.keymap.set("n", "<leader>du", ":DapViewToggle<CR>", { desc = "Toggle debug view" })
 
 require("nvim-dap-virtual-text").setup({
 	commented = true,
 })
-
-vim.fn.sign_define("DapBreakpoint", { text = "󰺕 " })
-vim.fn.sign_define("DapBreakpointCondition", { text = " " })
-vim.fn.sign_define("DapBreakpointRejected", { text = " " })
-vim.fn.sign_define("DapLogPoint", { text = "󰣕 " })
-vim.fn.sign_define("DapStopped", { text = "󰆷 " })
-
-vim.keymap.set("n", "<leader>du", ":DapViewToggle<CR>", { desc = "Toggle debug view" })
-vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Add/Remove breakpoint" })
-vim.keymap.set("n", "<leader>dc", ":DapContinue<CR>", { desc = "Start/Continue debugging" })
-vim.keymap.set("n", "<leader>ds", ":DapStepOver<CR>", { desc = "Step over" })
-vim.keymap.set("n", "<leader>di", ":DapStepInto<CR>", { desc = "Step into" })
-vim.keymap.set("n", "<leader>do", ":DapStepOut<CR>", { desc = "Step out" })

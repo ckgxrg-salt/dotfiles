@@ -9,5 +9,4 @@ require("which-key").setup({
 		{ "<leader>n", group = "Notebook", icon = "󰠮 " },
 	},
 })
-
 vim.keymap.set({ "n", "v", "i" }, "<F1>", ":WhichKey<CR>", { desc = "Show keymaps" })

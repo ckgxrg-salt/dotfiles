@@ -50,6 +50,7 @@ require("markview").setup({
 		ignore_buftypes = {},
 	},
 })
+vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Toggle Markdown view" })
 
 require("zk").setup({
 	picker = "telescope",
@@ -57,5 +58,3 @@ require("zk").setup({
 		telescope = require("telescope.themes").get_dropdown(),
 	},
 })
-
-vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Toggle Markdown view" })

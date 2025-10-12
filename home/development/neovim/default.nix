@@ -67,6 +67,7 @@ in
         flash-nvim
         mini-bufremove
         telescope-nvim
+        wtf-nvim
         mini-surround
         nvim-autopairs
         smear-cursor-nvim

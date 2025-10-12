@@ -4,6 +4,7 @@ require("yazi").setup({
 	yazi_floating_window_border = "solid",
 	yazi_floating_window_winblend = 25,
 })
+vim.keymap.set("n", "<A-Tab>", require("yazi").yazi, { desc = "Browse files" })
 
 require("fidget").setup({
 	notification = {
@@ -54,6 +55,10 @@ require("trouble").setup({
 	open_no_results = true,
 	warn_no_results = false,
 })
+vim.keymap.set("n", "<leader>cd", ":Trouble diagnostics toggle<CR>", { desc = "Show diagnostics" })
+vim.keymap.set("n", "<leader>cq", ":Trouble quickfix toggle<CR>", { desc = "Show quickfix" })
+vim.keymap.set("n", "<leader>cf", ":Trouble lsp_definitions toggle<CR>", { desc = "Show definitions" })
+vim.keymap.set("n", "<leader>ce", ":Trouble lsp_references toggle<CR>", { desc = "Show references" })
 
 require("codecompanion").setup({
 	adapters = {
@@ -61,7 +66,7 @@ require("codecompanion").setup({
 			gemini = function()
 				return require("codecompanion.adapters").extend("gemini", {
 					env = {
-						api_key = "cmd:cat $HOME/.config/sops-nix/secrets/gemini-token",
+						api_key = "cmd:cat $XDG_CONFIG_HOME/sops-nix/secrets/gemini-token",
 					},
 				})
 			end,
@@ -71,13 +76,16 @@ require("codecompanion").setup({
 		chat = { adapter = "gemini" },
 	},
 })
+vim.keymap.set("n", "<leader>ea", ":CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion" })
 
 require("inc_rename").setup()
+vim.keymap.set("n", "<leader>cr", ":IncRename ", { desc = "Rename selected" })
 
 require("aerial").setup({
 	backends = { "lsp", "treesitter", "markdown" },
 	highlight_on_hover = true,
 })
+vim.keymap.set("n", "<leader>eo", ":AerialToggle<CR>", { desc = "Display outline" })
 
 require("alpha").setup({
 	layout = {
@@ -148,12 +156,3 @@ require("alpha").setup({
 		},
 	},
 })
-
-vim.keymap.set("n", "<leader>eo", ":AerialToggle<CR>", { desc = "Display outline" })
-vim.keymap.set("n", "<leader>cr", ":IncRename ", { desc = "Rename selected" })
-vim.keymap.set("n", "<leader>cd", ":Trouble diagnostics toggle<CR>", { desc = "Show diagnostics" })
-vim.keymap.set("n", "<leader>cq", ":Trouble quickfix toggle<CR>", { desc = "Show quickfix" })
-vim.keymap.set("n", "<leader>cf", ":Trouble lsp_definitions toggle<CR>", { desc = "Show definitions" })
-vim.keymap.set("n", "<leader>ce", ":Trouble lsp_references toggle<CR>", { desc = "Show references" })
-vim.keymap.set("n", "<leader>ea", ":CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion" })
-vim.keymap.set("n", "<A-Tab>", require("yazi").yazi, { desc = "Browse files" })
