@@ -113,9 +113,7 @@ in
       extraPackages = with pkgs; [
         marksman
         nil
-        prettier
         nixfmt-rfc-style
-        markdownlint-cli
         deadnix
       ];
 
