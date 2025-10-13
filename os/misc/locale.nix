@@ -10,14 +10,19 @@ in
       type = types.str;
       description = "Time zone of this host";
     };
+    autoTimezone = mkEnableOption "Automatically determine time zone on startup";
   };
 
   config = mkIf cfg.default {
     #========== Localisation ==========#
     # Timezone, Locale
-    time.timeZone = cfg.timezone;
     services.timesyncd.enable = false;
     services.chrony.enable = true;
+
+    time.timeZone = mkIf (!cfg.autoTimezone) cfg.timezone;
+
+    services.tzupdate.enable = cfg.autoTimezone;
+    systemd.timers.tzupdate.timerConfig.OnCalendar = mkForce null;
 
     i18n = {
       defaultLocale = "en_GB.UTF-8";

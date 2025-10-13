@@ -47,7 +47,7 @@
     default = true;
     locale = {
       default = true;
-      timezone = "Europe/London";
+      autoTimezone = true;
     };
     security = {
       default = true;
