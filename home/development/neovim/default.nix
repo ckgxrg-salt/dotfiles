@@ -109,6 +109,16 @@ in
         ))
       ];
 
+      # LSP servers, formatters and linters that are common to use
+      extraPackages = with pkgs; [
+        marksman
+        nil
+        prettier
+        nixfmt-rfc-style
+        markdownlint-cli
+        deadnix
+      ];
+
       extraLuaConfig = lib.fileContents ./init.lua;
     };
 

@@ -4,14 +4,15 @@ require("conform").setup({
 	formatters_by_ft = {
 		_ = { "squeeze_blanks", "trim_whitespace", "trim_newlines" },
 		cpp = { "clang-format" },
-		css = { "prettier" },
-		haskell = { "ormolu" },
 		java = { "google-java-format" },
-		lua = {"stylua"},
-		nix = { "nixfmt" },
 		rust = { "rustfmt" },
-		scss = { "prettier" },
+		markdown = { "prettier" },
+		nix = { "nixfmt" },
+		haskell = { "ormolu" },
 		tex = { "tex-fmt" },
+		lua = { "stylua" },
+		css = { "prettier" },
+		scss = { "prettier" },
 		typescript = { "prettier" },
 		typescriptreact = { "prettier" },
 	},
@@ -21,20 +22,23 @@ vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 require("lint").linters_by_ft = {
 	cpp = { "clangtidy" },
-	css = { "eslint" },
-	haskell = { "hlint" },
 	java = { "checkstyle" },
-	lua = {"luacheck"},
-	nix = { "deadnix" },
 	rust = { "clippy" },
-	scss = { "eslint" },
+	markdown = { "markdownlint" },
+	nix = { "deadnix" },
+	haskell = { "hlint" },
 	tex = { "lacheck" },
+	lua = { "luacheck" },
+	css = { "eslint" },
+	scss = { "eslint" },
 	typescript = { "eslint" },
 	typescriptreact = { "eslint" },
 }
 require("lint").linters.checkstyle.config_file = "/google_checks.xml"
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	callback = function() require("lint").try_lint() end,
+	callback = function()
+		require("lint").try_lint()
+	end,
 })
 
 require("nvim-treesitter.configs").setup({

@@ -1,7 +1,6 @@
 vim.lsp.inlay_hint.enable(true)
 
 vim.lsp.enable("clangd")
-vim.lsp.enable("cssls")
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("texlab")
 vim.lsp.enable("ts_ls")
@@ -44,6 +43,7 @@ vim.lsp.config("jdtls", {
 })
 vim.lsp.enable("jdtls")
 
+vim.lsp.enable("marksman")
 require("markview").setup({
 	preview = {
 		filetypes = { "markdown", "codecompanion" },
@@ -51,7 +51,6 @@ require("markview").setup({
 	},
 })
 vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Toggle Markdown view" })
-
 require("zk").setup({
 	picker = "telescope",
 	picker_options = {

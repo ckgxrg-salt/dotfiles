@@ -152,7 +152,7 @@
 
         buildInputs = with pkgs; [
           stylua
-          luajitPackages.luacheck
+          luaPackages.luacheck
           sops
         ];
       };

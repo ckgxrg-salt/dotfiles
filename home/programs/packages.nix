@@ -29,17 +29,12 @@ in
       hyprpicker
       lazygit
       lolcat
+      nix-output-monitor
       playerctl
       procs
       psmisc
       ripgrep
       v2raya
-
-      # Nix utilities
-      nil
-      nixfmt-rfc-style
-      deadnix
-      nix-output-monitor
 
       # Desktop Utilities
       kdePackages.ark
