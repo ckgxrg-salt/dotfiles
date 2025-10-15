@@ -48,8 +48,8 @@ in
         isDefault = true;
         name = "Default";
         search = {
-          default = "startpage";
-          privateDefault = "startpage";
+          default = "ddg";
+          privateDefault = "ddg";
           force = true;
           engines = {
             archwiki = {
