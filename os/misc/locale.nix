@@ -22,7 +22,9 @@ in
     time.timeZone = mkIf (!cfg.autoTimezone) cfg.timezone;
 
     services.tzupdate.enable = cfg.autoTimezone;
-    systemd.timers.tzupdate.timerConfig.OnCalendar = mkForce null;
+    systemd.timers = mkIf cfg.autoTimezone {
+      tzupdate.timerConfig.OnCalendar = mkForce null;
+    };
 
     i18n = {
       defaultLocale = "en_GB.UTF-8";
