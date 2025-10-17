@@ -51,9 +51,3 @@ require("markview").setup({
 	},
 })
 vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Toggle Markdown view" })
-require("zk").setup({
-	picker = "telescope",
-	picker_options = {
-		telescope = require("telescope.themes").get_dropdown(),
-	},
-})

@@ -33,7 +33,6 @@
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-1.rasi";
     };
     yazi = true;
-    zk = true;
   };
   home.packages = with pkgs; [
     nvitop

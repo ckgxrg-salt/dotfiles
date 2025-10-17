@@ -78,6 +78,7 @@ in
 
         # Test
         neotest
+        neotest-haskell
 
         # Keybind
         which-key-nvim
@@ -87,7 +88,6 @@ in
         haskell-tools-nvim
         nvim-jdtls
         markview-nvim
-        zk-nvim
         rustaceanvim
 
         # Codestyle
@@ -109,7 +109,7 @@ in
         ))
       ];
 
-      # LSP servers, formatters and linters that are common to use
+      # LSP servers, formatters and linters that are not specific to projects
       extraPackages = with pkgs; [
         marksman
         nil

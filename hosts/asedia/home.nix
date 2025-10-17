@@ -33,7 +33,6 @@
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-2/style-4.rasi";
     };
     yazi = true;
-    zk = true;
   };
   home.packages = with pkgs; [
     wego
