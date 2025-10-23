@@ -74,7 +74,7 @@ in
         neoscroll-nvim
         direnv-vim
         gitsigns-nvim
-        guess-indent-nvim
+        indent-o-matic
 
         # Test
         neotest

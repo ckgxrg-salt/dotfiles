@@ -11,8 +11,6 @@ vim.opt.linebreak = true
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
 vim.opt.splitkeep = "screen"
 vim.opt.splitright = true
 vim.opt.termguicolors = true
@@ -28,7 +26,7 @@ vim.diagnostic.config({
 	underline = true,
 	update_in_insert = true,
 	virtual_text = true,
-	virtual_lines = { current_line = true }
+	virtual_lines = { current_line = true },
 })
 
 -- Keybinds

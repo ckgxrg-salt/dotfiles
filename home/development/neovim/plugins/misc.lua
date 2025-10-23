@@ -57,4 +57,8 @@ require("gitsigns").setup({
 	current_line_blame_formatter = " <author>, <author_time> - <summary> ",
 })
 
-require("guess-indent").setup({ auto_cmd = true })
+require("indent-o-matic").setup({
+	max_lines = 512,
+	standard_widths = { 2, 4, 8 },
+	skip_multiline = true,
+})
