@@ -87,7 +87,6 @@ in
         haskell-tools-nvim
         nvim-jdtls
         markview-nvim
-        zk-nvim
         rustaceanvim
 
         # Codestyle
