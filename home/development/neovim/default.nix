@@ -53,6 +53,11 @@ in
         aerial-nvim
         alpha-nvim
 
+        # Decorations
+        smear-cursor-nvim
+        tiny-glimmer-nvim
+        neoscroll-nvim
+
         # Lines
         bufferline-nvim
         lualine-nvim
@@ -70,8 +75,6 @@ in
         wtf-nvim
         mini-surround
         nvim-autopairs
-        smear-cursor-nvim
-        neoscroll-nvim
         direnv-vim
         gitsigns-nvim
         indent-o-matic
@@ -108,7 +111,7 @@ in
         ))
       ];
 
-      # LSP servers, formatters and linters that are common to use
+      # LSP servers, formatters and linters that are not specific to projects
       extraPackages = with pkgs; [
         marksman
         nil
