@@ -52,6 +52,7 @@ in
         inc-rename-nvim
         aerial-nvim
         alpha-nvim
+        nvim-notify
 
         # Decorations
         smear-cursor-nvim

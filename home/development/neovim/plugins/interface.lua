@@ -87,6 +87,11 @@ require("aerial").setup({
 })
 vim.keymap.set("n", "<leader>eo", ":AerialToggle<CR>", { desc = "Display outline" })
 
+vim.notify = require("notify")
+require("notify").setup({
+	timeout = 10000,
+})
+
 require("alpha").setup({
 	layout = {
 		{ type = "padding", val = 10 },
@@ -152,7 +157,9 @@ require("alpha").setup({
 		{
 			opts = { hl = "Keyword", position = "center" },
 			type = "text",
-			val = function() return vim.fn.system("fortune") end
+			val = function()
+				return vim.fn.system("fortune")
+			end,
 		},
 	},
 })

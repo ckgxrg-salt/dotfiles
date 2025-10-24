@@ -10,15 +10,9 @@ require("smear_cursor").setup({
 
 require("tiny-glimmer").setup({
 	overwrite = {
-		search = {
-			enabled = true,
-		},
-		undo = {
-			enabled = true,
-		},
-		redo = {
-			enabled = true,
-		},
+		search = { enabled = true },
+		undo = { enabled = true },
+		redo = { enabled = true },
 	},
 })
 
