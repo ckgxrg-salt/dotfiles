@@ -4,7 +4,7 @@ require("which-key").setup({
 		{ "<leader>e", group = "Editor", icon = " " },
 		{ "<leader>c", group = "Code Actions", icon = "󰲒 " },
 		{ "<leader>t", group = "Telescope", icon = "󰭎 " },
-		{ "<leader>d", group = "Debug", icon = " " },
+		{ "<leader>d", group = "Debug", icon = " ", mode = { "n", "v" } },
 		{ "<leader>r", group = "Test", icon = "󰙨 " },
 		{ "<leader>n", group = "Notebook", icon = "󰠮 " },
 	},

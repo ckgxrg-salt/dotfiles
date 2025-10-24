@@ -23,6 +23,22 @@ vim.keymap.set("n", "<leader>tf", ":Telescope live_grep<CR>", { desc = "Find in 
 vim.keymap.set("n", "<leader>tk", ":Telescope keymaps<CR>", { desc = "Keymap palette" })
 vim.keymap.set("n", "<leader>ts", ":Telescope session-lens<CR>", { desc = "Sessions" })
 
+require("wtf").setup({
+	popup_type = "popup",
+	provider = "gemini",
+	providers = {
+		gemini = {
+			api_key = function()
+				return vim.fn.readfile(os.getenv("XDG_CONFIG_HOME") .. "/sops-nix/secrets/gemini-token")[1]
+			end,
+			model_id = "gemini-2.5-flash",
+		},
+	},
+	search_engine = "duck_duck_go",
+})
+vim.keymap.set("v", "<leader>ds", require("wtf").diagnose, { desc = "Diagnose code with AI" })
+vim.keymap.set("v", "<leader>dS", require("wtf").search, { desc = "Diagnose code with search" })
+
 require("mini.surround").setup({
 	n_lines = 50,
 	respect_selection_type = true,
@@ -31,20 +47,6 @@ require("mini.surround").setup({
 require("nvim-autopairs").setup({
 	check_ts = true,
 	map_cr = true,
-})
-
-require("smear_cursor").setup({
-	damping = 0.95,
-	damping_insert_mode = 0.95,
-	distance_stop_animating = 0.5,
-	stiffness = 0.8,
-	stiffness_insert_mode = 0.7,
-	trailing_stiffness = 0.5,
-	trailing_stiffness_insert_mode = 0.7,
-})
-
-require("neoscroll").setup({
-	stop_eof = false,
 })
 
 -- direnv.vim does not need setup
