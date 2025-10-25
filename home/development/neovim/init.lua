@@ -2,7 +2,6 @@
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
-vim.opt.expandtab = true
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = "expr"
@@ -16,6 +15,9 @@ vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.winborder = "single"
 vim.opt.wrap = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.tabstop = 2
 
 -- Globals
 vim.g.mapleader = " "
