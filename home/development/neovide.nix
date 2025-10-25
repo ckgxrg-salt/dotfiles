@@ -7,13 +7,15 @@ in
   options.development.neovide = mkEnableOption "Enable Neovide GUI";
 
   config = mkIf cfg {
-    programs.neovide = {
-      enable = true;
-      settings = {
-        font = {
-          size = 18;
-        };
-      };
-    };
+    stylix.targets.neovide.enable = true;
+
+    programs.neovide.enable = true;
+
+    programs.neovim.extraLuaConfig = ''
+      if vim.g.neovide then
+        vim.g.neovide_cursor_vfx_mode = "railgun"
+        vim.g.neovide_cursor_vfx_mode = "wireframe"
+      end
+    '';
   };
 }

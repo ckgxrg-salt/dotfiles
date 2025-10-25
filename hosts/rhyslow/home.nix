@@ -54,6 +54,7 @@
   };
   development = {
     neovim.enable = true;
+    neovide = true;
   };
   stylix = {
     default = true;

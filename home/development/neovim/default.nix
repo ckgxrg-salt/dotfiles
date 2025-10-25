@@ -19,11 +19,6 @@ in
     stylix.targets.neovim = {
       enable = true;
       plugin = "base16-nvim";
-      transparentBackground = {
-        main = true;
-        numberLine = true;
-        signColumn = true;
-      };
     };
 
     programs.neovim = {
@@ -100,11 +95,12 @@ in
         nvim-lint
         (nvim-treesitter.withPlugins (
           grammars: with grammars; [
-            json
             latex
             markdown
             nix
+            json
             toml
+            yaml
             rust
             java
             haskell
