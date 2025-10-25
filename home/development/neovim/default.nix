@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  ckgs,
   ...
 }:
 with lib;
@@ -66,7 +67,8 @@ in
 
         # Misc
         nvim-web-devicons
-        auto-session
+        ckgs.nvim.possession-nvim
+        ckgs.nvim.neovim-tips
         undotree
         todo-comments-nvim
         lsp_signature-nvim

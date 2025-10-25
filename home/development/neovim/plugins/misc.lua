@@ -1,6 +1,28 @@
 require("nvim-web-devicons").setup({})
-require("auto-session").setup({})
 require("todo-comments").setup({})
+
+require("neovim_tips").setup({
+	daily_tips = 1,
+})
+
+require("possession").setup({
+	autosave = {
+		current = true,
+		cwd = function()
+			return not require("possession.session").exists(require("possession.paths").cwd_session_name())
+		end,
+		on_load = true,
+		on_quit = true,
+	},
+	autoload = "last_cwd",
+	plugins = {
+		nvim_tree = false,
+		neo_tree = false,
+		tabby = false,
+		kulala = false,
+	},
+})
+require("telescope").load_extension("possession")
 
 -- undotree does not need setup
 vim.keymap.set("n", "<leader>eu", ":UndotreeToggle<CR>", { desc = "Undo tree" })

@@ -35,11 +35,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757497936,
-        "narHash": "sha256-BSfvr7wdY5SbathVlrOW7vCyI9UGVIe2b9rTJ0O5IKo=",
+        "lastModified": 1761246688,
+        "narHash": "sha256-U2r3/DKgr9Fq1yqWLCbKMSqRf8a1JctD0kj/ftBClsg=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "344a6dce56437a190b99e516a6cab8332cccf19e",
+        "rev": "189bf73016c26d7d32729a913d6436cd7b1a0885",
         "type": "github"
       },
       "original": {
@@ -124,11 +124,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1758803106,
-        "narHash": "sha256-qQyPb4dbIrlmMe73ThMv/9LMdG4CfqylcKvfUkhurAw=",
+        "lastModified": 1761395509,
+        "narHash": "sha256-z1H+prON9ChiKCngQZ8Rf9AHwzFhlrfY0o4QM5LY9OA=",
         "ref": "refs/heads/main",
-        "rev": "b8e7fde9de457c2d2c126781235b27cd50350885",
-        "revCount": 64,
+        "rev": "5463b3676c20d0987e8a9e451205b517b96ccf6f",
+        "revCount": 66,
         "type": "git",
         "url": "https://codeberg.org/ckgxrg/ckgpkgs"
       },

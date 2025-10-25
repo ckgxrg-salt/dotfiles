@@ -89,6 +89,7 @@ vim.keymap.set("n", "<leader>eo", ":AerialToggle<CR>", { desc = "Display outline
 
 vim.notify = require("notify")
 require("notify").setup({
+	background_colour = "#000000",
 	timeout = 10000,
 })
 
@@ -129,7 +130,7 @@ require("alpha").setup({
 				},
 				{
 					on_press = function()
-						vim.cmd("Telescope session-lens")
+						vim.cmd("Telescope possession list")
 					end,
 					opts = { shortcut = "s" },
 					type = "button",
@@ -137,7 +138,7 @@ require("alpha").setup({
 				},
 				{
 					on_press = function()
-						vim.cmd("SessionRestore")
+						vim.cmd("PossessionLoad")
 					end,
 					opts = { shortcut = "l" },
 					type = "button",
