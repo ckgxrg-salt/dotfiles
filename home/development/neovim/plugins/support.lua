@@ -1,3 +1,7 @@
+require("neovim_tips").setup({
+	daily_tips = 1,
+})
+
 require("which-key").setup({
 	preset = "modern",
 	spec = {

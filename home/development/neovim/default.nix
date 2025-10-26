@@ -29,6 +29,10 @@ in
 
       # List all plugins here
       plugins = with pkgs.vimPlugins; [
+        # Utilities
+        nvim-web-devicons
+        telescope-nvim
+
         # Completion
         blink-cmp
         friendly-snippets
@@ -42,46 +46,46 @@ in
         yazi-nvim
         fidget-nvim
         edgy-nvim
+        alpha-nvim
+        bufferline-nvim
+        lualine-nvim
+        vim-illuminate
+
+        # Widgets
         codecompanion-nvim
         hlchunk-nvim
         trouble-nvim
         inc-rename-nvim
         aerial-nvim
-        alpha-nvim
-        nvim-notify
+        undotree
+        wtf-nvim
 
         # Decorations
         smear-cursor-nvim
         tiny-glimmer-nvim
         neoscroll-nvim
 
-        # Lines
-        bufferline-nvim
-        lualine-nvim
-        vim-illuminate
+        # Session
+        ckgs.nvim.possession-nvim
+        project-nvim
+        direnv-vim
 
         # Misc
-        nvim-web-devicons
-        ckgs.nvim.possession-nvim
-        ckgs.nvim.neovim-tips
-        undotree
         todo-comments-nvim
         lsp_signature-nvim
         flash-nvim
         mini-bufremove
-        telescope-nvim
-        wtf-nvim
         mini-surround
         nvim-autopairs
-        direnv-vim
         gitsigns-nvim
         indent-o-matic
 
         # Test
         neotest
 
-        # Keybind
+        # Help & Support
         which-key-nvim
+        ckgs.nvim.neovim-tips
 
         # Language-specific
         nvim-lspconfig

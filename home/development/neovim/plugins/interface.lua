@@ -51,46 +51,48 @@ require("hlchunk").setup({
 	line_num = { enable = true },
 })
 
-require("trouble").setup({
-	open_no_results = true,
-	warn_no_results = false,
-})
-vim.keymap.set("n", "<leader>cd", ":Trouble diagnostics toggle<CR>", { desc = "Show diagnostics" })
-vim.keymap.set("n", "<leader>cq", ":Trouble quickfix toggle<CR>", { desc = "Show quickfix" })
-vim.keymap.set("n", "<leader>cf", ":Trouble lsp_definitions toggle<CR>", { desc = "Show definitions" })
-vim.keymap.set("n", "<leader>ce", ":Trouble lsp_references toggle<CR>", { desc = "Show references" })
-
-require("codecompanion").setup({
-	adapters = {
-		http = {
-			gemini = function()
-				return require("codecompanion.adapters").extend("gemini", {
-					env = {
-						api_key = "cmd:cat $XDG_CONFIG_HOME/sops-nix/secrets/gemini-token",
-					},
-				})
-			end,
-		},
-	},
-	strategies = {
-		chat = { adapter = "gemini" },
+require("bufferline").setup({
+	options = {
+		close_command = function()
+			MiniBufremove.delete()
+		end,
+		diagnostics = "nvim_lsp",
+		diagnostics_indicator = function(count, level, diagnostics_dict, context)
+			local s = " "
+			for e, n in pairs(diagnostics_dict) do
+				local sym = e == "error" and " " or (e == "warning" and " " or " ")
+				s = s .. n .. sym
+			end
+			return s
+		end,
+		numbers = "ordinal",
+		right_mouse_command = function()
+			MiniBufremove.delete()
+		end,
+		separator_style = "thin",
 	},
 })
-vim.keymap.set("n", "<leader>ea", ":CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion" })
+vim.keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "<C-S-h>", ":BufferLineMovePrev<CR>", { desc = "Move buffer <-" })
+vim.keymap.set("n", "<C-S-l>", ":BufferLineMoveNext<CR>", { desc = "Move buffer ->" })
+vim.keymap.set("n", "<C-1>", ":BufferLineMovePrev 1<CR>")
+vim.keymap.set("n", "<C-2>", ":BufferLineMovePrev 2<CR>")
+vim.keymap.set("n", "<C-3>", ":BufferLineMovePrev 3<CR>")
+vim.keymap.set("n", "<C-4>", ":BufferLineMovePrev 4<CR>")
+vim.keymap.set("n", "<C-5>", ":BufferLineMovePrev 5<CR>")
 
-require("inc_rename").setup()
-vim.keymap.set("n", "<leader>cr", ":IncRename ", { desc = "Rename selected" })
-
-require("aerial").setup({
-	backends = { "lsp", "treesitter", "markdown" },
-	highlight_on_hover = true,
+require("lualine").setup({
+	options = {
+		disabled_filetypes = { winbar = { "dap-repl", "dap-view", "dap-view-term" } },
+		globalstatus = true,
+		theme = "base16",
+	},
 })
-vim.keymap.set("n", "<leader>eo", ":AerialToggle<CR>", { desc = "Display outline" })
 
-vim.notify = require("notify")
-require("notify").setup({
-	background_colour = "#000000",
-	timeout = 10000,
+require("illuminate").configure({
+	providers = { "lsp", "treesitter", "regex" },
+	under_cursor = true,
 })
 
 require("alpha").setup({
