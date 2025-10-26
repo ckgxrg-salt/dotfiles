@@ -52,3 +52,12 @@ require("wtf").setup({
 })
 vim.keymap.set("v", "<leader>ds", require("wtf").diagnose, { desc = "Diagnose code with AI" })
 vim.keymap.set("v", "<leader>dS", require("wtf").search, { desc = "Diagnose code with search" })
+
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+require("ufo").setup({
+	provider_selector = function(bufnr, filetype, buftype)
+		return { "treesitter", "indent" }
+	end,
+})

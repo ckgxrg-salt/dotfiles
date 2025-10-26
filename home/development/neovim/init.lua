@@ -2,9 +2,6 @@
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevelstart = 99
-vim.opt.foldmethod = "expr"
 vim.opt.laststatus = 3
 vim.opt.linebreak = true
 vim.opt.mouse = "a"

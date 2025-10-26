@@ -22,6 +22,7 @@ require("edgy").setup({
 
 require("toggleterm").setup({
 	direction = "horizontal",
+	size = 20,
 })
 vim.keymap.set("n", "<Leader>et", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
 

@@ -24,6 +24,7 @@ require("possession").setup({
 		on_quit = true,
 	},
 	autoload = "last_cwd",
+	silent = true,
 	plugins = {
 		nvim_tree = false,
 		neo_tree = false,
