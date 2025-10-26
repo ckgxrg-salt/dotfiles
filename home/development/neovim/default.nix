@@ -32,6 +32,7 @@ in
         # Utilities
         nvim-web-devicons
         telescope-nvim
+        flash-nvim
 
         # Completion
         blink-cmp
@@ -73,9 +74,9 @@ in
         direnv-vim
 
         # Misc
+        ckgs.nvim.im-select-nvim
         todo-comments-nvim
         lsp_signature-nvim
-        flash-nvim
         mini-surround
         nvim-autopairs
         gitsigns-nvim
