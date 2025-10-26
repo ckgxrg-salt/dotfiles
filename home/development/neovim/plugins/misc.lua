@@ -3,10 +3,6 @@ vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo
 
 require("lsp_signature").setup({})
 
-require("mini.bufremove").setup({})
-vim.keymap.set("n", "<leader>w", MiniBufremove.delete, { desc = "Close current buffer" })
-vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close current window" })
-
 require("mini.surround").setup({
 	n_lines = 50,
 	respect_selection_type = true,

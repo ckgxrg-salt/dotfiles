@@ -64,36 +64,23 @@ require("hlchunk").setup({
 	line_num = { enable = true },
 })
 
-require("bufferline").setup({
-	options = {
-		close_command = function()
-			MiniBufremove.delete()
-		end,
-		diagnostics = "nvim_lsp",
-		diagnostics_indicator = function(count, level, diagnostics_dict, context)
-			local s = " "
-			for e, n in pairs(diagnostics_dict) do
-				local sym = e == "error" and " " or (e == "warning" and " " or " ")
-				s = s .. n .. sym
-			end
-			return s
-		end,
-		numbers = "ordinal",
-		right_mouse_command = function()
-			MiniBufremove.delete()
-		end,
-		separator_style = "thin",
+vim.g.barbar_auto_setup = false
+require("barbar").setup({
+	icons = {
+		preset = "powerline",
 	},
 })
-vim.keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", { desc = "Previous tab" })
-vim.keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", { desc = "Next tab" })
-vim.keymap.set("n", "<C-S-h>", ":BufferLineMovePrev<CR>", { desc = "Move buffer <-" })
-vim.keymap.set("n", "<C-S-l>", ":BufferLineMoveNext<CR>", { desc = "Move buffer ->" })
-vim.keymap.set("n", "<C-1>", ":BufferLineMovePrev 1<CR>")
-vim.keymap.set("n", "<C-2>", ":BufferLineMovePrev 2<CR>")
-vim.keymap.set("n", "<C-3>", ":BufferLineMovePrev 3<CR>")
-vim.keymap.set("n", "<C-4>", ":BufferLineMovePrev 4<CR>")
-vim.keymap.set("n", "<C-5>", ":BufferLineMovePrev 5<CR>")
+vim.keymap.set("n", "<C-h>", ":BufferPrevious<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<C-l>", ":BufferNext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "<C-S-h>", ":BufferMovePrevious<CR>", { desc = "Move buffer <-" })
+vim.keymap.set("n", "<C-S-l>", ":BufferMoveNext<CR>", { desc = "Move buffer ->" })
+vim.keymap.set("n", "<C-1>", ":BufferGoto 1<CR>")
+vim.keymap.set("n", "<C-2>", ":BufferGoto 2<CR>")
+vim.keymap.set("n", "<C-3>", ":BufferGoto 3<CR>")
+vim.keymap.set("n", "<C-4>", ":BufferGoto 4<CR>")
+vim.keymap.set("n", "<C-5>", ":BufferGoto 5<CR>")
+vim.keymap.set("n", "<leader>w", ":BufferClose<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close current window" })
 
 require("lualine").setup({
 	options = {

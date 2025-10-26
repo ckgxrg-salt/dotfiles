@@ -47,7 +47,7 @@ in
         fidget-nvim
         edgy-nvim
         alpha-nvim
-        bufferline-nvim
+        barbar-nvim
         lualine-nvim
         vim-illuminate
         toggleterm-nvim
@@ -76,7 +76,6 @@ in
         todo-comments-nvim
         lsp_signature-nvim
         flash-nvim
-        mini-bufremove
         mini-surround
         nvim-autopairs
         gitsigns-nvim
