@@ -1,27 +1,8 @@
-require("yazi").setup({
-	enable_mouse_support = true,
-	open_for_directories = true,
-	yazi_floating_window_border = "solid",
-	yazi_floating_window_winblend = 25,
-})
-vim.keymap.set("n", "<A-Tab>", require("yazi").yazi, { desc = "Browse files" })
-
-require("fidget").setup({
-	notification = {
-		window = { winblend = 0 },
-	},
-	progress = {
-		display = {
-			done_ttl = 5,
-			render_limit = 10,
-		},
-	},
-})
-
 require("edgy").setup({
 	close_when_all_hidden = false,
 	keys = { q = false },
 	options = {
+		bottom = { size = 0.3 },
 		right = { size = 0.3 },
 	},
 	bottom = {
@@ -33,7 +14,36 @@ require("edgy").setup({
 		{ ft = "aerial", title = "Outline" },
 		{ ft = "neotest-summary", title = "Tests summary" },
 	},
-	right = { { ft = "codecompanion", title = "CodeCompanion" }, { ft = "help", title = "Help" } },
+	right = {
+		{ ft = "codecompanion", title = "CodeCompanion" },
+		{ ft = "help", title = "Help" },
+	},
+})
+
+require("toggleterm").setup({
+	direction = "horizontal",
+})
+vim.keymap.set("n", "<Leader>et", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
+
+require("yazi").setup({
+	enable_mouse_support = true,
+	open_for_directories = true,
+	yazi_floating_window_border = "solid",
+	yazi_floating_window_winblend = 25,
+})
+vim.keymap.set("n", "<A-Tab>", require("yazi").yazi, { desc = "Browse files" })
+
+require("fidget").setup({
+	notification = {
+		window = { winblend = 0 },
+		override_vim_notify = true,
+	},
+	progress = {
+		display = {
+			done_ttl = 5,
+			render_limit = 10,
+		},
+	},
 })
 
 require("hlchunk").setup({

@@ -1,4 +1,5 @@
 require("todo-comments").setup({})
+vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo list" })
 
 require("lsp_signature").setup({})
 require("flash").setup({})

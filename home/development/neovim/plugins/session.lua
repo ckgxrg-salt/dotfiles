@@ -32,3 +32,4 @@ require("possession").setup({
 	},
 })
 require("telescope").load_extension("possession")
+vim.keymap.set("n", "<leader>ts", ":Telescope possession list<CR>", { desc = "Sessions" })

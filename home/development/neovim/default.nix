@@ -50,6 +50,7 @@ in
         bufferline-nvim
         lualine-nvim
         vim-illuminate
+        toggleterm-nvim
 
         # Widgets
         codecompanion-nvim
