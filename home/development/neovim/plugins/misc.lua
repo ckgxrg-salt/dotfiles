@@ -2,7 +2,6 @@ require("todo-comments").setup({})
 vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo list" })
 
 require("lsp_signature").setup({})
-require("flash").setup({})
 
 require("mini.bufremove").setup({})
 vim.keymap.set("n", "<leader>w", MiniBufremove.delete, { desc = "Close current buffer" })

@@ -23,6 +23,8 @@ require("edgy").setup({
 require("toggleterm").setup({
 	direction = "horizontal",
 	size = 20,
+	shading_factor = "-10",
+	shading_ratio = "-1",
 })
 vim.keymap.set("n", "<Leader>et", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
 
