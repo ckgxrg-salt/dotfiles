@@ -43,6 +43,9 @@ in
         nvim-dap-view
         nvim-dap-virtual-text
 
+        # Test
+        neotest
+
         # Interface
         yazi-nvim
         fidget-nvim
@@ -69,7 +72,7 @@ in
         neoscroll-nvim
 
         # Session
-        ckgs.nvim.possession-nvim
+        resession-nvim
         project-nvim
         direnv-vim
 
@@ -82,9 +85,6 @@ in
         gitsigns-nvim
         indent-o-matic
 
-        # Test
-        neotest
-
         # Help & Support
         which-key-nvim
         ckgs.nvim.neovim-tips
@@ -95,6 +95,7 @@ in
         nvim-jdtls
         markview-nvim
         rustaceanvim
+        vimtex
 
         # Codestyle
         conform-nvim

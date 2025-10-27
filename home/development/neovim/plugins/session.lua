@@ -3,6 +3,7 @@ require("project").setup({
 	patterns = {
 		".git",
 		".direnv",
+		".marksman.toml",
 		"flake.nix",
 	},
 	telescope = {
@@ -14,23 +15,40 @@ require("telescope").load_extension("projects")
 -- direnv.vim does not need setup
 vim.g.direnv_silent_load = 1
 
-require("possession").setup({
+local resession = require("resession")
+resession.setup({
 	autosave = {
-		current = true,
-		cwd = function()
-			return not require("possession.session").exists(require("possession.paths").cwd_session_name())
-		end,
-		on_load = true,
-		on_quit = true,
+		enabled = true,
+		interval = 60,
+		notify = false,
 	},
-	autoload = "last_cwd",
-	silent = true,
-	plugins = {
-		nvim_tree = false,
-		neo_tree = false,
-		tabby = false,
-		kulala = false,
+	extensions = {
+		barbar = {},
 	},
 })
-require("telescope").load_extension("possession")
+-- save last session
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = function()
+		resession.save("_last")
+	end,
+})
+-- save directory sessions
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		if vim.fn.argc(-1) == 0 and not vim.g.using_stdin then
+			resession.load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+		end
+	end,
+	nested = true,
+})
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = function()
+		resession.save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
+	end,
+})
+vim.api.nvim_create_autocmd("StdinReadPre", {
+	callback = function()
+		vim.g.using_stdin = true
+	end,
+})
 vim.keymap.set("n", "<leader>ts", ":Telescope possession list<CR>", { desc = "Sessions" })
