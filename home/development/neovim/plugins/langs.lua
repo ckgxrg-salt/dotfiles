@@ -2,7 +2,6 @@ vim.lsp.inlay_hint.enable(true)
 
 vim.lsp.enable("clangd")
 vim.lsp.enable("nil_ls")
-vim.lsp.enable("texlab")
 vim.lsp.enable("ts_ls")
 
 vim.g.haskell_tools = {
@@ -51,3 +50,8 @@ require("markview").setup({
 	},
 })
 vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Toggle Markdown view" })
+
+vim.lsp.enable("texlab")
+vim.g.vimtex_view_general_viewer = "okular"
+vim.g.vimtex_view_general_options = "--unique file:@pdf#src:@line@tex"
+vim.g.vimtex_compiler_method = "latexmk"

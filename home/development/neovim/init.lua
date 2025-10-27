@@ -18,6 +18,7 @@ vim.opt.tabstop = 2
 
 -- Globals
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Diagnostics
 vim.diagnostic.config({

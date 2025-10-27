@@ -7,10 +7,10 @@ require("which-key").setup({
 	spec = {
 		{ "<leader>e", group = "Editor", icon = " " },
 		{ "<leader>c", group = "Code Actions", icon = "󰲒 " },
-		{ "<leader>t", group = "Telescope", icon = "󰭎 " },
+		{ "<leader>t", group = "List", icon = "󰭎 " },
 		{ "<leader>d", group = "Debug", icon = " ", mode = { "n", "v" } },
 		{ "<leader>r", group = "Test", icon = "󰙨 " },
-		{ "<leader>n", group = "Notebook", icon = "󰠮 " },
+		{ "<leader>n", group = "Document", icon = "󰠮 " },
 		{ "<leader>m", group = "Motion", icon = "󱖳 " },
 	},
 })
