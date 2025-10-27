@@ -26,24 +26,18 @@ resession.setup({
 		barbar = {},
 	},
 })
--- save last session
-vim.api.nvim_create_autocmd("VimLeavePre", {
-	callback = function()
-		resession.save("_last")
-	end,
-})
--- save directory sessions
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		if vim.fn.argc(-1) == 0 and not vim.g.using_stdin then
-			resession.load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+			resession.load(vim.fn.getcwd(), { silence_errors = true })
 		end
 	end,
 	nested = true,
 })
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	callback = function()
-		resession.save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
+		resession.save("Last Session")
+		resession.save(vim.fn.getcwd(), { notify = true })
 	end,
 })
 vim.api.nvim_create_autocmd("StdinReadPre", {
@@ -51,4 +45,6 @@ vim.api.nvim_create_autocmd("StdinReadPre", {
 		vim.g.using_stdin = true
 	end,
 })
-vim.keymap.set("n", "<leader>ts", ":Telescope possession list<CR>", { desc = "Sessions" })
+vim.keymap.set("n", "<leader>ts", ":Telescope resession<CR>", { desc = "Sessions" })
+
+require("pick-resession").setup()

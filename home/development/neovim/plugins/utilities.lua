@@ -5,6 +5,12 @@ require("telescope").setup({
 		keymaps = { theme = "dropdown" },
 		live_grep = { theme = "dropdown" },
 	},
+	extensions = {
+		resession = {
+			prompt_title = "Find Sessions",
+			dir = "session",
+		},
+	},
 })
 vim.keymap.set("n", "<leader>tf", ":Telescope live_grep<CR>", { desc = "Find in current project" })
 vim.keymap.set("n", "<leader>tk", ":Telescope keymaps<CR>", { desc = "Keymap palette" })

@@ -131,7 +131,7 @@ require("alpha").setup({
 				},
 				{
 					on_press = function()
-						vim.cmd("Telescope possession list")
+						vim.cmd("Telescope resession")
 					end,
 					opts = { shortcut = "s" },
 					type = "button",
@@ -139,7 +139,7 @@ require("alpha").setup({
 				},
 				{
 					on_press = function()
-						vim.cmd("PossessionLoad")
+						require("resession").load("last")
 					end,
 					opts = { shortcut = "l" },
 					type = "button",

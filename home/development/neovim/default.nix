@@ -73,6 +73,7 @@ in
 
         # Session
         resession-nvim
+        ckgs.nvim.pick-resession-nvim
         project-nvim
         direnv-vim
 

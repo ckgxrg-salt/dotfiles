@@ -124,11 +124,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761531934,
-        "narHash": "sha256-gs0ltGarXwJQa2l9dMyP41wYot6FUkWwtKmVqiExUts=",
+        "lastModified": 1761561325,
+        "narHash": "sha256-klJ9GkQ4O0AsXQmMjQlBI5ozTxK91Peh8NPyZfIzJ1A=",
         "ref": "refs/heads/main",
-        "rev": "5e7ff28459e77130638fbab18aa89aa0052c4f90",
-        "revCount": 68,
+        "rev": "f892c9a2baf04a1872a23141703cbb52b5e0f72f",
+        "revCount": 69,
         "type": "git",
         "url": "https://codeberg.org/ckgxrg/ckgpkgs"
       },
