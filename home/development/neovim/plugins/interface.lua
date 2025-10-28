@@ -139,7 +139,7 @@ require("alpha").setup({
 				},
 				{
 					on_press = function()
-						require("resession").load("last")
+						require("resession").load("Last Session")
 					end,
 					opts = { shortcut = "l" },
 					type = "button",

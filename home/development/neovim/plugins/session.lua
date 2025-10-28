@@ -17,11 +17,6 @@ vim.g.direnv_silent_load = 1
 
 local resession = require("resession")
 resession.setup({
-	autosave = {
-		enabled = true,
-		interval = 60,
-		notify = false,
-	},
 	extensions = {
 		barbar = {},
 	},
@@ -36,8 +31,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	callback = function()
-		resession.save("Last Session")
-		resession.save(vim.fn.getcwd(), { notify = true })
+		local cwd = vim.fn.getcwd()
+		local projects = require("project").get_recent_projects()
+		if vim.fn.index(projects, cwd) ~= -1 then
+			resession.save(cwd, { notify = true })
+			resession.save("Last Session")
+		end
 	end,
 })
 vim.api.nvim_create_autocmd("StdinReadPre", {
