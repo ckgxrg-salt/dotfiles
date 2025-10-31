@@ -27,7 +27,7 @@ vim.g.rustaceanvim = {
 	tools = { enable_clippy = true },
 }
 
-vim.lsp.config("jdtls", {
+vim.lsp.config["jdtls"] = {
 	settings = {
 		java = {
 			codeGeneration = {
@@ -39,13 +39,13 @@ vim.lsp.config("jdtls", {
 			},
 		},
 	},
-})
+}
 vim.lsp.enable("jdtls")
 
 vim.lsp.enable("marksman")
 require("markview").setup({
 	preview = {
-		filetypes = { "markdown", "codecompanion" },
+		filetypes = { "markdown", "typst", "tex", "codecompanion" },
 		ignore_buftypes = {},
 	},
 })
@@ -67,3 +67,21 @@ vim.g.vimtex_compiler_latexmk_engines = {
 	["context (luatex)"] = "-pdf -pdflatex=context",
 	["context (xetex)"] = "-pdf -pdflatex='texexec --xtx'",
 }
+
+vim.lsp.config["tinymist"] = {
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
+		semanticTokens = "disable",
+	},
+}
+vim.lsp.enable("tinymist")
+vim.api.nvim_create_user_command("TinymistOpenPdf", function()
+	local filepath = vim.api.nvim_buf_get_name(0)
+
+	if filepath:match("%.typ$") then
+		local pdf_path = filepath:gsub("%.typ$", ".pdf")
+
+		vim.system({ "okular", pdf_path })
+	end
+end, {})

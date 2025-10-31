@@ -109,6 +109,7 @@ in
             json
             toml
             yaml
+            typst
             rust
             java
             haskell
