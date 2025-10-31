@@ -19,7 +19,7 @@ in
       mimeApps = {
         enable = true;
         defaultApplications = {
-          "text/plain" = "neovide.desktop";
+          "text/plain" = "nvim.desktop";
           "application/pdf" = "org.kde.okular.desktop";
           "image/jpeg" = "pix.desktop";
           "image/png" = "pix.desktop";
