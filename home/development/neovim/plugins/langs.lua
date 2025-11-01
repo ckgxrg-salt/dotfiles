@@ -45,7 +45,7 @@ vim.lsp.enable("jdtls")
 vim.lsp.enable("marksman")
 require("markview").setup({
 	preview = {
-		filetypes = { "markdown", "typst", "tex", "codecompanion" },
+		filetypes = { "markdown", "codecompanion" },
 		ignore_buftypes = {},
 	},
 })
@@ -70,7 +70,6 @@ vim.g.vimtex_compiler_latexmk_engines = {
 
 vim.lsp.config["tinymist"] = {
 	settings = {
-		formatterMode = "typstyle",
 		exportPdf = "onType",
 		semanticTokens = "disable",
 	},

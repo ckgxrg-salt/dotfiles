@@ -9,6 +9,7 @@ require("conform").setup({
 		nix = { "nixfmt" },
 		haskell = { "ormolu" },
 		tex = { "latexindent" },
+		typst = { "typstyle" },
 		lua = { "stylua" },
 		css = { "prettier" },
 		scss = { "prettier" },
