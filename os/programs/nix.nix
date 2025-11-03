@@ -10,6 +10,10 @@ in
     # Nix configuration
     nix = {
       channel.enable = false;
+      gc = {
+        automatic = true;
+        dates = "weekly";
+      };
       settings = {
         substituters = [
           "https://cache.nixos.org"
@@ -30,11 +34,6 @@ in
     programs.nh = {
       enable = true;
       flake = "/home/ckgxrg/Projects/dotfiles";
-      # Automatic garbage collection
-      clean = {
-        enable = true;
-        dates = "weekly";
-      };
     };
 
     # Allow unfree and insecure packages
