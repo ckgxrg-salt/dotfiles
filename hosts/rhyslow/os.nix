@@ -82,6 +82,7 @@
       # Fallback fonts
       fira-math
       noto-fonts
+      liberation_ttf
     ];
     fontconfig.defaultFonts = {
       sansSerif = [
@@ -89,7 +90,7 @@
         "Noto Sans CJK SC"
       ];
       serif = [
-        "Jost*"
+        "Liberation Serif"
         "Noto Sans CJK SC"
       ];
       monospace = [ "Maple Mono NF" ];
