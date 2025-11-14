@@ -113,6 +113,7 @@ in
             rust
             java
             haskell
+            sql
             typescript
             cpp
           ]

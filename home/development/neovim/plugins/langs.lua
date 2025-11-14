@@ -3,6 +3,7 @@ vim.lsp.inlay_hint.enable(true)
 vim.lsp.enable("clangd")
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("ts_ls")
+vim.lsp.enable("sqruff")
 
 vim.g.haskell_tools = {
 	hls = {
