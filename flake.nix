@@ -49,15 +49,12 @@
     }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-      };
+      pkgs = import nixpkgs { inherit system; };
       ckgs = ckgpkgs.packages.${system};
     in
     {
       nixosConfigurations = {
         Daywatch = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = {
             inherit ckgs;
           };
@@ -86,7 +83,6 @@
         };
 
         Rhyslow = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = {
             inherit ckgs;
           };
@@ -116,7 +112,6 @@
         };
 
         Asedia = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = {
             inherit ckgs;
           };

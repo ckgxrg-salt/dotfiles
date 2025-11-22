@@ -10,9 +10,11 @@ in
     programs.git = {
       enable = true;
       lfs.enable = true;
-      userName = "ckgxrg";
-      userEmail = "ckgxrg@ckgxrg.io";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "ckgxrg";
+          email = "ckgxrg@ckgxrg.io";
+        };
         pull.rebase = true;
         commit.gpgsign = true;
       };
