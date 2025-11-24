@@ -13,11 +13,11 @@ in
         "Contacts" = {
           remote = {
             type = "carddav";
-            url = "https://davis.welkin.ckgxrg.io/dav/addressbooks/ckgxrg/contacts";
+            url = "https://welkin.ckgxrg.io/cloud/remote.php/dav/addressbooks/users/ckgxrg/contacts/";
             userName = "ckgxrg";
             passwordCommand = [
               "cat"
-              "${config.xdg.configHome}/sops-nix/secrets/carddav-passwd"
+              "${config.xdg.configHome}/sops-nix/secrets/welkin-passwd"
             ];
           };
           local = {
@@ -38,15 +38,6 @@ in
 
           khard = {
             enable = true;
-          };
-          khal = {
-            enable = true;
-            addresses = [
-              "ckgxrg@ckgxrg.io"
-              "ckgxrg@gmail.com"
-              "ckgxrg@outlook.com"
-            ];
-            color = "light blue";
           };
         };
       };

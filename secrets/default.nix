@@ -12,9 +12,7 @@ in
       age.keyFile = "/home/ckgxrg/.config/sops/age/keys.txt";
       secrets = {
         "gmail-oauth" = { };
-        "private-email" = { };
-        "caldav-token" = { };
-        "carddav-passwd" = { };
+        "welkin-passwd" = { };
         "gemini-token" = { };
       };
     };

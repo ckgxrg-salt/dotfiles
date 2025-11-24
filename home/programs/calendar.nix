@@ -15,14 +15,13 @@ in
       basePath = ".local/share/calendar";
       accounts = {
         "Personal" = {
-          primary = true;
           remote = {
             type = "caldav";
-            url = "https://todo.welkin.ckgxrg.io/dav/principals/ckgxrg";
+            url = "https://welkin.ckgxrg.io/cloud/remote.php/dav/calendars/ckgxrg/";
             userName = "ckgxrg";
             passwordCommand = [
               "cat"
-              "${config.xdg.configHome}/sops-nix/secrets/caldav-token"
+              "${config.xdg.configHome}/sops-nix/secrets/welkin-passwd"
             ];
           };
           local = {
@@ -32,11 +31,8 @@ in
           vdirsyncer = {
             enable = true;
             collections = [
-              [
-                "Calendar"
-                "projects"
-                "."
-              ]
+              "from a"
+              "from b"
             ];
             conflictResolution = "remote wins";
           };
@@ -48,8 +44,7 @@ in
               "ckgxrg@gmail.com"
               "ckgxrg@outlook.com"
             ];
-            color = "light blue";
-            type = "calendar";
+            type = "discover";
           };
         };
       };
