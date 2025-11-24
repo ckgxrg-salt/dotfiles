@@ -56,10 +56,5 @@ in
         firstweekday = 0;
       };
     };
-
-    programs.vdirsyncer = {
-      enable = true;
-      statusPath = "${config.xdg.configHome}/vdirsyncer/status";
-    };
   };
 }

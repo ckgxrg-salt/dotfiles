@@ -32,6 +32,10 @@
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-1.rasi";
     };
+    vdirsyncer = {
+      enable = true;
+      autoUpdate = true;
+    };
     yazi = true;
     zk = true;
   };

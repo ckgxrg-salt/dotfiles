@@ -61,9 +61,5 @@ in
       };
     };
 
-    programs.vdirsyncer = {
-      enable = true;
-      statusPath = "${config.xdg.configHome}/vdirsyncer/status";
-    };
   };
 }
