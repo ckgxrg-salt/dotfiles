@@ -64,7 +64,6 @@ in
         aerial-nvim
         undotree
         wtf-nvim
-        nvim-ufo
 
         # Decorations
         smear-cursor-nvim
