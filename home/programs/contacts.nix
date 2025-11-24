@@ -10,7 +10,7 @@ in
     accounts.contact = {
       basePath = ".local/share/contacts";
       accounts = {
-        "Contacts" = {
+        "contacts" = {
           remote = {
             type = "carddav";
             url = "https://welkin.ckgxrg.io/cloud/remote.php/dav/addressbooks/users/ckgxrg/contacts/";
@@ -28,7 +28,7 @@ in
             enable = true;
             collections = [
               [
-                "Contacts"
+                "contacts"
                 "contacts"
                 "."
               ]
