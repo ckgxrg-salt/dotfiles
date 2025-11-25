@@ -117,6 +117,7 @@ in
       enable = true;
       locale = {
         firstweekday = 0;
+        timeformat = "%H:%M";
       };
     };
   };
