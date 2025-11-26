@@ -1,14 +1,15 @@
 require("project").setup({
-	detection_methods = { "pattern", "lsp" },
+	-- detection_methods = { "pattern", "lsp" },
+	detection_methods = { "pattern" },
 	patterns = {
 		".git",
 		".direnv",
 		".marksman.toml",
 		"flake.nix",
 	},
-	telescope = {
-		enabled = true,
-	},
+	-- telescope = {
+	-- 	enabled = true,
+	-- },
 })
 require("telescope").load_extension("projects")
 
