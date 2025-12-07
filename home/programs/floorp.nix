@@ -101,6 +101,10 @@ in
               url = "about:blank";
             }
           ];
+
+          # Stylix made a mad assumption here...
+          "font.size.variable.x-western" = mkForce null;
+          "font.size.monospace.x-western" = mkForce null;
         };
         extensions = {
           force = true;

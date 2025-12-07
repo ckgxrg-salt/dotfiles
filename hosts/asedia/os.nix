@@ -74,7 +74,7 @@
       applications = 24;
       desktop = 24;
       popups = 20;
-      terminal = 22;
+      terminal = 20;
     };
   };
   fonts = {
