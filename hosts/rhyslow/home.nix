@@ -24,10 +24,10 @@
     fcitx5.enable = true;
     floorp.enable = true;
     git = true;
+    gopass.enable = true;
     gpg = true;
     mangohud = true;
     mpd = true;
-    pass = true;
     rofi = {
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-1.rasi";

@@ -111,7 +111,7 @@ in
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
             absolute-enable-right-click
             disconnect
-            browserpass
+            gopass-bridge
             tridactyl
           ];
           settings = {

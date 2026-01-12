@@ -11,6 +11,7 @@
     ./programs/fcitx.nix
     ./programs/floorp.nix
     ./programs/git.nix
+    ./programs/gopass.nix
     ./programs/gpg.nix
     ./programs/keepassxc.nix
     ./programs/kodi.nix
@@ -18,7 +19,6 @@
     ./programs/mpd.nix
     ./programs/opencomposite.nix
     ./programs/packages.nix
-    ./programs/pass.nix
     ./programs/rofi.nix
     ./programs/vdirsyncer.nix
     ./programs/yazi.nix

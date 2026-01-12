@@ -25,8 +25,8 @@
     fcitx5.enable = true;
     floorp.enable = true;
     git = true;
+    gopass.enable = true;
     gpg = true;
-    pass = true;
     mpd = true;
     rofi = {
       enable = true;
