@@ -61,7 +61,7 @@
   };
   stylix = {
     default = true;
-    iconTheme = {
+    icons = {
       enable = true;
       package = pkgs.dracula-icon-theme;
       dark = "Dracula";

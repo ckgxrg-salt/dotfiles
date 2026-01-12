@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
 	auto_install = false,
 	highlight = {
 		additional_vim_regex_highlighting = false,

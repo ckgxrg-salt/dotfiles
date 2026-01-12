@@ -123,7 +123,7 @@ in
       extraPackages = with pkgs; [
         marksman
         nil
-        nixfmt-rfc-style
+        nixfmt
         deadnix
       ];
 

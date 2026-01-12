@@ -122,8 +122,5 @@
           sops
         ];
       };
-
-      # Support `nix fmt` command
-      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }

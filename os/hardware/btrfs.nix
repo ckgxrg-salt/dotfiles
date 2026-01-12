@@ -23,7 +23,7 @@ in
         cleanupInterval = "daily";
         configs = {
           "root" = enable // {
-            SUBVOLUME = "root";
+            SUBVOLUME = "/root";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 0;
             TIMELINE_LIMIT_DAILY = 0;
@@ -31,7 +31,7 @@ in
             TIMELINE_LIMIT_MONTHLY = 1;
           };
           "home" = enable // {
-            SUBVOLUME = "home";
+            SUBVOLUME = "/home";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 5;
             TIMELINE_LIMIT_DAILY = 5;
@@ -39,7 +39,7 @@ in
             TIMELINE_LIMIT_MONTHLY = 2;
           };
           "var" = enable // {
-            SUBVOLUME = "var";
+            SUBVOLUME = "/var";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 0;
             TIMELINE_LIMIT_DAILY = 5;
@@ -48,7 +48,7 @@ in
           };
 
           "games" = enable // {
-            SUBVOLUME = "games";
+            SUBVOLUME = "/games";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 2;
             TIMELINE_LIMIT_DAILY = 2;

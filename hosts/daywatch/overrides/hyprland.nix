@@ -6,8 +6,8 @@
     in
     {
       plugins = with pkgs.hyprlandPlugins; [
-        hyprgrass
-        ckgs.show-my-osk
+        # hyprgrass
+        # ckgs.show-my-osk
       ];
       settings = {
         monitor = [

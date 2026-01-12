@@ -68,7 +68,7 @@
   };
   stylix = {
     default = true;
-    iconTheme = {
+    icons = {
       enable = true;
       package = pkgs.vimix-icon-theme;
       dark = "Vimix-black-dark";
