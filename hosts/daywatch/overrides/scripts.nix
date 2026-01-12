@@ -52,7 +52,7 @@ let
 
   brightness = pkgs.writeShellScript "brightness" ''
     get_backlight() {
-      LIGHT=$(brightnessctl get --device=intel_backlight | awk '{printf "%d", $0 / 960}')
+      LIGHT=$(brightnessctl get | awk '{printf "%d", $0 / 960}')
       echo $LIGHT
     }
     get_icon() {
@@ -73,10 +73,10 @@ let
       notify-send -t 5000 -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)%"
     }
     inc_backlight() {
-      brightnessctl --device=intel_backlight set 5%+ & brightnessctl --device=asus_screenpad set 5%+ && get_icon && notify_user
+      brightnessctl set 5%+ && get_icon && notify_user
     }
     dec_backlight() {
-      brightnessctl --device=intel_backlight set 5%- & brightnessctl --device=asus_screenpad set 5%- && get_icon && notify_user
+      brightnessctl set 5%- && get_icon && notify_user
     }
     if [[ "$1" == "--get" ]]; then
       get_backlight
@@ -89,38 +89,6 @@ let
     fi
   '';
 
-  scroller = pkgs.writeShellScript "scrollermod" ''
-    FILE="$XDG_DATA_HOME/hyprland/scroller_mode"
-    get_status() {
-      touch $FILE
-      MODE=$(cat $FILE)
-      echo $MODE
-    }
-    notify_user() {
-      notify-send -t 5000 -h string:x-canonical-private-synchronous:sys-notify -u low -i "activities" "Hyprscroller" "Switched to $MODE Mode"
-    }
-    switch() {
-      if [[ $(get_status) == "Row" ]]; then
-        MODE="Column"
-        hyprctl dispatch scroller:setmode col
-        echo $MODE > $FILE
-        notify_user
-      else
-        MODE="Row"
-        hyprctl dispatch scroller:setmode row
-        echo $MODE > $FILE
-        notify_user
-      fi
-    }
-    if [[ "$1" == "--get" ]]; then
-      get_status
-    elif [[ "$1" == "--toggle" ]]; then
-      switch
-    else
-      get_status
-    fi
-  '';
-
   clipboard = pkgs.writeShellScript "clipmenu" ''
     cliphist list | rofi -dmenu | cliphist decode | wl-copy
     wl-paste
@@ -130,7 +98,6 @@ in
   inherit
     volume
     brightness
-    scroller
     clipboard
     ;
 }

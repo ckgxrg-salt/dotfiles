@@ -52,8 +52,6 @@ in
       # Communication
       nheko
       localsend
-      # Web
-      tor-browser
       # System
       blueberry
       nautilus

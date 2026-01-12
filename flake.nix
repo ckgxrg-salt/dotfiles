@@ -54,34 +54,6 @@
     in
     {
       nixosConfigurations = {
-        Daywatch = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit ckgs;
-          };
-          modules = [
-            ./hosts/daywatch/os.nix
-            ./os
-            nur.modules.nixos.default
-            lanzaboote.nixosModules.lanzaboote
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-              ];
-              home-manager.users.ckgxrg.imports = [
-                ./hosts/daywatch/home.nix
-                ./home
-              ];
-              home-manager.extraSpecialArgs = {
-                inherit ckgs;
-              };
-            }
-          ];
-        };
-
         Rhyslow = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit ckgs;
@@ -111,12 +83,12 @@
           ];
         };
 
-        Asedia = nixpkgs.lib.nixosSystem {
+        Daywatch = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit ckgs;
           };
           modules = [
-            ./hosts/asedia/os.nix
+            ./hosts/daywatch/os.nix
             ./os
             nur.modules.nixos.default
             lanzaboote.nixosModules.lanzaboote
@@ -130,7 +102,7 @@
                 sops-nix.homeManagerModules.sops
               ];
               home-manager.users.ckgxrg.imports = [
-                ./hosts/asedia/home.nix
+                ./hosts/daywatch/home.nix
                 ./home
               ];
               home-manager.extraSpecialArgs = {

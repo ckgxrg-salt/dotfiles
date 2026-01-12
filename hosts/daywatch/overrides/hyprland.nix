@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 {
   wayland.windowManager.hyprland =
     let
@@ -7,13 +7,11 @@
     {
       plugins = with pkgs.hyprlandPlugins; [
         hyprgrass
-        hyprscroller
-        hypr-dynamic-cursors
+        ckgs.show-my-osk
       ];
       settings = {
         monitor = [
-          "eDP-1, highres, 0x0, 1"
-          "DP-1, highres, 0x1080, 1"
+          ", highres, 0x0, 1"
         ];
         windowrulev2 = [
           # Dialogs
@@ -24,52 +22,50 @@
           "float, class:(xdg-desktop-portal-gtk)"
 
           # cava
-          "monitor DP-1, class:(alacritty-cava)"
+          "monitor eDP-1, class:(alacritty-cava)"
           "opacity 0.6, class:(alacritty-cava)"
           "float, class:(alacritty-cava)"
           "size 1920 500, class:(alacritty-cava)"
           "move 0 30, class:(alacritty-cava)"
 
-          # Some special windows should ignore hyprscroller
-          "plugin:scroller:columnwidth one, class:(floorp)"
-          "plugin:scroller:windowheight one, class:(floorp)"
+          # Open Waydroid in a dedicated workspace
+          "workspace name: silent, class:(Waydroid)"
+          "fullscreen, class:(Waydroid)"
         ];
         layerrule = [
           "noanim, swww-daemon"
           "animation slide right, notifications"
-          "blur, astal-logout"
+          "blur, astal-quickcontrol"
+          "animation fade, astal-quickcontrol"
           "animation fade, astal-logout"
-          "blur, astal-logout-cover"
-          "animation fade, astal-logout-cover"
+          "animation slide bottom, astal-dock"
         ];
         workspace = [
           "special:browser, on-created-empty:floorp"
-          "name:Dashboard, monitor:DP-1, persistent:true, default:true"
         ];
 
         general = {
-          gaps_in = 16;
-          gaps_out = 24;
-          border_size = 8;
-          layout = "scroller";
+          gaps_in = 10;
+          gaps_out = 0;
+          border_size = 0;
+          layout = "master";
         };
         decoration = {
           blur = {
             enabled = true;
-            size = 10;
-            passes = 3;
-            brightness = 1.1;
-            vibrancy = 0.1;
-            xray = true;
+            size = 8;
+            passes = 2;
+            brightness = 1.5;
+            vibrancy = 0.2;
+            contrast = 1.2;
           };
           shadow = {
             enabled = true;
-            range = 16;
-            offset = "16 16";
+            range = 8;
+            offset = "8 8";
           };
-          rounding = 12;
-          active_opacity = 0.75;
-          inactive_opacity = 0.6;
+          rounding = 0;
+          dim_inactive = true;
         };
         animations = {
           enabled = true;
@@ -91,6 +87,10 @@
           ];
         };
 
+        input = {
+          kb_options = "ctrl:nocaps";
+        };
+
         plugin = {
           touch_gestures = {
             sensitivity = 2.0;
@@ -98,43 +98,17 @@
             workspace_swipe_edge = false;
             resize_on_border_long_press = true;
           };
-          scroller = {
-            column_widths = "onethird twothirds one";
-            column_default_width = "twothirds";
-            window_heights = "twothirds one";
-            window_default_height = "one";
-            cyclesize_wrap = false;
-            focus_wrap = false;
-            monitor_options = "(DP-1 = (column_default_width = one))";
-
-            gesture_scroll_enable = true;
-            gesture_scroll_fingers = 3;
-            gesture_scroll_distance = 75;
-            gesture_workspace_switch_enable = false;
-          };
-          dynamic-cursors = {
-            enabled = true;
-            mode = "stretch";
-            threshold = 5;
-            stretch = {
-              limit = 10000;
-              function = "linear";
-            };
-            shake = {
-              enabled = false;
-            };
+          show-my-osk = {
+            on-focus = "pkill -USR2 wvkbd-vistath";
+            on-unfocus = "pkill -USR1 wvkbd-vistath";
           };
         };
 
         hyprgrass-bind = [
+          ", edge:d:u, exec, astal-shell show-dock"
+          ", edge:u:d, exec, astal-shell quickcontrol"
+          ", swipe:3:u, exec, pkill -RTMIN wvkbd-vistath"
           ", edge:r:l, togglespecialworkspace, browser"
-          ", swipe:4:ld, exec, astal-logout"
-          ", swipe:3:l, scroller:movefocus, r"
-          ", swipe:3:r, scroller:movefocus, l"
-          ", swipe:3:u, scroller:movefocus, d"
-          ", swipe:3:d, scroller:movefocus, u"
-          ", swipe:3:ld, scroller:admitwindow,"
-          ", swipe:3:ru, scroller:expelwindow,"
         ];
         hyprgrass-bindm = [
           ", longpress:2, movewindow"
@@ -145,9 +119,9 @@
           "SUPER, Q, exec, alacritty"
           "SUPER, C, killactive,"
           "SUPER, V, togglefloating,"
-          "SUPER, R, exec, rofi -show drun"
+          "SUPER, R, exec, astal-launchpad"
+          "SUPER, D, exec, astal-shell toggle-dock"
           "SUPER, F, fullscreen,"
-          "SUPER, Tab, scroller:toggleoverview,"
           "SUPER, Print, exec, grimblast copy area"
           ", XF86PowerOff, exec, astal-logout"
           "CTRL ALT, C, exec, ${scripts.clipboard}"
@@ -160,64 +134,37 @@
           ", XF86MonBrightnessDown, exec, ${scripts.brightness} --dec"
 
           # Move focus
-          "SUPER, J, scroller:movefocus, d"
-          "SUPER, K, scroller:movefocus, u"
-          "SUPER, H, scroller:movefocus, l"
-          "SUPER, L, scroller:movefocus, r"
-          "SUPER SHIFT, J, scroller:movewindow, d"
-          "SUPER SHIFT, K, scroller:movewindow, u"
-          "SUPER SHIFT, H, scroller:movewindow, l"
-          "SUPER SHIFT, L, scroller:movewindow, r"
-          "SUPER CTRL, H, scroller:admitwindow,"
-          "SUPER CTRL, L, scroller:expelwindow,"
-
-          # Adjust windows
-          "SUPER, mouse_up, scroller:cyclewidth, prev"
-          "SUPER, mouse_down, scroller:cyclewidth, next"
-          "SUPER SHIFT, mouse_up, scroller:cycleheight, prev"
-          "SUPER SHIFT, mouse_down, scroller:cycleheight, next"
-          "SUPER, minus, scroller:cyclesize, prev"
-          "SUPER, equal, scroller:cyclesize, next"
-          "SUPER, F11, scroller:pin,"
-
-          # Switch hyprscroller modes
-          "SUPER, F9, exec, ${scripts.scroller} --toggle"
+          "SUPER, J, movefocus, d"
+          "SUPER, K, movefocus, u"
+          "SUPER, H, movefocus, l"
+          "SUPER, L, movefocus, r"
+          "SUPER SHIFT, J, movewindow, d"
+          "SUPER SHIFT, K, movewindow, u"
+          "SUPER SHIFT, H, movewindow, l"
+          "SUPER SHIFT, L, movewindow, r"
 
           # Special Workspaces
-          "SUPER, S, togglespecialworkspace, browser"
           "SUPER SHIFT, W, workspace, name:"
-          "SUPER, D, workspace, name:Dashboard"
+          "SUPER, S, togglespecialworkspace, browser"
           "SUPER SHIFT, S, movetoworkspace, special:browser"
-          "SUPER SHIFT, D, movetoworkspace, name:Dashboard"
           # Ordinary workspaces
           "SUPER, 1, workspace, 1"
           "SUPER, 2, workspace, 2"
           "SUPER, 3, workspace, 3"
           "SUPER, 4, workspace, 4"
+          "SUPER, 5, workspace, 5"
+          "SUPER, 6, workspace, 6"
+          "SUPER, 7, workspace, 7"
+          "SUPER, 8, workspace, 8"
           "SUPER SHIFT, 1, movetoworkspace, 1"
           "SUPER SHIFT, 2, movetoworkspace, 2"
           "SUPER SHIFT, 3, movetoworkspace, 3"
           "SUPER SHIFT, 4, movetoworkspace, 4"
+          "SUPER SHIFT, 5, movetoworkspace, 5"
+          "SUPER SHIFT, 6, movetoworkspace, 6"
+          "SUPER SHIFT, 7, movetoworkspace, 7"
+          "SUPER SHIFT, 8, movetoworkspace, 8"
         ];
       };
-      # Hardware(Touchscreen & Tablet)
-      extraConfig = ''
-        device {
-          name = elan9008:00-04f3:2d55
-          output = eDP-1
-        }
-        device {
-          name = elan9009:00-04f3:2c1b
-          output = DP-1
-        }
-        device {
-          name = elan9008:00-04f3:2d55-stylus
-          output = eDP-1
-        }
-        device {
-          name = elan9009:00-04f3:2c1b-stylus
-          output = DP-1
-        }
-      '';
     };
 }

@@ -6,7 +6,7 @@
 }:
 # Daywatch HM entrypoint
 {
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.11";
   home.username = "ckgxrg";
   home.homeDirectory = "/home/ckgxrg";
   home.preferXdgDirectories = true;
@@ -23,62 +23,59 @@
       autoRefresh = true;
     };
     fcitx5.enable = true;
-    floorp = {
-      enable = true;
-    };
+    floorp.enable = true;
     git = true;
     gpg = true;
-    keepassxc = true;
-    mangohud = true;
+    pass = true;
     mpd = true;
     rofi = {
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-2/style-4.rasi";
     };
+    vdirsyncer = {
+      enable = true;
+      autoUpdate = true;
+    };
     yazi = true;
+    zk = true;
   };
   home.packages = with pkgs; [
-    impression
-    snapshot
-    blender
-    libreoffice
+    wego
+    krita
     rnote
-    pomodoro-gtk
-    bilibili
+    wiliwili
     freetube
-    gimp
-    jellyfin-media-player
     moonlight-qt
   ];
   daemons = {
-    astal.enable = true;
+    astal = {
+      enable = true;
+      autoreload = true;
+    };
     cliphist = true;
     nm-applet = true;
     udiskie = true;
+    wvkbd = true;
     polkit-gnome-agent = true;
     gammastep = true;
     hypridle = true;
     hyprlock = true;
     mako = true;
+    syncthing = true;
   };
   development = {
-    nixvim.enable = true;
+    neovim.enable = true;
   };
   stylix = {
     default = true;
     iconTheme = {
       enable = true;
-      package = pkgs.qogir-icon-theme;
-      dark = "Qogir-Manjaro-Dark";
+      package = pkgs.vimix-icon-theme;
+      dark = "Vimix-black-dark";
     };
   };
   theme = {
     wallpaper = {
-      lxwengd = {
-        enable = true;
-        package = ckgs.lxwengd;
-        assetsPath = "${config.xdg.dataHome}/Steam/steamprogram/common/wallpaper_engine/assets";
-      };
       swww-daemon.enable = true;
       waypaper = {
         enable = true;
@@ -97,9 +94,7 @@
     };
   };
   desktop = {
-    sessionVars = {
-      default = true;
-    };
+    sessionVars.default = true;
     hyprland = true;
     xdg = true;
   };
@@ -111,7 +106,7 @@
     nushell = {
       enable = true;
       settings = ''
-        $env.LS_COLORS = (vivid generate catppuccin-mocha | str trim)
+        $env.LS_COLORS = (vivid generate tokyonight-storm | str trim)
       '';
     };
     starship = true;

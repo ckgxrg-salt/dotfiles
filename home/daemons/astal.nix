@@ -18,7 +18,7 @@ in
   config =
     let
       package =
-        if osConfig.networking.hostName == "Asedia" then
+        if osConfig.networking.hostName == "Daywatch" then
           ckgs.astal.asedia
         else
           abort "No astal implementation for this device";
