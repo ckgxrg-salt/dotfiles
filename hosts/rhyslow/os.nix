@@ -20,7 +20,7 @@
   };
   hardware = {
     default = true;
-    hostCPU = "intel";
+    hostCPU = "amd";
     hostGPU = "nvidia";
     bt = true;
     zfs = true;

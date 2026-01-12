@@ -14,7 +14,7 @@
       "sd_mod"
     ];
     kernelModules = [
-      "kvm-intel"
+      "kvm-amd"
     ];
   };
 }
