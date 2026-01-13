@@ -47,8 +47,11 @@ in
         misc = {
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
-          new_window_takes_over_fullscreen = 2;
           enable_anr_dialog = false;
+        };
+        ecosystem = {
+          no_update_news = true;
+          no_donation_nag = true;
         };
 
         # Move, resize and scroller mode

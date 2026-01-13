@@ -46,8 +46,8 @@ in
     };
 
     # Audit Framework
-    security.audit.enable = true;
-    security.auditd.enable = true;
+    # security.audit.enable = true;
+    # security.auditd.enable = true;
 
     # TPM2 Support
     security.tpm2 = {

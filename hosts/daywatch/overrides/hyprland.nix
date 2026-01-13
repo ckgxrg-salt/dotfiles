@@ -33,12 +33,12 @@
           "fullscreen, class:(Waydroid)"
         ];
         layerrule = [
-          "noanim, swww-daemon"
-          "animation slide right, notifications"
-          "blur, astal-quickcontrol"
-          "animation fade, astal-quickcontrol"
-          "animation fade, astal-logout"
-          "animation slide bottom, astal-dock"
+          "no_anim on, match:namespace swww-daemon"
+          "animation slide right, match:namespace notifications"
+          "blur on, match:namespace astal-quickcontrol"
+          "animation fade, match:namespace astal-quickcontrol"
+          "animation fade, match:namespace astal-logout"
+          "animation slide bottom, match:namespace astal-dock"
         ];
         workspace = [
           "special:browser, on-created-empty:floorp"
