@@ -6,7 +6,7 @@
 }:
 # Rhyslow HM entrypoint
 {
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
   home.username = "ckgxrg";
   home.homeDirectory = "/home/ckgxrg";
   home.preferXdgDirectories = true;
@@ -69,11 +69,11 @@
   };
   theme = {
     wallpaper = {
-      lxwengd = {
-        enable = true;
-        package = ckgs.lxwengd;
-        assetsPath = "${config.xdg.dataHome}/Steam/steamprogram/common/wallpaper_engine/assets";
-      };
+      # lxwengd = {
+      #   enable = true;
+      #   package = ckgs.lxwengd;
+      #   assetsPath = "${config.xdg.dataHome}/Steam/steamprogram/common/wallpaper_engine/assets";
+      # };
     };
   };
   desktop = {

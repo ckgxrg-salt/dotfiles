@@ -22,8 +22,8 @@ in
         snapshotInterval = "hourly";
         cleanupInterval = "daily";
         configs = {
-          "root" = enable // {
-            SUBVOLUME = "/root";
+          "rootfs" = enable // {
+            SUBVOLUME = "/rootfs";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 0;
             TIMELINE_LIMIT_DAILY = 0;

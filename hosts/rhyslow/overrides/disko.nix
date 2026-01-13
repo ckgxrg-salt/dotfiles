@@ -1,78 +1,67 @@
 { ... }:
-#========== Disks ==========#
 {
-  disko.devices = {
-    # Physical disks
-    disk = {
-      "nvme" = {
-        type = "disk";
-        device = "/dev/nvme0n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            "ESP" = {
-              size = "512M";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [
-                  "fmask=0022"
-                  "dmask=0022"
-                ];
-              };
-            };
-            "SWAP" = {
-              size = "34G";
-              content = {
-                type = "swap";
-              };
-            };
-            "Rhyslow" = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "rhyslow";
-              };
+  disko.devices.disk = {
+    "nvme" = {
+      type = "disk";
+      device = "/dev/nvme0n1";
+      content = {
+        type = "gpt";
+        partitions = {
+          "esp" = {
+            size = "512M";
+            type = "EF00";
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot";
+              mountOptions = [
+                "fmask=0022"
+                "dmask=0022"
+              ];
             };
           };
-        };
-      };
-    };
+          "swap" = {
+            size = "38G";
+            content = {
+              type = "swap";
+            };
+          };
+          "root" = {
+            size = "100%";
+            content = {
+              type = "btrfs";
+              subvolumes =
+                let
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                in
+                {
+                  "rootfs" = {
+                    inherit mountOptions;
+                    mountpoint = "/";
+                  };
+                  "home" = {
+                    inherit mountOptions;
+                    mountpoint = "/home";
+                  };
+                  "var" = {
+                    inherit mountOptions;
+                    mountpoint = "/var";
+                  };
+                  "nix" = {
+                    inherit mountOptions;
+                    mountpoint = "/nix";
+                  };
 
-    # Primary zpool
-    zpool = {
-      "rhyslow" = {
-        type = "zpool";
-        options = {
-          cachefile = "none";
-          ashift = "12";
-        };
-        rootFsOptions = {
-          acltype = "posix";
-          compression = "zstd";
-          reservation = "1G";
-          xattr = "sa";
-        };
-        mountpoint = "/";
-
-        datasets = {
-          "home" = {
-            type = "zfs_fs";
-            mountpoint = "/home";
-          };
-          "nix" = {
-            type = "zfs_fs";
-            mountpoint = "/nix";
-          };
-          "var" = {
-            type = "zfs_fs";
-            mountpoint = "/var";
-          };
-          "game" = {
-            type = "zfs_fs";
-            mountpoint = "/data/game";
+                  # For exclusion of large game files from backups
+                  "games" = {
+                    inherit mountOptions;
+                    mountpoint = "/home/ckgxrg/Games";
+                  };
+                };
+            };
           };
         };
       };

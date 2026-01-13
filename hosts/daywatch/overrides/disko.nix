@@ -7,7 +7,7 @@
       content = {
         type = "gpt";
         partitions = {
-          "ESP" = {
+          "esp" = {
             size = "512M";
             type = "EF00";
             content = {
@@ -20,13 +20,13 @@
               ];
             };
           };
-          "Swap" = {
+          "swap" = {
             size = "38G";
             content = {
               type = "swap";
             };
           };
-          "Root" = {
+          "root" = {
             size = "100%";
             content = {
               type = "btrfs";
@@ -38,7 +38,7 @@
                   ];
                 in
                 {
-                  "root" = {
+                  "rootfs" = {
                     inherit mountOptions;
                     mountpoint = "/";
                   };

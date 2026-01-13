@@ -7,7 +7,7 @@
 {
   networking.hostName = "Rhyslow";
   networking.hostId = "aa2caad5";
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
   boot = {
     default = true;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -23,10 +23,7 @@
     hostCPU = "amd";
     hostGPU = "nvidia";
     bt = true;
-    zfs = true;
-  };
-  services.sanoid.datasets = {
-    "rhyslow/home".useTemplate = [ "default" ];
+    btrfs = true;
   };
   login = {
     greetd = {
