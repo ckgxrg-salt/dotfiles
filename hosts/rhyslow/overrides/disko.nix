@@ -42,14 +42,29 @@
                     inherit mountOptions;
                     mountpoint = "/";
                   };
+                  "rootfs/.snapshots" = {
+                    inherit mountOptions;
+                    mountpoint = "/.snapshots";
+                  };
+
                   "home" = {
                     inherit mountOptions;
                     mountpoint = "/home";
                   };
+                  "home/.snapshots" = {
+                    inherit mountOptions;
+                    mountpoint = "/home/.snapshots";
+                  };
+
                   "var" = {
                     inherit mountOptions;
                     mountpoint = "/var";
                   };
+                  "var/.snapshots" = {
+                    inherit mountOptions;
+                    mountpoint = "/var/.snapshots";
+                  };
+
                   "nix" = {
                     inherit mountOptions;
                     mountpoint = "/nix";
@@ -59,6 +74,10 @@
                   "games" = {
                     inherit mountOptions;
                     mountpoint = "/home/ckgxrg/Games";
+                  };
+                  "games/.snapshots" = {
+                    inherit mountOptions;
+                    mountpoint = "/home/ckgxrg/Games/.snapshots";
                   };
                 };
             };

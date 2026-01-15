@@ -23,7 +23,7 @@ in
         cleanupInterval = "daily";
         configs = {
           "rootfs" = enable // {
-            SUBVOLUME = "/rootfs";
+            SUBVOLUME = "/";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 0;
             TIMELINE_LIMIT_DAILY = 0;
@@ -48,7 +48,7 @@ in
           };
 
           "games" = enable // {
-            SUBVOLUME = "/games";
+            SUBVOLUME = "/home/ckgxrg/Games";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 2;
             TIMELINE_LIMIT_DAILY = 2;
