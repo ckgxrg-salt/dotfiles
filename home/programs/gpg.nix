@@ -9,9 +9,11 @@ let
   cfg = config.program.gpg;
 in
 {
-  options.program.gpg = mkEnableOption "Enable default gpg settings";
+  options.program.gpg = {
+    enable = mkEnableOption "Enable default gpg settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     programs.gpg.enable = true;
     services.gpg-agent = {
       enable = true;

@@ -9,9 +9,11 @@ let
   cfg = config.terminal.accessories;
 in
 {
-  options.terminal.accessories = mkEnableOption "Enable default terminal accessories";
+  options.terminal.accessories = {
+    enable = mkEnableOption "Enable default terminal accessories";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     programs.pay-respects = {
       enable = true;
       options = [

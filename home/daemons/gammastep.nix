@@ -4,9 +4,11 @@ let
   cfg = config.daemons.gammastep;
 in
 {
-  options.daemons.gammastep = mkEnableOption "Enable Gammastep colour temperature adjuster";
+  options.daemons.gammastep = {
+    enable = mkEnableOption "Enable Gammastep colour temperature adjuster";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     services.gammastep = {
       enable = true;
       tray = false;

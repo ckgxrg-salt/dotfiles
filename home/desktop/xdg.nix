@@ -9,9 +9,11 @@ let
   cfg = config.desktop.xdg;
 in
 {
-  options.desktop.xdg = mkEnableOption "Enable default XDG settings";
+  options.desktop.xdg = {
+    default = mkEnableOption "Enable default XDG settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.default {
     # XDG config
     xdg = {
       enable = true;

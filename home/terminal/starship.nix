@@ -4,9 +4,11 @@ let
   cfg = config.terminal.starship;
 in
 {
-  options.terminal.starship = mkEnableOption "Enable default starship configuration";
+  options.terminal.starship = {
+    enable = mkEnableOption "Enable default starship configuration";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.starship.enable = true;
 
     programs.starship = {

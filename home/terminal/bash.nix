@@ -4,9 +4,11 @@ let
   cfg = config.terminal.bash;
 in
 {
-  options.terminal.bash = mkEnableOption "Enable default bash settings";
+  options.terminal.bash = {
+    enable = mkEnableOption "Enable default bash settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     # Let home-manager to manage the GNU Bourne-Again Shell
     programs.bash = {
       enable = true;

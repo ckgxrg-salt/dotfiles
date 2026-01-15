@@ -4,9 +4,11 @@ let
   cfg = config.program.git;
 in
 {
-  options.program.git = mkEnableOption "Enable default git settings";
+  options.program.git = {
+    enable = mkEnableOption "Enable default git settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     programs.git = {
       enable = true;
       lfs.enable = true;

@@ -4,9 +4,11 @@ let
   cfg = config.program.mangohud;
 in
 {
-  options.program.mangohud = mkEnableOption "Enable mangohud game HUD";
+  options.program.mangohud = {
+    enable = mkEnableOption "Enable mangohud game HUD";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.mangohud.enable = true;
 
     programs.mangohud = {

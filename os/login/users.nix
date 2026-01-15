@@ -11,12 +11,17 @@ in
 {
   options.login.users = {
     default = mkEnableOption "Apply default users settings";
+    issue = mkOption {
+      type = types.str;
+      description = "Login message";
+      default = "Welcome to ${config.device.hostname}.\n";
+    };
   };
 
   config = mkIf cfg.default {
     # Greet messages
     environment.etc = {
-      "issue".text = "Welcome to ${config.device.hostname}.\n";
+      "issue".text = cfg.issue;
     };
 
     # Users

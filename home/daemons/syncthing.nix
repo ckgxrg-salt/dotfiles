@@ -8,9 +8,11 @@ let
   cfg = config.daemons.syncthing;
 in
 {
-  options.daemons.syncthing = mkEnableOption "Enable Syncthing file syncer";
+  options.daemons.syncthing = {
+    enable = mkEnableOption "Enable Syncthing file syncer";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     services.syncthing = {
       enable = true;
       overrideDevices = false;

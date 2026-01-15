@@ -9,9 +9,11 @@ let
   cfg = config.program.cava;
 in
 {
-  options.program.cava = mkEnableOption "Enable CAVA audio visualiser";
+  options.program.cava = {
+    enable = mkEnableOption "Enable CAVA audio visualiser";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.cava = {
       enable = true;
       rainbow.enable = true;

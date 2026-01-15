@@ -9,10 +9,11 @@ let
   cfg = config.program.mpd;
 in
 {
-  options.program.mpd = mkEnableOption "Enable the Music Player Daemon";
+  options.program.mpd = {
+    enable = mkEnableOption "Enable the Music Player Daemon";
+  };
 
-  config = mkIf cfg {
-    # MPD
+  config = mkIf cfg.enable {
     services.mpd = {
       enable = true;
       musicDirectory = config.xdg.userDirs.music;

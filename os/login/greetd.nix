@@ -15,6 +15,7 @@ in
     greetMessage = mkOption {
       type = types.str;
       description = "Greet message displayed by the greeter";
+      default = "===== ${config.device.hostname} =====";
     };
   };
 

@@ -8,9 +8,11 @@ let
   cfg = config.program.calendar;
 in
 {
-  options.program.calendar = mkEnableOption "Enable default calendar settings";
+  options.program.calendar = {
+    enable = mkEnableOption "Enable default calendar settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     accounts.calendar = {
       basePath = ".local/share/calendar";
       accounts = {

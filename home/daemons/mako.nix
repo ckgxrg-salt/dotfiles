@@ -9,9 +9,11 @@ let
   cfg = config.daemons.mako;
 in
 {
-  options.daemons.mako = mkEnableOption "Enable mako notification daemon";
+  options.daemons.mako = {
+    enable = mkEnableOption "Enable mako notification daemon";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.mako.enable = true;
 
     home.packages = [ pkgs.libnotify ];

@@ -9,7 +9,9 @@ let
   cfg = config.program.gopass;
 in
 {
-  options.program.gopass.enable = mkEnableOption "Enable gopass secret manager";
+  options.program.gopass = {
+    enable = mkEnableOption "Enable gopass secret manager";
+  };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ gopass-jsonapi ];

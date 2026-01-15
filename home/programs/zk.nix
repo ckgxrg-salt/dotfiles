@@ -9,9 +9,11 @@ let
   cfg = config.program.zk;
 in
 {
-  options.program.zk = mkEnableOption "Enable zk note manager";
+  options.program.zk = {
+    enable = mkEnableOption "Enable zk note manager";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     # For interactive browser
     home.packages = [ pkgs.fzf ];
 

@@ -8,9 +8,11 @@ let
   cfg = config.daemons.hypridle;
 in
 {
-  options.daemons.hypridle = mkEnableOption "Enable hypridle idle daemon";
+  options.daemons.hypridle = {
+    enable = mkEnableOption "Enable hypridle idle daemon";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     services.hypridle = {
       enable = true;
       settings = {

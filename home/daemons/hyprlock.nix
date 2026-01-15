@@ -4,9 +4,11 @@ let
   cfg = config.daemons.hyprlock;
 in
 {
-  options.daemons.hyprlock = mkEnableOption "Enable hyprlock screen locker";
+  options.daemons.hyprlock = {
+    enable = mkEnableOption "Enable hyprlock screen locker";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.hyprlock = {
       enable = true;
       useWallpaper = false;

@@ -8,9 +8,11 @@ let
   cfg = config.terminal.alacritty;
 in
 {
-  options.terminal.alacritty = mkEnableOption "ckgxrg's default Alacritty configurations";
+  options.terminal.alacritty = {
+    enable = mkEnableOption "ckgxrg's default Alacritty configurations";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.alacritty.enable = true;
 
     programs.alacritty = {

@@ -4,9 +4,11 @@ let
   cfg = config.program.contacts;
 in
 {
-  options.program.contacts = mkEnableOption "Enable default contacts settings";
+  options.program.contacts = {
+    enable = mkEnableOption "Enable default contacts settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     accounts.contact = {
       basePath = ".local/share/contacts";
       accounts = {

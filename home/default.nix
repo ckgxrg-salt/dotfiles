@@ -1,11 +1,10 @@
-{ ... }:
+{ osConfig, ... }:
 # Entrypoint for all home-manager modules
 {
   imports = [
     ./programs/btop.nix
     ./programs/calendar.nix
     ./programs/cava.nix
-    ./programs/chromium.nix
     ./programs/contacts.nix
     ./programs/email.nix
     ./programs/fcitx.nix
@@ -13,8 +12,6 @@
     ./programs/git.nix
     ./programs/gopass.nix
     ./programs/gpg.nix
-    ./programs/keepassxc.nix
-    ./programs/kodi.nix
     ./programs/mangohud.nix
     ./programs/mpd.nix
     ./programs/opencomposite.nix
@@ -52,4 +49,12 @@
 
     ../secrets
   ];
+
+  config = {
+    home.stateVersion = osConfig.device.version;
+    home.username = "ckgxrg";
+    home.homeDirectory = "/home/ckgxrg";
+    home.preferXdgDirectories = true;
+    programs.home-manager.enable = true;
+  };
 }

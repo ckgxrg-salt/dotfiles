@@ -9,9 +9,11 @@ let
   cfg = config.program.opencomposite;
 in
 {
-  options.program.opencomposite = mkEnableOption "Enable OpenComposite OpenVR compatibility layer";
+  options.program.opencomposite = {
+    enable = mkEnableOption "Enable OpenComposite OpenVR compatibility layer";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     # OpenComposite package
     home.packages = with pkgs; [ opencomposite ];
 

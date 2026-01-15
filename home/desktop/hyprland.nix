@@ -8,9 +8,11 @@ let
   cfg = config.desktop.hyprland;
 in
 {
-  options.desktop.hyprland = mkEnableOption "Enable default Hyprland settings";
+  options.desktop.hyprland = {
+    enable = mkEnableOption "Enable default Hyprland settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.hyprland.enable = true;
 
     wayland.windowManager.hyprland = {

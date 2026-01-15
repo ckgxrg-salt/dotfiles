@@ -4,9 +4,11 @@ let
   cfg = config.program.yazi;
 in
 {
-  options.program.yazi = mkEnableOption "Enable yazi terminal file manager";
+  options.program.yazi = {
+    enable = mkEnableOption "Enable yazi terminal file manager";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     stylix.targets.yazi.enable = true;
 
     programs.yazi = {

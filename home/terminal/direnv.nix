@@ -4,9 +4,11 @@ let
   cfg = config.terminal.direnv;
 in
 {
-  options.terminal.direnv = mkEnableOption "Enable default direnv settings";
+  options.terminal.direnv = {
+    enable = mkEnableOption "Enable default direnv settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     programs.direnv = {
       enable = true;
       enableBashIntegration = config.programs.bash.enable;
