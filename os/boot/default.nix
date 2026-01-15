@@ -11,6 +11,7 @@ in
 {
   options.boot = {
     default = mkEnableOption "Apply default boot configurations";
+    secureBoot = mkEnableOption "Enable secureboot, must be set up manually";
     bbr = mkEnableOption "Apply bbr congestion control algorithm";
     laptop = mkEnableOption "Apply laptop optimisations";
     noCoredump = mkEnableOption "Disable core dump files";
@@ -30,6 +31,14 @@ in
         systemd-boot.enable = false;
       };
 
+      lanzaboote = {
+        enable = cfg.secureBoot;
+        pkiBundle = "/etc/secureboot";
+      };
+
+      bootspec.enable = true;
+      tmp.cleanOnBoot = true;
+
       initrd = {
         systemd.enable = true;
         verbose = false;
@@ -41,15 +50,14 @@ in
       plymouth.enable = true;
 
       # Kernel params
-      kernelParams =
-        [
-          "quiet"
-          "plymouth.nolog"
-          "udev.log_level=3"
-        ]
-        ++ optionals cfg.laptop [
-          "pcie_aspm.policy=powersupersave"
-        ];
+      kernelParams = [
+        "quiet"
+        "plymouth.nolog"
+        "udev.log_level=3"
+      ]
+      ++ optionals cfg.laptop [
+        "pcie_aspm.policy=powersupersave"
+      ];
 
       # Kernel extra config
       kernelModules = mkIf cfg.bbr [ "tcp_bbr" ];

@@ -29,9 +29,6 @@
     hostCPU = "intel";
     hostGPU = "intel";
   };
-  services.sanoid.datasets = {
-    "asedia/home".useTemplate = [ "default" ];
-  };
   login = {
     greetd = {
       enable = true;
