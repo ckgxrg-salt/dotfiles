@@ -33,12 +33,8 @@
     greetd = {
       enable = true;
       autoLogin = true;
-      greetMessage = "====> Daywatch <====";
     };
-    users = {
-      default = true;
-      issue = "====> Daywatch <====\n";
-    };
+    users.default = true;
   };
   misc = {
     default = true;
@@ -46,10 +42,7 @@
       default = true;
       autoTimezone = true;
     };
-    security = {
-      default = true;
-      waydroid = true;
-    };
+    security.default = true;
   };
   virtualisation.waydroid.enable = true;
   program = {

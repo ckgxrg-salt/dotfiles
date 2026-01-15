@@ -1,33 +1,28 @@
+# Daywatch HM entrypoint
 {
   config,
   pkgs,
   ckgs,
   ...
 }:
-# Daywatch HM entrypoint
 {
-  home.stateVersion = "25.11";
-  home.username = "ckgxrg";
-  home.homeDirectory = "/home/ckgxrg";
-  home.preferXdgDirectories = true;
-  programs.home-manager.enable = true;
   secrets.sops = true;
   program = {
-    btop = true;
-    calendar = true;
-    cava = true;
-    contacts = true;
     defaultPkgs = true;
+    btop.enable = true;
+    calendar.enable = true;
+    cava.enable = true;
+    contacts.enable = true;
     email = {
       enable = true;
       autoRefresh = true;
     };
     fcitx5.enable = true;
     floorp.enable = true;
-    git = true;
+    git.enable = true;
     gopass.enable = true;
-    gpg = true;
-    mpd = true;
+    gpg.enable = true;
+    mpd.enable = true;
     rofi = {
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-2/style-4.rasi";
@@ -36,8 +31,8 @@
       enable = true;
       autoUpdate = true;
     };
-    yazi = true;
-    zk = true;
+    yazi.enable = true;
+    zk.enable = true;
   };
   home.packages = with pkgs; [
     wego
@@ -52,16 +47,16 @@
       enable = true;
       autoreload = true;
     };
-    cliphist = true;
-    nm-applet = true;
-    udiskie = true;
-    wvkbd = true;
-    polkit-gnome-agent = true;
-    gammastep = true;
-    hypridle = true;
-    hyprlock = true;
-    mako = true;
-    syncthing = true;
+    cliphist.enable = true;
+    nm-applet.enable = true;
+    udiskie.enable = true;
+    wvkbd.enable = true;
+    polkit-gnome-agent.enable = true;
+    gammastep.enable = true;
+    hypridle.enable = true;
+    hyprlock.enable = true;
+    mako.enable = true;
+    syncthing.enable = true;
   };
   development = {
     neovim.enable = true;
@@ -94,22 +89,22 @@
     };
   };
   desktop = {
+    hyprland.enable = true;
     sessionVars.default = true;
-    hyprland = true;
-    xdg = true;
+    xdg.default = true;
   };
   terminal = {
-    accessories = true;
-    alacritty = true;
-    bash = true;
-    direnv = true;
+    accessories.enable = true;
+    alacritty.enable = true;
+    bash.enable = true;
+    direnv.enable = true;
     nushell = {
       enable = true;
       settings = ''
         $env.LS_COLORS = (vivid generate tokyonight-storm | str trim)
       '';
     };
-    starship = true;
+    starship.enable = true;
   };
 
   imports = [
