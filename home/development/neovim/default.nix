@@ -87,7 +87,6 @@ in
 
         # Help & Support
         which-key-nvim
-        ckgs.nvim.neovim-tips
 
         # Language-specific
         nvim-lspconfig
