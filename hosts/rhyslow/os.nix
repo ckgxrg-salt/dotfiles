@@ -6,7 +6,6 @@
 # Rhyslow OS entrypoint
 {
   networking.hostName = "Rhyslow";
-  networking.hostId = "aa2caad5";
   system.stateVersion = "25.11";
   boot = {
     default = true;

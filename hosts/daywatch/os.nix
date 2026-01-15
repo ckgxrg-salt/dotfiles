@@ -1,19 +1,23 @@
+# Daywatch OS entrypoint
 {
   pkgs,
   lib,
   ...
 }:
-# Daywatch OS entrypoint
 {
-  networking.hostName = "Daywatch";
-  networking.hostId = "2e6fdeab";
-  system.stateVersion = "25.11";
+  device = {
+    hostname = "Daywatch";
+    laptop = true;
+    hostCPU = "intel";
+    hostGPU = "intel";
+    version = "25.11";
+  };
   boot = {
     default = true;
     kernelPackages = pkgs.linuxPackages_zen;
     bbr = true;
-    laptop = true;
     noCoredump = true;
+    secureBoot = false;
     plymouth = {
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = lib.mkForce "loader_2";
@@ -22,12 +26,8 @@
   hardware = {
     default = true;
     btrfs = true;
-    secureBoot = false;
-    laptop = true;
     wifi = true;
     bt = true;
-    hostCPU = "intel";
-    hostGPU = "intel";
   };
   login = {
     greetd = {
@@ -54,9 +54,10 @@
   virtualisation.waydroid.enable = true;
   program = {
     gamemode.enable = true;
-    nix = true;
-    steam = true;
-    tailscale = true;
+    nix.enable = true;
+    steam.enable = true;
+    tailscale.enable = true;
+    tuned.enable = true;
   };
   stylix = {
     default = true;
@@ -98,7 +99,6 @@
       emoji = [ "Noto Color Emoji" ];
     };
   };
-  theme.sound.enable = true;
 
   imports = [
     ./overrides/boot.nix

@@ -26,6 +26,12 @@ in
           monitor=,preferred,auto,1
           misc {
             disable_hyprland_logo = true
+            disable_splash_rendering = true
+            enable_anr_dialog = false
+          }
+          ecosystem = {
+            no_update_news = true
+            no_donation_nag = true
           }
           animations {
             enabled = false

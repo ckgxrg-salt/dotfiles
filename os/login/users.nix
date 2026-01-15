@@ -11,17 +11,12 @@ in
 {
   options.login.users = {
     default = mkEnableOption "Apply default users settings";
-    issue = mkOption {
-      type = types.lines;
-      description = "Message displayed before tty login";
-    };
   };
 
   config = mkIf cfg.default {
-    #========== Users ==========#
     # Greet messages
     environment.etc = {
-      "issue".text = cfg.issue;
+      "issue".text = "Welcome to ${config.device.hostname}.\n";
     };
 
     # Users

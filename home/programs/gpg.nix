@@ -17,7 +17,7 @@ in
       enable = true;
       enableSshSupport = true;
       enableNushellIntegration = true;
-      defaultCacheTtl = 11451400;
+      defaultCacheTtl = 38640000;
       pinentry = {
         package = pkgs.pinentry-qt;
       };

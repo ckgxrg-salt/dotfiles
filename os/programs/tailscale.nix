@@ -4,9 +4,11 @@ let
   cfg = config.program.tailscale;
 in
 {
-  options.program.tailscale = mkEnableOption "Enable Tailscale service";
+  options.program.tailscale = {
+    enable = mkEnableOption "Enable Tailscale service";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     services.tailscale = {
       enable = true;
       extraDaemonFlags = [

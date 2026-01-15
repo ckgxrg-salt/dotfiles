@@ -4,9 +4,11 @@ let
   cfg = config.program.nix;
 in
 {
-  options.program.nix = mkEnableOption "Enable default Nix settings";
+  options.program.nix = {
+    enable = mkEnableOption "Enable default Nix settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     # Nix configuration
     nix = {
       channel.enable = false;

@@ -9,9 +9,11 @@ let
   cfg = config.program.wivrn;
 in
 {
-  options.program.wivrn = mkEnableOption "Enable default WiVRn settings";
+  options.program.wivrn = {
+    enable = mkEnableOption "Enable default WiVRn settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     services.wivrn = {
       enable = true;
       defaultRuntime = true;

@@ -9,9 +9,11 @@ let
   cfg = config.program.steam;
 in
 {
-  options.program.steam = mkEnableOption "Enable default Steam & Gamescope settings";
+  options.program.steam = {
+    enable = mkEnableOption "Enable default Steam & Gamescope settings";
+  };
 
-  config = mkIf cfg {
+  config = mkIf cfg.enable {
     # Steam and Gamescope Settings
     programs.steam = {
       enable = true;

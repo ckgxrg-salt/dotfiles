@@ -7,6 +7,12 @@ in
   options.misc.default = mkEnableOption "Enable default miscellaneous settings";
 
   config = mkIf cfg.default {
+    # Override system default XDG sounds
+    xdg.sounds.enable = false;
+    environment.pathsToLink = [
+      "/share/sounds"
+    ];
+
     # Placeholders
     programs.dconf.enable = true;
     services.udisks2.enable = true;

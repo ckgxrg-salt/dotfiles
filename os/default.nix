@@ -1,5 +1,5 @@
-{ ... }:
 # Entrypoint for all os modules
+{ config, lib, ... }:
 {
   imports = [
     ./boot
@@ -8,7 +8,10 @@
     ./login/greetd.nix
 
     ./hardware
+    ./hardware/audio.nix
     ./hardware/btrfs.nix
+    ./hardware/graphics.nix
+    ./hardware/network.nix
     ./hardware/zfs.nix
 
     ./programs/gamemode.nix
@@ -16,6 +19,7 @@
     ./programs/openrgb.nix
     ./programs/steam.nix
     ./programs/tailscale.nix
+    ./programs/tuned.nix
     ./programs/wivrn.nix
 
     ./misc/locale.nix
@@ -24,6 +28,38 @@
 
     ./theme/fonts.nix
     ./theme/stylix.nix
-    ./theme/sound-theme.nix
   ];
+
+  # Device attributes
+  options.device = {
+    hostname = lib.mkOption {
+      type = lib.types.str;
+      description = "Hostname for the device";
+    };
+    laptop = lib.mkEnableOption "Whether this is a laptop";
+    version = lib.mkOption {
+      type = lib.types.str;
+      description = "NixOS version";
+    };
+    hostCPU = lib.mkOption {
+      type = lib.types.enum [
+        "intel"
+        "amd"
+      ];
+      description = "The host's CPU manufacturer";
+    };
+    hostGPU = lib.mkOption {
+      type = lib.types.enum [
+        "intel"
+        "amd"
+        "nvidia"
+      ];
+      description = "The host's GPU manufacturer";
+    };
+  };
+
+  config = {
+    networking.hostName = config.device.hostname;
+    system.stateVersion = config.device.version;
+  };
 }

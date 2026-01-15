@@ -13,7 +13,6 @@ in
     default = mkEnableOption "Apply default boot configurations";
     secureBoot = mkEnableOption "Enable secureboot, must be set up manually";
     bbr = mkEnableOption "Apply bbr congestion control algorithm";
-    laptop = mkEnableOption "Apply laptop optimisations";
     noCoredump = mkEnableOption "Disable core dump files";
   };
 
@@ -55,7 +54,7 @@ in
         "plymouth.nolog"
         "udev.log_level=3"
       ]
-      ++ optionals cfg.laptop [
+      ++ optionals config.device.laptop [
         "pcie_aspm.policy=powersupersave"
       ];
 
@@ -66,7 +65,7 @@ in
           "net.ipv4.tcp_congestion_control" = "bbr";
           "net.ipv4.default_qdisc" = "cake";
         }
-        // optionalAttrs cfg.laptop {
+        // optionalAttrs config.device.laptop {
           "vm.laptop_mode" = 5;
           "kernel.nmi_watchdog" = 0;
         }

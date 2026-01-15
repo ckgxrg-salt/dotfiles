@@ -6,7 +6,6 @@ in
 {
   options.misc.security = {
     default = mkEnableOption "Apply default security settings";
-    waydroid = mkEnableOption "Trust waydroid interface";
   };
 
   config = mkIf cfg.default {
@@ -59,7 +58,7 @@ in
     networking.nftables.enable = true;
     networking.firewall = {
       enable = true;
-      trustedInterfaces = mkIf cfg.waydroid [ "waydroid0" ];
+      trustedInterfaces = mkIf config.virtualisation.waydroid.enable [ "waydroid0" ];
     };
   };
 }

@@ -22,7 +22,6 @@ in
       };
       xwayland.enable = true;
       settings = {
-        # Hardware
         input = {
           kb_layout = "us";
           follow_mouse = 1;
