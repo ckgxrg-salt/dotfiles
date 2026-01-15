@@ -26,7 +26,6 @@ in
           monitor=,preferred,auto,1
           misc {
             disable_hyprland_logo = true
-            disable_hyprland_qtutils_check = true
           }
           animations {
             enabled = false
