@@ -1,33 +1,27 @@
+# Rhyslow HM entrypoint
 {
-  config,
   pkgs,
   ckgs,
   ...
 }:
-# Rhyslow HM entrypoint
 {
-  home.stateVersion = "25.11";
-  home.username = "ckgxrg";
-  home.homeDirectory = "/home/ckgxrg";
-  home.preferXdgDirectories = true;
-  programs.home-manager.enable = true;
   secrets.sops = true;
   program = {
-    btop = true;
-    calendar = true;
-    contacts = true;
     defaultPkgs = true;
+    btop.enable = true;
+    calendar.enable = true;
+    contacts.enable = true;
     email = {
       enable = true;
       autoRefresh = true;
     };
     fcitx5.enable = true;
     floorp.enable = true;
-    git = true;
+    git.enable = true;
     gopass.enable = true;
-    gpg = true;
-    mangohud = true;
-    mpd = true;
+    gpg.enable = true;
+    mangohud.enable = true;
+    mpd.enable = true;
     rofi = {
       enable = true;
       theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-1.rasi";
@@ -36,8 +30,8 @@
       enable = true;
       autoUpdate = true;
     };
-    yazi = true;
-    zk = true;
+    yazi.enable = true;
+    zk.enable = true;
   };
   home.packages = with pkgs; [
     nvitop
@@ -47,14 +41,14 @@
     libreoffice
   ];
   daemons = {
-    cliphist = true;
-    nm-applet = true;
-    udiskie = true;
-    polkit-gnome-agent = true;
-    hypridle = true;
-    hyprlock = true;
-    mako = true;
-    syncthing = true;
+    cliphist.enable = true;
+    nm-applet.enable = true;
+    udiskie.enable = true;
+    polkit-gnome-agent.enable = true;
+    hypridle.enable = true;
+    hyprlock.enable = true;
+    mako.enable = true;
+    syncthing.enable = true;
   };
   development = {
     neovim.enable = true;
@@ -77,24 +71,22 @@
     };
   };
   desktop = {
-    sessionVars = {
-      default = true;
-    };
-    hyprland = true;
-    xdg = true;
+    hyprland.enable = true;
+    sessionVars.default = true;
+    xdg.default = true;
   };
   terminal = {
-    accessories = true;
-    alacritty = true;
-    bash = true;
-    direnv = true;
+    accessories.enable = true;
+    alacritty.enable = true;
+    bash.enable = true;
+    direnv.enable = true;
     nushell = {
       enable = true;
       settings = ''
         $env.LS_COLORS = (vivid generate iceberg-dark | str trim)
       '';
     };
-    starship = true;
+    starship.enable = true;
   };
 
   imports = [

@@ -1,17 +1,22 @@
+# Rhyslow OS entrypoint
 {
   pkgs,
   lib,
   ...
 }:
-# Rhyslow OS entrypoint
 {
-  networking.hostName = "Rhyslow";
-  system.stateVersion = "25.11";
+  device = {
+    hostname = "Rhyslow";
+    hostCPU = "amd";
+    hostGPU = "nvidia";
+    version = "25.11";
+  };
   boot = {
     default = true;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     bbr = true;
     noCoredump = true;
+    secureBoot = false;
     plymouth = {
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = lib.mkForce "connect";
@@ -19,21 +24,14 @@
   };
   hardware = {
     default = true;
-    hostCPU = "amd";
-    hostGPU = "nvidia";
-    bt = true;
     btrfs = true;
   };
   login = {
     greetd = {
       enable = true;
       autoLogin = true;
-      greetMessage = "====> Rhyslow <====";
     };
-    users = {
-      default = true;
-      issue = "====> Rhyslow <====";
-    };
+    users.default = true;
   };
   misc = {
     default = true;
@@ -45,17 +43,17 @@
   };
   program = {
     gamemode.enable = true;
-    nix = true;
+    nix.enable = true;
     openrgb = {
       enable = true;
       loadDefault = true;
     };
-    steam = true;
-    tailscale = true;
+    steam.enable = true;
+    tailscale.enable = true;
   };
   stylix = {
     default = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/atlas.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
     polarity = "dark";
     cursor = {
       package = pkgs.lyra-cursors;
@@ -93,7 +91,6 @@
       emoji = [ "Noto Color Emoji" ];
     };
   };
-  theme.sound.enable = true;
 
   imports = [
     ./overrides/boot.nix
