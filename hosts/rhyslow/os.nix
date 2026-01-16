@@ -25,6 +25,17 @@
   hardware = {
     default = true;
     btrfs = true;
+    bt = true;
+    nvidia = {
+      prime = {
+        nvidiaBusId = "PCI:1@0:0:0";
+        amdgpuBusId = "PCI:12@0:0:0";
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+      };
+    };
   };
   login = {
     greetd = {
