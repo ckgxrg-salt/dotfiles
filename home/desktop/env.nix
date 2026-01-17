@@ -31,7 +31,6 @@ in
         HISTFILE = "${config.xdg.stateHome}/bash/history";
         CARGO_HOME = "${config.xdg.dataHome}/cargo";
         GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-        W3M_DIR = "${config.xdg.dataHome}/w3m";
       }
       // cfg.extraVars;
   };

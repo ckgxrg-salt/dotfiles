@@ -106,5 +106,6 @@
   imports = [
     ./overrides/boot.nix
     ./overrides/disko.nix
+    ./overrides/mark-gpu.nix
   ];
 }

@@ -10,6 +10,10 @@
       ];
       settings = {
         monitor = [ ", highres, 0x0, 1" ];
+        env = [
+          # Prioritise integrated GPU
+          "AQ_DRM_DEVICES, /dev/dri/amd-igpu"
+        ];
         windowrulev2 = [
           # Dialogs
           "float, class:(polkit-gnome-authentication-agent-1)"
