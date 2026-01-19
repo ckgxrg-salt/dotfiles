@@ -19,21 +19,18 @@ in
     stylix.targets.console.enable = true;
 
     boot = {
-      # Config systemd-boot
       loader = {
         efi = {
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
         };
         timeout = 0;
-        systemd-boot.enable = false;
       };
 
       bootspec.enable = true;
       tmp.cleanOnBoot = true;
 
       initrd = {
-        systemd.enable = true;
         verbose = false;
       };
       # Silent boot

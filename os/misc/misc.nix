@@ -17,7 +17,6 @@ in
     programs.dconf.enable = true;
     services.udisks2.enable = true;
     services.gvfs.enable = true;
-    system.etc.overlay.enable = true;
     programs.nix-ld.enable = true;
     programs.hyprland.enable = true;
 
