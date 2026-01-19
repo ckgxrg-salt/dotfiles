@@ -14,6 +14,7 @@
   };
   boot = {
     default = true;
+    limine.enable = true;
     kernelPackages = pkgs.linuxPackages_zen;
     bbr = true;
     noCoredump = true;

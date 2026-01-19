@@ -3,6 +3,7 @@
 {
   imports = [
     ./boot
+    ./boot/limine.nix
 
     ./login/users.nix
     ./login/greetd.nix
