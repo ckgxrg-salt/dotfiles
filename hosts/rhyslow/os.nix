@@ -13,6 +13,7 @@
   };
   boot = {
     default = true;
+    limine.enable = true;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     bbr = true;
     noCoredump = true;

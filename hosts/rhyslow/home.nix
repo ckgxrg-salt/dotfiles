@@ -20,7 +20,6 @@
     git.enable = true;
     gopass.enable = true;
     gpg.enable = true;
-    lutris.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
     rofi = {
