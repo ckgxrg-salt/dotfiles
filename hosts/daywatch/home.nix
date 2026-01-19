@@ -98,12 +98,7 @@
     alacritty.enable = true;
     bash.enable = true;
     direnv.enable = true;
-    nushell = {
-      enable = true;
-      settings = ''
-        $env.LS_COLORS = (vivid generate tokyonight-storm | str trim)
-      '';
-    };
+    nushell.enable = true;
     starship.enable = true;
   };
 

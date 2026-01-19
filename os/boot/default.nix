@@ -27,7 +27,6 @@ in
         timeout = 0;
       };
 
-      bootspec.enable = true;
       tmp.cleanOnBoot = true;
 
       initrd = {

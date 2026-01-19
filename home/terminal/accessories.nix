@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib;
@@ -14,34 +13,27 @@ in
   };
 
   config = mkIf cfg.enable {
+    stylix.targets.vivid.enable = true;
+
     programs.pay-respects = {
       enable = true;
       options = [
         "--alias"
         "f"
       ];
-      enableBashIntegration = config.programs.bash.enable;
-      enableZshIntegration = config.programs.zsh.enable;
-      enableNushellIntegration = config.programs.nushell.enable;
     };
 
     programs.atuin = {
       enable = true;
-      enableBashIntegration = config.programs.bash.enable;
-      enableZshIntegration = config.programs.zsh.enable;
-      enableNushellIntegration = config.programs.nushell.enable;
       flags = [ "--disable-up-arrow" ];
     };
 
     programs.carapace = {
       enable = true;
-      enableBashIntegration = config.programs.bash.enable;
-      enableZshIntegration = config.programs.zsh.enable;
-      enableNushellIntegration = config.programs.nushell.enable;
     };
 
-    home.packages = with pkgs; [
-      vivid
-    ];
+    programs.vivid = {
+      enable = true;
+    };
   };
 }

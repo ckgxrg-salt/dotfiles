@@ -9,7 +9,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Let home-manager to manage the GNU Bourne-Again Shell
+    home.shell.enableBashIntegration = true;
+
     programs.bash = {
       enable = true;
       enableCompletion = true;
