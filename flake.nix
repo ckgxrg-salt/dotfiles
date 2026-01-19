@@ -15,10 +15,6 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     stylix = {
       url = "github:danth/stylix";
@@ -43,7 +39,6 @@
       disko,
       sops-nix,
       home-manager,
-      lanzaboote,
       stylix,
       ...
     }:
@@ -62,7 +57,6 @@
             ./hosts/rhyslow/os.nix
             ./os
             nur.modules.nixos.default
-            lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
@@ -91,7 +85,6 @@
             ./hosts/daywatch/os.nix
             ./os
             nur.modules.nixos.default
-            lanzaboote.nixosModules.lanzaboote
             disko.nixosModules.disko
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager

@@ -17,7 +17,6 @@
     kernelPackages = pkgs.linuxPackages_zen;
     bbr = true;
     noCoredump = true;
-    secureBoot = false;
     plymouth = {
       themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = lib.mkForce "loader_2";

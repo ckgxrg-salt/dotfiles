@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   boot.loader.systemd-boot.enable = lib.mkForce true;
-  boot.lanzaboote.enable = lib.mkForce false;
   boot.initrd = {
     systemd.enable = true;
     verbose = false;

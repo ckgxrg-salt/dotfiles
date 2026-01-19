@@ -11,7 +11,6 @@ in
 {
   options.boot = {
     default = mkEnableOption "Apply default boot configurations";
-    secureBoot = mkEnableOption "Enable secureboot, must be set up manually";
     bbr = mkEnableOption "Apply bbr congestion control algorithm";
     noCoredump = mkEnableOption "Disable core dump files";
   };
@@ -28,11 +27,6 @@ in
         };
         timeout = 0;
         systemd-boot.enable = false;
-      };
-
-      lanzaboote = {
-        enable = cfg.secureBoot;
-        pkiBundle = "/etc/secureboot";
       };
 
       bootspec.enable = true;
