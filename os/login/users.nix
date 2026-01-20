@@ -24,7 +24,6 @@ in
       "issue".text = cfg.issue;
     };
 
-    # Users
     users.users = {
       "ckgxrg" = {
         isNormalUser = true;

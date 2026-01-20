@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-# Gamemode and Gamescope
 with lib;
 let
   cfg = config.program.gamemode;

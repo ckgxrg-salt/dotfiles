@@ -9,7 +9,6 @@ in
   };
 
   config = mkIf cfg.default {
-    # sudo
     security.sudo = {
       enable = true;
       execWheelOnly = true;
@@ -31,10 +30,8 @@ in
       ];
     };
 
-    # Polkit
     security.polkit.enable = true;
 
-    # AppArmor MAC
     security.apparmor = {
       enable = true;
       enableCache = true;
@@ -48,13 +45,11 @@ in
     # security.audit.enable = true;
     # security.auditd.enable = true;
 
-    # TPM2 Support
     security.tpm2 = {
       enable = true;
       applyUdevRules = true;
     };
 
-    # Firewall with NFTables
     networking.nftables.enable = true;
     networking.firewall = {
       enable = true;

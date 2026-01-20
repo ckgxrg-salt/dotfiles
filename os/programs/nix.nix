@@ -9,7 +9,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Nix configuration
     nix = {
       channel.enable = false;
       gc = {
