@@ -45,12 +45,12 @@ in
         settings = {
           # Skip login for the initial boot
           initial_session = mkIf cfg.autoLogin {
-            command = "${lib.getExe pkgs.hyprland}";
+            command = "${pkgs.hyprland}/bin/start-hyprland";
             user = "ckgxrg";
           };
           # Ask ReGreet for login process
           default_session = {
-            command = "${lib.getExe pkgs.hyprland} -c ${hyprConfig}";
+            command = "${pkgs.hyprland}/bin/start-hyprland -- -c ${hyprConfig}";
             user = "greeter";
           };
         };

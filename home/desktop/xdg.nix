@@ -14,7 +14,6 @@ in
   };
 
   config = mkIf cfg.default {
-    # XDG config
     xdg = {
       enable = true;
       mime.enable = true;
@@ -34,13 +33,11 @@ in
         };
       };
 
-      # Portals
       portal = {
         enable = true;
         xdgOpenUsePortal = true;
         extraPortals = with pkgs; [
           xdg-desktop-portal-gtk
-          xdg-desktop-portal-hyprland
         ];
         config = {
           common = {
