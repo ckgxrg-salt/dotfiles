@@ -42,7 +42,6 @@
   ];
   daemons = {
     cliphist.enable = true;
-    nm-applet.enable = true;
     udiskie.enable = true;
     polkit-gnome-agent.enable = true;
     hypridle.enable = true;

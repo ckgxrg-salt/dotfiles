@@ -31,7 +31,7 @@ in
 {
   options.daemons = {
     cliphist.enable = mkEnableOption "Enable cliphist clipboard manager";
-    nm-applet.enable = mkEnableOption "Enable the networkmanager applet";
+    iwgtk.enable = mkEnableOption "Enable iwgtk tray applet";
     udiskie.enable = mkEnableOption "Enable udiskie device manager";
     polkit-gnome-agent.enable = mkEnableOption "Enable the GNOME polkit agent";
     wvkbd.enable = mkEnableOption "Enable wvkbd virtual keyboard";
@@ -39,10 +39,13 @@ in
 
   config = {
     # Accessories packages
-    home.packages = optionals cfg.cliphist.enable [
-      pkgs.cliphist
-      pkgs.wl-clipboard
-    ];
+    home.packages =
+      with pkgs;
+      optionals cfg.cliphist.enable [
+        cliphist
+        wl-clipboard
+        iwgtk
+      ];
 
     xdg.configFile = mkIf cfg.udiskie.enable {
       # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
@@ -70,10 +73,10 @@ in
         exec = "${ckgs.wvkbd}/bin/wvkbd-vistath --hidden -L 500";
       });
 
-      # NetworkManager Applet
-      "nm-applet" = mkIf cfg.nm-applet.enable (mkDaemon {
-        desc = "NetworkManager Applet";
-        exec = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+      # iwgtk
+      "iwgtk" = mkIf cfg.iwgtk.enable (mkDaemon {
+        desc = "iwgtk Daemon";
+        exec = "${pkgs.iwgtk}/bin/iwgtk -i";
       });
 
       # Udiskie Automount

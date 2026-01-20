@@ -48,13 +48,13 @@
       autoreload = true;
     };
     cliphist.enable = true;
-    nm-applet.enable = true;
     udiskie.enable = true;
     wvkbd.enable = true;
     polkit-gnome-agent.enable = true;
     gammastep.enable = true;
     hypridle.enable = true;
     hyprlock.enable = true;
+    iwgtk.enable = true;
     mako.enable = true;
     syncthing.enable = true;
   };

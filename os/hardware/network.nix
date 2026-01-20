@@ -15,13 +15,20 @@ in
 
   config = mkIf cfg.default {
     networking = {
-      networkmanager = mkIf cfg.wifi {
+      wireless.iwd = mkIf cfg.wifi {
         enable = true;
-        wifi = {
-          backend = "iwd";
-          powersave = true;
+        settings = {
+          General = {
+            EnableNetworkConfiguration = true;
+            AddressRandomization = "network";
+          };
+          Network = {
+            NameResolvingService = "resolvconf";
+          };
         };
-        plugins = lib.mkForce [ ];
+      };
+      dhcpcd = mkIf cfg.wifi {
+        enable = false;
       };
 
       firewall = {
