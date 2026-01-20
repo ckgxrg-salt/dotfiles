@@ -13,31 +13,30 @@
         monitor = [
           ", highres, 0x0, 1"
         ];
-        windowrulev2 = [
-          # Dialogs
-          "float, class:(polkit-gnome-authentication-agent-1)"
-          "center, class:(polkit-gnome-authentication-agent-1)"
-          "stayfocused, class:(polkit-gnome-authentication-agent-1)"
-          "size 50% 40%, class:(polkit-gnome-authentication-agent-1)"
-          "float, class:(xdg-desktop-portal-gtk)"
+        windowrule = [
+          {
+            name = "dialogs";
+            "match:class" = "polkit-gnome-authentication-agent-1";
+            float = "on";
+            center = "on";
+            stay_focused = "on";
+          }
+          "match:class = xdg-desktop-portal-gtk, float on"
 
-          # cava
-          "monitor eDP-1, class:(alacritty-cava)"
-          "opacity 0.6, class:(alacritty-cava)"
-          "float, class:(alacritty-cava)"
-          "size 1920 500, class:(alacritty-cava)"
-          "move 0 30, class:(alacritty-cava)"
-
-          # Open Waydroid in a dedicated workspace
-          "workspace name: silent, class:(Waydroid)"
-          "fullscreen, class:(Waydroid)"
+          {
+            name = "cava-position";
+            "match:class" = "ghostty.cava";
+            monitor = "eDP-1";
+            opacity = 0.6;
+            size = "monitor_w (monitor_h*0.4)";
+            move = "0 (monitor_h*0.7)";
+          }
         ];
         layerrule = [
           "no_anim on, match:namespace swww-daemon"
           "no_anim on, match:namespace selection"
           "animation slide right, match:namespace notifications"
-          "blur on, match:namespace astal-quickcontrol"
-          "animation fade, match:namespace astal-quickcontrol"
+          "blur on, animation fade, match:namespace astal-quickcontrol"
           "animation fade, match:namespace astal-logout"
           "animation slide bottom, match:namespace astal-dock"
         ];

@@ -42,23 +42,35 @@ in
     };
 
     # WM needs to wrap it
-    wayland.windowManager.hyprland.settings.windowrulev2 = [
-      "noanim, class:(alacritty-cava)"
-      "nodim, class:(alacritty-cava)"
-      "noblur, class:(alacritty-cava)"
-      "noshadow, class:(alacritty-cava)"
-      "noborder, class:(alacritty-cava)"
-      "nofocus, class:(alacritty-cava)"
-      "float, class:(alacritty-cava)"
+    wayland.windowManager.hyprland.settings.windowrule = [
+      {
+        name = "cava-props";
+        "match:class" = "ghostty.cava";
+        no_anim = "on";
+        no_dim = "on";
+        no_blur = "on";
+        no_shadow = "on";
+        no_focus = "on";
+        border_size = 0;
+        float = "on";
+        pin = "on";
+      }
     ];
 
-    # Wrap cava in alacritty for use of hyprwinwrap
-    systemd.user.services."cava" =
-      let
-        alacritty-cava-cfg = pkgs.writeText "alacritty-cava-cfg.toml" ''
-          [window]
-          decorations = "None"
-          opacity = 0.0
+    systemd.user.services."cava" = {
+      Unit = {
+        Description = "C.A.V.A. the Audio Visualiser";
+        Requires = [ "graphical-session.target" ];
+      };
+      Service = {
+        Type = "exec";
+        ExecStart = ''
+          ${config.programs.ghostty.package}/bin/ghostty \
+            --class="ghostty.cava" \
+            --title="C.A.V.A." \
+            --window-decoration="none" \
+            --background-opacity=0 \
+            -e cava
         '';
       in
       {

@@ -17,13 +17,15 @@
         layerrule = [
           "no_anim on, match:namespace selection"
         ];
-        windowrulev2 = [
-          # Dialogs
-          "float, class:(polkit-gnome-authentication-agent-1)"
-          "center, class:(polkit-gnome-authentication-agent-1)"
-          "stayfocused, class:(polkit-gnome-authentication-agent-1)"
-          "size 50% 40%, class:(polkit-gnome-authentication-agent-1)"
-          "float, class:(xdg-desktop-portal-gtk)"
+        windowrule = [
+          {
+            name = "dialogs";
+            "match:class" = "polkit-gnome-authentication-agent-1";
+            float = "on";
+            center = "on";
+            stay_focused = "on";
+          }
+          "match:class = xdg-desktop-portal-gtk, float on"
         ];
         workspace = [
           "special:browser, on-created-empty:floorp"
