@@ -44,6 +44,8 @@ in
       optionals cfg.cliphist.enable [
         cliphist
         wl-clipboard
+      ]
+      ++ optionals cfg.iwgtk.enable [
         iwgtk
       ];
 
