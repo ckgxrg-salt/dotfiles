@@ -51,6 +51,7 @@
     steam.enable = true;
     tailscale.enable = true;
     tuned.enable = true;
+    auto-cpufreq.enable = true;
   };
   stylix = {
     default = true;
