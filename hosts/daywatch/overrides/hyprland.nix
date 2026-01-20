@@ -34,6 +34,7 @@
         ];
         layerrule = [
           "no_anim on, match:namespace swww-daemon"
+          "no_anim on, match:namespace selection"
           "animation slide right, match:namespace notifications"
           "blur on, match:namespace astal-quickcontrol"
           "animation fade, match:namespace astal-quickcontrol"

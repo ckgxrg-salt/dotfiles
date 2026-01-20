@@ -14,6 +14,9 @@
           # Prioritise integrated GPU
           "AQ_DRM_DEVICES, /dev/dri/amd-igpu"
         ];
+        layerrule = [
+          "no_anim on, match:namespace selection"
+        ];
         windowrulev2 = [
           # Dialogs
           "float, class:(polkit-gnome-authentication-agent-1)"
