@@ -13,11 +13,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.limine.enable = true;
+    stylix.targets.limine = {
+      enable = true;
+      image.enable = false;
+      useWallpaper = false;
+    };
 
     boot.loader.limine = {
       enable = true;
       efiSupport = true;
+      efiInstallAsRemovable = true;
       biosSupport = false;
     };
   };
