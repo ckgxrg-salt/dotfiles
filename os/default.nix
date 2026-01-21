@@ -22,7 +22,7 @@
     ./programs/steam.nix
     ./programs/tailscale.nix
     ./programs/tuned.nix
-    ./programs/auto-cpufreq.nix
+    ./programs/thermald.nix
     ./programs/wivrn.nix
 
     ./misc/locale.nix
