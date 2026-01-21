@@ -1,7 +1,6 @@
 # Daywatch OS entrypoint
 {
   pkgs,
-  lib,
   ...
 }:
 {
@@ -18,10 +17,7 @@
     kernelPackages = pkgs.linuxPackages_zen;
     bbr = true;
     noCoredump = true;
-    plymouth = {
-      themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = lib.mkForce "loader_2";
-    };
+    splash = "loader_2";
   };
   hardware = {
     default = true;

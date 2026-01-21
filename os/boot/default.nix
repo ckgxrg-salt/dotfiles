@@ -35,9 +35,6 @@ in
       # Silent boot
       consoleLogLevel = 0;
 
-      # Boot splash
-      plymouth.enable = true;
-
       # Kernel params
       kernelParams = [
         "quiet"

@@ -4,6 +4,7 @@
   imports = [
     ./boot
     ./boot/limine.nix
+    ./boot/plymouth.nix
 
     ./login/users.nix
     ./login/greetd.nix

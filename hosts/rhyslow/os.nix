@@ -1,7 +1,6 @@
 # Rhyslow OS entrypoint
 {
   pkgs,
-  lib,
   ...
 }:
 {
@@ -17,10 +16,7 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     bbr = true;
     noCoredump = true;
-    plymouth = {
-      themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = lib.mkForce "connect";
-    };
+    splash = "connect";
   };
   hardware = {
     default = true;
