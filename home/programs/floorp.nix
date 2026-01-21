@@ -110,7 +110,7 @@ in
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
             absolute-enable-right-click
-            disconnect
+            ublock-origin
             gopass-bridge
             tridactyl
           ];
