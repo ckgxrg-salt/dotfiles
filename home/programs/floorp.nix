@@ -110,6 +110,7 @@ in
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
             absolute-enable-right-click
+            bilisponsorblock
             ublock-origin
             gopass-bridge
             tridactyl
