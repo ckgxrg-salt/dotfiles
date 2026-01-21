@@ -19,6 +19,9 @@ in
           intel-media-driver
           vpl-gpu-rt
           intel-compute-runtime
+        ]
+        ++ optionals (config.device.hostGPU == "nvidia") [
+          nvidia-vaapi-driver
         ];
     };
 

@@ -31,6 +31,7 @@
           enableOffloadCmd = true;
         };
       };
+      powerManagement.finegrained = true;
     };
   };
   login = {
