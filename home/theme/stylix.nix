@@ -4,7 +4,7 @@ let
   cfg = config.stylix.default;
 in
 {
-  options.stylix.default = mkEnableOption "Enable default stylix targets";
+  options.stylix.default = mkEnableOption "Enable default Stylix targets";
 
   config = mkIf cfg {
     stylix = {
@@ -12,7 +12,10 @@ in
       autoEnable = false;
       targets = {
         gtk.enable = true;
-        qt.enable = true;
+        qt = {
+          enable = true;
+          standardDialogs = "xdgdesktopportal";
+        };
       };
     };
   };

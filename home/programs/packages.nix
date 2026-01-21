@@ -52,7 +52,7 @@ in
       nheko
       localsend
       # System
-      blueberry
+      overskride
       nautilus
       pwvucontrol
     ];
