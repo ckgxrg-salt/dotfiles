@@ -9,6 +9,7 @@
     ./programs/email.nix
     ./programs/fcitx.nix
     ./programs/floorp.nix
+    ./programs/foliate.nix
     ./programs/git.nix
     ./programs/gopass.nix
     ./programs/gpg.nix

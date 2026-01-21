@@ -17,6 +17,7 @@
     };
     fcitx5.enable = true;
     floorp.enable = true;
+    foliate.enable = true;
     git.enable = true;
     gopass.enable = true;
     gpg.enable = true;
