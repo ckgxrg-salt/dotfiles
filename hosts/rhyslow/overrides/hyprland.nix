@@ -95,7 +95,7 @@
           "SUPER, Q, exec, alacritty"
           "SUPER, C, killactive,"
           "SUPER, V, togglefloating,"
-          "SUPER, R, exec, rofi -show drun"
+          "SUPER, R, exec, vicinae toggle"
           "SUPER, F, fullscreen,"
           "SUPER, Print, exec, grimblast copy area"
           "SUPER SHIFT, Print, exec, hyprpicker --autocopy --quiet"

@@ -119,7 +119,7 @@
           "SUPER, Q, exec, alacritty"
           "SUPER, C, killactive,"
           "SUPER, V, togglefloating,"
-          "SUPER, R, exec, astal-launchpad"
+          "SUPER, R, exec, vicinae toggle"
           "SUPER, D, exec, astal-shell toggle-dock"
           "SUPER, F, fullscreen,"
           "SUPER, Print, exec, grimblast copy area"

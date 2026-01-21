@@ -23,14 +23,11 @@
     gpg.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
-    rofi = {
-      enable = true;
-      theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-3/style-1.rasi";
-    };
     vdirsyncer = {
       enable = true;
       autoUpdate = true;
     };
+    vicinae.enable = true;
     yazi.enable = true;
     zk.enable = true;
   };

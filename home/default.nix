@@ -20,6 +20,7 @@
     ./programs/packages.nix
     ./programs/rofi.nix
     ./programs/vdirsyncer.nix
+    ./programs/vicinae.nix
     ./programs/yazi.nix
     ./programs/zk.nix
 

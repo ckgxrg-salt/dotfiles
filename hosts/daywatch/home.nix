@@ -24,14 +24,11 @@
     gopass.enable = true;
     gpg.enable = true;
     mpd.enable = true;
-    rofi = {
-      enable = true;
-      theme = "${ckgs.rofi-themes}/config/rofi/launchers/type-2/style-4.rasi";
-    };
     vdirsyncer = {
       enable = true;
       autoUpdate = true;
     };
+    vicinae.enable = true;
     yazi.enable = true;
     zk.enable = true;
   };
