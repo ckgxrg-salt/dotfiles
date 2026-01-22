@@ -52,7 +52,7 @@ let
 
   brightness = pkgs.writeShellScript "brightness" ''
     get_backlight() {
-      LIGHT=$(brightnessctl get | awk '{printf "%d", $0 / 960}')
+      LIGHT=$(brightnessctl get | awk '{printf "%d", $0 / 4}')
       echo $LIGHT
     }
     get_icon() {
