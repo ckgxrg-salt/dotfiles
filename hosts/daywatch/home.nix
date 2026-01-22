@@ -46,6 +46,7 @@
       autoreload = true;
     };
     cliphist.enable = true;
+    dunst.enable = true;
     udiskie.enable = true;
     wvkbd.enable = true;
     polkit-gnome-agent.enable = true;
@@ -53,7 +54,6 @@
     hypridle.enable = true;
     hyprlock.enable = true;
     iwgtk.enable = true;
-    mako.enable = true;
     syncthing.enable = true;
   };
   development = {

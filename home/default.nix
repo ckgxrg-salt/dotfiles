@@ -18,7 +18,6 @@
     ./programs/mpd.nix
     ./programs/opencomposite.nix
     ./programs/packages.nix
-    ./programs/rofi.nix
     ./programs/vdirsyncer.nix
     ./programs/vicinae.nix
     ./programs/yazi.nix
@@ -28,10 +27,10 @@
 
     ./daemons/astal.nix
     ./daemons/daemons.nix
+    ./daemons/dunst.nix
     ./daemons/gammastep.nix
     ./daemons/hypridle.nix
     ./daemons/hyprlock.nix
-    ./daemons/mako.nix
     ./daemons/syncthing.nix
 
     ./desktop/env.nix
