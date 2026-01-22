@@ -25,7 +25,7 @@
 
           {
             name = "cava-position";
-            "match:class" = "ghostty.cava";
+            "match:class" = "cava";
             monitor = "eDP-1";
             opacity = 0.6;
             size = "monitor_w (monitor_h*0.6)";

@@ -52,7 +52,7 @@ in
       nheko
       localsend
       # System
-      overskride
+      blueman
       nautilus
       pwvucontrol
     ];

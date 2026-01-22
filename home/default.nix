@@ -13,7 +13,6 @@
     ./programs/git.nix
     ./programs/gopass.nix
     ./programs/gpg.nix
-    ./programs/lutris.nix
     ./programs/mangohud.nix
     ./programs/mpd.nix
     ./programs/opencomposite.nix

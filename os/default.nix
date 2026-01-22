@@ -14,7 +14,6 @@
     ./hardware/btrfs.nix
     ./hardware/graphics.nix
     ./hardware/network.nix
-    ./hardware/zfs.nix
 
     ./programs/gamemode.nix
     ./programs/nix.nix
