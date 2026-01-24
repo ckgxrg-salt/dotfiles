@@ -48,6 +48,7 @@
     syncthing.enable = true;
   };
   development = {
+    distrobox.enable = true;
     neovim.enable = true;
   };
   stylix = {

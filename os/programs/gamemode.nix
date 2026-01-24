@@ -30,6 +30,10 @@ in
       };
     };
 
+    users.users."ckgxrg" = {
+      extraGroups = [ "gamemode" ];
+    };
+
     programs.gamescope = {
       enable = true;
       capSysNice = true;

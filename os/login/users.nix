@@ -30,10 +30,8 @@ in
         description = "ckgxrg";
         shell = pkgs.nushell;
         extraGroups = [
-          "networkmanager"
           "wheel"
           "input"
-          "gamemode"
           "video"
         ];
       };

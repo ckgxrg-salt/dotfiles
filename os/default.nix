@@ -15,6 +15,8 @@
     ./hardware/graphics.nix
     ./hardware/network.nix
 
+    ./development/podman.nix
+
     ./programs/gamemode.nix
     ./programs/nix.nix
     ./programs/openrgb.nix

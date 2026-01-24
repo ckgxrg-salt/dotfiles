@@ -23,6 +23,7 @@
     ./programs/zk.nix
 
     ./development/neovim
+    ./development/distrobox.nix
 
     ./daemons/astal.nix
     ./daemons/daemons.nix
