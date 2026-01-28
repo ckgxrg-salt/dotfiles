@@ -27,10 +27,7 @@
   };
   login = {
     users.default = true;
-    greetd = {
-      enable = true;
-      autoLogin = true;
-    };
+    greetd.enable = true;
     howdy.enable = true;
   };
   misc = {

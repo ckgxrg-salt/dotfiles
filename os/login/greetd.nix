@@ -30,7 +30,7 @@ in
             disable_splash_rendering = true
             enable_anr_dialog = false
           }
-          ecosystem = {
+          ecosystem {
             no_update_news = true
             no_donation_nag = true
           }
