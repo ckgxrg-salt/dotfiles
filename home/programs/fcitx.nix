@@ -21,6 +21,11 @@ in
   config = mkIf cfg.enable {
     stylix.targets.fcitx5.enable = true;
 
+    xdg.dataFile."fcitx5/rime/default.custom.yaml".text = ''
+      patch:
+        __include: rime_ice_suggestion:/
+    '';
+
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";
@@ -29,8 +34,15 @@ in
         addons =
           with pkgs;
           [
-            fcitx5-rime
-            fcitx5-mozc-ut
+            fcitx5-mozc
+
+            (fcitx5-rime.override {
+              rimeDataPkgs = [
+                rime-ice
+                rime-zhwiki
+                rime-moegirl
+              ];
+            })
           ]
           ++ cfg.extraPackages;
         settings = {
