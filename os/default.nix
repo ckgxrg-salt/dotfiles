@@ -8,6 +8,7 @@
 
     ./login/users.nix
     ./login/greetd.nix
+    ./login/howdy.nix
 
     ./hardware
     ./hardware/audio.nix

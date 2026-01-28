@@ -44,6 +44,7 @@ in
         nvim-dap-virtual-text
 
         # Test
+        nvim-nio
         neotest
 
         # Interface
@@ -126,7 +127,7 @@ in
         deadnix
       ];
 
-      extraLuaConfig = lib.fileContents ./init.lua;
+      initLua = lib.fileContents ./init.lua;
     };
 
     xdg.configFile = {

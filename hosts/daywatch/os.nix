@@ -26,11 +26,12 @@
     bt = true;
   };
   login = {
+    users.default = true;
     greetd = {
       enable = true;
       autoLogin = true;
     };
-    users.default = true;
+    howdy.enable = true;
   };
   misc = {
     default = true;
