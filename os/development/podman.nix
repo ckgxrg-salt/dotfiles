@@ -22,6 +22,18 @@ in
 
     users.users."ckgxrg" = {
       extraGroups = [ "podman" ];
+      subUidRanges = [
+        {
+          count = 65536;
+          startUid = 100000;
+        }
+      ];
+      subGidRanges = [
+        {
+          count = 65536;
+          startGid = 100000;
+        }
+      ];
     };
   };
 }

@@ -38,8 +38,5 @@ in
     };
     # Polkit will not permit operations without this
     environment.shells = with pkgs; [ nushell ];
-
-    # Replace the default perl script
-    services.userborn.enable = true;
   };
 }
