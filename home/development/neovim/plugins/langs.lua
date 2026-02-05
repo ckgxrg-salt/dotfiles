@@ -17,7 +17,6 @@ vim.g.rustaceanvim = {
 	server = {
 		default_settings = {
 			["rust-analyzer"] = {
-				check = { command = "clippy" },
 				inlayHints = {
 					lifetimeElisionHints = { enable = "always" },
 				},
@@ -25,7 +24,6 @@ vim.g.rustaceanvim = {
 		},
 		standalone = false,
 	},
-	tools = { enable_clippy = true },
 }
 
 vim.lsp.config["jdtls"] = {

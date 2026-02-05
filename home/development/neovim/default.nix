@@ -10,7 +10,6 @@ let
   cfg = config.development.neovim;
 in
 {
-
   options.development.neovim = {
     enable = mkEnableOption "Enable default Nixvim settings";
   };
@@ -125,6 +124,8 @@ in
         nil
         nixfmt
         deadnix
+
+        fd
       ];
 
       initLua = lib.fileContents ./init.lua;

@@ -1,9 +1,11 @@
 require("dap").adapters = {
 	lldb = {
-		command = "/nix/store/kbc27w69l4gf8ajqk2n5gmvi9gl4c91i-lldb-19.1.7/bin/lldb-dap",
 		type = "executable",
+		command = vim.fn.exepath("lldb-dap"),
+		name = "lldb",
 	},
 }
+
 require("dap").configurations = {
 	rust = {
 		{
