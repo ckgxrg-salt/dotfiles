@@ -31,7 +31,6 @@
           enableOffloadCmd = true;
         };
       };
-      powerManagement.finegrained = true;
     };
   };
   login = {
@@ -58,9 +57,6 @@
     };
     steam.enable = true;
     tailscale.enable = true;
-  };
-  development = {
-    podman.enable = true;
   };
   stylix = {
     default = true;

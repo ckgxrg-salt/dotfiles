@@ -41,7 +41,7 @@
           blur = {
             enabled = true;
             size = 10;
-            passes = 3;
+            passes = 1;
             brightness = 1.1;
             vibrancy = 0.1;
             xray = true;
