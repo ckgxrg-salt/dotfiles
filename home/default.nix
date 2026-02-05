@@ -20,7 +20,6 @@
     ./programs/vdirsyncer.nix
     ./programs/vicinae.nix
     ./programs/yazi.nix
-    ./programs/zk.nix
 
     ./development/neovim
     ./development/distrobox.nix

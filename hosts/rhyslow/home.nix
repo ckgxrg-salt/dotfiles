@@ -29,7 +29,6 @@
     };
     vicinae.enable = true;
     yazi.enable = true;
-    zk.enable = true;
   };
   home.packages = with pkgs; [
     nvitop

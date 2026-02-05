@@ -60,7 +60,7 @@
   };
   stylix = {
     default = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark.yaml";
     polarity = "dark";
     cursor = {
       package = pkgs.lyra-cursors;
