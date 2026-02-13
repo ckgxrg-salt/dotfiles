@@ -1,6 +1,7 @@
 # Daywatch OS entrypoint
 {
   pkgs,
+  ckgs,
   ...
 }:
 {
@@ -65,26 +66,33 @@
   };
   fonts = {
     packages = with pkgs; [
-      jost
+      maple-mono.opentype
+      ckgs.line-seed
       noto-fonts-cjk-sans
-      maple-mono.NF
-      noto-fonts-color-emoji
-      # Fallback fonts
+
+      nerd-fonts.iosevka
+      twitter-color-emoji
       fira-math
-      noto-fonts
-      liberation_ttf
     ];
     fontconfig.defaultFonts = {
       sansSerif = [
-        "Jost*"
+        "LINE Seed Sans"
         "Noto Sans CJK SC"
+        "Noto Sans CJK TC"
+        "LINE Seed JP_OTF"
       ];
       serif = [
-        "Liberation Serif"
+        "LINE Seed Sans"
         "Noto Sans CJK SC"
+        "Noto Sans CJK TC"
+        "LINE Seed JP_OTF"
       ];
-      monospace = [ "Maple Mono NF" ];
-      emoji = [ "Noto Color Emoji" ];
+      monospace = [
+        "Maple Mono"
+      ];
+      emoji = [
+        "Twitter Color Emoji"
+      ];
     };
   };
 
