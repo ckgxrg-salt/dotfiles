@@ -16,6 +16,7 @@ require("conform").setup({
 		scss = { "prettier" },
 		typescript = { "prettier" },
 		typescriptreact = { "prettier" },
+		python = { "ruff_format" },
 	},
 	notify_no_formatters = true,
 })
@@ -33,6 +34,7 @@ require("lint").linters_by_ft = {
 	scss = { "eslint" },
 	typescript = { "eslint" },
 	typescriptreact = { "eslint" },
+	python = { "ruff" },
 }
 require("lint").linters.checkstyle.config_file = "/google_checks.xml"
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {

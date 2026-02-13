@@ -83,3 +83,5 @@ vim.api.nvim_create_user_command("TinymistOpenPdf", function()
 		vim.system({ "okular", pdf_path })
 	end
 end, {})
+
+vim.lsp.enable("pylsp")
