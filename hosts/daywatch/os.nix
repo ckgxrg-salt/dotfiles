@@ -67,8 +67,8 @@
   fonts = {
     packages = with pkgs; [
       maple-mono.opentype
-      ckgs.line-seed
-      noto-fonts-cjk-sans
+      ckgs.lxgw-marker-gothic
+      ckgs.offside
 
       nerd-fonts.iosevka
       twitter-color-emoji
@@ -76,16 +76,12 @@
     ];
     fontconfig.defaultFonts = {
       sansSerif = [
-        "LINE Seed Sans"
-        "Noto Sans CJK SC"
-        "Noto Sans CJK TC"
-        "LINE Seed JP_OTF"
+        "Offside"
+        "LXGW Marker Gothic"
       ];
       serif = [
-        "LINE Seed Sans"
-        "Noto Sans CJK SC"
-        "Noto Sans CJK TC"
-        "LINE Seed JP_OTF"
+        "Offside"
+        "LXGW Marker Gothic"
       ];
       monospace = [
         "Maple Mono"
