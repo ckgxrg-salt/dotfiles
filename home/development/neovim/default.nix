@@ -93,6 +93,7 @@ in
         haskell-tools-nvim
         nvim-jdtls
         markview-nvim
+        csvview-nvim
         rustaceanvim
         vimtex
 

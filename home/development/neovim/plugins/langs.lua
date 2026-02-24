@@ -50,6 +50,8 @@ require("markview").setup({
 })
 vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Toggle Markdown view" })
 
+require("csvview").setup()
+
 vim.lsp.enable("texlab")
 vim.g.vimtex_view_general_viewer = "okular"
 vim.g.vimtex_view_general_options = "--unique file:@pdf#src:@line@tex"
