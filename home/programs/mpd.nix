@@ -43,7 +43,7 @@ in
     home.packages = with pkgs; [
       mpc
       mpd-notification
-      ymuse
+      euphonica
     ];
 
     # Notification Service
