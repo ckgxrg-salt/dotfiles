@@ -34,7 +34,7 @@ in
       procs
       psmisc
       ripgrep
-      v2raya
+      clash-verge-rev
 
       # Desktop Utilities
       kdePackages.ark

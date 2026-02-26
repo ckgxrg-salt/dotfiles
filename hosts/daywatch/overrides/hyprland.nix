@@ -132,6 +132,7 @@
           ", XF86AudioRaiseVolume, exec, ${scripts.volume} --inc"
           ", XF86MonBrightnessUp, exec, ${scripts.brightness} --inc"
           ", XF86MonBrightnessDown, exec, ${scripts.brightness} --dec"
+          ", XF86AudioPlay, exec, playerctl play-pause"
 
           # Move focus
           "SUPER, J, movefocus, d"
