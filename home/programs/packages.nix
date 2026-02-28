@@ -46,6 +46,7 @@ in
       # Applications
       # Entertainment
       prismlauncher
+      yt-dlp
       # Productivity
       obsidian
       # Communication
