@@ -112,7 +112,7 @@ in
             absolute-enable-right-click
             bilisponsorblock
             ublock-origin
-            gopass-bridge
+            browserpass
             tridactyl
           ];
           settings = {

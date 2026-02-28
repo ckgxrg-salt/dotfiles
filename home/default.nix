@@ -11,7 +11,7 @@
     ./programs/floorp.nix
     ./programs/foliate.nix
     ./programs/git.nix
-    ./programs/gopass.nix
+    ./programs/pass.nix
     ./programs/gpg.nix
     ./programs/mangohud.nix
     ./programs/mpd.nix
