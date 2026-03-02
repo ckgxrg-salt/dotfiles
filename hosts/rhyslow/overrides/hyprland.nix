@@ -26,6 +26,15 @@
             stay_focused = "on";
           }
           "match:class = xdg-desktop-portal-gtk, float on"
+
+          {
+            name = "cava-position";
+            "match:class" = "cava";
+            monitor = "HDMI-A-1";
+            opacity = 0.6;
+            size = "monitor_w (monitor_h*0.4)";
+            move = "0 (monitor_h*0.6)";
+          }
         ];
         workspace = [
           "special:browser, on-created-empty:floorp"

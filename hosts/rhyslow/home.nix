@@ -9,6 +9,7 @@
   program = {
     defaultPkgs = true;
     btop.enable = true;
+    cava.enable = true;
     calendar.enable = true;
     contacts.enable = true;
     email = {
