@@ -14,12 +14,17 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.gpg.enable = true;
+    programs.gpg = {
+      enable = true;
+      scdaemonSettings = {
+        disable-ccid = true;
+      };
+    };
     services.gpg-agent = {
       enable = true;
       enableSshSupport = true;
       enableNushellIntegration = true;
-      defaultCacheTtl = 38640000;
+      defaultCacheTtl = 34560000;
       pinentry = {
         package = pkgs.pinentry-qt;
       };

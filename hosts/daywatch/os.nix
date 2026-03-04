@@ -30,6 +30,7 @@
     users.default = true;
     greetd.enable = true;
     howdy.enable = true;
+    u2f.enable = true;
   };
   misc = {
     default = true;

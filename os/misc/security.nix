@@ -31,6 +31,7 @@ in
     };
 
     security.polkit.enable = true;
+    services.pcscd.enable = true;
 
     security.apparmor = {
       enable = true;

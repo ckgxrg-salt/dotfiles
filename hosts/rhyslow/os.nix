@@ -35,10 +35,8 @@
     };
   };
   login = {
-    greetd = {
-      enable = true;
-      autoLogin = true;
-    };
+    greetd.enable = true;
+    u2f.enable = true;
     users.default = true;
   };
   misc = {
