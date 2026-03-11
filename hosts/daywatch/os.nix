@@ -68,8 +68,9 @@
   fonts = {
     packages = with pkgs; [
       maple-mono.opentype
-      ckgs.lxgw-marker-gothic
+      lxgw-neoxihei
       ckgs.offside
+      noto-fonts-cjk-sans
 
       nerd-fonts.iosevka
       twitter-color-emoji
@@ -78,11 +79,11 @@
     fontconfig.defaultFonts = {
       sansSerif = [
         "Offside"
-        "LXGW Marker Gothic"
+        "LXGW Neo XiHei"
       ];
       serif = [
         "Offside"
-        "LXGW Marker Gothic"
+        "LXGW Neo XiHei"
       ];
       monospace = [
         "Maple Mono"
