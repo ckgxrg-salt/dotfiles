@@ -47,9 +47,8 @@ in
 
         $env.MANPAGER = "nvim +Man!";
         def ciallo [] { fortune | cowsay | lolcat }
-        alias deploy = nh os switch --ask
+        alias deploy = nh os switch . --ask
         alias purge = nh clean all --ask
-        alias dotfiles = cd ~/Projects/dotfiles
         alias proj = cd ~/Projects
         alias rm = rm -i
       ''

@@ -35,7 +35,6 @@ in
     # An advanced cli for Nix
     programs.nh = {
       enable = true;
-      flake = "/home/ckgxrg/Projects/dotfiles";
     };
 
     # Allow unfree and insecure packages
