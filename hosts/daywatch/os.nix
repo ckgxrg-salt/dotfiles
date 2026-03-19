@@ -45,7 +45,7 @@
     gamemode.enable = true;
     nix.enable = true;
     steam.enable = true;
-    tailscale.enable = true;
+    netbird.enable = true;
     tuned.enable = true;
     thermald.enable = true;
   };

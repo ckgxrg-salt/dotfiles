@@ -22,9 +22,6 @@ in
             EnableNetworkConfiguration = true;
             AddressRandomization = "network";
           };
-          Network = {
-            NameResolvingService = "resolvconf";
-          };
         };
       };
       dhcpcd = mkIf cfg.wifi {
@@ -50,5 +47,7 @@ in
       enable = true;
       powerOnBoot = true;
     };
+
+    services.resolved.enable = true;
   };
 }

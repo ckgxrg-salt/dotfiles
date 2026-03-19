@@ -17,17 +17,6 @@ in
         Defaults insults
         Defaults pwfeedback
       '';
-      extraRules = [
-        {
-          users = [ "ckgxrg" ];
-          commands = [
-            {
-              command = "/etc/profiles/per-user/ckgxrg/bin/v2rayA";
-              options = [ "NOPASSWD" ];
-            }
-          ];
-        }
-      ];
     };
 
     security.polkit.enable = true;

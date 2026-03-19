@@ -55,7 +55,7 @@
       loadDefault = true;
     };
     steam.enable = true;
-    tailscale.enable = true;
+    netbird.enable = true;
   };
   stylix = {
     default = true;

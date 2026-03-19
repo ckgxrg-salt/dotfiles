@@ -23,10 +23,10 @@
     ./programs/nix.nix
     ./programs/openrgb.nix
     ./programs/steam.nix
-    ./programs/tailscale.nix
     ./programs/tuned.nix
     ./programs/thermald.nix
     ./programs/wivrn.nix
+    ./programs/netbird.nix
 
     ./misc/locale.nix
     ./misc/misc.nix
