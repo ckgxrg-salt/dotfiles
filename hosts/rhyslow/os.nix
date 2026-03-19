@@ -43,7 +43,7 @@
     default = true;
     locale = {
       default = true;
-      timezone = "Europe/London";
+      timezone = "Etc/GMT-8";
     };
     security.default = true;
   };

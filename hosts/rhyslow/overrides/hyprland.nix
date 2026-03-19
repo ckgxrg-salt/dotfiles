@@ -5,11 +5,8 @@
       scripts = import ./scripts.nix { inherit pkgs; };
     in
     {
-      plugins = with pkgs.hyprlandPlugins; [
-        hypr-dynamic-cursors
-      ];
       settings = {
-        monitor = [ ", highres, 0x0, 1" ];
+        monitor = [ ", highres, 0x0, 2" ];
         env = [
           # Prioritise integrated GPU
           "AQ_DRM_DEVICES, /dev/dri/amd-igpu"

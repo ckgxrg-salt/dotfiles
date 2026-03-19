@@ -36,7 +36,7 @@
     default = true;
     locale = {
       default = true;
-      timezone = "Etc/GMT";
+      timezone = "Etc/GMT-8";
     };
     security.default = true;
   };
