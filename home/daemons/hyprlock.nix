@@ -19,7 +19,10 @@ in
       settings = {
         general = {
           hide_cursor = false;
-          grace = 60;
+          grace = 600;
+        };
+        auth = {
+          "pam:module" = "login";
         };
         background = {
           blur_passes = 3;
@@ -31,7 +34,6 @@ in
           vibrancy_darkness = 0.0;
         };
         label = {
-          monitor = "eDP-1";
           text = "Out for Lunch";
           text_align = "center";
           position = "0, 80";
@@ -40,7 +42,6 @@ in
           font_size = 48;
         };
         input-field = {
-          monitor = "eDP-1";
           size = "300, 75";
           position = "0, -120";
           outline_thickness = 5;

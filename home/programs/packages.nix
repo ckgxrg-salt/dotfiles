@@ -34,7 +34,6 @@ in
       procs
       psmisc
       ripgrep
-      clash-verge-rev
 
       # Desktop Utilities
       kdePackages.ark
