@@ -93,11 +93,27 @@ let
     cliphist list | vicinae dmenu | cliphist decode | wl-copy
     wl-paste
   '';
+
+  toggle-sink = pkgs.writeShellScript "toggle-sink" ''
+    HEADPHONES_ID=$(pw-cli i alsa_output.usb-Generic_USB_Audio-00.HiFi_7_1__Headphones__sink | grep -oP "id: \K\w+")
+    SPEAKER_ID=$(pw-cli i alsa_output.pci-0000_0c_00.1.hdmi-stereo | grep -oP "id: \K\w+")
+
+    CURRENT_ID=$(wpctl inspect @DEFAULT_SINK@ | grep -oP "id \K\w+")
+
+    if [ $CURRENT_ID == $HEADPHONES_ID ]; then
+      wpctl set-default $SPEAKER_ID
+      notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i audio-card "Sink Switched" "Switched to Speaker"
+    else
+      wpctl set-default $HEADPHONES_ID
+      notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i audio-card "Sink Switched" "Switched to Headphones"
+    fi
+  '';
 in
 {
   inherit
     volume
     brightness
     clipboard
+    toggle-sink
     ;
 }

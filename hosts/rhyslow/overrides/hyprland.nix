@@ -6,7 +6,7 @@
     in
     {
       settings = {
-        monitor = [ ", highres, 0x0, 2" ];
+        monitor = [ ", highrr, 0x0, 1" ];
         env = [
           # Prioritise integrated GPU
           "AQ_DRM_DEVICES, /dev/dri/amd-igpu"
@@ -115,8 +115,9 @@
           ", XF86MonBrightnessUp, exec, ${scripts.brightness} --inc"
           ", XF86MonBrightnessDown, exec, ${scripts.brightness} --dec"
           ", XF86AudioPlay, exec, playerctl play-pause"
-          "ALT, Right, exec, playerctl next"
-          "ALT, Left, exec, playerctl previous"
+          "SUPER, Right, exec, playerctl next"
+          "SUPER, Left, exec, playerctl previous"
+          "SUPER, XF86AudioPlay, exec, ${scripts.toggle-sink}"
 
           # Move focus
           "SUPER, J, movefocus, d"
