@@ -30,7 +30,7 @@ vim.keymap.set("n", "<Leader>et", ":ToggleTerm<CR>", { desc = "Toggle terminal" 
 require("yazi").setup({
 	enable_mouse_support = true,
 	open_for_directories = true,
-	yazi_floating_window_border = "solid",
+	yazi_floating_window_border = "single",
 	yazi_floating_window_winblend = 25,
 })
 vim.keymap.set("n", "<A-Tab>", require("yazi").yazi, { desc = "Browse files" })
@@ -132,7 +132,7 @@ require("alpha").setup({
 				},
 				{
 					on_press = function()
-						vim.cmd("Telescope resession")
+						vim.cmd("AutoSession search")
 					end,
 					opts = { shortcut = "s" },
 					type = "button",
@@ -140,7 +140,7 @@ require("alpha").setup({
 				},
 				{
 					on_press = function()
-						require("resession").load("Last Session")
+						vim.cmd("AutoSession restore")
 					end,
 					opts = { shortcut = "l" },
 					type = "button",

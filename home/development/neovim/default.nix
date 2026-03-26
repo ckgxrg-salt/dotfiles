@@ -62,6 +62,8 @@ in
         trouble-nvim
         inc-rename-nvim
         aerial-nvim
+        actions-preview-nvim
+        nvim-lightbulb
         undotree
         wtf-nvim
 
@@ -71,8 +73,7 @@ in
         neoscroll-nvim
 
         # Session
-        resession-nvim
-        ckgs.nvim.pick-resession-nvim
+        auto-session
         project-nvim
         direnv-vim
 
@@ -126,7 +127,10 @@ in
         nixfmt
         deadnix
 
+        # for dap
         fd
+        # for actions-preview
+        delta
       ];
 
       initLua = lib.fileContents ./init.lua;

@@ -1,17 +1,6 @@
 require("nvim-web-devicons").setup({})
 
-require("telescope").setup({
-	pickers = {
-		keymaps = { theme = "dropdown" },
-		live_grep = { theme = "dropdown" },
-	},
-	extensions = {
-		resession = {
-			prompt_title = "Find Sessions",
-			dir = "session",
-		},
-	},
-})
+require("telescope").setup({})
 vim.keymap.set("n", "<leader>tf", ":Telescope live_grep<CR>", { desc = "Find in current project" })
 vim.keymap.set("n", "<leader>tk", ":Telescope keymaps<CR>", { desc = "Keymap palette" })
 
@@ -22,7 +11,7 @@ require("flash").setup({
 })
 vim.keymap.set("n", "<leader>ms", function()
 	require("flash").treesitter()
-end, { desc = "Begin interactive selection" })
+end, { desc = "Interactive select" })
 vim.keymap.set("n", "<leader>mS", function()
 	require("flash").treesitter_search()
-end, { desc = "Begin interactive search & selection" })
+end, { desc = "Interactive search & select" })
