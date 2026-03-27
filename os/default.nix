@@ -23,7 +23,7 @@
     ./programs/nix.nix
     ./programs/openrgb.nix
     ./programs/steam.nix
-    ./programs/tuned.nix
+    ./programs/auto-cpufreq.nix
     ./programs/thermald.nix
     ./programs/wivrn.nix
     ./programs/netbird.nix
