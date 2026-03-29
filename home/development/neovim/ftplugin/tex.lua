@@ -1,7 +1,7 @@
 vim.keymap.set("n", "<leader>nc", ":VimtexCompile<CR>", { desc = "Compile TeX document", buffer = true })
 vim.keymap.set("n", "<leader>ns", ":VimtexStop<CR>", { desc = "Stop TeX compiler", buffer = true })
 vim.keymap.set("n", "<leader>nr", ":VimtexView<CR>", { desc = "Refresh PDF viewer", buffer = true })
-vim.keymap.set("n", "<leader>nt", ":VimtexTocToggle<CR>", { desc = "Toggle table of contents", buffer = true })
+vim.keymap.set("n", "<leader>nt", ":VimtexTocToggle<CR>", { desc = "Show table of contents", buffer = true })
 vim.keymap.set("n", "<leader>nw", function()
 	vim.notify(vim.api.nvim_cmd({ cmd = "VimtexCountLetters" }, { output = true }))
 end, { desc = "Count letters", buffer = true })

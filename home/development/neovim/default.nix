@@ -45,6 +45,7 @@ in
         # Test
         nvim-nio
         neotest
+        overseer-nvim
 
         # Interface
         yazi-nvim

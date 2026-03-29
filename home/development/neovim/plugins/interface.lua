@@ -25,7 +25,7 @@ require("toggleterm").setup({
 	size = 20,
 	shade_terminals = false,
 })
-vim.keymap.set("n", "<Leader>et", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
+vim.keymap.set("n", "<Leader>et", ":ToggleTerm<CR>", { desc = "Show terminal" })
 
 require("yazi").setup({
 	enable_mouse_support = true,

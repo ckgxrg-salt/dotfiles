@@ -69,8 +69,13 @@ require("dap-view").setup({
 		default_section = "breakpoints",
 	},
 })
-vim.keymap.set("n", "<leader>du", ":DapViewToggle<CR>", { desc = "Toggle debug view" })
+vim.keymap.set("n", "<leader>de", ":DapViewToggle<CR>", { desc = "Toggle debug view" })
 
 require("nvim-dap-virtual-text").setup({
 	commented = true,
 })
+
+require("overseer").setup({})
+vim.keymap.set("n", "<leader>dr", ":OverseerRun<CR>", { desc = "Run a task" })
+vim.keymap.set("n", "<leader>dl", ":OverseerToggle<CR>", { desc = "Show task list" })
+vim.keymap.set("n", "<leader>du", ":OverseerToggle<CR>", { desc = "Show task actions" })
