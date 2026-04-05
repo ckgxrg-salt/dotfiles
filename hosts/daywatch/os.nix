@@ -46,7 +46,7 @@
     nix.enable = true;
     steam.enable = true;
     netbird.enable = true;
-    auto-cpufreq.enable = true;
+    tuned.enable = true;
     thermald.enable = true;
   };
   stylix = {
