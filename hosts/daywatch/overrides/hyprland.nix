@@ -21,7 +21,6 @@
             center = "on";
             stay_focused = "on";
           }
-          "match:class = xdg-desktop-portal-gtk, float on"
 
           {
             name = "cava-position";
@@ -31,6 +30,9 @@
             size = "monitor_w (monitor_h*0.6)";
             move = "0 (monitor_h*0.4)";
           }
+
+          "match:class xdg-desktop-portal-gtk, float on"
+          "match:class iwgtk, float on"
         ];
         layerrule = [
           "no_anim on, match:namespace swww-daemon"
