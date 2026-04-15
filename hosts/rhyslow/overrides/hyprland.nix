@@ -41,7 +41,10 @@
           gaps_in = 20;
           gaps_out = 20;
           border_size = 8;
-          layout = "dwindle";
+          layout = "scrolling";
+        };
+        scrolling = {
+          column_width = 0.7;
         };
         decoration = {
           blur = {

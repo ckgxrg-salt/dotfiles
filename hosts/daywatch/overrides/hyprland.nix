@@ -48,9 +48,12 @@
 
         general = {
           gaps_in = 10;
-          gaps_out = 0;
-          border_size = 0;
-          layout = "master";
+          gaps_out = 10;
+          border_size = 5;
+          layout = "scrolling";
+        };
+        scrolling = {
+          column_width = 0.7;
         };
         decoration = {
           blur = {
