@@ -12,9 +12,10 @@ vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.winborder = "single"
 vim.opt.wrap = true
-vim.opt.shiftwidth = 2
+
+vim.opt.expandtab = true
 vim.opt.softtabstop = 2
-vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Globals
 vim.g.mapleader = " "

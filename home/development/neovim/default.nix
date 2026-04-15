@@ -83,7 +83,7 @@ in
         mini-surround
         nvim-autopairs
         gitsigns-nvim
-        indent-o-matic
+        guess-indent-nvim
 
         # Help & Support
         which-key-nvim
