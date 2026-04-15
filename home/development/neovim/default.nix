@@ -58,7 +58,6 @@ in
         toggleterm-nvim
 
         # Widgets
-        codecompanion-nvim
         hlchunk-nvim
         trouble-nvim
         inc-rename-nvim
@@ -66,7 +65,6 @@ in
         actions-preview-nvim
         nvim-lightbulb
         undotree
-        wtf-nvim
 
         # Decorations
         smear-cursor-nvim

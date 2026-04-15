@@ -13,7 +13,6 @@ in
       secrets = {
         "gmail-oauth" = { };
         "welkin-passwd" = { };
-        "gemini-token" = { };
       };
     };
   };

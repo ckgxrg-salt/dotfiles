@@ -3,7 +3,7 @@ require("edgy").setup({
 	keys = { q = false },
 	options = {
 		bottom = { size = 0.3 },
-		right = { size = 0.3 },
+		right = { size = 0.5 },
 	},
 	bottom = {
 		{ ft = "dap-view", title = "Debug" },
@@ -15,7 +15,6 @@ require("edgy").setup({
 		{ ft = "neotest-summary", title = "Tests summary" },
 	},
 	right = {
-		{ ft = "codecompanion", title = "CodeCompanion" },
 		{ ft = "help", title = "Help" },
 	},
 })

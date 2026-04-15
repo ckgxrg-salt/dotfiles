@@ -44,7 +44,7 @@ vim.lsp.enable("jdtls")
 vim.lsp.enable("marksman")
 require("markview").setup({
 	preview = {
-		filetypes = { "markdown", "codecompanion" },
+		filetypes = { "markdown" },
 		ignore_buftypes = {},
 	},
 })
