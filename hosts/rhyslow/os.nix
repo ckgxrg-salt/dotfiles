@@ -17,7 +17,7 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     bbr = true;
     noCoredump = true;
-    splash = "connect";
+    splash = "spin";
   };
   hardware = {
     default = true;

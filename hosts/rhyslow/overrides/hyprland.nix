@@ -73,11 +73,11 @@
             "easeInOutSine, 0.37, 0, 0.63, 1"
           ];
           animation = [
-            "windowsIn, 1, 2, easeInSine, slide"
-            "windowsMove, 1, 2, easeInOutSine, slide"
-            "windowsOut, 1, 3, easeOutSine, slide"
-            "layersIn, 1, 2, easeInSine, slide right"
-            "layersOut, 1, 3, easeOutSine, slide left"
+            "windowsIn, 1, 2, easeInSine, popin"
+            "windowsOut, 1, 3, easeOutSine, popin"
+            "windowsMove, 1, 2, easeInOutSine"
+            "layersIn, 1, 2, easeInSine, fade"
+            "layersOut, 1, 3, easeOutSine, fade"
             "fade, 1, 3, default"
             "workspaces, 1, 4, easeInOutCubic, slidefade"
             "specialWorkspace, 1, 4, easeInOutCubic, slide"

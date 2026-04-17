@@ -8,7 +8,7 @@ require("project").setup({
 		"flake.nix",
 	},
 	-- telescope = {
-	-- 	enabled = true,
+	--  enabled = true,
 	-- },
 })
 require("telescope").load_extension("projects")
