@@ -55,6 +55,7 @@ in
       blueman
       nautilus
       pwvucontrol
+      tzupdate
     ];
   };
 }

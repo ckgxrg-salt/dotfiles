@@ -41,10 +41,7 @@
   };
   misc = {
     default = true;
-    locale = {
-      default = true;
-      timezone = "Etc/GMT-8";
-    };
+    locale.default = true;
     security.default = true;
   };
   program = {

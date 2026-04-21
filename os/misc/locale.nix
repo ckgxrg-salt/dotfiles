@@ -7,8 +7,9 @@ in
   options.misc.locale = {
     default = mkEnableOption "Apply default locale settings";
     timezone = mkOption {
-      type = types.str;
-      description = "Time zone of this host";
+      type = types.nullOr types.str;
+      default = null;
+      description = "Timezone of this host";
     };
   };
 
