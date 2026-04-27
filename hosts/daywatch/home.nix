@@ -67,7 +67,7 @@
   };
   theme = {
     wallpaper = {
-      swww-daemon.enable = true;
+      awww.enable = true;
       waypaper = {
         enable = true;
         settings = {
@@ -75,7 +75,7 @@
             folder = "${config.xdg.userDirs.pictures}/Wallpapers";
             fill = "Fill";
             sort = "name";
-            backend = "swww";
+            backend = "awww";
             color = "#ffffff";
             subfolders = true;
             monitors = "DP-1";

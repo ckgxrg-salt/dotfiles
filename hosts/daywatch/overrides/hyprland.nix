@@ -35,7 +35,7 @@
           "match:class iwgtk, float on"
         ];
         layerrule = [
-          "no_anim on, match:namespace swww-daemon"
+          "no_anim on, match:namespace awww-daemon"
           "no_anim on, match:namespace selection"
           "animation slide right, match:namespace notifications"
           "blur on, animation fade, match:namespace astal-quickcontrol"

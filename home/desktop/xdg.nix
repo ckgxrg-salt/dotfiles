@@ -53,10 +53,10 @@ in
         };
       };
 
-      # XDG User Dirs
       userDirs = {
         enable = true;
         createDirectories = true;
+        setSessionVariables = false;
       };
     };
   };

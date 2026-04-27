@@ -33,5 +33,7 @@ in
         GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
       }
       // cfg.extraVars;
+
+    gtk.gtk4.theme = null;
   };
 }

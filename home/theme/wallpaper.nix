@@ -12,17 +12,10 @@ let
 in
 {
   options.theme.wallpaper = {
-    # A Solution to your Wayland Wallpaper Woes
-    swww-daemon = {
-      enable = mkEnableOption "Enable swww, a lightweight wallpaper daemon.";
-      package = mkOption {
-        type = types.package;
-        description = "The swww package to use.";
-        default = pkgs.swww;
-      };
+    awww = {
+      enable = mkEnableOption "Enable awww, a lightweight wallpaper daemon.";
     };
 
-    # Waypaper, frontend for many wallpaper daemons
     waypaper = {
       enable = mkEnableOption "Enable Waypaper, frontend for wallpaper daemons.";
       package = mkOption {
@@ -39,23 +32,10 @@ in
   };
 
   config = {
-    home.packages =
-      lists.optional cfg.swww-daemon.enable cfg.swww-daemon.package
-      ++ lists.optional cfg.waypaper.enable cfg.waypaper.package;
+    home.packages = lists.optional cfg.waypaper.enable cfg.waypaper.package;
 
-    systemd.user.services."swww-daemon" = mkIf cfg.swww-daemon.enable {
-      Unit = {
-        Description = "A Solution to your Wayland Wallpaper Woes";
-        PartOf = [ "graphical-session.target" ];
-      };
-      Service = {
-        Type = "exec";
-        ExecStart = "${cfg.swww-daemon.package}/bin/swww-daemon";
-        Restart = "on-failure";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
+    services.awww = mkIf cfg.awww.enable {
+      enable = true;
     };
 
     # Waypaper
