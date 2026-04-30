@@ -110,10 +110,13 @@ in
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
             absolute-enable-right-click
+            auto-reject-cookies
+            auto-tab-discard
             bilisponsorblock
-            ublock-origin
             browserpass
+            flagfox
             tridactyl
+            ublock-origin
           ];
           settings = {
             # Tridactyl

@@ -46,6 +46,8 @@ in
       # Entertainment
       prismlauncher
       yt-dlp
+      cartridges
+      umu-launcher
       # Productivity
       obsidian
       # Communication
