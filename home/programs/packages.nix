@@ -53,6 +53,7 @@ in
       # Communication
       nheko
       localsend
+      vesktop
       # System
       blueman
       nautilus
