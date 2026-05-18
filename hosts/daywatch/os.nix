@@ -48,7 +48,7 @@
   };
   stylix = {
     default = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nebula.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
     polarity = "dark";
     cursor = {
       package = pkgs.graphite-cursors;
