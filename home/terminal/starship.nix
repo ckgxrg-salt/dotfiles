@@ -18,7 +18,7 @@ in
       enableNushellIntegration = config.programs.nushell.enable;
       settings = {
         format = ''
-          [󱞡 ](bold base0B)[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)[----> ](bold base02)$git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $cpp)(''\n| $haskell)(''\n| $deno)
+          [󱞡 ](bold base0B)[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)[----> ](bold base02)$git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $c)(''\n| $cpp)(''\n| $haskell)(''\n| $deno)
           [󱞩 ](bold base0B)$directory[-> ](base08)
         '';
         right_format = ''
@@ -83,10 +83,22 @@ in
           style = "fg:bold black bg:red";
           symbol = " ";
         };
+        c = {
+          detect_extensions = [
+            "c"
+            "h"
+          ];
+          format = "[==](cyan)[$symbol($version)]($style)[==](cyan)";
+          style = "fg:cyan";
+          symbol = " ";
+        };
         cpp = {
           disabled = false;
-          detect_files = [ "meson.build" ];
-          format = "[=](blue)[$symbol($version)]($style)[=](blue)";
+          detect_extensions = [
+            "cpp"
+            "hpp"
+          ];
+          format = "[++](blue)[$symbol($version)]($style)[++](blue)";
           style = "fg:blue";
           symbol = " ";
         };

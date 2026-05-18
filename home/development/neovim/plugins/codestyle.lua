@@ -3,6 +3,7 @@ require("conform").setup({
 	format_on_save = { timeout_ms = 2000 },
 	formatters_by_ft = {
 		_ = { "squeeze_blanks", "trim_whitespace", "trim_newlines" },
+		c = { "clang-format" },
 		cpp = { "clang-format" },
 		java = { "google-java-format" },
 		rust = { "rustfmt" },
@@ -23,6 +24,7 @@ require("conform").setup({
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 require("lint").linters_by_ft = {
+	c = { "clangtidy" },
 	cpp = { "clangtidy" },
 	java = { "checkstyle" },
 	rust = { "clippy" },

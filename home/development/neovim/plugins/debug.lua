@@ -7,7 +7,7 @@ require("dap").adapters = {
 }
 
 require("dap").configurations = {
-	rust = {
+	c = {
 		{
 			cwd = "${workspaceFolder}",
 			name = "Launch an executable",
@@ -52,6 +52,7 @@ require("dap").configurations = {
 			type = "lldb",
 		},
 	},
+	rust = require("dap").configurations.c,
 }
 vim.fn.sign_define("DapBreakpoint", { text = "󰺕 " })
 vim.fn.sign_define("DapBreakpointCondition", { text = " " })
