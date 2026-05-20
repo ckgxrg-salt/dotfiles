@@ -34,7 +34,6 @@ in
     programs.command-not-found.enable = false;
     fonts.enableDefaultPackages = false;
     environment.defaultPackages = [ ];
-    services.speechd.enable = false;
     system.tools.nixos-option.enable = false;
   };
 }

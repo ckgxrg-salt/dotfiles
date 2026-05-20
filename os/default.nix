@@ -22,6 +22,7 @@
     ./programs/gamemode.nix
     ./programs/nix.nix
     ./programs/openrgb.nix
+    ./programs/speechd.nix
     ./programs/steam.nix
     ./programs/tuned.nix
     ./programs/thermald.nix
