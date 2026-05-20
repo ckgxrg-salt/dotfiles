@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  ckgs,
   ...
 }:
 with lib;
@@ -51,7 +52,7 @@ in
       # Productivity
       obsidian
       # Communication
-      nheko
+      ckgs.commet-chat
       localsend
       vesktop
       # System
