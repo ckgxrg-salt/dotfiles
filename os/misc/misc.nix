@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.misc;
@@ -24,6 +29,11 @@ in
       oomd.enable = false;
       coredump.enable = !config.boot.noCoredump;
     };
+
+    environment.systemPackages = with pkgs; [
+      man-pages
+      man-pages-posix
+    ];
 
     # Who'll need this...
     documentation = {
