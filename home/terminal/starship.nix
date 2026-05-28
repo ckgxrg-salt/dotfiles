@@ -13,9 +13,6 @@ in
 
     programs.starship = {
       enable = true;
-      enableBashIntegration = config.programs.bash.enable;
-      enableZshIntegration = config.programs.zsh.enable;
-      enableNushellIntegration = config.programs.nushell.enable;
       settings = {
         format = ''
           [󱞡 ](bold base0B)[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)[----> ](bold base02)$git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $c)(''\n| $cpp)(''\n| $haskell)(''\n| $deno)
