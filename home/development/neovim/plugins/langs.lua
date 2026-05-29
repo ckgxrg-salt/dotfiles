@@ -4,6 +4,7 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("sqruff")
+vim.lsp.enable("qmlls")
 
 vim.g.haskell_tools = {
 	hls = {

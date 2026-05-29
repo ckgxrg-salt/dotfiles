@@ -115,6 +115,7 @@ in
             sql
             typescript
             cpp
+            qmljs
           ]
         ))
       ];
