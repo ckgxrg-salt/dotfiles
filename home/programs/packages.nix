@@ -49,6 +49,7 @@ in
       yt-dlp
       cartridges
       umu-launcher
+      freetube
       # Productivity
       obsidian
       # Communication

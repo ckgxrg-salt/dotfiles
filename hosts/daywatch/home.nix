@@ -34,8 +34,6 @@
     wego
     krita
     rnote
-    wiliwili
-    freetube
     moonlight-qt
   ];
   daemons = {
