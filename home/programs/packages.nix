@@ -47,7 +47,7 @@ in
       # Entertainment
       prismlauncher
       yt-dlp
-      cartridges
+      ckgs.cartridges
       umu-launcher
       freetube
       # Productivity

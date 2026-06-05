@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779214112,
-        "narHash": "sha256-xV3EnoKoA3R0EHtwWWCdBfxfG6U+sY0dNyAu310J3+g=",
+        "lastModified": 1780295699,
+        "narHash": "sha256-gt9jeb/HOoiUSOTnE5I9K/B9LEbjJW5k37Xq99HOf/Q=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "f58cae8f268dedffb6d1448b5b32f39b71953958",
+        "rev": "271851bbc07748100382ae7caf6ef71c70c01bfc",
         "type": "github"
       },
       "original": {
@@ -123,11 +123,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779401478,
-        "narHash": "sha256-YGiWoYBx7a9d6mJTB8lUg5rDvLI5mpHUxjccmnN97Jk=",
+        "lastModified": 1780622054,
+        "narHash": "sha256-qCsLfxI4t5Id5p6EsySx43Opr1FxFtX8RxZHb2kkqVI=",
         "ref": "refs/heads/main",
-        "rev": "8354a97713eec092a0bdd1661277a3a78f9d4a21",
-        "revCount": 83,
+        "rev": "ccd2b408138e8df84698b3c4b521b2ee61c93954",
+        "revCount": 84,
         "type": "git",
         "url": "https://codeberg.org/ckgxrg/ckgpkgs"
       },
@@ -254,11 +254,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780347968,
-        "narHash": "sha256-I8ibSDQx+E8cgw6k3UxX6Bm7awmGoKSTXc8Gt1Zbpp4=",
+        "lastModified": 1780593650,
+        "narHash": "sha256-CHo7k65YTL3HY+WQVedDTupji+LMgNlKCdrtRHZFAK4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d0af9b8bf3b4a1d449be7034bebc9f8f9fd6ee99",
+        "rev": "447fd9ff62501dae7206dfe180ee89f8de27b7d5",
         "type": "github"
       },
       "original": {
@@ -291,11 +291,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780358516,
-        "narHash": "sha256-103IPcZxS5qAXGGEljPEJcql1Rh/9ui355VxeI+WJTc=",
+        "lastModified": 1780619538,
+        "narHash": "sha256-UuqI1R5zdQvfR2yKwlKTbYFcTE+jl6PsOdY8eC4IXmU=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "d62be093d3f0c411494bb8901f3673336d6395a4",
+        "rev": "02c9239532568877a6de7c692f313e9205ef10bd",
         "type": "github"
       },
       "original": {
@@ -322,11 +322,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777944972,
-        "narHash": "sha256-VfGRo1qTBKOe3s2gOv8LSoA6Fk19PvBlwQ1ECN0Evn8=",
+        "lastModified": 1780547341,
+        "narHash": "sha256-Gq8KNx5A7hBB3uGJaj6eQfLDIz5YdLu92gqBcvHvoUo=",
         "owner": "mic92",
         "repo": "sops-nix",
-        "rev": "c591bf665727040c6cc5cb409079acb22dcce33c",
+        "rev": "9ed65852b6257fbeae4355bc24ecfea307ca759a",
         "type": "github"
       },
       "original": {
@@ -357,11 +357,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1780256506,
-        "narHash": "sha256-wEXN/OoZt9HfsKBL6694p2Y9xRlwfUbdn/M107U8fVU=",
+        "lastModified": 1780584783,
+        "narHash": "sha256-b4o1AlQpGgpUfieaNz/3gsSzogjoiczmnlbDj0khImY=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "8ed48a41087feeb66372ff718021a9512fc552b3",
+        "rev": "6b6b874d082928aa9557e21516d4fe2f2bb305e1",
         "type": "github"
       },
       "original": {
