@@ -61,8 +61,6 @@
             offset = "20 20";
           };
           rounding = 12;
-          active_opacity = 0.8;
-          inactive_opacity = 0.6;
         };
         animations = {
           enabled = true;

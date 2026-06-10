@@ -16,20 +16,24 @@ in
   config = mkIf cfg.enable {
     programs.password-store = {
       enable = true;
-      package = pkgs.pass-wayland;
+      package = (
+        pkgs.pass-wayland.withExtensions (
+          e: with e; [
+            pass-audit
+          ]
+        )
+      );
       settings = {
         PASSWORD_STORE_DIR = "${config.xdg.dataHome}/password-store";
         PASSWORD_STORE_CLIP_TIME = "20";
       };
     };
 
-    # Freedesktop.org complaint system keyring
     services.pass-secret-service = {
       enable = true;
       storePath = "${config.xdg.dataHome}/password-store";
     };
 
-    # Browser integration
     programs.browserpass = {
       enable = true;
     };
