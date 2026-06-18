@@ -24,6 +24,8 @@ require("conform").setup({
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 require("lint").linters_by_ft = {
+	c = { "clangtidy" },
+	cpp = { "clangtidy" },
 	java = { "checkstyle" },
 	rust = { "clippy" },
 	nix = { "deadnix" },

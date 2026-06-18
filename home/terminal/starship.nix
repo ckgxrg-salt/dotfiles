@@ -5,7 +5,7 @@ let
 in
 {
   options.terminal.starship = {
-    enable = mkEnableOption "Enable default starship configuration";
+    enable = mkEnableOption "Enable default Starship configuration";
   };
 
   config = mkIf cfg.enable {
@@ -15,8 +15,8 @@ in
       enable = true;
       settings = {
         format = ''
-          [󱞡 ](bold base0B)[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)[----> ](bold base02)$git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $c)(''\n| $cpp)(''\n| $haskell)(''\n| $deno)
-          [󱞩 ](bold base0B)$directory[-> ](base08)
+          [󱞡](bold base0B) [](base02)[$shell$username($nix_shell)](bg:base02)[](base02)[---->](bold base02) $git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $c)(''\n| $haskell)(''\n| $deno)
+          [󱞩](bold base0B) $directory[->](base08) 
         '';
         right_format = ''
           [](base03)[(󱑀 $cmd_duration)](fg:bold base09 bg:base03)$status
@@ -45,8 +45,7 @@ in
           style_user = "fg:magenta bg:base02";
         };
         nix_shell = {
-          format = "[( $symbol($name))]($style) ";
-          symbol = "󱄅 ";
+          format = "[( 󱄅 ($name))]($style) ";
           style = "fg:cyan bg:base02";
           heuristic = true;
         };
@@ -65,44 +64,29 @@ in
           style = "italic yellow";
         };
         gradle = {
-          format = "[\\( ](blue)[$symbol($version)]($style)[ \\)](blue)";
+          format = "[<](blue) [ ($version)](italic blue)[>] (blue)";
           version_format = "\${raw}";
-          style = "fg:italic blue";
-          symbol = " ";
         };
         java = {
-          format = "[{ ](orange)[$symbol($version)]($style)[ }](orange)";
-          style = "fg:orange";
-          symbol = " ";
+          format = "[{](orange) [ ($version)](italic orange) [}](orange)";
         };
         rust = {
-          format = "[](red)[$symbol($version)]($style)[](red)";
-          style = "fg:bold black bg:red";
-          symbol = " ";
+          format = "[](red)[ ($version)](fg:bold black bg:red)[](red)";
         };
         c = {
           detect_extensions = [
             "c"
             "h"
-          ];
-          format = "[==](cyan)[$symbol($version)]($style)[==](cyan)";
-          style = "fg:cyan";
-          symbol = " ";
-        };
-        cpp = {
-          disabled = false;
-          detect_extensions = [
             "cpp"
             "hpp"
           ];
-          format = "[++](blue)[$symbol($version)]($style)[++](blue)";
-          style = "fg:blue";
-          symbol = " ";
+          detect_files = [
+            ".clang-format"
+          ];
+          format = "[/* ](bold cyan) [$version](italic green) [ */](bold blue)";
         };
         haskell = {
-          format = "[](magenta)[$symbol($version)]($style)[](magenta)";
-          style = "fg:bold magenta";
-          symbol = " ";
+          format = "[](magenta)[ ($version)]($bold magenta)[](magenta)";
         };
         deno = {
           format = "[ ](blue)[$symbol($version)]($style)[ ](blue)";
