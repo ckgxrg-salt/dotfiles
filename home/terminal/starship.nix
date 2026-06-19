@@ -14,30 +14,23 @@ in
     programs.starship = {
       enable = true;
       settings = {
-        format = ''
-          [󱞡](bold base0B) [](base02)[$shell$username($nix_shell)](bg:base02)[](base02)[---->](bold base02) $git_branch$git_status$git_state(''\n| $gradle $java $kotlin)(''\n| $rust)(''\n| $c)(''\n| $haskell)(''\n| $deno)
-          [󱞩](bold base0B) $directory[->](base08) 
-        '';
-        right_format = ''
-          [](base03)[(󱑀 $cmd_duration)](fg:bold base09 bg:base03)$status
-        '';
+        format = lib.concatStrings [
+          "[󱞡](bold green) "
+          "[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)"
+          "$fill"
+          "([](base02)$cmd_duration[](base02))"
+          "(\n| $gradle $java)(\n| $rust)(\n| $c)(\n| $haskell)"
+          "$line_break"
+          "[󱞩](bold green) $directory$shlvl$character"
+        ];
+        right_format = "([](base02)$git_branch$git_status$git_state[](base02))";
+
         shell = {
           disabled = false;
           bash_indicator = "#:";
-          zsh_indicator = "Z:";
           nu_indicator = ">:";
           format = "[$indicator]($style)";
-          style = "fg:white bg:base02";
-        };
-        cmd_duration = {
-          show_notifications = true;
-          style = "fg:base09 bg:base03";
-        };
-        status = {
-          disabled = false;
-          format = "[$symbol $status]($style)";
-          style = "fg:bold base09 bg:base03";
-          success_symbol = " ";
+          style = "fg:bright-white bg:base02";
         };
         username = {
           show_always = true;
@@ -46,12 +39,31 @@ in
         };
         nix_shell = {
           format = "[( 󱄅 ($name))]($style) ";
-          style = "fg:cyan bg:base02";
+          style = "fg:#5FB8F2 bg:base02";
           heuristic = true;
         };
+        fill = {
+          symbol = "=";
+          style = "bold base02";
+        };
+        shlvl = {
+          disabled = false;
+          repeat = true;
+          repeat_offset = 1;
+          symbol = "";
+          format = "[$symbol](bright-black)";
+        };
+        character = {
+          success_symbol = "[](bold green)";
+          error_symbol = "[](bold red)";
+        };
+        cmd_duration = {
+          format = "[ $duration](fg:orange bg:base02)";
+        };
+
         git_branch = {
-          format = "[$symbol$branch(:$remote_branch)]($style) ";
-          style = "bold yellow";
+          format = "[$symbol$branch(:$remote_branch) ]($style)";
+          style = "fg:bold yellow bg:base02";
         };
         git_state = {
           rebase = "󰳖 ";
@@ -61,17 +73,22 @@ in
           bisect = " ";
           am = "󰶉 ";
           am_or_rebase = " ";
-          style = "italic yellow";
+          style = "fg:italic magenta bg:base02";
         };
+        git_status = {
+          format = "([\\[$all_status$ahead_behind\\]]($style))";
+          style = "fg:bold orange bg:base02";
+        };
+
         gradle = {
-          format = "[<](blue) [ ($version)](italic blue)[>] (blue)";
+          format = "[<](#4DC9C0) [ ($version)](italic #209BC4) [>](#4DC9C0)";
           version_format = "\${raw}";
         };
         java = {
-          format = "[{](orange) [ ($version)](italic orange) [}](orange)";
+          format = "[{](#C74634) [ ($version)](italic #C2D4D4) [}](#C74634)";
         };
         rust = {
-          format = "[](red)[ ($version)](fg:bold black bg:red)[](red)";
+          format = "[](#D34516)[ ($version)](fg:bold #1E2650 bg:#D34516)[](#D34516)";
         };
         c = {
           detect_extensions = [
@@ -83,15 +100,10 @@ in
           detect_files = [
             ".clang-format"
           ];
-          format = "[/* ](bold cyan) [$version](italic green) [ */](bold blue)";
+          format = "[/* ](bold #004482) [$version](italic #659AD2) [ */](bold #00599C)";
         };
         haskell = {
-          format = "[](magenta)[ ($version)]($bold magenta)[](magenta)";
-        };
-        deno = {
-          format = "[ ](blue)[$symbol($version)]($style)[ ](blue)";
-          style = "fg:yellow";
-          symbol = "󰛦 ";
+          format = "[](#453A62)[ ($version)]($bold #8F4E8B)[](#5E5086)";
         };
       };
     };
