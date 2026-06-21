@@ -67,7 +67,7 @@
       maple-mono.opentype
       lxgw-neoxihei
       ckgs.offside
-      noto-fonts-cjk-sans
+      noto-fonts
 
       nerd-fonts.iosevka
       twitter-color-emoji
