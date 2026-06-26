@@ -68,6 +68,7 @@
       lxgw-neoxihei
       ckgs.offside
       noto-fonts
+      noto-fonts-cjk-sans
 
       nerd-fonts.iosevka
       twitter-color-emoji
