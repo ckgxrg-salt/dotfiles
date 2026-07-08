@@ -39,6 +39,7 @@
   };
   virtualisation.waydroid.enable = true;
   program = {
+    clashtui.enable = true;
     gamemode.enable = true;
     nix.enable = true;
     steam.enable = true;
