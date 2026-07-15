@@ -42,6 +42,7 @@
     ./terminal/direnv.nix
     ./terminal/nushell.nix
     ./terminal/starship.nix
+    ./terminal/zellij.nix
 
     ./theme/lxwengd.nix
     ./theme/stylix.nix
