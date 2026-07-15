@@ -116,6 +116,7 @@ in
             typescript
             cpp
             qmljs
+            python
           ]
         ))
       ];
