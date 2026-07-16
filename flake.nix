@@ -113,8 +113,6 @@
         buildInputs = with pkgs; [
           stylua
           sops
-          kdePackages.qtdeclarative
-          quickshell
         ];
       };
     };
