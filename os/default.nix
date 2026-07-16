@@ -34,6 +34,7 @@
     ./misc/misc.nix
     ./misc/security.nix
 
+    ./theme/cursor.nix
     ./theme/stylix.nix
   ];
 

@@ -55,14 +55,7 @@
   development = {
     neovim.enable = true;
   };
-  stylix = {
-    default = true;
-    icons = {
-      enable = true;
-      package = pkgs.vimix-icon-theme;
-      dark = "Vimix-black-dark";
-    };
-  };
+  stylix.default = true;
   theme = {
     wallpaper = {
       awww.enable = true;

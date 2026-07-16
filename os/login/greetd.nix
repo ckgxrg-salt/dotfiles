@@ -60,17 +60,16 @@ in
     # Manually do stylix things to silence the warning
     programs.regreet = {
       enable = true;
+      theme = {
+        package = pkgs.adw-gtk3;
+        name = "adw-gtk3";
+      };
       settings = {
-        GTK.application_prefer_dark_theme = config.stylix.polarity == "dark";
-        font = {
-          inherit (config.stylix.fonts.sansSerif) name package;
-        };
-        cursorTheme = lib.mkIf (config.stylix.cursor != null) {
-          inherit (config.stylix.cursor) name package;
-        };
-        theme = {
-          package = pkgs.adw-gtk3;
-          name = "adw-gtk3";
+        GTK = {
+          application_prefer_dark_theme = true;
+          cursor_theme_name = mkForce config.theme.cursor.name;
+          font_name = mkForce "${config.stylix.fonts.sansSerif.name} ${toString config.stylix.fonts.sizes.applications}";
+          icon_theme_name = mkForce config.stylix.icons.dark;
         };
         appearance = {
           greeting_msg = cfg.greetMessage;

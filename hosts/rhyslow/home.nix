@@ -51,14 +51,7 @@
     distrobox.enable = true;
     neovim.enable = true;
   };
-  stylix = {
-    default = true;
-    icons = {
-      enable = true;
-      package = pkgs.dracula-icon-theme;
-      dark = "Dracula";
-    };
-  };
+  stylix.default = true;
   theme = {
     wallpaper = {
       # lxwengd = {

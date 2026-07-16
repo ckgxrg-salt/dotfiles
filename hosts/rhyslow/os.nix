@@ -56,14 +56,20 @@
     steam.enable = true;
     netbird.enable = true;
   };
+  theme = {
+    cursor = {
+      name = "KrisCursor";
+      size = 32;
+    };
+  };
   stylix = {
     default = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     polarity = "dark";
-    cursor = {
-      package = pkgs.lyra-cursors;
-      name = "LyraB-cursors";
-      size = 16;
+    icons = {
+      enable = true;
+      package = pkgs.dracula-icon-theme;
+      dark = "Dracula";
     };
     fonts.sizes = {
       applications = 16;

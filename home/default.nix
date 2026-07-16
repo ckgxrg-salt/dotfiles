@@ -44,6 +44,7 @@
     ./terminal/starship.nix
     ./terminal/zellij.nix
 
+    ./theme/cursor.nix
     ./theme/lxwengd.nix
     ./theme/stylix.nix
     ./theme/sound-theme.nix
