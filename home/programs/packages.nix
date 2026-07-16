@@ -55,7 +55,8 @@ in
       # Communication
       ckgs.commet-chat
       localsend
-      vesktop
+      # Wait for upstream release, not use for now
+      # vesktop
       # System
       blueman
       nautilus

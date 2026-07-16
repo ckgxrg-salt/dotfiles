@@ -16,7 +16,6 @@ in
     stylix.targets.limine = {
       enable = true;
       image.enable = false;
-      useWallpaper = false;
     };
 
     boot.loader.limine = {

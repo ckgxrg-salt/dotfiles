@@ -29,7 +29,7 @@ in
       videoDrivers = [ "nvidia" ];
     };
     hardware.nvidia = mkIf (config.device.hostGPU == "nvidia") {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
       open = true;
     };
   };

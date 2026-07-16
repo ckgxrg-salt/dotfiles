@@ -47,7 +47,5 @@ in
       enable = true;
       powerOnBoot = true;
     };
-
-    services.resolved.enable = true;
   };
 }
