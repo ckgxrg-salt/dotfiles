@@ -1,17 +1,20 @@
+import qs.common
 import Quickshell
 import QtQuick
+import QtQuick.Layouts
 
 PanelWindow {
-  anchors {
-    top: true
-    left: true
-    right: true
-  }
+  id: root
 
-  implicitHeight: 30
+  implicitHeight: 1024
+  implicitWidth: 2048
+  color: Appearance.colors.bgLighter
 
-  Text {
-    anchors.centerIn: parent
-    text: "hello world"
+  ColumnLayout {
+    RowLayout {
+      Stats {}
+      Clock {}
+    }
+    Fortune {}
   }
 }
