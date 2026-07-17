@@ -19,7 +19,7 @@
 
     ./development/podman.nix
 
-    ./programs/clashtui.nix
+    ./programs/mihomo.nix
     ./programs/gamemode.nix
     ./programs/nix.nix
     ./programs/openrgb.nix

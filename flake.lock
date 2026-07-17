@@ -123,11 +123,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783470008,
-        "narHash": "sha256-76WRcO4gAnRQkZDYBvyaTSJnLfLKpoSLjvBGbyCEc7k=",
+        "lastModified": 1784252851,
+        "narHash": "sha256-qCsLfxI4t5Id5p6EsySx43Opr1FxFtX8RxZHb2kkqVI=",
         "ref": "refs/heads/main",
-        "rev": "c18b2274dddbd53944facf23ea2ef0c7d1af2e96",
-        "revCount": 85,
+        "rev": "36cd5bd459ca83268eab7d387da411a8d2602b75",
+        "revCount": 86,
         "type": "git",
         "url": "https://codeberg.org/ckgxrg/ckgpkgs"
       },
@@ -291,11 +291,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784220667,
-        "narHash": "sha256-/h0n+Dp4+ROePMAn05vJV97LYDgMdOjEDUdDURxAss4=",
+        "lastModified": 1784249277,
+        "narHash": "sha256-ciQu8RFQoVSWlmeQpleuhfxbUocp6YokD1Q2lZO+i9s=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "ce81a1b050434243e6a72786c6964786c6ba2186",
+        "rev": "04e288e52f8b54ba0def05f6ebaf8022cfec0aa6",
         "type": "github"
       },
       "original": {

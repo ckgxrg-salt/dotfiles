@@ -2,22 +2,20 @@
   config,
   lib,
   pkgs,
-  ckgs,
   ...
 }:
 with lib;
 let
-  cfg = config.program.clashtui;
+  cfg = config.program.mihomo;
 in
 {
-  options.program.clashtui = {
-    enable = mkEnableOption "Enable default clashtui settings";
+  options.program.mihomo = {
+    enable = mkEnableOption "Enable default Mihomo settings";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.mihomo
-      ckgs.clashtui
     ];
 
     users = {
@@ -72,6 +70,7 @@ in
         ProtectKernelTunables = true;
         ProtectProc = "invisible";
         ProtectSystem = "strict";
+        ReadWritePaths = [ "/var/lib/mihomo" ];
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
         RestrictNamespaces = true;
@@ -80,6 +79,7 @@ in
         PrivateDevices = false;
         PrivateUsers = false;
         RestrictAddressFamilies = "AF_INET AF_INET6 AF_NETLINK";
+        UMask = "0007";
       };
     };
   };

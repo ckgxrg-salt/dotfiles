@@ -45,7 +45,7 @@
     security.default = true;
   };
   program = {
-    clashtui.enable = true;
+    mihomo.enable = true;
     gamemode.enable = true;
     nix.enable = true;
     openrgb = {
