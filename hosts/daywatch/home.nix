@@ -9,13 +9,7 @@
   program = {
     defaultPkgs = true;
     btop.enable = true;
-    calendar.enable = true;
     cava.enable = true;
-    contacts.enable = true;
-    email = {
-      enable = true;
-      autoRefresh = true;
-    };
     fcitx5.enable = true;
     floorp.enable = true;
     foliate.enable = true;

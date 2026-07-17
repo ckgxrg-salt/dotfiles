@@ -1,7 +1,6 @@
 # Rhyslow HM entrypoint
 {
   pkgs,
-  ckgs,
   ...
 }:
 {
@@ -10,12 +9,6 @@
     defaultPkgs = true;
     btop.enable = true;
     cava.enable = true;
-    calendar.enable = true;
-    contacts.enable = true;
-    email = {
-      enable = true;
-      autoRefresh = true;
-    };
     fcitx5.enable = true;
     floorp.enable = true;
     foliate.enable = true;
