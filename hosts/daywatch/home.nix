@@ -25,7 +25,6 @@
     yazi.enable = true;
   };
   home.packages = with pkgs; [
-    wego
     krita
     rnote
     moonlight-qt
