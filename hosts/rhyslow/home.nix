@@ -72,5 +72,6 @@
     ./overrides/hyprland.nix
     ./overrides/waybar.nix
     ./overrides/wlogout.nix
+    ./overrides/fcitx.nix
   ];
 }

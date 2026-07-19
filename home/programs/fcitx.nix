@@ -11,28 +11,23 @@ in
 {
   options.program.fcitx5 = {
     enable = mkEnableOption "Enable Fcitx5 input method";
-    extraPackages = mkOption {
-      type = types.listOf types.package;
-      default = [ ];
-      description = "List of extra fcitx5 plugins";
-    };
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.fcitx5.enable = true;
+    stylix.targets.fcitx5 = {
+      enable = true;
+      colors.enable = false;
+    };
 
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";
       fcitx5 = {
         waylandFrontend = true;
-        addons =
-          with pkgs;
-          [
-            fcitx5-rime
-            fcitx5-mozc
-          ]
-          ++ cfg.extraPackages;
+        addons = with pkgs; [
+          fcitx5-rime
+          fcitx5-mozc
+        ];
         settings = {
           inputMethod = {
             GroupOrder."0" = "Default";

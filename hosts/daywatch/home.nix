@@ -84,5 +84,6 @@
 
   imports = [
     ./overrides/hyprland.nix
+    ./overrides/fcitx.nix
   ];
 }
