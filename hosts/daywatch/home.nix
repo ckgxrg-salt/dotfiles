@@ -39,7 +39,6 @@
     gammastep.enable = true;
     hypridle.enable = true;
     hyprlock.enable = true;
-    iwgtk.enable = true;
     syncthing.enable = true;
   };
   development = {

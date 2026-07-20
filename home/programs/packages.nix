@@ -55,10 +55,10 @@ in
       # Communication
       ckgs.commet-chat
       localsend
-      # Wait for upstream release, not use for now
-      # vesktop
+      vesktop
       # System
       blueman
+      iwgtk
       nautilus
       pwvucontrol
       tzupdate

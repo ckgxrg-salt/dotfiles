@@ -31,7 +31,6 @@ in
 {
   options.daemons = {
     cliphist.enable = mkEnableOption "Enable cliphist clipboard manager";
-    iwgtk.enable = mkEnableOption "Enable iwgtk tray applet";
     udiskie.enable = mkEnableOption "Enable udiskie device manager";
     polkit-gnome-agent.enable = mkEnableOption "Enable the GNOME polkit agent";
     wvkbd.enable = mkEnableOption "Enable wvkbd virtual keyboard";
@@ -44,9 +43,6 @@ in
       optionals cfg.cliphist.enable [
         cliphist
         wl-clipboard
-      ]
-      ++ optionals cfg.iwgtk.enable [
-        iwgtk
       ];
 
     xdg.configFile = mkIf cfg.udiskie.enable {
@@ -73,12 +69,6 @@ in
       "wvkbd" = mkIf cfg.wvkbd.enable (mkDaemon {
         desc = "Virtual Keyboard";
         exec = "${ckgs.wvkbd}/bin/wvkbd-vistath --hidden -L 500";
-      });
-
-      # iwgtk
-      "iwgtk" = mkIf cfg.iwgtk.enable (mkDaemon {
-        desc = "iwgtk Daemon";
-        exec = "${pkgs.iwgtk}/bin/iwgtk -i";
       });
 
       # Udiskie Automount

@@ -31,7 +31,6 @@
           }
 
           "match:class xdg-desktop-portal-gtk, float on"
-          "match:class iwgtk, float on"
         ];
         layerrule = [
           "no_anim on, match:namespace awww-daemon"

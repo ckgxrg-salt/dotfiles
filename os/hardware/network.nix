@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib;
@@ -38,6 +39,8 @@ in
         ];
       };
     };
+
+    environment.systemPackages = mkIf cfg.wifi [ pkgs.impala ];
 
     services.avahi = {
       enable = true;
