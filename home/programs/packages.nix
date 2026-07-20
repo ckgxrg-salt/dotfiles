@@ -25,7 +25,6 @@ in
       cowsay
       dust
       fastfetch
-      fortune
       grimblast
       hyprpicker
       lazygit

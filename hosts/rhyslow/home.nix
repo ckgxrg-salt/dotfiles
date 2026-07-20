@@ -12,6 +12,7 @@
     fcitx5.enable = true;
     floorp.enable = true;
     foliate.enable = true;
+    fortune.enable = true;
     git.enable = true;
     pass.enable = true;
     gpg.enable = true;

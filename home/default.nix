@@ -10,6 +10,7 @@
     ./programs/fcitx.nix
     ./programs/floorp.nix
     ./programs/foliate.nix
+    ./programs/fortune.nix
     ./programs/git.nix
     ./programs/pass.nix
     ./programs/gpg.nix

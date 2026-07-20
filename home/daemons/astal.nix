@@ -36,6 +36,7 @@ in
               Type = "exec";
               ExecStart = "${package}/bin/astal-shell";
               Restart = "on-failure";
+              Environment = "FORTUNE_DIR=${config.home.homeDirectory}/.local/share/fortune";
             };
             Install = {
               WantedBy = [ "graphical-session.target" ];
