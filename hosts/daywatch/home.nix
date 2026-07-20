@@ -30,10 +30,7 @@
     moonlight-qt
   ];
   daemons = {
-    astal = {
-      enable = true;
-      autoreload = true;
-    };
+    astal.enable = true;
     cliphist.enable = true;
     dunst.enable = true;
     udiskie.enable = true;

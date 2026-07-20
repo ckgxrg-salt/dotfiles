@@ -12,14 +12,13 @@ in
 {
   options.daemons.astal = {
     enable = mkEnableOption "Enable Astal desktop widgets";
-    autoreload = mkEnableOption "Reload Astal everyday";
   };
 
   config =
     let
       package =
         if osConfig.device.hostname == "Daywatch" then
-          ckgs.astal.asedia
+          ckgs.astal.daywatch
         else
           abort "No astal implementation for this device";
     in
@@ -41,32 +40,6 @@ in
             Install = {
               WantedBy = [ "graphical-session.target" ];
             };
-          };
-          "astal-reload" = mkIf cfg.autoreload {
-            Unit = {
-              Description = "Reload Astal everyday";
-              Requisite = [ "astal.service" ];
-              After = [ "astal.service" ];
-            };
-            Service = {
-              Type = "oneshot";
-              ExecStart = "${package}/bin/astal-shell reload";
-              Restart = "on-failure";
-              RestartSec = "10s";
-            };
-          };
-        };
-        timers."astal-reload" = mkIf cfg.autoreload {
-          Unit = {
-            Description = "Reload Astal everyday";
-            Requisite = [ "astal.service" ];
-          };
-          Timer = {
-            OnCalendar = "daily";
-            Persistent = true;
-          };
-          Install = {
-            WantedBy = [ "timers.target" ];
           };
         };
       };
