@@ -21,70 +21,51 @@ in
 
   config = mkIf cfg.enable {
     # greetd Session Manager
-    services.greetd =
-      let
-        hyprConfig = pkgs.writeText "regreet-hyprland" ''
-          monitor=,preferred,auto,1
-          misc {
-            disable_hyprland_logo = true
-            disable_splash_rendering = true
-            enable_anr_dialog = false
-          }
-          ecosystem {
-            no_update_news = true
-            no_donation_nag = true
-          }
-          animations {
-            enabled = false
-          }
-          exec-once = ${lib.getExe pkgs.regreet}; hyprctl dispatch exit
-        '';
-      in
-      {
-        enable = true;
-        settings = {
-          # Skip login for the initial boot
-          initial_session = mkIf cfg.autoLogin {
-            command = "${pkgs.hyprland}/bin/start-hyprland";
-            user = "ckgxrg";
-          };
-          # Ask ReGreet for login process
-          default_session = {
-            command = "${pkgs.hyprland}/bin/start-hyprland -- -c ${hyprConfig}";
-            user = "greeter";
-          };
-        };
-      };
-
-    # ReGreet greeter
-    # Manually do stylix things to silence the warning
-    programs.regreet = {
+    services.greetd = {
       enable = true;
-      theme = {
-        package = pkgs.adw-gtk3;
-        name = "adw-gtk3";
-      };
+      useTextGreeter = true;
       settings = {
-        GTK = {
-          application_prefer_dark_theme = true;
-          cursor_theme_name = mkForce config.theme.cursor.name;
-          font_name = mkForce "${config.stylix.fonts.sansSerif.name} ${toString config.stylix.fonts.sizes.applications}";
-          icon_theme_name = mkForce config.stylix.icons.dark;
+        # Skip login for the initial boot
+        initial_session = mkIf cfg.autoLogin {
+          command = "${pkgs.hyprland}/bin/start-hyprland";
+          user = "ckgxrg";
         };
-        appearance = {
-          greeting_msg = cfg.greetMessage;
-        };
-        commands = {
-          reboot = [
-            "systemctl"
-            "reboot"
-          ];
-          poweroff = [
-            "systemctl"
-            "poweroff"
-          ];
+        # Ask ReGreet for login process
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet";
+          user = "greeter";
         };
       };
+    };
+
+    environment = {
+      systemPackages = with pkgs; [ tuigreet ];
+      etc."tuigreet/config.toml".text = ''
+        [display]
+        show_time = true
+        issue = true
+
+        [remember]
+        username = true
+        session = false
+        user_session = true
+
+        [session]
+        sessions_dirs = ["${pkgs.hyprland}/share/wayland-sessions"]
+
+        [secret]
+        mode = "characters"
+        characters = "*"
+
+        [keybindings]
+        command = 2
+        sessions = 3
+        background = 4
+        power = 12
+
+        [background]
+        kind = "none"
+      '';
     };
   };
 }

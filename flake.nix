@@ -54,6 +54,9 @@
             inherit ckgs;
           };
           modules = [
+            {
+              nixpkgs.overlays = ckgpkgs.overlays.${system}.all;
+            }
             ./hosts/rhyslow/os.nix
             ./os
             nur.modules.nixos.default
@@ -82,6 +85,9 @@
             inherit ckgs;
           };
           modules = [
+            {
+              nixpkgs.overlays = ckgpkgs.overlays.${system}.all;
+            }
             ./hosts/daywatch/os.nix
             ./os
             nur.modules.nixos.default
