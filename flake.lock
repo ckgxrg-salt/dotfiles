@@ -2,10 +2,7 @@
   "nodes": {
     "ags": {
       "inputs": {
-        "astal": [
-          "ckgpkgs",
-          "astal"
-        ],
+        "astal": "astal",
         "nixpkgs": [
           "ckgpkgs",
           "nixpkgs"
@@ -29,15 +26,16 @@
       "inputs": {
         "nixpkgs": [
           "ckgpkgs",
+          "ags",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1784476090,
-        "narHash": "sha256-flVUft590tsDX9z97O4DzVFg6zvOOmGeYhPeDdaP1DI=",
+        "lastModified": 1773914523,
+        "narHash": "sha256-GOL+bR30FPImAzy4NNsTMY1gpoINMsLTXR0WJBRSq30=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "fd94e333c8bd45557291c805f1df79d5f787d590",
+        "rev": "41b50290c6a1cdce7b482897c22fe49286912b9a",
         "type": "github"
       },
       "original": {
@@ -117,17 +115,16 @@
     "ckgpkgs": {
       "inputs": {
         "ags": "ags",
-        "astal": "astal",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1784595877,
-        "narHash": "sha256-n8nWXNkANvIoCfvUoqhP/u6fgOzqi8Tm8Q+tA2tEgqE=",
+        "lastModified": 1784614299,
+        "narHash": "sha256-Rg/9PoBBcH2QdG4kLlei70y9FQ/qBUejLY3rn68VSY8=",
         "ref": "refs/heads/main",
-        "rev": "0305418721a87187a7df983baa9b7e943dcb4cb1",
-        "revCount": 88,
+        "rev": "1eaa22bd3137949948f4cab2f0a1be1133d02588",
+        "revCount": 90,
         "type": "git",
         "url": "https://codeberg.org/ckgxrg/ckgpkgs"
       },
