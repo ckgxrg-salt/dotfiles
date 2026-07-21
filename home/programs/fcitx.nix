@@ -14,10 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.fcitx5 = {
-      enable = true;
-      colors.enable = false;
-    };
+    # TODO: matugen
 
     i18n.inputMethod = {
       enable = true;

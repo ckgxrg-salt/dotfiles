@@ -16,12 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nur.follows = "nur";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +33,6 @@
       disko,
       sops-nix,
       home-manager,
-      stylix,
       ...
     }:
     let
@@ -61,7 +54,6 @@
             ./os
             nur.modules.nixos.default
             disko.nixosModules.disko
-            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -92,7 +84,6 @@
             ./os
             nur.modules.nixos.default
             disko.nixosModules.disko
-            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

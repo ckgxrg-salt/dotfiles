@@ -13,10 +13,7 @@ in
   options.program.defaultPkgs = mkEnableOption "Install default packages";
 
   config = mkIf cfg {
-    stylix.targets = {
-      bat.enable = true;
-      lazygit.enable = true;
-    };
+    # TODO: matugen for bat and lazygit
 
     home.packages = with pkgs; [
       # Terminal Utilities

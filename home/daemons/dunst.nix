@@ -14,7 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.dunst.enable = true;
+    # TODO: matugen
 
     home.packages = [ pkgs.libnotify ];
 

@@ -16,7 +16,8 @@ in
   };
 
   config = mkIf cfg.default {
-    stylix.targets.console.enable = true;
+    # TODO: matugen
+    # .targets.console.enable = true;
 
     boot = {
       loader = {

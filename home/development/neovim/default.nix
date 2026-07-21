@@ -15,10 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.neovim = {
-      enable = true;
-      plugin = "base16-nvim";
-    };
+    # TODO: matugen
 
     programs.neovim = {
       enable = true;

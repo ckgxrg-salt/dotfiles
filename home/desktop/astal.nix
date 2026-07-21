@@ -7,10 +7,10 @@
 }:
 with lib;
 let
-  cfg = config.daemons.astal;
+  cfg = config.desktop.astal;
 in
 {
-  options.daemons.astal = {
+  options.desktop.astal = {
     enable = mkEnableOption "Enable Astal desktop widgets";
   };
 

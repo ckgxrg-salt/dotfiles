@@ -31,7 +31,6 @@
     moonlight-qt
   ];
   daemons = {
-    astal.enable = true;
     cliphist.enable = true;
     dunst.enable = true;
     udiskie.enable = true;
@@ -45,7 +44,6 @@
   development = {
     neovim.enable = true;
   };
-  stylix.default = true;
   theme = {
     wallpaper = {
       awww.enable = true;
@@ -66,6 +64,7 @@
     };
   };
   desktop = {
+    astal.enable = true;
     hyprland.enable = true;
     sessionVars.default = true;
     xdg.default = true;

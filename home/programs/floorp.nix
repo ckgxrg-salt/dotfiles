@@ -4,27 +4,20 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.floorp;
 in
 {
-  options.program.floorp = {
-    enable = mkEnableOption "Enable Floorp web browser";
-    extraPackages = mkOption {
-      type = types.listOf types.package;
+  options.program.floorp = with lib.types; {
+    enable = lib.mkEnableOption "Enable Floorp web browser";
+    extraPackages = lib.mkOption {
+      type = listOf package;
       default = [ ];
       description = "List of extra Firefox extensions";
     };
   };
 
-  config = mkIf cfg.enable {
-    stylix.targets.floorp = {
-      enable = true;
-      colorTheme.enable = true;
-      profileNames = [ "default" ];
-    };
-
+  config = lib.mkIf cfg.enable {
     programs.browserpass = {
       browsers = [ "firefox" ];
     };
@@ -101,14 +94,11 @@ in
               url = "about:blank";
             }
           ];
-
-          # Stylix made a mad assumption here...
-          "font.size.variable.x-western" = mkForce null;
-          "font.size.monospace.x-western" = mkForce null;
         };
         extensions = {
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            firefox-color
             absolute-enable-right-click
             auto-reject-cookies
             auto-tab-discard
@@ -138,6 +128,7 @@ in
                 };
               };
             };
+            # TODO: Firefox color
           };
         };
       };

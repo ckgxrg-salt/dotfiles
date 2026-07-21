@@ -14,14 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.cava = {
-      enable = true;
-      rainbow.enable = true;
-    };
-
     programs.cava = {
       enable = true;
       settings = {
+        color.theme = "matugen";
         general = {
           framerate = 30;
           sensitivity = 50;

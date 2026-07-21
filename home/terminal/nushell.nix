@@ -23,7 +23,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.nushell.enable = true;
+    # TODO: matugen
     home.shell.enableNushellIntegration = true;
 
     programs.nushell = {

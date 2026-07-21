@@ -9,11 +9,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.btop.enable = true;
+    theme.matugen.templates.btop = {
+      input_path = ../theme/templates/btop.theme;
+      output_path = "${config.xdg.configHome}/btop/btop.theme";
+    };
 
     programs.btop = {
       enable = true;
       settings = {
+        color_theme = "matugen";
         vim_keys = true;
       };
     };

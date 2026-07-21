@@ -13,7 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.hyprland.enable = true;
+    # TODO: matugen
 
     wayland.windowManager.hyprland = {
       enable = true;

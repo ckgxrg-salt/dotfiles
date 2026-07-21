@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.zellij.enable = true;
+    # TODO: matugen
 
     programs.zellij = {
       enable = true;

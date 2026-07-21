@@ -13,7 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.vicinae.enable = true;
+    # TODO: matugen
 
     programs.vicinae = {
       enable = true;

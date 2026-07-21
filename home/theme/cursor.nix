@@ -21,9 +21,5 @@ in
     };
 
     home.sessionSearchVariables.XCURSOR_PATH = [ "${config.home.profileDirectory}/share/icons" ];
-
-    gtk.cursorTheme = {
-      inherit (cfg) package name size;
-    };
   };
 }

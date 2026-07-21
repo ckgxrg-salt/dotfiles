@@ -45,7 +45,6 @@
     distrobox.enable = true;
     neovim.enable = true;
   };
-  stylix.default = true;
   theme = {
     wallpaper = {
       # lxwengd = {

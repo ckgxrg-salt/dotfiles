@@ -13,7 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.vivid.enable = true;
+    # TODO: matugen
 
     programs.pay-respects = {
       enable = true;

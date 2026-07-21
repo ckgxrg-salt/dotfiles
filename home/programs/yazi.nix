@@ -9,8 +9,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.yazi.enable = true;
-
     programs.yazi = {
       enable = true;
       shellWrapperName = "yy";

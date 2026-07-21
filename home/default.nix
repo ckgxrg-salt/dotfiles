@@ -25,7 +25,6 @@
     ./development/neovim
     ./development/distrobox.nix
 
-    ./daemons/astal.nix
     ./daemons/daemons.nix
     ./daemons/dunst.nix
     ./daemons/gammastep.nix
@@ -33,7 +32,9 @@
     ./daemons/hyprlock.nix
     ./daemons/syncthing.nix
 
+    ./desktop/astal.nix
     ./desktop/env.nix
+    ./desktop/gtk.nix
     ./desktop/hyprland.nix
     ./desktop/xdg.nix
 
@@ -47,7 +48,7 @@
 
     ./theme/cursor.nix
     ./theme/lxwengd.nix
-    ./theme/stylix.nix
+    ./theme/matugen.nix
     ./theme/sound-theme.nix
     ./theme/wallpaper.nix
 

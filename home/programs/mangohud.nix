@@ -9,7 +9,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.mangohud.enable = true;
+    # TODO: Matugen
 
     programs.mangohud = {
       enable = true;

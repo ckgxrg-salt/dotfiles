@@ -9,15 +9,19 @@ let
 in
 {
   options.terminal.alacritty = {
-    enable = mkEnableOption "ckgxrg's default Alacritty configurations";
+    enable = mkEnableOption "Enable default Alacritty settings";
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.alacritty.enable = true;
+    theme.matugen.templates.alacritty = {
+      input_path = ../theme/templates/alacritty-theme.toml;
+      output_path = "${config.xdg.configHome}/alacritty/theme.toml";
+    };
 
     programs.alacritty = {
       enable = true;
       settings = {
+        general.import = [ "theme.toml" ];
         window = {
           opacity = 1.0;
           blur = true;

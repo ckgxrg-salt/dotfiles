@@ -35,7 +35,6 @@
     ./misc/security.nix
 
     ./theme/cursor.nix
-    ./theme/stylix.nix
   ];
 
   # Device attributes

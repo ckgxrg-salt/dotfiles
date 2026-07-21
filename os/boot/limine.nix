@@ -13,10 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.limine = {
-      enable = true;
-      image.enable = false;
-    };
+    # TODO: matugen
 
     boot.loader.limine = {
       enable = true;

@@ -9,7 +9,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.foliate.enable = true;
+    # TODO: matugen for foliate
 
     programs.foliate = {
       enable = true;

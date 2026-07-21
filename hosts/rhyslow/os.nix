@@ -62,22 +62,6 @@
       size = 32;
     };
   };
-  stylix = {
-    default = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-    polarity = "dark";
-    icons = {
-      enable = true;
-      package = pkgs.dracula-icon-theme;
-      dark = "Dracula";
-    };
-    fonts.sizes = {
-      applications = 16;
-      desktop = 16;
-      popups = 14;
-      terminal = 14;
-    };
-  };
   fonts = {
     packages = with pkgs; [
       maple-mono.opentype

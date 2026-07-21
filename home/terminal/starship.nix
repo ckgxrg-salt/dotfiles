@@ -9,7 +9,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.starship.enable = true;
+    # TODO: matugen for starship
 
     programs.starship = {
       enable = true;

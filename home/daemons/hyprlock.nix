@@ -9,10 +9,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.hyprlock = {
-      enable = true;
-      useWallpaper = false;
-    };
+    # TODO: matugen
 
     programs.hyprlock = {
       enable = true;
