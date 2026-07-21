@@ -52,6 +52,7 @@
       name = "KrisCursor";
       size = 32;
     };
+    fonts.size = 32;
   };
   # stylix = {
   #   default = true;

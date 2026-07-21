@@ -4,13 +4,12 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = osConfig.theme.cursor;
 in
 {
   config = {
-    home.packages = mkIf (cfg.package != null) [ cfg.package ];
+    home.packages = lib.mkIf (cfg.package != null) [ cfg.package ];
 
     home.sessionVariables = {
       XCURSOR_SIZE = cfg.size;

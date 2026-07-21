@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, osConfig, ... }: {
   theme.matugen.templates = {
     gtk3 = {
       input_path = ../theme/templates/gtk.css;
@@ -12,6 +12,7 @@
   };
 
   gtk = {
+    font.size = osConfig.theme.fonts.size;
     cursorTheme = {
       inherit (config.theme.cursor) package name size;
     };
