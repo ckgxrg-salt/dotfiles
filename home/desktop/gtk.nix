@@ -1,27 +1,28 @@
-{ config, osConfig, ... }: {
+{
+  config,
+  osConfig,
+  pkgs,
+  ...
+}:
+{
   theme.matugen.templates = {
-    gtk3 = {
+    gtk = {
       input_path = ../theme/templates/gtk.css;
-      output_path = "${config.xdg.configHome}/gtk-3.0/gtk.css";
-    };
-    gtk4 = {
-      input_path = ../theme/templates/gtk.css;
-      output_path = "${config.xdg.configHome}/gtk-4.0/gtk.css";
+      output_path = "${config.xdg.configHome}/gtk-4.0/matugen.css";
     };
 
   };
 
   gtk = {
     enable = true;
-    colorScheme = "dark";
-    gtk3 = {
-      theme.name = "Adwaita";
-      iconTheme.name = osConfig.theme.icons.name;
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3";
     };
-    gtk4 = {
-      theme.name = "Adwaita";
-      iconTheme.name = osConfig.theme.icons.name;
-    };
+    gtk4.theme = config.gtk.theme;
+    gtk3.extraCss = ''@import url("file://${config.xdg.configHome}/gtk-4.0/matugen.css");'';
+    gtk4.extraCss = ''@import url("file://${config.xdg.configHome}/gtk-4.0/matugen.css");'';
+    iconTheme.name = osConfig.theme.icons.name;
     font = {
       inherit (osConfig.theme.fonts) name;
       size = osConfig.theme.fonts.sizes.applications;

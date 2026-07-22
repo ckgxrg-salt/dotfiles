@@ -28,6 +28,7 @@ in
     xdg.configFile."matugen/config.toml".source = tomlFormat.generate "matugen-config.toml" {
       config = {
         prefer = "closest-to-fallback";
+        wallpaper.set = false;
       };
       inherit (cfg) templates;
     };
