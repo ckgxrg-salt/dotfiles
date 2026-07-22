@@ -1,24 +1,37 @@
 {
+  osConfig,
   config,
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.program.vicinae;
 in
 {
   options.program.vicinae = {
-    enable = mkEnableOption "Enable Vicinae";
+    enable = lib.mkEnableOption "Enable Vicinae";
   };
 
-  config = mkIf cfg.enable {
-    # TODO: matugen
+  config = lib.mkIf cfg.enable {
+    theme.matugen.templates.vicinae = {
+      input_path = ../theme/templates/vicinae-theme.toml;
+      output_path = "${config.xdg.dataHome}/vicinae/themes/matugen.toml";
+    };
 
     programs.vicinae = {
       enable = true;
       systemd = {
         enable = true;
+      };
+      settings = {
+        theme = {
+          dark.name = "matugen";
+          light.name = "matugen";
+        };
+        font.normal = {
+          family = osConfig.theme.fonts.name;
+          size = osConfig.theme.fonts.sizes.popups;
+        };
       };
     };
 
