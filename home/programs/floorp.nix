@@ -18,6 +18,12 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    theme.matugen.templates.floorp = {
+      input_path = ../theme/templates/firefox.json;
+      output_path = "${config.xdg.cacheHome}/wal/colors.json";
+      post_hook = "${pkgs.pywalfox-native}/bin/pywalfox update";
+    };
+
     programs.browserpass = {
       browsers = [ "firefox" ];
     };
@@ -25,8 +31,9 @@ in
     programs.floorp = {
       enable = true;
       package = pkgs.floorp-bin;
-      nativeMessagingHosts = [
-        pkgs.tridactyl-native
+      nativeMessagingHosts = with pkgs; [
+        tridactyl-native
+        pywalfox-native
       ];
       languagePacks = [ "en-GB" ];
       policies = {
@@ -98,7 +105,6 @@ in
         extensions = {
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            firefox-color
             absolute-enable-right-click
             auto-reject-cookies
             auto-tab-discard
@@ -107,6 +113,7 @@ in
             flagfox
             tridactyl
             ublock-origin
+            pywalfox
           ];
           settings = {
             # Tridactyl
@@ -128,7 +135,6 @@ in
                 };
               };
             };
-            # TODO: Firefox color
           };
         };
       };
