@@ -36,6 +36,7 @@
 
     ./theme/cursor.nix
     ./theme/fonts.nix
+    ./theme/icons.nix
   ];
 
   # Device attributes

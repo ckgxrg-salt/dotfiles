@@ -58,17 +58,11 @@
       popups = 20;
       terminal = 20;
     };
+    icons = {
+      package = pkgs.vimix-icon-theme;
+      name = "Vimix-black-dark";
+    };
   };
-  # stylix = {
-  #   default = true;
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
-  #   polarity = "dark";
-  #   icons = {
-  #     enable = true;
-  #     package = pkgs.vimix-icon-theme;
-  #     dark = "Vimix-black-dark";
-  #   };
-  # };
   fonts = {
     packages = with pkgs; [
       maple-mono.opentype

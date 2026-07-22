@@ -14,8 +14,13 @@
   gtk = {
     enable = true;
     colorScheme = "dark";
-    theme = {
-      name = "Adwaita";
+    gtk3 = {
+      theme.name = "Adwaita";
+      iconTheme.name = osConfig.theme.icons.name;
+    };
+    gtk4 = {
+      theme.name = "Adwaita";
+      iconTheme.name = osConfig.theme.icons.name;
     };
     font = {
       inherit (osConfig.theme.fonts) name;

@@ -1,9 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.theme.cursor;
+  cfg = config.theme.icons;
 in
 {
-  options.theme.cursor = with lib.types; {
+  options.theme.icons = with lib.types; {
     name = lib.mkOption {
       type = types.nullOr types.str;
       default = null;
@@ -12,14 +12,9 @@ in
       type = types.nullOr types.package;
       default = null;
     };
-    size = lib.mkOption {
-      type = types.int;
-      default = 32;
-    };
   };
 
   config = {
     environment.systemPackages = lib.mkIf (cfg.package != null) [ cfg.package ];
-    environment.variables.XCURSOR_SIZE = toString cfg.size;
   };
 }
