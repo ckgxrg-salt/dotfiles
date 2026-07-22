@@ -5,17 +5,19 @@
   ckgs,
   ...
 }:
-with lib;
 let
   cfg = config.development.neovim;
 in
 {
   options.development.neovim = {
-    enable = mkEnableOption "Enable default Nixvim settings";
+    enable = lib.mkEnableOption "Enable default Neovim settings";
   };
 
-  config = mkIf cfg.enable {
-    # TODO: matugen
+  config = lib.mkIf cfg.enable {
+    theme.matugen.templates.nvim = {
+      input_path = ../../theme/templates/nvim.lua;
+      output_path = "${config.xdg.configHome}/nvim/lua/matugen.lua";
+    };
 
     programs.neovim = {
       enable = true;
@@ -64,6 +66,7 @@ in
         undotree
 
         # Decorations
+        base16-nvim
         smear-cursor-nvim
         tiny-glimmer-nvim
         neoscroll-nvim

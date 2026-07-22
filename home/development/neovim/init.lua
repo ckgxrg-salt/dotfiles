@@ -36,6 +36,9 @@ vim.keymap.set("n", "<A-k>", "gk")
 vim.keymap.set("n", "<A-Down>", "gj")
 vim.keymap.set("n", "<A-Up>", "gk")
 
+-- Colourscheme
+require("matugen")
+
 -- Imports
 require("plugins.debug")
 require("plugins.langs")
