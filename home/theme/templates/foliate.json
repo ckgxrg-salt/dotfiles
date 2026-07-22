@@ -1,0 +1,13 @@
+{
+  "label": "Matugen",
+  "dark": {
+    "bg": "{{ base16.base00.default.hex }}",
+    "fg": "{{ base16.base05.default.hex }}",
+    "link": "{{ base16.base0d.default.hex }}"
+  },
+  "light": {
+    "bg": "{{ base16.base05.default.hex }}",
+    "fg": "{{ base16.base00.default.hex }}",
+    "link": "{{ base16.base0d.default.hex }}"
+  }
+}
