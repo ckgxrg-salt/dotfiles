@@ -36,6 +36,7 @@
     ./desktop/env.nix
     ./desktop/gtk.nix
     ./desktop/hyprland.nix
+    ./desktop/qt.nix
     ./desktop/xdg.nix
 
     ./terminal/accessories.nix

@@ -5,12 +5,9 @@
   ...
 }:
 {
-  theme.matugen.templates = {
-    gtk = {
-      input_path = ../theme/templates/gtk.css;
-      output_path = "${config.xdg.configHome}/gtk-4.0/matugen.css";
-    };
-
+  theme.matugen.templates.gtk = {
+    input_path = ../theme/templates/gtk.css;
+    output_path = "${config.xdg.configHome}/gtk-4.0/matugen.css";
   };
 
   gtk = {

@@ -5,6 +5,10 @@
       type = types.str;
       default = builtins.elemAt config.fonts.fontconfig.defaultFonts.sansSerif 0;
     };
+    monospace = lib.mkOption {
+      type = types.str;
+      default = builtins.elemAt config.fonts.fontconfig.defaultFonts.monospace 0;
+    };
     sizes = {
       applications = lib.mkOption {
         type = types.int;
