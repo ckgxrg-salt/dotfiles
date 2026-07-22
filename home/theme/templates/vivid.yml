@@ -1,0 +1,138 @@
+colors:
+  <* for name, value in base16 *>
+  {{ name }}: '{{ value.default.hex_stripped }}'
+  <* endfor *>
+
+  dim-foreground: '{{ colors.on_primary.default.hex_stripped }}'
+
+core:
+  normal_text:
+    foreground: dim-foreground
+
+  reset_to_normal:
+    background: base00
+    foreground: base04
+    font-style: regular
+
+# File Types
+
+  regular_file:
+    foreground: base04
+
+  directory:
+    foreground: base0a
+    font-style: bold
+
+  multi_hard_link:
+    foreground: base08
+    font-style: underline
+
+  symlink:
+    foreground: base08
+
+  broken_symlink:
+    foreground: base0b
+
+  missing_symlink_target:
+    # NOTE: Also used for readline completion shell builtin and function suffix
+    background: base0b
+    foreground: base05  # base04
+    font-style: bold
+
+  fifo:
+    foreground: base07
+    font-style:
+      - bold
+      - underline
+
+  character_device:
+    foreground: base0d
+
+  block_device:
+    foreground: base0d
+    font-style: underline
+
+  door:
+    foreground: base0d
+    font-style: italic
+
+  socket:
+    # NOTE: Swapped with block device as used for readline completion prefix
+    foreground: base0d
+    font-style: bold
+
+# File Permissions
+
+  executable_file:
+    foreground: base07
+    font-style: bold
+
+  file_with_capability:
+    foreground: base04
+    font-style:
+      - bold
+      - underline
+
+  setuid:
+    foreground: base04
+    font-style:
+      - bold
+      - underline
+
+  setgid:
+    foreground: base04
+    font-style:
+      - bold
+      - underline
+
+  sticky:
+    background: base0a   # base09
+    foreground: base05   # base04
+    font-style: underline
+
+  other_writable:
+    background: base0a   # base09
+    foreground: base05   # base04
+    font-style: bold
+
+  sticky_other_writable:
+    background: base0a   # base09
+    foreground: base05   # base04
+    font-style:
+      - bold
+      - underline
+
+# Document Types
+
+archives:
+  foreground: base05
+  font-style: bold
+
+executable:
+  foreground: base07
+  font-style: bold
+
+markup:
+  foreground: base06
+  web:
+    foreground: base04
+
+media:
+  foreground: base0f
+  fonts:
+    foreground: base04
+
+office:
+  foreground: base0e
+
+programming:
+  source:
+    foreground: base07
+  tooling:
+    foreground: base04
+
+text:
+  foreground: base04
+
+unimportant:
+  foreground: base03
