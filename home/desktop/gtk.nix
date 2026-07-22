@@ -12,9 +12,17 @@
   };
 
   gtk = {
-    font.size = osConfig.theme.fonts.size;
+    enable = true;
+    colorScheme = "dark";
+    theme = {
+      name = "Adwaita";
+    };
+    font = {
+      inherit (osConfig.theme.fonts) name;
+      size = osConfig.theme.fonts.sizes.applications;
+    };
     cursorTheme = {
-      inherit (config.theme.cursor) package name size;
+      inherit (osConfig.theme.cursor) package name size;
     };
   };
 }

@@ -52,7 +52,12 @@
       name = "KrisCursor";
       size = 32;
     };
-    fonts.size = 32;
+    fonts.sizes = {
+      applications = 24;
+      desktop = 24;
+      popups = 20;
+      terminal = 20;
+    };
   };
   # stylix = {
   #   default = true;
@@ -62,12 +67,6 @@
   #     enable = true;
   #     package = pkgs.vimix-icon-theme;
   #     dark = "Vimix-black-dark";
-  #   };
-  #   fonts.sizes = {
-  #     applications = 24;
-  #     desktop = 24;
-  #     popups = 20;
-  #     terminal = 20;
   #   };
   # };
   fonts = {

@@ -1,4 +1,5 @@
 {
+  osConfig,
   config,
   lib,
   ...
@@ -22,6 +23,9 @@ in
       enable = true;
       settings = {
         general.import = [ "theme.toml" ];
+        font = {
+          size = osConfig.theme.fonts.sizes.terminal;
+        };
         window = {
           opacity = 1.0;
           blur = true;
