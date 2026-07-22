@@ -1,0 +1,19 @@
+separator_color = "{{base16.base02.default.hex}}"
+
+[urgency_low]
+background = "{{base16.base01.default.hex}}"
+foreground = "{{base16.base05.default.hex}}"
+frame_color = "{{base16.base03.default.hex}}"
+highlight = "{{base16.base03.default.hex}}"
+
+[urgency_normal]
+background = "{{base16.base01.default.hex}}"
+foreground = "{{base16.base05.default.hex}}"
+frame_color = "{{base16.base0d.default.hex}}"
+highlight = "{{base16.base0d.default.hex}}"
+
+[urgency_low]
+background = "{{base16.base01.default.hex}}"
+foreground = "{{base16.base05.default.hex}}"
+frame_color = "{{base16.base08.default.hex}}"
+highlight = "{{base16.base08.default.hex}}"

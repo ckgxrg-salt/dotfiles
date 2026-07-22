@@ -27,7 +27,10 @@ in
 
     xdg.configFile."matugen/config.toml".source = tomlFormat.generate "matugen-config.toml" {
       config = {
+        # base0a from tokyo night storm
+        fallback_color = "#0db9d7";
         prefer = "closest-to-fallback";
+        contrast = "0.0";
         wallpaper = {
           set = false;
           command = "";
