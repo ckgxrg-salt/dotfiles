@@ -15,8 +15,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: matugen
-
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";

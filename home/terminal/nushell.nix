@@ -10,11 +10,6 @@ in
 {
   options.terminal.nushell = {
     enable = mkEnableOption "ckgxrg's nushell configurations";
-    theme = mkOption {
-      type = types.nullOr types.package;
-      description = "The theme package to use";
-      default = null;
-    };
     settings = mkOption {
       type = types.lines;
       description = "Nushell configuration in Nu format";
@@ -23,7 +18,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: matugen
+    theme.matugen.templates.nushell = {
+      input_path = ../theme/templates/nushell-theme.nu;
+      output_path = "${config.xdg.configHome}/nushell/theme.nu";
+    };
+
     home.shell.enableNushellIntegration = true;
 
     programs.nushell = {
@@ -52,8 +51,8 @@ in
         alias proj = cd ~/Projects
         alias rm = rm -i
       ''
-      + cfg.settings
-      + optionalString (cfg.theme != null) "source ${cfg.theme}/theme.nu";
+      + "source theme.nu"
+      + cfg.settings;
     };
   };
 }
