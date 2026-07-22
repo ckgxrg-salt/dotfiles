@@ -1,0 +1,17 @@
+[palettes.matugen]
+<* for name, value in base16 *>
+{{ name }} = '{{ value.default.hex }}'
+<* endfor *>
+
+black = '{{ base16.base00.default.hex }}'
+bright-black = '{{ base16.base03.default.hex }}'
+white = '{{ base16.base05.default.hex }}'
+bright-white = '{{ base16.base07.default.hex }}'
+red = '{{ base16.base08.default.hex }}'
+orange = '{{ base16.base09.default.hex }}'
+yellow = '{{ base16.base0a.default.hex }}'
+green = '{{ base16.base0b.default.hex }}'
+cyan = '{{ base16.base0c.default.hex }}'
+blue = '{{ base16.base0d.default.hex }}'
+purple = '{{ base16.base0e.default.hex }}'
+brown = '{{ base16.base0f.default.hex }}'

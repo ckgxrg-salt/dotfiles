@@ -1,19 +1,37 @@
-{ config, lib, ... }:
-with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.terminal.starship;
+  starship-workaround = pkgs.writeShellScript "starship-workaround.sh" ''
+    cd ${config.xdg.configHome}/starship
+    cat base.toml theme.toml > starship.toml
+  '';
 in
 {
   options.terminal.starship = {
-    enable = mkEnableOption "Enable default Starship configuration";
+    enable = lib.mkEnableOption "Enable default Starship configuration";
   };
 
-  config = mkIf cfg.enable {
-    # TODO: matugen for starship
+  config = lib.mkIf cfg.enable {
+    theme.matugen.templates.starship = {
+      input_path = ../theme/templates/starship-theme.toml;
+      output_path = "${config.xdg.configHome}/starship/theme.toml";
+      post_hook = "${starship-workaround}";
+    };
+
+    home.sessionVariables = {
+      STARSHIP_CONFIG = lib.mkForce "${config.xdg.configHome}/starship/starship.toml";
+    };
 
     programs.starship = {
       enable = true;
+      configPath = "${config.xdg.configHome}/starship/base.toml";
       settings = {
+        palette = "matugen";
         format = lib.concatStrings [
           "[󱞡](bold green) "
           "[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)"
@@ -45,6 +63,9 @@ in
         fill = {
           symbol = "=";
           style = "bold base02";
+        };
+        directory = {
+          style = "bold white";
         };
         shlvl = {
           disabled = false;
