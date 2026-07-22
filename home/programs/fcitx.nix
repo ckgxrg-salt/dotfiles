@@ -1,4 +1,5 @@
 {
+  osConfig,
   config,
   pkgs,
   lib,
@@ -49,6 +50,11 @@ in
             clipboard.globalSection = {
               # Disable
               TriggerKey = "";
+            };
+            classicui.globalSection = {
+              Font = "${osConfig.theme.fonts.name} ${toString osConfig.theme.fonts.sizes.popups}";
+              MenuFont = "${osConfig.theme.fonts.name} ${toString osConfig.theme.fonts.sizes.popups}";
+              TrayFont = "${osConfig.theme.fonts.name} ${toString osConfig.theme.fonts.sizes.popups}";
             };
           };
         };

@@ -34,7 +34,7 @@ core:
     foreground: base0b
 
   missing_symlink_target:
-    # NOTE: Also used for readline completion shell builtin and function suffix
+    # Also used for readline completion shell builtin and function suffix
     background: base0b
     foreground: base05  # base04
     font-style: bold
@@ -57,7 +57,7 @@ core:
     font-style: italic
 
   socket:
-    # NOTE: Swapped with block device as used for readline completion prefix
+    # Swapped with block device as used for readline completion prefix
     foreground: base0d
     font-style: bold
 
