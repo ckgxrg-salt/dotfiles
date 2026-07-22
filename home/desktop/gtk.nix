@@ -4,10 +4,17 @@
   pkgs,
   ...
 }:
+let
+  gtk-reload = pkgs.writeShellScript "reload-gtk-theme.sh" ''
+    dconf write /org/gnome/desktop/interface/color-scheme '"prefer-light"'
+    dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
+  '';
+in
 {
   theme.matugen.templates.gtk = {
     input_path = ../theme/templates/gtk.css;
     output_path = "${config.xdg.configHome}/gtk-4.0/matugen.css";
+    post_hook = "${gtk-reload}";
   };
 
   gtk = {
