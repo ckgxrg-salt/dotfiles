@@ -17,6 +17,7 @@ in
     theme.matugen.templates.nvim = {
       input_path = ../../theme/templates/nvim.lua;
       output_path = "${config.xdg.configHome}/nvim/lua/matugen.lua";
+      post_hook = "pkill -USR1 nvim";
     };
 
     programs.neovim = {

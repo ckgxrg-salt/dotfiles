@@ -36,8 +36,24 @@ vim.keymap.set("n", "<A-k>", "gk")
 vim.keymap.set("n", "<A-Down>", "gj")
 vim.keymap.set("n", "<A-Up>", "gk")
 
--- Colourscheme
-require("matugen")
+local function update_theme()
+	local matugen_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/matugen.lua"
+	local file, err = io.open(matugen_path, "r")
+	if err ~= nil then
+		vim.print("Cannot load matugen theme")
+	else
+		dofile(matugen_path)
+		io.close(file)
+	end
+	dofile(os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/plugins/interface.lua")
+end
+
+vim.api.nvim_create_autocmd("Signal", {
+	pattern = "SIGUSR1",
+	callback = update_theme,
+})
+
+update_theme()
 
 -- Imports
 require("plugins.debug")

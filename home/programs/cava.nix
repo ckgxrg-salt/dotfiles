@@ -16,6 +16,7 @@ in
     theme.matugen.templates.cava = {
       input_path = ../theme/templates/cava-theme.ini;
       output_path = "${config.xdg.configHome}/cava/themes/matugen";
+      post_hook = "pkill -USR2 cava";
     };
 
     programs.cava = {
