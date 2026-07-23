@@ -4,16 +4,20 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.cava;
 in
 {
   options.program.cava = {
-    enable = mkEnableOption "Enable CAVA audio visualiser";
+    enable = lib.mkEnableOption "Enable CAVA audio visualiser";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
+    theme.matugen.templates.cava = {
+      input_path = ../theme/templates/cava-theme.ini;
+      output_path = "${config.xdg.configHome}/cava/themes/matugen";
+    };
+
     programs.cava = {
       enable = true;
       settings = {
@@ -24,7 +28,6 @@ in
           bar_width = 6;
           sleep_timer = 10;
         };
-        # Only PipeWire is enough
         input = {
           method = "pipewire";
           source = "auto";
