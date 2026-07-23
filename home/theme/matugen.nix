@@ -30,7 +30,7 @@ in
         # base0a from tokyo night storm
         fallback_color = "#0db9d7";
         prefer = "closest-to-fallback";
-        contrast = "0.0";
+        contrast = 0;
         wallpaper = {
           set = false;
           command = "";
