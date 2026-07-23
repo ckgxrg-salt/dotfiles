@@ -57,7 +57,6 @@
             backend = "awww";
             color = "#ffffff";
             subfolders = true;
-            monitors = "DP-1";
             post_command = "matugen image $wallpaper --source-color-index 0";
           };
         };

@@ -61,6 +61,16 @@
       name = "KrisCursor";
       size = 32;
     };
+    fonts.sizes = {
+      applications = 16;
+      desktop = 24;
+      popups = 14;
+      terminal = 14;
+    };
+    icons = {
+      package = pkgs.dracula-icon-theme;
+      name = "Dracula";
+    };
   };
   fonts = {
     packages = with pkgs; [

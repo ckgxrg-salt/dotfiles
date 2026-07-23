@@ -1,5 +1,6 @@
 # Rhyslow HM entrypoint
 {
+  config,
   pkgs,
   ...
 }:
@@ -31,6 +32,7 @@
     blender
     gimp
     libreoffice
+    linux-wallpaperengine
   ];
   daemons = {
     cliphist.enable = true;
@@ -47,11 +49,18 @@
   };
   theme = {
     wallpaper = {
-      # lxwengd = {
-      #   enable = true;
-      #   package = ckgs.lxwengd;
-      #   assetsPath = "${config.xdg.dataHome}/Steam/steamprogram/common/wallpaper_engine/assets";
-      # };
+      waypaper = {
+        enable = true;
+        settings = {
+          Settings = {
+            fill = "Fill";
+            sort = "name";
+            backend = "linux-wallpaperengine";
+            subfolders = true;
+            post_command = "matugen image $wallpaper --source-color-index 0";
+          };
+        };
+      };
     };
   };
   desktop = {
