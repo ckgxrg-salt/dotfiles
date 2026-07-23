@@ -13,8 +13,6 @@ in
   options.program.defaultPkgs = mkEnableOption "Install default packages";
 
   config = mkIf cfg {
-    # TODO: matugen for bat and lazygit
-
     home.packages = with pkgs; [
       # Terminal Utilities
       bat

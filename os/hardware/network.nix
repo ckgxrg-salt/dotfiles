@@ -40,8 +40,6 @@ in
       };
     };
 
-    environment.systemPackages = mkIf cfg.wifi [ pkgs.impala ];
-
     services.avahi = {
       enable = true;
       openFirewall = true;

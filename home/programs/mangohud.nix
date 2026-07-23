@@ -1,14 +1,18 @@
-{ config, lib, ... }:
-with lib;
+{
+  osConfig,
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.program.mangohud;
 in
 {
   options.program.mangohud = {
-    enable = mkEnableOption "Enable mangohud game HUD";
+    enable = lib.mkEnableOption "Enable mangohud game HUD";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # TODO: Matugen
 
     programs.mangohud = {
@@ -16,6 +20,8 @@ in
       settings = {
         vsync = 0;
         gamemode = true;
+        font_size = osConfig.theme.fonts.sizes.applications;
+        font_size_text = osConfig.theme.fonts.sizes.applications;
       };
     };
   };

@@ -13,8 +13,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: matugen
-
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;

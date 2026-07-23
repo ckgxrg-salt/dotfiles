@@ -9,8 +9,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: matugen
-
     programs.hyprlock = {
       enable = true;
       settings = {

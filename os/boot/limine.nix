@@ -3,23 +3,21 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.boot.limine;
 in
 {
   options.boot.limine = {
-    enable = mkEnableOption "Enable default settings for Limine bootloader";
+    enable = lib.mkEnableOption "Enable default settings for Limine bootloader";
   };
 
-  config = mkIf cfg.enable {
-    # TODO: matugen
-
+  config = lib.mkIf cfg.enable {
     boot.loader.limine = {
       enable = true;
       efiSupport = true;
       efiInstallAsRemovable = true;
       biosSupport = false;
+      style.wallpapers = lib.mkForce [ ];
     };
   };
 }

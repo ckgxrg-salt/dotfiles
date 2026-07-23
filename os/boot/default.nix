@@ -16,9 +16,6 @@ in
   };
 
   config = mkIf cfg.default {
-    # TODO: matugen
-    # .targets.console.enable = true;
-
     boot = {
       loader = {
         efi = {
