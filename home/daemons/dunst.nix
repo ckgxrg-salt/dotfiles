@@ -32,6 +32,8 @@ in
       configFile = "${config.xdg.configHome}/dunst/dunstrc-merged";
       settings = {
         global = {
+          enable_recursive_icon_lookup = true;
+          icon_theme = osConfig.theme.icons.name;
           origin = "bottom-right";
           font = "${osConfig.theme.fonts.name} ${toString osConfig.theme.fonts.sizes.popups}";
         };

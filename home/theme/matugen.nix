@@ -32,8 +32,8 @@ in
         prefer = "closest-to-fallback";
         contrast = 0;
         wallpaper = {
-          set = false;
-          command = "";
+          set = true;
+          command = "notify-send 'matugen' 'Generated new colourscheme from {{image}}' --icon color-select-symbolic";
         };
       };
       inherit (cfg) templates;
