@@ -11,7 +11,7 @@ in
   config = mkIf cfg.enable {
     theme.matugen.templates.btop = {
       input_path = ../theme/templates/btop.theme;
-      output_path = "${config.xdg.configHome}/btop/btop.theme";
+      output_path = "${config.xdg.configHome}/btop/themes/matugen.theme";
     };
 
     programs.btop = {
