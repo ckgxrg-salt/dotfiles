@@ -29,8 +29,8 @@ in
       config = {
         # base0a from tokyo night storm
         fallback_color = "#0db9d7";
-        prefer = "closest-to-fallback";
-        contrast = 0;
+        prefer = "lightness";
+        contrast = -1;
         wallpaper = {
           set = true;
           command = "notify-send 'matugen' 'Generated new colourscheme from {{image}}' --icon color-select-symbolic";

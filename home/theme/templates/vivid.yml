@@ -1,16 +1,17 @@
 colors:
   <* for name, value in base16 *>
-  {{name}}: '{{value.default.hex_stripped}}'
+  {{name}}: '{{value.default.hex_stripped | lighten: 20}}'
   <* endfor *>
 
-  dim-foreground: '{{ colors.on_primary.default.hex_stripped }}'
+  background: '{{colors.background.default.hex_stripped}}'
+  dim-foreground: '{{colors.on_primary.default.hex_stripped}}'
 
 core:
   normal_text:
     foreground: dim-foreground
 
   reset_to_normal:
-    background: base00
+    background: background
     foreground: base04
     font-style: regular
 

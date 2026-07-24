@@ -1,12 +1,12 @@
 [colors.accents]
-red = "{{base16.base08.default.hex}}"
-orange = "{{base16.base09.default.hex}}"
-yellow = "{{base16.base0a.default.hex}}"
-green = "{{base16.base0b.default.hex}}"
-blue = "{{base16.base0c.default.hex}}"
-cyan = "{{base16.base0d.default.hex}}"
-magenta = "{{base16.base0e.default.hex}}"
-purple = "{{base16.base0e.default.hex}}"
+red = "{{base16.base08.default.hex | lighten: 20}}"
+orange = "{{base16.base09.default.hex | lighten: 20}}"
+yellow = "{{base16.base0a.default.hex | lighten: 20}}"
+green = "{{base16.base0b.default.hex | lighten: 20}}"
+blue = "{{base16.base0c.default.hex | lighten: 20}}"
+cyan = "{{base16.base0d.default.hex | lighten: 20}}"
+magenta = "{{base16.base0e.default.hex | lighten: 20}}"
+purple = "{{base16.base0e.default.hex | lighten: 20}}"
 
 [colors.core]
 accent = "{{colors.primary.default.hex}}"

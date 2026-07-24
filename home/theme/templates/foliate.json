@@ -3,11 +3,11 @@
   "dark": {
     "bg": "{{colors.secondary_container.dark.hex}}",
     "fg": "{{colors.on_secondary_container.dark.hex}}",
-    "link": "{{base16.base09.dark.hex}}"
+    "link": "{{colors.tertiary.dark.hex}}"
   },
   "light": {
     "bg": "{{colors.secondary_container.light.hex}}",
     "fg": "{{colors.on_secondary_container.light.hex}}",
-    "link": "{{base16.base09.light.hex}}"
+    "link": "{{colors.tertiary.light.hex}}"
   }
 }
