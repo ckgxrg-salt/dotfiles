@@ -7,7 +7,6 @@
 {
   secrets.sops = true;
   program = {
-    defaultPkgs = true;
     btop.enable = true;
     cava.enable = true;
     fcitx5.enable = true;

@@ -16,13 +16,7 @@ in
   config = mkIf cfg.enable {
     programs.password-store = {
       enable = true;
-      package = (
-        pkgs.pass-wayland.withExtensions (
-          e: with e; [
-            pass-audit
-          ]
-        )
-      );
+      package = pkgs.pass-wayland;
       settings = {
         PASSWORD_STORE_DIR = "${config.xdg.dataHome}/password-store";
         PASSWORD_STORE_CLIP_TIME = "20";

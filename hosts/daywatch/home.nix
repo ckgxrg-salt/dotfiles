@@ -7,7 +7,6 @@
 {
   secrets.sops = true;
   program = {
-    defaultPkgs = true;
     btop.enable = true;
     cava.enable = true;
     fcitx5.enable = true;
@@ -36,7 +35,6 @@
     udiskie.enable = true;
     wvkbd.enable = true;
     polkit-gnome-agent.enable = true;
-    gammastep.enable = true;
     hypridle.enable = true;
     hyprlock.enable = true;
     syncthing.enable = true;

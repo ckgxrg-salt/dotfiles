@@ -9,6 +9,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    # TODO: not working, review
     services.gammastep = {
       enable = true;
       tray = false;

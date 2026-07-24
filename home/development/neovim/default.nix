@@ -78,7 +78,7 @@ in
         direnv-vim
 
         # Misc
-        ckgs.nvim.im-select-nvim
+        im-select-nvim
         todo-comments-nvim
         lsp_signature-nvim
         mini-surround
