@@ -32,12 +32,24 @@ output "eDP-1" {
 layout {
     gaps 10
     center-focused-column "never"
+    always-center-single-column
+    default-column-width { proportion 0.5; }
+    default-column-display "tabbed"
+
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
     }
-    default-column-width { proportion 0.5; }
+
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+        length total-proportion=0.5
+        position "left"
+        gap -2
+        width 6
+    }
 
     focus-ring {
         width 4
@@ -138,8 +150,8 @@ binds {
     Mod+Shift+J     { move-window-down; }
     Mod+Shift+K     { move-window-up; }
     Mod+Shift+L     { move-column-right; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
 
     Mod+Alt+H     { focus-monitor-left; }
     Mod+Alt+J     { focus-monitor-down; }
@@ -153,10 +165,10 @@ binds {
 
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Shift+U         { move-column-to-workspace-down; }
+    Mod+Shift+I         { move-column-to-workspace-up; }
+    Mod+Ctrl+U         { move-workspace-down; }
+    Mod+Ctrl+I         { move-workspace-up; }
 
     Mod+Tab { focus-workspace-previous; }
 
@@ -168,14 +180,14 @@ binds {
     Mod+6 { focus-workspace 6; }
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
@@ -184,9 +196,9 @@ binds {
     Mod+Period { expel-window-from-column; }
 
     // Size Control
-    Mod+Y { switch-preset-column-width; }
-    Mod+Shift+Y { switch-preset-window-height; }
-    Mod+Ctrl+Y { reset-window-height; }
+    Mod+E { switch-preset-column-width; }
+    Mod+Shift+E { switch-preset-window-height; }
+    Mod+Ctrl+E { reset-window-height; }
 
     // Escape Hatch
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }

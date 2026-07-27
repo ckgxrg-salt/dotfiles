@@ -8,8 +8,8 @@ layout {
     }
 
     border {
-        active-color   "{{colors.primary.default.hex}}"
-        inactive-color "{{colors.outline.default.hex}}"
+        active-color   "{{colors.secondary.default.hex}}"
+        inactive-color "{{colors.secondary_container.default.hex}}"
         urgent-color   "{{colors.error.default.hex}}"
     }
 
@@ -18,8 +18,8 @@ layout {
     }
 
     tab-indicator {
-        active-color   "{{colors.primary.default.hex}}"
-        inactive-color "{{colors.outline.default.hex}}"
+        active-color   "{{colors.tertiary.default.hex}}"
+        inactive-color "{{colors.tertiary_container.default.hex}}"
         urgent-color   "{{colors.error.default.hex}}"
     }
 

@@ -5,6 +5,7 @@
   pkgs,
   ...
 }:
+# TODO: niri has bug with SHLVL, using systemd override for now, keep monitoring upstream
 {
   options.desktop.niri = {
     enable = lib.mkEnableOption "Enable default niri settings";
