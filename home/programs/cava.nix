@@ -63,21 +63,12 @@ in
       };
       Service = {
         Type = "exec";
-        ExecStart =
-          let
-            alacritty-cava-cfg = pkgs.writeText "alacritty-cava.toml" ''
-              [window]
-              decorations = "None"
-              opacity = 0.0
-            '';
-          in
-          ''
-            ${config.programs.alacritty.package}/bin/alacritty \
-              --class "cava" \
-              --title "C.A.V.A." \
-              --config-file ${alacritty-cava-cfg} \
-              --command cava
-          '';
+        ExecStart = ''
+          ${pkgs.kitty}/bin/kitten panel \
+            --edge=background \
+            --override background_opacity=0.0 \
+            cava
+        '';
         Restart = "no";
       };
     };
