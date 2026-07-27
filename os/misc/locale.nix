@@ -1,19 +1,18 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.misc.locale;
 in
 {
   options.misc.locale = {
-    default = mkEnableOption "Apply default locale settings";
-    timezone = mkOption {
-      type = types.nullOr types.str;
+    default = lib.mkEnableOption "Apply default locale settings";
+    timezone = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
       default = null;
       description = "Timezone of this host";
     };
   };
 
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     services.timesyncd.enable = false;
     services.chrony.enable = true;
 

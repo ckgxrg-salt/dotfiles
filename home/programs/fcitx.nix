@@ -5,16 +5,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.program.fcitx5;
 in
 {
   options.program.fcitx5 = {
-    enable = mkEnableOption "Enable Fcitx5 input method";
+    enable = lib.mkEnableOption "Enable Fcitx5 input method";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";

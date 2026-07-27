@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.development.distrobox;
 in
 {
   options.development.distrobox = {
-    enable = mkEnableOption "Enable default distrobox settings";
+    enable = lib.mkEnableOption "Enable default distrobox settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.distrobox = {
       enable = true;
       enableSystemdUnit = false;

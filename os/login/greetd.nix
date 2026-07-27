@@ -4,30 +4,31 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.login.greetd;
 in
 {
   options.login.greetd = {
-    enable = mkEnableOption "Enable greetd login manager";
-    autoLogin = mkEnableOption "Automatically log in for the first time";
-    greetMessage = mkOption {
-      type = types.str;
+    enable = lib.mkEnableOption "Enable greetd login manager";
+    autoLogin = lib.mkEnableOption "Automatically log in for the first time";
+    greetMessage = lib.mkOption {
+      type = lib.types.str;
       description = "Greet message displayed by the greeter";
       default = "===== ${config.device.hostname} =====";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
+    services.displayManager.sessionPackages = [ pkgs.niri ];
+
     # greetd Session Manager
     services.greetd = {
       enable = true;
       useTextGreeter = true;
       settings = {
         # Skip login for the initial boot
-        initial_session = mkIf cfg.autoLogin {
-          command = "${pkgs.hyprland}/bin/start-hyprland";
+        initial_session = lib.mkIf cfg.autoLogin {
+          command = "${pkgs.niri}/bin/niri-session";
           user = "ckgxrg";
         };
         # Ask ReGreet for login process
@@ -39,7 +40,10 @@ in
     };
 
     environment = {
-      systemPackages = with pkgs; [ tuigreet ];
+      systemPackages = with pkgs; [
+        tuigreet
+        niri
+      ];
       etc."tuigreet/config.toml".text = ''
         [display]
         show_time = true

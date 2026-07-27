@@ -3,17 +3,17 @@ let
   cfg = config.theme.cursor;
 in
 {
-  options.theme.cursor = with lib.types; {
+  options.theme.cursor = {
     name = lib.mkOption {
-      type = types.nullOr types.str;
+      type = lib.types.nullOr lib.types.str;
       default = null;
     };
     package = lib.mkOption {
-      type = types.nullOr types.package;
+      type = lib.types.nullOr lib.types.package;
       default = null;
     };
     size = lib.mkOption {
-      type = types.int;
+      type = lib.types.int;
       default = 32;
     };
   };

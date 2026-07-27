@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.program.tuned;
 in
 {
   options.program.tuned = {
-    enable = mkEnableOption "Enable default TuneD settings";
+    enable = lib.mkEnableOption "Enable default TuneD settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.tuned = {
       enable = true;
       ppdSupport = true;

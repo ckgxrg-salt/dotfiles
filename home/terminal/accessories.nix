@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.terminal.accessories;
 in
 {
   options.terminal.accessories = {
-    enable = mkEnableOption "Enable default terminal accessories";
+    enable = lib.mkEnableOption "Enable default terminal accessories";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     theme.matugen.templates.vivid = {
       input_path = ../theme/templates/vivid.yml;
       output_path = "${config.xdg.configHome}/vivid/themes/matugen.yml";

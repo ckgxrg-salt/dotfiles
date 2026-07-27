@@ -4,21 +4,20 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.login.users;
 in
 {
   options.login.users = {
-    default = mkEnableOption "Apply default users settings";
-    issue = mkOption {
-      type = types.str;
+    default = lib.mkEnableOption "Apply default users settings";
+    issue = lib.mkOption {
+      type = lib.types.str;
       description = "Login message";
       default = "Welcome to ${config.device.hostname}.\n";
     };
   };
 
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     # Greet messages
     environment.etc = {
       "issue".text = cfg.issue;

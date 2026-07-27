@@ -4,23 +4,22 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.vdirsyncer;
 in
 {
   options.program.vdirsyncer = {
-    enable = mkEnableOption "Enable default vdirsyncer settings";
-    autoUpdate = mkEnableOption "Periodically run vdirsyncer";
+    enable = lib.mkEnableOption "Enable default vdirsyncer settings";
+    autoUpdate = lib.mkEnableOption "Periodically run vdirsyncer";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.vdirsyncer = {
       enable = true;
       statusPath = "${config.xdg.configHome}/vdirsyncer/status";
     };
 
-    systemd.user = mkIf cfg.autoUpdate {
+    systemd.user = lib.mkIf cfg.autoUpdate {
       services."vdirsyncer" = {
         Unit = {
           Description = "Calendar & contacts sync";

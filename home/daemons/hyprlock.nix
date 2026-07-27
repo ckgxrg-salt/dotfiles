@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.daemons.hyprlock;
 in
 {
   options.daemons.hyprlock = {
-    enable = mkEnableOption "Enable hyprlock screen locker";
+    enable = lib.mkEnableOption "Enable hyprlock screen locker";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.hyprlock = {
       enable = true;
       settings = {

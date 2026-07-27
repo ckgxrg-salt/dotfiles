@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.hardware;
 in
 {
   options.hardware = {
-    default = mkEnableOption "Apply default hardware settings";
+    default = lib.mkEnableOption "Apply default hardware settings";
   };
 
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     hardware = {
       cpu.intel.updateMicrocode = (config.device.hostCPU == "intel");
       cpu.amd.updateMicrocode = (config.device.hostCPU == "amd");

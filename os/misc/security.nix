@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.misc.security;
 in
 {
   options.misc.security = {
-    default = mkEnableOption "Apply default security settings";
+    default = lib.mkEnableOption "Apply default security settings";
   };
 
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     security.sudo = {
       enable = true;
       execWheelOnly = true;
@@ -43,7 +42,7 @@ in
     networking.nftables.enable = true;
     networking.firewall = {
       enable = true;
-      trustedInterfaces = mkIf config.virtualisation.waydroid.enable [ "waydroid0" ];
+      trustedInterfaces = lib.mkIf config.virtualisation.waydroid.enable [ "waydroid0" ];
     };
   };
 }

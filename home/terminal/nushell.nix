@@ -3,21 +3,20 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.terminal.nushell;
 in
 {
   options.terminal.nushell = {
-    enable = mkEnableOption "ckgxrg's nushell configurations";
-    settings = mkOption {
-      type = types.lines;
+    enable = lib.mkEnableOption "ckgxrg's nushell configurations";
+    settings = lib.mkOption {
+      type = lib.types.lines;
       description = "Nushell configuration in Nu format";
       default = "";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     theme.matugen.templates.nushell = {
       input_path = ../theme/templates/nushell-theme.nu;
       output_path = "${config.xdg.configHome}/nushell/theme.nu";

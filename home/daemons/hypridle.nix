@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.daemons.hypridle;
 in
 {
   options.daemons.hypridle = {
-    enable = mkEnableOption "Enable hypridle idle daemon";
+    enable = lib.mkEnableOption "Enable hypridle idle daemon";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.hypridle = {
       enable = true;
       settings = {

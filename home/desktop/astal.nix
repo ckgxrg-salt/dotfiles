@@ -5,13 +5,12 @@
   ckgs,
   ...
 }:
-with lib;
 let
   cfg = config.desktop.astal;
 in
 {
   options.desktop.astal = {
-    enable = mkEnableOption "Enable Astal desktop widgets";
+    enable = lib.mkEnableOption "Enable Astal desktop widgets";
   };
 
   config =
@@ -22,7 +21,7 @@ in
         else
           abort "No astal implementation for this device";
     in
-    mkIf cfg.enable {
+    lib.mkIf cfg.enable {
       home.packages = [ package ];
 
       systemd.user = {

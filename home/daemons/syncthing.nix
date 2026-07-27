@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.daemons.syncthing;
 in
 {
   options.daemons.syncthing = {
-    enable = mkEnableOption "Enable Syncthing file syncer";
+    enable = lib.mkEnableOption "Enable Syncthing file syncer";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.syncthing = {
       enable = true;
       overrideDevices = false;

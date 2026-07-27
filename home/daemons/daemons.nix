@@ -5,7 +5,6 @@
   ckgs,
   ...
 }:
-with lib;
 let
   cfg = config.daemons;
   mkDaemon =
@@ -30,22 +29,22 @@ let
 in
 {
   options.daemons = {
-    cliphist.enable = mkEnableOption "Enable cliphist clipboard manager";
-    udiskie.enable = mkEnableOption "Enable udiskie device manager";
-    polkit-gnome-agent.enable = mkEnableOption "Enable the GNOME polkit agent";
-    wvkbd.enable = mkEnableOption "Enable wvkbd virtual keyboard";
+    cliphist.enable = lib.mkEnableOption "Enable cliphist clipboard manager";
+    udiskie.enable = lib.mkEnableOption "Enable udiskie device manager";
+    polkit-gnome-agent.enable = lib.mkEnableOption "Enable the GNOME polkit agent";
+    wvkbd.enable = lib.mkEnableOption "Enable wvkbd virtual keyboard";
   };
 
   config = {
     # Accessories packages
     home.packages =
       with pkgs;
-      optionals cfg.cliphist.enable [
+      lib.optionals cfg.cliphist.enable [
         cliphist
         wl-clipboard
       ];
 
-    xdg.configFile = mkIf cfg.udiskie.enable {
+    xdg.configFile = lib.mkIf cfg.udiskie.enable {
       # udiskie the Auto-Mount Manager, sadly Nix is problematic dealing with order of options
       "udiskie/config.yml".text = ''
         device_config:
@@ -60,25 +59,25 @@ in
 
     systemd.user.services = {
       # Cliphist the clipboard manager
-      "cliphist" = mkIf cfg.cliphist.enable (mkDaemon {
+      "cliphist" = lib.mkIf cfg.cliphist.enable (mkDaemon {
         desc = "Clipboard History Manager";
         exec = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
       });
 
       # Virtual keyboard
-      "wvkbd" = mkIf cfg.wvkbd.enable (mkDaemon {
+      "wvkbd" = lib.mkIf cfg.wvkbd.enable (mkDaemon {
         desc = "Virtual Keyboard";
         exec = "${ckgs.wvkbd}/bin/wvkbd-vistath --hidden -L 500";
       });
 
       # Udiskie Automount
-      "udiskie" = mkIf cfg.udiskie.enable (mkDaemon {
+      "udiskie" = lib.mkIf cfg.udiskie.enable (mkDaemon {
         desc = "Udiskie Auto Mount Manager";
         exec = "${pkgs.udiskie}/bin/udiskie --event-hook \"canberra-gtk-play -i device-added\"";
       });
 
       # Polkit Authentication Agent
-      "polkit-gnome-agent" = mkIf cfg.polkit-gnome-agent.enable (mkDaemon {
+      "polkit-gnome-agent" = lib.mkIf cfg.polkit-gnome-agent.enable (mkDaemon {
         desc = "GNOME's Polkit Authentication Agent";
         exec = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       });

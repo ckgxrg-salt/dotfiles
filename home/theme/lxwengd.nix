@@ -5,35 +5,34 @@
   ...
 }:
 # LxWEngD
-with lib;
 let
   cfg = config.theme.wallpaper.lxwengd;
 in
 {
   options.theme.wallpaper.lxwengd = {
-    enable = mkEnableOption "Enable LxWEngD, a wrapper over linux-wallpaperengine providing playlist support.";
-    package = mkOption {
-      type = types.package;
+    enable = lib.mkEnableOption "Enable LxWEngD, a wrapper over linux-wallpaperengine providing playlist support.";
+    package = lib.mkOption {
+      type = lib.types.package;
       description = "The LxWEngD package to use.";
     };
-    enginePackage = mkOption {
-      type = types.package;
+    enginePackage = lib.mkOption {
+      type = lib.types.package;
       description = "The linux-wallpaperengine package to use.";
       default = pkgs.linux-wallpaperengine;
     };
-    assetsPath = mkOption {
-      type = types.nullOr types.str;
+    assetsPath = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
       default = null;
       description = "Path to the assets directory if not the default.";
     };
-    defaultPlaylist = mkOption {
-      type = types.nullOr types.str;
+    defaultPlaylist = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
       default = null;
       description = "Path to the default playlist LxWEngD will use upon start.";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # Install the package
     home.packages = [
       cfg.package
@@ -43,7 +42,7 @@ in
     # Run the program
     systemd.user.services."lxwengd" =
       let
-        args = cli.toGNUCommandLine { } {
+        args = lib.cli.toGNUCommandLine { } {
           assets-path = cfg.assetsPath;
           playlist = cfg.defaultPlaylist;
         };
@@ -55,7 +54,7 @@ in
         };
         Service = {
           Type = "exec";
-          ExecStart = "${cfg.package}/bin/lxwengd " + (strings.concatStringsSep " " args);
+          ExecStart = "${cfg.package}/bin/lxwengd " + (lib.strings.concatStringsSep " " args);
           Restart = "on-failure";
         };
         Install = {

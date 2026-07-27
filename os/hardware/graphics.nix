@@ -4,31 +4,30 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.hardware;
 in
 {
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
       extraPackages =
         with pkgs;
-        optionals (config.device.hostGPU == "intel") [
+        lib.optionals (config.device.hostGPU == "intel") [
           intel-media-driver
           vpl-gpu-rt
           intel-compute-runtime
         ]
-        ++ optionals (config.device.hostGPU == "nvidia") [
+        ++ lib.optionals (config.device.hostGPU == "nvidia") [
           nvidia-vaapi-driver
         ];
     };
 
-    services.xserver = mkIf (config.device.hostGPU == "nvidia") {
+    services.xserver = lib.mkIf (config.device.hostGPU == "nvidia") {
       videoDrivers = [ "nvidia" ];
     };
-    hardware.nvidia = mkIf (config.device.hostGPU == "nvidia") {
+    hardware.nvidia = lib.mkIf (config.device.hostGPU == "nvidia") {
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       open = true;
     };

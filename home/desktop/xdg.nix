@@ -4,16 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.desktop.xdg;
 in
 {
   options.desktop.xdg = {
-    default = mkEnableOption "Enable default XDG settings";
+    default = lib.mkEnableOption "Enable default XDG settings";
   };
 
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     xdg = {
       enable = true;
       mime.enable = true;

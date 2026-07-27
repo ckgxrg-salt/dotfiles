@@ -8,10 +8,10 @@ let
   cfg = config.program.floorp;
 in
 {
-  options.program.floorp = with lib.types; {
+  options.program.floorp = {
     enable = lib.mkEnableOption "Enable Floorp web browser";
     extraPackages = lib.mkOption {
-      type = listOf package;
+      type = lib.types.listOf lib.types.package;
       default = [ ];
       description = "List of extra Firefox extensions";
     };

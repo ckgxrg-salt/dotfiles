@@ -5,31 +5,30 @@
   ...
 }:
 # Enable XDG Sound Themes
-with lib;
 let
   cfg = config.theme.sound;
 in
 {
   options.theme.sound = {
-    enable = mkEnableOption "Enable the XDG Sound Themes";
-    theme = mkOption {
-      type = types.str;
+    enable = lib.mkEnableOption "Enable the XDG Sound Themes";
+    theme = lib.mkOption {
+      type = lib.ltypes.str;
       description = "The Sound Theme name to be used";
       default = "freedesktop";
     };
-    package = mkOption {
-      type = types.package;
+    package = lib.mkOption {
+      type = lib.types.package;
       description = "The Sound Theme package to be used";
       default = pkgs.sound-theme-freedesktop;
     };
-    libcanberra = mkOption {
-      type = types.package;
+    libcanberra = lib.mkOption {
+      type = lib.types.package;
       description = "The libcanberra package to be used";
       default = pkgs.libcanberra;
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = [
       cfg.libcanberra
       cfg.package

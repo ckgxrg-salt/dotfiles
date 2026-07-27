@@ -4,17 +4,16 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.email;
 in
 {
   options.program.email = {
-    enable = mkEnableOption "Enable default email settings";
-    autoRefresh = mkEnableOption "Automatically refresh Gmail OAuth token everyday";
+    enable = lib.mkEnableOption "Enable default email settings";
+    autoRefresh = lib.mkEnableOption "Automatically refresh Gmail OAuth token everyday";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       oauth2l
     ];
@@ -37,7 +36,7 @@ in
             exit $STATUS
           '';
         in
-        mkIf cfg.autoRefresh {
+        lib.mkIf cfg.autoRefresh {
           Unit = {
             Description = "Refresh Gmail OAuth Tokens";
             After = [ "sops-nix.service" ];
@@ -49,7 +48,7 @@ in
             RestartSec = 60;
           };
         };
-      timers."oauth2l-refresh" = mkIf cfg.autoRefresh {
+      timers."oauth2l-refresh" = lib.mkIf cfg.autoRefresh {
         Unit = {
           Description = "Refresh Gmail OAuth Tokens everyday";
         };

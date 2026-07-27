@@ -3,13 +3,13 @@ let
   cfg = config.theme.icons;
 in
 {
-  options.theme.icons = with lib.types; {
+  options.theme.icons = {
     name = lib.mkOption {
-      type = types.nullOr types.str;
+      type = lib.types.nullOr lib.types.str;
       default = null;
     };
     package = lib.mkOption {
-      type = types.nullOr types.package;
+      type = lib.types.nullOr lib.types.package;
       default = null;
     };
   };

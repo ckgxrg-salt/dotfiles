@@ -1,16 +1,15 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.desktop.sessionVars;
 in
 {
   options.desktop.sessionVars = {
-    default = mkEnableOption "Set default session variables";
-    extraVars = mkOption {
+    default = lib.mkEnableOption "Set default session variables";
+    extraVars = lib.mkOption {
       default = { };
       description = "Extra session variables";
       type =
-        with types;
+        with lib.types;
         attrsOf (
           nullOr (oneOf [
             int
@@ -22,7 +21,7 @@ in
 
   config = {
     home.sessionVariables =
-      optionalAttrs cfg.default {
+      lib.optionalAttrs cfg.default {
         ELECTRON_OZONE_PLATFORM_HINT = "auto";
         NIXOS_OZONE_WL = 1;
         ELM_DISPLAY = "wl";

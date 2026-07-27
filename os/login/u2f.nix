@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.login.u2f;
 in
 {
   options.login.u2f = {
-    enable = mkEnableOption "Enable login via physical security key";
+    enable = lib.mkEnableOption "Enable login via physical security key";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # Allow physical security key unlock
     security.pam = {
       u2f.settings = {

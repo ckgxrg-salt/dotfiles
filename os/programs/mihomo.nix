@@ -4,16 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.mihomo;
 in
 {
   options.program.mihomo = {
-    enable = mkEnableOption "Enable default Mihomo settings";
+    enable = lib.mkEnableOption "Enable default Mihomo settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.mihomo
     ];

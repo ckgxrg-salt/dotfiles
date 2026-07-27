@@ -4,16 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.gpg;
 in
 {
   options.program.gpg = {
-    enable = mkEnableOption "Enable default gpg settings";
+    enable = lib.mkEnableOption "Enable default gpg settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.gpg = {
       enable = true;
       scdaemonSettings = {

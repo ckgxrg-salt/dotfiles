@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.program.btop;
 in
 {
   options.program.btop = {
-    enable = mkEnableOption "Enable btop system monitor";
+    enable = lib.mkEnableOption "Enable btop system monitor";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     theme.matugen.templates.btop = {
       input_path = ../theme/templates/btop.theme;
       output_path = "${config.xdg.configHome}/btop/themes/matugen.theme";

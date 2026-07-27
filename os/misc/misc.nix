@@ -4,14 +4,13 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.misc;
 in
 {
-  options.misc.default = mkEnableOption "Enable default miscellaneous settings";
+  options.misc.default = lib.mkEnableOption "Enable default miscellaneous settings";
 
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     # Override system default XDG sounds
     xdg.sounds.enable = false;
     environment.pathsToLink = [

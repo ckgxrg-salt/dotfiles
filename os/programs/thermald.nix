@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.program.thermald;
 in
 {
   options.program.thermald = {
-    enable = mkEnableOption "Enable default thermald settings";
+    enable = lib.mkEnableOption "Enable default thermald settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.thermald = {
       enable = true;
     };

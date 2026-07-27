@@ -4,16 +4,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.terminal.alacritty;
 in
 {
   options.terminal.alacritty = {
-    enable = mkEnableOption "Enable default Alacritty settings";
+    enable = lib.mkEnableOption "Enable default Alacritty settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     theme.matugen.templates.alacritty = {
       input_path = ../theme/templates/alacritty-theme.toml;
       output_path = "${config.xdg.configHome}/alacritty/theme.toml";

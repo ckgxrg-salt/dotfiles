@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.terminal.direnv;
 in
 {
   options.terminal.direnv = {
-    enable = mkEnableOption "Enable default direnv settings";
+    enable = lib.mkEnableOption "Enable default direnv settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;

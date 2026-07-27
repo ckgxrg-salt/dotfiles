@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.program.contacts;
 in
 {
   options.program.contacts = {
-    enable = mkEnableOption "Enable default contacts settings";
+    enable = lib.mkEnableOption "Enable default contacts settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     accounts.contact = {
       basePath = ".local/share/contacts";
       accounts = {

@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.login.howdy;
 in
 {
   options.login.howdy = {
-    enable = mkEnableOption "Enable default Howdy settings";
+    enable = lib.mkEnableOption "Enable default Howdy settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.howdy = {
       enable = true;
       control = "sufficient";

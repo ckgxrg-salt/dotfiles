@@ -1,15 +1,14 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.terminal.zellij;
 in
 {
   options.terminal.zellij = {
-    enable = mkEnableOption "Enable default Zellij configuration";
-    autostart = mkEnableOption "Autostart Zellij on shell startup";
+    enable = lib.mkEnableOption "Enable default Zellij configuration";
+    autostart = lib.mkEnableOption "Autostart Zellij on shell startup";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.zellij = {
       enable = true;
       settings = {
@@ -29,7 +28,7 @@ in
       };
     };
 
-    programs.alacritty = mkIf cfg.autostart {
+    programs.alacritty = lib.mkIf cfg.autostart {
       settings = {
         terminal.shell = "zellij";
       };

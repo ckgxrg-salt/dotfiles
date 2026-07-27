@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.terminal.bash;
 in
 {
   options.terminal.bash = {
-    enable = mkEnableOption "Enable default bash settings";
+    enable = lib.mkEnableOption "Enable default bash settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.shell.enableBashIntegration = true;
 
     programs.bash = {

@@ -4,18 +4,17 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.boot.splash;
 in
 {
-  options.boot.splash = mkOption {
-    type = types.nullOr types.str;
+  options.boot.splash = lib.mkOption {
+    type = lib.types.nullOr lib.types.str;
     default = null;
     description = "Theme name from adi1090x's theme collection";
   };
 
-  config = mkIf (cfg != null) {
+  config = lib.mkIf (cfg != null) {
     boot.plymouth = {
       enable = true;
       themePackages = [

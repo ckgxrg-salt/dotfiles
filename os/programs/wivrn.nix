@@ -4,16 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.wivrn;
 in
 {
   options.program.wivrn = {
-    enable = mkEnableOption "Enable default WiVRn settings";
+    enable = lib.mkEnableOption "Enable default WiVRn settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.wivrn = {
       enable = true;
       defaultRuntime = true;

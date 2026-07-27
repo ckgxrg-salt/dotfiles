@@ -4,16 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.pass;
 in
 {
   options.program.pass = {
-    enable = mkEnableOption "Enable pass password manager";
+    enable = lib.mkEnableOption "Enable pass password manager";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.password-store = {
       enable = true;
       package = pkgs.pass-wayland;

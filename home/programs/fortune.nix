@@ -4,16 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.program.fortune;
 in
 {
   options.program.fortune = {
-    enable = mkEnableOption "Enable default fortune settings";
+    enable = lib.mkEnableOption "Enable default fortune settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [ fortune-kind ];
 
     # Allow manually place fortune cookies

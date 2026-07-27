@@ -3,16 +3,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.program.calendar;
 in
 {
   options.program.calendar = {
-    enable = mkEnableOption "Enable default calendar settings";
+    enable = lib.mkEnableOption "Enable default calendar settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     accounts.calendar = {
       basePath = ".local/share/calendar";
       accounts = {

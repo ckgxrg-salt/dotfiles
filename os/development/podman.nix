@@ -3,22 +3,21 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.development.podman;
 in
 {
   options.development.podman = {
-    enable = mkEnableOption "Enable default Podman settings";
+    enable = lib.mkEnableOption "Enable default Podman settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     virtualisation.containers.enable = true;
     virtualisation.podman = {
       enable = true;
     };
 
-    hardware.nvidia-container-toolkit.enable = mkIf (config.device.hostGPU == "nvidia") true;
+    hardware.nvidia-container-toolkit.enable = lib.mkIf (config.device.hostGPU == "nvidia") true;
 
     users.users."ckgxrg" = {
       extraGroups = [ "podman" ];

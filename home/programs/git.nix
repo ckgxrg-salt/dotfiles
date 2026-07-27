@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.program.git;
 in
 {
   options.program.git = {
-    enable = mkEnableOption "Enable default git settings";
+    enable = lib.mkEnableOption "Enable default git settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
       lfs.enable = true;

@@ -1,14 +1,13 @@
 { config, lib, ... }:
-with lib;
 let
   cfg = config.program.nix;
 in
 {
   options.program.nix = {
-    enable = mkEnableOption "Enable default Nix settings";
+    enable = lib.mkEnableOption "Enable default Nix settings";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     nix = {
       channel.enable = false;
       gc = {

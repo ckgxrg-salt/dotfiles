@@ -4,16 +4,15 @@
   lib,
   ...
 }:
-with lib;
 let
   cfg = config.program.opencomposite;
 in
 {
   options.program.opencomposite = {
-    enable = mkEnableOption "Enable OpenComposite OpenVR compatibility layer";
+    enable = lib.mkEnableOption "Enable OpenComposite OpenVR compatibility layer";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # OpenComposite package
     home.packages = with pkgs; [ opencomposite ];
 
