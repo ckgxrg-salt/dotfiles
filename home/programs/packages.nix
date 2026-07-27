@@ -23,6 +23,7 @@
     kdePackages.okular
     pix
     seahorse
+    xdg-utils
 
     # Applications
     # Entertainment

@@ -40,22 +40,6 @@ in
       };
     };
 
-    # WM needs to wrap it
-    wayland.windowManager.hyprland.settings.windowrule = [
-      {
-        name = "cava-props";
-        "match:class" = "cava";
-        no_anim = "on";
-        no_dim = "on";
-        no_blur = "on";
-        no_shadow = "on";
-        no_focus = "on";
-        border_size = 0;
-        float = "on";
-        pin = "on";
-      }
-    ];
-
     systemd.user.services."cava" = {
       Unit = {
         Description = "C.A.V.A. the Audio Visualiser";

@@ -55,7 +55,7 @@ in
         user_session = true
 
         [session]
-        sessions_dirs = ["${pkgs.hyprland}/share/wayland-sessions"]
+        sessions_dirs = ["${pkgs.niri}/share/wayland-sessions"]
 
         [secret]
         mode = "characters"

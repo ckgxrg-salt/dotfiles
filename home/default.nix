@@ -34,7 +34,7 @@
     ./desktop/astal.nix
     ./desktop/env.nix
     ./desktop/gtk.nix
-    ./desktop/hyprland.nix
+    ./desktop/niri.nix
     ./desktop/qt.nix
     ./desktop/xdg.nix
 

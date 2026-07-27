@@ -1,8 +1,7 @@
 { pkgs, ... }:
-# Brightness and volume scripts
 let
   # Thanks for the ArchWiki for this awesome script
-  volume = pkgs.writeShellScript "volume" ''
+  volume = pkgs.writeShellScriptBin "volume-script" ''
     get_volume() {
       volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 * 100}')
       echo "$volume"
@@ -50,7 +49,7 @@ let
     fi
   '';
 
-  brightness = pkgs.writeShellScript "brightness" ''
+  brightness = pkgs.writeShellScriptBin "brightness-script" ''
     get_backlight() {
       LIGHT=$(brightnessctl get | awk '{printf "%d", $0 / 960}')
       echo $LIGHT
@@ -89,12 +88,12 @@ let
     fi
   '';
 
-  clipboard = pkgs.writeShellScript "clipmenu" ''
+  clipboard = pkgs.writeShellScriptBin "clipboard-history" ''
     cliphist list | vicinae dmenu | cliphist decode | wl-copy
     wl-paste
   '';
 
-  toggle-sink = pkgs.writeShellScript "toggle-sink" ''
+  toggle-sink = pkgs.writeShellScriptBin "toggle-sink" ''
     HEADPHONES_ID=$(pw-cli i alsa_output.usb-Generic_USB_Audio-00.HiFi_7_1__Headphones__sink | grep -oP "id: \K\w+")
     SPEAKER_ID=$(pw-cli i alsa_output.pci-0000_0c_00.1.hdmi-stereo | grep -oP "id: \K\w+")
 
@@ -110,10 +109,10 @@ let
   '';
 in
 {
-  inherit
+  home.packages = [
     volume
     brightness
     clipboard
     toggle-sink
-    ;
+  ];
 }

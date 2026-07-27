@@ -15,6 +15,8 @@ in
     xdg.sounds.enable = false;
     environment.pathsToLink = [
       "/share/sounds"
+      "/share/applications"
+      "/share/xdg-desktop-portal"
     ];
 
     # Placeholders
@@ -22,7 +24,6 @@ in
     services.udisks2.enable = true;
     services.gvfs.enable = true;
     programs.nix-ld.enable = true;
-    programs.hyprland.enable = true;
 
     systemd = {
       oomd.enable = false;

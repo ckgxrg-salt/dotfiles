@@ -63,7 +63,7 @@
   };
   desktop = {
     astal.enable = true;
-    hyprland.enable = true;
+    niri.enable = true;
     sessionVars.default = true;
     xdg.default = true;
   };
@@ -77,7 +77,7 @@
   };
 
   imports = [
-    ./overrides/hyprland.nix
     ./overrides/fcitx.nix
+    ./overrides/scripts.nix
   ];
 }

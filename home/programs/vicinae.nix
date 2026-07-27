@@ -34,14 +34,5 @@ in
         };
       };
     };
-
-    wayland.windowManager.hyprland.settings.layerrule = [
-      {
-        name = "vicinae-blur";
-        "match:namespace" = "vicinae";
-        blur = "on";
-        ignore_alpha = 0;
-      }
-    ];
   };
 }
