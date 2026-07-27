@@ -12,5 +12,9 @@
         scale 1
         focus-at-startup
     }
+
+    debug {
+        ignore-drm-device "/dev/dri/nvidia-gpu"
+    }
   '';
 }

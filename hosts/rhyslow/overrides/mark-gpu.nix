@@ -1,7 +1,7 @@
 { ... }:
 {
-  # Mark the integrated GPU to identify
+  # Mark the dedicated GPU to identify
   services.udev.extraRules = ''
-    KERNEL=="card*", KERNELS=="0000:0c:00.0", SUBSYSTEM=="drm", SUBSYSTEMS=="pci", SYMLINK+="dri/amd-igpu"
+    KERNEL=="card*", KERNELS=="0000:01:00.0", SUBSYSTEM=="drm", SUBSYSTEMS=="pci", SYMLINK+="dri/nvidia-gpu"
   '';
 }
