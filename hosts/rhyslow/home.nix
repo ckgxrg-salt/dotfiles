@@ -56,7 +56,7 @@
             sort = "name";
             backend = "linux-wallpaperengine";
             subfolders = true;
-            post_command = "matugen image $wallpaper --source-color-index 0";
+            post_command = "matugen image $wallpaper --source-color-index 1";
           };
         };
       };
