@@ -49,6 +49,7 @@
         enable = true;
         settings = {
           Settings = {
+            use_xdg_state = true;
             folder = "${config.xdg.userDirs.pictures}/Wallpapers";
             fill = "Fill";
             sort = "name";

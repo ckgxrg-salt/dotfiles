@@ -52,6 +52,7 @@
         enable = true;
         settings = {
           Settings = {
+            use_xdg_state = true;
             fill = "Fill";
             sort = "name";
             backend = "linux-wallpaperengine";
