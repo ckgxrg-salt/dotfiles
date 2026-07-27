@@ -1,22 +1,20 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.hardware;
 in
 {
   options.hardware = {
-    wifi = mkEnableOption "Support Wi-Fi";
-    bt = mkEnableOption "Support Bluetooth";
+    wifi = lib.mkEnableOption "Support Wi-Fi";
+    bt = lib.mkEnableOption "Support Bluetooth";
   };
 
-  config = mkIf cfg.default {
+  config = lib.mkIf cfg.default {
     networking = {
-      wireless.iwd = mkIf cfg.wifi {
+      wireless.iwd = lib.mkIf cfg.wifi {
         enable = true;
         settings = {
           General = {
@@ -28,7 +26,7 @@ in
           };
         };
       };
-      dhcpcd = mkIf cfg.wifi {
+      dhcpcd = lib.mkIf cfg.wifi {
         enable = false;
       };
 
@@ -38,6 +36,10 @@ in
           53317
         ];
       };
+
+      nameservers = [
+        "1.1.1.1"
+      ];
     };
 
     services.avahi = {
@@ -47,7 +49,7 @@ in
       nssmdns6 = true;
     };
 
-    hardware.bluetooth = mkIf cfg.bt {
+    hardware.bluetooth = lib.mkIf cfg.bt {
       enable = true;
       powerOnBoot = true;
     };
