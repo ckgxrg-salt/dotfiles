@@ -77,6 +77,7 @@
   };
 
   imports = [
+    ./overrides/niri.nix
     ./overrides/waybar.nix
     ./overrides/wlogout.nix
     ./overrides/fcitx.nix

@@ -23,12 +23,6 @@ input {
     focus-follows-mouse
 }
 
-output "eDP-1" {
-    mode "2880x1800@120.00"
-    scale 1
-    focus-at-startup
-}
-
 layout {
     gaps 10
     center-focused-column "never"
@@ -204,5 +198,6 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
 
+include optional=true "overrides.kdl"
 include optional=true "colors.kdl"
 include "theme.kdl"

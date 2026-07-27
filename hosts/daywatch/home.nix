@@ -77,6 +77,7 @@
   };
 
   imports = [
+    ./overrides/niri.nix
     ./overrides/fcitx.nix
     ./overrides/scripts.nix
   ];
