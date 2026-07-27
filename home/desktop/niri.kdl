@@ -115,16 +115,16 @@ binds {
     Mod+W { toggle-column-tabbed-display; }
 
     // Media & Brightness Control
-    XF86AudioMute allow-when-locked=true { spawn "volume-script --toggle"; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "volume-script --inc"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "volume-script --dec"; }
+    XF86AudioMute allow-when-locked=true { spawn "volume-script" "--toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "volume-script" "--inc"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "volume-script" "--dec"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightness-script --inc"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightness-script --dec"; }
-    XF86AudioPlay allow-when-locked=true { spawn "playerctl play-pause"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightness-script" "--inc"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightness-script" "--dec"; }
+    XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
 
-    Mod+Right allow-when-locked=true { spawn "playerctl next"; }
-    Mod+Left allow-when-locked=true { spawn "playerctl previous"; }
+    Mod+Right allow-when-locked=true { spawn "playerctl" "next"; }
+    Mod+Left allow-when-locked=true { spawn "playerctl" "previous"; }
 
     // Movements
     Mod+H { focus-column-left; }
