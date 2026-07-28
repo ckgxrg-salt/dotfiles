@@ -1,9 +1,4 @@
-# Daywatch OS entrypoint
-{
-  pkgs,
-  ckgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   device = {
     hostname = "Daywatch";
@@ -66,27 +61,30 @@
   };
   fonts = {
     packages = with pkgs; [
-      maple-mono.opentype
-      lxgw-neoxihei
-      ckgs.offside
-      noto-fonts
-      noto-fonts-cjk-sans
+      fira-code
+      quicksand
+      lxgw-wenkai
 
-      nerd-fonts.iosevka
+      # Symbols
       twitter-color-emoji
       fira-math
+      nerd-fonts.iosevka
+
+      # Fallback fonts
+      noto-fonts
+      noto-fonts-cjk-sans
     ];
     fontconfig.defaultFonts = {
       sansSerif = [
-        "Offside"
-        "LXGW Neo XiHei"
+        "Quicksand"
+        "LXGW WenKai"
       ];
       serif = [
-        "Offside"
-        "LXGW Neo XiHei"
+        "Quicksand"
+        "LXGW WenKai"
       ];
       monospace = [
-        "Maple Mono"
+        "Fira Code"
       ];
       emoji = [
         "Twitter Color Emoji"
