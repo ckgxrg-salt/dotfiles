@@ -32,7 +32,7 @@ require("yazi").setup({
 	yazi_floating_window_border = "single",
 	yazi_floating_window_winblend = 25,
 })
-vim.keymap.set("n", "<A-q>", require("yazi").yazi, { desc = "Browse files" })
+vim.keymap.set("n", "<A-Tab>", require("yazi").yazi, { desc = "Browse files" })
 
 require("fidget").setup({
 	notification = {

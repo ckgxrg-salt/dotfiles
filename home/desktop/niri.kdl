@@ -73,6 +73,15 @@ blur {
 animations {
 }
 
+recent-windows {
+    binds {
+        Mod+Tab { next-window; }
+        Mod+Shift+Tab { previous-window; }
+        Mod+grave { next-window filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
+
 // Maximize first window
 spawn-at-startup "oniri" "--first-only"
 
@@ -170,8 +179,6 @@ binds {
     Mod+Shift+I { move-column-to-workspace-up; }
     Mod+Ctrl+U { move-workspace-down; }
     Mod+Ctrl+I { move-workspace-up; }
-
-    Mod+Tab { focus-workspace-previous; }
 
     // Offset because niri counts stash as workspace 1
     Mod+1 { focus-workspace 2; }
