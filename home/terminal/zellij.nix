@@ -27,11 +27,5 @@ in
         ];
       };
     };
-
-    programs.alacritty = lib.mkIf cfg.autostart {
-      settings = {
-        terminal.shell = "zellij";
-      };
-    };
   };
 }

@@ -70,9 +70,9 @@
   };
   terminal = {
     accessories.enable = true;
-    alacritty.enable = true;
     bash.enable = true;
     direnv.enable = true;
+    kitty.enable = true;
     nushell.enable = true;
     starship.enable = true;
   };

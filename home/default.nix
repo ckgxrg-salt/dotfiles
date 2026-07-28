@@ -39,9 +39,9 @@
     ./desktop/xdg.nix
 
     ./terminal/accessories.nix
-    ./terminal/alacritty.nix
     ./terminal/bash.nix
     ./terminal/direnv.nix
+    ./terminal/kitty.nix
     ./terminal/nushell.nix
     ./terminal/starship.nix
     ./terminal/zellij.nix
