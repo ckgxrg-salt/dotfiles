@@ -40,7 +40,6 @@
     vesktop
     # System
     blueman
-    iwgtk
     nautilus
     pwvucontrol
     tzupdate

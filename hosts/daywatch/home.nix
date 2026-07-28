@@ -25,6 +25,7 @@
     yazi.enable = true;
   };
   home.packages = with pkgs; [
+    iwgtk
     krita
     rnote
     moonlight-qt
