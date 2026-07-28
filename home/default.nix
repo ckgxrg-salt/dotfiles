@@ -19,7 +19,6 @@
     ./programs/opencomposite.nix
     ./programs/packages.nix
     ./programs/vdirsyncer.nix
-    ./programs/vicinae.nix
     ./programs/yazi.nix
 
     ./development/neovim
@@ -33,6 +32,7 @@
 
     ./desktop/astal.nix
     ./desktop/env.nix
+    ./desktop/fuzzel.nix
     ./desktop/gtk.nix
     ./desktop/niri.nix
     ./desktop/qt.nix

@@ -89,7 +89,7 @@ let
   '';
 
   clipboard = pkgs.writeShellScriptBin "clipboard-history" ''
-    cliphist list | vicinae dmenu | cliphist decode | wl-copy
+    cliphist list | fuzzel -d | cliphist decode | wl-copy
     wl-paste
   '';
 

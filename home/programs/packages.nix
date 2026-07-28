@@ -25,19 +25,21 @@
     seahorse
     xdg-utils
 
-    # Applications
     # Entertainment
     prismlauncher
     yt-dlp
     cartridges
     umu-launcher
     freetube
+
     # Productivity
     obsidian
+
     # Communication
     commet-chat
     localsend
     vesktop
+
     # System
     blueman
     nautilus

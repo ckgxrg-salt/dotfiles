@@ -21,7 +21,6 @@
       enable = true;
       autoUpdate = true;
     };
-    vicinae.enable = true;
     yazi.enable = true;
   };
   home.packages = with pkgs; [
@@ -65,6 +64,7 @@
   };
   desktop = {
     astal.enable = true;
+    fuzzel.enable = true;
     niri.enable = true;
     sessionVars.default = true;
     xdg.default = true;

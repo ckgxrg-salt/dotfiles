@@ -16,21 +16,6 @@ in
     xdg = {
       enable = true;
       mime.enable = true;
-      mimeApps = {
-        enable = true;
-        defaultApplications = {
-          "text/plain" = "nvim.desktop";
-          "application/pdf" = "org.kde.okular.desktop";
-          "image/jpeg" = "pix.desktop";
-          "image/png" = "pix.desktop";
-          "inode/directory" = "org.gnome.Nautilus.desktop";
-          "text/html" = "floorp.desktop";
-          "x-scheme-handler/http" = "floorp.desktop";
-          "x-scheme-handler/https" = "floorp.desktop";
-          "x-scheme-handler/about" = "floorp.desktop";
-          "x-scheme-handler/unknown" = "floorp.desktop";
-        };
-      };
 
       portal = {
         enable = true;

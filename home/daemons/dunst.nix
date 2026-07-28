@@ -36,7 +36,7 @@ in
           icon_theme = osConfig.theme.icons.name;
           origin = "bottom-right";
           font = "${osConfig.theme.fonts.name} ${toString osConfig.theme.fonts.sizes.popups}";
-          dmenu = "vicinae dmenu -p Actions";
+          dmenu = "fuzzel --placeholder Actions -d";
           mouse_left_click = "close_current";
           mouse_right_click = "context";
         };

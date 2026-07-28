@@ -104,6 +104,22 @@ window-rule {
 }
 
 layer-rule {
+    match layer="top"
+    match layer="overlay"
+
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+layer-rule {
+    match namespace="launcher"
+
+    baba-is-float true
+}
+
+layer-rule {
     match namespace="kitty-panel"
 
     opacity 0.6
@@ -112,7 +128,7 @@ layer-rule {
 binds {
     // Components
     Mod+Q { spawn "kitty"; }
-    Mod+R { spawn "vicinae" "toggle"; }
+    Mod+R { spawn "fuzzel"; }
     Mod+D { spawn "astal-shell" "toggle-dock"; }
     Mod+O { toggle-overview; }
     Print { screenshot; }
