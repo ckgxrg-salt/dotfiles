@@ -4,11 +4,16 @@
   ...
 }:
 {
-  theme.matugen.templates.qt = {
-    input_path = ../theme/templates/kvantum.kvconfig;
-    output_path = "${config.xdg.configHome}/Kvantum/Matugen/Matugen.kvconfig";
+  theme.matugen.templates = {
+    qt-kvconfig = {
+      input_path = ../theme/templates/kvantum.kvconfig;
+      output_path = "${config.xdg.configHome}/Kvantum/Matugen/Matugen.kvconfig";
+    };
+    qt-svg = {
+      input_path = ../theme/templates/kvantum.svg;
+      output_path = "${config.xdg.configHome}/Kvantum/Matugen/Matugen.svg";
+    };
   };
-  xdg.configFile."Kvantum/Matugen/Matugen.svg".source = ../theme/templates/kvantum.svg;
 
   qt = {
     enable = true;
