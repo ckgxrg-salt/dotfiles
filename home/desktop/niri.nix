@@ -3,6 +3,7 @@
   config,
   lib,
   pkgs,
+  ckgs,
   ...
 }:
 # TODO: niri has bug with SHLVL, using systemd override for now, keep monitoring upstream
@@ -28,6 +29,9 @@
     };
 
     home.packages = with pkgs; [
+      ckgs.oniri
+      ckgs.niri-scratchpad-rs
+
       xwayland-satellite
     ];
   };
