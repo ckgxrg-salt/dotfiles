@@ -27,10 +27,9 @@ in
         config = {
           common = {
             default = [
-              "gnome"
               "gtk"
+              "gnome"
             ];
-            "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
           };
         };
       };
