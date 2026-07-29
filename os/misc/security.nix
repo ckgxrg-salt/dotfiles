@@ -1,13 +1,6 @@
 { config, lib, ... }:
-let
-  cfg = config.misc.security;
-in
 {
-  options.misc.security = {
-    default = lib.mkEnableOption "Apply default security settings";
-  };
-
-  config = lib.mkIf cfg.default {
+  config = {
     security.sudo = {
       enable = true;
       execWheelOnly = true;

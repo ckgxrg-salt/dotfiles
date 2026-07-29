@@ -4,11 +4,19 @@
   lib,
   ...
 }:
-let
-  cfg = config.hardware;
-in
 {
-  config = lib.mkIf cfg.default {
+  options.device = {
+    hostGPU = lib.mkOption {
+      type = lib.types.enum [
+        "intel"
+        "amd"
+        "nvidia"
+      ];
+      description = "The host's GPU manufacturer";
+    };
+  };
+
+  config = {
     hardware.graphics = {
       enable = true;
       enable32Bit = true;

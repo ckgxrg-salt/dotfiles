@@ -4,12 +4,8 @@
   pkgs,
   ...
 }:
-let
-  cfg = config.login.users;
-in
 {
-  options.login.users = {
-    default = lib.mkEnableOption "Apply default users settings";
+  options.login = {
     issue = lib.mkOption {
       type = lib.types.str;
       description = "Login message";
@@ -17,10 +13,10 @@ in
     };
   };
 
-  config = lib.mkIf cfg.default {
+  config = {
     # Greet messages
     environment.etc = {
-      "issue".text = cfg.issue;
+      "issue".text = config.login.issue;
     };
 
     users.users = {

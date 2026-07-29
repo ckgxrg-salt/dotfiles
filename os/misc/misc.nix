@@ -1,16 +1,6 @@
+{ pkgs, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-let
-  cfg = config.misc;
-in
-{
-  options.misc.default = lib.mkEnableOption "Enable default miscellaneous settings";
-
-  config = lib.mkIf cfg.default {
+  config = {
     # Override system default XDG sounds
     xdg.sounds.enable = false;
     environment.pathsToLink = [
@@ -27,7 +17,7 @@ in
 
     systemd = {
       oomd.enable = false;
-      coredump.enable = !config.boot.noCoredump;
+      coredump.enable = false;
     };
 
     environment.systemPackages = with pkgs; [

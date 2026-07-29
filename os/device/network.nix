@@ -1,18 +1,14 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
-  cfg = config.hardware;
+  cfg = config.device;
 in
 {
-  options.hardware = {
+  options.device = {
     wifi = lib.mkEnableOption "Support Wi-Fi";
     bt = lib.mkEnableOption "Support Bluetooth";
   };
 
-  config = lib.mkIf cfg.default {
+  config = {
     networking = {
       wireless.iwd = lib.mkIf cfg.wifi {
         enable = true;

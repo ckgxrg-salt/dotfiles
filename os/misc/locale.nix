@@ -1,22 +1,8 @@
-{ config, lib, ... }:
-let
-  cfg = config.misc.locale;
-in
+{ ... }:
 {
-  options.misc.locale = {
-    default = lib.mkEnableOption "Apply default locale settings";
-    timezone = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = null;
-      description = "Timezone of this host";
-    };
-  };
-
-  config = lib.mkIf cfg.default {
+  config = {
     services.timesyncd.enable = false;
     services.chrony.enable = true;
-
-    time.timeZone = cfg.timezone;
 
     i18n = {
       defaultLocale = "en_GB.UTF-8";

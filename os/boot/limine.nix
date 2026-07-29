@@ -1,17 +1,6 @@
+{ lib, ... }:
 {
-  config,
-  lib,
-  ...
-}:
-let
-  cfg = config.boot.limine;
-in
-{
-  options.boot.limine = {
-    enable = lib.mkEnableOption "Enable default settings for Limine bootloader";
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = {
     boot.loader.limine = {
       enable = true;
       efiSupport = true;

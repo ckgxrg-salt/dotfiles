@@ -5,32 +5,17 @@
     laptop = true;
     hostCPU = "intel";
     hostGPU = "intel";
+    wifi = true;
+    bt = true;
     version = "25.11";
   };
   boot = {
-    default = true;
-    limine.enable = true;
     kernelPackages = pkgs.linuxPackages_zen;
-    bbr = true;
-    noCoredump = true;
     splash = "loader_2";
   };
-  hardware = {
-    default = true;
-    btrfs = true;
-    wifi = true;
-    bt = true;
-  };
   login = {
-    users.default = true;
-    greetd.enable = true;
     howdy.enable = true;
     u2f.enable = true;
-  };
-  misc = {
-    default = true;
-    locale.default = true;
-    security.default = true;
   };
   virtualisation.waydroid.enable = true;
   program = {
@@ -83,12 +68,8 @@
         "Quicksand"
         "LXGW WenKai"
       ];
-      monospace = [
-        "Fira Code"
-      ];
-      emoji = [
-        "Twitter Color Emoji"
-      ];
+      monospace = [ "Fira Code" ];
+      emoji = [ "Twitter Color Emoji" ];
     };
   };
 

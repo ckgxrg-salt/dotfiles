@@ -4,20 +4,14 @@
     hostname = "Rhyslow";
     hostCPU = "amd";
     hostGPU = "nvidia";
+    bt = true;
     version = "25.11";
   };
   boot = {
-    default = true;
-    limine.enable = true;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    bbr = true;
-    noCoredump = true;
     splash = "spin";
   };
   hardware = {
-    default = true;
-    btrfs = true;
-    bt = true;
     nvidia = {
       prime = {
         nvidiaBusId = "PCI:1@0:0:0";
@@ -30,14 +24,7 @@
     };
   };
   login = {
-    greetd.enable = true;
     u2f.enable = true;
-    users.default = true;
-  };
-  misc = {
-    default = true;
-    locale.default = true;
-    security.default = true;
   };
   program = {
     mihomo.enable = true;
@@ -91,12 +78,8 @@
         "Quicksand"
         "LXGW WenKai"
       ];
-      monospace = [
-        "Fira Code"
-      ];
-      emoji = [
-        "Twitter Color Emoji"
-      ];
+      monospace = [ "Fira Code" ];
+      emoji = [ "Twitter Color Emoji" ];
     };
   };
 

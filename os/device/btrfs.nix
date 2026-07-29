@@ -1,11 +1,6 @@
-{ config, lib, ... }:
-let
-  cfg = config.hardware.btrfs;
-in
+{ ... }:
 {
-  options.hardware.btrfs = lib.mkEnableOption "Enable default Btrfs configurations";
-
-  config = lib.mkIf cfg {
+  config = {
     services.btrfs = {
       autoScrub.enable = true;
     };

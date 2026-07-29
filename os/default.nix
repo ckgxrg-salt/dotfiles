@@ -11,11 +11,11 @@
     ./login/howdy.nix
     ./login/u2f.nix
 
-    ./hardware
-    ./hardware/audio.nix
-    ./hardware/btrfs.nix
-    ./hardware/graphics.nix
-    ./hardware/network.nix
+    ./device
+    ./device/audio.nix
+    ./device/btrfs.nix
+    ./device/graphics.nix
+    ./device/network.nix
 
     ./development/podman.nix
 
@@ -38,37 +38,4 @@
     ./theme/fonts.nix
     ./theme/icons.nix
   ];
-
-  # Device attributes
-  options.device = {
-    hostname = lib.mkOption {
-      type = lib.types.str;
-      description = "Hostname for the device";
-    };
-    laptop = lib.mkEnableOption "Whether this is a laptop";
-    version = lib.mkOption {
-      type = lib.types.str;
-      description = "NixOS version";
-    };
-    hostCPU = lib.mkOption {
-      type = lib.types.enum [
-        "intel"
-        "amd"
-      ];
-      description = "The host's CPU manufacturer";
-    };
-    hostGPU = lib.mkOption {
-      type = lib.types.enum [
-        "intel"
-        "amd"
-        "nvidia"
-      ];
-      description = "The host's GPU manufacturer";
-    };
-  };
-
-  config = {
-    networking.hostName = config.device.hostname;
-    system.stateVersion = config.device.version;
-  };
 }

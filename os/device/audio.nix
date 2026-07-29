@@ -1,9 +1,6 @@
-{ config, lib, ... }:
-let
-  cfg = config.hardware;
-in
+{ ... }:
 {
-  config = lib.mkIf cfg.default {
+  config = {
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

@@ -1,17 +1,28 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}:
-let
-  cfg = config.hardware;
-in
-{
-  options.hardware = {
-    default = lib.mkEnableOption "Apply default hardware settings";
+  options.device = {
+    hostname = lib.mkOption {
+      type = lib.types.str;
+      description = "Hostname for the device";
+    };
+    laptop = lib.mkEnableOption "Whether this is a laptop";
+    version = lib.mkOption {
+      type = lib.types.str;
+      description = "NixOS version";
+    };
+    hostCPU = lib.mkOption {
+      type = lib.types.enum [
+        "intel"
+        "amd"
+      ];
+      description = "The host's CPU manufacturer";
+    };
   };
 
-  config = lib.mkIf cfg.default {
+  config = {
+    networking.hostName = config.device.hostname;
+    system.stateVersion = config.device.version;
+
     hardware = {
       cpu.intel.updateMicrocode = (config.device.hostCPU == "intel");
       cpu.amd.updateMicrocode = (config.device.hostCPU == "amd");

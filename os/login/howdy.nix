@@ -8,7 +8,7 @@ let
 in
 {
   options.login.howdy = {
-    enable = lib.mkEnableOption "Enable default Howdy settings";
+    enable = lib.mkEnableOption "Enable login via facial recognition";
   };
 
   config = lib.mkIf cfg.enable {
