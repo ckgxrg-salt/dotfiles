@@ -16,5 +16,9 @@
     debug {
         ignore-drm-device "/dev/dri/nvidia-gpu"
     }
+
+    binds {
+        Mod+XF86AudioPlay allow-when-locked=true { spawn "toggle-sink"; }
+    }
   '';
 }
