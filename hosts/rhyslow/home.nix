@@ -3,6 +3,7 @@
   program = {
     btop.enable = true;
     cava.enable = true;
+    distrobox.enable = true;
     fcitx5.enable = true;
     floorp.enable = true;
     foliate.enable = true;
@@ -12,6 +13,7 @@
     gpg.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
+    neovim.enable = true;
     yazi.enable = true;
   };
   home.packages = with pkgs; [
@@ -30,10 +32,6 @@
     hypridle.enable = true;
     hyprlock.enable = true;
     syncthing.enable = true;
-  };
-  development = {
-    distrobox.enable = true;
-    neovim.enable = true;
   };
   theme = {
     wallpaper = {
@@ -55,8 +53,6 @@
   desktop = {
     fuzzel.enable = true;
     niri.enable = true;
-    sessionVars.default = true;
-    xdg.default = true;
   };
   terminal = {
     accessories.enable = true;

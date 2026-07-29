@@ -1,36 +1,15 @@
-{ config, lib, ... }:
-let
-  cfg = config.desktop.sessionVars;
-in
+{ config, ... }:
 {
-  options.desktop.sessionVars = {
-    default = lib.mkEnableOption "Set default session variables";
-    extraVars = lib.mkOption {
-      default = { };
-      description = "Extra session variables";
-      type =
-        with lib.types;
-        attrsOf (
-          nullOr (oneOf [
-            int
-            str
-          ])
-        );
-    };
-  };
-
   config = {
-    home.sessionVariables =
-      lib.optionalAttrs cfg.default {
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        NIXOS_OZONE_WL = 1;
-        ELM_DISPLAY = "wl";
-        SDL_VIDEODRIVER = "wayland";
+    home.sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      NIXOS_OZONE_WL = 1;
+      ELM_DISPLAY = "wl";
+      SDL_VIDEODRIVER = "wayland";
 
-        HISTFILE = "${config.xdg.stateHome}/bash/history";
-        CARGO_HOME = "${config.xdg.dataHome}/cargo";
-        GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-      }
-      // cfg.extraVars;
+      HISTFILE = "${config.xdg.stateHome}/bash/history";
+      CARGO_HOME = "${config.xdg.dataHome}/cargo";
+      GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+    };
   };
 }

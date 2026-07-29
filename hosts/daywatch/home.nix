@@ -8,6 +8,7 @@
     foliate.enable = true;
     fortune.enable = true;
     git.enable = true;
+    neovim.enable = true;
     pass.enable = true;
     gpg.enable = true;
     mpd.enable = true;
@@ -28,9 +29,6 @@
     hypridle.enable = true;
     hyprlock.enable = true;
     syncthing.enable = true;
-  };
-  development = {
-    neovim.enable = true;
   };
   theme = {
     wallpaper = {
@@ -56,8 +54,6 @@
     astal.enable = true;
     fuzzel.enable = true;
     niri.enable = true;
-    sessionVars.default = true;
-    xdg.default = true;
   };
   terminal = {
     accessories.enable = true;

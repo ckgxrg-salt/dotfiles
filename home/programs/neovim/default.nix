@@ -2,18 +2,14 @@
   config,
   lib,
   pkgs,
-  ckgs,
   ...
 }:
-let
-  cfg = config.development.neovim;
-in
 {
-  options.development.neovim = {
+  options.program.neovim = {
     enable = lib.mkEnableOption "Enable default Neovim settings";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.program.neovim.enable {
     theme.matugen.templates.nvim = {
       input_path = ../../theme/templates/nvim.lua;
       output_path = "${config.xdg.configHome}/nvim/lua/matugen.lua";

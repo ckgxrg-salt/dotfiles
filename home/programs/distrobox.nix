@@ -1,17 +1,10 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}:
-let
-  cfg = config.development.distrobox;
-in
-{
-  options.development.distrobox = {
+  options.program.distrobox = {
     enable = lib.mkEnableOption "Enable default distrobox settings";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.program.distrobox.enable {
     programs.distrobox = {
       enable = true;
       enableSystemdUnit = false;

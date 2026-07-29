@@ -1,18 +1,6 @@
+{ pkgs, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-let
-  cfg = config.desktop.xdg;
-in
-{
-  options.desktop.xdg = {
-    default = lib.mkEnableOption "Enable default XDG settings";
-  };
-
-  config = lib.mkIf cfg.default {
+  config = {
     xdg = {
       enable = true;
       mime.enable = true;
