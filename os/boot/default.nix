@@ -15,6 +15,12 @@
         timeout = 0;
       };
 
+      # Memory optimisation
+      zswap = {
+        enable = true;
+        compressor = "zstd";
+      };
+
       tmp.cleanOnBoot = true;
 
       # Silent boot
