@@ -85,7 +85,7 @@
 
   imports = [
     ./overrides/boot.nix
-    ./overrides/disko.nix
+    ./overrides/fstab.nix
     ./overrides/mark-gpu.nix
   ];
 }

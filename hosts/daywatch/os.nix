@@ -75,7 +75,7 @@
 
   imports = [
     ./overrides/boot.nix
-    ./overrides/disko.nix
+    ./overrides/fstab.nix
     ./overrides/touchscreen.nix
   ];
 }
