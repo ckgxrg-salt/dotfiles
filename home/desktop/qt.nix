@@ -1,8 +1,4 @@
-{
-  config,
-  osConfig,
-  ...
-}:
+{ config, osConfig, ... }:
 {
   theme.matugen.templates = {
     qt-kvconfig = {

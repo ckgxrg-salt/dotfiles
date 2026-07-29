@@ -17,13 +17,12 @@
 
       tmp.cleanOnBoot = true;
 
+      # Silent boot
       initrd = {
         verbose = false;
       };
-      # Silent boot
       consoleLogLevel = 0;
 
-      # Kernel params
       kernelParams = [
         "quiet"
         "plymouth.nolog"
@@ -33,7 +32,6 @@
         "pcie_aspm.policy=powersupersave"
       ];
 
-      # Kernel extra config
       kernelModules = [ "tcp_bbr" ];
       kernel.sysctl = {
         "net.ipv4.tcp_congestion_control" = "bbr";

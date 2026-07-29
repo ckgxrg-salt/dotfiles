@@ -10,7 +10,6 @@
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -84,7 +83,6 @@
         };
       };
 
-      # A nix develop shell including formatter and linter to be used with Neovim
       devShells.${system}.default = pkgs.mkShellNoCC {
         name = "dotfiles";
 

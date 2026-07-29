@@ -13,7 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # Steam and Gamescope Settings
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;

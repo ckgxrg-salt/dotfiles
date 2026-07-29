@@ -1,5 +1,4 @@
-# Entrypoint for all os modules
-{ config, lib, ... }:
+{ ... }:
 {
   imports = [
     ./boot

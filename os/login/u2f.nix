@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.login.u2f;
 in
@@ -12,7 +8,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # Allow physical security key unlock
     security.pam = {
       u2f.settings = {
         cue = true;

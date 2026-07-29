@@ -23,10 +23,6 @@
       implementation = "broker";
     };
 
-    # Audit Framework
-    # security.audit.enable = true;
-    # security.auditd.enable = true;
-
     security.tpm2 = {
       enable = true;
       applyUdevRules = true;

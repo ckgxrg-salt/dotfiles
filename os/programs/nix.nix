@@ -23,7 +23,6 @@ in
           "root"
           "@wheel"
         ];
-        # Enable flakes
         experimental-features = [
           "nix-command"
           "flakes"
@@ -31,12 +30,10 @@ in
       };
     };
 
-    # An advanced cli for Nix
     programs.nh = {
       enable = true;
     };
 
-    # Allow unfree and insecure packages
     nixpkgs = {
       hostPlatform = "x86_64-linux";
       config = {

@@ -1,5 +1,4 @@
 { osConfig, ... }:
-# Entrypoint for all home-manager modules
 {
   imports = [
     ./programs/btop.nix
