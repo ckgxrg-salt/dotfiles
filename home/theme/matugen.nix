@@ -20,11 +20,6 @@ in
       matugen
     ];
 
-    xdg.configFile."matugen/templates" = {
-      source = ./templates;
-      recursive = true;
-    };
-
     xdg.configFile."matugen/config.toml".source = tomlFormat.generate "matugen-config.toml" {
       config = {
         # base0a from tokyo night storm
