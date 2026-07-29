@@ -36,16 +36,8 @@
       waypaper = {
         enable = true;
         settings = {
-          Settings = {
-            use_xdg_state = true;
-            folder = "${config.xdg.userDirs.pictures}/Wallpapers";
-            fill = "Fill";
-            sort = "name";
-            backend = "awww";
-            color = "#ffffff";
-            subfolders = true;
-            post_command = "matugen image $wallpaper --source-color-index 1";
-          };
+          folder = "${config.xdg.userDirs.pictures}/Wallpapers";
+          backend = "awww";
         };
       };
     };

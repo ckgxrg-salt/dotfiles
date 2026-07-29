@@ -38,14 +38,7 @@
       waypaper = {
         enable = true;
         settings = {
-          Settings = {
-            use_xdg_state = true;
-            fill = "Fill";
-            sort = "name";
-            backend = "linux-wallpaperengine";
-            subfolders = true;
-            post_command = "matugen image $wallpaper --source-color-index 1";
-          };
+          backend = "linux-wallpaperengine";
         };
       };
     };

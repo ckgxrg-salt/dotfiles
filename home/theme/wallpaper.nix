@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-# Wallpaper daemons
 let
   cfg = config.theme.wallpaper;
   iniFormat = pkgs.formats.ini { };
@@ -23,7 +22,7 @@ in
         default = pkgs.waypaper;
       };
       settings = lib.mkOption {
-        type = iniFormat.type;
+        type = lib.types.attrsOf lib.types.str;
         description = "Default settings passed to Waypaper.";
         default = { };
       };
@@ -33,13 +32,21 @@ in
   config = {
     home.packages = lib.lists.optional cfg.waypaper.enable cfg.waypaper.package;
 
-    services.awww = lib.mkIf cfg.awww.enable {
-      enable = true;
-    };
+    services.awww.enable = cfg.awww.enable;
 
-    # Waypaper
     xdg.configFile = lib.mkIf cfg.waypaper.enable {
-      "waypaper/config.ini".source = (iniFormat.generate "waypaper.ini" cfg.waypaper.settings);
+      "waypaper/config.ini".source = (
+        iniFormat.generate "waypaper.ini" {
+          Settings = {
+            use_xdg_state = true;
+            fill = "Fill";
+            sort = "name";
+            subfolders = true;
+            post_command = "matugen image $wallpaper --source-color-index 1";
+          }
+          // cfg.waypaper.settings;
+        }
+      );
     };
   };
 }
