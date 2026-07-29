@@ -11,11 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +26,6 @@
       nur,
       ckgpkgs,
       disko,
-      sops-nix,
       home-manager,
       ...
     }:
@@ -58,9 +52,6 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-              ];
               home-manager.users.ckgxrg.imports = [
                 ./hosts/rhyslow/home.nix
                 ./home
@@ -88,9 +79,6 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-              ];
               home-manager.users.ckgxrg.imports = [
                 ./hosts/daywatch/home.nix
                 ./home
@@ -107,10 +95,7 @@
       devShells.${system}.default = pkgs.mkShellNoCC {
         name = "dotfiles";
 
-        buildInputs = with pkgs; [
-          stylua
-          sops
-        ];
+        buildInputs = with pkgs; [ stylua ];
       };
     };
 }

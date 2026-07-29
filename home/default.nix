@@ -3,10 +3,8 @@
 {
   imports = [
     ./programs/btop.nix
-    ./programs/calendar.nix
     ./programs/cava.nix
-    ./programs/contacts.nix
-    ./programs/email.nix
+    ./programs/distrobox.nix
     ./programs/fcitx.nix
     ./programs/floorp.nix
     ./programs/foliate.nix
@@ -16,13 +14,9 @@
     ./programs/gpg.nix
     ./programs/mangohud.nix
     ./programs/mpd.nix
-    ./programs/opencomposite.nix
+    ./programs/neovim
     ./programs/packages.nix
-    ./programs/vdirsyncer.nix
     ./programs/yazi.nix
-
-    ./development/neovim
-    ./development/distrobox.nix
 
     ./daemons/daemons.nix
     ./daemons/dunst.nix
@@ -49,10 +43,7 @@
     ./theme/cursor.nix
     ./theme/lxwengd.nix
     ./theme/matugen.nix
-    ./theme/sound-theme.nix
     ./theme/wallpaper.nix
-
-    ../secrets
   ];
 
   config = {

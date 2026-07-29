@@ -1,11 +1,5 @@
-# Rhyslow HM entrypoint
+{ pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}:
-{
-  secrets.sops = true;
   program = {
     btop.enable = true;
     cava.enable = true;
@@ -18,10 +12,6 @@
     gpg.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
-    vdirsyncer = {
-      enable = true;
-      autoUpdate = true;
-    };
     yazi.enable = true;
   };
   home.packages = with pkgs; [
