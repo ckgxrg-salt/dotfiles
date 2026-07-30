@@ -69,15 +69,10 @@ require("barbar").setup({
 		preset = "powerline",
 	},
 })
-vim.keymap.set("n", "<C-h>", ":BufferPrevious<CR>", { desc = "Previous tab" })
-vim.keymap.set("n", "<C-l>", ":BufferNext<CR>", { desc = "Next tab" })
-vim.keymap.set("n", "<C-S-h>", ":BufferMovePrevious<CR>", { desc = "Move buffer <-" })
-vim.keymap.set("n", "<C-S-l>", ":BufferMoveNext<CR>", { desc = "Move buffer ->" })
-vim.keymap.set("n", "<C-1>", ":BufferGoto 1<CR>")
-vim.keymap.set("n", "<C-2>", ":BufferGoto 2<CR>")
-vim.keymap.set("n", "<C-3>", ":BufferGoto 3<CR>")
-vim.keymap.set("n", "<C-4>", ":BufferGoto 4<CR>")
-vim.keymap.set("n", "<C-5>", ":BufferGoto 5<CR>")
+vim.keymap.set("n", "<C-H>", ":BufferPrevious<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<C-L>", ":BufferNext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "<C-S-H>", ":BufferMovePrevious<CR>", { desc = "Move buffer <-" })
+vim.keymap.set("n", "<C-S-L>", ":BufferMoveNext<CR>", { desc = "Move buffer ->" })
 vim.keymap.set("n", "<leader>w", ":BufferClose<CR>", { desc = "Close current buffer" })
 vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close current window" })
 

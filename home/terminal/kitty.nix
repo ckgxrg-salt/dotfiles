@@ -26,6 +26,9 @@ in
         size = osConfig.theme.fonts.sizes.terminal;
       };
       extraConfig = ''
+        map ctrl+shift+h
+        map ctrl+shift+l
+
         include colors.conf
       '';
     };
