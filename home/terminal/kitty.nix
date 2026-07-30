@@ -22,7 +22,7 @@ in
       enable = true;
       shellIntegration.enableBashIntegration = true;
       font = {
-        name = osConfig.theme.fonts.name;
+        name = osConfig.theme.fonts.monospace;
         size = osConfig.theme.fonts.sizes.terminal;
       };
       extraConfig = ''
