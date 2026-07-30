@@ -36,6 +36,7 @@
     };
     speechd.enable = true;
     steam.enable = true;
+    sunshine.enable = true;
     netbird.enable = true;
   };
   theme = {

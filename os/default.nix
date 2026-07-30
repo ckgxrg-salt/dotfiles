@@ -24,6 +24,7 @@
     ./programs/openrgb.nix
     ./programs/speechd.nix
     ./programs/steam.nix
+    ./programs/sunshine.nix
     ./programs/tuned.nix
     ./programs/thermald.nix
     ./programs/wivrn.nix
