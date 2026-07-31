@@ -94,6 +94,13 @@ spawn-at-startup "oniri" "--first-only"
 workspace "stash" { }
 
 window-rule {
+    match app-id="floorp"
+
+    open-floating true
+    open-maximized true
+}
+
+window-rule {
     opacity 0.9
     draw-border-with-background false
     background-effect {
@@ -139,8 +146,9 @@ binds {
     Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+Ctrl+F { expand-column-to-available-width; }
-    Mod+F { maximize-column; }
     Mod+Shift+O { toggle-window-rule-opacity; }
+    Mod+F { maximize-column; }
+    Mod+Alt+F { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
     Mod+T { center-column; }
     Mod+Ctrl+T { center-visible-columns; }
@@ -149,7 +157,7 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
     Mod+W { toggle-column-tabbed-display; }
-    Mod+S { spawn "niri-scratchpad" "target" "--spawn" "floorp" "appid" "floorp"; }
+    Mod+S { spawn "niri-scratchpad" "target" "--spawn" "floorp" "--as-float" "appid" "floorp"; }
 
     // Media & Brightness Control
     XF86AudioMute allow-when-locked=true { spawn "volume-script" "--toggle"; }
