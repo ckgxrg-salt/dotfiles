@@ -89,6 +89,7 @@ workspace "stash" { }
 
 window-rule {
     opacity 0.9
+    draw-border-with-background false
     background-effect {
         blur true
     }
@@ -133,6 +134,7 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+Ctrl+F { expand-column-to-available-width; }
     Mod+F { maximize-column; }
+    Mod+Shift+O { toggle-window-rule-opacity; }
     Mod+Shift+F { fullscreen-window; }
     Mod+T { center-column; }
     Mod+Ctrl+T { center-visible-columns; }
