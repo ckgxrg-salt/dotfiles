@@ -66,9 +66,9 @@ in
       port = 6600
       music-dir = ${config.xdg.userDirs.music}
       scale = 200
-      text-topic = MPD
-      text-play = Playing <b>%t</b>\nby <i>%a</i>\nfrom <i>%A</i>
-      text-pause = Paused <b>%t</b>\nby <i>%a</i>\nfrom <i>%A</i>
+      text-topic = Music Player Daemon
+      text-play = Playing <b>%t</b>\nby <i>%a</i>
+      text-pause = Paused <b>%t</b>\nby <i>%a</i>
       text-stop = Stopped playback
       timeout = 5
     '';
