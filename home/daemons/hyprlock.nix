@@ -13,7 +13,6 @@ in
       settings = {
         general = {
           hide_cursor = false;
-          grace = 600;
         };
         auth = {
           "pam:module" = "login";
@@ -40,7 +39,7 @@ in
           position = "0, -120";
           outline_thickness = 5;
           fade_on_empty = false;
-          placeholder_text = ''<span foreground="##cad3f5">Who asked you...</span>'';
+          placeholder_text = "Who asked you...";
           fail_text = "sus";
           shadow_passes = 2;
         };
