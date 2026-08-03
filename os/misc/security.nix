@@ -14,12 +14,7 @@
     security.polkit.enable = true;
     services.pcscd.enable = true;
 
-    security.apparmor = {
-      enable = true;
-      enableCache = true;
-    };
     services.dbus = {
-      apparmor = "enabled";
       implementation = "broker";
     };
 
