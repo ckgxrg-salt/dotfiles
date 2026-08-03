@@ -24,7 +24,7 @@
     xdg-utils
 
     # Entertainment
-    prismlauncher
+    (prismlauncher.override { jdks = [ jdk25 ]; })
     yt-dlp
     cartridges
     umu-launcher
