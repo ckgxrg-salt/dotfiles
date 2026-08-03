@@ -52,6 +52,7 @@
         lualine-nvim
         vim-illuminate
         toggleterm-nvim
+        tiny-inline-diagnostic-nvim
 
         # Widgets
         hlchunk-nvim

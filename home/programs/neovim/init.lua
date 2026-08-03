@@ -26,8 +26,6 @@ vim.diagnostic.config({
 	signs = true,
 	underline = true,
 	update_in_insert = true,
-	virtual_text = true,
-	virtual_lines = { current_line = true },
 })
 
 -- Keybinds

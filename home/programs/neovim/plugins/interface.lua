@@ -160,3 +160,16 @@ require("alpha").setup({
 		},
 	},
 })
+
+require("tiny-inline-diagnostic").setup({
+	preset = "powerline",
+	options = {
+		show_source = {
+			enabled = true,
+		},
+		multilines = {
+			enabled = true,
+		},
+		override_open_float = true,
+	},
+})
