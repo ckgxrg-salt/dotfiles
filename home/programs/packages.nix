@@ -7,8 +7,6 @@
     cowsay
     dust
     fastfetch
-    grimblast
-    hyprpicker
     lazygit
     lolcat
     nix-output-monitor
