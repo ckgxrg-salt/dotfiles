@@ -164,10 +164,10 @@ binds {
     XF86AudioRaiseVolume allow-when-locked=true { spawn "volume-script" "--inc"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "volume-script" "--dec"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightness-script" "--inc"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightness-script" "--dec"; }
-    XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86MonBrightnessUp cooldown-ms=10 allow-when-locked=true { spawn "brightness-script" "--inc"; }
+    XF86MonBrightnessDown cooldown-ms=10 allow-when-locked=true { spawn "brightness-script" "--dec"; }
 
+    XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
     Mod+Right allow-when-locked=true { spawn "playerctl" "next"; }
     Mod+Left allow-when-locked=true { spawn "playerctl" "previous"; }
 
