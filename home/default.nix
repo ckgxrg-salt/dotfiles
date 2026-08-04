@@ -19,7 +19,6 @@
 
     ./daemons/daemons.nix
     ./daemons/dunst.nix
-    ./daemons/hypridle.nix
     ./daemons/hyprlock.nix
     ./daemons/syncthing.nix
 

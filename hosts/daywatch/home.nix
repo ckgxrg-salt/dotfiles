@@ -26,7 +26,6 @@
     udiskie.enable = true;
     wvkbd.enable = true;
     polkit-gnome-agent.enable = true;
-    hypridle.enable = true;
     hyprlock.enable = true;
     syncthing.enable = true;
   };
