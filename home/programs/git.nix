@@ -21,6 +21,7 @@ in
           email = "ckgxrg@ckgxrg.io";
         };
         pull.rebase = true;
+        core.quotepath = false;
       };
     };
   };
