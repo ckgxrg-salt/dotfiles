@@ -27,9 +27,10 @@
     u2f.enable = true;
   };
   program = {
-    mihomo.enable = true;
     gamemode.enable = true;
+    netbird.enable = true;
     nix.enable = true;
+    mihomo.enable = true;
     openrgb = {
       enable = true;
       loadDefault = true;
@@ -37,7 +38,7 @@
     speechd.enable = true;
     steam.enable = true;
     sunshine.enable = true;
-    netbird.enable = true;
+    wivrn.enable = true;
   };
   theme = {
     cursor = {

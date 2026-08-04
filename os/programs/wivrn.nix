@@ -15,21 +15,15 @@ in
   config = lib.mkIf cfg.enable {
     services.wivrn = {
       enable = true;
-      defaultRuntime = true;
+      highPriority = true;
       autoStart = false;
       openFirewall = true;
+      package = pkgs.wivrn.override { cudaSupport = true; };
 
-      config = {
+      steam = {
         enable = true;
-        json = {
-          # Enter the desktop overlay by default
-          application = [ pkgs.wlx-overlay-s ];
-        };
+        importOXRRuntimes = true;
       };
     };
-
-    # Monado library
-    hardware.graphics.extraPackages = with pkgs; [ monado-vulkan-layers ];
-    environment.systemPackages = with pkgs; [ monado-vulkan-layers ];
   };
 }

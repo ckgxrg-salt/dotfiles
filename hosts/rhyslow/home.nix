@@ -23,6 +23,7 @@
     gimp
     libreoffice
     linux-wallpaperengine
+    wayvr
   ];
   daemons = {
     cliphist.enable = true;
