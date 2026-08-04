@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.program.nix;
 in
@@ -9,6 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     nix = {
+      package = pkgs.lixPackageSets.stable.lix;
       channel.enable = false;
       gc = {
         automatic = true;

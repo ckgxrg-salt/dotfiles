@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.terminal.direnv;
 in
@@ -10,7 +15,10 @@ in
   config = lib.mkIf cfg.enable {
     programs.direnv = {
       enable = true;
-      nix-direnv.enable = true;
+      nix-direnv = {
+        enable = true;
+        package = pkgs.lixPackageSets.stable.nix-direnv;
+      };
       silent = true;
     };
   };
