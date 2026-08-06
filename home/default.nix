@@ -5,7 +5,7 @@
     ./programs/cava.nix
     ./programs/distrobox.nix
     ./programs/fcitx.nix
-    ./programs/floorp.nix
+    ./programs/firefox.nix
     ./programs/foliate.nix
     ./programs/fortune.nix
     ./programs/git.nix

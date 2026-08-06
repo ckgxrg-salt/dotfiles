@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.program.floorp;
+  cfg = config.program.firefox;
 in
 {
-  options.program.floorp = {
-    enable = lib.mkEnableOption "Enable Floorp web browser";
+  options.program.firefox = {
+    enable = lib.mkEnableOption "Enable Firefox web browser";
     extraPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [ ];
@@ -18,7 +18,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    theme.matugen.templates.floorp = {
+    theme.matugen.templates.firefox = {
       input_path = ../theme/templates/firefox.json;
       output_path = "${config.xdg.cacheHome}/wal/colors.json";
       post_hook = "${pkgs.pywalfox-native}/bin/pywalfox update";
@@ -28,9 +28,9 @@ in
       browsers = [ "firefox" ];
     };
 
-    programs.floorp = {
+    programs.firefox = {
       enable = true;
-      package = pkgs.floorp-bin;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
       nativeMessagingHosts = with pkgs; [
         tridactyl-native
         pywalfox-native
@@ -111,9 +111,10 @@ in
             bilisponsorblock
             browserpass
             flagfox
+            pywalfox
+            simple-tab-groups
             tridactyl
             ublock-origin
-            pywalfox
           ];
           settings = {
             # Tridactyl

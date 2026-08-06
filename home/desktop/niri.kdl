@@ -94,7 +94,7 @@ spawn-at-startup "oniri" "--first-only"
 workspace "stash" { }
 
 window-rule {
-    match app-id="floorp"
+    match app-id="firefox"
 
     open-floating true
     open-maximized true
@@ -157,7 +157,7 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
     Mod+W { toggle-column-tabbed-display; }
-    Mod+S { spawn "niri-scratchpad" "target" "--spawn" "floorp" "--as-float" "appid" "floorp"; }
+    Mod+S { spawn "niri-scratchpad" "target" "--spawn" "firefox" "--as-float" "appid" "firefox"; }
 
     // Media & Brightness Control
     XF86AudioMute allow-when-locked=true { spawn "volume-script" "--toggle"; }
