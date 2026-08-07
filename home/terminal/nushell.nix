@@ -19,10 +19,16 @@ in
     };
 
     home.shell.enableNushellIntegration = true;
+    home.shellAliases = {
+      deploy = "nh os switch . --ask";
+      rm = "rm -i";
+    };
 
     programs.nushell = {
       enable = cfg.enable;
       configFile.text = ''
+        $env.MANPAGER = "nvim +Man!";
+
         $env.config = {
           show_banner: false
           error_style: "fancy"
@@ -37,14 +43,19 @@ in
           filesize: {
             unit: metric
           }
-        }
 
-        $env.MANPAGER = "nvim +Man!";
-        def ciallo [] { fortune | cowsay | lolcat }
-        alias deploy = nh os switch . --ask
-        alias purge = nh clean all --ask
-        alias proj = cd ~/Projects
-        alias rm = rm -i
+          keybindings: [
+            {
+              name: reload_config
+              modifier: none
+              keycode: f5
+              mode: [ emacs vi_insert vi_normal ]
+              event: [
+                { send: executehostcommand cmd: $"source ${config.xdg.configHome}/nushell/config.nu; source ${config.xdg.configHome}/nushell/theme.nu" }
+              ]
+            }
+          ]
+        }
       ''
       + "source theme.nu"
       + cfg.settings;

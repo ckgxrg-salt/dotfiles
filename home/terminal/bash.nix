@@ -9,18 +9,16 @@ in
 
   config = lib.mkIf cfg.enable {
     home.shell.enableBashIntegration = true;
+    home.shellAliases = {
+      deploy = "nh os switch . --ask";
+      rm = "rm -i";
+    };
 
     programs.bash = {
       enable = true;
       enableCompletion = true;
       sessionVariables = {
         MANPAGER = "nvim +Man!";
-      };
-      shellAliases = {
-        "ciallo" = "fortune | cowsay | lolcat";
-        "deploy" = "nh os switch . --ask";
-        "purge" = "nh clean all --ask";
-        "rm" = "rm -i";
       };
     };
   };
