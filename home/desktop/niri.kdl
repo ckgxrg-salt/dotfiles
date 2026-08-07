@@ -94,6 +94,14 @@ spawn-at-startup "oniri" "--first-only"
 workspace "stash" { }
 
 window-rule {
+    opacity 0.9
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
     match app-id="firefox"
 
     open-floating true
@@ -101,11 +109,10 @@ window-rule {
 }
 
 window-rule {
-    opacity 0.9
-    draw-border-with-background false
-    background-effect {
-        blur true
-    }
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+
+    open-focused false
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 layer-rule {
