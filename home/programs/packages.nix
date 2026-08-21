@@ -24,16 +24,20 @@
     xdg-utils
 
     # Entertainment
-    (prismlauncher.override { jdks = [ jdk25 ]; })
+    (prismlauncher.override {
+      jdks = [
+        jdk25
+        jdk21
+      ];
+    })
     yt-dlp
     cartridges
     umu-launcher
     freetube
 
-    # Productivity
+    # Applications
     obsidian
-
-    # Communication
+    actual-client
     commet-chat
     localsend
     vesktop

@@ -24,6 +24,7 @@
     libreoffice
     linux-wallpaperengine
     wayvr
+    bs-manager
   ];
   daemons = {
     cliphist.enable = true;
