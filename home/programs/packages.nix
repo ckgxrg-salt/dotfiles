@@ -30,6 +30,7 @@
         jdk21
       ];
     })
+    folia-major
     yt-dlp
     cartridges
     umu-launcher
