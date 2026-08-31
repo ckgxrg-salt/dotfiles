@@ -88,6 +88,7 @@
   imports = [
     ./overrides/boot.nix
     ./overrides/fstab.nix
+    ./overrides/hardware.nix
     ./overrides/mark-gpu.nix
   ];
 }

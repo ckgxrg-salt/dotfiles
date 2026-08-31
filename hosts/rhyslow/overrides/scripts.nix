@@ -92,7 +92,7 @@ let
   '';
 
   toggle-sink = pkgs.writeShellScriptBin "toggle-sink" ''
-    HEADPHONES_ID=$(pw-cli i alsa_output.usb-Generic_USB_Audio-00.HiFi_7_1__Headphones__sink | grep -oP "id: \K\w+")
+    HEADPHONES_ID=$(pw-cli i alsa_output.usb-Generic_USB_Audio-00.HiFi_7_1__Speaker__sink | grep -oP "id: \K\w+")
     SPEAKER_ID=$(pw-cli i alsa_output.pci-0000_0c_00.1.hdmi-stereo | grep -oP "id: \K\w+")
 
     CURRENT_ID=$(wpctl inspect @DEFAULT_SINK@ | grep -oP "id \K\w+")
