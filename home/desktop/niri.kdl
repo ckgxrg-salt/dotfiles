@@ -141,7 +141,7 @@ binds {
     // Components
     Mod+Q { spawn "kitty"; }
     Mod+R { spawn "fuzzel"; }
-    Mod+D { spawn "astal-shell" "toggle-dock"; }
+    // Mod+D { spawn "astal-shell" "toggle-dock"; }
     Mod+O { toggle-overview; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }

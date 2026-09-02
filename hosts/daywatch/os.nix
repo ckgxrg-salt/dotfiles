@@ -24,7 +24,6 @@
     nix.enable = true;
     steam.enable = true;
     netbird.enable = true;
-    speechd.enable = true;
     tuned.enable = true;
     thermald.enable = true;
   };

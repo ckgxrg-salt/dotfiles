@@ -42,7 +42,7 @@
     };
   };
   desktop = {
-    astal.enable = true;
+    dwsh.enable = true;
     fuzzel.enable = true;
     niri.enable = true;
   };
