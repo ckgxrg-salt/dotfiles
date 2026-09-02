@@ -35,7 +35,6 @@
       enable = true;
       loadDefault = true;
     };
-    speechd.enable = true;
     steam.enable = true;
     sunshine.enable = true;
     wivrn.enable = true;

@@ -22,7 +22,7 @@
     ./daemons/hyprlock.nix
     ./daemons/syncthing.nix
 
-    ./desktop/astal.nix
+    ./desktop/dwsh.nix
     ./desktop/env.nix
     ./desktop/fuzzel.nix
     ./desktop/gtk.nix

@@ -39,7 +39,6 @@
       HandleLidSwitchDocked = "ignore";
     };
 
-    # Let astal monitor battery
     services.upower = lib.mkIf config.device.laptop {
       enable = true;
       percentageLow = 10;
