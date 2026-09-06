@@ -241,8 +241,6 @@ binds {
 
     // Escape Hatch
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-    XF86PowerOff { spawn "wlogout"; }
 }
 
 include optional=true "overrides.kdl"

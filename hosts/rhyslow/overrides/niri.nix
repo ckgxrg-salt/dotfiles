@@ -14,6 +14,7 @@
 
     binds {
         Mod+XF86AudioPlay allow-when-locked=true { spawn "toggle-sink"; }
+        XF86PowerOff { spawn "wlogout"; }
     }
   '';
 }

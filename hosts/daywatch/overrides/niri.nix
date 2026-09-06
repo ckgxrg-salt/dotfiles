@@ -6,5 +6,9 @@
         scale 1
         focus-at-startup
     }
+
+    binds {
+        Mod+Ctrl+Escape { spawn "dwsh-logout"; }
+    }
   '';
 }
