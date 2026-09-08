@@ -31,10 +31,7 @@
     netbird.enable = true;
     nix.enable = true;
     mihomo.enable = true;
-    openrgb = {
-      enable = true;
-      loadDefault = true;
-    };
+    openrgb.enable = true;
     steam.enable = true;
     sunshine.enable = true;
     wivrn.enable = true;

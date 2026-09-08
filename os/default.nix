@@ -37,5 +37,6 @@
     ./theme/cursor.nix
     ./theme/fonts.nix
     ./theme/icons.nix
+    ./theme/matugen.nix
   ];
 }

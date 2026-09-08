@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
@@ -31,7 +32,7 @@ in
           command = "notify-send 'matugen' 'Generated new colourscheme from {{image}}' --icon color-select-symbolic";
         };
       };
-      inherit (cfg) templates;
+      templates = cfg.templates // osConfig.theme.matugen.templates;
     };
   };
 }
