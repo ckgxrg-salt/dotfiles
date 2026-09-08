@@ -13,6 +13,10 @@
   };
   hardware = {
     nvidia = {
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
       prime = {
         nvidiaBusId = "PCI:1@0:0:0";
         amdgpuBusId = "PCI:12@0:0:0";

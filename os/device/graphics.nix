@@ -36,8 +36,8 @@
       videoDrivers = [ "nvidia" ];
     };
     hardware.nvidia = lib.mkIf (config.device.hostGPU == "nvidia") {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
       open = true;
+      branch = "bleeding_edge";
     };
   };
 }
