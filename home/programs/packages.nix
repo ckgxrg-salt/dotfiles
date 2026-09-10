@@ -28,6 +28,7 @@
       jdks = [
         jdk25
         jdk21
+        jdk17
       ];
     })
     folia-major

@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.program.nix;
+  cudaSupport = config.device.hostGPU == "nvidia";
 in
 {
   options.program.nix = {
@@ -22,16 +23,19 @@ in
         options = "--delete-older-than 10d";
       };
       settings = {
-        substituters = [
-          "https://cache.nixos.org"
-        ];
         trusted-users = [
-          "root"
           "@wheel"
         ];
         experimental-features = [
           "nix-command"
           "flakes"
+        ];
+
+        substituters = lib.mkIf cudaSupport [
+          "https://cache.nixos-cuda.org"
+        ];
+        trusted-public-keys = lib.mkIf cudaSupport [
+          "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
         ];
       };
     };
@@ -44,6 +48,7 @@ in
       hostPlatform = "x86_64-linux";
       config = {
         allowUnfree = true;
+        inherit cudaSupport;
       };
     };
   };

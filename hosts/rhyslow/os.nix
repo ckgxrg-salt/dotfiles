@@ -32,9 +32,9 @@
   };
   program = {
     gamemode.enable = true;
-    netbird.enable = true;
-    nix.enable = true;
     mihomo.enable = true;
+    nix.enable = true;
+    netbird.enable = true;
     openrgb.enable = true;
     steam.enable = true;
     sunshine.enable = true;

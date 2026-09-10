@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -18,7 +17,6 @@ in
       highPriority = true;
       autoStart = false;
       openFirewall = true;
-      package = pkgs.wivrn.override { cudaSupport = true; };
 
       steam = {
         enable = true;

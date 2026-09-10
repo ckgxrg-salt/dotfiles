@@ -18,8 +18,9 @@
 
     ./development/podman.nix
 
-    ./programs/mihomo.nix
     ./programs/gamemode.nix
+    ./programs/mihomo.nix
+    ./programs/netbird.nix
     ./programs/nix.nix
     ./programs/openrgb.nix
     ./programs/speechd.nix
@@ -28,7 +29,6 @@
     ./programs/tuned.nix
     ./programs/thermald.nix
     ./programs/wivrn.nix
-    ./programs/netbird.nix
 
     ./misc/locale.nix
     ./misc/misc.nix
