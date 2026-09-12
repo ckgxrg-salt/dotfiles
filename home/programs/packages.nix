@@ -49,5 +49,8 @@
     nautilus
     pwvucontrol
     tzupdate
+    (qdiskinfo.override {
+      themeBundle = qdiskinfo.themeBundles.shizuku;
+    })
   ];
 }
