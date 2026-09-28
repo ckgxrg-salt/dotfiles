@@ -10,6 +10,7 @@ in
   options.theme.matugen = {
     templates = lib.mkOption {
       type = tomlFormat.type;
+      default = { };
     };
   };
 }
