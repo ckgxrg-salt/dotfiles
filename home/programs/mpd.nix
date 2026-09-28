@@ -35,7 +35,6 @@ in
     # MPRIS implementation for MPD
     services.mpd-mpris = {
       enable = true;
-      mpd.useLocal = true;
     };
 
     # Accessories
