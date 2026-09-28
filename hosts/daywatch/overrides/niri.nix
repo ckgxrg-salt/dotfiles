@@ -9,6 +9,7 @@
 
     binds {
         Mod+Ctrl+Escape { spawn "dwsh-logout"; }
+        XF86Launch2 { spawn "waypaper" "--random"; }
     }
   '';
 }
