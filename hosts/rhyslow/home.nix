@@ -20,6 +20,7 @@
     nvitop
     blockbench
     blender
+    iwgtk
     gimp
     libreoffice
     linux-wallpaperengine

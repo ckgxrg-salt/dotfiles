@@ -3,7 +3,8 @@
   device = {
     hostname = "Rhyslow";
     hostCPU = "amd";
-    hostGPU = "nvidia";
+    hostGPU = "amd";
+    wifi = true;
     bt = true;
     version = "25.11";
   };
@@ -11,22 +12,22 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     splash = "spin";
   };
-  hardware = {
-    nvidia = {
-      powerManagement = {
-        enable = true;
-        finegrained = true;
-      };
-      prime = {
-        nvidiaBusId = "PCI:1@0:0:0";
-        amdgpuBusId = "PCI:12@0:0:0";
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-      };
-    };
-  };
+  # hardware = {
+  #   nvidia = {
+  #     powerManagement = {
+  #       enable = true;
+  #       finegrained = true;
+  #     };
+  #     prime = {
+  #       nvidiaBusId = "PCI:1@0:0:0";
+  #       amdgpuBusId = "PCI:12@0:0:0";
+  #       offload = {
+  #         enable = true;
+  #         enableOffloadCmd = true;
+  #       };
+  #     };
+  #   };
+  # };
   login = {
     u2f.enable = true;
   };

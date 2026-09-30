@@ -22,7 +22,7 @@ in
           };
         };
       };
-      dhcpcd = lib.mkIf cfg.wifi {
+      dhcpcd = {
         enable = false;
       };
 
