@@ -118,6 +118,7 @@ window-rule {
 layer-rule {
     match layer="top"
     match layer="overlay"
+    match namespace="dwsh-dashboard"
 
     background-effect {
         blur true
