@@ -37,7 +37,7 @@ in
           "[](base02)[$shell$username($nix_shell)](bg:base02)[](base02)"
           "$fill"
           "([](base02)$cmd_duration[](base02))"
-          "(\n| $gradle $java)(\n| $rust)(\n| $c)(\n| $haskell)"
+          "(\n| $gradle $java)(\n| $rust)(\n| $c)(\n| $cpp)(\n| $haskell)"
           "$line_break"
           "[󱞩](bold green) $directory$shlvl$character"
         ];
@@ -112,16 +112,11 @@ in
           format = "[](#D34516)[ ($version)](fg:bold #1E2650 bg:#D34516)[](#D34516)";
         };
         c = {
-          detect_extensions = [
-            "c"
-            "h"
-            "cpp"
-            "hpp"
-          ];
-          detect_files = [
-            ".clang-format"
-          ];
-          format = "[/* ](bold #004482) [$version](italic #659AD2) [ */](bold #00599C)";
+          format = "[/* ](bold #004482) [$version](italic #659AD2) [ */](bold #004482)";
+        };
+        cpp = {
+          disabled = false;
+          format = "[/* ](bold #00599C) [$version](italic #659AD2) [ */](bold #00599C)";
         };
         haskell = {
           format = "[](#453A62)[ ($version)]($bold #8F4E8B)[](#5E5086)";
