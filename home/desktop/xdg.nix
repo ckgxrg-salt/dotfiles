@@ -27,6 +27,11 @@
         createDirectories = true;
         setSessionVariables = false;
       };
+
+      autostart = {
+        enable = true;
+        readOnly = true;
+      };
     };
   };
 }

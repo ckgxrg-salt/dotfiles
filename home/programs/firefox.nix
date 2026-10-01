@@ -24,10 +24,6 @@ in
       post_hook = "${pkgs.pywalfox-native}/bin/pywalfox update";
     };
 
-    programs.browserpass = {
-      browsers = [ "firefox" ];
-    };
-
     programs.firefox = {
       enable = true;
       configPath = "${config.xdg.configHome}/mozilla/firefox";
@@ -109,10 +105,10 @@ in
             auto-reject-cookies
             auto-tab-discard
             bilisponsorblock
-            browserpass
             flagfox
             pywalfox
             simple-tab-groups
+            keepassxc-browser
             tridactyl
             ublock-origin
           ];

@@ -9,8 +9,8 @@
     foliate.enable = true;
     fortune.enable = true;
     git.enable = true;
-    pass.enable = true;
     gpg.enable = true;
+    keepassxc.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
     neovim.enable = true;

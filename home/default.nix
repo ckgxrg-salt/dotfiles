@@ -9,8 +9,8 @@
     ./programs/foliate.nix
     ./programs/fortune.nix
     ./programs/git.nix
-    ./programs/pass.nix
     ./programs/gpg.nix
+    ./programs/keepassxc.nix
     ./programs/mangohud.nix
     ./programs/mpd.nix
     ./programs/neovim
