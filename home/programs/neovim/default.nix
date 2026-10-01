@@ -65,7 +65,6 @@
 
         # Decorations
         base16-nvim
-        smear-cursor-nvim
         tiny-glimmer-nvim
         neoscroll-nvim
 
