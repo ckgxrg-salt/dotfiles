@@ -10,7 +10,6 @@ let
   dunst-workaround = pkgs.writeShellScript "dunst-workaround.sh" ''
     cd ${config.xdg.configHome}/dunst
     cat dunstrc dunst-theme > dunstrc-merged
-    systemctl --user restart dunst.service
   '';
 in
 {
@@ -22,8 +21,11 @@ in
     theme.matugen.templates.dunst = {
       input_path = ../theme/templates/dunst-theme;
       output_path = "${config.xdg.configHome}/dunst/dunst-theme";
-      post_hook = "${dunst-workaround}";
+      post_hook = "${dunst-workaround} && systemctl --user restart dunst.service";
     };
+    home.activation.dunstMergeConfig = lib.hm.dag.entryAfter [
+      "writeBoundry"
+    ] "${dunst-workaround}";
 
     home.packages = [ pkgs.libnotify ];
 

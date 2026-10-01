@@ -22,6 +22,9 @@ in
       output_path = "${config.xdg.configHome}/starship/theme.toml";
       post_hook = "${starship-workaround}";
     };
+    home.activation.starshipMergeConfig = lib.hm.dag.entryAfter [
+      "writeBoundry"
+    ] "${starship-workaround}";
 
     home.sessionVariables = {
       STARSHIP_CONFIG = lib.mkForce "${config.xdg.configHome}/starship/starship.toml";
