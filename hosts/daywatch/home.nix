@@ -12,6 +12,7 @@
     gpg.enable = true;
     keepassxc.enable = true;
     mpd.enable = true;
+    pi-agent.enable = true;
   };
   home.packages = with pkgs; [
     iwgtk

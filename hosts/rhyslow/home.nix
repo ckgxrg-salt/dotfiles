@@ -14,6 +14,7 @@
     mangohud.enable = true;
     mpd.enable = true;
     neovim.enable = true;
+    pi-agent.enable = true;
   };
   home.packages = with pkgs; [
     nvitop
