@@ -6,14 +6,6 @@ vim.lsp.enable("ts_ls")
 vim.lsp.enable("sqruff")
 vim.lsp.enable("qmlls")
 
-vim.g.haskell_tools = {
-	hls = {
-		default_settings = {
-			formattingProvider = "ormolu",
-		},
-	},
-}
-
 vim.g.rustaceanvim = {
 	server = {
 		default_settings = {

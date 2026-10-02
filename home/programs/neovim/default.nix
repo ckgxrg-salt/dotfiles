@@ -86,7 +86,6 @@
 
         # Language-specific
         nvim-lspconfig
-        haskell-tools-nvim
         nvim-jdtls
         markview-nvim
         csvview-nvim
@@ -107,11 +106,9 @@
             typst
             rust
             java
-            haskell
             sql
             typescript
             cpp
-            qmljs
             python
           ]
         ))
