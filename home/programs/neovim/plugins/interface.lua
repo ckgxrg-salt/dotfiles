@@ -26,7 +26,7 @@ require("neo-tree").setup({
 		sync = "global",
 	},
 })
-vim.keymap.set("n", "<A-Tab>", "<Cmd>Neotree filesystem toggle<CR>", { desc = "Browse files" })
+vim.keymap.set("n", "<A-Tab>", "<Cmd>Neotree filesystem toggle<CR>", { desc = "Browse Files" })
 
 require("fidget").setup({
 	notification = {
@@ -63,12 +63,12 @@ require("barbar").setup({
 		preset = "powerline",
 	},
 })
-vim.keymap.set("n", "<C-H>", ":BufferPrevious<CR>", { desc = "Previous tab" })
-vim.keymap.set("n", "<C-L>", ":BufferNext<CR>", { desc = "Next tab" })
-vim.keymap.set("n", "<C-S-H>", ":BufferMovePrevious<CR>", { desc = "Move buffer <-" })
-vim.keymap.set("n", "<C-S-L>", ":BufferMoveNext<CR>", { desc = "Move buffer ->" })
-vim.keymap.set("n", "<leader>w", ":BufferClose<CR>", { desc = "Close current buffer" })
-vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close current window" })
+vim.keymap.set("n", "<C-H>", ":BufferPrevious<CR>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<C-L>", ":BufferNext<CR>", { desc = "Next Tab" })
+vim.keymap.set("n", "<C-S-H>", ":BufferMovePrevious<CR>", { desc = "Move Buffer Left" })
+vim.keymap.set("n", "<C-S-L>", ":BufferMoveNext<CR>", { desc = "Move Buffer Right" })
+vim.keymap.set("n", "<leader>w", ":BufferClose<CR>", { desc = "Close Buffer" })
+vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close Window" })
 
 require("lualine").setup({
 	options = {

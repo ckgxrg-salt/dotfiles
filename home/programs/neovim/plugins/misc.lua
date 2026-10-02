@@ -1,5 +1,5 @@
 require("todo-comments").setup({})
-vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo list" })
+vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo List" })
 
 require("im_select").setup({
 	keep_quiet_on_no_binary = true,

@@ -56,7 +56,7 @@ update_theme()
 -- Imports
 require("plugins.debug")
 require("plugins.langs")
-require("plugins.utilities")
+require("plugins.utils")
 require("plugins.codestyle")
 require("plugins.completions")
 require("plugins.interface")

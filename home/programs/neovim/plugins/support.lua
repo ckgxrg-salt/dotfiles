@@ -10,4 +10,4 @@ require("which-key").setup({
 		{ "<leader>r", group = "Test", icon = "󰙨 " },
 	},
 })
-vim.keymap.set({ "n", "v", "i" }, "<F1>", ":WhichKey<CR>", { desc = "Show keymaps" })
+vim.keymap.set({ "n", "v", "i" }, "<F1>", ":WhichKey<CR>", { desc = "Keymaps" })

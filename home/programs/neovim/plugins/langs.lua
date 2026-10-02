@@ -41,7 +41,7 @@ require("markview").setup({
 		ignore_buftypes = {},
 	},
 })
-vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Toggle Markdown view" })
+vim.keymap.set("n", "<leader>em", ":Markview toggle<CR>", { desc = "Render Markdown" })
 
 require("csvview").setup()
 
