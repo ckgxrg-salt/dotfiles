@@ -75,8 +75,3 @@ vim.keymap.set("n", "<leader>de", ":DapViewToggle<CR>", { desc = "Debug View" })
 require("nvim-dap-virtual-text").setup({
 	commented = true,
 })
-
-require("overseer").setup({})
-vim.keymap.set("n", "<leader>dr", ":OverseerRun<CR>", { desc = "Run a Task" })
-vim.keymap.set("n", "<leader>dl", ":OverseerToggle<CR>", { desc = "Task List" })
-vim.keymap.set("n", "<leader>du", ":OverseerToggle<CR>", { desc = "Task Actions" })

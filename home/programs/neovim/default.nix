@@ -41,7 +41,6 @@
 
         # Test
         neotest
-        overseer-nvim
 
         # Interface
         neo-tree-nvim
