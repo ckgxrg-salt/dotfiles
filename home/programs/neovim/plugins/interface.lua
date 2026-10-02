@@ -18,6 +18,9 @@ require("edgy").setup({
 	right = {
 		{ ft = "help", title = "Help" },
 	},
+	animate = {
+		enabled = false,
+	},
 })
 
 require("neo-tree").setup({
@@ -27,6 +30,26 @@ require("neo-tree").setup({
 	},
 })
 vim.keymap.set("n", "<A-Tab>", "<Cmd>Neotree filesystem toggle<CR>", { desc = "Browse Files" })
+
+vim.g.barbar_auto_setup = false
+require("barbar").setup({
+	animation = false,
+	icons = {
+		preset = "powerline",
+	},
+	sidebar_filetypes = {
+		undotree = true,
+		["neo-tree"] = true,
+		aerial = true,
+		["neotest-summary"] = true,
+		help = true,
+	},
+})
+vim.keymap.set("n", "<C-H>", ":BufferPrevious<CR>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<C-L>", ":BufferNext<CR>", { desc = "Next Tab" })
+vim.keymap.set("n", "<C-S-H>", ":BufferMovePrevious<CR>", { desc = "Move Buffer Left" })
+vim.keymap.set("n", "<C-S-L>", ":BufferMoveNext<CR>", { desc = "Move Buffer Right" })
+vim.keymap.set("n", "<leader>w", ":BufferClose<CR>", { desc = "Close Buffer" })
 
 require("fidget").setup({
 	notification = {
@@ -40,35 +63,6 @@ require("fidget").setup({
 		},
 	},
 })
-
-require("hlchunk").setup({
-	chunk = {
-		chars = {
-			horizontal_line = "─",
-			vertical_line = "│",
-			left_top = "┌",
-			left_bottom = "└",
-			right_arrow = "─",
-		},
-		enable = true,
-	},
-	indent = { enable = false },
-	line_num = { enable = true },
-})
-
-vim.g.barbar_auto_setup = false
-require("barbar").setup({
-	animation = false,
-	icons = {
-		preset = "powerline",
-	},
-})
-vim.keymap.set("n", "<C-H>", ":BufferPrevious<CR>", { desc = "Previous Tab" })
-vim.keymap.set("n", "<C-L>", ":BufferNext<CR>", { desc = "Next Tab" })
-vim.keymap.set("n", "<C-S-H>", ":BufferMovePrevious<CR>", { desc = "Move Buffer Left" })
-vim.keymap.set("n", "<C-S-L>", ":BufferMoveNext<CR>", { desc = "Move Buffer Right" })
-vim.keymap.set("n", "<leader>w", ":BufferClose<CR>", { desc = "Close Buffer" })
-vim.keymap.set("n", "<leader>q", ":close<CR>", { desc = "Close Window" })
 
 require("lualine").setup({
 	options = {
@@ -95,11 +89,6 @@ require("lualine").setup({
 			"diagnostics",
 		},
 	},
-})
-
-require("illuminate").configure({
-	providers = { "lsp", "treesitter", "regex" },
-	under_cursor = true,
 })
 
 require("alpha").setup({
