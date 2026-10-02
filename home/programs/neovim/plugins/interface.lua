@@ -45,14 +45,14 @@ require("hlchunk").setup({
 	chunk = {
 		chars = {
 			horizontal_line = "─",
-			left_bottom = "└",
-			left_top = "┌",
-			right_arrow = "─",
 			vertical_line = "│",
+			left_top = "┌",
+			left_bottom = "└",
+			right_arrow = "─",
 		},
 		enable = true,
 	},
-	indent = { enable = true },
+	indent = { enable = false },
 	line_num = { enable = true },
 })
 
@@ -75,6 +75,25 @@ require("lualine").setup({
 		disabled_filetypes = { winbar = { "dap-repl", "dap-view", "dap-view-term" } },
 		globalstatus = true,
 		theme = "base16",
+	},
+	sections = {
+		lualine_a = {
+			"branch",
+		},
+		lualine_b = {
+			{
+				"project",
+				format = "name",
+				no_project = nil,
+				separator = " ",
+				enclose_pair = nil,
+			},
+		},
+		lualine_x = {
+			"filetype",
+			"diff",
+			"diagnostics",
+		},
 	},
 })
 

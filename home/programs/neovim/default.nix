@@ -70,7 +70,6 @@
         # Session
         auto-session
         project-nvim
-        direnv-vim
 
         # Misc
         im-select-nvim
