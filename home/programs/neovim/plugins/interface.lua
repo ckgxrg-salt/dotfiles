@@ -10,6 +10,7 @@ require("edgy").setup({
 		{ ft = "trouble", title = "Trouble" },
 	},
 	left = {
+		{ ft = "neo-tree", title = "File Browser" },
 		{ ft = "undotree", title = "Undo tree" },
 		{ ft = "aerial", title = "Outline" },
 		{ ft = "neotest-summary", title = "Tests summary" },
@@ -19,20 +20,13 @@ require("edgy").setup({
 	},
 })
 
-require("toggleterm").setup({
-	direction = "horizontal",
-	size = 20,
-	shade_terminals = false,
+require("neo-tree").setup({
+	popup_border_style = "",
+	clipboard = {
+		sync = "global",
+	},
 })
-vim.keymap.set("n", "<Leader>et", ":ToggleTerm<CR>", { desc = "Show terminal" })
-
-require("yazi").setup({
-	enable_mouse_support = true,
-	open_for_directories = true,
-	yazi_floating_window_border = "single",
-	yazi_floating_window_winblend = 25,
-})
-vim.keymap.set("n", "<A-Tab>", require("yazi").yazi, { desc = "Browse files" })
+vim.keymap.set("n", "<A-Tab>", "<Cmd>Neotree filesystem toggle<CR>", { desc = "Browse files" })
 
 require("fidget").setup({
 	notification = {

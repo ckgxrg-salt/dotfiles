@@ -28,10 +28,11 @@
         nvim-web-devicons
         telescope-nvim
         flash-nvim
+        nvim-nio
+        nui-nvim
 
         # Completion
         blink-cmp
-        friendly-snippets
 
         # Debug
         nvim-dap
@@ -39,19 +40,17 @@
         nvim-dap-virtual-text
 
         # Test
-        nvim-nio
         neotest
         overseer-nvim
 
         # Interface
-        yazi-nvim
+        neo-tree-nvim
         fidget-nvim
         edgy-nvim
         alpha-nvim
         barbar-nvim
         lualine-nvim
         vim-illuminate
-        toggleterm-nvim
         tiny-inline-diagnostic-nvim
 
         # Widgets

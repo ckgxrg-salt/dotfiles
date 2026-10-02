@@ -12,7 +12,6 @@
     gpg.enable = true;
     keepassxc.enable = true;
     mpd.enable = true;
-    yazi.enable = true;
   };
   home.packages = with pkgs; [
     iwgtk

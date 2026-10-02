@@ -15,7 +15,6 @@
     ./programs/mpd.nix
     ./programs/neovim
     ./programs/packages.nix
-    ./programs/yazi.nix
 
     ./daemons/daemons.nix
     ./daemons/dunst.nix
