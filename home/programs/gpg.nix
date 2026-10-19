@@ -22,7 +22,6 @@ in
     services.gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      defaultCacheTtl = 34560000;
       pinentry = {
         package = pkgs.pinentry-qt;
       };
