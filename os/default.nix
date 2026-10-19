@@ -7,7 +7,6 @@
 
     ./login/users.nix
     ./login/greetd.nix
-    ./login/howdy.nix
     ./login/u2f.nix
 
     ./device

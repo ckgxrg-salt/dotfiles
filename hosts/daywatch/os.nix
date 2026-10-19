@@ -14,7 +14,6 @@
     splash = "loader_2";
   };
   login = {
-    howdy.enable = true;
     u2f.enable = true;
   };
   virtualisation.waydroid.enable = true;
