@@ -32,6 +32,7 @@ in
         };
         Security = {
           IconDownloadFallback = true;
+          LockDatabaseIdle = false;
         };
       };
     };
