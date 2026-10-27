@@ -26,6 +26,7 @@ in
 
     programs.nushell = {
       enable = cfg.enable;
+      loadSessionVariables = true;
       configFile.text = ''
         $env.MANPAGER = "nvim +Man!";
 

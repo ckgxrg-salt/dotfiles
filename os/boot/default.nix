@@ -24,9 +24,6 @@
       tmp.cleanOnBoot = true;
 
       # Silent boot
-      initrd = {
-        verbose = false;
-      };
       consoleLogLevel = 0;
 
       kernelParams = [
