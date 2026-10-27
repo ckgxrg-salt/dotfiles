@@ -11,6 +11,14 @@ in
     programs.pi-coding-agent = {
       enable = true;
       configDir = "${config.xdg.configHome}/pi";
+      mutableSettings = true;
+      settings = {
+        tuiMode = "fullscreen";
+        theme = "dark";
+        packages = [
+
+        ];
+      };
     };
   };
 }
