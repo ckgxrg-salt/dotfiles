@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.program.pi-agent;
 in
@@ -12,11 +17,17 @@ in
       enable = true;
       configDir = "${config.xdg.configHome}/pi";
       mutableSettings = true;
+      extraPackages = with pkgs; [
+        nodejs
+        pandoc
+      ];
       settings = {
         tuiMode = "fullscreen";
         theme = "dark";
         packages = [
-
+          "npm:pi-verdict"
+          "npm:pi-web-search"
+          "npm:pi-markdown-preview"
         ];
       };
     };
