@@ -26,8 +26,9 @@ in
         theme = "dark";
         packages = [
           "npm:pi-verdict"
-          "npm:pi-web-search"
+          "npm:pi-web-access"
           "npm:pi-markdown-preview"
+          "npm:pi-docparser"
         ];
       };
     };

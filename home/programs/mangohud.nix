@@ -13,8 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # TODO: Matugen
-
     programs.mangohud = {
       enable = true;
       settings = {
