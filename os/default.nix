@@ -14,6 +14,7 @@
     ./device/btrfs.nix
     ./device/graphics.nix
     ./device/network.nix
+    ./device/power.nix
 
     ./development/podman.nix
 
