@@ -17,6 +17,19 @@
   };
 
   config = {
+    boot.initrd.kernelModules =
+      lib.optionals (config.device.hostGPU == "amd") [ "amdgpu" ]
+      ++ lib.optionals (config.device.hostGPU == "intel") [ "xe" ]
+      ++ lib.optionals (config.device.hostGPU == "nvidia") [
+        "nvidia"
+        "nvidia_modeset"
+        "nvidia_drm"
+      ];
+
+    boot.kernelParams = lib.optionals (config.device.hostGPU == "nvidia") [
+      "nvidia_drm.modeset=1"
+    ];
+
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
