@@ -81,7 +81,10 @@
         "Quicksand"
         "LXGW WenKai"
       ];
-      monospace = [ "Fira Code" ];
+      monospace = [
+        "Fira Code"
+        "LXGW WenKai Mono"
+      ];
       emoji = [ "Twitter Color Emoji" ];
     };
   };
