@@ -117,6 +117,7 @@ window-rule {
 
 window-rule {
     match app-id="org.keepassxc.KeePassXC" title="Unlock Database - KeePassXC"
+    match app-id="xdg-desktop-portal-gtk"
 
     open-floating true
 }
