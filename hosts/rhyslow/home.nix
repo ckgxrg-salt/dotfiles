@@ -41,6 +41,7 @@
         enable = true;
         settings = {
           backend = "linux-wallpaperengine";
+          linux_wallpaperengine_silent = "True";
         };
       };
     };
