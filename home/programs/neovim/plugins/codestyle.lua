@@ -44,17 +44,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
-require("nvim-treesitter").setup({
-	auto_install = false,
-	highlight = {
-		additional_vim_regex_highlighting = false,
-		enable = true,
-	},
-	indent = { enable = true },
-	parser_install_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "site"),
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = "nil",
-	},
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		pcall(vim.treesitter.start, args.buf)
+	end,
 })
