@@ -1,18 +1,12 @@
 { config, lib, ... }:
 {
   config = {
-    systemd.sleep.settings.Sleep = {
-      HibernateDelaySec = "2h";
-      HibernateOnACPower = "yes";
-    };
-
     services.logind.settings.Login = {
       HandlePowerKey = "ignore";
       HandlePowerKeyLongPress = "poweroff";
     }
     // lib.optionalAttrs config.device.laptop {
-      HandleLidSwitch = "suspend-then-hibernate";
-      HandleLidSwitchExternalPower = "suspend";
+      HandleLidSwitch = "suspend";
       HandleLidSwitchDocked = "ignore";
     };
 
