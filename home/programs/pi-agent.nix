@@ -24,11 +24,16 @@ in
       settings = {
         tuiMode = "fullscreen";
         theme = "dark";
+        steeringMode = "all";
+        followUpMode = "all";
+        terminal.showTerminalProgress = true;
         packages = [
           "npm:pi-verdict"
           "npm:pi-web-access"
           "npm:pi-markdown-preview"
           "npm:pi-docparser"
+          "npm:pi-ask-user"
+          "npm:pi-open-tui"
         ];
       };
     };
