@@ -17,6 +17,14 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
+vim.opt.list = true
+vim.opt.listchars = {
+	space = "·",
+	tab = "▸·",
+	trail = "·",
+	nbsp = "␣",
+}
+
 -- Globals
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
