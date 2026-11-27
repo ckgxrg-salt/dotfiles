@@ -2,26 +2,26 @@ require("todo-comments").setup({})
 vim.keymap.set("n", "<leader>tt", ":Telescope todo-comments<CR>", { desc = "Todo List" })
 
 require("im_select").setup({
-	keep_quiet_on_no_binary = true,
+  keep_quiet_on_no_binary = true,
 })
 
 require("lsp_signature").setup({})
 
 require("mini.surround").setup({
-	n_lines = 50,
-	respect_selection_type = true,
+  n_lines = 50,
+  respect_selection_type = true,
 })
 
 require("nvim-autopairs").setup({
-	check_ts = true,
-	map_cr = true,
+  check_ts = true,
+  map_cr = true,
 })
 
 require("gitsigns").setup({
-	attach_to_untracked = true,
-	auto_attach = true,
-	current_line_blame = true,
-	current_line_blame_formatter = " <author>, <author_time> - <summary> ",
+  attach_to_untracked = true,
+  auto_attach = true,
+  current_line_blame = true,
+  current_line_blame_formatter = " <author>, <author_time> - <summary> ",
 })
 
 require("guess-indent").setup({})

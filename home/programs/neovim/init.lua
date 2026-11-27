@@ -14,15 +14,16 @@ vim.opt.winborder = "single"
 vim.opt.wrap = true
 
 vim.opt.expandtab = true
+vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
 vim.opt.list = true
 vim.opt.listchars = {
-	space = "·",
-	tab = "▸·",
-	trail = "·",
-	nbsp = "␣",
+  space = "·",
+  tab = "▸·",
+  trail = "·",
+  nbsp = "␣",
 }
 
 -- Globals
@@ -31,9 +32,9 @@ vim.g.maplocalleader = "\\"
 
 -- Diagnostics
 vim.diagnostic.config({
-	signs = true,
-	underline = true,
-	update_in_insert = true,
+  signs = true,
+  underline = true,
+  update_in_insert = true,
 })
 
 -- Keybinds
@@ -43,20 +44,20 @@ vim.keymap.set("n", "<A-Down>", "gj")
 vim.keymap.set("n", "<A-Up>", "gk")
 
 local function update_theme()
-	local matugen_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/matugen.lua"
-	local file, err = io.open(matugen_path, "r")
-	if err ~= nil then
-		vim.print("Cannot load matugen theme")
-	else
-		dofile(matugen_path)
-		io.close(file)
-	end
-	dofile(os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/plugins/interface.lua")
+  local matugen_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/matugen.lua"
+  local file, err = io.open(matugen_path, "r")
+  if err ~= nil then
+    vim.print("Cannot load matugen theme")
+  else
+    dofile(matugen_path)
+    io.close(file)
+  end
+  dofile(os.getenv("XDG_CONFIG_HOME") .. "/nvim/lua/plugins/interface.lua")
 end
 
 vim.api.nvim_create_autocmd("Signal", {
-	pattern = "SIGUSR1",
-	callback = update_theme,
+  pattern = "SIGUSR1",
+  callback = update_theme,
 })
 
 update_theme()

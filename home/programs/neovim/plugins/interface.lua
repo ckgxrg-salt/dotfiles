@@ -1,49 +1,49 @@
 require("edgy").setup({
-	close_when_all_hidden = false,
-	keys = { q = false },
-	options = {
-		bottom = { size = 0.3 },
-		right = { size = 0.5 },
-	},
-	bottom = {
-		{ ft = "dap-view", title = "Debug" },
-		{ ft = "trouble", title = "Trouble" },
-	},
-	left = {
-		{ ft = "neo-tree", title = "File Browser" },
-		{ ft = "undotree", title = "Undo tree" },
-		{ ft = "aerial", title = "Outline" },
-		{ ft = "neotest-summary", title = "Tests summary" },
-	},
-	right = {
-		{ ft = "help", title = "Help" },
-	},
-	animate = {
-		enabled = false,
-	},
+  close_when_all_hidden = false,
+  keys = { q = false },
+  options = {
+    bottom = { size = 0.3 },
+    right = { size = 0.5 },
+  },
+  bottom = {
+    { ft = "dap-view", title = "Debug" },
+    { ft = "trouble", title = "Trouble" },
+  },
+  left = {
+    { ft = "neo-tree", title = "File Browser" },
+    { ft = "undotree", title = "Undo tree" },
+    { ft = "aerial", title = "Outline" },
+    { ft = "neotest-summary", title = "Tests summary" },
+  },
+  right = {
+    { ft = "help", title = "Help" },
+  },
+  animate = {
+    enabled = false,
+  },
 })
 
 require("neo-tree").setup({
-	popup_border_style = "",
-	clipboard = {
-		sync = "global",
-	},
+  popup_border_style = "",
+  clipboard = {
+    sync = "global",
+  },
 })
 vim.keymap.set("n", "<A-Tab>", "<Cmd>Neotree filesystem toggle<CR>", { desc = "Browse Files" })
 
 vim.g.barbar_auto_setup = false
 require("barbar").setup({
-	animation = false,
-	icons = {
-		preset = "powerline",
-	},
-	sidebar_filetypes = {
-		undotree = true,
-		["neo-tree"] = true,
-		aerial = true,
-		["neotest-summary"] = true,
-		help = true,
-	},
+  animation = false,
+  icons = {
+    preset = "powerline",
+  },
+  sidebar_filetypes = {
+    undotree = true,
+    ["neo-tree"] = true,
+    aerial = true,
+    ["neotest-summary"] = true,
+    help = true,
+  },
 })
 vim.keymap.set("n", "<C-H>", ":BufferPrevious<CR>", { desc = "Previous Tab" })
 vim.keymap.set("n", "<C-L>", ":BufferNext<CR>", { desc = "Next Tab" })
@@ -52,126 +52,126 @@ vim.keymap.set("n", "<C-S-L>", ":BufferMoveNext<CR>", { desc = "Move Buffer Righ
 vim.keymap.set("n", "<leader>w", ":BufferClose<CR>", { desc = "Close Buffer" })
 
 require("fidget").setup({
-	notification = {
-		window = { winblend = 0 },
-		override_vim_notify = true,
-	},
-	progress = {
-		display = {
-			done_ttl = 5,
-			render_limit = 10,
-		},
-	},
+  notification = {
+    window = { winblend = 0 },
+    override_vim_notify = true,
+  },
+  progress = {
+    display = {
+      done_ttl = 5,
+      render_limit = 10,
+    },
+  },
 })
 
 require("lualine").setup({
-	options = {
-		disabled_filetypes = { winbar = { "dap-repl", "dap-view", "dap-view-term" } },
-		globalstatus = true,
-		theme = "base16",
-	},
-	sections = {
-		lualine_a = {
-			"branch",
-		},
-		lualine_b = {
-			{
-				"project",
-				format = "name",
-				no_project = nil,
-				separator = " ",
-				enclose_pair = nil,
-			},
-		},
-		lualine_x = {
-			"filetype",
-			"diff",
-			"diagnostics",
-		},
-	},
+  options = {
+    disabled_filetypes = { winbar = { "dap-repl", "dap-view", "dap-view-term" } },
+    globalstatus = true,
+    theme = "base16",
+  },
+  sections = {
+    lualine_a = {
+      "branch",
+    },
+    lualine_b = {
+      {
+        "project",
+        format = "name",
+        no_project = nil,
+        separator = " ",
+        enclose_pair = nil,
+      },
+    },
+    lualine_x = {
+      "filetype",
+      "diff",
+      "diagnostics",
+    },
+  },
 })
 
 require("alpha").setup({
-	layout = {
-		{ type = "padding", val = 10 },
-		{
-			opts = { hl = "Type", position = "center" },
-			type = "text",
-			val = {
-				"  ___| | ____ ___  ___ __ __ _           ",
-				" / __| |/ / _` \\ \\/ / '__/ _` |          ",
-				"| (__|   < (_| |>  <| | | (_| |          ",
-				" \\___|_|\\_\\__, /_/\\_\\_|  \\__, | 's Neovim",
-				"          |___/          |___/           ",
-			},
-		},
-		{ type = "padding", val = 4 },
-		{
-			opts = { inherit = { position = "center" } },
-			type = "group",
-			val = {
-				{
-					on_press = function()
-						vim.cmd("ene")
-					end,
-					opts = { shortcut = "n" },
-					type = "button",
-					val = "     New file  ",
-				},
-				{
-					on_press = function()
-						vim.cmd("Telescope projects")
-					end,
-					opts = { shortcut = "p" },
-					type = "button",
-					val = "     Projects  ",
-				},
-				{
-					on_press = function()
-						vim.cmd("AutoSession search")
-					end,
-					opts = { shortcut = "s" },
-					type = "button",
-					val = "     Sessions  ",
-				},
-				{
-					on_press = function()
-						vim.cmd("AutoSession restore")
-					end,
-					opts = { shortcut = "l" },
-					type = "button",
-					val = " 󱑀  Last session",
-				},
-				{
-					on_press = function()
-						vim.cmd("qa")
-					end,
-					opts = { shortcut = "q" },
-					type = "button",
-					val = " 󰜎    Run away  ",
-				},
-			},
-		},
-		{ type = "padding", val = 4 },
-		{
-			opts = { hl = "Keyword", position = "center" },
-			type = "text",
-			val = function()
-				return vim.fn.system("fortune")
-			end,
-		},
-	},
+  layout = {
+    { type = "padding", val = 10 },
+    {
+      opts = { hl = "Type", position = "center" },
+      type = "text",
+      val = {
+        "  ___| | ____ ___  ___ __ __ _           ",
+        " / __| |/ / _` \\ \\/ / '__/ _` |          ",
+        "| (__|   < (_| |>  <| | | (_| |          ",
+        " \\___|_|\\_\\__, /_/\\_\\_|  \\__, | 's Neovim",
+        "          |___/          |___/           ",
+      },
+    },
+    { type = "padding", val = 4 },
+    {
+      opts = { inherit = { position = "center" } },
+      type = "group",
+      val = {
+        {
+          on_press = function()
+            vim.cmd("ene")
+          end,
+          opts = { shortcut = "n" },
+          type = "button",
+          val = "     New file  ",
+        },
+        {
+          on_press = function()
+            vim.cmd("Telescope projects")
+          end,
+          opts = { shortcut = "p" },
+          type = "button",
+          val = "     Projects  ",
+        },
+        {
+          on_press = function()
+            vim.cmd("AutoSession search")
+          end,
+          opts = { shortcut = "s" },
+          type = "button",
+          val = "     Sessions  ",
+        },
+        {
+          on_press = function()
+            vim.cmd("AutoSession restore")
+          end,
+          opts = { shortcut = "l" },
+          type = "button",
+          val = " 󱑀  Last session",
+        },
+        {
+          on_press = function()
+            vim.cmd("qa")
+          end,
+          opts = { shortcut = "q" },
+          type = "button",
+          val = " 󰜎    Run away  ",
+        },
+      },
+    },
+    { type = "padding", val = 4 },
+    {
+      opts = { hl = "Keyword", position = "center" },
+      type = "text",
+      val = function()
+        return vim.fn.system("fortune")
+      end,
+    },
+  },
 })
 
 require("tiny-inline-diagnostic").setup({
-	preset = "powerline",
-	options = {
-		show_source = {
-			enabled = true,
-		},
-		multilines = {
-			enabled = true,
-		},
-		override_open_float = true,
-	},
+  preset = "powerline",
+  options = {
+    show_source = {
+      enabled = true,
+    },
+    multilines = {
+      enabled = true,
+    },
+    override_open_float = true,
+  },
 })
